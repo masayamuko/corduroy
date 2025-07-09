@@ -127,8 +127,8 @@ export default function RootLayout({
                     <ul className="space-y-4">
                       <li><Link href="/" className="text-white hover:text-gray-300 transition-colors duration-300">Home</Link></li>
                       <li><Link href="/about" className="text-white hover:text-gray-300 transition-colors duration-300">About</Link></li>
-                      <li><Link href="/events" className="text-white hover:text-gray-300 transition-colors duration-300">Events</Link></li>
                       <li><Link href="/#works" className="text-white hover:text-gray-300 transition-colors duration-300">Works</Link></li>
+                      <li><Link href="/events" className="text-white hover:text-gray-300 transition-colors duration-300">Events</Link></li>
                       <li><a href="https://www.masayamuko.com/blog" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors duration-300">Blog</a></li>
                     </ul>
                   </div>

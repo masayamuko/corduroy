@@ -36,7 +36,6 @@ export default function Navigation() {
             >
               About
             </button>
-            <Link href="/events" className="nav-link">Events</Link>
             <button 
               onClick={() => {
                 if (window.location.pathname === '/') {
@@ -55,8 +54,9 @@ export default function Navigation() {
               }}
               className="nav-link"
             >
-              WORKS
+              Works
             </button>
+            <Link href="/events" className="nav-link">Events</Link>
             <a 
               href="https://www.masayamuko.com/blog" 
               target="_blank" 
