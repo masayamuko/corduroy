@@ -108,7 +108,7 @@ export default function Home() {
 
             {/* 更新のお知らせ */}
             <div className="animate-fade-in w-full max-w-sm">
-              <div className="bg-white/80 backdrop-blur-md border border-white/20 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+              <div className="bg-white/50 border border-white/20 rounded-2xl p-4 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                     <span className="text-white text-xs font-bold">📢</span>
@@ -125,6 +125,15 @@ export default function Home() {
                       </div>
                     </div>
                   </Link>
+                  <a href="https://www.masayamuko.com/blog/why-create-second-self" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="flex items-start gap-2 p-2 bg-white/50 rounded-lg hover:bg-white/70 transition-colors duration-200 cursor-pointer">
+                      <span className="text-sm">📖</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-medium text-gray-800 leading-tight hover:text-orange-600 transition-colors duration-200">AI時代の最強武器!?ChatGPTで「第二の自分」を育てるべし</p>
+                        <p className="text-xs text-gray-500 mt-1">2025-07-06</p>
+                      </div>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
