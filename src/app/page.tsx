@@ -93,7 +93,7 @@ export default function Home() {
                 </span>
               </button>
               <div className="relative group">
-                <Link href="/blog/why-create-second-self" className="btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-blue-300/50 transition-all duration-300 hover:-rotate-2">
+                <Link href="https://www.masayamuko.com/blog" className="btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-blue-300/50 transition-all duration-300 hover:-rotate-2" target="_blank" rel="noopener noreferrer">
                   <span className="relative z-10 flex items-center gap-2">
                     <span className="group-hover:animate-bounce">📖</span>
                     Blog読んで
