@@ -117,21 +117,23 @@ export default function Home() {
                 </div>
                 <div className="space-y-3">
                   <Link href="/events" className="block">
-                    <div className="flex items-start gap-3 p-3 bg-white rounded-lg hover:bg-orange-50 transition-colors duration-200 cursor-pointer">
+                    <div className="flex items-start gap-3 p-3 bg-white rounded-lg hover:bg-orange-50 transition-colors duration-200 cursor-pointer relative">
                       <span className="text-lg">📅</span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-base font-semibold text-gray-800 leading-tight hover:text-blue-600 transition-colors duration-200">【参加者募集】7/15(火)みんなの生成AI活用シェア会</p>
+                        <p className="text-base font-semibold text-gray-800 leading-tight hover:text-blue-600 transition-colors duration-200">7/15(火) みんなの生成AI活用シェア会@福岡</p>
                       </div>
+                      <span className="absolute bottom-2 right-3 bg-orange-200 text-orange-800 text-xs font-bold px-2 py-0.5 rounded-full shadow">参加者募集</span>
                     </div>
                   </Link>
-                 <a href="https://www.masayamuko.com/blog/why-create-second-self" target="_blank" rel="noopener noreferrer" className="block">
-                   <div className="flex items-start gap-3 p-3 bg-white rounded-lg hover:bg-orange-50 transition-colors duration-200 cursor-pointer">
-                     <span className="text-lg">📖</span>
-                     <div className="flex-1 min-w-0">
-                       <p className="text-base font-semibold text-gray-800 leading-tight hover:text-orange-600 transition-colors duration-200">AI時代の最強武器!?ChatGPTで「第二の自分」を育てるべし</p>
-                     </div>
-                   </div>
-                 </a>
+                  <a href="https://www.masayamuko.com/blog/why-create-second-self" target="_blank" rel="noopener noreferrer" className="block">
+                    <div className="flex items-start gap-3 p-3 bg-white rounded-lg hover:bg-orange-50 transition-colors duration-200 cursor-pointer relative">
+                      <span className="text-lg">📖</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-base font-semibold text-gray-800 leading-tight hover:text-orange-600 transition-colors duration-200">AI時代の最強武器!?ChatGPTで「第二の自分」を育てるべし</p>
+                      </div>
+                      <span className="absolute bottom-2 right-3 bg-blue-200 text-blue-800 text-xs font-bold px-2 py-0.5 rounded-full shadow">記事</span>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
