@@ -74,18 +74,14 @@ export default function EventsPage() {
                 
                 <div className="flex-1 flex flex-col justify-between p-8 md:p-10 space-y-6">
                   <div className="space-y-3">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">{event.title}</h3>
                     <div className="flex items-center gap-3 text-blue-600 font-semibold text-2xl md:text-3xl">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                       {event.date}
                     </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">{event.title}</h3>
                   </div>
-                  
-                  <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                    {event.description}
-                  </p>
                   
                   <div className="space-y-2 text-sm text-gray-500">
                     <div className="flex items-center gap-2">
