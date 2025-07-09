@@ -1,6 +1,7 @@
 "use client"
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Navigation() {
   return (
@@ -9,7 +10,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* ロゴ - ミニマル */}
           <Link href="/" className="group flex items-center">
-            <img src="/logo_masaya.png" alt="MASAYAロゴ" className="h-10 w-auto mr-2" />
+            <Image src="/logo_masaya.png" alt="MASAYAロゴ" width={120} height={40} priority className="h-10 w-auto mr-2" />
           </Link>
           
           {/* デスクトップナビゲーション */}
