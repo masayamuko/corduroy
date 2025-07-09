@@ -122,7 +122,7 @@ export default function Home() {
                       <div className="flex-1 min-w-0">
                         <p className="text-base font-semibold text-gray-800 leading-tight hover:text-blue-600 transition-colors duration-200">7/15(火) みんなの生成AI活用シェア会@福岡</p>
                       </div>
-                      <span className="absolute bottom-2 right-3 bg-orange-200 text-orange-800 text-xs font-bold px-2 py-0.5 rounded-full shadow">参加者募集</span>
+                      <span className="absolute bottom-2 right-3 bg-orange-200 text-orange-800 text-xs font-bold px-2 py-0.5 rounded-full shadow">募集中</span>
                     </div>
                   </Link>
                   <a href="https://www.masayamuko.com/blog/why-create-second-self" target="_blank" rel="noopener noreferrer" className="block">
