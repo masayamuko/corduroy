@@ -8,8 +8,8 @@ export default function Navigation() {
       <div className="container-wide">
         <div className="flex items-center justify-between h-20">
           {/* ロゴ - ミニマル */}
-          <Link href="/" className="group">
-            <span className="text-2xl font-bold tracking-tight text-black hover:opacity-70 transition-opacity duration-300">MASAYA</span>
+          <Link href="/" className="group flex items-center">
+            <img src="/logo_masaya.png" alt="MASAYAロゴ" className="h-10 w-auto mr-2" />
           </Link>
           
           {/* デスクトップナビゲーション */}
