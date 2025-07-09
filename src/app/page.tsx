@@ -117,7 +117,7 @@ export default function Home() {
                 </div>
                 <div className="space-y-3">
                   <Link href="/events" className="block">
-                    <div className="flex items-start gap-3 p-3 bg-white rounded-lg hover:bg-orange-50 transition-colors duration-200 cursor-pointer relative">
+                    <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-orange-200 hover:border-orange-400 transition-colors duration-200 cursor-pointer relative text-left">
                       <span className="text-lg">📅</span>
                       <div className="flex-1 min-w-0">
                         <p className="text-base font-semibold text-gray-800 leading-tight hover:text-blue-600 transition-colors duration-200">7/15(火) みんなの生成AI活用シェア会@福岡</p>
@@ -126,7 +126,7 @@ export default function Home() {
                     </div>
                   </Link>
                   <a href="https://www.masayamuko.com/blog/why-create-second-self" target="_blank" rel="noopener noreferrer" className="block">
-                    <div className="flex items-start gap-3 p-3 bg-white rounded-lg hover:bg-orange-50 transition-colors duration-200 cursor-pointer relative">
+                    <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-blue-200 hover:border-blue-400 transition-colors duration-200 cursor-pointer relative text-left">
                       <span className="text-lg">📖</span>
                       <div className="flex-1 min-w-0">
                         <p className="text-base font-semibold text-gray-800 leading-tight hover:text-orange-600 transition-colors duration-200">AI時代の最強武器!?ChatGPTで「第二の自分」を育てるべし</p>
