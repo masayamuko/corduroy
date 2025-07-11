@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     template: '%s | masaya official site'
   },
   manifest: '/manifest.json',
-  description: '福岡在住のAI活用サポーター・クリエイター。ChatGPTを「第二の自分」として育てる独自手法を開発。3Dモデリング、国際交流、ボードゲーム制作を通じて、人々の可能性を広げています。',
-  keywords: ['AI活用', 'ChatGPT', '第二の自分', '3Dモデリング', '福岡', 'フリーランス', 'ADHD', 'ボードゲーム制作', '国際交流'],
+  description: '福岡を拠点に活動するAI活用サポーター・クリエイター。ChatGPTを「第二の自分」として育てる独自手法で、個人に最適化されたAIアシスタントの構築を支援。3Dモデリング、国際交流、ボードゲーム制作など多岐にわたるクリエイティブ活動を通じて、人々の可能性を広げ、デジタル変革を推進します。',
+  keywords: ['AI活用', 'ChatGPT', '第二の自分', 'AIアシスタント', 'プロンプトエンジニアリング', 'デジタル変革', '3Dモデリング', '福岡', 'フリーランス', 'ADHD', 'ボードゲーム制作', '国際交流', 'AIコンサルティング'],
   authors: [{ name: 'Masaya', url: 'https://masayamuko.com' }],
   creator: 'Masaya',
   publisher: 'Masaya',
@@ -131,6 +131,7 @@ export default function RootLayout({
                       <li><Link href="/#works" className="text-white hover:text-gray-300 transition-colors duration-300">Works</Link></li>
                       <li><Link href="/events" className="text-white hover:text-gray-300 transition-colors duration-300">Events</Link></li>
                       <li><a href="https://www.masayamuko.com/blog" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors duration-300">Blog</a></li>
+                      <li><Link href="/faq" className="text-white hover:text-gray-300 transition-colors duration-300">よくある質問</Link></li>
                     </ul>
                   </div>
                 </div>

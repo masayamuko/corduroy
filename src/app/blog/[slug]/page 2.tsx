@@ -31,6 +31,7 @@ AIとの対話を通じて、自分の価値観や思考パターンを客観視
 
 第二の自分は単なるツールではなく、自分自身を理解し、成長するためのパートナーなのです。`,
   publishedAt: '2024-01-01',
+  updatedAt: '2024-07-11',
   category: 'benefits',
   readingTime: 8,
   tags: ['AI', 'ChatGPT', '自己理解', '生産性'],
@@ -59,10 +60,59 @@ export default function BlogPostPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": blogPost.title,
+            "image": "https://masayamuko.com/og-image.png", // 記事ごとのOGP画像があればそれを指定
+            "datePublished": blogPost.publishedAt,
+            "dateModified": blogPost.updatedAt, // 更新日があれば別途指定
+            "author": {
+              "@type": "Person",
+              "name": "Masaya",
+              "url": "https://masayamuko.com/about" // 著者のプロフィールページURL
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Masaya",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://res.cloudinary.com/dg3mdcuju/image/upload/v1751444000/masayatoai.jpg" // サイトのロゴURL
+              }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://masayamuko.com/blog/${params.slug}` // 記事の正規URL
+            },
+            "description": blogPost.excerpt,
+            "keywords": blogPost.tags.join(", "),
+            "articleBody": blogPost.content,
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <header className="mb-8">
+          <nav className="text-sm text-gray-500 mb-4">
+            <ol className="list-none p-0 inline-flex">
+              <li className="flex items-center">
+                <Link href="/" className="text-blue-600 hover:underline">ホーム</Link>
+                <svg className="fill-current w-3 h-3 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
+              </li>
+              <li className="flex items-center">
+                <Link href="/blog" className="text-blue-600 hover:underline">ブログ</Link>
+                <svg className="fill-current w-3 h-3 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
+              </li>
+              <li className="flex items-center">
+                <span>{blogPost.title}</span>
+              </li>
+            </ol>
+          </nav>
           <div className="mb-4">
             <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-medium rounded-full">
               {categoryLabels[blogPost.category as keyof typeof categoryLabels]}
@@ -75,12 +125,21 @@ export default function BlogPostPage({ params }: PageProps) {
           
           <div className="flex items-center gap-4 text-sm text-gray-600 mb-6">
             <time dateTime={blogPost.publishedAt}>
-              {new Date(blogPost.publishedAt).toLocaleDateString('ja-JP', {
+              公開日: {new Date(blogPost.publishedAt).toLocaleDateString('ja-JP', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
               })}
             </time>
+            {blogPost.updatedAt && blogPost.updatedAt !== blogPost.publishedAt && (
+              <time dateTime={blogPost.updatedAt}>
+                更新日: {new Date(blogPost.updatedAt).toLocaleDateString('ja-JP', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            )}
             <span>{blogPost.readingTime}分で読める</span>
           </div>
           {/* 著者情報を日付の下に移動 */}

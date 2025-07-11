@@ -4,7 +4,7 @@ export default function StructuredData() {
     "@type": "Person",
     "name": "Masaya",
     "jobTitle": "AI活用サポーター・クリエイター",
-    "description": "福岡在住のAI活用サポーター・クリエイター。ChatGPTを「第二の自分」として育てる独自手法を開発。",
+    "description": "福岡を拠点に活動するAI活用サポーター・クリエイター。ChatGPTを「第二の自分」として育てる独自手法で、個人に最適化されたAIアシスタントの構築を支援。3Dモデリング、国際交流、ボードゲーム制作など多岐にわたるクリエイティブ活動を通じて、人々の可能性を広げ、デジタル変革を推進します。",
     "url": "https://masayamuko.com",
     "image": "https://res.cloudinary.com/dg3mdcuju/image/upload/v1751444000/masayatoai.jpg",
     "sameAs": [
@@ -20,10 +20,14 @@ export default function StructuredData() {
       "AI活用",
       "ChatGPT",
       "第二の自分",
+      "AIアシスタント",
+      "プロンプトエンジニアリング",
+      "デジタル変革",
       "3Dモデリング",
       "ボードゲーム制作",
       "国際交流",
-      "フリーランス支援"
+      "フリーランス支援",
+      "AIコンサルティング"
     ]
   }
 
@@ -31,19 +35,7 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Masaya - AI活用サポーター・クリエイター",
-    "description": "福岡在住のAI活用サポーター・クリエイター。ChatGPTを「第二の自分」として育てる独自手法を開発。",
-    "url": "https://masayamuko.com",
-    "author": {
-      "@type": "Person",
-      "name": "Masaya"
-    },
-    "inLanguage": "ja-JP",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://masayamuko.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
+    "description": "福岡を拠点に活動するAI活用サポーター・クリエイター。ChatGPTを「第二の自分」として育てる独自手法で、個人に最適化されたAIアシスタントの構築を支援。3Dモデリング、国際交流、ボードゲーム制作など多岐にわたるクリエイティブ活動を通じて、人々の可能性を広げ、デジタル変革を推進します。",
 
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -51,7 +43,7 @@ export default function StructuredData() {
     "name": "Masaya",
     "url": "https://masayamuko.com",
     "logo": "https://res.cloudinary.com/dg3mdcuju/image/upload/v1751444000/masayatoai.jpg",
-    "description": "AI活用支援とクリエイティブ活動を通じて、人々の可能性を広げる活動を展開",
+    "description": "AI活用支援とクリエイティブ活動を通じて、人々の可能性を広げ、デジタル変革を推進する活動を展開",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "福岡市",
