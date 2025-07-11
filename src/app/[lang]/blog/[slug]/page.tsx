@@ -52,10 +52,10 @@ export default function BlogPostPage({ params }: PageProps) {
   const blogPost = {
     title: data.title || 'No Title',
     content: content,
-    publishedAt: data.publishedAt || 'YYYY-MM-DD',
-    updatedAt: data.updatedAt || data.publishedAt || 'YYYY-MM-DD',
+    publishedAt: data.date || data.publishedAt || '2025-01-01',
+    updatedAt: data.updatedAt || data.date || data.publishedAt || '2025-01-01',
     category: data.category || 'uncategorized',
-    readingTime: data.readingTime || 0,
+    readingTime: data.readingTime || 5,
     tags: data.tags || [],
     excerpt: data.excerpt || '',
   };
@@ -68,6 +68,11 @@ export default function BlogPostPage({ params }: PageProps) {
     'case-study': 'ケーススタディ',
     'advanced': 'アドバンス',
     'uncategorized': '未分類',
+    'AI活用': 'AI活用',
+    'Blog': 'ブログ',
+    'Travel': '旅行',
+    'Life': 'ライフ',
+    'Tech': 'テック',
   };
 
   return (
@@ -125,7 +130,7 @@ export default function BlogPostPage({ params }: PageProps) {
               </ol>
             </nav>
             <div className="mb-4">
-              <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-medium rounded-full">
+              <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-medium rounded-full">
                 {categoryLabels[blogPost.category as keyof typeof categoryLabels]}
               </span>
             </div>
@@ -180,7 +185,7 @@ export default function BlogPostPage({ params }: PageProps) {
                   p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-4">{children}</p>,
                   ul: ({ children }) => <ul className="list-disc list-inside mb-4 text-gray-700">{children}</ul>,
                   ol: ({ children }) => <ol className="list-decimal list-inside mb-4 text-gray-700">{children}</ol>,
-                  blockquote: ({ children }) => <blockquote className="border-l-4 border-primary-500 pl-4 italic text-gray-600 mb-4">{children}</blockquote>,
+                  blockquote: ({ children }) => <blockquote className="border-l-4 border-orange-500 pl-4 italic text-gray-600 mb-4">{children}</blockquote>,
                   code: ({ children }) => <code className="bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm">{children}</code>,
                   pre: ({ children }) => <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4">{children}</pre>,
                 }}
@@ -212,13 +217,13 @@ export default function BlogPostPage({ params }: PageProps) {
             <div className="flex justify-between items-center">
               <a
                 href={`/${lang}/blog`}
-                className="text-primary-600 hover:text-primary-700 font-medium transition-colors"
+                className="text-orange-600 hover:text-orange-700 font-medium transition-colors"
               >
                 ← ブログ一覧に戻る
               </a>
 
               <div className="flex gap-4">
-                <button className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">
+                <button className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
                   シェア
                 </button>
                 <button className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
