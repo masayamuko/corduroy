@@ -14,10 +14,10 @@ export function urlFor(source: any) {
   return builder.image(source)
 }
 
-// Blog post queries
-export async function getAllBlogPosts() {
+// Blog post queries with language support
+export async function getAllBlogPosts(language: string = 'ja') {
   return sanityClient.fetch(`
-    *[_type == "blogPost"] | order(publishedAt desc) {
+    *[_type == "blogPost" && language == $language] | order(publishedAt desc) {
       _id,
       title,
       slug,
@@ -26,14 +26,16 @@ export async function getAllBlogPosts() {
       category,
       readingTime,
       featured,
-      tags
+      tags,
+      language,
+      mainImage
     }
-  `)
+  `, { language })
 }
 
-export async function getBlogPost(slug: string) {
+export async function getBlogPost(slug: string, language: string = 'ja') {
   return sanityClient.fetch(`
-    *[_type == "blogPost" && slug.current == $slug][0] {
+    *[_type == "blogPost" && slug.current == $slug && language == $language][0] {
       _id,
       title,
       slug,
@@ -44,14 +46,16 @@ export async function getBlogPost(slug: string) {
       readingTime,
       featured,
       tags,
-      obsidianPath
+      language,
+      mainImage,
+      seo
     }
-  `, { slug })
+  `, { slug, language })
 }
 
-export async function getFeaturedBlogPosts() {
+export async function getFeaturedBlogPosts(language: string = 'ja') {
   return sanityClient.fetch(`
-    *[_type == "blogPost" && featured == true] | order(publishedAt desc) [0...3] {
+    *[_type == "blogPost" && featured == true && language == $language] | order(publishedAt desc) [0...3] {
       _id,
       title,
       slug,
@@ -60,14 +64,16 @@ export async function getFeaturedBlogPosts() {
       category,
       readingTime,
       featured,
-      tags
+      tags,
+      language,
+      mainImage
     }
-  `)
+  `, { language })
 }
 
-export async function getBlogPostsByCategory(category: string) {
+export async function getBlogPostsByCategory(category: string, language: string = 'ja') {
   return sanityClient.fetch(`
-    *[_type == "blogPost" && category == $category] | order(publishedAt desc) {
+    *[_type == "blogPost" && category == $category && language == $language] | order(publishedAt desc) {
       _id,
       title,
       slug,
@@ -76,9 +82,11 @@ export async function getBlogPostsByCategory(category: string) {
       category,
       readingTime,
       featured,
-      tags
+      tags,
+      language,
+      mainImage
     }
-  `, { category })
+  `, { category, language })
 }
 
 export async function getAllCategories() {
@@ -96,12 +104,22 @@ export interface BlogPost {
   slug: {
     current: string
   }
-  content?: string
+  content?: any[] // Sanity block content
   excerpt: string
   publishedAt: string
   category: string
   readingTime: number
   featured: boolean
   tags: string[]
-  obsidianPath?: string
+  language: string
+  mainImage?: {
+    asset: {
+      _ref: string
+    }
+    alt?: string
+  }
+  seo?: {
+    metaTitle?: string
+    metaDescription?: string
+  }
 } 

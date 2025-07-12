@@ -1,28 +1,20 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+import { PortableText } from '@portabletext/react'
+import { getBlogPost, getAllBlogPosts, urlFor, BlogPost } from '@/lib/sanity'
 
 // generateStaticParams: ビルド時に生成するパスを定義
 export async function generateStaticParams() {
-  const locales = ['ja', 'en']; // サポートする言語
-  const postsDir = path.join(process.cwd(), 'src', 'posts');
+  const locales = ['ja', 'en'];
   const paths: { lang: string; slug: string }[] = [];
 
   for (const lang of locales) {
-    const langDir = path.join(postsDir, lang);
-    if (!fs.existsSync(langDir)) {
-      continue;
-    }
-    const files = fs.readdirSync(langDir);
-    for (const file of files) {
-      if (file.endsWith('.md')) {
-        const slug = file.replace(/\.md$/, '');
-        paths.push({ lang, slug });
-      }
+    const posts: BlogPost[] = await getAllBlogPosts(lang);
+    for (const post of posts) {
+      paths.push({ 
+        lang, 
+        slug: post.slug.current 
+      });
     }
   }
   return paths;
@@ -35,30 +27,14 @@ interface PageProps {
   };
 }
 
-export default function BlogPostPage({ params }: PageProps) {
+export default async function BlogPostPage({ params }: PageProps) {
   const { lang, slug } = params;
 
-  const filePath = path.join(process.cwd(), 'src', 'posts', lang, `${slug}.md`);
+  const blogPost: BlogPost | null = await getBlogPost(slug, lang);
 
-  let fileContents;
-  try {
-    fileContents = fs.readFileSync(filePath, 'utf8');
-  } catch (error) {
-    notFound(); // ファイルが見つからない場合は404
+  if (!blogPost) {
+    notFound();
   }
-
-  const { data, content } = matter(fileContents);
-
-  const blogPost = {
-    title: data.title || 'No Title',
-    content: content,
-    publishedAt: data.date || data.publishedAt || '2025-01-01',
-    updatedAt: data.updatedAt || data.date || data.publishedAt || '2025-01-01',
-    category: data.category || 'uncategorized',
-    readingTime: data.readingTime || 5,
-    tags: data.tags || [],
-    excerpt: data.excerpt || '',
-  };
 
   const categoryLabels: { [key: string]: string } = {
     'introduction': 'はじめに',
@@ -147,15 +123,6 @@ export default function BlogPostPage({ params }: PageProps) {
                   day: 'numeric'
                 })}
               </time>
-              {blogPost.updatedAt && blogPost.updatedAt !== blogPost.publishedAt && (
-                <time dateTime={blogPost.updatedAt}>
-                  更新日: {new Date(blogPost.updatedAt).toLocaleDateString('ja-JP', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </time>
-              )}
               <span>{blogPost.readingTime}分で読める</span>
             </div>
             {/* 著者情報を日付の下に移動 */}
@@ -164,34 +131,51 @@ export default function BlogPostPage({ params }: PageProps) {
               <span className="text-base font-semibold text-orange-800">Masaya</span>
             </div>
 
-            <p className="text-xl text-gray-700 leading-relaxed">
-              {blogPost.excerpt}
-            </p>
+            {blogPost.excerpt && (
+              <p className="text-xl text-gray-700 leading-relaxed">
+                {blogPost.excerpt}
+              </p>
+            )}
           </header>
 
           {/* Content */}
           <article className="bg-white rounded-lg shadow-sm p-8 mb-8">
-            <div className="prose-custom">
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                components={{
-                  h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-900 mb-4">{children}</h1>,
-                  h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-800 mb-3 mt-8">{children}</h2>,
-                  h3: ({ children }) => (
-                    <h3 className="text-2xl font-bold text-orange-700 mb-2 mt-6 border-b-4 border-orange-400 pb-1">
-                      {children}
-                    </h3>
-                  ),
-                  p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-4">{children}</p>,
-                  ul: ({ children }) => <ul className="list-disc list-inside mb-4 text-gray-700">{children}</ul>,
-                  ol: ({ children }) => <ol className="list-decimal list-inside mb-4 text-gray-700">{children}</ol>,
-                  blockquote: ({ children }) => <blockquote className="border-l-4 border-orange-500 pl-4 italic text-gray-600 mb-4">{children}</blockquote>,
-                  code: ({ children }) => <code className="bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm">{children}</code>,
-                  pre: ({ children }) => <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4">{children}</pre>,
-                }}
-              >
-                {blogPost.content}
-              </ReactMarkdown>
+            <div className="prose prose-lg max-w-none prose-headings:font-bold prose-h1:text-3xl prose-h2:text-2xl prose-h2:text-gray-800 prose-h2:mt-8 prose-h3:text-xl prose-h3:text-orange-700 prose-h3:border-b-4 prose-h3:border-orange-400 prose-h3:pb-1 prose-p:text-gray-700 prose-p:leading-relaxed prose-ul:text-gray-700 prose-ol:text-gray-700 prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:italic prose-blockquote:text-gray-600 prose-code:bg-gray-100 prose-code:text-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-100 prose-pre:rounded-lg">
+              {blogPost.content && (
+                <PortableText
+                  value={blogPost.content}
+                  components={{
+                    types: {
+                      image: ({ value }) => (
+                        <img
+                          src={urlFor(value).width(800).url()}
+                          alt={value.alt || '記事の画像'}
+                          className="w-full h-auto rounded-lg my-6"
+                        />
+                      ),
+                      code: ({ value }) => (
+                        <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto my-4">
+                          <code className={`language-${value.language || 'text'}`}>
+                            {value.code}
+                          </code>
+                        </pre>
+                      ),
+                    },
+                    marks: {
+                      link: ({ children, value }) => (
+                        <a 
+                          href={value.href} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-orange-600 hover:text-orange-700 underline"
+                        >
+                          {children}
+                        </a>
+                      ),
+                    },
+                  }}
+                />
+              )}
             </div>
           </article>
 

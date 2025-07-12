@@ -1,7 +1,5 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 import Link from 'next/link';
+import { getAllBlogPosts, urlFor, BlogPost } from '@/lib/sanity';
 
 // 記事別の魅力的な導入文を定義
 const customExcerpts = {
@@ -30,43 +28,9 @@ const customExcerpts = {
   'esperanto-well-known': 'エスペラント語の魅力と学習方法。国際共通語として設計された人工言語の特徴と、世界平和への貢献について。'
 };
 
-function getPosts(lang: string) {
-  const postsDirectory = path.join(process.cwd(), 'src/posts', lang);
-  
-  try {
-    const fileNames = fs.readdirSync(postsDirectory);
-    const posts = fileNames
-      .filter((fileName) => fileName.endsWith('.md') && !fileName.startsWith('_'))
-      .map((fileName) => {
-        const slug = fileName.replace(/\.md$/, '');
-        const fullPath = path.join(postsDirectory, fileName);
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const { data, content } = matter(fileContents);
-        
-        // カスタム導入文があれば使用、なければデフォルト
-        const excerpt = customExcerpts[slug as keyof typeof customExcerpts] || 
-                       (content.substr(0, 120) + (content.length > 120 ? '...' : ''));
-        
-        return {
-          slug,
-          title: data.title || slug,
-          category: data.category || 'Blog',
-          date: data.date || '',
-          excerpt,
-          image: data.image || '', // frontmatterにimageがあれば追加
-        };
-      });
-    // 日付で降順ソート（新しい順）
-    return posts.sort((a, b) => (b.date > a.date ? 1 : -1));
-  } catch (error) {
-    console.error('Error reading posts:', error);
-    return [];
-  }
-}
-
-export default function BlogPage({ params }: { params: { lang: string } }) {
-  const posts = getPosts(params.lang);
-  console.log('Blog posts:', posts);
+export default async function BlogPage({ params }: { params: { lang: string } }) {
+  const posts: BlogPost[] = await getAllBlogPosts(params.lang);
+  console.log('Blog posts from Sanity:', posts);
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -94,15 +58,15 @@ export default function BlogPage({ params }: { params: { lang: string } }) {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {posts && posts.length > 0 ? posts.map((post) => (
               <Link 
-                key={post.slug} 
-                href={`/${params.lang}/blog/${post.slug}`}
+                key={post._id} 
+                href={`/${params.lang}/blog/${post.slug.current}`}
                 className="block bg-orange-100/80 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group border border-orange-200 h-full"
               >
-                {/* サムネイル画像（frontmatterにimageがあれば） */}
-                {post.image && (
+                {/* サムネイル画像（Sanityからの画像） */}
+                {post.mainImage && (
                   <img
-                    src={post.image}
-                    alt={post.title}
+                    src={urlFor(post.mainImage).width(400).height(200).url()}
+                    alt={post.mainImage.alt || post.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 )}
@@ -111,12 +75,20 @@ export default function BlogPage({ params }: { params: { lang: string } }) {
                     <span className="inline-block bg-orange-300 text-orange-900 text-xs font-semibold px-2.5 py-0.5 rounded">
                       {post.category}
                     </span>
-                    <time className="text-xs text-orange-700">{post.date}</time>
+                    <time className="text-xs text-orange-700">
+                      {new Date(post.publishedAt).toLocaleDateString('ja-JP', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </time>
                   </div>
                   <h2 className="text-lg font-bold text-orange-900 mb-2 group-hover:text-orange-600 transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-orange-800 text-sm mb-4 line-clamp-3 flex-grow">{post.excerpt}</p>
+                  <p className="text-orange-800 text-sm mb-4 line-clamp-3 flex-grow">
+                    {post.excerpt || 'この記事の概要を読んでみましょう...'}
+                  </p>
                   <div className="inline-flex items-center text-orange-700 hover:text-white font-semibold bg-orange-200 hover:bg-orange-500 transition-colors rounded px-4 py-2">
                     続きを読む
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,7 +99,15 @@ export default function BlogPage({ params }: { params: { lang: string } }) {
               </Link>
             )) : (
               <div className="col-span-full text-center py-12">
-                <p className="text-gray-600 text-lg">記事が見つかりません。</p>
+                <p className="text-gray-600 text-lg">
+                  {params.lang === 'ja' ? '記事が見つかりません。' : 'No posts found.'}
+                </p>
+                <p className="text-gray-500 text-sm mt-2">
+                  {params.lang === 'ja' 
+                    ? 'Sanity CMSで新しい記事を作成してください。' 
+                    : 'Create new posts in Sanity CMS.'
+                  }
+                </p>
               </div>
             )}
           </div>
