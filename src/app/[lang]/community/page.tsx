@@ -236,12 +236,12 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
                     <span className="text-2xl">🧺</span>
                   </div>
                   <div className="space-y-3">
-                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">ピクニックサークル</h4>
-                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">大学出て１、２年間。自然の中で楽しむ仲間たちとピクニックを企画・開催していました。</p>
+                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">{t.pastCommunities.picnic.title}</h4>
+                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{t.pastCommunities.picnic.description}</p>
                   </div>
                   <div className="text-center">
                     <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold group-hover:bg-orange-600 transition-colors duration-300">
-                      大学卒業後1-2年
+                      {t.pastCommunities.picnic.period}
                     </span>
                   </div>
                 </div>
@@ -254,12 +254,12 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
                     <span className="text-2xl">🏠</span>
                   </div>
                   <div className="space-y-3">
-                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors duration-300">シェアハウスのらまめ</h4>
-                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">友人4人と共同生活。シェアハウスでの暮らしを通じて、新しい生活スタイルを体験しました。</p>
+                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-green-600 transition-colors duration-300">{t.pastCommunities.sharehouse1.title}</h4>
+                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{t.pastCommunities.sharehouse1.description}</p>
                   </div>
                   <div className="text-center">
                     <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold group-hover:bg-green-600 transition-colors duration-300">
-                      友人4人と共同生活
+                      {t.pastCommunities.sharehouse1.period}
                     </span>
                   </div>
                 </div>
@@ -272,12 +272,12 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
                     <span className="text-2xl">🌍</span>
                   </div>
                   <div className="space-y-3">
-                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">シェアハウス&ホームステイ</h4>
-                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">僕ら夫婦＋友人１人＋外国人留学生。国際的な環境での共同生活を体験しました。</p>
+                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">{t.pastCommunities.sharehouse2.title}</h4>
+                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{t.pastCommunities.sharehouse2.description}</p>
                   </div>
                   <div className="text-center">
                     <span className="bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-semibold group-hover:bg-purple-600 transition-colors duration-300">
-                      夫婦＋友人＋留学生
+                      {t.pastCommunities.sharehouse2.period}
                     </span>
                   </div>
                 </div>
@@ -290,12 +290,12 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
                     <span className="text-2xl">✈️</span>
                   </div>
                   <div className="space-y-3">
-                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">留学・国際交流サークルUniPass</h4>
-                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">大学3年ー4年生。留学や国際交流に興味のある学生たちと活動していました。</p>
+                    <h4 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">{t.pastCommunities.unipass.title}</h4>
+                    <p className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{t.pastCommunities.unipass.description}</p>
                   </div>
                   <div className="text-center">
                     <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold group-hover:bg-blue-600 transition-colors duration-300">
-                      大学3年ー4年生
+                      {t.pastCommunities.unipass.period}
                     </span>
                   </div>
                 </div>
