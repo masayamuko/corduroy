@@ -47,11 +47,19 @@ function getPosts(lang: string) {
         const excerpt = customExcerpts[slug as keyof typeof customExcerpts] || 
                        (content.substr(0, 120) + (content.length > 120 ? '...' : ''));
         
+        // 安全な日付処理
+        let date = '';
+        if (data.date && typeof data.date === 'string' && data.date !== 'YYYY-MM-DD') {
+          date = data.date;
+        } else if (data.publishedAt && typeof data.publishedAt === 'string' && data.publishedAt !== 'YYYY-MM-DD') {
+          date = data.publishedAt;
+        }
+
         return {
           slug,
           title: data.title || slug,
           category: data.category || 'Blog',
-          date: data.date || '',
+          date,
           excerpt,
           image: data.image || '', // frontmatterにimageがあれば追加
         };

@@ -19,7 +19,7 @@ export async function generateStaticParams() {
     }
     const files = fs.readdirSync(langDir);
     for (const file of files) {
-      if (file.endsWith('.md')) {
+      if (file.endsWith('.md') && !file.startsWith('_')) {
         const slug = file.replace(/\.md$/, '');
         paths.push({ lang, slug });
       }
@@ -49,11 +49,19 @@ export default function BlogPostPage({ params }: PageProps) {
 
   const { data, content } = matter(fileContents);
 
+  // 安全な日付処理
+  const getValidDate = (dateValue: any): string => {
+    if (dateValue && typeof dateValue === 'string' && dateValue !== 'YYYY-MM-DD') {
+      return dateValue;
+    }
+    return '2025-01-01';
+  };
+
   const blogPost = {
     title: data.title || 'No Title',
     content: content,
-    publishedAt: data.date || data.publishedAt || '2025-01-01',
-    updatedAt: data.updatedAt || data.date || data.publishedAt || '2025-01-01',
+    publishedAt: getValidDate(data.date || data.publishedAt),
+    updatedAt: getValidDate(data.updatedAt || data.date || data.publishedAt),
     category: data.category || 'uncategorized',
     readingTime: data.readingTime || 5,
     tags: data.tags || [],
