@@ -2,7 +2,7 @@
 
 import Script from 'next/script'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
@@ -21,7 +21,7 @@ declare global {
   }
 }
 
-export default function GoogleAnalytics() {
+function GoogleAnalyticsClient() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -42,6 +42,10 @@ export default function GoogleAnalytics() {
     }
   }, [pathname, searchParams])
 
+  return null
+}
+
+export default function GoogleAnalytics() {
   // Google Analyticsを読み込む（開発環境でも動作確認可能）
   if (!GA_MEASUREMENT_ID) {
     console.log('Google Analytics: Measurement ID not configured')
@@ -79,6 +83,9 @@ export default function GoogleAnalytics() {
           `,
         }}
       />
+      <Suspense fallback={null}>
+        <GoogleAnalyticsClient />
+      </Suspense>
     </>
   )
 }
