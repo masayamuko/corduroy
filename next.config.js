@@ -5,6 +5,32 @@ const nextConfig = {
   images: {
     domains: ['res.cloudinary.com'],
   },
+  async redirects() {
+    return [
+      // 旧ブログURLから新しい多言語URLへのリダイレクト
+      {
+        source: '/blog/:slug*',
+        destination: '/ja/blog/:slug*',
+        permanent: true, // 301リダイレクト (SEO重要)
+      },
+      // その他の旧URLパターンがあれば追加
+      {
+        source: '/about',
+        destination: '/ja/about',
+        permanent: true,
+      },
+      {
+        source: '/events/:path*',
+        destination: '/ja/events/:path*',
+        permanent: true,
+      },
+      {
+        source: '/projects/:path*',
+        destination: '/ja/projects/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
