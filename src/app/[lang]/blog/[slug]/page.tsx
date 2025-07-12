@@ -6,27 +6,24 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-// generateStaticParams: ビルド時に生成するパスを定義
-export async function generateStaticParams() {
-  const locales = ['ja', 'en']; // サポートする言語
-  const postsDir = path.join(process.cwd(), 'src', 'posts');
-  const paths: { lang: string; slug: string }[] = [];
+// 一時的にgenerateStaticParamsを無効化（動的レンダリング）
+// export async function generateStaticParams({ params }: { params: { lang: string } }) {
+//   const postsDir = path.join(process.cwd(), 'src', 'posts', params.lang);
+//   const paths: { slug: string }[] = [];
 
-  for (const lang of locales) {
-    const langDir = path.join(postsDir, lang);
-    if (!fs.existsSync(langDir)) {
-      continue;
-    }
-    const files = fs.readdirSync(langDir);
-    for (const file of files) {
-      if (file.endsWith('.md') && !file.startsWith('_')) {
-        const slug = file.replace(/\.md$/, '');
-        paths.push({ lang, slug });
-      }
-    }
-  }
-  return paths;
-}
+//   if (fs.existsSync(postsDir)) {
+//     const files = fs.readdirSync(postsDir);
+//     for (const file of files) {
+//       if (file.endsWith('.md') && !file.startsWith('_')) {
+//         const slug = file.replace(/\.md$/, '');
+//         paths.push({ slug });
+//       }
+//     }
+//   }
+  
+//   console.log(`Generated paths for ${params.lang}:`, paths); // デバッグ用
+//   return paths;
+// }
 
 interface PageProps {
   params: {
@@ -38,12 +35,16 @@ interface PageProps {
 export default function BlogPostPage({ params }: PageProps) {
   const { lang, slug } = params;
 
+  console.log(`Loading blog post: ${lang}/${slug}`); // デバッグ用
+
   const filePath = path.join(process.cwd(), 'src', 'posts', lang, `${slug}.md`);
+  console.log(`File path: ${filePath}`); // デバッグ用
 
   let fileContents;
   try {
     fileContents = fs.readFileSync(filePath, 'utf8');
   } catch (error) {
+    console.error('Error reading file:', error); // デバッグ用
     notFound(); // ファイルが見つからない場合は404
   }
 
