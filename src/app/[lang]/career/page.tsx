@@ -38,11 +38,6 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
           description: "・各種生成AIツールの学習、実践（独学）<br />・ものづくり, 3CADの学習（通学）<br />AIツールの導入を個人・企業さま相手に実験的にサポートしてます。",
           tags: ["AI学習", "3CAD", "個人・企業サポート"]
         },
-        2024: {
-          title: "再出発への道のりの1年",
-          description: "うつ病で休職した会社を退職して、転職活動したり、ADHDの診断を受けたり、コーチングの学習継続、コミュニティ運営してましたがなかなか決まらず。12月に2025年はフリーランスとしてマジメに活動してみることを決意しました。",
-          tags: ["転職活動", "コーチング学習", "コミュニティ運営", "フリーランス準備"]
-        },
         2020: {
           title: "会社員とフリーランス",
           description: "・海外と子どもたちに関わる企業で正社員勤務<br />・個人事業でコーチング、ITコンサルタントも継続",
@@ -153,11 +148,6 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
           title: "Preparing for a Fresh Start!",
           description: "・Learning and practicing various generative AI tools (self-study)<br />・Learning manufacturing & 3D CAD (in-person courses)<br />Experimentally supporting individuals and companies with AI tool implementation.",
           tags: ["AI Learning", "3D CAD", "Individual & Corporate Support"]
-        },
-        2024: {
-          title: "A Year of Finding My Path",
-          description: "Left the company where I took sick leave due to depression, engaged in job hunting, received ADHD diagnosis, continued coaching studies, ran communities, but couldn't settle on anything. In December, decided to seriously pursue freelancing in 2025.",
-          tags: ["Job Hunting", "Coaching Studies", "Community Management", "Freelance Preparation"]
         },
         2020: {
           title: "Employee & Freelancer",
@@ -319,21 +309,6 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
                     </div>
                   </div>
 
-                  {/* 2024 */}
-                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                    <div className="flex-shrink-0 w-16 h-16 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-indigo-600 group-hover:scale-110 transition-all duration-300">
-                      2024
-                    </div>
-                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-indigo-400 group-hover:shadow-2xl group-hover:shadow-indigo-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors duration-300">{t.timeline[2024].title}</h3>
-                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2024].description }} />
-                      <div className="flex flex-wrap gap-2">
-                        {t.timeline[2024].tags.map((tag: string, index: number) => (
-                          <span key={index} className="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-sm">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
 
                   {/* 2023 */}
                   <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
