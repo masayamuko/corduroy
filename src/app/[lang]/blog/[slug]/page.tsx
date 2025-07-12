@@ -1,33 +1,9 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-
-// generateStaticParams: ビルド時に動的ルートを生成
-export async function generateStaticParams() {
-  const locales = ['ja', 'en'];
-  const allPaths: { lang: string; slug: string }[] = [];
-
-  for (const lang of locales) {
-    const postsDir = path.join(process.cwd(), 'src', 'posts', lang);
-    
-    if (fs.existsSync(postsDir)) {
-      const files = fs.readdirSync(postsDir);
-      for (const file of files) {
-        if (file.endsWith('.md') && !file.startsWith('_')) {
-          const slug = file.replace(/\.md$/, '');
-          allPaths.push({ lang, slug });
-        }
-      }
-    }
-  }
-  
-  // console.log('Generated blog paths:', allPaths);
-  return allPaths;
-}
+import ReactMarkdown from 'react-markdown'
 
 interface PageProps {
   params: {
@@ -48,197 +24,229 @@ export default function BlogPostPage({ params }: PageProps) {
   try {
     fileContents = fs.readFileSync(filePath, 'utf8');
   } catch (error) {
-    notFound(); // ファイルが見つからない場合は404
+    notFound();
   }
 
   const { data, content } = matter(fileContents);
 
-  // 安全な日付処理
-  const getValidDate = (dateValue: any): string => {
-    if (dateValue && typeof dateValue === 'string' && dateValue !== 'YYYY-MM-DD') {
-      return dateValue;
-    }
-    return '2025-01-01';
-  };
-
-  const blogPost = {
-    title: data.title || 'No Title',
-    content: content,
-    publishedAt: getValidDate(data.date || data.publishedAt),
-    updatedAt: getValidDate(data.updatedAt || data.date || data.publishedAt),
-    category: data.category || 'uncategorized',
-    readingTime: data.readingTime || 5,
-    tags: data.tags || [],
-    excerpt: data.excerpt || '',
-  };
-
-  const categoryLabels: { [key: string]: string } = {
-    'introduction': 'はじめに',
-    'story': 'ストーリー',
-    'benefits': 'メリット',
-    'technique': 'テクニック',
-    'case-study': 'ケーススタディ',
-    'advanced': 'アドバンス',
-    'uncategorized': '未分類',
-    'AI活用': 'AI活用',
-    'Blog': 'ブログ',
-    'Travel': '旅行',
-    'Life': 'ライフ',
-    'Tech': 'テック',
-  };
+  // タグの処理
+  const tags = data.tags || ['ブログ', 'AI活用'];
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": blogPost.title,
-            "image": "https://masayamuko.com/og-image.png", // 記事ごとのOGP画像があればそれを指定
-            "datePublished": blogPost.publishedAt,
-            "dateModified": blogPost.updatedAt,
-            "author": {
-              "@type": "Person",
-              "name": "Masaya",
-              "url": "https://masayamuko.com/about"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Masaya",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://res.cloudinary.com/dg3mdcuju/image/upload/v1751444000/masayatoai.jpg"
-              }
-            },
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": `https://masayamuko.com/${lang}/blog/${slug}`
-            },
-            "description": blogPost.excerpt,
-            "keywords": blogPost.tags.join(", "),
-            "articleBody": blogPost.content,
-          }),
-        }}
-      />
-      <div className="min-h-screen bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Header */}
+    <div className="min-h-screen bg-gray-50">
+      <div className="pt-24 pb-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* パンくずナビ */}
+          <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+            <Link href={`/${lang}`} className="hover:text-gray-900">
+              ホーム
+            </Link>
+            <span>/</span>
+            <Link href={`/${lang}/blog`} className="hover:text-gray-900">
+              ブログ
+            </Link>
+            <span>/</span>
+            <span className="text-gray-900">{data.title || '記事'}</span>
+          </nav>
+
+          {/* ヘッダー */}
           <header className="mb-8">
-            <nav className="text-sm text-gray-500 mb-4">
-              <ol className="list-none p-0 inline-flex">
-                <li className="flex items-center">
-                  <Link href={`/${lang}`} className="text-blue-600 hover:underline">ホーム</Link>
-                  <svg className="fill-current w-3 h-3 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
-                </li>
-                <li className="flex items-center">
-                  <Link href={`/${lang}/blog`} className="text-blue-600 hover:underline">ブログ</Link>
-                  <svg className="fill-current w-3 h-3 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>
-                </li>
-                <li className="flex items-center">
-                  <span>{blogPost.title}</span>
-                </li>
-              </ol>
-            </nav>
-            <div className="mb-4">
-              <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-medium rounded-full">
-                {categoryLabels[blogPost.category as keyof typeof categoryLabels]}
+            <div className="flex items-center space-x-2 mb-4">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                {data.category || 'ブログ'}
               </span>
+              <time className="text-gray-500">{data.date || '日付不明'}</time>
             </div>
 
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-              {blogPost.title}
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+              {data.title || 'タイトルなし'}
             </h1>
 
-            <div className="flex items-center gap-4 text-sm text-gray-600 mb-6">
-              <time dateTime={blogPost.publishedAt}>
-                公開日: {new Date(blogPost.publishedAt).toLocaleDateString('ja-JP', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </time>
-              <span>{blogPost.readingTime}分で読める</span>
-            </div>
-            {/* 著者情報を日付の下に移動 */}
-            <div className="flex items-center gap-2 mb-6">
-              <img src="/logo_masaya.png" alt="著者アイコン" className="w-8 h-8 rounded-full border border-orange-300" />
-              <span className="text-base font-semibold text-orange-800">Masaya</span>
+            {/* 著者情報 */}
+            <div className="flex items-center space-x-4 pb-6 border-b border-gray-200">
+              <img
+                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1751444000/masayatoai.jpg"
+                alt="Masaya"
+                className="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <p className="font-medium text-gray-900">Masaya</p>
+                <a
+                  href="https://x.com/MasayaToAi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                  @MasayaToAi
+                </a>
+              </div>
             </div>
 
-            {blogPost.excerpt && (
-              <p className="text-xl text-gray-700 leading-relaxed">
-                {blogPost.excerpt}
-              </p>
+            {/* 記事の概要 */}
+            {data.excerpt && (
+              <div className="mt-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                <p className="text-gray-800 leading-relaxed">{data.excerpt}</p>
+              </div>
             )}
           </header>
 
-          {/* Content */}
-          <article className="bg-white rounded-lg shadow-sm p-8 mb-8">
-            <div className="prose-custom">
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                components={{
-                  h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-900 mb-4">{children}</h1>,
-                  h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-800 mb-3 mt-8">{children}</h2>,
-                  h3: ({ children }) => (
-                    <h3 className="text-2xl font-bold text-orange-700 mb-2 mt-6 border-b-4 border-orange-400 pb-1">
-                      {children}
-                    </h3>
-                  ),
-                  p: ({ children }) => <p className="text-gray-700 leading-relaxed mb-4">{children}</p>,
-                  ul: ({ children }) => <ul className="list-disc list-inside mb-4 text-gray-700">{children}</ul>,
-                  ol: ({ children }) => <ol className="list-decimal list-inside mb-4 text-gray-700">{children}</ol>,
-                  blockquote: ({ children }) => <blockquote className="border-l-4 border-orange-500 pl-4 italic text-gray-600 mb-4">{children}</blockquote>,
-                  code: ({ children }) => <code className="bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm">{children}</code>,
-                  pre: ({ children }) => <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4">{children}</pre>,
-                }}
-              >
-                {blogPost.content}
-              </ReactMarkdown>
+          {/* メインコンテンツ */}
+          <article className="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div className="px-6 py-8 sm:px-8 sm:py-10">
+              <div className="prose prose-lg prose-gray max-w-none">
+                <ReactMarkdown
+                  components={{
+                    h1: ({ children }) => null,
+                    h2: ({ children }) => (
+                      <h2 className="text-xl font-bold text-white bg-orange-600 px-4 py-3 mt-8 mb-4 rounded-md shadow-sm">
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 className="text-lg font-bold text-orange-700 mt-6 mb-3 pb-2 border-b-2 border-orange-300">
+                        {children}
+                      </h3>
+                    ),
+                    p: ({ children }) => (
+                      <p className="text-gray-700 leading-7 mb-4">
+                        {children}
+                      </p>
+                    ),
+                    ul: ({ children }) => (
+                      <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1 ml-4">
+                        {children}
+                      </ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol className="list-decimal list-inside text-gray-700 mb-4 space-y-1 ml-4">
+                        {children}
+                      </ol>
+                    ),
+                    li: ({ children }) => (
+                      <li className="leading-7">{children}</li>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4 bg-gray-50 py-2">
+                        {children}
+                      </blockquote>
+                    ),
+                    code: ({ children }) => (
+                      <code className="bg-gray-100 text-gray-900 px-2 py-1 rounded text-sm font-mono">
+                        {children}
+                      </code>
+                    ),
+                    pre: ({ children }) => (
+                      <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-4 text-sm">
+                        {children}
+                      </pre>
+                    ),
+                    a: ({ href, children }) => (
+                      <a
+                        href={href}
+                        className="text-blue-600 hover:text-blue-800 underline"
+                        target={href?.startsWith('http') ? '_blank' : undefined}
+                        rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
+                        {children}
+                      </a>
+                    ),
+                    img: ({ src, alt }) => (
+                      <img
+                        src={src}
+                        alt={alt}
+                        className="w-full rounded-lg shadow-md my-6"
+                      />
+                    ),
+                  }}
+                >
+                  {content}
+                </ReactMarkdown>
+              </div>
             </div>
           </article>
 
-          {/* Tags */}
-          {blogPost.tags && blogPost.tags.length > 0 && (
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">タグ</h3>
-              <div className="flex flex-wrap gap-2">
-                {blogPost.tags.map((tag: string, index: number) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+          {/* タグ */}
+          <div className="mt-8">
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag: string, index: number) => (
+                <span
+                  key={index}
+                  className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* 記事最後のメッセージ */}
+          <div className="mt-12 mb-8">
+            <div className="flex items-start space-x-4 bg-orange-50 p-6 rounded-lg border border-orange-200">
+              <img
+                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1751444000/masayatoai.jpg"
+                alt="Masaya"
+                className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+              />
+              <div className="relative bg-white p-4 rounded-lg shadow-sm border border-orange-300 flex-1">
+                {/* 吹き出しの三角 */}
+                <div className="absolute left-0 top-4 transform -translate-x-2">
+                  <div className="w-0 h-0 border-t-[8px] border-t-transparent border-r-[12px] border-r-white border-b-[8px] border-b-transparent"></div>
+                  <div className="absolute w-0 h-0 border-t-[8px] border-t-transparent border-r-[12px] border-r-orange-300 border-b-[8px] border-b-transparent -translate-x-[1px]"></div>
+                </div>
+                <p className="text-gray-800 leading-relaxed">
+                  この記事が少しでも参考になったら、ぜひXでシェアや感想の引用リツイートいただけると嬉しいです！
+                </p>
+                <div className="mt-3">
+                  <a
+                    href="https://x.com/MasayaToAi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-orange-600 hover:text-orange-800 text-sm font-medium transition-colors"
                   >
-                    {tag}
-                  </span>
-                ))}
+                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    @MasayaToAi
+                  </a>
+                </div>
               </div>
             </div>
-          )}
+          </div>
 
-          {/* Navigation */}
-          <nav className="border-t border-gray-200 pt-8">
-            <div className="flex justify-between items-center">
-              <a
+          {/* ナビゲーション */}
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+              <Link
                 href={`/${lang}/blog`}
-                className="text-orange-600 hover:text-orange-700 font-medium transition-colors"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
               >
-                ← ブログ一覧に戻る
-              </a>
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                ブログ一覧に戻る
+              </Link>
 
-              <div className="flex gap-4">
-                <button className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors">
+              <div className="flex items-center space-x-4">
+                <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                  </svg>
                   シェア
                 </button>
-                <button className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
+                <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                  </svg>
                   ブックマーク
                 </button>
               </div>
             </div>
-          </nav>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

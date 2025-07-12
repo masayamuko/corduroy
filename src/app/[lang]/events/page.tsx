@@ -33,7 +33,7 @@ export default function EventsPage({ params }: { params: { lang: string } }) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full h-[320px] md:h-[420px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[320px] md:h-[420px] flex items-center justify-center overflow-hidden pt-24">
         <img 
           src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1751684284/Gemini_Generated_Image_1_i2nw7d.jpg" 
           alt="イベント背景" 

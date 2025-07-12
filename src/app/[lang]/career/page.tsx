@@ -6,7 +6,7 @@ export default function Career() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - 統一感のあるデザイン（高さ半分） */}
-      <section className="min-h-[25vh] relative bg-cover bg-center bg-no-repeat" style={{
+      <section className="min-h-[25vh] relative bg-cover bg-center bg-no-repeat pt-24" style={{
         backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1751644296/AI_Journey_Through_Nature_p3qkcd.png')"
       }}>
         <div className="container-narrow">

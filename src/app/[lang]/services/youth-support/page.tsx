@@ -6,7 +6,7 @@ export default function YouthSupportPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="section-alt">
+      <section className="section-alt pt-24">
         <div className="container-narrow">
           <div className="text-center space-y-12">
             <div className="space-y-8">

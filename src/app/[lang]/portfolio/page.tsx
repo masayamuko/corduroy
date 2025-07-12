@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-6xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 py-20 pt-28 sm:px-6 lg:px-8">
         {/* ヘッダー */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">

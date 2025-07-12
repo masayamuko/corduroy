@@ -79,7 +79,7 @@ export default function BlogPage({ params }: { params: { lang: string } }) {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center bg-no-repeat w-full flex items-center justify-center pt-20"
+        className="relative bg-cover bg-center bg-no-repeat w-full flex items-center justify-center"
         style={{
           height: "320px", // 必要に応じて調整
           backgroundImage:

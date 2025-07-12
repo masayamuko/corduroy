@@ -44,11 +44,11 @@ export default function Home({ lang = 'en' }: { lang?: string }) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Text-centric design */}
-      <section className="min-h-screen relative bg-cover bg-center bg-no-repeat" style={{
+      <section className="min-h-screen relative bg-cover bg-center bg-no-repeat pt-24" style={{
         backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1751644296/AI-Powered_Journey_Image_k7nfzy.png')"
       }}>
         <div className="container-narrow">
-          <div className="flex flex-col items-center justify-center min-h-screen text-center space-y-16">
+          <div className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] text-center space-y-16">
             {/* Main Catchphrase */}
             <div className="space-y-12 animate-fade-in">
               <h1 className="text-4xl md:text-6xl font-bold leading-relaxed text-balance text-black drop-shadow-lg">
@@ -93,7 +93,7 @@ export default function Home({ lang = 'en' }: { lang?: string }) {
                 </span>
               </button>
               <div className="relative group">
-                <Link href="https://www.masayamuko.com/blog" className="btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-blue-300/50 transition-all duration-300 hover:-rotate-2" target="_blank" rel="noopener noreferrer">
+                <Link href={`/${lang}/blog`} className="btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-blue-300/50 transition-all duration-300 hover:-rotate-2">
                   <span className="relative z-10 flex items-center gap-2">
                     <span className="group-hover:animate-bounce">📖</span>
                     Read Blog
@@ -125,7 +125,7 @@ export default function Home({ lang = 'en' }: { lang?: string }) {
                       <span className="absolute bottom-2 right-3 bg-orange-200 text-orange-800 text-xs font-bold px-2 py-0.5 rounded-full shadow">Recruiting</span>
                     </div>
                   </Link>
-                  <a href="https://www.masayamuko.com/blog/why-create-second-self" target="_blank" rel="noopener noreferrer" className="block">
+                  <Link href={`/${lang}/blog/why-create-second-self`} className="block">
                     <div className="flex items-start gap-3 p-3 bg-white/30 rounded-lg border-2 border-blue-200 hover:border-blue-400 transition-colors duration-200 cursor-pointer relative text-left">
                       <span className="text-lg">📖</span>
                       <div className="flex-1 min-w-0">
@@ -133,7 +133,7 @@ export default function Home({ lang = 'en' }: { lang?: string }) {
                       </div>
                       <span className="absolute bottom-2 right-3 bg-blue-200 text-blue-800 text-xs font-bold px-2 py-0.5 rounded-full shadow">Article</span>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
