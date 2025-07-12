@@ -96,40 +96,40 @@ export default function BlogPostPage({ params }: PageProps) {
           {/* メインコンテンツ */}
           <article className="bg-white rounded-lg shadow-sm overflow-hidden">
             <div className="px-6 py-8 sm:px-8 sm:py-10">
-              <div className="prose prose-lg prose-gray max-w-none">
+              <div className="prose prose-lg prose-gray max-w-none" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif' }}>
                 <ReactMarkdown
                   components={{
                     h1: ({ children }) => null,
                     h2: ({ children }) => (
-                      <h2 className="text-xl font-bold text-white bg-orange-600 px-4 py-3 mt-8 mb-4 rounded-md shadow-sm">
+                      <h2 className="text-xl font-bold text-white bg-orange-600 px-4 py-3 mt-10 mb-6 rounded-md shadow-sm" style={{ fontSize: '1.25rem', lineHeight: '1.4' }}>
                         {children}
                       </h2>
                     ),
                     h3: ({ children }) => (
-                      <h3 className="text-lg font-bold text-orange-700 mt-6 mb-3 pb-2 border-b-2 border-orange-300">
+                      <h3 className="text-lg font-bold text-orange-700 mt-8 mb-4 pb-2 border-b-2 border-orange-300" style={{ fontSize: '1.125rem', lineHeight: '1.4' }}>
                         {children}
                       </h3>
                     ),
                     p: ({ children }) => (
-                      <p className="text-gray-700 leading-7 mb-4">
+                      <p className="text-gray-800 text-base leading-relaxed mb-6" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
                         {children}
                       </p>
                     ),
                     ul: ({ children }) => (
-                      <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1 ml-4">
+                      <ul className="list-disc list-inside text-gray-800 mb-6 space-y-2 ml-4" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
                         {children}
                       </ul>
                     ),
                     ol: ({ children }) => (
-                      <ol className="list-decimal list-inside text-gray-700 mb-4 space-y-1 ml-4">
+                      <ol className="list-decimal list-inside text-gray-800 mb-6 space-y-2 ml-4" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
                         {children}
                       </ol>
                     ),
                     li: ({ children }) => (
-                      <li className="leading-7">{children}</li>
+                      <li className="leading-relaxed mb-1" style={{ lineHeight: '1.6' }}>{children}</li>
                     ),
                     blockquote: ({ children }) => (
-                      <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4 bg-gray-50 py-2">
+                      <blockquote className="border-l-4 border-gray-300 pl-6 italic text-gray-600 my-6 bg-gray-50 py-4" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
                         {children}
                       </blockquote>
                     ),
