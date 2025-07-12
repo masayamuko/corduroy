@@ -77,7 +77,27 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
       },
       pastCommunities: {
         title: "Past Communities",
-        subtitle: "Communities I've launched and managed over the years"
+        subtitle: "Communities I've launched and managed over the years",
+        picnic: {
+          title: "Picnic Circle",
+          description: "For 1-2 years after university graduation. Organized and hosted picnics with friends who enjoyed nature.",
+          period: "1-2 years post-graduation"
+        },
+        sharehouse1: {
+          title: "Sharehouse Noramame",
+          description: "Shared living with 4 friends. Experienced new lifestyle through sharehouse living.",
+          period: "Shared living with 4 friends"
+        },
+        sharehouse2: {
+          title: "Sharehouse & Homestay",
+          description: "My wife and I + 1 friend + international students. Experienced international communal living.",
+          period: "Couple + friend + students"
+        },
+        unipass: {
+          title: "Study Abroad & International Exchange Circle UniPass",
+          description: "University 3rd-4th year. Engaged in activities with students interested in study abroad and international exchange.",
+          period: "University 3rd-4th year"
+        }
       },
       backHome: "Back to Home"
     }
