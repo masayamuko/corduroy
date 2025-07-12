@@ -6,24 +6,28 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-// 一時的にgenerateStaticParamsを無効化（動的レンダリング）
-// export async function generateStaticParams({ params }: { params: { lang: string } }) {
-//   const postsDir = path.join(process.cwd(), 'src', 'posts', params.lang);
-//   const paths: { slug: string }[] = [];
+// generateStaticParams: ビルド時に動的ルートを生成
+export async function generateStaticParams() {
+  const locales = ['ja', 'en'];
+  const allPaths: { lang: string; slug: string }[] = [];
 
-//   if (fs.existsSync(postsDir)) {
-//     const files = fs.readdirSync(postsDir);
-//     for (const file of files) {
-//       if (file.endsWith('.md') && !file.startsWith('_')) {
-//         const slug = file.replace(/\.md$/, '');
-//         paths.push({ slug });
-//       }
-//     }
-//   }
+  for (const lang of locales) {
+    const postsDir = path.join(process.cwd(), 'src', 'posts', lang);
+    
+    if (fs.existsSync(postsDir)) {
+      const files = fs.readdirSync(postsDir);
+      for (const file of files) {
+        if (file.endsWith('.md') && !file.startsWith('_')) {
+          const slug = file.replace(/\.md$/, '');
+          allPaths.push({ lang, slug });
+        }
+      }
+    }
+  }
   
-//   console.log(`Generated paths for ${params.lang}:`, paths); // デバッグ用
-//   return paths;
-// }
+  // console.log('Generated blog paths:', allPaths);
+  return allPaths;
+}
 
 interface PageProps {
   params: {
@@ -32,19 +36,18 @@ interface PageProps {
   };
 }
 
+// 動的ルートを強制的に有効化
+export const dynamicParams = true;
+
 export default function BlogPostPage({ params }: PageProps) {
   const { lang, slug } = params;
 
-  console.log(`Loading blog post: ${lang}/${slug}`); // デバッグ用
-
   const filePath = path.join(process.cwd(), 'src', 'posts', lang, `${slug}.md`);
-  console.log(`File path: ${filePath}`); // デバッグ用
 
   let fileContents;
   try {
     fileContents = fs.readFileSync(filePath, 'utf8');
   } catch (error) {
-    console.error('Error reading file:', error); // デバッグ用
     notFound(); // ファイルが見つからない場合は404
   }
 
