@@ -1,11 +1,28 @@
 "use client"
 
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { useParams, usePathname } from 'next/navigation'
 
 export default function Footer() {
   const params = useParams()
   const lang = (params?.lang as string) || 'ja'
+  const pathname = usePathname()
+
+  const handleScrollToSection = (sectionId: string) => {
+    if (pathname === `/${lang}`) {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        const navHeight = 80 // ナビゲーションバーの高さ
+        const elementPosition = element.offsetTop - navHeight - 20 // 少し余裕を持たせる
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        })
+      }
+    } else {
+      window.location.href = `/${lang}#${sectionId}`
+    }
+  }
 
   return (
     <footer className="bg-gray-900 text-white py-10 mt-auto">
@@ -19,19 +36,28 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="text-base mb-4 text-white">ナビゲーション</h4>
+            <h4 className="text-base mb-4 text-white">MENU</h4>
             <div className="flex flex-col gap-2">
               <Link href={`/${lang}`} className="text-gray-300 hover:text-white text-sm transition-colors">
                 Home
               </Link>
-              <Link href={`/${lang}/blog`} className="text-gray-300 hover:text-white text-sm transition-colors">
-                Blog
-              </Link>
-              <Link href={`/${lang}/about`} className="text-gray-300 hover:text-white text-sm transition-colors">
+              <button 
+                onClick={() => handleScrollToSection('masaya-characteristics')}
+                className="text-gray-300 hover:text-white text-sm transition-colors text-left"
+              >
                 About
-              </Link>
+              </button>
+              <button 
+                onClick={() => handleScrollToSection('works')}
+                className="text-gray-300 hover:text-white text-sm transition-colors text-left"
+              >
+                Works
+              </button>
               <Link href={`/${lang}/events`} className="text-gray-300 hover:text-white text-sm transition-colors">
                 Events
+              </Link>
+              <Link href={`/${lang}/blog`} className="text-gray-300 hover:text-white text-sm transition-colors">
+                Blog
               </Link>
             </div>
           </div>
