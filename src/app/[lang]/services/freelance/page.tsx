@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function FreelanceSupport() {
+export default function FreelancePage({ params }: { params: { lang: string } }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="max-w-4xl mx-auto px-4 py-20 pt-28 sm:px-6 lg:px-8">
@@ -191,7 +191,7 @@ export default function FreelanceSupport() {
             >
               無料相談を申し込む
             </a>
-            <Link href="/" className="btn-secondary">
+            <Link href={`/${params.lang}`} className="btn-secondary">
               ホームに戻る
             </Link>
           </div>

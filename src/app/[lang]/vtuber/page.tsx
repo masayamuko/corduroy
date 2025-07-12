@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function VtuberPage() {
+export default function VtuberPage({ params }: { params: { lang: string } }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100">
       <div className="max-w-4xl mx-auto px-4 py-20 pt-28 sm:px-6 lg:px-8">
@@ -184,7 +184,7 @@ export default function VtuberPage() {
             >
               最新情報を受け取る
             </a>
-            <Link href="/" className="btn-secondary">
+            <Link href={`/${params.lang}`} className="btn-secondary">
               ホームに戻る
             </Link>
           </div>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-export default function BoardgamePage() {
+export default function BoardgameEventPage({ params }: { params: { lang: string } }) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -10,7 +10,7 @@ export default function BoardgamePage() {
         <div className="container-narrow">
           <div className="text-center space-y-12">
             <div className="space-y-8">
-              <Link href="/" className="inline-block text-gray-600 hover:text-black transition-colors duration-300">
+              <Link href={`/${params.lang}`} className="inline-block text-gray-600 hover:text-black transition-colors duration-300">
                 ← ホームに戻る
               </Link>
               <h1 className="text-4xl md:text-5xl font-bold">AIでボドゲつくらNight</h1>

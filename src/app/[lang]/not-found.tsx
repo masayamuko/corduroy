@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function NotFound() {
+export default function NotFound({ params }: { params: { lang: string } }) {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="max-w-2xl mx-auto px-4 text-center">
@@ -26,7 +26,7 @@ export default function NotFound() {
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
               <Link 
-                href="/blog" 
+                href={`/${params.lang}/blog`} 
                 className="block p-4 border border-gray-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all duration-300"
               >
                 <div className="text-blue-600 font-semibold mb-2">📖 ブログ</div>
@@ -34,7 +34,7 @@ export default function NotFound() {
               </Link>
               
               <Link 
-                href="/about" 
+                href={`/${params.lang}/about`} 
                 className="block p-4 border border-gray-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all duration-300"
               >
                 <div className="text-blue-600 font-semibold mb-2">👤 プロフィール</div>
@@ -42,7 +42,7 @@ export default function NotFound() {
               </Link>
               
               <Link 
-                href="/events/boardgame" 
+                href={`/${params.lang}/events/boardgame`} 
                 className="block p-4 border border-gray-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all duration-300"
               >
                 <div className="text-blue-600 font-semibold mb-2">🎲 ボードゲーム制作会</div>
@@ -50,7 +50,7 @@ export default function NotFound() {
               </Link>
               
               <Link 
-                href="/projects/second-self" 
+                href={`/${params.lang}/projects/second-self`} 
                 className="block p-4 border border-gray-200 rounded-lg hover:border-blue-400 hover:shadow-md transition-all duration-300"
               >
                 <div className="text-blue-600 font-semibold mb-2">🤖 第二の自分</div>
@@ -62,7 +62,7 @@ export default function NotFound() {
           {/* アクション */}
           <div className="space-y-4">
             <Link 
-              href="/" 
+              href={`/${params.lang}`} 
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300"
             >
               ホームに戻る

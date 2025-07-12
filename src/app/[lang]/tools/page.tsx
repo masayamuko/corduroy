@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function ToolsPage() {
+export default function ToolsPage({ params }: { params: { lang: string } }) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - 統一感のあるデザイン（高さ半分） */}
@@ -252,7 +252,7 @@ export default function ToolsPage() {
       <section className="section">
         <div className="container-narrow text-center">
           <div className="space-y-8">
-            <Link href="/" className="group btn btn-primary text-lg px-8 py-4 relative overflow-hidden">
+            <Link href={`/${params.lang}`} className="group btn btn-primary text-lg px-8 py-4 relative overflow-hidden">
               <span className="flex items-center gap-3">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />

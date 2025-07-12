@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-export default function Career() {
+export default function Career({ params }: { params: { lang: string } }) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - 統一感のあるデザイン（高さ半分） */}
@@ -365,7 +365,7 @@ export default function Career() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href="/" className="group btn btn-primary text-lg px-8 py-4 relative overflow-hidden">
+                <Link href={`/${params.lang}/`} className="group btn btn-primary text-lg px-8 py-4 relative overflow-hidden">
                   <span className="flex items-center gap-3">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -376,14 +376,14 @@ export default function Career() {
                     </svg>
                   </span>
                 </Link>
-                <Link href="/tools" className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-blue-300/50 transition-all duration-300 hover:-rotate-2">
+                <Link href={`/${params.lang}/tools`} className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-blue-300/50 transition-all duration-300 hover:-rotate-2">
                   <span className="relative z-10 flex items-center gap-2">
                     <span className="group-hover:animate-bounce">🔧</span>
                     活用ツールを見る
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
-                <Link href="/community" className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-green-300/50 transition-all duration-300 hover:-rotate-2">
+                <Link href={`/${params.lang}/community`} className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-green-300/50 transition-all duration-300 hover:-rotate-2">
                   <span className="relative z-10 flex items-center gap-2">
                     <span className="group-hover:animate-bounce">🤝</span>
                     コミュニティについて

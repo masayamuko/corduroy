@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-export default function About() {
+export default function About({ params }: { params: { lang: string } }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
       {/* Hero Section - 自然と成長のテーマ */}
@@ -95,7 +95,7 @@ export default function About() {
                   20代前半のフィリピン留学で、文化の違い、価値観の違い、そして「違い」そのものの美しさを学びました。
                   異なる背景を持つ人々と出会い、自分の当たり前が通用しない世界で、新しい視点と柔軟性を身につけました。
                 </p>
-                <Link href="/career" className="inline-block bg-green-400/20 hover:bg-green-400 text-green-300 hover:text-green-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-green-400/30 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/25 text-sm backdrop-blur-sm">
+                <Link href={`/${params.lang}/career`} className="inline-block bg-green-400/20 hover:bg-green-400 text-green-300 hover:text-green-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-green-400/30 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/25 text-sm backdrop-blur-sm">
                   留学体験記
                 </Link>
               </div>
@@ -112,7 +112,7 @@ export default function About() {
                   相手の成長を支え、同時に自分も成長する。この相互支援の関係性が、今のコミュニティ作りや
                   人と人をつなぐ活動の原点になっています。
                 </p>
-                <Link href="/community" className="inline-block bg-emerald-400/20 hover:bg-emerald-400 text-emerald-300 hover:text-emerald-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-emerald-400/30 hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-400/25 text-sm backdrop-blur-sm">
+                <Link href={`/${params.lang}/community`} className="inline-block bg-emerald-400/20 hover:bg-emerald-400 text-emerald-300 hover:text-emerald-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-emerald-400/30 hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-400/25 text-sm backdrop-blur-sm">
                   パートナーシップについて
                 </Link>
               </div>
@@ -129,7 +129,7 @@ export default function About() {
                   答えを教えるのではなく、相手の中にある答えを引き出す。この姿勢が、
                   AI活用のサポートやコミュニティ運営でも活かされています。
                 </p>
-                <Link href="/services" className="inline-block bg-teal-400/20 hover:bg-teal-400 text-teal-300 hover:text-teal-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-teal-400/30 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-400/25 text-sm backdrop-blur-sm">
+                <Link href={`/${params.lang}/services`} className="inline-block bg-teal-400/20 hover:bg-teal-400 text-teal-300 hover:text-teal-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-teal-400/30 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-400/25 text-sm backdrop-blur-sm">
                   コーチングサービス
                 </Link>
               </div>
@@ -159,7 +159,7 @@ export default function About() {
                     <h4 className="text-xl font-semibold text-green-900 group-hover:text-green-600 transition-colors duration-300">新しいモノ好き</h4>
                     <p className="text-green-700 group-hover:text-green-800 transition-colors duration-300">最新のAIツールは必ずチェック。人柱になって課金し、「これは使える！」を見つけるのが趣味。失敗も含めて楽しんでいます。</p>
                   </div>
-                  <Link href="/tools" className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-300/50 group-hover:scale-105">
+                  <Link href={`/${params.lang}/tools`} className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-300/50 group-hover:scale-105">
                     活用中ツール
                   </Link>
                 </div>
@@ -176,7 +176,7 @@ export default function About() {
                     <h4 className="text-xl font-semibold text-green-900 group-hover:text-green-600 transition-colors duration-300">わかりやすさ重視</h4>
                     <p className="text-green-700 group-hover:text-green-800 transition-colors duration-300">日本語教師、IT担当、コーチの経験から、「相手の立場で考える」「簡潔に伝える」を常に意識。専門用語は使わず、具体例で説明します。</p>
                   </div>
-                  <Link href="/career" className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-emerald-300/50 group-hover:scale-105">
+                  <Link href={`/${params.lang}/career`} className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-emerald-300/50 group-hover:scale-105">
                     経歴詳細
                   </Link>
                 </div>
@@ -193,7 +193,7 @@ export default function About() {
                     <h4 className="text-xl font-semibold text-green-900 group-hover:text-green-600 transition-colors duration-300">つなぐことが好き</h4>
                     <p className="text-green-700 group-hover:text-green-800 transition-colors duration-300">人と人をつなぎ、新しい化学反応が生まれる場作りが得意。コミュニティ運営やイベント企画で多くの出会いを生み出してきました。</p>
                   </div>
-                  <Link href="/community" className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-teal-300/50 group-hover:scale-105">
+                  <Link href={`/${params.lang}/community`} className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-teal-300/50 group-hover:scale-105">
                     コミュニティ詳細
                   </Link>
                 </div>
@@ -222,7 +222,7 @@ export default function About() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href="/" className="group btn btn-primary text-lg px-8 py-4 relative overflow-hidden bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700">
+                <Link href={`/${params.lang}`} className="group btn btn-primary text-lg px-8 py-4 relative overflow-hidden bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700">
                   <span className="flex items-center gap-3">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -233,14 +233,14 @@ export default function About() {
                     </svg>
                   </span>
                 </Link>
-                <Link href="/career" className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-green-300/50 transition-all duration-300 hover:-rotate-2 bg-green-500/20 hover:bg-green-500 text-green-300 hover:text-green-900 border-green-500/30 hover:border-green-500">
+                <Link href={`/${params.lang}/career`} className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-green-300/50 transition-all duration-300 hover:-rotate-2 bg-green-500/20 hover:bg-green-500 text-green-300 hover:text-green-900 border-green-500/30 hover:border-green-500">
                   <span className="relative z-10 flex items-center gap-2">
                     <span className="group-hover:animate-bounce">🌿</span>
                     経歴を見る
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
-                <Link href="/community" className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-emerald-300/50 transition-all duration-300 hover:-rotate-2 bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-emerald-900 border-emerald-500/30 hover:border-emerald-500">
+                <Link href={`/${params.lang}/community`} className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-emerald-300/50 transition-all duration-300 hover:-rotate-2 bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-emerald-900 border-emerald-500/30 hover:border-emerald-500">
                   <span className="relative z-10 flex items-center gap-2">
                     <span className="group-hover:animate-bounce">🌳</span>
                     コミュニティについて
