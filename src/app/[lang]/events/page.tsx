@@ -21,7 +21,7 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
           price: '無料',
           link: `/${lang}/events/boardgame`,
           status: 'upcoming',
-          image: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1751684284/Gemini_Generated_Image_1_i2nw7d.jpg'
+          image: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1751450178/aibg04_xaad2j.jpg'
         },
         {
           id: 'ai-share',
@@ -54,7 +54,7 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
           price: 'Free',
           link: `/${lang}/events/boardgame`,
           status: 'upcoming',
-          image: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1751684284/Gemini_Generated_Image_1_i2nw7d.jpg'
+          image: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1751450178/aibg04_xaad2j.jpg'
         },
         {
           id: 'ai-share',
@@ -79,7 +79,7 @@ export default async function EventsPage({ params }: { params: Promise<{ lang: s
       {/* Hero Section */}
       <section className="relative w-full h-[320px] md:h-[420px] flex items-center justify-center overflow-hidden pt-24">
         <img 
-          src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1751684284/Gemini_Generated_Image_1_i2nw7d.jpg" 
+          src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1752311488/masan_dayo__--ar_8952_--profile_njfaa7d_--v_7_7fd259a6-5956-43c0-bffa-5371c751281f_2_jbguxn.png" 
           alt={t.altText} 
           className="absolute inset-0 w-full h-full object-cover object-center z-0 brightness-75" 
         />
