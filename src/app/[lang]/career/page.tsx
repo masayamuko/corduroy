@@ -48,26 +48,6 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
           description: "・個人ブログ運営<br />・広告運用代行<br />・IT顧問<br />・海外個人輸出<br />・コーチング<br />などいろんな仕事を経験してきました。",
           tags: ["ブログ運営", "広告運用", "IT顧問", "海外輸出", "コーチング"]
         },
-        2023: {
-          title: "生成AI活用研究開始",
-          description: "ChatGPTの登場を機に、「第二の自分」の構築を意識して生成AI活用研究を開始。業務効率化とクリエイティブ活動の両面で可能性を探求。",
-          tags: ["生成AI研究", "第二の自分", "業務効率化"]
-        },
-        2022: {
-          title: "転職3社目：ERP導入・ウェビナー講師",
-          description: "基幹システム（ERP）導入プロジェクトでIT担当として参画。社内DXを推進。並行してウェビナー講師として登壇し、知識共有活動を展開。",
-          tags: ["ERP導入", "DX推進", "ウェビナー講師"]
-        },
-        2019: {
-          title: "転職2社目：ソフトウェア開発・コーチング開始",
-          description: "ソフトウェア開発会社でサポート業務。この頃からコーチングの学習を本格的に開始。500時間以上の実践を積み、人との関わりにより深い価値を見出す。",
-          tags: ["ソフトウェア開発", "コーチング学習", "500時間実践"]
-        },
-        2017: {
-          title: "転職1社目：人事・採用業務",
-          description: "人事採用の専門会社で採用コンサルタント業務。企業と求職者をつなぐ仕事を通じて、マッチングや関係構築のスキルを磨く。",
-          tags: ["人事採用", "採用コンサル", "マッチング"]
-        },
         2013: {
           title: "フリーターしながら模索",
           description: "人との繋がりで紹介を中心に興味ある仕事を経験させてもらいました。<br />パン屋、留学会社、WEB制作会社、貿易会社、ホームステイの会社、イベント会社、ゲストハウス、社会的養護施設、日本語学校。この時、WEBデザインの学校と日本語教師養成講座にも通いました。",
@@ -158,26 +138,6 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
           title: "Full-time Freelancer",
           description: "・Personal blog management<br />・Advertising operations<br />・IT consulting<br />・International personal export<br />・Coaching<br />Experienced various types of work.",
           tags: ["Blog Management", "Advertising", "IT Consulting", "International Export", "Coaching"]
-        },
-        2023: {
-          title: "Started Generative AI Research",
-          description: "With the emergence of ChatGPT, began research on generative AI utilization with focus on building my 'second self'. Explored possibilities in both business efficiency and creative activities.",
-          tags: ["Generative AI Research", "Second Self", "Business Efficiency"]
-        },
-        2022: {
-          title: "3rd Company: ERP Implementation & Webinar Instructor",
-          description: "Participated in Enterprise Resource Planning (ERP) implementation project as IT coordinator. Promoted internal DX. Simultaneously worked as webinar instructor for knowledge sharing activities.",
-          tags: ["ERP Implementation", "DX Promotion", "Webinar Instructor"]
-        },
-        2019: {
-          title: "2nd Company: Software Development & Coaching Start",
-          description: "Support work at software development company. Began serious coaching studies during this period. Accumulated over 500 hours of practice, finding deeper value in human relationships.",
-          tags: ["Software Development", "Coaching Studies", "500+ Hours Practice"]
-        },
-        2017: {
-          title: "1st Company: HR & Recruitment",
-          description: "Recruitment consultant at HR specialist company. Developed matching and relationship building skills through connecting companies and job seekers.",
-          tags: ["HR Recruitment", "Recruitment Consulting", "Matching"]
         },
         2013: {
           title: "Exploring While Freelancing",
@@ -310,69 +270,6 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
                   </div>
 
 
-                  {/* 2023 */}
-                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                    <div className="flex-shrink-0 w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-teal-600 group-hover:scale-110 transition-all duration-300">
-                      2023
-                    </div>
-                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-teal-400 group-hover:shadow-2xl group-hover:shadow-teal-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors duration-300">{t.timeline[2023].title}</h3>
-                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2023].description }} />
-                      <div className="flex flex-wrap gap-2">
-                        {t.timeline[2023].tags.map((tag: string, index: number) => (
-                          <span key={index} className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 2022 */}
-                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                    <div className="flex-shrink-0 w-16 h-16 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-cyan-600 group-hover:scale-110 transition-all duration-300">
-                      2022
-                    </div>
-                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-cyan-400 group-hover:shadow-2xl group-hover:shadow-cyan-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-cyan-600 transition-colors duration-300">{t.timeline[2022].title}</h3>
-                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2022].description }} />
-                      <div className="flex flex-wrap gap-2">
-                        {t.timeline[2022].tags.map((tag: string, index: number) => (
-                          <span key={index} className="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-sm">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 2019 */}
-                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                    <div className="flex-shrink-0 w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-pink-600 group-hover:scale-110 transition-all duration-300">
-                      2019
-                    </div>
-                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-pink-400 group-hover:shadow-2xl group-hover:shadow-pink-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors duration-300">{t.timeline[2019].title}</h3>
-                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2019].description }} />
-                      <div className="flex flex-wrap gap-2">
-                        {t.timeline[2019].tags.map((tag: string, index: number) => (
-                          <span key={index} className="bg-pink-100 text-pink-800 px-2 py-1 rounded text-sm">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 2017 */}
-                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                    <div className="flex-shrink-0 w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-yellow-600 group-hover:scale-110 transition-all duration-300">
-                      2017
-                    </div>
-                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-yellow-400 group-hover:shadow-2xl group-hover:shadow-yellow-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors duration-300">{t.timeline[2017].title}</h3>
-                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2017].description }} />
-                      <div className="flex flex-wrap gap-2">
-                        {t.timeline[2017].tags.map((tag: string, index: number) => (
-                          <span key={index} className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
 
                   {/* 2013 */}
                   <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
