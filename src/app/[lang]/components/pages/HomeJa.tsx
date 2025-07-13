@@ -116,7 +116,7 @@ export default function Home({ lang = 'ja' }: { lang?: string }) {
                   <h3 className="text-lg font-bold text-gray-800">News</h3>
                 </div>
                 <div className="space-y-3">
-                  <Link href={`/${lang}/events/boardgame`} className="block">
+                  <Link href={`/${lang}/events/`} className="block">
                     <div className="flex items-start gap-3 p-3 bg-white/30 rounded-lg border-2 border-blue-200 hover:border-blue-400 transition-colors duration-200 cursor-pointer relative text-left">
                       <span className="text-lg">🎲</span>
                       <div className="flex-1 min-w-0">
@@ -301,7 +301,7 @@ export default function Home({ lang = 'ja' }: { lang?: string }) {
                       <h4 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">AIでボドゲつくらNight</h4>
                       <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">AIを活用してオリジナルボードゲームを制作するクリエイティブなイベント。アイデア出しから実際の制作まで、参加者同士で楽しみながら新しいゲームを生み出しています。</p>
                     </div>
-                    <Link href={`/${lang}/events/boardgame`} className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-300/50 group-hover:scale-105">
+                    <Link href={`/${lang}/events/`} className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-300/50 group-hover:scale-105">
                       詳細を見る
                     </Link>
                   </div>

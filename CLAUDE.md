@@ -1,5 +1,9 @@
 # Claude開発メモ
 
+## 応答ルール
+
+**重要:** 応答は基本的に日本語で行うこと
+
 ## エラー対策・注意事項
 
 ### Next.js App Router vs Pages Router 競合問題
