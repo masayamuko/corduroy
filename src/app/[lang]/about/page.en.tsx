@@ -1,8 +1,10 @@
 "use client"
 
 import Link from 'next/link'
+import { use } from 'react'
 
-export default function About({ params }: { params: { lang: string } }) {
+export default function About({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = use(params);
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
       {/* Hero Section - Nature and Growth Theme */}
@@ -95,7 +97,7 @@ export default function About({ params }: { params: { lang: string } }) {
                   In my early 20s, studying abroad in the Philippines, I learned the beauty of cultural differences, value differences, and "differences" themselves.
                   Meeting people from different backgrounds, I gained new perspectives and flexibility in a world where my assumptions didn't apply.
                 </p>
-                <Link href={`/${params.lang}/career`} className="inline-block bg-green-400/20 hover:bg-green-400 text-green-300 hover:text-green-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-green-400/30 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/25 text-sm backdrop-blur-sm">
+                <Link href={`/${lang}/career`} className="inline-block bg-green-400/20 hover:bg-green-400 text-green-300 hover:text-green-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-green-400/30 hover:border-green-400 hover:shadow-lg hover:shadow-green-400/25 text-sm backdrop-blur-sm">
                   Study Abroad Experience
                 </Link>
               </div>
@@ -111,7 +113,7 @@ export default function About({ params }: { params: { lang: string } }) {
                   Through married life, I realized that what cannot be achieved alone can be overcome together.
                   Supporting each other's growth, and growing myself at the same time. This reciprocal relationship is the origin of my current community building and connecting people.
                 </p>
-                <Link href={`/${params.lang}/community`} className="inline-block bg-emerald-400/20 hover:bg-emerald-400 text-emerald-300 hover:text-emerald-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-emerald-400/30 hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-400/25 text-sm backdrop-blur-sm">
+                <Link href={`/${lang}/community`} className="inline-block bg-emerald-400/20 hover:bg-emerald-400 text-emerald-300 hover:text-emerald-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-emerald-400/30 hover:border-emerald-400 hover:shadow-lg hover:shadow-emerald-400/25 text-sm backdrop-blur-sm">
                   About Partnership
                 </Link>
               </div>
@@ -127,7 +129,7 @@ export default function About({ params }: { params: { lang: string } }) {
                   Through my coaching experience, I learned the importance of deeply listening to others.
                   Instead of giving answers, drawing out the answers within them. This attitude is also utilized in AI utilization support and community management.
                 </p>
-                <Link href={`/${params.lang}/services`} className="inline-block bg-teal-400/20 hover:bg-teal-400 text-teal-300 hover:text-teal-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-teal-400/30 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-400/25 text-sm backdrop-blur-sm">
+                <Link href={`/${lang}/services`} className="inline-block bg-teal-400/20 hover:bg-teal-400 text-teal-300 hover:text-teal-900 font-semibold py-3 px-6 rounded-lg transition-all duration-300 border border-teal-400/30 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-400/25 text-sm backdrop-blur-sm">
                   Coaching Services
                 </Link>
               </div>
@@ -157,7 +159,7 @@ export default function About({ params }: { params: { lang: string } }) {
                     <h4 className="text-xl font-semibold text-green-900 group-hover:text-green-600 transition-colors duration-300">Loves New Things</h4>
                     <p className="text-green-700 group-hover:text-green-800 transition-colors duration-300">Always checking the latest AI tools. My hobby is to invest in them and find what's truly useful! I enjoy even the failures.</p>
                   </div>
-                  <Link href={`/${params.lang}/tools`} className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-300/50 group-hover:scale-105">
+                  <Link href={`/${lang}/tools`} className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-300/50 group-hover:scale-105">
                     Tools in Use
                   </Link>
                 </div>
@@ -174,7 +176,7 @@ export default function About({ params }: { params: { lang: string } }) {
                     <h4 className="text-xl font-semibold text-green-900 group-hover:text-green-600 transition-colors duration-300">Emphasizes Clarity</h4>
                     <p className="text-green-700 group-hover:text-green-800 transition-colors duration-300">From my experience as a Japanese teacher, IT manager, and coach, I always prioritize "thinking from the other person's perspective" and "communicating concisely." I avoid jargon and explain with concrete examples.</p>
                   </div>
-                  <Link href={`/${params.lang}/career`} className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-emerald-300/50 group-hover:scale-105">
+                  <Link href={`/${lang}/career`} className="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-emerald-300/50 group-hover:scale-105">
                     Career Details
                   </Link>
                 </div>
@@ -191,7 +193,7 @@ export default function About({ params }: { params: { lang: string } }) {
                     <h4 className="text-xl font-semibold text-green-900 group-hover:text-green-600 transition-colors duration-300">Loves Connecting People</h4>
                     <p className="text-green-700 group-hover:text-green-800 transition-colors duration-300">I excel at creating spaces where people connect and new chemical reactions are born. I've created many encounters through community management and event planning.</p>
                   </div>
-                  <Link href={`/${params.lang}/community`} className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-teal-300/50 group-hover:scale-105">
+                  <Link href={`/${lang}/community`} className="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-teal-300/50 group-hover:scale-105">
                     Community Details
                   </Link>
                 </div>
@@ -220,7 +222,7 @@ export default function About({ params }: { params: { lang: string } }) {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Link href={`/${params.lang}`} className="group btn btn-primary text-lg px-8 py-4 relative overflow-hidden bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700">
+                <Link href={`/${lang}`} className="group btn btn-primary text-lg px-8 py-4 relative overflow-hidden bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700">
                   <span className="flex items-center gap-3">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -231,14 +233,14 @@ export default function About({ params }: { params: { lang: string } }) {
                     </svg>
                   </span>
                 </Link>
-                <Link href={`/${params.lang}/career`} className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-green-300/50 transition-all duration-300 hover:-rotate-2 bg-green-500/20 hover:bg-green-500 text-green-300 hover:text-green-900 border-green-500/30 hover:border-green-500">
+                <Link href={`/${lang}/career`} className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-green-300/50 transition-all duration-300 hover:-rotate-2 bg-green-500/20 hover:bg-green-500 text-green-300 hover:text-green-900 border-green-500/30 hover:border-green-500">
                   <span className="relative z-10 flex items-center gap-2">
                     <span className="group-hover:animate-bounce">🌿</span>
                     View Career
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
-                <Link href={`/${params.lang}/community`} className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-emerald-300/50 transition-all duration-300 hover:-rotate-2 bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-emerald-900 border-emerald-500/30 hover:border-emerald-500">
+                <Link href={`/${lang}/community`} className="group btn btn-secondary text-lg px-8 py-4 relative overflow-hidden hover:scale-110 hover:shadow-2xl hover:shadow-emerald-300/50 transition-all duration-300 hover:-rotate-2 bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-emerald-900 border-emerald-500/30 hover:border-emerald-500">
                   <span className="relative z-10 flex items-center gap-2">
                     <span className="group-hover:animate-bounce">🌳</span>
                     About Community

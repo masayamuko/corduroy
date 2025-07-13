@@ -72,8 +72,9 @@ function getPosts(lang: string) {
   }
 }
 
-export default function BlogPage({ params }: { params: { lang: string } }) {
-  const posts = getPosts(params.lang);
+export default async function BlogPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const posts = getPosts(lang);
   console.log('Blog posts from Markdown:', posts);
   return (
     <div className="min-h-screen bg-white">
@@ -103,7 +104,7 @@ export default function BlogPage({ params }: { params: { lang: string } }) {
             {posts && posts.length > 0 ? posts.map((post) => (
               <Link 
                 key={post.slug} 
-                href={`/${params.lang}/blog/${post.slug}`}
+                href={`/${lang}/blog/${post.slug}`}
                 className="block bg-orange-100/80 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group border border-orange-200 h-full"
               >
                 {/* サムネイル画像（frontmatterにimageがあれば） */}
