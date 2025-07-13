@@ -1,6 +1,6 @@
 export type Lang = 'ja' | 'en'
 
-export interface Translation {
+export interface MetaTranslation {
   title: {
     default: string
     template: string
@@ -16,6 +16,33 @@ export interface Translation {
     title: string
     description: string
   }
+}
+
+export interface CommonTranslation {
+  backHome: string
+  readMore: string
+  viewDetails: string
+  loading: string
+  error: string
+  fateMessage: string
+  dmRequest: string
+}
+
+export interface NavigationTranslation {
+  home: string
+  about: string
+  career: string
+  works: string
+  events: string
+  blog: string
+  community: string
+  tools: string
+  services: string
+}
+
+export interface Translation extends MetaTranslation {
+  common: CommonTranslation
+  nav: NavigationTranslation
 }
 
 export type Translations = Record<Lang, Translation>

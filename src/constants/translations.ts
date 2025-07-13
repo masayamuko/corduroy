@@ -17,6 +17,26 @@ export const translations: Translations = {
       title: "Masaya Official Site",
       description: 'AI活用サポーター・クリエイター。ChatGPTを「第二の自分」として育てる独自手法を開発。福岡でAI活用支援とクリエイティブ活動を展開。',
     },
+    common: {
+      backHome: "ホームに戻る",
+      readMore: "続きを読む",
+      viewDetails: "詳細を見る",
+      loading: "読み込み中...",
+      error: "エラーが発生しました",
+      fateMessage: "これも何かのご縁！",
+      dmRequest: "\"似たような興味や情熱を持っている！\"\"正也が知識や経験のあることに興味がある！\"そんな方は気軽にDMください☺️"
+    },
+    nav: {
+      home: "ホーム",
+      about: "About",
+      career: "Career",
+      works: "Works", 
+      events: "イベント",
+      blog: "ブログ",
+      community: "コミュニティ",
+      tools: "ツール",
+      services: "サービス"
+    }
   },
   en: {
     title: {
@@ -34,5 +54,25 @@ export const translations: Translations = {
       title: "Masaya Official Site",
       description: 'AI utilization supporter and creator. Developed a unique method to train ChatGPT as a "second self." Supporting AI utilization and creative activities in Fukuoka.',
     },
+    common: {
+      backHome: "Back to Home",
+      readMore: "Read More",
+      viewDetails: "View Details",
+      loading: "Loading...",
+      error: "An error occurred",
+      fateMessage: "This must be fate!",
+      dmRequest: "\"Similar interests and passions!\"\"Interested in something Masaya is knowledgeable about or experienced in!\"Please feel free to send me a DM☺️"
+    },
+    nav: {
+      home: "Home",
+      about: "About",
+      career: "Career", 
+      works: "Works",
+      events: "Events",
+      blog: "Blog",
+      community: "Community",
+      tools: "Tools",
+      services: "Services"
+    }
   },
 } as const
