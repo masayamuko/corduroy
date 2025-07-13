@@ -24,7 +24,9 @@ export const translations: Translations = {
       loading: "読み込み中...",
       error: "エラーが発生しました",
       fateMessage: "これも何かのご縁！",
-      dmRequest: "\"似たような興味や情熱を持っている！\"\"正也が知識や経験のあることに興味がある！\"そんな方は気軽にDMください☺️"
+      dmRequest: "\"似たような興味や情熱を持っている！\"\"正也が知識や経験のあることに興味がある！\"そんな方は気軽にDMください☺️",
+      switchLanguage: "言語を切り替える",
+      currentLanguage: "現在の言語"
     },
     nav: {
       home: "ホーム",
@@ -61,7 +63,9 @@ export const translations: Translations = {
       loading: "Loading...",
       error: "An error occurred",
       fateMessage: "This must be fate!",
-      dmRequest: "\"Similar interests and passions!\"\"Interested in something Masaya is knowledgeable about or experienced in!\"Please feel free to send me a DM☺️"
+      dmRequest: "\"Similar interests and passions!\"\"Interested in something Masaya is knowledgeable about or experienced in!\"Please feel free to send me a DM☺️",
+      switchLanguage: "Switch Language",
+      currentLanguage: "Current Language"
     },
     nav: {
       home: "Home",

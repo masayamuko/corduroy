@@ -9,7 +9,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate-translations": "node scripts/validate-translations.js",
+    "build:full": "npm run validate-translations && npm run build"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

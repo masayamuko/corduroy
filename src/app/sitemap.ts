@@ -1,17 +1,17 @@
 import { MetadataRoute } from 'next'
-import { getAllPosts } from '@/lib/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://masayamuko.com'
   const currentDate = new Date()
-  const posts = getAllPosts() // getAllPostsはすべての言語の投稿を返すようになりました
   
-  const postUrls = posts.map((post) => ({
-    url: `${baseUrl}/${post.lang}/blog/${post.slug}`, // 言語を追加
-    lastModified: post.updatedAt || post.publishedAt, // updatedAtを優先
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  // Helper function to create alternates for each page
+  const createAlternates = (path: string) => ({
+    languages: {
+      'ja': `${baseUrl}/ja${path}`,
+      'en': `${baseUrl}/en${path}`,
+      'x-default': `${baseUrl}/ja${path}` // Default to Japanese
+    }
+  })
 
   return [
     {
@@ -207,6 +207,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
-    ...postUrls,
   ]
 }

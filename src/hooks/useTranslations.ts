@@ -1,5 +1,6 @@
 import { translations } from '@/constants/translations'
 import { Lang, Translation } from '@/types'
+import { logTranslationWarnings, getSafeTranslation } from '@/utils/translationValidator'
 
 /**
  * Get translations for a specific language with strict type checking
@@ -8,6 +9,11 @@ import { Lang, Translation } from '@/types'
  */
 export function getTranslations(lang: string): Translation {
   const langKey = lang as Lang
+  
+  // Run validation warnings in development
+  if (process.env.NODE_ENV === 'development') {
+    logTranslationWarnings()
+  }
   
   // Validate language key
   if (!translations[langKey]) {
@@ -46,4 +52,19 @@ export function hasTranslationKey(translations: Translation, key: string): boole
   }
   
   return current !== undefined
+}
+
+/**
+ * Safe translation getter with automatic fallback
+ * @param lang - Language code
+ * @param key - Translation key path
+ * @param fallback - Optional fallback text
+ * @returns Translation string with fallback protection
+ */
+export function getTranslationSafe(
+  lang: string,
+  key: string,
+  fallback?: string
+): string {
+  return getSafeTranslation(lang as Lang, key, fallback)
 }

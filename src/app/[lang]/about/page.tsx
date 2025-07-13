@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { getTranslations } from '@/hooks/useTranslations'
+import FloatingLanguageSwitcher from '@/components/FloatingLanguageSwitcher'
+import { Lang } from '@/types'
 
 export default async function About({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -347,6 +349,9 @@ export default async function About({ params }: { params: Promise<{ lang: string
           </div>
         </div>
       </section>
+
+      {/* Floating Language Switcher */}
+      <FloatingLanguageSwitcher currentLang={lang as Lang} />
     </div>
   )
 } 

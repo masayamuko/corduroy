@@ -26,6 +26,8 @@ export interface CommonTranslation {
   error: string
   fateMessage: string
   dmRequest: string
+  switchLanguage: string
+  currentLanguage: string
 }
 
 export interface NavigationTranslation {

@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { use } from 'react'
 import { useTranslations } from '@/hooks/useTranslations'
+import FloatingLanguageSwitcher from '@/components/FloatingLanguageSwitcher'
+import { Lang } from '@/types'
 
 export default function About({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = use(params);
@@ -254,6 +256,9 @@ export default function About({ params }: { params: Promise<{ lang: string }> })
           </div>
         </div>
       </section>
+
+      {/* Floating Language Switcher */}
+      <FloatingLanguageSwitcher currentLang={lang as Lang} />
     </div>
   )
 } 
