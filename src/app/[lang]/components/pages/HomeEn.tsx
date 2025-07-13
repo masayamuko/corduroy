@@ -120,7 +120,7 @@ export default function Home({ lang = 'en' }: { lang?: string }) {
                     <div className="flex items-start gap-3 p-3 bg-white/30 rounded-lg border-2 border-blue-200 hover:border-blue-400 transition-colors duration-200 cursor-pointer relative text-left">
                       <span className="text-lg">🎲</span>
                       <div className="flex-1 min-w-0">
-                        <p className="text-base font-semibold text-gray-800 leading-tight hover:text-blue-600 transition-colors duration-200">7/23 Board Game Creation Night @ Fukuoka</p>
+                        <p className="text-base font-semibold text-gray-800 leading-tight hover:text-blue-600 transition-colors duration-200">7/23(Wed) Board Game Creation Night @ Fukuoka</p>
                       </div>
                       <span className="absolute bottom-2 right-3 bg-blue-200 text-blue-800 text-xs font-bold px-2 py-0.5 rounded-full shadow">Recruiting</span>
                     </div>
