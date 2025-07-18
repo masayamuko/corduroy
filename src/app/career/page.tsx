@@ -44,8 +44,8 @@ export default function Career() {
                       <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300 text-orange-600">再出発の準備中！</h3>
                       <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
                         ・各種生成AIツールの学習、実践（独学）<br />
-                        ・ものづくり, 3CADの学習（通学）<br />
-                        AIツールの導入を個人・企業さま相手に実験的にサポートしてます。
+                        ・ものづくり, 3DCADの学習（通学）<br />
+                        ポートフォリオづくりに注力してます。企業研修や就労支援などでCAD(2D,3D)や生成AIの活用を教える仕事に興味があり就活中です。学習と実績・理想は週３社員＋フリーランスです。NPOや個人へのAI導入サポート練習もしてます。
                       </p>
                       <div className="flex flex-wrap gap-2">
                         <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">AIツール学習</span>
@@ -63,13 +63,14 @@ export default function Career() {
                     <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-green-400 group-hover:shadow-2xl group-hover:shadow-green-200/30 transition-all duration-500">
                       <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300">会社員とフリーランス</h3>
                       <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
-                        ・海外と子どもたちに関わる企業で正社員勤務<br />
-                        ・個人事業でコーチング、ITコンサルタントも継続
+                        ・海外留学事業と社会的養護のユース支援してるNPOで正社員勤務（5年）<br />
+                        ・個人事業でコーチング、中小企業のIT顧問も継続（10年）<br />
+                        2024年年末に退職&廃業して理想のライフスタイル目指して動き始めました。
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">正社員勤務</span>
+                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">初の正社員</span>
                         <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">コーチング</span>
-                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">ITコンサルタント</span>
+                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">IT顧問</span>
                       </div>
                     </div>
                   </div>
@@ -84,7 +85,7 @@ export default function Career() {
                       <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
                         ・個人ブログ運営<br />
                         ・広告運用代行<br />
-                        ・IT顧門<br />
+                        ・中小企業のIT顧門<br />
                         ・海外個人輸出<br />
                         ・コーチング<br />
                         などいろんな仕事を経験してきました。
