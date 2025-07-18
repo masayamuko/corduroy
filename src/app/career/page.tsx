@@ -45,7 +45,7 @@ export default function Career() {
                       <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
                         ・各種生成AIツールの学習、実践（独学）<br />
                         ・ものづくり, 3DCADの学習（通学）<br />
-                        ポートフォリオづくりに注力してます。企業研修や就労支援などでCAD(2D,3D)や生成AIの活用を教える仕事に興味があり就活中です。学習と実績・理想は週３社員＋フリーランスです。NPOや個人へのAI導入サポート練習もしてます。
+                        企業研修や就労支援などでCAD(2D,3D)や生成AIの活用を教える仕事に興味があり就活中です。実績・理想は週３社員＋フリーランス。学習とポートフォリオづくり、NPOや個人へのAI導入テストサポート中。
                       </p>
                       <div className="flex flex-wrap gap-2">
                         <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">AIツール学習</span>

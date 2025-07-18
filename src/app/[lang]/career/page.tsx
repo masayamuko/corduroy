@@ -35,7 +35,7 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
       timeline: {
         2025: {
           title: "再出発の準備中！",
-          description: "・各種生成AIツールの学習、実践（独学）<br />・ものづくり, 3DCADの学習（通学）<br />ポートフォリオづくりに注力してます。企業研修や就労支援などでCAD(2D,3D)や生成AIの活用を教える仕事に興味があり就活中です。学習と実績・理想は週３社員＋フリーランスです。NPOや個人へのAI導入サポート練習もしてます。",
+          description: "・各種生成AIツールの学習、実践（独学）<br />・ものづくり, 3DCADの学習（通学）<br />企業研修や就労支援などでCAD(2D,3D)や生成AIの活用を教える仕事に興味があり就活中です。理想は週３勤務の社員＋フリーランス。学習とポートフォリオづくり、NPOや個人へのAI導入テストサポート中。",
           tags: ["AI活用", "3DCAD学習", "個人・NPOボランティア"]
         },
         2020: {
@@ -126,7 +126,7 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
       timeline: {
         2025: {
           title: "Preparing for a Fresh Start!",
-          description: "・Learning and practicing various generative AI tools (self-study)<br />・Learning manufacturing & 3D CAD (in-person courses)<br />Focusing on portfolio building. Job hunting for positions teaching CAD (2D, 3D) and generative AI utilization in corporate training and employment support. Ideal is 3-day employee + freelance work. Also practicing AI implementation support for NPOs and individuals.",
+          description: "・Learning and practicing various generative AI tools (self-study)<br />・Learning manufacturing & 3D CAD (in-person courses)<br />Job hunting for positions teaching CAD (2D, 3D) and generative AI utilization in corporate training and employment support. Ideal: 3-day employee + freelance work. Focusing on learning and portfolio building, providing AI implementation test support for NPOs and individuals.",
           tags: ["AI Learning", "3D CAD", "Individual & NPO Volunteer"]
         },
         2020: {
