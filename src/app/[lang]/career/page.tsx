@@ -35,17 +35,17 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
       timeline: {
         2025: {
           title: "再出発の準備中！",
-          description: "・各種生成AIツールの学習、実践（独学）<br />・ものづくり, 3DCADの学習（通学）<br />実験的にAIツールの導入を個人・NPOに行ってます。法人研修や障がい者さんへのAI活用や３DCADの研修を行う企業での勤務を志望して、勉強しながらポートフォリオ・実績作成中。",
+          description: "・各種生成AIツールの学習、実践（独学）<br />・ものづくり, 3DCADの学習（通学）<br />ポートフォリオづくりに注力してます。企業研修や就労支援などでCAD(2D,3D)や生成AIの活用を教える仕事に興味があり就活中です。学習と実績・理想は週３社員＋フリーランスです。NPOや個人へのAI導入サポート練習もしてます。",
           tags: ["AI活用", "3DCAD学習", "個人・NPOボランティア"]
         },
         2020: {
           title: "会社員とフリーランス",
-          description: "・海外留学事業と社会的養護の子ども支援をしているNPO法人で人生初の正社員勤務5年間経験（WEB担当/社内コーチ）<br />・個人事業でのコーチング、IT顧問も継続。2024年年末退職・廃業。",
-          tags: ["正社員勤務", "コーチング", "ITコンサルタント"]
+          description: "・海外留学事業と社会的養護のユース支援してるNPOで正社員勤務（5年）<br />・個人事業でコーチング、中小企業のIT顧問も継続（10年）<br />2024年年末に退職&廃業して理想のライフスタイル目指して動き始めました。",
+          tags: ["初の正社員", "コーチング", "IT顧問"]
         },
         2015: {
           title: "専業フリーランス",
-          description: "・個人ブログ運営<br />・広告運用代行<br />・IT顧問<br />・海外個人輸出<br />・コーチング<br />などいろんな仕事を経験してきました。",
+          description: "・個人ブログ運営<br />・広告運用代行<br />・中小企業のIT顧門<br />・海外個人輸出<br />・コーチング<br />などいろんな仕事を経験してきました。",
           tags: ["ブログ運営", "広告運用", "中小企業のIT顧問", "海外輸出", "コーチング"]
         },
         2013: {
@@ -126,23 +126,23 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
       timeline: {
         2025: {
           title: "Preparing for a Fresh Start!",
-          description: "・Learning and practicing various generative AI tools (self-study)<br />・Learning manufacturing & 3D CAD (in-person courses)<br />Experimentally supporting individuals and companies with AI tool implementation.",
-          tags: ["AI Learning", "3D CAD", "Individual & Corporate Support"]
+          description: "・Learning and practicing various generative AI tools (self-study)<br />・Learning manufacturing & 3D CAD (in-person courses)<br />Focusing on portfolio building. Job hunting for positions teaching CAD (2D, 3D) and generative AI utilization in corporate training and employment support. Ideal is 3-day employee + freelance work. Also practicing AI implementation support for NPOs and individuals.",
+          tags: ["AI Learning", "3D CAD", "Individual & NPO Volunteer"]
         },
         2020: {
           title: "Employee & Freelancer",
-          description: "・Full-time employee at a company working with overseas and children<br />・Continued personal coaching and IT consulting business",
-          tags: ["Full-time Employee", "Coaching", "IT Consulting"]
+          description: "・Full-time employee at NPO supporting overseas study programs and youth in social care (5 years)<br />・Continued personal coaching and IT consulting for small businesses (10 years)<br />Resigned & closed business at end of 2024 to pursue ideal lifestyle.",
+          tags: ["First Full-time Job", "Coaching", "IT Consulting"]
         },
         2015: {
           title: "Full-time Freelancer",
-          description: "・Personal blog management<br />・Advertising operations<br />・IT consulting<br />・International personal export<br />・Coaching<br />Experienced various types of work.",
-          tags: ["Blog Management", "Advertising", "IT Consulting", "International Export", "Coaching"]
+          description: "・Personal blog management<br />・Advertising operations<br />・IT consulting for small businesses<br />・International personal export<br />・Coaching<br />Experienced various types of work.",
+          tags: ["Blog Management", "Advertising", "Small Business IT Consulting", "International Export", "Coaching"]
         },
         2013: {
           title: "Exploring While Freelancing",
-          description: "Experienced various jobs through personal connections and referrals.<br />Bakery, study abroad agency, web development company, trading company, homestay company, event company, guesthouse, social welfare facility, Japanese language school. Also attended web design school and Japanese language teacher training during this period.",
-          tags: ["Bakery", "Study Abroad Agency", "Web Development", "Trading Company", "Various Others"]
+          description: "Experienced various jobs through personal connections, sometimes juggling up to 5 positions simultaneously.<br />Bakery, study abroad agency, web development company, trading company, homestay company, event company, guesthouse, social welfare facility, Japanese language school. Also attended web design school and Japanese language teacher training during this period.",
+          tags: ["Bakery", "Study Abroad Agency", "Web Development", "Trading Company", "Others"]
         },
         2008: {
           title: "University Student (Study Abroad in Canada)",
