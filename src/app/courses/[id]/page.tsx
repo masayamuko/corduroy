@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import { useRouter } from 'next/navigation'
 
 interface Video {
@@ -18,7 +18,8 @@ interface Course {
   videos: Video[]
 }
 
-export default function CoursePage({ params }: { params: { id: string } }) {
+export default function CoursePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params)
   const [course, setCourse] = useState<Course | null>(null)
   const [currentVideo, setCurrentVideo] = useState<Video | null>(null)
   const [completedVideos, setCompletedVideos] = useState<Set<number>>(new Set())
@@ -33,7 +34,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
     }
     setIsAuthenticated(true)
 
-    const courseId = parseInt(params.id)
+    const courseId = parseInt(id)
     const savedProgress = localStorage.getItem(`course_${courseId}_progress`)
     if (savedProgress) {
       setCompletedVideos(new Set(JSON.parse(savedProgress)))
@@ -81,7 +82,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
       setCourse(foundCourse)
       setCurrentVideo(foundCourse.videos[0])
     }
-  }, [params.id, router])
+  }, [id, router])
 
   const markVideoComplete = (videoId: number) => {
     const newCompleted = new Set(completedVideos)
