@@ -200,6 +200,17 @@ export default function Lifestyle() {
                 </div>
               </div>
             </div>
+            
+            {/* キャリアへのリンクボタン */}
+            <div className="mt-12 text-center">
+              <Link href="/career" className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full hover:from-blue-700 hover:to-cyan-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <span className="text-lg">💼</span>
+                <span>仕事の経歴はこちら</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

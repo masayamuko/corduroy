@@ -90,7 +90,8 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
         buttons: {
           tools: "活用ツールを見る",
           community: "コミュニティについて"
-        }
+        },
+        lifestyleLink: "生活面の歩みはこちら"
       },
       backHome: "ホームに戻る"
     },
@@ -181,7 +182,8 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
         buttons: {
           tools: "View Tools",
           community: "About Community"
-        }
+        },
+        lifestyleLink: "View Lifestyle Journey"
       },
       backHome: "Back to Home"
     }
@@ -304,6 +306,17 @@ export default async function Career({ params }: { params: Promise<{ lang: strin
                   </div>
                 </div>
               </div>
+            </div>
+            
+            {/* ライフスタイルへのリンクボタン */}
+            <div className="mt-12 text-center">
+              <Link href={`/${lang}/lifestyle`} className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <span className="text-lg">🏡</span>
+                <span>{t.lifestyleLink}</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
