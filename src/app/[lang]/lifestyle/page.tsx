@@ -267,22 +267,6 @@ export default async function Lifestyle({ params }: { params: Promise<{ lang: st
                     </div>
                   </div>
 
-                  {/* 2020 */}
-                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                    <div className="flex-shrink-0 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-green-600 group-hover:scale-110 transition-all duration-300">
-                      2020
-                    </div>
-                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-green-400 group-hover:shadow-2xl group-hover:shadow-green-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300">{t.timeline[2020].title}</h3>
-                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2020].description }} />
-                      <div className="flex flex-wrap gap-2">
-                        {t.timeline[2020].tags.map((tag: string, index: number) => (
-                          <span key={index} className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
                   {/* 2023 */}
                   <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
                     <div className="flex-shrink-0 w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-teal-600 group-hover:scale-110 transition-all duration-300">
@@ -294,6 +278,22 @@ export default async function Lifestyle({ params }: { params: Promise<{ lang: st
                       <div className="flex flex-wrap gap-2">
                         {t.timeline[2023].tags.map((tag: string, index: number) => (
                           <span key={index} className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2020 */}
+                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                    <div className="flex-shrink-0 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-green-600 group-hover:scale-110 transition-all duration-300">
+                      2020
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-green-400 group-hover:shadow-2xl group-hover:shadow-green-200/30 transition-all duration-500">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300">{t.timeline[2020].title}</h3>
+                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2020].description }} />
+                      <div className="flex flex-wrap gap-2">
+                        {t.timeline[2020].tags.map((tag: string, index: number) => (
+                          <span key={index} className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">{tag}</span>
                         ))}
                       </div>
                     </div>
@@ -363,23 +363,6 @@ export default async function Lifestyle({ params }: { params: Promise<{ lang: st
                     </div>
                   </div>
 
-
-
-                  {/* 2013 */}
-                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                    <div className="flex-shrink-0 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-orange-600 group-hover:scale-110 transition-all duration-300">
-                      2013
-                    </div>
-                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-orange-400 group-hover:shadow-2xl group-hover:shadow-orange-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300">{t.timeline[2013].title}</h3>
-                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2013].description }} />
-                      <div className="flex flex-wrap gap-2">
-                        {t.timeline[2013].tags.map((tag: string, index: number) => (
-                          <span key={index} className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
 
                   {/* 2008 */}
                   <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">

@@ -95,6 +95,7 @@ export default function Lifestyle() {
                     </div>
                   </div>
 
+
                   {/* 2019 - ノマド生活実践 */}
                   <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
                     <div className="flex-shrink-0 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
