@@ -34,29 +34,44 @@ export default async function Lifestyle({ params }: { params: Promise<{ lang: st
       },
       timeline: {
         2025: {
-          title: "理想の生活模索中",
-          description: "・朝の散歩と瞑想の習慣化<br />・週3勤務＋自由時間の確保を目指す<br />・新しい趣味や技術に触れる時間を意識的に作る<br />・人との繋がりと一人時間のバランスを取りながら、自分らしい生活リズムを見つけている最中。",
-          tags: ["ウェルビーイング", "学習時間", "人とのつながり"]
+          title: "📚勉強一色",
+          description: "・平日は学校・AI学習と制作、時々イベント実施。<br />・週末は、ボランティア or イベント等<br />・ADHD診断→投薬で生きやすくなる<br />スキルアップに全コミット！",
+          tags: ["学習重視", "ADHD診断", "スキルアップ"]
+        },
+        2023: {
+          title: "🏠妻の夢『ホストファミリー』に！",
+          description: "・新居で妻と友人と3人暮らし＋留学生受入れ<br />・MTGとボードゲームにドハマり（ボドゲ50個超）<br />・ボードゲームカフェ作るのが目標の１つに",
+          tags: ["ホストファミリー", "ボードゲーム", "新居生活"]
         },
         2020: {
-          title: "安定と自由の両立",
-          description: "・初めての正社員生活で安定した基盤を確保<br />・副業としてのコーチングやIT顧問で自由度も維持<br />・都市部での生活を楽しみながらも、2024年末に次のステップへ。安定から自由へと価値観をシフト。",
-          tags: ["安定期", "副業", "価値観の変化"]
+          title: "🦎夫婦でコロナ禍",
+          description: "・妻と1LDKの狭い自宅でコロナ禍<br />・爬虫類ペットを飼い始める<br />・コーチング学習と実践で内省深める",
+          tags: ["コロナ禍", "爬虫類ペット", "コーチング"]
+        },
+        2019: {
+          title: "✈️ノマド生活実践",
+          description: "・毎月海外でワーケーション<br />・フィリピン、カンボジア、台湾、韓国、マレーシア、香港、中国<br />・ワーカホリックの血をくれた祖父と他界<br />・田舎移住失敗（3度目）",
+          tags: ["ノマド", "海外ワーケーション", "田舎移住失敗"]
+        },
+        2018: {
+          title: "🚚軽トラハウス生活→田舎移住",
+          description: "・人生初クラファンで夢のマイホーム『軽トラハウス』を新築<br />・家を解約し、軽トラハウスで暮らす。<br />・田舎で地域おこし協力隊になり即退職（2度目の田舎移住失敗）",
+          tags: ["軽トラハウス", "クラウドファンディング", "地域おこし協力隊"]
+        },
+        2017: {
+          title: "💍新婚別居",
+          description: "・同棲してた妻と結婚。妻は単独ワーホリへ。<br />・ブロガー招待でフィリピン留学×2<br />・四国旅、北海道滞しワーケーション<br />・妻のいるニュージーランドで年越し",
+          tags: ["結婚", "別居", "ワーケーション"]
         },
         2015: {
-          title: "フリーランス生活を満喫",
-          description: "・時間と場所の自由を最大限活用<br />・様々なプロジェクトで多様な人との出会い<br />・収入の不安定さもあったが、自分らしい働き方を追求<br />・ブログ執筆や海外輸出など、興味の赴くまま挑戦。",
-          tags: ["自由度重視", "多様な経験", "挑戦"]
-        },
-        2013: {
-          title: "探求と実験の日々",
-          description: "・様々な仕事や環境を体験<br />・ゲストハウス、イベント会社、パン屋など多彩な職場<br />・人との出会いを重視し、紹介を通じて新しい世界を知る<br />・この時期の多様な経験が今の価値観の基盤を形成。",
-          tags: ["多様性", "人とのつながり", "体験重視"]
+          title: "🏠彼女と田舎移住にトライ",
+          description: "・エコビレッジに憧れ訪問<br />・田舎移住チャレンジ失敗（地域の反対）<br />・妻と同居スタート",
+          tags: ["エコビレッジ", "田舎移住失敗", "同居開始"]
         },
         2008: {
-          title: "冒険心の芽生え",
-          description: "・カナダでの留学生活で視野が大きく広がる<br />・異文化での生活で適応力と好奇心を育む<br />・帰国後は国際交流サークルを立ち上げ<br />・この経験が「新しいことに挑戦する」という生き方の原点に。",
-          tags: ["留学体験", "視野拡大", "国際感覚"]
+          title: "🧭留学で旅、シェアハウス好きに",
+          description: "・カナダワーホリ、台湾自転車一周、西日本ゲストハウスめぐり、韓国の農家にファームステイ（WWOOF）、エスペラント語旅行<br />・大学卒業後は友人4人と空港近くでシェアハウス<br />・ゲストハウス開業を夢見る",
+          tags: ["留学体験", "旅行好き", "シェアハウス"]
         }
       },
       philosophy: {
@@ -125,29 +140,44 @@ export default async function Lifestyle({ params }: { params: Promise<{ lang: st
       },
       timeline: {
         2025: {
-          title: "Exploring Ideal Lifestyle",
-          description: "・Establishing habits of morning walks and meditation<br />・Aiming for 3-day work week + personal time<br />・Consciously creating time for new hobbies and skills<br />・Finding my authentic life rhythm while balancing connections with others and solitude.",
-          tags: ["Well-being", "Learning Time", "Human Connections"]
+          title: "📚 Study-focused Year",
+          description: "・Weekdays: School, AI learning and creation, occasional event hosting<br />・Weekends: Volunteering or events<br />・ADHD diagnosis → Medication making life easier<br />Full commitment to skill development!",
+          tags: ["Learning Focus", "ADHD Diagnosis", "Skill Development"]
+        },
+        2023: {
+          title: "🏠 Wife's Dream: Host Family!",
+          description: "・New home with wife, friend, and student hosting<br />・Obsessed with MTG and board games (50+ games)<br />・Goal to create a board game cafe",
+          tags: ["Host Family", "Board Games", "New Home Life"]
         },
         2020: {
-          title: "Balancing Stability & Freedom",
-          description: "・First full-time employment providing stable foundation<br />・Maintaining freedom through coaching and IT consulting side work<br />・Enjoyed urban life but shifted toward freedom by end of 2024. Transitioned values from stability to freedom.",
-          tags: ["Stable Period", "Side Business", "Value Shift"]
+          title: "🦎 Couple During COVID",
+          description: "・Wife and I in small 1LDK apartment during COVID<br />・Started keeping reptile pets<br />・Deepened introspection through coaching learning and practice",
+          tags: ["COVID Life", "Reptile Pets", "Coaching"]
+        },
+        2019: {
+          title: "✈️ Nomadic Lifestyle Practice",
+          description: "・Monthly international workations<br />・Philippines, Cambodia, Taiwan, Korea, Malaysia, Hong Kong, China<br />・Lost workaholic grandfather<br />・Rural migration failure (3rd time)",
+          tags: ["Nomad Life", "International Workation", "Rural Migration Failure"]
+        },
+        2018: {
+          title: "🚚 Tiny House Life → Rural Migration",
+          description: "・First crowdfunding for dream 'Tiny Truck House'<br />・Cancelled apartment lease, lived in tiny truck house<br />・Became regional revitalization coordinator in countryside, quit immediately (2nd rural migration failure)",
+          tags: ["Tiny Truck House", "Crowdfunding", "Regional Coordinator"]
+        },
+        2017: {
+          title: "💍 Newlywed Separation",
+          description: "・Married live-in girlfriend, she went on solo working holiday<br />・Blogger invitation to Philippines study abroad x2<br />・Shikoku trip, Hokkaido workation<br />・New Year's in New Zealand with wife",
+          tags: ["Marriage", "Separation", "Workation"]
         },
         2015: {
-          title: "Enjoying Freelance Life",
-          description: "・Maximized freedom of time and location<br />・Met diverse people through various projects<br />・Despite income instability, pursued authentic work style<br />・Challenged myself with blog writing and international export following interests.",
-          tags: ["Freedom Focus", "Diverse Experiences", "Challenges"]
-        },
-        2013: {
-          title: "Days of Exploration & Experimentation",
-          description: "・Experienced various jobs and environments<br />・Worked at guesthouses, event companies, bakeries, etc.<br />・Valued human connections, discovering new worlds through referrals<br />・These diverse experiences formed the foundation of my current values.",
-          tags: ["Diversity", "Human Connections", "Experience-Focused"]
+          title: "🏠 Rural Migration Trial with Girlfriend",
+          description: "・Visited eco-villages with admiration<br />・Rural migration challenge failed (local opposition)<br />・Started cohabitation with wife",
+          tags: ["Eco Village", "Rural Migration Failure", "Cohabitation Start"]
         },
         2008: {
-          title: "Birth of Adventurous Spirit",
-          description: "・Study abroad in Canada greatly expanded my perspective<br />・Developed adaptability and curiosity through cross-cultural living<br />・Started international exchange circle after returning<br />・This experience became the origin of my 'challenge new things' lifestyle.",
-          tags: ["Study Abroad", "Expanded Perspective", "International Mindset"]
+          title: "🧭 Travel & Share House Lover Through Study Abroad",
+          description: "・Canada working holiday, Taiwan cycling tour, western Japan guesthouse tour, farm stay in Korea (WWOOF), Esperanto language travel<br />・Post-graduation share house near airport with 4 friends<br />・Dreamed of opening a guesthouse",
+          tags: ["Study Abroad Experience", "Travel Lover", "Share House"]
         }
       },
       philosophy: {
@@ -248,6 +278,70 @@ export default async function Lifestyle({ params }: { params: Promise<{ lang: st
                       <div className="flex flex-wrap gap-2">
                         {t.timeline[2020].tags.map((tag: string, index: number) => (
                           <span key={index} className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2023 */}
+                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                    <div className="flex-shrink-0 w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-teal-600 group-hover:scale-110 transition-all duration-300">
+                      2023
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-teal-400 group-hover:shadow-2xl group-hover:shadow-teal-200/30 transition-all duration-500">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors duration-300">{t.timeline[2023].title}</h3>
+                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2023].description }} />
+                      <div className="flex flex-wrap gap-2">
+                        {t.timeline[2023].tags.map((tag: string, index: number) => (
+                          <span key={index} className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2019 */}
+                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                    <div className="flex-shrink-0 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
+                      2019
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-blue-400 group-hover:shadow-2xl group-hover:shadow-blue-200/30 transition-all duration-500">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">{t.timeline[2019].title}</h3>
+                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2019].description }} />
+                      <div className="flex flex-wrap gap-2">
+                        {t.timeline[2019].tags.map((tag: string, index: number) => (
+                          <span key={index} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2018 */}
+                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                    <div className="flex-shrink-0 w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-yellow-600 group-hover:scale-110 transition-all duration-300">
+                      2018
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-yellow-400 group-hover:shadow-2xl group-hover:shadow-yellow-200/30 transition-all duration-500">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors duration-300">{t.timeline[2018].title}</h3>
+                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2018].description }} />
+                      <div className="flex flex-wrap gap-2">
+                        {t.timeline[2018].tags.map((tag: string, index: number) => (
+                          <span key={index} className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2017 */}
+                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                    <div className="flex-shrink-0 w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-pink-600 group-hover:scale-110 transition-all duration-300">
+                      2017
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-pink-400 group-hover:shadow-2xl group-hover:shadow-pink-200/30 transition-all duration-500">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors duration-300">{t.timeline[2017].title}</h3>
+                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300" dangerouslySetInnerHTML={{ __html: t.timeline[2017].description }} />
+                      <div className="flex flex-wrap gap-2">
+                        {t.timeline[2017].tags.map((tag: string, index: number) => (
+                          <span key={index} className="bg-pink-100 text-pink-800 px-2 py-1 rounded text-sm">{tag}</span>
                         ))}
                       </div>
                     </div>

@@ -34,102 +34,165 @@ export default function Lifestyle() {
                 
                 <div className="space-y-12">
 
-                  {/* 2025 - 新しい挑戦 */}
+                  {/* 2025 - 勉強一色 */}
                   <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2 scale-105 -translate-y-2">
                     <div className="flex-shrink-0 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-orange-600 group-hover:scale-110 transition-all duration-300 scale-110">
                       2025
                     </div>
                     <div className="flex-1 bg-white border-2 border-orange-400 rounded-2xl p-8 group-hover:border-orange-400 group-hover:shadow-2xl group-hover:shadow-orange-200/30 transition-all duration-500 shadow-2xl shadow-orange-200/30">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300 text-orange-600">新しい挑戦の年</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300 text-orange-600">📚勉強一色</h3>
                       <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
-                        ・平日は学習とものづくりに集中<br />
-                        ・週末は友人や家族との時間を大切に<br />
-                        ・新しいスキルを身につけながら、自分らしい働き方を模索中。理想は創造性と安定性のバランス。健康的な生活リズムと持続可能なライフスタイルを重視しています。
+                        ・平日は学校・AI学習と制作、時々イベント実施。<br />
+                        ・週末は、ボランティア or イベント等<br />
+                        ・ADHD診断→投薬で生きやすくなる<br />
+                        スキルアップに全コミット！
                       </p>
                       <div className="flex flex-wrap gap-2">
                         <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">学習重視</span>
-                        <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">家族時間</span>
-                        <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">健康第一</span>
+                        <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">ADHD診断</span>
+                        <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">スキルアップ</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* 2020 - バランス模索期 */}
+                  {/* 2023 - 妻の夢「ホストファミリー」に！ */}
+                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                    <div className="flex-shrink-0 w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-teal-600 group-hover:scale-110 transition-all duration-300">
+                      2023
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-teal-400 group-hover:shadow-2xl group-hover:shadow-teal-200/30 transition-all duration-500">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-teal-600 transition-colors duration-300">🏡妻の夢「ホストファミリー」に！</h3>
+                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
+                        ・新居で妻と友人と3人暮らし＋留学生受入れ<br />
+                        ・MTGとボードゲームにドハマり（ボドゲ50個超）<br />
+                        ・ボードゲームカフェ作るのが目標の１つに
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">ホストファミリー</span>
+                        <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">ボードゲーム</span>
+                        <span className="bg-teal-100 text-teal-800 px-2 py-1 rounded text-sm">新居生活</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2020 - 夫婦でコロナ禍 */}
                   <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
                     <div className="flex-shrink-0 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-green-600 group-hover:scale-110 transition-all duration-300">
                       2020
                     </div>
                     <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-green-400 group-hover:shadow-2xl group-hover:shadow-green-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300">ワークライフバランス模索期</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300">🦎夫婦でコロナ禍</h3>
                       <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
-                        ・正社員として安定収入を得ながら個人活動も継続<br />
-                        ・プライベートと仕事のメリハリを意識し始める<br />
-                        ・コミュニティ活動や趣味にも時間を使えるようになり、人生の充実度が向上しました。
+                        ・妻と1LDKの狭い自宅でコロナ禍<br />
+                        ・爬虫類ペットを飼い始める<br />
+                        ・コーチング学習と実践で内省深める
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">安定重視</span>
-                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">メリハリ</span>
-                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">充実感</span>
+                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">コロナ禍</span>
+                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">爬虫類ペット</span>
+                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">コーチング</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* 2015 - 自由な生活 */}
+                  {/* 2019 - ノマド生活実践 */}
+                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                    <div className="flex-shrink-0 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-300">
+                      2019
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-blue-400 group-hover:shadow-2xl group-hover:shadow-blue-200/30 transition-all duration-500">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">✈️ ノマド生活実践</h3>
+                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
+                        ・毎月海外でワーケーション<br />
+                        ・フィリピン、カンボジア、台湾、韓国、マレーシア、香港、中国<br />
+                        ・ワーカホリックの血をくれた祖父と他界<br />
+                        ・田舎移住失敗（3度目）
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">ノマド</span>
+                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">海外ワーケーション</span>
+                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">田舎移住失敗</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2018 - 軽トラハウス生活→田舎移住 */}
+                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                    <div className="flex-shrink-0 w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-yellow-600 group-hover:scale-110 transition-all duration-300">
+                      2018
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-yellow-400 group-hover:shadow-2xl group-hover:shadow-yellow-200/30 transition-all duration-500">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors duration-300">🚚 軽トラハウス生活→田舎移住</h3>
+                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
+                        ・人生初クラファンで夢のマイホーム「軽トラハウス」を新築<br />
+                        ・家を解約し、軽トラハウスで暮らす。<br />
+                        ・田舎で地域おこし協力隊になり即退職（2度目の田舎移住失敗）
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">軽トラハウス</span>
+                        <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">クラウドファンディング</span>
+                        <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">地域おこし協力隊</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2017 - 新婚別居 */}
+                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                    <div className="flex-shrink-0 w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-pink-600 group-hover:scale-110 transition-all duration-300">
+                      2017
+                    </div>
+                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-pink-400 group-hover:shadow-2xl group-hover:shadow-pink-200/30 transition-all duration-500">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-pink-600 transition-colors duration-300">💍 新婚別居</h3>
+                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
+                        ・同棲してた妻と結婚。妻は単独ワーホリへ。<br />
+                        ・ブロガー招待でフィリピン留学×2<br />
+                        ・四国旅、北海道滞しワーケーション<br />
+                        ・妻のいるニュージーランドで年越し
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="bg-pink-100 text-pink-800 px-2 py-1 rounded text-sm">結婚</span>
+                        <span className="bg-pink-100 text-pink-800 px-2 py-1 rounded text-sm">別居</span>
+                        <span className="bg-pink-100 text-pink-800 px-2 py-1 rounded text-sm">ワーケーション</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2015 - 彼女と田舎移住にトライ */}
                   <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
                     <div className="flex-shrink-0 w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-purple-600 group-hover:scale-110 transition-all duration-300">
                       2015
                     </div>
                     <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-purple-400 group-hover:shadow-2xl group-hover:shadow-purple-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors duration-300">自由と責任の両立期</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors duration-300">🏠 彼女と田舎移住にトライ</h3>
                       <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
-                        ・時間と場所にとらわれない働き方を実践<br />
-                        ・好奇心のままに様々なことに挑戦<br />
-                        ・自分で決めた人生を歩む喜びと責任を学んだ貴重な期間でした。
+                        ・エコビレッジに憧れ訪問<br />
+                        ・田舎移住チャレンジ失敗（地域の反対）<br />
+                        ・妻と同居スタート
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">自由度高</span>
-                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">多様な経験</span>
-                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">自己責任</span>
+                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">エコビレッジ</span>
+                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">田舎移住失敗</span>
+                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">同居開始</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* 2013 - 探求期 */}
-                  <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
-                    <div className="flex-shrink-0 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-orange-600 group-hover:scale-110 transition-all duration-300">
-                      2013
-                    </div>
-                    <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-orange-400 group-hover:shadow-2xl group-hover:shadow-orange-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300">人生探求期</h3>
-                      <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
-                        ・様々な職場・業界で多様な価値観に触れる<br />
-                        ・人とのつながりを通じて視野を広げる<br />
-                        ・「自分らしさ」とは何かを模索した貴重な時期。たくさんの人との出会いが今の自分の基盤となっています。
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">多様な経験</span>
-                        <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">人との繋がり</span>
-                        <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">自分探し</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 2008 - 国際感覚 */}
+                  {/* 2008 - 留学で旅、シェアハウス好きに */}
                   <div className="group cursor-pointer relative flex items-start space-x-8 transform transition-all duration-300 hover:scale-105 hover:-translate-y-2">
                     <div className="flex-shrink-0 w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white font-bold group-hover:bg-red-600 group-hover:scale-110 transition-all duration-300">
                       2008
                     </div>
                     <div className="flex-1 bg-white border-2 border-gray-200 rounded-2xl p-8 group-hover:border-red-400 group-hover:shadow-2xl group-hover:shadow-red-200/30 transition-all duration-500">
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">国際感覚養成期</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">🧭 留学で旅、シェアハウス好きに</h3>
                       <p className="text-gray-600 mb-3 group-hover:text-gray-700 transition-colors duration-300">
-                        ・カナダ留学で異文化コミュニケーションを体験<br />
-                        ・自分の殻を破り、積極性を身につける<br />
-                        ・多様性を受け入れる心と、チャレンジ精神の原点となった体験でした。
+                        ・カナダワーホリ、台湾自転車一周、西日本ゲストハウスめぐり、韓国の農家にファームステイ（WWOOF）、エスペラント語旅行<br />
+                        ・大学卒業後は友人4人と空港近くでシェアハウス<br />
+                        ・ゲストハウス開業を夢見る
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">異文化体験</span>
-                        <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">積極性</span>
-                        <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">多様性受容</span>
+                        <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">留学体験</span>
+                        <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">旅行好き</span>
+                        <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">シェアハウス</span>
                       </div>
                     </div>
                   </div>
