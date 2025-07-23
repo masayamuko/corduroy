@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Share Night - Cyberpunk Edition</title>
+    <meta name="description" content="福岡で開催される生成AI活用シェア会。サイバーパンク風の未来的デザインで、AIの可能性を体験する一夜。参加費無料、聞くだけの参加も大歓迎！">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 背景エフェクト -->
+    <div class="cyber-background">
+        <div class="grid-overlay"></div>
+        <div class="neon-lines">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+        <div class="floating-particles"></div>
+        <div class="hologram-effect"></div>
+    </div>
+
+    <!-- ローディング画面 -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="cyber-logo">
+                <div class="logo-glitch" data-text="AI SHARE NIGHT">AI SHARE NIGHT</div>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loading-text">INITIALIZING...</div>
+        </div>
+    </div>
+
+    <!-- ヘッダー -->
+    <header class="cyber-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="cyber-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-brain"></i>
+                        <div class="logo-glow"></div>
+                    </div>
+                    <span class="logo-text">AI SHARE NIGHT</span>
+                </div>
+                <nav class="cyber-nav">
+                    <a href="#about" class="nav-link">
+                        <span class="nav-text">ABOUT</span>
+                        <span class="nav-line"></span>
+                    </a>
+                    <a href="#schedule" class="nav-link">
+                        <span class="nav-text">SCHEDULE</span>
+                        <span class="nav-line"></span>
+                    </a>
+                    <a href="#join" class="nav-link">
+                        <span class="nav-text">JOIN</span>
+                        <span class="nav-line"></span>
+                    </a>
+                    <a href="#contact" class="nav-link">
+                        <span class="nav-text">CONTACT</span>
+                        <span class="nav-line"></span>
+                    </a>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインビジュアル -->
+    <section class="cyber-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <div class="badge-icon">🚀</div>
+                        <span class="badge-text">NEXT EVENT: JANUARY 2025</span>
+                        <div class="badge-glow"></div>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line">DISCOVER THE</span>
+                        <span class="title-line highlight">FUTURE OF AI</span>
+                        <span class="title-line">TOGETHER</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Experience the cutting-edge world of artificial intelligence in Fukuoka. 
+                        Share real applications, connect with innovators, and explore the limitless 
+                        possibilities of generative AI technology.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="20">0</div>
+                            <div class="stat-label">PARTICIPANTS</div>
+                            <div class="stat-glow"></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="4">0</div>
+                            <div class="stat-label">CATEGORIES</div>
+                            <div class="stat-glow"></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="0">0</div>
+                            <div class="stat-label">ENTRY FEE</div>
+                            <div class="stat-glow"></div>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#join" class="cyber-btn btn-primary">
+                            <span class="btn-text">JOIN NOW</span>
+                            <span class="btn-glow"></span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#about" class="cyber-btn btn-secondary">
+                            <span class="btn-text">LEARN MORE</span>
+                            <span class="btn-glow"></span>
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hologram-container">
+                        <div class="hologram-card card-1">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="card-text">IDEAS</div>
+                            <div class="card-glow"></div>
+                        </div>
+                        <div class="hologram-card card-2">
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="card-text">COMMUNITY</div>
+                            <div class="card-glow"></div>
+                        </div>
+                        <div class="hologram-card card-3">
+                            <div class="card-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="card-text">INNOVATION</div>
+                            <div class="card-glow"></div>
+                        </div>
+                        <div class="hologram-card card-4">
+                            <div class="card-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <div class="card-text">MAGIC</div>
+                            <div class="card-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- イベントについて -->
+    <section id="about" class="cyber-about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ABOUT THE EVENT</h2>
+                <div class="title-line"></div>
+                <p class="section-subtitle">Experience the power of AI through real stories and practical applications</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="cyber-highlight">
+                        <div class="highlight-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="highlight-text">"Better to do imperfect good than perfect nothing"</p>
+                        <span class="highlight-author">- Our Philosophy</span>
+                        <div class="highlight-glow"></div>
+                    </div>
+                    <p class="about-description">
+                        Our AI Share Night is more than just a meetup—it's a celebration of human creativity 
+                        amplified by artificial intelligence. Whether you're a seasoned AI practitioner or 
+                        just curious about the possibilities, you'll find a welcoming community ready to 
+                        share, learn, and grow together.
+                    </p>
+                </div>
+                <div class="features-grid">
+                    <div class="cyber-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>Learn by Doing</h3>
+                        <p>Discover practical AI applications through real-world examples and hands-on discussions.</p>
+                        <div class="feature-glow"></div>
+                    </div>
+                    <div class="cyber-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>Diverse Perspectives</h3>
+                        <p>Connect with people from various backgrounds and industries, each bringing unique insights.</p>
+                        <div class="feature-glow"></div>
+                    </div>
+                    <div class="cyber-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>Inclusive Environment</h3>
+                        <p>Everyone is welcome, whether you want to present or simply listen and learn.</p>
+                        <div class="feature-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 対象者 -->
+    <section class="cyber-audience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">WHO SHOULD JOIN</h2>
+                <div class="title-line"></div>
+                <p class="section-subtitle">Find your place in our diverse community</p>
+            </div>
+            <div class="audience-grid">
+                <div class="cyber-audience-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-search"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>AI Enthusiasts</h3>
+                    </div>
+                    <p>Curious about AI? Start your journey here with friendly guidance and real examples.</p>
+                    <div class="card-tags">
+                        <span class="cyber-tag">Beginner Friendly</span>
+                        <span class="cyber-tag">No Experience Required</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                <div class="cyber-audience-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-briefcase"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>AI Practitioners</h3>
+                    </div>
+                    <p>Already using AI? Share your experiences and discover new applications.</p>
+                    <div class="card-tags">
+                        <span class="cyber-tag">Advanced Users</span>
+                        <span class="cyber-tag">Share & Learn</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                <div class="cyber-audience-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>Innovation Seekers</h3>
+                    </div>
+                    <p>Looking for the next big thing? Discover unexpected AI applications and use cases.</p>
+                    <div class="card-tags">
+                        <span class="cyber-tag">Creative Solutions</span>
+                        <span class="cyber-tag">Innovation Focus</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                <div class="cyber-audience-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>Community Builders</h3>
+                    </div>
+                    <p>Love connecting people? Join our growing network of AI enthusiasts in Fukuoka.</p>
+                    <div class="card-tags">
+                        <span class="cyber-tag">Networking</span>
+                        <span class="cyber-tag">Community</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- イベントの流れ -->
+    <section id="schedule" class="cyber-schedule">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">EVENT SCHEDULE</h2>
+                <div class="title-line"></div>
+                <p class="section-subtitle">A carefully crafted evening of learning and connection</p>
+            </div>
+            <div class="cyber-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                        <div class="marker-glow"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">19:00 - 19:10</div>
+                        <h3>Welcome & Introductions</h3>
+                        <p>Kick off the evening with a warm welcome and quick participant introductions.</p>
+                        <div class="content-glow"></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                        <div class="marker-glow"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">19:10 - 20:40</div>
+                        <h3>AI Application Showcase</h3>
+                        <p>Dive deep into real AI applications with presentations, Q&A, and interactive discussions.</p>
+                        <div class="content-glow"></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                        <div class="marker-glow"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">20:40 - 21:10</div>
+                        <h3>Networking & Discussion</h3>
+                        <p>Connect with fellow participants, share insights, and build meaningful relationships.</p>
+                        <div class="content-glow"></div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-glow"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">21:10 - 21:20</div>
+                        <h3>Wrap-up & Next Steps</h3>
+                        <p>Conclude the evening with key takeaways and information about upcoming events.</p>
+                        <div class="content-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活用事例 -->
+    <section class="cyber-examples">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">AI APPLICATION EXAMPLES</h2>
+                <div class="title-line"></div>
+                <p class="section-subtitle">Discover the diverse ways AI is transforming our world</p>
+            </div>
+            <div class="examples-grid">
+                <div class="cyber-example">
+                    <div class="example-header">
+                        <div class="example-icon">
+                            <i class="fas fa-briefcase"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>Business Applications</h3>
+                    </div>
+                    <ul class="example-list">
+                        <li>Automated meeting summaries and action items</li>
+                        <li>Email composition and response optimization</li>
+                        <li>Presentation design and content enhancement</li>
+                        <li>Customer service automation and personalization</li>
+                    </ul>
+                    <div class="example-glow"></div>
+                </div>
+                <div class="cyber-example">
+                    <div class="example-header">
+                        <div class="example-icon">
+                            <i class="fas fa-palette"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>Creative Applications</h3>
+                    </div>
+                    <ul class="example-list">
+                        <li>Content creation and writing assistance</li>
+                        <li>Design inspiration and concept generation</li>
+                        <li>Video editing and post-production support</li>
+                        <li>Music composition and arrangement</li>
+                    </ul>
+                    <div class="example-glow"></div>
+                </div>
+                <div class="cyber-example">
+                    <div class="example-header">
+                        <div class="example-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>Learning & Education</h3>
+                    </div>
+                    <ul class="example-list">
+                        <li>Language learning and conversation practice</li>
+                        <li>Personalized study plans and materials</li>
+                        <li>Research assistance and literature review</li>
+                        <li>Skill development and training programs</li>
+                    </ul>
+                    <div class="example-glow"></div>
+                </div>
+                <div class="cyber-example">
+                    <div class="example-header">
+                        <div class="example-icon">
+                            <i class="fas fa-home"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h3>Daily Life</h3>
+                    </div>
+                    <ul class="example-list">
+                        <li>Recipe customization and meal planning</li>
+                        <li>Travel planning and itinerary optimization</li>
+                        <li>Personal finance management and analysis</li>
+                        <li>Health and wellness recommendations</li>
+                    </ul>
+                    <div class="example-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 参加申し込み -->
+    <section id="join" class="cyber-join">
+        <div class="container">
+            <div class="join-content">
+                <div class="join-info">
+                    <h2>READY TO JOIN?</h2>
+                    <p>Be part of Fukuoka's growing AI community</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-calendar"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="detail-content">
+                                <strong>Date & Time</strong>
+                                <span>January 2025, 19:00-21:20</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="detail-content">
+                                <strong>Location</strong>
+                                <span>AIP Café, Fukuoka</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-users"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="detail-content">
+                                <strong>Capacity</strong>
+                                <span>20 participants</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-gift"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="detail-content">
+                                <strong>Cost</strong>
+                                <span>Free admission</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="join-form">
+                    <div class="cyber-form-card">
+                        <h3>RESERVE YOUR SPOT</h3>
+                        <p>Registration form coming soon. Contact us for early registration.</p>
+                        <div class="form-buttons">
+                            <a href="#contact" class="cyber-btn btn-primary">
+                                <span class="btn-text">CONTACT US</span>
+                                <span class="btn-glow"></span>
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="cyber-btn btn-secondary">
+                                <span class="btn-text">GET NOTIFIED</span>
+                                <span class="btn-glow"></span>
+                                <i class="fas fa-bell"></i>
+                            </a>
+                        </div>
+                        <div class="form-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="cyber-faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+                <div class="title-line"></div>
+                <p class="section-subtitle">Everything you need to know about AI Share Night</p>
+            </div>
+            <div class="faq-grid">
+                <div class="cyber-faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need to present something?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="question-glow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, presentations are completely optional. You're welcome to join as a listener and participate in discussions.</p>
+                    </div>
+                </div>
+                <div class="cyber-faq-item">
+                    <div class="faq-question">
+                        <h3>What if I'm new to AI?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="question-glow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Perfect! Our events are designed to be beginner-friendly. You'll learn from real examples and connect with experienced users.</p>
+                    </div>
+                </div>
+                <div class="cyber-faq-item">
+                    <div class="faq-question">
+                        <h3>What should I bring?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="question-glow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Just bring your curiosity! If you plan to present, you might want to prepare some materials or examples.</p>
+                    </div>
+                </div>
+                <div class="cyber-faq-item">
+                    <div class="faq-question">
+                        <h3>Can I record the event?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="question-glow"></div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Recording is allowed with prior permission from presenters. We respect everyone's privacy and preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主催者紹介 -->
+    <section class="cyber-organizer">
+        <div class="container">
+            <div class="organizer-content">
+                <div class="organizer-profile">
+                    <div class="profile-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user"></i>
+                            <div class="image-glow"></div>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h2>MEET YOUR HOST</h2>
+                        <h3>Masaya (雅也)</h3>
+                        <p class="profile-title">AI Enabler & Community Builder</p>
+                        <p class="profile-description">
+                            Based in Fukuoka, I believe in the power of "doing imperfect good rather than perfect nothing." 
+                            With a passion for AI, coaching, and international exchange, I've developed unique methods for 
+                            creating "second selves" using ChatGPT and other AI tools.
+                        </p>
+                        <div class="profile-skills">
+                            <span class="cyber-skill">AI Applications</span>
+                            <span class="cyber-skill">Coaching</span>
+                            <span class="cyber-skill">International Exchange</span>
+                            <span class="cyber-skill">3D Modeling</span>
+                        </div>
+                        <div class="profile-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="cyber-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI SHARE NIGHT</span>
+                    </div>
+                    <p>Building Fukuoka's AI community, one connection at a time.</p>
+                    <div class="social-links">
+                        <a href="#" class="cyber-social-link">
+                            <i class="fab fa-twitter"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="cyber-social-link">
+                            <i class="fab fa-linkedin"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                        <a href="#" class="cyber-social-link">
+                            <i class="fab fa-github"></i>
+                            <div class="social-glow"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#join">Join</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> contact@aisharenight.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Fukuoka, Japan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Share Night. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,206 @@
+{
+  "main": {
+    "id": "8a900b6a4653954b",
+    "type": "split",
+    "children": [
+      {
+        "id": "5c615a8b75e04e82",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "898c1d2cd5f9e80c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ティキちゃん/価値観/Masayaの深層動機マップ（欲求・恐れ・快・不快）.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Masayaの深層動機マップ（欲求・恐れ・快・不快）"
+            }
+          },
+          {
+            "id": "992c6903244c0c7d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00_core/details/01_core_identity_details.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "01_core_identity_details"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c68313b3dc71cd40",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "390c3098a80e1fc8",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false
+          },
+          "icon": "lucide-folder-closed",
+          "title": "ファイルエクスプローラ"
+        }
+      },
+      {
+        "id": "452b008ad0631d7f",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "検索"
+        }
+      },
+      {
+        "id": "2f48625753c0c42a",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-tags",
+          "title": "タグ"
+        }
+      },
+      {
+        "id": "ce88fa87e61ee51e",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "ブックマーク"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "9c25061aec2d953c",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "7c38eb1bacd51c09",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "CursorパーソナルAI「第二の自分」構築ロードマップ.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "9618851b7c96e344",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "CursorパーソナルAI「第二の自分」構築ロードマップ.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "4b1871008c3aee50",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "CursorパーソナルAI「第二の自分」構築ロードマップ.md",
+            "followCursor": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-list",
+          "title": "Outline"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "workspaces:ワークスペースレイアウトを管理": false,
+      "publish:パブリッシュによる変更の公開": false,
+      "switcher:クイックスイッチャーを開く": false,
+      "graph:グラフビューを開く": false,
+      "canvas:新規キャンバスを作成": false,
+      "daily-notes:今日のデイリーノートを開く": false,
+      "templates:テンプレートを挿入": false,
+      "command-palette:コマンドパレットを開く": false
+    }
+  },
+  "active": "390c3098a80e1fc8",
+  "lastOpenFiles": [
+    "Clippings/Why I Ditched WordPress for Obsidian + Quartz (and Haven't Looked Back).md",
+    "無題のファイル.md",
+    "Welcome.md",
+    "情弱ビジネスにしないために論理を.md",
+    "2025-05-09.md",
+    "デジタルme/価値観/Masayaのつながり方に関する思索ログ.md",
+    "deepresearch/CursorとObsidianで実現する「第二の自分」運用ガイド.md",
+    "ティキちゃん/価値観/Masayaの「言葉・表現のクセ」辞典（ティキちゃん再現用）.md",
+    "ティキちゃん/価値観/Masayaのつながり方に関する思索ログ.md",
+    "ティキちゃん/価値観/Masayaの深層動機マップ（欲求・恐れ・快・不快）.md",
+    "ティキちゃん/発信・コンテンツ活動の変遷と指針.md",
+    "ティキちゃん/価値観",
+    "ティキちゃん/経歴/Masayaさんの生活・パートナーシップ.md",
+    "ティキちゃん/経歴/Masayaさんの将来ビジョンと実現計画.md",
+    "ティキちゃん/経歴/発信・コンテンツ活動の変遷と指針.md",
+    "ティキちゃん/経歴/Masayaさんの仕事・キャリアの歩み.md",
+    "ティキちゃん/経歴/Masayaさんが活用・学習中の技術・ツール・やりたいことリスト.md",
+    "ティキちゃん/経歴/Masayaさんのコーチング活動まとめ.md",
+    "ティキちゃん/経歴/Masayaさんの生い立ち・幼少期（1989〜2001）.md",
+    "ティキちゃん/経歴/Masayaさんの旅・海外経験.md",
+    "ティキちゃん/経歴/Masayaさんの経歴記録（ジャンル別まとめ）.md",
+    "ティキちゃん/経歴/Masayaさんの仕事・キャリアの歩み 1.md",
+    "ティキちゃん/経歴",
+    "CursorパーソナルAI「第二の自分」構築ロードマップ.md",
+    "ティキちゃん/人格",
+    "ティキちゃん",
+    "CursorとObsidianで実現する「第二の自分」運用ガイド.md",
+    "テスト"
+  ]
+}

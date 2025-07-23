@@ -1,0 +1,205 @@
+<article>
+	<section class="top-voice-sec">
+		<div class="bg-img"><img src="/data/media/smileyflowers-study/page/index/voice_bgimg.png" alt="" /></div>
+		<div class="container -w1140">
+			<div class="voice-split">
+				<div class="voice-left">
+					<div class="ttl-box">
+						<p class="en-ttl js-smooth" lang="en">VOICE</p>
+						<h2 class="top js-smooth">スマフラ海外体験者の声</h2>
+						<p class="left-text-tb js-smooth">スマフラ留学を利用した海外留学・ワーキングホリデーの体験を通じて、自分のやりたいことや好きなことを見つけることができた先輩が数多くいます！</p>
+					</div>
+					<div class="voice-dots-box"></div>
+				</div>
+				<!--- @exists('etag="for_pages" page_type="2286" cat_url="" sort_field="page_pub_date" sort_order="desc" limit="4"') --->
+				<div class="voice-right">
+					<div class="voice-slider"><!--- @for_pages --->
+						<div class="voice-item hover-all"><a href="@_page_url" target="@_page_link_target"></a>
+							<div class="img-box ofi">@exists('_page_thumb_url') <img src="@_page_thumb_url" alt="@_page_title" /> @else <img src="/data/media/smileyflowers-study/common/noimg.jpg" alt="@_page_title" /> @endexists</div>
+							<div class="txt-box">
+								<div class="ttl">留学先：<span>@_tpl_input('name="rel_country"')</span></div>
+								<p class="txt">@_tpl_input('name="message"')</p>
+							</div>
+						</div>
+						<!--- @endfor_pages ---></div>
+				</div>
+				<!--- @endexists ---></div>
+		</div>
+	</section>
+	<section class="top-service-sec">
+		<div class="container -w1140">
+			<div class="service-split">
+				<div class="service-left">
+					<div class="ttl-box">
+						<p class="en-ttl js-smooth" lang="en">SERVICE</p>
+						<h2 class="top js-smooth">人生を開花させる体験を<br class="tb" />届ける留学・ワーキング<br class="tb" />ホリデー支援サービス</h2>
+						<p class="left-text-tb js-smooth">スマフラ留学は、「家族や身内に勧める留学サポート」をコンセプトに、帰国後も&rdquo;一生繋がる関係づくり&rdquo;を目指しています。そのような関係を築いたうえで、留学やワーキングホリデーに行くだけで終わりではなく、どのような経験を得られるかに重きをおいています。</p>
+					</div>
+					<div class="service-btn-box js-smooth"><a href="@link(1930)" class="button01">スマフラ留学をもっと知る</a></div>
+				</div>
+				<div class="service-right">
+					<div class="service-img-box ofi js-blur"><img src="/data/media/smileyflowers-study/page/index/img_service.jpg" alt="" /></div>
+				</div>
+			</div>
+		</div>
+		<div class="bg-img"><img src="/data/media/smileyflowers-study/page/index/service_bgimg.png" alt="" /></div>
+	</section>
+	<section class="top-reason-sec pb200">
+		<div class="container -w1140">
+			<div class="ttl-box">
+				<p class="en-ttl js-smooth" lang="en">REASON</p>
+				<h2 class="top mb0 js-smooth">スマフラ留学が選ばれる<br class="tb" />3つの理由</h2>
+			</div>
+			<div class="owl70 owl50-tb">
+				<div class="reason-box -support fadeUp">
+					<div class="inner">
+						<p class="box-ttl mb5 mb25-tb"><span>01</span>渡航前の手厚いサポート</p>
+						<div class="float">
+							<div class="left-box pt15 pt0-tb mb50" style="width: 495px;">
+								<div class="mb50 mb45-tb">
+									<p class="ttl">渡航前サポートの満足度<span>98<i>%</i></span></p>
+									<p>貴重な留学・ワーキングホリデーの機会を最大限に活かすために、スマフラ留学は渡航前準備が重要視しています。英会話セミナー・イベントの開催、留学準備者や経験者とのコミュニケーション機会の提供、渡航目的確認から始まる丁寧なカウンセリングなどを実施しています。</p>
+								</div>
+								<a href="@link(1930)#price" class="button01">費用をもっと知る</a></div>
+							<div class="right-box" style="width: 485px;">
+								<div class="img-box ofi"><img src="/data/media/smileyflowers-study/page/index/img_reason01.jpg" alt="" /></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="reason-box -study fadeUp">
+					<div class="inner">
+						<p class="box-ttl mb5 mb8-tb"><span>02</span>信頼できる実績数</p>
+						<div class="study-box">
+							<div class="study-top">
+								<p class="ttl">スマフラ留学を利用し、<br />実際に留学・ワーキングホリデーを<br />経験した人数</p>
+								<p class="num">1187<span>人</span></p>
+							</div>
+							<div class="study-bottom">
+								<ul class="flag-list">
+									<li>
+										<p class="flag-ttl">カナダ</p>
+										<div class="flag"><img src="/data/media/smileyflowers-study/page/index/icon_flag04.png" alt="" /></div>
+										<p class="flag-num">586<span>人</span></p>
+									</li>
+									<li>
+										<p class="flag-ttl">オーストラリア</p>
+										<div class="flag"><img src="/data/media/smileyflowers-study/page/index/icon_flag02.png" alt="" /></div>
+										<p class="flag-num">543<span>人</span></p>
+									</li>
+									<li>
+										<p class="flag-ttl">フィリピン</p>
+										<div class="flag"><img src="/data/media/smileyflowers-study/page/index/icon_flag03.png" alt="" /></div>
+										<p class="flag-num">228<span>人</span></p>
+									</li>
+									<li>
+										<p class="flag-ttl">その他</p>
+										<div class="flag"><img src="/data/media/smileyflowers-study/page/index/icon_flag01.png" alt="" /></div>
+										<p class="flag-num">25<span>人</span></p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="reason-box -archive fadeUp">
+					<div class="inner">
+						<p class="box-ttl mb5 mb25-tb"><span>03</span>あなたのための留学プラン</p>
+						<div class="float">
+							<div class="left-box mb20" style="width: 495px;">
+								<p>スマイリーフラワーズでは、誰もが夢に挑戦できるよう、あなたの予算や希望に合わせた海外プランを提供しています。NPO法人として活動しているため、利益第一優先では無く、「あなたのため」を本気で考えて留学・ワーキングホリデーをサポートしています。</p>
+							</div>
+							<div class="right-box" style="width: 485px;">
+								<div class="img-box ofi"><img src="/data/media/smileyflowers-study/page/index/img_reason02.jpg" alt="" /></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="top-choose-sec" id="choose">
+		<ul class="deco-img">
+			<li><img src="/data/media/smileyflowers-study/page/index/img_choose_deco01.png" alt="" /></li>
+			<li><img src="/data/media/smileyflowers-study/page/index/img_choose_deco02.png" alt="" /></li>
+		</ul>
+		<div class="img-ship"><img src="/data/media/smileyflowers-study/page/index/icon_ship.png" alt="" /></div>
+		<div class="container -w1140">
+			<div class="choose-heading fadeUp">
+				<div class="choose-ttl"><i class="fa-solid fa-location-dot"></i> <img class="icon-arr " src="/data/media/smileyflowers-study/page/index/icon_arr.png" alt="" />
+					<p class="js-smooth">選べる渡航先</p>
+					<img class="icon-arr" src="/data/media/smileyflowers-study/page/index/icon_arr.png" alt="" /></div>
+				<h2 class="top center-text cream-txt js-smooth">英語を用いた留学・ワーキングホリデーを<br />検討する方にピッタリな4カ国</h2>
+			</div>
+			<div class="choose-body"><!--- @exists('etag="for_pages" page_type="2284" cat_url="" sort_field="page_pub_date" sort_order="desc" limit="12"') --->
+				<ul class="choose-cardlist"><!--- @for_pages --->
+					<li class="fadeUp">
+						<div class="flag"><img src="/data/media/smileyflowers-study/page/index/deco_flag.png" alt="@_page_title" /> <span>@_page_title</span></div>
+						<div class="img-box ofi">@exists('_page_thumb_url') <img src="@_page_thumb_url" alt="@_page_title" /> @else <img src="/data/media/smileyflowers-study/common/noimg.jpg" alt="@_page_title" /> @endexists</div>
+						<p class="txt mh">@_tpl_input('name="feature01-content"')</p>
+						<div class="right-text"><a href="@_page_url" target="@_page_link_target" class="button03">詳しく知る</a></div>
+					</li>
+					<!--- @endfor_pages ---></ul>
+				<!--- @endexists ---></div>
+		</div>
+	</section>
+	<section class="top-support-sec">
+		<div class="container -w900">
+			<div class="ttl-box js-smooth">
+				<p class="en-ttl" lang="en">SUPPORT</p>
+				<h2 class="top mb0">私たちがあなたの留学・<br class="tb" />ワーキングホリデー体験を<br />全力でサポートします！</h2>
+			</div>
+			<div class="support-slider basic-slider fadeUp">
+				<div class="support-item">
+					<div class="content">
+						<div class="img-box ofi"><img src="/data/media/smileyflowers-study/page/index/img_support01.jpg" alt="" /></div>
+						<div class="txt-box">
+							<div class="mb15">
+								<p class="name">窪田 広信</p>
+								<p class="work">代表</p>
+							</div>
+							<p class="txt">留学業界 12年の知識と経験、更には社会人としての様々な経験を元に、 &ldquo;人生を変える留学&rdquo; をコンセプトにサポートさせていただいています。</p>
+						</div>
+					</div>
+				</div>
+				<div class="support-item">
+					<div class="content">
+						<div class="img-box ofi"><img src="/data/media/smileyflowers-study/page/index/img_support02.jpg" alt="" /></div>
+						<div class="txt-box">
+							<div class="mb15">
+								<p class="name">石井 文美</p>
+								<p class="work">留学カウンセラー</p>
+							</div>
+							<p class="txt">オーストラリアでのワーキングホリデーやカナダでの語学留学、ヨーロッパでのインターンシップを経験し、今はお客様の海外留学を自分のことの様に楽しみながら、日々お手伝いさせていただいています。</p>
+						</div>
+					</div>
+				</div>
+				<div class="support-item">
+					<div class="content">
+						<div class="img-box ofi"><img src="/data/media/smileyflowers-study/page/index/img_support03.jpg" alt="" /></div>
+						<div class="txt-box">
+							<div class="mb15">
+								<p class="name">外河 里紗</p>
+								<p class="work">留学カウンセラー</p>
+							</div>
+							<p class="txt">ただの「留学を手伝う人」ではなく、留学を通してその方の「人生の道しるべを一緒に考える人」になりたいと思っております。学生時代に、私は実際にここスマフラで留学をして、この会社ならその夢が実現できる！と確信しました。是非私たちと一緒に頑張りましょう！！</p>
+						</div>
+					</div>
+				</div>
+				<div class="support-item">
+					<div class="content">
+						<div class="img-box ofi"><img src="https://smileyflowers.org/data/media/smileyflowers/page/media/img_support04.png" alt="" /></div>
+						<div class="txt-box">
+							<div class="mb15">
+								<p class="name">石橋 夢菜</p>
+								<p class="work">留学カウンセラー</p>
+							</div>
+							<p class="txt">カウンセリングを通して、その時におかれている環境や年齢などに左右されず、興味のあることには何にでも挑戦してみよう！という決断をする方の背中をそっと押す存在になりたいと考えています！</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</article>
+<p></p>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福岡国際交流プラットフォーム｜世界とつながる第一歩を、福岡から</title>
+    <meta name="description" content="留学・海外インターン・ボランティアをワンストップで比較できる福岡発の国際交流ハブ">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(79, 172, 254, 0.95);
+            padding: 0.5rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,0 1000,100 0,80"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #4facfe;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #4facfe;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* Why Platform */
+        .why-platform {
+            background: #f8fcff;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 1.5rem;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .problem {
+            color: #e74c3c;
+            font-weight: 500;
+        }
+
+        .comparison-table .solution {
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        .vision-box {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .vision-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Programs */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #4facfe;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h3 {
+            color: #4facfe;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-card .partner {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .program-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Features */
+        .features {
+            background: #f8fcff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Policy */
+        .policy {
+            background: #f8fcff;
+        }
+
+        .policy-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .policy-list li {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #4facfe;
+        }
+
+        .policy-list li::before {
+            content: '✓';
+            color: #4facfe;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        /* Message */
+        .message {
+            text-align: center;
+        }
+
+        .message-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .message-card::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            opacity: 0.3;
+        }
+
+        .message-card blockquote {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .message-card .author {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .message-card .title {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq {
+            background: #f8fcff;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: #4facfe;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            color: #666;
+            line-height: 1.6;
+            display: none;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-btn.form {
+            background: #4facfe;
+        }
+
+        .contact-btn.form:hover {
+            box-shadow: 0 6px 20px rgba(79, 172, 254, 0.3);
+        }
+
+        .contact-btn.email {
+            background: #667eea;
+        }
+
+        .contact-btn.email:hover {
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .comparison-table {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="logo">福岡国際交流プラットフォーム</div>
+            <ul class="nav-links">
+                <li><a href="#why">なぜ</a></li>
+                <li><a href="#search">プログラム</a></li>
+                <li><a href="#features">機能</a></li>
+                <li><a href="#partner">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>世界とつながる第一歩を、福岡から。</h1>
+            <p>留学・海外インターン・スタディツアー——<br>あなたに最適な海外体験をワンストップで見つけよう。</p>
+            <div class="cta-buttons">
+                <a href="#search" class="btn btn-primary">海外体験を探す</a>
+                <a href="#partner" class="btn btn-secondary">団体掲載のご相談</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Platform Section -->
+    <section class="section why-platform" id="why">
+        <div class="container">
+            <h2 class="section-title fade-in">なぜプラットフォームをつくるのか</h2>
+            <div class="comparison-table fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>課題</th>
+                            <th>私たちのアプローチ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="problem">情報が散在し比較が難しい</td>
+                            <td class="solution">プログラムを1サイトに集約し、検索&無料相談を提供</td>
+                        </tr>
+                        <tr>
+                            <td class="problem">留学一択の風潮</td>
+                            <td class="solution">インターン・ボランティアなど多彩な選択肢を紹介</td>
+                        </tr>
+                        <tr>
+                            <td class="problem">料金・安全の不透明さ</td>
+                            <td class="solution">NPO中立性＋現地視察の認証バッジで透明化</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="vision-box fade-in">
+                <h3>Vision</h3>
+                <p>海外体験の裾野を広げ、福岡から次世代のチェンジメーカーを育む。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section" id="search">
+        <div class="container">
+            <h2 class="section-title fade-in">掲載プログラム例</h2>
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <h3>海外インターン</h3>
+                    <div class="partner">タイガーモブ</div>
+                    <p>社会課題解決型インターンシップ（30ヶ国）</p>
+                </div>
+                <div class="program-card fade-in">
+                    <h3>語学＋ホームステイ</h3>
+                    <div class="partner">スマフラ留学</div>
+                    <p>英語初級者向けブートキャンプ付き</p>
+                </div>
+                <div class="program-card fade-in">
+                    <h3>スタディツアー</h3>
+                    <div class="partner">APU学生団体</div>
+                    <p>SDGsテーマの1〜2週間短期渡航</p>
+                </div>
+                <div class="program-card fade-in">
+                    <h3>国際ボランティア</h3>
+                    <div class="partner">福岡ユナイテッドNPO</div>
+                    <p>カンボジア教育支援プログラム</p>
+                </div>
+                <div class="program-card fade-in">
+                    <h3>国内多文化交流</h3>
+                    <div class="partner">博多インターナショナルフェス</div>
+                    <p>留学生×市民イベント運営ボランティア</p>
+                </div>
+            </div>
+            <p class="fade-in" style="text-align: center; margin-top: 2rem; color: #666;">
+                新規掲載を希望する団体さまは下記フォームよりご連絡ください。
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <h2 class="section-title fade-in">プラットフォーム機能</h2>
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>検索 & 比較</h3>
+                    <p>国・期間・目的・予算でフィルター</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>無料カウンセリング</h3>
+                    <p>LINE/対面で中立アドバイス</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>レビュー & 体験談</h3>
+                    <p>ビフォーアフターを可視化</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>安心認証バッジ</h3>
+                    <p>安全基準・現地視察済みプログラム</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>奨学金情報ハブ</h3>
+                    <p>自治体・企業の助成制度を一覧化</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Section -->
+    <section class="section policy">
+        <div class="container">
+            <h2 class="section-title fade-in">運営ポリシー</h2>
+            <ul class="policy-list fade-in">
+                <li>スマフラ留学は<strong>数ある選択肢のひとつ</strong>として掲載</li>
+                <li>すべての団体を公平に紹介し、最適なプログラム選択をサポート</li>
+                <li>掲載手数料はいただきません（中立性確保）</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="section message">
+        <div class="container">
+            <h2 class="section-title fade-in">代表メッセージ</h2>
+            <div class="message-card fade-in">
+                <blockquote>
+                    海外は特別ではなく、誰しもが手にできる学びの場。福岡から世界へ羽ばたく若者を増やすために、私たちは情報のハブになります。
+                </blockquote>
+                <div class="author">窪田 広信</div>
+                <div class="title">スマイリーフラワーズ 代表理事 / 元国連職員</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq">
+        <div class="container">
+            <h2 class="section-title fade-in">よくある質問</h2>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>利用料はかかりますか？</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    サイト利用・相談は無料です。プログラム費用は各団体へ直接お支払いとなります。
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>英語に自信がありません。</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    英語初級向けプログラムや日本語サポート付き渡航も多数掲載しています。まずはお気軽にご相談ください。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="partner">
+        <div class="container">
+            <h2 class="section-title fade-in">お問い合わせ・掲載申請</h2>
+            <div class="contact-buttons fade-in">
+                <a href="https://line.me" class="contact-btn">
+                    <i class="fab fa-line"></i>
+                    LINEで質問
+                </a>
+                <a href="https://forms.gle" class="contact-btn form">
+                    <i class="fas fa-file-alt"></i>
+                    掲載申請フォーム
+                </a>
+                <a href="mailto:info@smileyflowers.net" class="contact-btn email">
+                    <i class="fas fa-envelope"></i>
+                    info@smileyflowers.net
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 スマイリーフラワーズ. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.9rem;">
+                本ページはドラフトです。フィードバック歓迎します。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.display = 'block';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

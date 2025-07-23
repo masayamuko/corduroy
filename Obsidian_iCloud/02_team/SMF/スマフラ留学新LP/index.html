@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スマフラ留学｜初めての海外で人生を変える留学</title>
+    <meta name="description" content="英語ゼロから海外就職まで伴走するNPOのブートキャンプ型留学プログラム">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff8c42 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 107, 53, 0.95);
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 30%, #ff8c42 70%, #ffb347 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.03"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.03"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            background-size: 300px 300px, 400px 400px, 50px 50px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,0 1000,100 0,80"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
+            color: #ff6b35;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            background: linear-gradient(135deg, #fff 0%, #fff5e6 100%);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* Features */
+        .features {
+            background: linear-gradient(135deg, #fff8f0 0%, #ffeee6 50%, #fff5e6 100%);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="dots" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.5" fill="%23ff6b35" opacity="0.1"/><circle cx="0" cy="0" r="1" fill="%23f7931e" opacity="0.05"/><circle cx="60" cy="60" r="1" fill="%23f7931e" opacity="0.05"/></pattern></defs><rect width="60" height="60" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 
+                0 15px 35px rgba(255, 107, 53, 0.15),
+                0 5px 15px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.03) 0%, rgba(247, 147, 30, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(255, 107, 53, 0.25),
+                0 10px 25px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff8c42 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2.2rem;
+            box-shadow: 
+                0 8px 20px rgba(255, 107, 53, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #ff8c42 0%, #ffb347 100%);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 12px 30px rgba(255, 107, 53, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .feature-card:hover .feature-icon::before {
+            opacity: 1;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 45px;
+            right: -1rem;
+            width: 2rem;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 2px;
+            display: none;
+            box-shadow: 0 2px 4px rgba(255, 107, 53, 0.3);
+        }
+
+        .process-step:not(:last-child)::after {
+            display: block;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff8c42 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            box-shadow: 
+                0 8px 20px rgba(255, 107, 53, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-number::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #ff8c42 0%, #ffb347 100%);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 
+                0 12px 30px rgba(255, 107, 53, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .process-step:hover .step-number::before {
+            opacity: 1;
+        }
+
+        .process-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .process-step p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: linear-gradient(135deg, #fff8f0 0%, #ffeee6 50%, #fff5e6 100%);
+            position: relative;
+        }
+
+        .pricing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><defs><pattern id="pricing-pattern" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="2" fill="%23ff6b35" opacity="0.08"/><circle cx="20" cy="20" r="1" fill="%23f7931e" opacity="0.05"/><circle cx="60" cy="60" r="1" fill="%23f7931e" opacity="0.05"/></pattern></defs><rect width="80" height="80" fill="url(%23pricing-pattern)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #fff 0%, #fff8f0 100%);
+            padding: 3.5rem 2.5rem;
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 40px rgba(255, 107, 53, 0.15),
+                0 8px 20px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 30px 60px rgba(255, 107, 53, 0.2),
+                0 12px 30px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .pricing-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .pricing-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pricing-list li:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #ff6b35;
+            text-shadow: 0 1px 2px rgba(255, 107, 53, 0.2);
+        }
+
+        /* Before/After */
+        .before-after {
+            text-align: center;
+        }
+
+        .ba-card {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff8c42 100%);
+            color: white;
+            padding: 3.5rem 2.5rem;
+            border-radius: 25px;
+            margin: 2rem 0;
+            box-shadow: 
+                0 20px 40px rgba(255, 107, 53, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ba-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="ba-pattern" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/><circle cx="25" cy="25" r="1" fill="white" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23ba-pattern)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .ba-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ba-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .ba-stat {
+            text-align: center;
+        }
+
+        .ba-stat .number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .ba-stat .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* FAQ */
+        .faq {
+            background: linear-gradient(135deg, #fff8f0 0%, #ffeee6 50%, #fff5e6 100%);
+            position: relative;
+        }
+
+        .faq::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="faq-dots" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.5" fill="%23ff6b35" opacity="0.08"/><circle cx="15" cy="15" r="0.8" fill="%23f7931e" opacity="0.05"/><circle cx="45" cy="45" r="0.8" fill="%23f7931e" opacity="0.05"/></pattern></defs><rect width="60" height="60" fill="url(%23faq-dots)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #f7931e 0%, #ff8c42 100%);
+            transform: translateX(5px);
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-btn.form {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        }
+
+        .contact-btn.form:hover {
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+            background: linear-gradient(135deg, #f7931e 0%, #ff8c42 100%);
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+            
+            .ba-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="logo">スマフラ留学</div>
+            <ul class="nav-links">
+                <li><a href="#features">特徴</a></li>
+                <li><a href="#process">流れ</a></li>
+                <li><a href="#pricing">料金</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h1>人生を開花させる体験を届ける留学・ワーキングホリデー</h1>
+                    <p><strong>家族や身内に勧める留学サポートで、一生繋がる関係づくりを目指します</strong></p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">オンライン無料相談</a>
+                        <a href="#trial" class="btn btn-secondary">授業お試し受講</a>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <div style="width: 300px; height: 300px; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 20px 40px rgba(0,0,0,0.1); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
+                        <div style="text-align: center; color: white;">
+                            <i class="fas fa-globe-americas" style="font-size: 4rem; margin-bottom: 1rem; opacity: 0.9;"></i>
+                            <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">世界への扉</div>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">あなたの可能性を<br>広げる第一歩</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Persona Message Section -->
+    <section class="section persona-message fade-in" style="background: linear-gradient(135deg, #fff8f0 0%, #ffeee6 100%); text-align: center;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 2rem; color: #ff6b35; margin-bottom: 2rem; font-weight: 700;">
+                    私たちがあなたの留学・ワーキングホリデー体験を全力でサポートします！
+                </h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: #666; margin-bottom: 2rem;">
+                    留学業界12年の知識と経験を持つ代表をはじめ、<br>
+                    実際に海外体験を積んだスタッフが、<br>
+                    あなたの"人生を変える留学"をサポートします。
+                </p>
+                <div style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; padding: 2rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);">
+                    <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">
+                        代表・窪田広信より
+                    </p>
+                    <p style="font-size: 1rem; opacity: 0.9;">
+                        留学業界12年の知識と経験、更には社会人としての様々な経験を元に、<br>
+                        "人生を変える留学"をコンセプトにサポートさせていただいています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <h2 class="section-title fade-in">スマフラ留学が選ばれる3つの理由</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>渡航前の手厚いサポート</h3>
+                    <p>渡航前サポートの満足度98%！貴重な留学・ワーキングホリデーの機会を最大限に活かすために、英会話セミナー・イベント開催、留学準備者や経験者とのコミュニケーション機会の提供、渡航目的確認から始まる丁寧なカウンセリングを実施しています。</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>信頼できる実績数</h3>
+                    <p>スマフラ留学を利用し、実際に留学・ワーキングホリデーを経験した人数は1,187人！カナダ586人、オーストラリア543人、フィリピン228人、その他25人の実績があります。多くの先輩たちが海外で人生を変える体験を積んでいます。</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>あなたのための留学プラン</h3>
+                    <p>NPO法人として活動しているため、利益第一優先ではなく、「あなたのため」を本気で考えて留学・ワーキングホリデーをサポートしています。誰もが夢に挑戦できるよう、あなたの予算や希望に合わせた海外プランを提供します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section" id="process">
+        <div class="container">
+            <h2 class="section-title fade-in">選べる渡航先</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 3rem;">英語を用いた留学・ワーキングホリデーを検討する方にピッタリな4カ国</p>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">🇨🇦</div>
+                    <h3>カナダ</h3>
+                    <p>治安が良く、多文化国家として知られるカナダ。ワーキングホリデーにも人気の国です。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">🇦🇺</div>
+                    <h3>オーストラリア</h3>
+                    <p>温暖な気候と豊かな自然が魅力のオーストラリア。フレンドリーな国民性で初留学にもおすすめ。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">🇵🇭</div>
+                    <h3>フィリピン</h3>
+                    <p>費用を抑えて英語を学べるフィリピン。マンツーマンレッスンが充実しており、短期集中にも最適。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">🌍</div>
+                    <h3>その他</h3>
+                    <p>ニュージーランドやイギリスなど、あなたの目標に合わせて様々な国での留学をサポートします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title fade-in">料金モデル</h2>
+            <div class="pricing-card fade-in">
+                <ul class="pricing-list">
+                    <li>
+                        <span>入学金</span>
+                        <span class="price">0円</span>
+                    </li>
+                    <li>
+                        <span>留学費用</span>
+                        <span class="price">実費（為替手数料なし）</span>
+                    </li>
+                    <li>
+                        <span>サポート費用</span>
+                        <span class="price">¥36,000（税込）</span>
+                    </li>
+                </ul>
+                <p style="margin-top: 2rem; color: #ff6b35; font-weight: 500;">
+                    <i class="fas fa-info-circle"></i> 奨学金・分割払いもご相談ください。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Message Section -->
+    <section class="section" style="background: linear-gradient(135deg, #fff8f0 0%, #ffeee6 100%); text-align: center;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; padding: 3rem 2rem;">
+                <h2 style="font-size: 2rem; color: #ff6b35; margin-bottom: 2rem; font-weight: 700;">
+                    はじめての海外、怖くて当然。
+                </h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: #666; margin-bottom: 2rem;">
+                    英語なんて、中学のbe動詞すらあやしい。<br>
+                    でも「変わりたい」「一歩踏み出したい」って思ったその気持ち、<br>
+                    私たちは誰より大切にしたい。
+                </p>
+                <div style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%); color: white; padding: 2rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);">
+                    <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">
+                        スマフラ留学は、留学エージェントじゃなくて<br>
+                        "人生のスタート地点の伴走者"です。
+                    </p>
+                    <p style="font-size: 1rem; opacity: 0.9;">
+                        不安も、失敗も、遠回りも、ぜんぶOK。<br>
+                        あなたの「行ってよかった」を一緒につくろう。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="section before-after">
+        <div class="container">
+            <h2 class="section-title fade-in">スマフラ海外体験者の声</h2>
+            
+            <!-- 体験者事例 -->
+            <div class="ba-card fade-in" style="margin-bottom: 2rem;">
+                <h3>留学先：カナダ「英語力向上と国際的な視野を獲得」</h3>
+                <div class="ba-stats">
+                    <div class="ba-stat">
+                        <span class="number">🇨🇦</span>
+                        <span class="label">カナダ<br>ワーキングホリデー</span>
+                    </div>
+                    <div class="ba-stat">
+                        <span class="number">→</span>
+                        <span class="label">1年間の<br>海外生活</span>
+                    </div>
+                    <div class="ba-stat">
+                        <span class="number">✨</span>
+                        <span class="label">英語力UP<br>＋自信獲得</span>
+                    </div>
+                </div>
+                <p>「最初は不安でしたが、現地でのサポートのおかげで充実した留学生活を送ることができました。英語力だけでなく、自分に自信を持てるようになりました。」</p>
+            </div>
+
+            <!-- オーストラリア事例 -->
+            <div class="ba-card fade-in" style="margin-bottom: 2rem;">
+                <h3>留学先：オーストラリア「人生の転機となった体験」</h3>
+                <div class="ba-stats">
+                    <div class="ba-stat">
+                        <span class="number">🇦🇺</span>
+                        <span class="label">オーストラリア<br>語学留学</span>
+                    </div>
+                    <div class="ba-stat">
+                        <span class="number">→</span>
+                        <span class="label">現地での<br>挑戦</span>
+                    </div>
+                    <div class="ba-stat">
+                        <span class="number">🌟</span>
+                        <span class="label">新しい<br>人生の道</span>
+                    </div>
+                </div>
+                <p>「フレンドリーなオーストラリアの人々との出会いが、私の人生を大きく変えました。帰国後も海外との繋がりを大切にしています。」</p>
+            </div>
+
+            <!-- フィリピン事例 -->
+            <div class="ba-card fade-in">
+                <h3>留学先：フィリピン「短期集中で英語力が飛躍的に向上」</h3>
+                <div class="ba-stats">
+                    <div class="ba-stat">
+                        <span class="number">🇵🇭</span>
+                        <span class="label">フィリピン<br>短期集中</span>
+                    </div>
+                    <div class="ba-stat">
+                        <span class="number">→</span>
+                        <span class="label">マンツーマン<br>レッスン</span>
+                    </div>
+                    <div class="ba-stat">
+                        <span class="number">📈</span>
+                        <span class="label">英語力<br>大幅UP</span>
+                    </div>
+                </div>
+                <p>「費用を抑えながら、マンツーマンでしっかりと英語を学べました。短期間でも確実に成長を実感できるプログラムでした。」</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.2rem; color: #ff6b35; font-weight: 600;">
+                    スマフラ留学を利用した海外留学・ワーキングホリデーの体験を通じて、<br>
+                    自分のやりたいことや好きなことを見つけた先輩が数多くいます！
+                </p>
+                <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
+                    <i class="fas fa-heart"></i> あなたも一緒に、人生を開花させる体験を始めませんか？
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq">
+        <div class="container">
+            <h2 class="section-title fade-in">よくある質問</h2>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>英語が全くできません。本当に大丈夫？</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    be動詞すらあやしくても大丈夫！中学英語からスタートして、あなたのペースで進めます。「英語ムリ」って思ってる人にこそ、スマフラは本気で向き合います。
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>費用が心配です。</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    お金の不安も一緒に解決しましょう。奨学金・分割プランを用意しています。「お金がないから諦める」じゃなくて、まずは相談してみてください。
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>何歳まで参加できますか？</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    18〜25歳の方が多いですが、「変わりたい」って思う気持ちがあれば年齢は関係ありません。まずは気軽に話してみませんか？
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">お問い合わせ</h2>
+            <p class="fade-in">「不安すぎる…」って人は、まずは気軽に話してみませんか？<br>あなたの「やってみたいけど不安」を一緒に整理しましょう。</p>
+            <div class="contact-buttons fade-in">
+                <a href="https://line.me" class="contact-btn">
+                    <i class="fab fa-line"></i>
+                    LINEで無料相談
+                </a>
+                <a href="https://forms.gle" class="contact-btn form">
+                    <i class="fas fa-file-alt"></i>
+                    資料請求フォーム
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trial Section -->
+    <section class="section" id="trial" style="background: #f8f9ff;">
+        <div class="container">
+            <h2 class="section-title fade-in">授業お試し受講</h2>
+            <p class="fade-in" style="text-align: center; margin-bottom: 2rem;">
+                毎週水曜19:00〜「英語苦手でも大丈夫？」リアル体験授業開催中！<br>
+                <small style="opacity: 0.8;">同じ不安を持つ仲間と一緒に、まずは一歩踏み出してみませんか？</small>
+            </p>
+            <div style="text-align: center;">
+                <a href="https://calendly.com" class="btn btn-primary fade-in">
+                    <i class="fas fa-calendar-alt"></i>
+                    今すぐ予約する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 スマイリーフラワーズ. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.9rem;">
+                本ページはベータ版です。内容は変更になる場合があります。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.display = 'block';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

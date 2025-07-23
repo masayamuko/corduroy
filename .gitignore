@@ -33,4 +33,48 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts 
+next-env.d.ts
+
+# ==================================================
+# TOP階層汚染防止設定 (TOP_LEVEL_PROTECTION)
+# ==================================================
+# 注意: 以下の設定により正当なファイルが無視される場合は、
+# この「TOP_LEVEL_PROTECTION」コメントで検索して設定を調整してください
+
+# プロジェクトファイルをTOP階層に作らない
+/package*.json
+/next.config.*
+/tailwind.config.*
+/postcss.config.*
+/tsconfig.json
+/eslint.config.*
+/src/
+/public/
+/scripts/
+/docs/
+/.next/
+/.env*
+/build/
+/dist/
+
+# プロジェクト固有のドキュメント（TOP階層での重複を防ぐ）
+/DEPLOYMENT.md
+/DEVELOPMENT_ISSUES.md
+/HYDRATION_ERROR*.md
+/VERCEL_BUILD_ERRORS_GUIDE.md
+/README.md
+/CLAUDE.md
+/env.example
+/server.log
+
+# 開発時の一時ファイル
+*.log
+.vscode/
+.idea/
+.cursor/
+
+# プロジェクトディレクトリ（正しい場所: Obsidian_iCloud/Public/）
+/banjoTeto/
+/courses/
+/masaya/
+/portfolio/ 

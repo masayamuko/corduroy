@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスポート留学 | 初海外×初留学専門サポート</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヒーローセクション */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="800" cy="300" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="400" cy="600" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="900" cy="800" r="3" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-highlight {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-highlight h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+
+        .hero-highlight p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+            margin: 20px 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        /* 問題提起セクション */
+        .problem-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .problem-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .problem-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .problem-item .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .problem-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* 解決策セクション */
+        .solution-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .solution-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .solution-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .solution-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .solution-item-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .solution-item .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .solution-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* 比較セクション */
+        .comparison-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .comparison-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            text-align: center;
+        }
+
+        .comparison-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .comparison-cell {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-cell.highlight {
+            background: #fff3cd;
+            font-weight: bold;
+        }
+
+        .comparison-cell.winner {
+            background: #d4edda;
+            color: #155724;
+            font-weight: bold;
+        }
+
+        /* 料金セクション */
+        .pricing-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .pricing-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
+        }
+
+        .pricing-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .price-note {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .service-list {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .service-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        /* CTA セクション */
+        .final-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .urgency-text {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-highlight h2 {
+                font-size: 1.5rem;
+            }
+            
+            .problem-grid,
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-cell {
+                border-bottom: 1px solid #eee;
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>パスポート留学</h1>
+                <p class="hero-subtitle">初海外×初留学専門サポート</p>
+                
+                <div class="hero-highlight">
+                    <h2>パスポートを取って、留学に飛び立とう</h2>
+                    <p>海外旅行経験もない完全初心者専門</p>
+                    <p>0から海外生活をサポートする唯一のエージェント</p>
+                    <p>帰国時には「海外エキスパート」に成長</p>
+                </div>
+                
+                <a href="#contact" class="cta-button">無料相談を申し込む</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 問題提起セクション -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="problem-title">こんな悩みありませんか？</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <div class="icon">🛂</div>
+                    <h3>パスポートも持っていない</h3>
+                    <p>海外に行きたいけど、パスポートの取り方すらわからない...</p>
+                </div>
+                
+                <div class="problem-item">
+                    <div class="icon">✈️</div>
+                    <h3>飛行機に乗ったことがない</h3>
+                    <p>空港の使い方、搭乗手続きが不安で一歩踏み出せない...</p>
+                </div>
+                
+                <div class="problem-item">
+                    <div class="icon">🌍</div>
+                    <h3>海外が怖い</h3>
+                    <p>言葉も通じない、文化も違う、一人で大丈夫？</p>
+                </div>
+                
+                <div class="problem-item">
+                    <div class="icon">💰</div>
+                    <h3>お金がかかりそう</h3>
+                    <p>留学は高いイメージ...海外旅行でも十分じゃない？</p>
+                </div>
+                
+                <div class="problem-item">
+                    <div class="icon">📚</div>
+                    <h3>何から始めればいい？</h3>
+                    <p>留学の準備、手続き、全部がわからない...</p>
+                </div>
+                
+                <div class="problem-item">
+                    <div class="icon">😰</div>
+                    <h3>失敗したらどうしよう</h3>
+                    <p>初めての海外で問題が起きたら...一人で解決できない</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解決策セクション -->
+    <section class="solution-section">
+        <div class="container">
+            <h2 class="solution-title">パスポート留学なら安心！</h2>
+            <p class="solution-subtitle">初海外×初留学の専門家が、0から完全サポート</p>
+            
+            <div class="solution-grid">
+                <div class="solution-item">
+                    <div class="solution-item-content">
+                        <div class="icon">🛂</div>
+                        <h3>パスポート取得サポート</h3>
+                        <p>申請書の書き方から写真撮影のコツまで、パスポート取得を完全サポート</p>
+                    </div>
+                </div>
+                
+                <div class="solution-item">
+                    <div class="solution-item-content">
+                        <div class="icon">✈️</div>
+                        <h3>空港利用完全ガイド</h3>
+                        <p>チェックイン、保安検査、搭乗まで。初めての空港も安心してご利用いただけます</p>
+                    </div>
+                </div>
+                
+                <div class="solution-item">
+                    <div class="solution-item-content">
+                        <div class="icon">🌍</div>
+                        <h3>現地生活準備講座</h3>
+                        <p>文化の違い、生活のコツ、緊急時の対応方法まで事前にレクチャー</p>
+                    </div>
+                </div>
+                
+                <div class="solution-item">
+                    <div class="solution-item-content">
+                        <div class="icon">📞</div>
+                        <h3>24時間緊急サポート</h3>
+                        <p>現地で困ったことがあれば、いつでも日本語で相談可能</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 比較セクション -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="comparison-title">海外旅行 vs 留学 比較</h2>
+            
+            <div class="comparison-table">
+                <div class="comparison-row">
+                    <div class="comparison-header">項目</div>
+                    <div class="comparison-header">海外旅行</div>
+                    <div class="comparison-header">留学</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-cell highlight">期間</div>
+                    <div class="comparison-cell">3-7日</div>
+                    <div class="comparison-cell winner">1-3ヶ月</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-cell highlight">費用</div>
+                    <div class="comparison-cell">15-30万円</div>
+                    <div class="comparison-cell winner">20-40万円</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-cell highlight">語学力向上</div>
+                    <div class="comparison-cell">ほぼなし</div>
+                    <div class="comparison-cell winner">大幅向上</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-cell highlight">文化理解</div>
+                    <div class="comparison-cell">表面的</div>
+                    <div class="comparison-cell winner">深い理解</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-cell highlight">人生への影響</div>
+                    <div class="comparison-cell">思い出</div>
+                    <div class="comparison-cell winner">人生が変わる</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金セクション -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="pricing-title">料金プラン</h2>
+            
+            <div class="pricing-card">
+                <h3>初海外×初留学 完全サポートプラン</h3>
+                <div class="price">52,000円</div>
+                <div class="price-note">（従来36,000円 → 特別価格）</div>
+                
+                <ul class="service-list">
+                    <li>パスポート取得完全サポート</li>
+                    <li>空港利用方法レクチャー</li>
+                    <li>飛行機搭乗ガイダンス</li>
+                    <li>ビザ申請完全サポート</li>
+                    <li>航空券予約代行・説明</li>
+                    <li>初海外生活準備講座</li>
+                    <li>24時間緊急サポート</li>
+                    <li>帰国後フォローアップ</li>
+                </ul>
+                
+                <a href="#contact" class="cta-button">今すぐ申し込む</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最終CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>あなたの人生を変える第一歩</h2>
+            <p>初海外×初留学で、新しい自分を発見しませんか？</p>
+            
+            <div class="urgency-text">
+                <p><strong>今月限定！</strong></p>
+                <p>初海外チャレンジ奨学金 10万円支給</p>
+                <p>パスポート未取得者限定 - 航空券代支援</p>
+            </div>
+            
+            <a href="#contact" class="cta-button">無料相談を申し込む</a>
+            
+            <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">
+                ※無料相談では、あなたの状況に合わせた最適なプランをご提案します
+            </p>
+        </div>
+    </section>
+
+    <!-- 問い合わせフォーム -->
+    <section id="contact" style="padding: 80px 0; background: #f8f9fa;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">お問い合わせ</h2>
+            
+            <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <form>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">お名前</label>
+                        <input type="text" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">メールアドレス</label>
+                        <input type="email" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">電話番号</label>
+                        <input type="tel" style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">パスポートの状況</label>
+                        <select style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem;">
+                            <option>持っていない</option>
+                            <option>期限切れ</option>
+                            <option>有効だが海外未経験</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold;">ご質問・ご相談内容</label>
+                        <textarea style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; height: 120px; resize: vertical;"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%; margin: 0;">無料相談を申し込む</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #333; color: white; padding: 40px 0; text-align: center;">
+        <div class="container">
+            <p>&copy; 2025 パスポート留学 by スマフラ. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                初海外×初留学専門サポート | 24時間緊急サポート完備
+            </p>
+        </div>
+    </footer>
+</body>
+</html> 

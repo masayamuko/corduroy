@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Exchange - 7月18日 大通公園ビアガーデン</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .event-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            padding: 40px 30px;
+        }
+
+        .event-details {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .detail-icon {
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+
+        .detail-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .cta-section {
+            margin-top: 30px;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+            .event-title {
+                font-size: 2rem;
+            }
+            
+            .container {
+                width: 95%;
+            }
+            
+            .header, .main-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="event-title">Language Exchange</h1>
+            <p class="event-subtitle">国際交流で楽しく語学練習！</p>
+        </div>
+
+        <div class="main-content">
+            <div class="event-details">
+                <div class="detail-item">
+                    <div class="detail-icon">📅</div>
+                    <div class="detail-text">7月18日（木）17:30〜</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">📍</div>
+                    <div class="detail-text">大通公園10丁目ビアガーデン</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">🍻</div>
+                    <div class="detail-text">ビールを飲みながら楽しく交流</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">🌍</div>
+                    <div class="detail-text">日本語・英語・その他言語OK</div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <p class="cta-text">
+                    参加希望の方は、お気軽にお声がけください！
+                </p>
+                <a href="#" class="cta-button">参加申し込み</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>主催：HRC | お問い合わせ：DM または メールにて</p>
+        </div>
+    </div>
+</body>
+</html> 
