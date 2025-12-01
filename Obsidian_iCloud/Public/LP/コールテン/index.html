@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>株式会社コールテン｜安心感のあるAI伴走</title>
+  <meta name="description" content="紹介限定・長期前提で伴走するAIパートナー。人の変化も見える化しながら、小さく試して段階的に広げます。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green:#0f3d2e; --mint:#e4f2ea; --cream:#f9f5ec; --line:#d7e6de;
+      --text:#0f1f1a; --accent:#f0a532; --ink:#0d2b21; --shadow:0 20px 50px rgba(0,0,0,.08);
+      --orange:#f7c27c; --sand:#f3e7d6; --sea:#1f6f5a;
+    }
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-sizing}
+    body{
+      margin:0;
+      font-family:"Noto Sans JP","Space Grotesk","Helvetica Neue",Arial,sans-serif;
+      color:var(--text);
+      background: #fbfaf8;
+    }
+    a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line);z-index:12;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .container{max-width:1180px;margin:0 auto;padding:20px 24px}
+    .nav{display:flex;gap:20px;align-items:center;font-weight:600;font-size:15px;color:var(--ink);position:relative;letter-spacing:0.02em}
+    .nav a:hover{color:var(--sea)}
+    .nav .sp{flex:1}
+    .dropdown{position:relative;display:inline-block}
+    .dropdown-menu{position:absolute;top:100%;left:0;min-width:180px;background:#fff;border:1px solid #eef2f0;border-radius:16px;box-shadow:0 18px 36px rgba(0,0,0,.08);padding:8px;display:none;z-index:20;margin-top:10px}
+    .dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu a{display:block;padding:12px 16px;color:var(--ink);font-weight:600;border-radius:10px}
+    .dropdown-menu a:hover{background:#f3f8f6}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:6px;
+      padding:13px 22px;border-radius:16px;
+      border:1px solid var(--green);background:linear-gradient(120deg,#176148,#0f3d2e);
+      color:#fff;font-weight:700;box-shadow:0 12px 28px rgba(15,61,46,.2), 0 2px 4px rgba(0,0,0,.05);
+      letter-spacing:0.03em;transition:.2s all
+    }
+    .btn.secondary{
+      background:#fff;border:1px solid var(--line);color:var(--ink);
+      box-shadow:0 8px 22px rgba(0,0,0,.06)
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(15,61,46,.25), 0 4px 8px rgba(0,0,0,.05);filter:brightness(1.05)}
+    .btn.secondary:hover{box-shadow:0 14px 30px rgba(0,0,0,.1)}
+    h1,h2,h3,h4{margin:0;color:var(--ink);letter-spacing:-0.02em;font-family:"Space Grotesk",sans-serif}
+    h1{font-size:clamp(36px, 5vw, 56px);line-height:1.15}
+    h2{font-size:clamp(30px, 4vw, 44px);line-height:1.2}
+    h3{font-size:clamp(20px, 2.5vw, 24px)}
+    section{padding:80px 24px}
+    .section-head{text-align:center;margin-bottom:48px}
+    .section-head small{display:block;color:var(--sea);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;font-family:"Space Grotesk",sans-serif}
+    .section-head p{max-width:640px;margin:12px auto 0;color:#335649;line-height:1.8}
+    .hero{
+      padding:120px 24px 100px;
+      position:relative;
+      overflow:hidden;
+      text-align:center;
+      background:linear-gradient(180deg, #f8f3eb 0%, #fbfaf8 100%);
+    }
+    .hero-inner{display:flex;flex-direction:column;align-items:center;gap:28px;}
+    .hero h1{margin-bottom:18px}
+    .hero p{font-size:18px;color:#234638;max-width:680px;margin:0 auto 28px;line-height:1.85}
+    .hero .img-container{max-width:800px;width:100%;margin-top:32px;clip-path:polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);}
+    .card{background:#fff;border:1px solid #eef2f0;border-radius:24px;padding:28px;box-shadow:0 10px 25px rgba(0,0,0,.02), 0 20px 45px rgba(0,0,0,.06);transition:.25s transform,.25s box-shadow}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,.02), 0 28px 60px rgba(0,0,0,.09)}
+    .card h3{margin-bottom:12px}
+    .mini{font-size:16px;color:#335649;line-height:1.75}
+    .label{display:inline-block;font-size:12px;padding:8px 14px;border-radius:12px;background:var(--mint);color:#124034;margin-bottom:12px;font-weight:700;letter-spacing:0.05em}
+    
+    .voices-scroller{
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    }
+    .voices-track{display:flex;gap:20px;padding:20px 0;}
+    .voice-card{
+      background:linear-gradient(135deg,#ffffff 0%,#fbfdfa 100%);
+      border:1px solid #eef2f0;
+      border-radius:24px;
+      padding:24px;
+      box-shadow:0 14px 36px rgba(0,0,0,.05);
+      position:relative;
+      min-width:320px;
+      max-width:360px;
+      text-align:left;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    .voice-card:before{content:"“";position:absolute;top:-10px;left:18px;font-size:72px;color:#f0e6d4;opacity:.7}
+    .voice-meta{font-weight:700;color:#123328;margin-bottom:8px;font-size:15px}
+    .avatar{width:60px;height:60px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#fefbf6,#f1f8f4);box-shadow:0 10px 24px rgba(0,0,0,.08);position:relative;flex-shrink:0;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .logo-badge{position:absolute;right:-5px;bottom:-5px;width:26px;height:26px;border-radius:9px;border:2px solid #fff;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.12);padding:2px;overflow:hidden}
+    .logo-badge img{width:100%;height:100%;object-fit:contain}
+    
+    .story-box{background:linear-gradient(120deg,#ffffff 0%,#f8fbf9 100%);border:1px solid #eef2f0;border-radius:28px;padding:32px;box-shadow:var(--shadow);line-height:1.9;color:#16352b}
+    .story-lead{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:16px}
+    .accent{color:var(--accent);font-weight:700}
+    form label{display:block;font-weight:700;margin:12px 0 8px;color:#123328}
+    form input,form textarea{width:100%;padding:14px;border-radius:14px;border:1px solid var(--line);font-family:inherit;background:#fff;transition: all .2s; font-size:16px;}
+    form input:focus,form textarea:focus{border-color:var(--sea);box-shadow:0 0 0 3px #1f6f5a20;outline:none}
+    form button{margin-top:16px}
+    .service-grid{display:grid;gap:24px}
+    @media(min-width:900px){.service-grid{grid-template-columns:repeat(3,1fr)}}
+    .service-card{text-align:center;padding:32px 24px;align-items:center;display:flex;flex-direction:column}
+    .split-layout{display:grid;gap:32px;align-items:center;margin-top:28px}
+    @media(min-width:880px){.split-layout{grid-template-columns:1fr 1fr;gap:48px}}
+    .split-layout.reverse{direction:rtl}
+    .split-layout > *{direction:ltr}
+    .img-container{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+    .img-container img{display:block;width:100%;height:100%;object-fit:cover;transition:.3s transform}
+    .img-container:hover img{transform:scale(1.03)}
+    .icon-lg{font-size:32px;margin-bottom:12px;color:var(--sea);line-height:1;display:inline-block;background:linear-gradient(135deg, var(--mint), #cde8de); padding:14px; border-radius:18px; border:1px solid #fff; box-shadow:0 4px 8px rgba(0,0,0,.05)}
+    .bg-gradient-soft{background:linear-gradient(180deg, #fbfaf8 0%, #f5f9f7 100%)}
+    .bg-contact{background:linear-gradient(180deg, #f5f9f7 0%, #e6f3ed 100%)}
+    
+    /* Animation */
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-100% - 20px)); }
+    }
+    .voices-scroller:hover .voices-track { animation-play-state: paused; }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-up.is-visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) {transition-delay: .1s}
+    .fade-up:nth-child(3) {transition-delay: .2s}
+    .fade-up:nth-child(4) {transition-delay: .3s}
+
+    @media(max-width:768px){
+      h1{font-size:34px}
+      h2{font-size:28px}
+      section{padding:60px 16px}
+      .hero{padding:80px 16px 60px}
+      .hero p{font-size:16px}
+      .split-layout.reverse{direction:ltr}
+      .nav{gap:12px; font-size:14px;}
+      .voice-card{min-width:280px;max-width:80vw}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="./index.html" style="font-weight:700;font-family:'Space Grotesk'">株式会社コールテン</a>
+      <div class="dropdown">
+        <a href="#">サービス ▾</a>
+        <div class="dropdown-menu">
+          <a href="./service-study.html">AI勉強会</a>
+          <a href="./service-advisory.html">AI顧問</a>
+          <a href="./service-system.html">AIシステム開発</a>
+        </div>
+      </div>
+      <a href="./index.html#contact">お問い合わせ</a>
+      <a href="./index.html#brand-story">会社概要</a>
+      <div class="sp"></div>
+      <a class="btn" href="#contact">無料相談</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="fade-up">
+          <small>株式会社コールテン</small>
+          <h1>まず“安心”からはじめる<br>あたたかみのあるAI活用</h1>
+          <p>派手さより、寄り添いと再現性。数字と<b>人の変化</b>を見える化しながら、小さく試して学びを共有し、段階的に広げます。</p>
+          <a class="btn" href="#contact">さっそく相談してみる →</a>
+        </div>
+        <div class="img-container fade-up" style="transition-delay: .2s">
+          <img src="https://images.unsplash.com/photo-1678235522319-a1d88c47493e?q=80&w=1200&auto=format&fit=crop" alt="AIと人間が協力している様子の抽象的な画像">
+        </div>
+      </div>
+    </section>
+
+    <section id="voices" class="container">
+        <div class="section-head fade-up">
+          <small>Voices</small>
+          <h2>クライアントの声</h2>
+          <p>導入を共にしたお客様からの声を抜粋しています。マウスホバーで一時停止します。</p>
+        </div>
+        <div class="voices-scroller">
+          <div class="voices-track" id="voices-track">
+            <button class="voice-card" data-voice="sano" style="text-align:left">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar"><img src="https://source.unsplash.com/random/100x100?portrait&sig=1" alt="クライアントのプロフィール写真"><div class="logo-badge"><img src="https://source.unsplash.com/random/40x40?logo&sig=1" alt="クライアントのロゴ"></div></div>
+                <div>
+                  <div class="voice-meta">株式会社スデニアル<br>代表 佐野さん</div>
+                  <div class="service-tag">AI顧問契約</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> 議事録要約程度のAI活用。<br><b>Now:</b> CodexでPC操作込みの爆速シミュレーション、提案の幅が桁違いに。</p>
+            </button>
+            <button class="voice-card" data-voice="kubota" style="text-align:left">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar"><img src="https://source.unsplash.com/random/100x100?portrait&sig=2" alt="クライアントのプロフィール写真"></div>
+                <div>
+                  <div class="voice-meta">NPO法人スマイリーフラワーズ<br>代表 窪田さん</div>
+                  <div class="service-tag">AI顧問契約</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> 最新ツールのキャッチアップに不安。<br><b>Now:</b> 業務理解に基づく提案でミスマッチなく導入、手間と無駄を削減。</p>
+            </button>
+            <button class="voice-card" data-voice="nakano" style="text-align:left">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar"><img src="https://source.unsplash.com/random/100x100?portrait&sig=3" alt="クライアントのプロフィール写真"></div>
+                <div>
+                  <div class="voice-meta">フリーランス（動画編集・WEB制作）<br>中野さん</div>
+                  <div class="service-tag">AI顧問契約</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> ChatGPTの挙動が安定せず再利用しづらい。<br><b>Now:</b> 人に例えた指示設計とCanvas/AIBankで、意図した出力を安定取得。</p>
+            </button>
+            <button class="voice-card" data-voice="numazawa" style="text-align:left">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar"><img src="https://source.unsplash.com/random/100x100?portrait&sig=4" alt="クライアントのプロフィール写真"></div>
+                <div>
+                  <div class="voice-meta">福岡行政書士会 副委員長<br>沼澤さん</div>
+                  <div class="service-tag">AI勉強会参加</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> AI未経験で不安、書類業務は手作業。<br><b>Now:</b> 第二の自分ワークで価値観を反映したAIを稼働、書類効率化とDX推進に活用。</p>
+            </button>
+          </div>
+        </div>
+        <div class="section-head fade-up">
+          <a class="btn secondary" href="./voices.html" style="margin-top:24px">もっと見る</a>
+        </div>
+    </section>
+
+    <div id="voice-modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);padding:16px;z-index:30">
+      <div id="voice-modal-card" style="max-width:960px;width:100%;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 28px 60px rgba(0,0,0,.16);padding:22px;position:relative;max-height:90vh;overflow:auto">
+        <button id="voice-close" style="position:absolute;top:10px;right:12px;border:none;background:transparent;font-size:22px;cursor:pointer;color:#335649">×</button>
+        <div id="voice-modal-body"></div>
+      </div>
+    </div>
+
+    <section id="services" class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Services</small>
+          <h2>3つのサービス</h2>
+          <p>お客様の状況と目的に合わせて、3つの形でAI活用を支援します。</p>
+        </div>
+        <div class="service-grid">
+          <a class="card service-card fade-up" href="./service-study.html">
+            <div class="icon-lg">🎓</div>
+            <h3>AI勉強会</h3>
+            <p class="mini">AIを「対話できる新人」に例え、専門用語を使わずにAIの基礎と可能性を体感していただきます。</p>
+          </a>
+          <a class="card service-card fade-up" href="./service-advisory.html">
+            <div class="icon-lg">🤝</div>
+            <h3>AI顧問</h3>
+            <p class="mini">貴社の事業と想いを深く理解し、Slackや定例で相談できる身近なパートナーとしてAI活用を継続的に支援します。</p>
+          </a>
+          <a class="card service-card fade-up" href="./service-system.html">
+            <div class="icon-lg">💻</div>
+            <h3>AIシステム開発</h3>
+            <p class="mini">現場の業務フローに寄り添った、本当に使えるAIシステムを設計・開発。KPIと人の変化を見ながら段階的に導入します。</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="values" class="container">
+      <div class="split-layout">
+        <div class="img-container fade-up">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=800&auto=format&fit=crop" alt="チームが協力して作業している様子">
+        </div>
+        <div class="fade-up" style="transition-delay: .2s">
+          <small class="section-head" style="text-align:left;margin-bottom:12px;"><small>Values</small></small>
+          <h2>コールテンが大切にすること</h2>
+          <p class="mini" style="margin-top:16px; margin-bottom:24px;">私たちは、ツールの導入だけを目的としません。使う「人」に寄り添い、組織全体の安心と成長につながる支援を約束します。</p>
+          <div class="card" style="margin-bottom: 16px;">
+            <h3>想いを形にする設計</h3>
+            <p class="mini">AIを「人」に、プロンプトを「対話」に例え、専門用語を極力使わずにご提案します。お客様の事業や従業員の皆様の想いを尊重した設計を大切にします。</p>
+          </div>
+          <div class="card">
+            <h3>小さく試して、共に育てる</h3>
+            <p class="mini">小さな成功体験を積むことを重視します。短サイクルで仮説検証を繰り返し、データと人の変化を見ながら、安心して次の一歩に進めるよう支援します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="brand-story" class="bg-gradient-soft">
+      <div class="container">
+        <div class="story-box split-layout reverse">
+          <div class="img-container fade-up">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=800&auto=format&fit=crop" alt="物語を象徴する古い本">
+          </div>
+          <div class="fade-up" style="transition-delay:.2s">
+            <small class="section-head" style="text-align:left;margin-bottom:12px;"><small>Brand Story</small></small>
+            <div class="story-lead">欠けているからこそ、<br>魅力が生まれ、旅が始まる。</div>
+            <p class="mini">株式会社コールテンの名前は、絵本『くまのコールテンくん』に由来します。ボタンのないクマが自分を探す旅で多くの経験をし、最後はそのままの自分を受け入れられます。</p>
+            <p class="mini">AIが苦手でも、未完成でもいい。大切なのは、「もっとよくしたい」という気持ち。私たちはあなたの“不完全さ”から一緒に旅に出るパートナーです。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-contact">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Contact</small>
+          <h2>ご相談はこちらから</h2>
+          <p>営業日12時間以内に返信します。まずはお気軽な相談からどうぞ。</p>
+        </div>
+        <form class="card fade-up" style="max-width:680px; margin:0 auto;" data-track="form">
+          <label for="name">氏名*</label>
+          <input id="name" name="name" required>
+          <label for="email">メール*</label>
+          <input id="email" name="email" type="email" required>
+          <label for="message">ご相談内容</label>
+          <textarea id="message" name="message" rows="4" placeholder="現状の課題や、AIで実現したいことなどをご自由にお書きください"></textarea>
+          <div style="margin:16px 0">
+            <label style="display:flex; align-items:center; gap:8px; font-weight:normal; font-size:14px;"><input type="checkbox" required style="width:auto"> プライバシーポリシーに同意します</label>
+          </div>
+          <button class="btn" type="submit" style="width:100%;padding:16px;">送信する</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+<script>
+  // --- Voice Modal Script ---
+  const voiceData = {
+    sano: { meta: "株式会社スデニアル<br>代表 佐野さん（AI顧問利用）", tag: "AI顧問", quote: "議事録要約だけだったAI活用が、CodexでPC操作も含めて一気通貫に。シミュレーションを爆速で回せるようになり、提案の幅が桁違いに広がりました。", bullets: ["PC操作込みでAI活用が一気通貫に","シミュレーションを爆速で回し、提案の幅が拡大","外注なしでも検証回数が桁違いに増えた"] },
+    kubota: { meta: "NPO法人スマイリーフラワーズ<br>代表 窪田さん（AI顧問利用）", tag: "AI顧問", quote: "業務を理解した上で最適なタイミングで提案してくれるので、置いていかれずに導入できています。一緒に試せるから無駄がなく、手間も大きく減りました。", bullets: ["最新ツールを適切なタイミングで導入、置いていかれない安心感","業務理解に基づく提案でミスマッチが少ない","一緒に試しながら導入するので手間と無駄を削減"] },
+    nakano: { meta: "フリーランス（動画編集・WEB制作）<br>中野さん（AI顧問利用）", tag: "AI顧問", quote: "ChatGPTを ‘人’ に例えた使い方を教わってから、伝え方を変えるだけで精度がアップ。CanvasやAIBankを覚えて、欲しい出力を安定して引き出せるようになりました。", bullets: ["人に例えるコミュニケーション設計で精度が向上","Canvas/AIBankを活用し、保存・再利用がスムーズに","自分の価値観に沿ったアウトプットを安定して引き出せる"] },
+    numazawa: { meta: "福岡行政書士会 副委員長<br>沼澤さん（AI勉強会利用）", tag: "AI勉強会", quote: "AIを人に見立てる説明が分かりやすく、第二の自分をつくるワークで価値観を反映したAIを動かせました。書類業務との相性もよく、チャットボト作りにも挑戦。今は行政書士会のDX担当として活かしています。", bullets: ["AIを人に見立てた説明で指示設計が腹落ち","第二の自分ワークで価値観を反映したAIを構築","書類業務の効率化とチャットボト活用に成功、業界DXにも展開"] }
+  };
+  const modal = document.getElementById('voice-modal');
+  const modalBody = document.getElementById('voice-modal-body');
+  document.querySelectorAll('.voice-card[data-voice]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.voice;
+      const data = voiceData[key];
+      if (!data) return;
+      const bullets = (data.bullets || []).map(b=>`<li>${b}</li>`).join("");
+      modalBody.innerHTML = `...`; // Modal content generation logic can be refined
+      modal.style.display = 'flex';
+    });
+  });
+  document.getElementById('voice-close').addEventListener('click', ()=> modal.style.display='none');
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.style.display='none';});
+
+  // --- Infinite Carousel with Depth Effect ---
+  const scroller = document.querySelector('.voices-scroller');
+  const track = document.getElementById('voices-track');
+  
+  if (track) {
+    const cards = Array.from(track.children);
+    
+    // 1. Clone cards for infinite loop effect
+    cards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+
+    // 2. Set animation based on track width
+    const trackWidth = track.scrollWidth;
+    const animationDuration = trackWidth / 100; // Adjust speed by changing the divisor
+    track.style.animation = `scroll ${animationDuration}s linear infinite`;
+
+    // 3. Add depth effect on scroll (or animation frame)
+    letraf = () => {
+      const scrollerCenterX = scroller.offsetLeft + scroller.offsetWidth / 2;
+      
+      for (const card of track.children) {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenterX = cardRect.left + cardRect.width / 2;
+        const distance = Math.abs(scrollerCenterX - cardCenterX);
+        
+        // Scale and opacity based on distance from the center
+        const scale = Math.max(0.8, 1 - distance / (scroller.offsetWidth * 2));
+        const opacity = Math.max(0.5, 1 - distance / (scroller.offsetWidth));
+        
+        card.style.transform = `scale(${scale})`;
+        card.style.opacity = opacity;
+      }
+      requestAnimationFrame(letraf);
+    };
+    requestAnimationFrame(letraf);
+  }
+  
+  // --- Scroll Fade-in Animation ---
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+</html>
