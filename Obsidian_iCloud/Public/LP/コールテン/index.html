@@ -10,6 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'CraftMincho';
+      src: url('./craftmincho.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
     :root {
       --green:#0f3d2e; --mint:#e4f2ea; --cream:#f9f5ec; --line:#d7e6de;
       --text:#0f1f1a; --accent:#f0a532; --ink:#0d2b21; --shadow:0 20px 50px rgba(0,0,0,.08);
@@ -47,9 +54,9 @@
     }
     .btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(15,61,46,.25), 0 4px 8px rgba(0,0,0,.05);filter:brightness(1.05)}
     .btn.secondary:hover{box-shadow:0 14px 30px rgba(0,0,0,.1)}
-    h1,h2,h3,h4{margin:0;color:var(--ink);letter-spacing:-0.02em;font-family:"Space Grotesk",sans-serif}
-    h1{font-size:clamp(36px, 5vw, 56px);line-height:1.15}
-    h2{font-size:clamp(30px, 4vw, 44px);line-height:1.2}
+    h1,h2,h3,h4{margin:0;color:var(--ink);letter-spacing:-0.02em;font-family:'CraftMincho', "Space Grotesk", sans-serif}
+    h1{font-size:clamp(36px, 5vw, 56px);line-height:1.25; letter-spacing: .05em;}
+    h2{font-size:clamp(30px, 4vw, 44px);line-height:1.2; letter-spacing: .05em;}
     h3{font-size:clamp(20px, 2.5vw, 24px)}
     section{padding:80px 24px}
     .section-head{text-align:center;margin-bottom:48px}
@@ -124,7 +131,6 @@
     .header-logo img {
       height: 36px; /* Adjust as needed */
       vertical-align: middle;
-      padding-right: 8px; /* Optional: Space between logo and text/other elements */
     }
     /* Animation */
     @keyframes scroll {
@@ -341,7 +347,7 @@
 <script>
   // --- Voice Modal Script ---
   const voiceData = {
-    sano: { meta: "株式会社スデニアル<br>代表 佐野さん（AI顧問利用）", tag: "AI顧問", quote: "議事録要約だけだったAI活用が、CodexでPC操作も含めて一気通貫に。シミュレーションを爆速で回せるようになり、提案の幅が桁違いに広がりました。", bullets: ["PC操作込みでAI活用が一気通貫に","シミュレーションを爆速で回し、提案の幅が拡大","外注なしでも検証回数が桁違いに増えた"] },
+    sano: { meta: "株式会社スデニアル<br>代表 佐野さん（AI顧問利用）", tag: "AI顧問", quote: "議事録要約だけだったAI活用が、CodexでPC操作も含めて一気通貫に。シミュレーションを爆速で回せるようになり、提案の幅と速度が桁違いに広がりました。", bullets: ["PC操作込みでAI活用が一気通貫に","シミュレーションを爆速で回し、提案の幅が拡大","外注なしでも検証回数が桁違いに増えた"] },
     kubota: { meta: "NPO法人スマイリーフラワーズ<br>代表 窪田さん（AI顧問利用）", tag: "AI顧問", quote: "業務を理解した上で最適なタイミングで提案してくれるので、置いていかれずに導入できています。一緒に試せるから無駄がなく、手間も大きく減りました。", bullets: ["最新ツールを適切なタイミングで導入、置いていかれない安心感","業務理解に基づく提案でミスマッチが少ない","一緒に試しながら導入するので手間と無駄を削減"] },
     nakano: { meta: "フリーランス（動画編集・WEB制作）<br>中野さん（AI顧問利用）", tag: "AI顧問", quote: "ChatGPTを ‘人’ に例えた使い方を教わってから、伝え方を変えるだけで精度がアップ。CanvasやAIBankを覚えて、欲しい出力を安定して引き出せるようになりました。", bullets: ["人に例えるコミュニケーション設計で精度が向上","Canvas/AIBankを活用し、保存・再利用がスムーズに","自分の価値観に沿ったアウトプットを安定して引き出せる"] },
     numazawa: { meta: "福岡行政書士会 副委員長<br>沼澤さん（AI勉強会利用）", tag: "AI勉強会", quote: "AIを人に見立てる説明が分かりやすく、第二の自分をつくるワークで価値観を反映したAIを動かせました。書類業務との相性もよく、チャットボト作りにも挑戦。今は行政書士会のDX担当として活かしています。", bullets: ["AIを人に見立てた説明で指示設計が腹落ち","第二の自分ワークで価値観を反映したAIを構築","書類業務の効率化とチャットボト活用に成功、業界DXにも展開"] }
