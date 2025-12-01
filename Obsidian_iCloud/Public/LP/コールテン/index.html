@@ -108,8 +108,19 @@
     .logo-badge img{width:100%;height:100%;object-fit:contain}
     
     .story-grid { display: grid; gap: 32px; align-items: flex-start; }
-    @media(min-width: 880px) { .story-grid { grid-template-columns: 1fr 1.2fr; } }
-    .story-text-blocks { display: flex; flex-direction: column; gap: 1.5em; text-align: left; }
+    @media(min-width: 880px) { .story-grid { grid-template-columns: 1.2fr 1fr; } } /* 左右入れ替えのため順序変更 */
+    .story-text-blocks { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 1.5em; 
+      text-align: left;
+      background-color: var(--cream); /* 便箋風の背景色 */
+      border: 1px solid var(--line); /* 便箋のような枠線 */
+      border-radius: 12px; /* 少し角丸 */
+      padding: 32px; /* 余白 */
+      box-shadow: 0 8px 20px rgba(0,0,0,.05); /* 軽い影 */
+      line-height: 1.8; /* 読みやすい行間 */
+    }
     .story-lead{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:16px; text-align: center;}
     
     .accent{color:var(--accent);font-weight:700}
@@ -314,14 +325,14 @@
           <small>Brand Story</small>
         </div>
         <div class="story-grid">
-          <div class="img-container fade-up">
-            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764599196/BRAND_STORY_fkpzup.png" alt="本棚の背景にコールテンのロゴ">
-          </div>
-          <div class="story-text-blocks fade-up" style="transition-delay: .2s">
+          <div class="story-text-blocks fade-up">
             <div class="story-lead">欠けているからこそ、<br>魅力が生まれ、旅が始まる。</div>
             <p class="mini">社名の由来は、絵本『くまのコールテンくん』に由来します。<br>ボタンが欠けてて売れ残ってしまったぬいぐるみ“コールテン”。<br>ボタン探しの旅に出て、さまざまな景色や出来事に触れ、<br>最後には「そのままの姿」で迎え入れられます。</p>
             <p class="mini">代表の向もまた、<br>“普通ができない”と感じて悩んでいた時期がありました。<br>けれどその旅の途中で AI と出会い、<br>自分の苦手を補い、得意を伸ばし、<br>仕事がぐっと楽しくなる感覚 を知りました。<br>「欠けている」と思っていた部分が、<br>むしろ前に進むためのエネルギーに変わっていったのです。</p>
             <p class="mini">コールテンは、そんな経験から生まれた会社です。<br>欠けている思う気持ちも、未完成さも、<br>その人の魅力であり、物語を動かす力になる。<br>そう信じて、クライアントさまの想いや良さを一緒に見つめながら、<br>AIで楽しく働ける未来をつくるお手伝いをしています。</p>
+          </div>
+          <div class="img-container fade-up" style="transition-delay: .2s">
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764599196/BRAND_STORY_fkpzup.png" alt="本棚の背景にコールテンのロゴ">
           </div>
         </div>
       </div>
