@@ -37,8 +37,8 @@
     .nav a:hover{color:var(--sea)}
     .nav .sp{flex:1}
     .dropdown{position:relative;display:inline-block}
-    .dropdown-menu{position:absolute;top:100%;left:0;min-width:180px;background:#fff;border:1px solid #eef2f0;border-radius:16px;box-shadow:0 18px 36px rgba(0,0,0,.08);padding:8px;display:none;z-index:20;margin-top:10px}
-    .dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu{position:absolute;top:100%;left:0;min-width:180px;background:#fff;border:1px solid #eef2f0;border-radius:16px;box-shadow:0 18px 36px rgba(0,0,0,.08);padding:8px;display:none;z-index:20;margin-top:10px;opacity:0;transform:translateY(-10px);transition:opacity .2s, transform .2s;}
+    .dropdown-menu.active{display:block;opacity:1;transform:translateY(0)}
     .dropdown-menu a{display:block;padding:12px 16px;color:var(--ink);font-weight:600;border-radius:10px}
     .dropdown-menu a:hover{background:#f3f8f6}
     .btn{
@@ -107,20 +107,6 @@
     .logo-badge{position:absolute;right:-5px;bottom:-5px;width:26px;height:26px;border-radius:9px;border:2px solid #fff;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.12);padding:2px;overflow:hidden}
     .logo-badge img{width:100%;height:100%;object-fit:contain}
     
-    .story-container { max-width: 680px; margin: 0 auto; }
-    .story-image-top { margin-bottom: 32px; }
-    .story-text-blocks { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 1.5em; 
-      text-align: left;
-      background-color: var(--cream); /* 便箋風の背景色 */
-      border: 1px solid var(--line); /* 便箋のような枠線 */
-      border-radius: 12px; /* 少し角丸 */
-      padding: 32px; /* 余白 */
-      box-shadow: 0 8px 20px rgba(0,0,0,.05); /* 軽い影 */
-      line-height: 1.8; /* 読みやすい行間 */
-    }
     .story-lead{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:16px; text-align: center;}
     
     .accent{color:var(--accent);font-weight:700}
@@ -143,7 +129,7 @@
 
     /* Header Logo */
     .header-logo img {
-      height: 36px; /* Adjust as needed */
+      height: 48px; /* ロゴを大きく */
       vertical-align: middle;
     }
     /* Animation */
@@ -166,9 +152,8 @@
       .hero p{font-size:16px}
       .split-layout.reverse{direction:ltr}
       .nav{gap:12px; font-size:14px;}
-      .voice-card{min-width:280px;max-width:80vw}
       .header-logo img {
-        height: 30px; /* Adjust for mobile */
+        height: 40px; /* Adjust for mobile */
       }
     }
   </style>
@@ -179,17 +164,17 @@
       <a href="./index.html" class="header-logo">
         <img src="./株式会社コールテン_ロゴ.png" alt="株式会社コールテン">
       </a>
+      <div class="sp"></div>
+      <a href="./index.html#brand-story">会社概要</a>
       <div class="dropdown">
-        <a href="#">サービス ▾</a>
+        <a href="#" class="dropdown-toggle">サービス ▾</a>
         <div class="dropdown-menu">
           <a href="./service-study.html">AI勉強会</a>
           <a href="./service-advisory.html">AI顧問</a>
           <a href="./service-system.html">AIシステム開発</a>
         </div>
       </div>
-      <a href="./index.html#contact">お問い合わせ</a>
-      <a href="./index.html#brand-story">会社概要</a>
-      <div class="sp"></div>
+      <a href="./index.html#contact">お問合せ</a>
       <a class="btn" href="#contact">無料相談</a>
     </div>
   </header>
@@ -320,18 +305,20 @@
     </section>
 
     <section id="brand-story" class="bg-gradient-soft">
-      <div class="container story-container">
+      <div class="container">
         <div class="section-head fade-up">
           <small>Brand Story</small>
         </div>
-        <div class="img-container fade-up story-image-top">
-          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764599196/BRAND_STORY_fkpzup.png" alt="本棚の背景にコールテンのロゴ">
-        </div>
-        <div class="story-text-blocks fade-up">
-          <div class="story-lead">欠けているからこそ、<br>魅力が生まれ、旅が始まる。</div>
-          <p class="mini">社名の由来は、絵本『くまのコールテンくん』に由来します。<br>ボタンが欠けてて売れ残ってしまったぬいぐるみ“コールテン”。<br>ボタン探しの旅に出て、さまざまな景色や出来事に触れ、<br>最後には「そのままの姿」で迎え入れられます。</p>
-          <p class="mini">代表の向もまた、<br>“普通ができない”と感じて悩んでいた時期がありました。<br>けれどその旅の途中で AI と出会い、<br>自分の苦手を補い、得意を伸ばし、<br>仕事がぐっと楽しくなる感覚 を知りました。<br>「欠けている」と思っていた部分が、<br>むしろ前に進むためのエネルギーに変わっていったのです。</p>
-          <p class="mini">コールテンは、そんな経験から生まれた会社です。<br>欠けている思う気持ちも、未完成さも、<br>その人の魅力であり、物語を動かす力になる。<br>そう信じて、クライアントさまの想いや良さを一緒に見つめながら、<br>AIで楽しく働ける未来をつくるお手伝いをしています。</p>
+        <div class="split-layout reverse">
+          <div class="img-container fade-up">
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764599196/BRAND_STORY_fkpzup.png" alt="本棚の背景にコールテンのロゴ">
+          </div>
+          <div class="story-text-blocks fade-up" style="transition-delay: .2s">
+            <div class="story-lead">欠けているからこそ、<br>魅力が生まれ、旅が始まる。</div>
+            <p class="mini">社名の由来は、絵本『くまのコールテンくん』に由来します。<br>ボタンが欠けてて売れ残ってしまったぬいぐるみ“コールテン”。<br>ボタン探しの旅に出て、さまざまな景色や出来事に触れ、<br>最後には「そのままの姿」で迎え入れられます。</p>
+            <p class="mini">代表の向もまた、<br>“普通ができない”と感じて悩んでいた時期がありました。<br>けれどその旅の途中で AI と出会い、<br>自分の苦手を補い、得意を伸ばし、<br>仕事がぐっと楽しくなる感覚 を知りました。<br>「欠けている」と思っていた部分が、<br>むしろ前に進むためのエネルギーに変わっていったのです。</p>
+            <p class="mini">コールテンは、そんな経験から生まれた会社です。<br>欠けている思う気持ちも、未完成さも、<br>その人の魅力であり、物語を動かす力になる。<br>そう信じて、クライアントさまの想いや良さを一緒に見つめながら、<br>AIで楽しく働ける未来をつくるお手伝いをしています。</p>
+          </div>
         </div>
       </div>
     </section>
@@ -360,89 +347,26 @@
   </main>
 </body>
 <script>
-  // --- Voice Modal Script ---
-  const voiceData = {
-    sano: { meta: "株式会社スデニアル<br>代表 佐野さん（AI顧問利用）", tag: "AI顧問", quote: "議事録要約だけだったAI活用が、CodexでPC操作も含めて一気通貫に。シミュレーションを爆速で回せるようになり、提案の幅と速度が桁違いに広がりました。", bullets: ["PC操作込みでAI活用が一気通貫に","シミュレーションを爆速で回し","提案の幅が拡大","外注なしでも検証回数が桁違いに増えた"] },
-    kubota: { meta: "NPO法人スマイリーフラワーズ<br>代表 窪田さん（AI顧問利用）", tag: "AI顧問", quote: "業務を理解した上で最適なタイミングで提案してくれるので、置いていかれずに導入できています。一緒に試せるから無駄がなく、手間も大きく減りました。", bullets: ["最新ツールを適切なタイミングで導入","置いていかれない安心感","業務理解に基づく提案でミスマッチが少ない","一緒に試しながら導入するので手間と無駄を削減"] },
-    nakano: { meta: "フリーランス（動画編集・WEB制作）<br>中野さん（AI顧問利用）", tag: "AI顧問", quote: "ChatGPTを ‘人’ に例えた使い方を教わってから、伝え方を変えるだけで精度がアップ。CanvasやAIBankを覚えて、欲しい出力を安定して引き出せるようになりました。", bullets: ["人に例えるコミュニケーション設計で精度が向上","Canvas/AIBankを活用し、保存・再利用がスムーズに","自分の価値観に沿ったアウトプットを安定して引き出せる"] },
-    numazawa: { meta: "福岡行政書士会 副委員長<br>沼澤さん（AI勉強会利用）", tag: "AI勉強会", quote: "AIを人に見立てる説明が分かりやすく、第二の自分をつくるワークで価値観を反映したAIを動かせました。書類業務との相性もよく、チャットボト作りにも挑戦。今は行政書士会のDX担当として活かしています。", bullets: ["AIを人に見立てた説明で指示設計が腹落ち","第二の自分ワークで価値観を反映したAIを構築","書類業務の効率化とチャットボト活用に成功","業界DXにも展開"] }
-  };
-  const modal = document.getElementById('voice-modal');
-  const modalBody = document.getElementById('voice-modal-body');
-  document.querySelectorAll('.voice-card[data-voice]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const key = btn.dataset.voice;
-      const data = voiceData[key];
-      if (!data) return;
-      const bullets = (data.bullets || []).map(b=>`<li>${b}</li>`).join("");
-      modalBody.innerHTML = `
-        <div style="display:flex;gap:16px;align-items:center">
-          <div style="width:110px;height:110px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(135deg,#fefbf6,#f1f8f4);color:#426356;display:flex;align-items:center;justify-content:center;font-weight:700;position:relative;box-shadow:0 14px 28px rgba(0,0,0,.1)">Photo</div>
-          <div>
-            <div style="font-weight:800;color:#123328;margin-bottom:6px;font-size:18px">${data.meta}</div>
-            ${data.tag ? `<div style="display:inline-block;padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:var(--mint);color:#124034;font-weight:700;font-size:12px;margin-bottom:6px">${data.tag}</div>` : ""}
-            ${data.link ? `<a href="${data.link}" style="display:block;font-size:14px;color:#1f6f5a;margin-top:4px">会社/団体URL</a>` : ""}
-          </div>
-        </div>
-        <div style="margin-top:16px;border-radius:14px;background:linear-gradient(135deg,#fffaf5,#f3f7f4);padding:16px;border:1px solid var(--line)">
-          <div style="font-size:16px;font-weight:800;color:#123328;margin-bottom:6px">印象的な一言</div>
-          <p style="margin:0;font-size:17px;line-height:1.85;color:#234638">${data.quote}</p>
-        </div>
-        <div style="margin-top:16px">
-          <div style="font-size:15px;font-weight:800;color:#123328;margin-bottom:6px">ポイント</div>
-          <ul style="margin:0 0 0 18px;font-size:15px;line-height:1.7;color:#335649">${bullets}</ul>
-        </div>
-        <div style="margin-top:16px">
-          <div style="font-size:15px;font-weight:800;color:#123328;margin-bottom:6px">インタビュー動画</div>
-          <div style="width:100%;aspect-ratio:16/9;border-radius:14px;border:1px solid var(--line);background:linear-gradient(135deg,#fefbf6,#f1f8f4);display:flex;align-items:center;justify-content:center;color:#426356;font-weight:700">Video</div>
-        </div>
-      `;
-      modal.style.display = 'flex';
-    });
+  // --- Dropdown Click Handler ---
+  document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    if(dropdownToggle && dropdownMenu) {
+      dropdownToggle.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        dropdownMenu.classList.toggle('active');
+      });
+
+      document.addEventListener('click', function(event) {
+        if (!dropdownMenu.contains(event.target) && dropdownMenu.classList.contains('active')) {
+          dropdownMenu.classList.remove('active');
+        }
+      });
+    }
   });
-  document.getElementById('voice-close').addEventListener('click', ()=> modal.style.display='none');
-  modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.style.display='none';});
 
-  // --- Infinite Carousel with Depth Effect ---
-  const scroller = document.querySelector('.voices-scroller');
-  const track = document.getElementById('voices-track');
-  
-  if (track) {
-    const cards = Array.from(track.children);
-    
-    // 1. Clone cards for infinite loop effect
-    cards.forEach(card => {
-      const clone = card.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      track.appendChild(clone);
-    });
-
-    // 2. Set animation based on track width
-    const trackWidth = track.scrollWidth;
-    const animationDuration = trackWidth / 100; // Adjust speed by changing the divisor
-    track.style.animation = `scroll ${animationDuration}s linear infinite`;
-
-    // 3. Add depth effect on scroll (or animation frame)
-    letraf = () => {
-      const scrollerCenterX = scroller.offsetLeft + scroller.offsetWidth / 2;
-      
-      for (const card of track.children) {
-        const cardRect = card.getBoundingClientRect();
-        const cardCenterX = cardRect.left + cardRect.width / 2;
-        const distance = Math.abs(scrollerCenterX - cardCenterX);
-        
-        // Scale and opacity based on distance from the center
-        const scale = Math.max(0.8, 1 - distance / (scroller.offsetWidth * 2));
-        const opacity = Math.max(0.5, 1 - distance / (scroller.offsetWidth));
-        
-        card.style.transform = `scale(${scale})`;
-        card.style.opacity = opacity;
-      }
-      requestAnimationFrame(letraf);
-    };
-    requestAnimationFrame(letraf);
-  }
-  
   // --- Scroll Fade-in Animation ---
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
