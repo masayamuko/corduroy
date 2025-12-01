@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI勉強会｜株式会社コールテン</title>
+  <meta name="description" content="社長と現場でトーンを変えたAI勉強会。合意形成と小さく試すための土台づくり。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'CraftMincho';
+      src: url('./craftmincho.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    :root {
+      --green:#0f3d2e; --mint:#e4f2ea; --cream:#f9f5ec; --line:#d7e6de;
+      --text:#0f1f1a; --accent:#f0a532; --ink:#0d2b21; --shadow:0 20px 50px rgba(0,0,0,.08);
+      --orange:#f7c27c; --sand:#f3e7d6; --sea:#1f6f5a;
+    }
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-sizing}
+    body{
+      margin:0;
+      font-family:"Noto Sans JP","Space Grotesk","Helvetica Neue",Arial,sans-serif;
+      color:var(--text);
+      background: #fbfaf8;
+    }
+    a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line);z-index:12;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .container{max-width:1180px;margin:0 auto;padding:20px 24px}
+    .nav{display:flex;gap:20px;align-items:center;font-weight:600;font-size:15px;color:var(--ink);position:relative;letter-spacing:0.02em}
+    .nav a:hover{color:var(--sea)}
+    .nav .sp{flex:1}
+    .dropdown{position:relative;display:inline-block}
+    .dropdown-menu{position:absolute;top:100%;left:0;min-width:180px;background:#fff;border:1px solid #eef2f0;border-radius:16px;box-shadow:0 18px 36px rgba(0,0,0,.08);padding:8px;display:none;z-index:20;margin-top:10px}
+    .dropdown:hover .dropdown-menu{display:block}
+    .dropdown-menu a{display:block;padding:12px 16px;color:var(--ink);font-weight:600;border-radius:10px}
+    .dropdown-menu a:hover{background:#f3f8f6}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:6px;
+      padding:13px 22px;border-radius:16px;
+      border:1px solid var(--green);background:linear-gradient(120deg,#176148,#0f3d2e);
+      color:#fff;font-weight:700;box-shadow:0 12px 28px rgba(15,61,46,.2), 0 2px 4px rgba(0,0,0,.05);
+      letter-spacing:0.03em;transition:.2s all
+    }
+    .btn.secondary{
+      background:#fff;border:1px solid var(--line);color:var(--ink);
+      box-shadow:0 8px 22px rgba(0,0,0,.06)
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(15,61,46,.25), 0 4px 8px rgba(0,0,0,.05);filter:brightness(1.05)}
+    .btn.secondary:hover{box-shadow:0 14px 30px rgba(0,0,0,.1)}
+    h1,h2,h3,h4{margin:0;color:var(--ink);letter-spacing:-0.02em;font-family:'CraftMincho', "Space Grotesk", sans-serif}
+    h1{font-size:clamp(36px, 5vw, 56px);line-height:1.25; letter-spacing: .05em;}
+    h1 .jp-hiragana, h2 .jp-hiragana { font-size: 0.8em; }
+    h2{font-size:clamp(30px, 4vw, 44px);line-height:1.2; letter-spacing: .05em;}
+    h3{font-size:clamp(20px, 2.5vw, 24px)}
+    section{padding:80px 24px}
+    .section-head{text-align:center;margin-bottom:48px}
+    .section-head small{display:block;color:var(--sea);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;font-family:"Space Grotesk",sans-serif}
+    .section-head p{max-width:640px;margin:12px auto 0;color:#335649;line-height:1.8}
+    .hero{
+      padding:120px 24px 100px;
+      position:relative;
+      overflow:hidden;
+      text-align:center;
+      background:linear-gradient(180deg, #f8f3eb 0%, #fbfaf8 100%);
+    }
+    .hero-inner{display:flex;flex-direction:column;align-items:center;gap:28px;}
+    .hero h1{margin-bottom:18px}
+    .hero p{font-size:18px;color:#234638;max-width:680px;margin:0 auto 28px;line-height:1.85}
+    .card{background:#fff;border:1px solid #eef2f0;border-radius:24px;padding:28px;box-shadow:0 10px 25px rgba(0,0,0,.02), 0 20px 45px rgba(0,0,0,.06);transition:.25s transform,.25s box-shadow}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,.02), 0 28px 60px rgba(0,0,0,.09)}
+    .card h3{margin-bottom:12px}
+    .mini{font-size:16px;color:#335649;line-height:1.75}
+    .label{display:inline-block;font-size:12px;padding:8px 14px;border-radius:12px;background:var(--mint);color:#124034;margin-bottom:12px;font-weight:700;letter-spacing:0.05em}
+    .pill{padding:10px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);box-shadow:0 10px 28px rgba(0,0,0,.06);font-weight:600;color:#1f3d32}
+    .grid{display:grid;gap:24px}
+    @media(min-width:720px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .faq details{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;margin-bottom:12px;}
+    .faq summary{cursor:pointer;font-weight:700;color:#0f3d2e;font-size:16px}
+    ul{margin:10px 0 0 18px;padding:0;color:#335649;line-height:1.8}
+    li{margin-bottom: 8px;}
+    .icon-lg{font-size:32px;margin-bottom:12px;color:var(--sea);line-height:1;display:inline-block;background:linear-gradient(135deg, var(--mint), #cde8de); padding:14px; border-radius:18px; border:1px solid #fff; box-shadow:0 4px 8px rgba(0,0,0,.05)}
+    .bg-gradient-soft{background:linear-gradient(180deg, #fbfaf8 0%, #f5f9f7 100%)}
+    .bg-contact{background:linear-gradient(180deg, #f5f9f7 0%, #e6f3ed 100%)}
+
+    /* Header Logo */
+    .header-logo img {
+      height: 36px; /* Adjust as needed */
+      vertical-align: middle;
+    }
+    /* Animation */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-up.is-visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) {transition-delay: .1s}
+    .fade-up:nth-child(3) {transition-delay: .2s}
+    .fade-up:nth-child(4) {transition-delay: .3s}
+
+    @media(max-width:768px){
+      h1{font-size:34px}
+      h2{font-size:28px}
+      section{padding:60px 16px}
+      .hero{padding:80px 16px 60px}
+      .hero p{font-size:16px}
+      .grid.cols-2, .grid.cols-3{grid-template-columns:1fr}
+      .nav{gap:12px; font-size:14px;}
+      .header-logo img {
+        height: 30px; /* Adjust for mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="./index.html" class="header-logo">
+        <img src="./株式会社コールテン_ロゴ.png" alt="株式会社コールテン">
+      </a>
+      <div class="dropdown">
+        <a href="#">サービス ▾</a>
+        <div class="dropdown-menu">
+          <a href="./service-study.html">AI勉強会</a>
+          <a href="./service-advisory.html">AI顧問</a>
+          <a href="./service-system.html">AIシステム開発</a>
+        </div>
+      </div>
+      <a href="./index.html#contact">お問い合わせ</a>
+      <a href="./index.html#brand-story">会社概要</a>
+      <div class="sp"></div>
+      <a class="btn" href="#contact">無料相談</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="fade-up">
+          <div class="icon-lg">🎓</div>
+          <h1>AI勉強会</h1>
+          <p>社長と現場の「AIへの温度差」を解消し、次の一歩を踏み出すための勉強会です。</p>
+          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
+            <span class="pill">社長・現場向け</span>
+            <span class="pill">合意形成を支援</span>
+            <span class="pill">ハンズオン形式</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Value</small>
+        <h2>この勉強会でできること</h2>
+      </div>
+      <div class="grid cols-3">
+        <div class="card fade-up"><b>社長向けの視点</b><p class="mini">リスク/リターンの筋道、投資の考え方を整理し、経営判断の土台を築きます。</p></div>
+        <div class="card fade-up"><b>現場向けの安心感</b><p class="mini">業務に即した具体例と、無理しない導入ステップを共有し、現場の不安を解消します。</p></div>
+        <div class="card fade-up"><b>次の一手を決める</b><p class="mini">2–6週間で試せるテーマをその場で合意。KPIとログの残し方も決め、具体的なアクションに繋げます。</p></div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Program</small>
+          <h2>プログラム例（90〜120分）</h2>
+        </div>
+        <div class="card fade-up">
+          <ul>
+            <li>イントロ: コールテンのスタンス（紹介限定・長期前提、相性確認）</li>
+            <li>AIを「対話できる優秀な新人」に見立てた、効果的なコミュニケーション術</li>
+            <li>成功/失敗から学ぶ導入パターンと、事業に合わせたAIの選び方</li>
+            <li>社長向け: 投資判断のためのKPI・リスク整理</li>
+            <li>現場向け: 実務に近いユースケースと小さく試す方法</li>
+            <li>合意形成ワーク: 2–3案から「まず試すテーマ」を選ぶ</li>
+            <li>次のステップ: ログの取り方と報告の仕方を決める</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Deliverables</small>
+        <h2>成果物</h2>
+      </div>
+      <div class="grid cols-2">
+        <div class="card fade-up"><b>社内共有スライド</b><p class="mini">社長向け・現場向けの2種類をご用意。リスクと期待効果を明記します。</p></div>
+        <div class="card fade-up"><b>FAQドラフト</b><p class="mini">社内から出やすい質問を先回りし、回答テンプレートを提供します。</p></div>
+        <div class="card fade-up"><b>短期検証の草案</b><p class="mini">2–6週間で試すテーマ、KPI、ログの残し方を具体的に設定します。</p></div>
+        <div class="card fade-up"><b>合意形成のストーリー</b><p class="mini">なぜ今やるのか、何を目指すのかを言語化し、社内の納得感を醸成します。</p></div>
+      </div>
+    </section>
+
+    <section class="container faq">
+      <div class="section-head fade-up">
+        <small>FAQ</small>
+        <h2>よくあるご質問</h2>
+      </div>
+      <div class="fade-up">
+        <details open>
+          <summary>誰向けですか？</summary>
+          <p class="mini">2–50名規模の企業で、社長と現場のAIに対する温度差を埋めたい、といったケースに最適です。</p>
+        </details>
+        <details>
+          <summary>費用感を教えてください</summary>
+          <p class="mini">1回あたり10〜30万円（税別）です。内容と準備量に応じて個別にお見積もりします。</p>
+        </details>
+        <details>
+          <summary>勉強会後はどうなりますか？</summary>
+          <p class="mini">合意したテーマを、AI顧問サービスやスポットでの支援を通じて、実際の業務で試していくフェーズに進みます。もちろん、勉強会のみで終了することも可能です。</p>
+        </details>
+        <details>
+          <summary>オンラインでも可能ですか？</summary>
+          <p class="mini">はい、オンライン・オフラインどちらも対応可能です。お気軽にご相談ください。</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-contact">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Contact</small>
+          <h2>ご相談はこちらから</h2>
+          <p>営業日12時間以内に返信します。まずはお気軽な相談からどうぞ。</p>
+        </div>
+        <form class="card fade-up" style="max-width:680px; margin:0 auto;" data-track="form">
+          <label for="name">氏名*</label>
+          <input id="name" name="name" required>
+          <label for="email">メール*</label>
+          <input id="email" name="email" type="email" required>
+          <label for="message">ご相談内容</label>
+          <textarea id="message" name="message" rows="4" placeholder="現状の課題や、AIで実現したいことなどをご自由にお書きください"></textarea>
+          <div style="margin:16px 0">
+            <label style="display:flex; align-items:center; gap:8px; font-weight:normal; font-size:14px;"><input type="checkbox" required style="width:auto"> プライバシーポリシーに同意します</label>
+          </div>
+          <button class="btn" type="submit" style="width:100%;padding:16px;">送信する</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+<script>
+  // --- Scroll Fade-in Animation ---
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+</html>
