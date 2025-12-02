@@ -5,7 +5,7 @@
   "redirects": [
     {
       "source": "/lp_bgcafe",
-      "destination": "/#vision",
+      "destination": "https://corduroy.co.jp/#vision",
       "permanent": false
     }
   ]
