@@ -1,14 +1,17 @@
 <!doctype html>
 <html lang="ja">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI顧問｜株式会社コールテン</title>
   <meta name="description" content="紹介限定・長期前提のAI顧問。事業理解と最新知見をもとに、Slack/定例で伴走しながら、クライアントに合うAI活用を設計・検証・定着させます。">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  <link rel="icon" href="./faviconC.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <style>
     @font-face {
       font-family: 'CraftMincho';
@@ -17,101 +20,401 @@
       font-style: normal;
       font-display: swap;
     }
+
     :root {
-      --green:#0f3d2e; --mint:#e4f2ea; --cream:#f9f5ec; --line:#d7e6de;
-      --text:#0f1f1a; --accent:#f0a532; --ink:#0d2b21; --shadow:0 20px 50px rgba(0,0,0,.08);
-      --orange:#f7c27c; --sand:#f3e7d6; --sea:#1f6f5a;
+      --green: #0f3d2e;
+      --mint: #e4f2ea;
+      --cream: #f9f5ec;
+      --line: #d7e6de;
+      --text: #0f1f1a;
+      --accent: #f0a532;
+      --ink: #0d2b21;
+      --shadow: 0 20px 50px rgba(0, 0, 0, .08);
+      --orange: #f7c27c;
+      --sand: #f3e7d6;
+      --sea: #1f6f5a;
     }
-    html{scroll-behavior:smooth}
-    *, *::before, *::after{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:"Noto Sans JP","Space Grotesk","Helvetica Neue",Arial,sans-serif;
-      color:var(--text);
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
       background: #fbfaf8;
     }
-    a{text-decoration:none;color:inherit}
-    header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line);z-index:12;box-shadow:0 8px 30px rgba(0,0,0,.04)}
-    .container{max-width:1180px;margin:0 auto;padding:20px 24px}
-    .nav{display:flex;gap:20px;align-items:center;font-weight:600;font-size:15px;color:var(--ink);position:relative;letter-spacing:0.02em}
-    .nav a:hover{color:var(--sea)}
-    .nav .sp{flex:1}
-    .dropdown{position:relative;display:inline-block}
-    .dropdown-menu{position:absolute;top:100%;left:0;min-width:180px;background:#fff;border:1px solid #eef2f0;border-radius:16px;box-shadow:0 18px 36px rgba(0,0,0,.08);padding:8px;display:none;z-index:20;margin-top:10px;opacity:0;transform:translateY(-10px);transition:opacity .2s, transform .2s;}
-    .dropdown-menu.active{display:block;opacity:1;transform:translateY(0)}
-    .dropdown-menu a{display:block;padding:12px 16px;color:var(--ink);font-weight:600;border-radius:10px}
-    .dropdown-menu a:hover{background:#f3f8f6}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:6px;
-      padding:13px 22px;border-radius:16px;
-      border:1px solid var(--green);background:linear-gradient(120deg,#176148,#0f3d2e);
-      color:#fff;font-weight:700;box-shadow:0 12px 28px rgba(15,61,46,.2), 0 2px 4px rgba(0,0,0,.05);
-      letter-spacing:0.03em;transition:.2s all
+
+    a {
+      text-decoration: none;
+      color: inherit
     }
-    .btn.secondary{
-      background:#fff;border:1px solid var(--line);color:var(--ink);
-      box-shadow:0 8px 22px rgba(0,0,0,.06)
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #ffffffcc;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      z-index: 12;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .04)
     }
-    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(15,61,46,.25), 0 4px 8px rgba(0,0,0,.05);filter:brightness(1.05)}
-    .btn.secondary:hover{box-shadow:0 14px 30px rgba(0,0,0,.1)}
-    h1,h2,h3,h4{margin:0;color:var(--ink);letter-spacing:-0.02em;font-family:'CraftMincho', "Space Grotesk", sans-serif}
-    h1{font-size:clamp(36px, 5vw, 56px);line-height:1.25; letter-spacing: .05em;}
-    h1 .jp-hiragana, h2 .jp-hiragana { font-size: 0.8em; }
-    h2{font-size:clamp(30px, 4vw, 44px);line-height:1.2; letter-spacing: .05em;}
-    h3{font-size:clamp(20px, 2.5vw, 24px)}
-    section{padding:80px 24px}
-    .section-head{text-align:center;margin-bottom:48px}
-    .section-head small{display:block;color:var(--sea);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;font-family:"Space Grotesk",sans-serif}
-    .section-head p{max-width:640px;margin:12px auto 0;color:#335649;line-height:1.8}
-    .hero{
-      padding:120px 24px 100px;
-      position:relative;
-      overflow:hidden;
-      text-align:center;
-      background:linear-gradient(180deg, #f8f3eb 0%, #fbfaf8 100%);
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 24px
     }
-    .hero-inner{display:flex;flex-direction:column;align-items:center;gap:28px;}
-    .hero h1{margin-bottom:18px}
-    .hero p{font-size:18px;color:#234638;max-width:680px;margin:0 auto 28px;line-height:1.85}
-    .card{background:#fff;border:1px solid #eef2f0;border-radius:24px;padding:28px;box-shadow:0 10px 25px rgba(0,0,0,.02), 0 20px 45px rgba(0,0,0,.06);transition:.25s transform,.25s box-shadow}
-    .card:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,.02), 0 28px 60px rgba(0,0,0,.09)}
-    .card h3{margin-bottom:12px}
-    .mini{font-size:16px;color:#335649;line-height:1.75}
-    .pill{padding:10px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);box-shadow:0 10px 28px rgba(0,0,0,.06);font-weight:600;color:#1f3d32}
-    .grid{display:grid;gap:24px}
-    @media(min-width:720px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
-    .faq details{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;margin-bottom:12px;}
-    .faq summary{cursor:pointer;font-weight:700;color:#0f3d2e;font-size:16px}
-    ul{margin:10px 0 0 18px;padding:0;color:#335649;line-height:1.8}
-    li{margin-bottom: 8px;}
-    .icon-lg{font-size:32px;margin-bottom:12px;color:var(--sea);line-height:1;display:inline-block;background:linear-gradient(135deg, var(--mint), #cde8de); padding:14px; border-radius:18px; border:1px solid #fff; box-shadow:0 4px 8px rgba(0,0,0,.05)}
-    .bg-gradient-soft{background:linear-gradient(180deg, #fbfaf8 0%, #f5f9f7 100%)}
-    .bg-contact{background:linear-gradient(180deg, #f5f9f7 0%, #e6f3ed 100%)}
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      position: relative;
+      letter-spacing: 0.02em
+    }
+
+    .nav a:hover {
+      color: var(--sea)
+    }
+
+    .nav .sp {
+      flex: 1
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      background: #fff;
+      border: 1px solid #eef2f0;
+      border-radius: 16px;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, .08);
+      padding: 8px;
+      display: none;
+      z-index: 20;
+      margin-top: 10px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity .2s, transform .2s;
+    }
+
+    .dropdown-menu.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 16px;
+      color: var(--ink);
+      font-weight: 600;
+      border-radius: 10px
+    }
+
+    .dropdown-menu a:hover {
+      background: #f3f8f6
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 13px 22px;
+      border-radius: 16px;
+      border: 1px solid var(--green);
+      background: linear-gradient(120deg, #176148, #0f3d2e);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 12px 28px rgba(15, 61, 46, .2), 0 2px 4px rgba(0, 0, 0, .05);
+      letter-spacing: 0.03em;
+      transition: .2s all
+    }
+
+    .btn.secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .06)
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(15, 61, 46, .25), 0 4px 8px rgba(0, 0, 0, .05);
+      filter: brightness(1.05)
+    }
+
+    .btn.secondary:hover {
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .1)
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      font-family: 'CraftMincho', "Space Grotesk", sans-serif
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.25;
+      letter-spacing: .05em;
+    }
+
+    h1 .jp-hiragana,
+    h2 .jp-hiragana {
+      font-size: 0.8em;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: .05em;
+    }
+
+    h3 {
+      font-size: clamp(20px, 2.5vw, 24px)
+    }
+
+    section {
+      padding: 80px 24px
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 48px
+    }
+
+    .section-head small {
+      display: block;
+      color: var(--sea);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      font-family: "Space Grotesk", sans-serif
+    }
+
+    .section-head p {
+      max-width: 640px;
+      margin: 12px auto 0;
+      color: #335649;
+      line-height: 1.8
+    }
+
+    .hero {
+      padding: 120px 24px 100px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background: linear-gradient(180deg, #f8f3eb 0%, #fbfaf8 100%);
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .hero h1 {
+      margin-bottom: 18px
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #234638;
+      max-width: 680px;
+      margin: 0 auto 28px;
+      line-height: 1.85
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #eef2f0;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .02), 0 20px 45px rgba(0, 0, 0, .06);
+      transition: .25s transform, .25s box-shadow
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .02), 0 28px 60px rgba(0, 0, 0, .09)
+    }
+
+    .card h3 {
+      margin-bottom: 12px
+    }
+
+    .mini {
+      font-size: 16px;
+      color: #335649;
+      line-height: 1.75
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .06);
+      font-weight: 600;
+      color: #1f3d32
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px
+    }
+
+    @media(min-width:720px) {
+      .grid.cols-3 {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .grid.cols-2 {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    .faq details {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background: #fff;
+      margin-bottom: 12px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: #0f3d2e;
+      font-size: 16px
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #335649;
+      line-height: 1.8
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .icon-lg {
+      font-size: 32px;
+      margin-bottom: 12px;
+      color: var(--sea);
+      line-height: 1;
+      display: inline-block;
+      background: linear-gradient(135deg, var(--mint), #cde8de);
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, .05)
+    }
+
+    .bg-gradient-soft {
+      background: linear-gradient(180deg, #fbfaf8 0%, #f5f9f7 100%)
+    }
+
+    .bg-contact {
+      background: linear-gradient(180deg, #f5f9f7 0%, #e6f3ed 100%)
+    }
 
     /* Header Logo */
     .header-logo img {
       height: 48px;
       vertical-align: middle;
     }
-    /* Animation */
-    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-    .fade-up.is-visible { opacity: 1; transform: translateY(0); }
-    .fade-up:nth-child(2) {transition-delay: .1s}
-    .fade-up:nth-child(3) {transition-delay: .2s}
-    .fade-up:nth-child(4) {transition-delay: .3s}
 
-    @media(max-width:768px){
-      h1{font-size:34px}
-      h2{font-size:28px}
-      section{padding:60px 16px}
-      .hero{padding:80px 16px 60px}
-      .hero p{font-size:16px}
-      .grid.cols-2, .grid.cols-3{grid-template-columns:1fr}
-      .nav{gap:12px; font-size:14px;}
-      .header-logo img { height: 40px; }
+    /* Animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(2) {
+      transition-delay: .1s
+    }
+
+    .fade-up:nth-child(3) {
+      transition-delay: .2s
+    }
+
+    .fade-up:nth-child(4) {
+      transition-delay: .3s
+    }
+
+    @media(max-width:768px) {
+      h1 {
+        font-size: 34px
+      }
+
+      h2 {
+        font-size: 28px
+      }
+
+      section {
+        padding: 60px 16px
+      }
+
+      .hero {
+        padding: 80px 16px 60px
+      }
+
+      .hero p {
+        font-size: 16px
+      }
+
+      .grid.cols-2,
+      .grid.cols-3 {
+        grid-template-columns: 1fr
+      }
+
+      .nav {
+        gap: 12px;
+        font-size: 14px;
+      }
+
+      .header-logo img {
+        height: 40px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container nav">
@@ -147,10 +450,18 @@
         <h2>こんな方におすすめです</h2>
       </div>
       <div class="grid cols-2">
-        <div class="card fade-up"><b>人情に厚い中小企業（2–50名）</b><p class="mini">派手な提案より誠実さを重視し、長く付き合える相手を探している。</p></div>
-        <div class="card fade-up"><b>社内の温度差を埋めたい</b><p class="mini">社長と現場で合意形成をしながら、小さく試す文化を育てたい。</p></div>
-        <div class="card fade-up"><b>柔軟な関わりを求める</b><p class="mini">状況に応じて、サポート範囲や頻度を柔軟に調整してほしい。</p></div>
-        <div class="card fade-up"><b>「人」の変化も記録したい</b><p class="mini">生産性などの数字だけでなく、従業員の皆様の行動や感覚の変化も大切にしたい。</p></div>
+        <div class="card fade-up"><b>人情に厚い中小企業（2–50名）</b>
+          <p class="mini">派手な提案より誠実さを重視し、長く付き合える相手を探している。</p>
+        </div>
+        <div class="card fade-up"><b>社内の温度差を埋めたい</b>
+          <p class="mini">社長と現場で合意形成をしながら、小さく試す文化を育てたい。</p>
+        </div>
+        <div class="card fade-up"><b>柔軟な関わりを求める</b>
+          <p class="mini">状況に応じて、サポート範囲や頻度を柔軟に調整してほしい。</p>
+        </div>
+        <div class="card fade-up"><b>「人」の変化も記録したい</b>
+          <p class="mini">生産性などの数字だけでなく、従業員の皆様の行動や感覚の変化も大切にしたい。</p>
+        </div>
       </div>
     </section>
 
@@ -161,9 +472,21 @@
           <h2>進め方の例</h2>
         </div>
         <div class="grid cols-3">
-          <div class="card fade-up"><div class="pill">Step 1</div><h3>評価設計</h3><p class="mini">成功/失敗から学びが残るKPIを設計。期待値とリスクをすり合わせます。</p></div>
-          <div class="card fade-up"><div class="pill">Step 2</div><h3>短期検証</h3><p class="mini">2–6週間で1テーマ検証。代替案も比較し、数字＋人の変化をログ化します。</p></div>
-          <div class="card fade-up"><div class="pill">Step 3</div><h3>レビュー/拡張</h3><p class="mini">結果を社内共有し、拡張/停止/横展開の選択肢を一緒に検討します。</p></div>
+          <div class="card fade-up">
+            <div class="pill">Step 1</div>
+            <h3>評価設計</h3>
+            <p class="mini">成功/失敗から学びが残るKPIを設計。期待値とリスクをすり合わせます。</p>
+          </div>
+          <div class="card fade-up">
+            <div class="pill">Step 2</div>
+            <h3>短期検証</h3>
+            <p class="mini">2–6週間で1テーマ検証。代替案も比較し、数字＋人の変化をログ化します。</p>
+          </div>
+          <div class="card fade-up">
+            <div class="pill">Step 3</div>
+            <h3>レビュー/拡張</h3>
+            <p class="mini">結果を社内共有し、拡張/停止/横展開の選択肢を一緒に検討します。</p>
+          </div>
         </div>
       </div>
     </section>
@@ -175,11 +498,24 @@
         <p>ご予算に合わせた頻度や作業量を柔軟に調整できます。まずはお気軽にご相談ください。</p>
       </div>
       <div class="grid cols-3">
-        <div class="card fade-up"><h3>ライト</h3><p class="mini">月1回のMTGとSlackでの相談対応。AI活用の方向性を定め、小さな一歩を応援します。</p><h2 style="margin-top:16px;">月3万円〜</h2></div>
-        <div class="card fade-up"><h3>スタンダード</h3><p class="mini">2週ごとのMTGに加え、短期検証の設計とレビューまで伴走します。</p><h2 style="margin-top:16px;">月8万円〜</h2></div>
-        <div class="card fade-up"><h3>フル伴走</h3><p class="mini">複数テーマの並走、現場ヒアリングやワークショップの実施など、フルコミットで支援します。</p><h2 style="margin-top:16px;">個別見積</h2></div>
+        <div class="card fade-up">
+          <h3>ライト</h3>
+          <p class="mini">月1回のMTGとSlackでの相談対応。AI活用の方向性を定め、小さな一歩を応援します。</p>
+          <h2 style="margin-top:16px;">月3万円〜</h2>
+        </div>
+        <div class="card fade-up">
+          <h3>スタンダード</h3>
+          <p class="mini">2週ごとのMTGに加え、短期検証の設計とレビューまで伴走します。</p>
+          <h2 style="margin-top:16px;">月8万円〜</h2>
+        </div>
+        <div class="card fade-up">
+          <h3>フル伴走</h3>
+          <p class="mini">複数テーマの並走、現場ヒアリングやワークショップの実施など、フルコミットで支援します。</p>
+          <h2 style="margin-top:16px;">個別見積</h2>
+        </div>
       </div>
-       <p class="mini" style="text-align:center; margin-top:24px">※すべて紹介限定・長期前提のサービスです。個人事業主時代から10年来のクライアントさまも複数社いらっしゃいます。</p>
+      <p class="mini" style="text-align:center; margin-top:24px">
+        ※すべて紹介限定・長期前提のサービスです。個人事業主時代から10年来のクライアントさまも複数社いらっしゃいます。</p>
     </section>
 
     <section id="contact" class="bg-contact">
@@ -191,7 +527,8 @@
         </div>
         <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
           <p class="mini" style="margin-bottom:20px;">公式フォームはありません。コンタクトページの案内に沿って、SNSのDMなどからご連絡ください。</p>
-          <a class="btn" href="./contact.html" target="_blank" rel="noopener noreferrer" style="padding:16px 28px;">コンタクトページを見る →</a>
+          <a class="btn" href="./contact.html" target="_blank" rel="noopener noreferrer"
+            style="padding:16px 28px;">コンタクトページを見る →</a>
         </div>
       </div>
     </section>
@@ -199,25 +536,25 @@
 </body>
 <script>
   // --- Dropdown Click Handler ---
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    if(dropdownToggle && dropdownMenu) {
-      dropdownToggle.addEventListener('click', function(event) {
+    if (dropdownToggle && dropdownMenu) {
+      dropdownToggle.addEventListener('click', function (event) {
         event.preventDefault();
         event.stopPropagation();
         dropdownMenu.classList.toggle('active');
       });
 
-      document.addEventListener('click', function(event) {
+      document.addEventListener('click', function (event) {
         if (!dropdownMenu.contains(event.target) && dropdownMenu.classList.contains('active')) {
           dropdownMenu.classList.remove('active');
         }
       });
     }
   });
-  
+
   // --- Scroll Fade-in Animation ---
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -230,4 +567,5 @@
     observer.observe(el);
   });
 </script>
+
 </html>

@@ -1,58 +1,299 @@
 <!doctype html>
 <html lang="ja">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>クライアントの声｜フリーランス 中野さん｜株式会社コールテン</title>
   <meta name="description" content="人に例えた指示設計で精度安定。フリーランス中野さんのAI顧問事例。">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  <link rel="icon" href="./faviconC.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <style>
-    @font-face {font-family:'CraftMincho';src:url('./craftmincho.otf') format('opentype');font-display:swap;}
-    :root { --green:#0f3d2e; --mint:#e4f2ea; --cream:#f9f5ec; --line:#d7e6de; --text:#0f1f1a; --ink:#0d2b21; --sea:#1f6f5a; }
-    *,*::before,*::after{box-sizing:border-box}
-    body{margin:0;font-family:"Noto Sans JP","Space Grotesk","Helvetica Neue",Arial,sans-serif;color:var(--text);background:#fbfaf8;}
-    a{text-decoration:none;color:inherit}
-    header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line);z-index:12;box-shadow:0 8px 30px rgba(0,0,0,.04)}
-    .container{max-width:1180px;margin:0 auto;padding:20px 24px}
-    .nav{display:flex;gap:20px;align-items:center;font-weight:600;font-size:15px;color:var(--ink);letter-spacing:0.02em}
-    .nav .sp{flex:1}
-    .nav a:hover{color:var(--sea)}
-    .dropdown{position:relative;display:inline-block}
-    .dropdown-menu{position:absolute;top:100%;left:0;min-width:180px;background:#fff;border:1px solid #eef2f0;border-radius:16px;box-shadow:0 18px 36px rgba(0,0,0,.08);padding:8px;display:none;z-index:20;margin-top:10px;opacity:0;transform:translateY(-10px);transition:opacity .2s, transform .2s;}
-    .dropdown-menu.active{display:block;opacity:1;transform:translateY(0)}
-    .dropdown-menu a{display:block;padding:12px 16px;color:var(--ink);font-weight:600;border-radius:10px}
-    .dropdown-menu a:hover{background:#f3f8f6}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 20px;border-radius:16px;border:1px solid var(--green);background:linear-gradient(120deg,#176148,#0f3d2e);color:#fff;font-weight:700;box-shadow:0 12px 28px rgba(15,61,46,.2), 0 2px 4px rgba(0,0,0,.05);letter-spacing:0.03em;transition:.2s all}
-    .btn.secondary{background:#fff;border:1px solid var(--line);color:var(--ink);box-shadow:0 8px 22px rgba(0,0,0,.06)}
-    .header-logo img{height:48px;vertical-align:middle;}
-    h1,h2,h3{margin:0;color:var(--ink);letter-spacing:-0.02em;font-family:'CraftMincho',"Space Grotesk",sans-serif}
-    h1{font-size:clamp(32px,4.8vw,50px);line-height:1.2}
-    h2{font-size:clamp(26px,3.4vw,36px);line-height:1.25}
-    h3{font-size:clamp(20px,2.6vw,24px)}
-    section{padding:70px 24px}
-    .hero{padding:110px 24px 80px;background:linear-gradient(135deg,#f2f6ff,#f4fbf7);text-align:center}
-    .hero p{max-width:760px;margin:14px auto 0;line-height:1.8;color:#244238}
-    .card{background:#fff;border:1px solid #eef2f0;border-radius:20px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.05)}
-    .meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;margin-top:16px}
-    .tag{display:inline-block;padding:8px 12px;border-radius:12px;background:var(--mint);color:#124034;font-weight:700;font-size:12px;border:1px solid #d6e8df}
-    ul{margin:10px 0 0 18px;padding:0;line-height:1.75;color:#335649}
-    .grid{display:grid;gap:20px}
-    @media(min-width:840px){.grid.cols-2{grid-template-columns:1fr 1fr}}
-    .avatar-frame{width:160px;height:160px;margin:0 auto;display:flex;align-items:center;justify-content:center;background:url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;}
-    .avatar-lg{width:80px;height:80px;border-radius:50%;overflow:hidden;box-shadow:0 12px 28px rgba(0,0,0,.08);background:#fff;}
-    .avatar-lg img{width:100%;height:100%;object-fit:cover}
-    .pill{display:inline-block;padding:6px 10px;border-radius:10px;background:#fff;border:1px solid var(--line);font-weight:700;font-size:12px;color:#1f3d32}
-    @media(max-width:768px){
-      h1{font-size:32px}
-      section{padding:60px 16px}
-      .nav{gap:12px;font-size:14px}
-      .header-logo img{height:40px;}
+    @font-face {
+      font-family: 'CraftMincho';
+      src: url('./craftmincho.otf') format('opentype');
+      font-display: swap;
+    }
+
+    :root {
+      --green: #0f3d2e;
+      --mint: #e4f2ea;
+      --cream: #f9f5ec;
+      --line: #d7e6de;
+      --text: #0f1f1a;
+      --ink: #0d2b21;
+      --sea: #1f6f5a;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: #fbfaf8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #ffffffcc;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      z-index: 12;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .04)
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 24px
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+      letter-spacing: 0.02em
+    }
+
+    .nav .sp {
+      flex: 1
+    }
+
+    .nav a:hover {
+      color: var(--sea)
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      background: #fff;
+      border: 1px solid #eef2f0;
+      border-radius: 16px;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, .08);
+      padding: 8px;
+      display: none;
+      z-index: 20;
+      margin-top: 10px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity .2s, transform .2s;
+    }
+
+    .dropdown-menu.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 16px;
+      color: var(--ink);
+      font-weight: 600;
+      border-radius: 10px
+    }
+
+    .dropdown-menu a:hover {
+      background: #f3f8f6
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 20px;
+      border-radius: 16px;
+      border: 1px solid var(--green);
+      background: linear-gradient(120deg, #176148, #0f3d2e);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 12px 28px rgba(15, 61, 46, .2), 0 2px 4px rgba(0, 0, 0, .05);
+      letter-spacing: 0.03em;
+      transition: .2s all
+    }
+
+    .btn.secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .06)
+    }
+
+    .header-logo img {
+      height: 48px;
+      vertical-align: middle;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      font-family: 'CraftMincho', "Space Grotesk", sans-serif
+    }
+
+    h1 {
+      font-size: clamp(32px, 4.8vw, 50px);
+      line-height: 1.2
+    }
+
+    h2 {
+      font-size: clamp(26px, 3.4vw, 36px);
+      line-height: 1.25
+    }
+
+    h3 {
+      font-size: clamp(20px, 2.6vw, 24px)
+    }
+
+    section {
+      padding: 70px 24px
+    }
+
+    .hero {
+      padding: 110px 24px 80px;
+      background: linear-gradient(135deg, #f2f6ff, #f4fbf7);
+      text-align: center
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 14px auto 0;
+      line-height: 1.8;
+      color: #244238
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #eef2f0;
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .05)
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: var(--mint);
+      color: #124034;
+      font-weight: 700;
+      font-size: 12px;
+      border: 1px solid #d6e8df
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      line-height: 1.75;
+      color: #335649
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px
+    }
+
+    @media(min-width:840px) {
+      .grid.cols-2 {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    .avatar-frame {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+
+    .avatar-lg {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .08);
+      background: #fff;
+    }
+
+    .avatar-lg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 12px;
+      color: #1f3d32
+    }
+
+    @media(max-width:768px) {
+      h1 {
+        font-size: 32px
+      }
+
+      section {
+        padding: 60px 16px
+      }
+
+      .nav {
+        gap: 12px;
+        font-size: 14px
+      }
+
+      .header-logo img {
+        height: 40px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container nav">
@@ -70,7 +311,9 @@
     <section class="hero">
       <div class="container">
         <div class="avatar-frame">
-          <div class="avatar-lg"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png" alt="中野さん"></div>
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+              alt="中野さん"></div>
         </div>
         <h1>フリーランス（動画編集・WEB制作）<br>中野さん</h1>
         <div class="meta">
@@ -104,14 +347,16 @@
     <section class="container">
       <div class="card">
         <h3>印象的な一言</h3>
-        <p style="line-height:1.8;margin-top:8px;color:#234638;">「ChatGPTを ‘人’ として扱うイメージを教わってから、伝え方を変えるだけで出力の精度が上がりました。CanvasやAIBankで保存と再利用がスムーズになり、価値観に合うアウトプットが安定しています。」</p>
+        <p style="line-height:1.8;margin-top:8px;color:#234638;">「ChatGPTを ‘人’
+          として扱うイメージを教わってから、伝え方を変えるだけで出力の精度が上がりました。CanvasやAIBankで保存と再利用がスムーズになり、価値観に合うアウトプットが安定しています。」</p>
       </div>
     </section>
 
     <section id="contact" class="container" style="padding-bottom:100px">
       <div class="card" style="max-width:720px;margin:0 auto;text-align:center">
         <h3>同じように伴走してほしい方へ</h3>
-        <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">コールテンは紹介限定・長期前提でAI伴走を行います。小さく試し、合うかどうかを一緒に確かめましょう。</p>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">
+          コールテンは紹介限定・長期前提でAI伴走を行います。小さく試し、合うかどうかを一緒に確かめましょう。</p>
         <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
           <a class="btn" href="./index.html#contact">無料相談する</a>
           <a class="btn secondary" href="./voices.html">他のクライアントの声</a>
@@ -120,14 +365,15 @@
     </section>
   </main>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const toggle = document.querySelector('.dropdown-toggle');
       const menu = document.querySelector('.dropdown-menu');
-      if(toggle && menu){
-        toggle.addEventListener('click', (e)=>{e.preventDefault();e.stopPropagation();menu.classList.toggle('active');});
-        document.addEventListener('click', (e)=>{if(!menu.contains(e.target) && menu.classList.contains('active')) menu.classList.remove('active');});
+      if (toggle && menu) {
+        toggle.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); menu.classList.toggle('active'); });
+        document.addEventListener('click', (e) => { if (!menu.contains(e.target) && menu.classList.contains('active')) menu.classList.remove('active'); });
       }
     });
   </script>
 </body>
+
 </html>
