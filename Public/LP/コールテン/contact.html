@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ご相談・ご縁づくり｜株式会社コールテン</title>
+  <meta name="description" content="コールテンは紹介限定・長期前提。まずは有料相談を入口に、紹介・興味領域のご相談は初回無料でお受けします。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {font-family:'CraftMincho';src:url('./craftmincho.otf') format('opentype');font-display:swap;}
+    :root { --green:#0f3d2e; --mint:#e4f2ea; --cream:#f9f5ec; --line:#d7e6de; --text:#0f1f1a; --accent:#f0a532; --ink:#0d2b21; --shadow:0 20px 50px rgba(0,0,0,.08); --sea:#1f6f5a; }
+    *, *::before, *::after{box-sizing:border-box}
+    body{margin:0;font-family:"Noto Sans JP","Space Grotesk","Helvetica Neue",Arial,sans-serif;color:var(--text);background:#fbfaf8;}
+    a{text-decoration:none;color:inherit}
+    header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line);z-index:12;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .container{max-width:1180px;margin:0 auto;padding:20px 24px}
+    .nav{display:flex;gap:20px;align-items:center;font-weight:600;font-size:15px;color:var(--ink);letter-spacing:0.02em}
+    .nav .sp{flex:1}
+    .nav a:hover{color:var(--sea)}
+    .dropdown{position:relative;display:inline-block}
+    .dropdown-menu{position:absolute;top:100%;left:0;min-width:180px;background:#fff;border:1px solid #eef2f0;border-radius:16px;box-shadow:0 18px 36px rgba(0,0,0,.08);padding:8px;display:none;z-index:20;margin-top:10px;opacity:0;transform:translateY(-10px);transition:opacity .2s, transform .2s;}
+    .dropdown-menu.active{display:block;opacity:1;transform:translateY(0)}
+    .dropdown-menu a{display:block;padding:12px 16px;color:var(--ink);font-weight:600;border-radius:10px}
+    .dropdown-menu a:hover{background:#f3f8f6}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 22px;border-radius:16px;border:1px solid var(--green);background:linear-gradient(120deg,#176148,#0f3d2e);color:#fff;font-weight:700;box-shadow:0 12px 28px rgba(15,61,46,.2), 0 2px 4px rgba(0,0,0,.05);letter-spacing:0.03em;transition:.2s all}
+    .btn.secondary{background:#fff;border:1px solid var(--line);color:var(--ink);box-shadow:0 8px 22px rgba(0,0,0,.06)}
+    .btn:hover{transform:translateY(-2px)}
+    h1,h2,h3,h4{margin:0;color:var(--ink);letter-spacing:-0.02em;font-family:'CraftMincho',"Space Grotesk",sans-serif}
+    h1{font-size:clamp(36px,5vw,52px);line-height:1.2}
+    h2{font-size:clamp(28px,4vw,40px);line-height:1.2}
+    section{padding:80px 24px}
+    .hero{padding:120px 24px 80px;text-align:center;background:linear-gradient(135deg,#f5f9f7,#eef4f0)}
+    .hero p{max-width:780px;margin:14px auto 0;line-height:1.9;color:#244238;font-size:17px}
+    .card{background:#fff;border:1px solid #eef2f0;border-radius:20px;padding:24px;box-shadow:0 12px 28px rgba(0,0,0,.06)}
+    .grid{display:grid;gap:20px}
+    @media(min-width:860px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    form label{display:block;font-weight:700;margin:12px 0 8px;color:#123328}
+    form input,form textarea,form select{width:100%;padding:14px;border-radius:14px;border:1px solid var(--line);font-family:inherit;background:#fff;transition:all .2s;font-size:16px;}
+    form input:focus,form textarea:focus,form select:focus{border-color:var(--sea);box-shadow:0 0 0 3px #1f6f5a20;outline:none}
+    .header-logo img{height:48px;vertical-align:middle;}
+    .pill{display:inline-block;padding:8px 12px;border-radius:12px;background:#fff;border:1px solid var(--line);font-weight:700;color:#1f3d32}
+    @media(max-width:768px){
+      h1{font-size:32px}
+      section{padding:60px 16px}
+      .nav{gap:12px;font-size:14px;}
+      .header-logo img{height:40px;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="./index.html" class="header-logo">
+        <img src="./株式会社コールテン_ロゴ.png" alt="株式会社コールテン">
+      </a>
+      <div class="sp"></div>
+      <a href="./index.html#brand-story">会社概要</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle">サービス ▾</a>
+        <div class="dropdown-menu">
+          <a href="./service-study.html">AI勉強会</a>
+          <a href="./service-advisory.html">AI顧問</a>
+          <a href="./service-system.html">AIシステム開発</a>
+        </div>
+      </div>
+      <a class="btn" href="#contact">相談する</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>ご相談・ご縁づくり</h1>
+        <p>コールテンは紹介限定・長期前提で伴走します。基本の入口は有料相談（90分 30,000円）。ご紹介・興味領域のご相談は初回無料でお受けします。営業日12時間以内に返信します。</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px">
+          <span class="pill">営業日12時間以内にご返信</span>
+          <span class="pill">小さく試して合うか確認</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:20px">
+      <div class="card" style="text-align:center;padding:28px">
+        <div style="font-size:24px;font-weight:800;color:#123328;">ご相談 90分 30,000円（税込）</div>
+        <p style="margin:12px auto 0;max-width:720px;line-height:1.85;color:#335649">まずは個別相談（有料）を入り口としてご案内しています。AI活用の方向性整理、業務改善の可能性、プロンプト設計の初期アドバイスなどを、必要な範囲でしっかりお手伝いします。</p>
+        <p style="margin:8px auto 0;max-width:640px;line-height:1.8;color:#335649">小さな一歩でも、あなたらしい形で前に進めるよう伴走します。</p>
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:0">
+      <div class="card" style="background:linear-gradient(135deg,#fdf9f2,#f3f8f4)">
+        <h2 style="margin-bottom:10px;font-size:22px;">コールテンが大切にしていること</h2>
+        <p style="margin:0;line-height:1.85;color:#335649">数をこなすのではなく、ご縁を深く育てる関係性を大切にしています。代表の向自身の経験から、人の想い・個性・背景に寄り添うことを軸にしています。価値観が重なるご縁を特に大切にし、安心して話せる空気と、小さく試せる設計を一緒につくります。</p>
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:0">
+      <div class="grid cols-2" style="align-items:stretch">
+        <div class="card" style="background:linear-gradient(135deg,#f5fbff,#f6f9f7)">
+          <h3 style="margin-bottom:6px;font-size:20px">ご紹介の方</h3>
+          <div style="font-weight:800;color:#123328;font-size:18px;margin-bottom:8px">60分 無料</div>
+          <p style="margin:0;line-height:1.75;color:#335649">既存のお客様やパートナーの皆さまからご紹介いただいた場合、初回は無料でお受けしています。紹介を通じて価値観が伝わっているご縁を何より大切にし、最初の60分で課題の整理と小さく試す案を一緒に描きます。</p>
+        </div>
+        <div class="card" style="background:linear-gradient(135deg,#f7f6ff,#f3f8f4)">
+          <h3 style="margin-bottom:6px;font-size:20px">特定領域のご相談</h3>
+          <div style="font-weight:800;color:#123328;font-size:18px;margin-bottom:8px">60分 無料</div>
+          <p style="margin:0;line-height:1.75;color:#335649">以下の興味領域に該当するテーマは、価値観の重なりから初回無料でお受けしています。社会的養護・若者支援、教育・コーチング、“人の想い”を中心にした事業、働きにくさや生きづらさを抱える方のサポート、温かいコミュニティや福祉的領域、創作・ものづくり・表現、やさしいテクノロジー活用など。まずはお気軽にご相談ください。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="grid cols-2" style="align-items:start">
+          <form class="card" style="gap:6px" data-track="form">
+            <h2 style="margin-bottom:12px;font-size:22px;">フォームで相談する</h2>
+            <label for="name">氏名*</label>
+            <input id="name" name="name" required>
+            <label for="company">会社名（任意）</label>
+            <input id="company" name="company" placeholder="例）株式会社コールテン">
+            <label for="email">メール*</label>
+            <input id="email" name="email" type="email" required>
+            <label for="topic">ご用件</label>
+            <select id="topic" name="topic">
+              <option value="">選択してください</option>
+              <option>AI勉強会について</option>
+              <option>AI顧問について</option>
+              <option>AIシステム開発について</option>
+              <option>その他・ご相談</option>
+            </select>
+            <label for="message">ご相談内容</label>
+            <textarea id="message" name="message" rows="4" placeholder="現状の課題、実現したいこと、希望の進め方などご自由にお書きください。"></textarea>
+            <div style="margin:12px 0">
+              <label style="display:flex; align-items:center; gap:8px; font-weight:normal; font-size:14px;">
+                <input type="checkbox" required style="width:auto"> プライバシーポリシーに同意します
+              </label>
+            </div>
+            <div style="font-size:13px;color:#335649;margin-bottom:6px;">営業日12時間以内に返信します。まずはお気軽にどうぞ。</div>
+            <button class="btn" type="submit" style="width:100%;padding:14px;">送信する</button>
+          </form>
+          <div class="card" style="background:linear-gradient(135deg,#fdf9f2,#f2f8f4)">
+            <h2 style="margin-bottom:12px;font-size:22px;">進め方の目安</h2>
+            <ul style="margin:0 0 0 18px;line-height:1.8;color:#335649">
+              <li>1–2営業日以内にヒアリング日程のご連絡</li>
+              <li>初回30–45分で課題確認と「小さく試す」案を一緒に設計</li>
+              <li>合意後、短期トライアル（勉強会/顧問/開発いずれもOK）を開始</li>
+            </ul>
+            <div style="margin-top:16px;font-weight:700;color:#124034;">相談前に共有いただけると嬉しいこと</div>
+            <ul style="margin:6px 0 0 18px;line-height:1.7;color:#335649">
+              <li>困っていること・叶えたいこと</li>
+              <li>ご予算や希望期間（ざっくりでOK）</li>
+              <li>社内の合意形成で気になる点</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.dropdown-toggle');
+      const menu = document.querySelector('.dropdown-menu');
+      if(toggle && menu){
+        toggle.addEventListener('click', (e)=>{e.preventDefault();e.stopPropagation();menu.classList.toggle('active');});
+        document.addEventListener('click', (e)=>{if(!menu.contains(e.target) && menu.classList.contains('active')) menu.classList.remove('active');});
+      }
+    });
+  </script>
+</body>
+</html>
