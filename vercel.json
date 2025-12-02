@@ -1,5 +1,12 @@
 {
   "buildCommand": "echo 'No build needed'",
   "outputDirectory": "Public/LP/コールテン",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/lp_bgcafe",
+      "destination": "/#vision",
+      "permanent": false
+    }
+  ]
 }
