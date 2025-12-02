@@ -634,7 +634,10 @@
       }
 
       .hero {
-        padding: 80px 16px 60px
+        padding: 80px 16px 60px;
+        background-size: cover;
+        background-position: center center;
+        min-height: 400px;
       }
 
       .hero p {
@@ -652,6 +655,18 @@
 
       .nav .header-logo img {
         height: 40px;
+      }
+
+      /* Fix VISION section card grid on mobile */
+      #vision .card[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      #vision .card[style*="grid-template-columns"]>div:first-child {
+        width: 100px !important;
+        height: 100px !important;
+        margin: 0 auto;
       }
     }
   </style>
