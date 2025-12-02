@@ -672,12 +672,15 @@
       /* Fix VISION section image on mobile */
       #vision .img-container {
         min-height: 300px !important;
-        display: flex;
+        position: relative !important;
       }
 
       #vision .img-container img {
-        height: 100% !important;
+        position: absolute !important;
+        top: 0;
+        left: 0;
         width: 100% !important;
+        height: 100% !important;
         object-fit: cover;
       }
 
