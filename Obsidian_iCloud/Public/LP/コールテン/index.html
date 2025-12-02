@@ -133,7 +133,12 @@
     .service-card{text-align:center;padding:32px 24px;align-items:center;display:flex;flex-direction:column}
     .split-layout{display:grid;gap:32px;align-items:center;margin-top:28px}
     @media(min-width:880px){.split-layout{grid-template-columns:1fr 1fr;gap:48px}}
-    .split-layout.reverse > *:first-child { grid-column: 2; }
+    /* .split-layout.reverse{direction:rtl} */ /* Remove this line */
+    @media(min-width:880px){
+      .split-layout.reverse > .img-container { grid-column-start: 2; }
+      .split-layout.reverse > div:not(.img-container) { grid-column-start: 1; grid-row-start: 1;}
+    }
+
     .img-container{border-radius:24px;overflow:hidden;box-shadow:var(--shadow);position:relative}
     .img-container img{display:block;width:100%;height:100%;object-fit:cover;transition:.3s transform}
     .img-container:hover img{transform:scale(1.03)}
@@ -316,7 +321,7 @@
           <p class="mini" style="margin-top:16px; margin-bottom:24px;">私たちは、AI導入だけを目的としません。使う人と組織の「想い」に寄り添い、組織全体の安心と成長につながる支援を約束します。</p>
           <div class="card" style="margin-bottom: 16px;">
             <div class="promise-number">1</div>
-            <h3>「らしさ」引き出し活かします！</h3>
+            <h3>人・組織「らしさ」をそっと引き出すAI活用</h3>
             <p class="mini">欠けている部分や苦手さも、あなたの魅力の一部。その想いと個性を丁寧に汲み取り、AIがあなたの“物語の続きを進める相棒”になるよう支援します。</p>
           </div>
           <div class="card">
