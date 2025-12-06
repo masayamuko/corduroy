@@ -299,33 +299,6 @@
       }
     }
 
-    @media(max-width:768px) {
-
-      /* Mobile header layout */
-      .nav {
-        justify-content: center;
-        position: relative;
-      }
-
-      .nav .sp {
-        display: none;
-      }
-
-      .nav-link,
-      .nav-placeholder,
-      .nav .btn {
-        display: none !important;
-      }
-
-      .hamburger {
-        display: flex !important;
-      }
-
-      .header-logo {
-        margin: 0;
-      }
-    }
-
     /* Hamburger menu styles */
     .hamburger {
       display: none;
@@ -443,6 +416,33 @@
     .mobile-menu-backdrop.active {
       opacity: 1;
       pointer-events: all;
+    }
+
+    @media(max-width:768px) {
+
+      /* Mobile header layout */
+      .nav {
+        justify-content: center;
+        position: relative;
+      }
+
+      .nav .sp {
+        display: none;
+      }
+
+      .nav-link,
+      .nav-placeholder,
+      .nav .btn {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex !important;
+      }
+
+      .header-logo {
+        margin: 0;
+      }
     }
   </style>
 </head>
