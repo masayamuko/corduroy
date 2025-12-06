@@ -558,6 +558,29 @@
         margin: 0;
       }
     }
+
+    /* Tag styles */
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 6px;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .tag-tool {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .tag-level {
+      background: #fff;
+      border: 1px solid var(--green);
+      color: var(--green);
+    }
   </style>
 </head>
 
@@ -635,19 +658,58 @@
     <section class="bg-gradient-soft">
       <div class="container">
         <div class="section-head fade-up">
-          <small>Program</small>
-          <h2>プログラム例（90〜120分）</h2>
+          <small>Courses</small>
+          <h2>講座一覧</h2>
         </div>
-        <div class="card fade-up">
-          <ul>
-            <li>イントロ: コールテンのスタンス（紹介限定・長期前提、相性確認）</li>
-            <li>AIを「対話できる優秀な新人」に見立てた、効果的なコミュニケーション術</li>
-            <li>成功/失敗から学ぶ導入パターンと、事業に合わせたAIの選び方</li>
-            <li>社長向け: 投資判断のためのKPI・リスク整理</li>
-            <li>現場向け: 実務に近いユースケースと小さく試す方法</li>
-            <li>合意形成ワーク: 2–3案から「まず試すテーマ」を選ぶ</li>
-            <li>次のステップ: ログの取り方と報告の仕方を決める</li>
-          </ul>
+        <div class="grid cols-3">
+          <!-- Course 1 -->
+          <div class="card fade-up">
+            <div>
+              <span class="tag tag-tool">ChatGPT</span>
+              <span class="tag tag-level">入門</span>
+            </div>
+            <h3>使い方の基礎講座</h3>
+            <p class="mini">生成AIとは何？基本的な操作方法。基本的なプロンプトや特徴などを押さえる内容です。<br><b>60min</b></p>
+          </div>
+          <!-- Course 2 -->
+          <div class="card fade-up">
+            <div>
+              <span class="tag tag-tool">ChatGPT</span>
+              <span class="tag tag-level">初級</span>
+            </div>
+            <h3>第二の自分を育てる講座</h3>
+            <p class="mini">ChatGPTに「第二の自分になる」という指示を出し、自分のことを覚えさせながら各機能の理解や使い分けを理解していく楽しい講座です。</p>
+          </div>
+          <!-- Course 3 -->
+          <div class="card fade-up">
+            <div>
+              <span class="tag tag-tool">Cursor</span>
+              <span class="tag tag-level">上級</span>
+            </div>
+            <h3>第二の自分を育てる講座</h3>
+            <p class="mini">
+              ChatGPTだけではできなかったことまで広げられます。大量にコンテンツを作ったり、ファイル構造で生成したものを整理したり。可能性は無限大！ChatGPTからの引越しから使いこなしまで。</p>
+          </div>
+          <!-- Course 4 -->
+          <div class="card fade-up">
+            <div>
+              <span class="tag tag-tool">Google</span>
+              <span class="tag tag-level">初級</span>
+            </div>
+            <h3>AIではじめてのWEBサイト作り</h3>
+            <p class="mini">
+              まずはポン出しでサイトを生成、その後どうすれば狙ったイメージのサイトを作れるのかをステップ別に噛み砕いて紹介し、実際にそのステップで制作していただきます。インターネットへの公開までできます。</p>
+          </div>
+          <!-- Course 5 -->
+          <div class="card fade-up">
+            <div>
+              <span class="tag tag-tool">Cursor</span>
+              <span class="tag tag-level">上級</span>
+            </div>
+            <h3>AIでの本格的なサイト・アプリ制作</h3>
+            <p class="mini">
+              プログラマーさんが使っているコードを書くためのツールを使って、サイト作成のヒアリングしたものからクライアントさんへ納品するサイトの作成、独自ドメインへでの公開やその後のメンテナンスまで学べます。</p>
+          </div>
         </div>
       </div>
     </section>
