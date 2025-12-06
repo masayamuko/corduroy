@@ -70,7 +70,8 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--line);
-      z-index: 1200; /* モバイルメニューはヘッダー外に出し、上に重ねる */
+      z-index: 1200;
+      /* モバイルメニューはヘッダー外に出し、上に重ねる */
       box-shadow: 0 8px 30px rgba(0, 0, 0, .04)
     }
 
@@ -619,10 +620,36 @@
       opacity: 1;
       transform: translateY(0);
     }
-    footer{background:#f5f7f6;border-top:1px solid var(--line);margin-top:40px}
-    .footer-inner{max-width:1180px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:14px;color:#335649}
-    .footer-links{display:flex;gap:14px;flex-wrap:wrap}
-    .footer-links a{color:#124034;font-weight:700}
+
+    footer {
+      background: #f5f7f6;
+      border-top: 1px solid var(--line);
+      margin-top: 40px
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: #335649
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .footer-links a {
+      color: #124034;
+      font-weight: 700
+    }
 
     @media(max-width:768px) {
       h1 {
@@ -848,7 +875,15 @@
       </a>
       <div class="sp"></div>
       <a href="./index.html#brand-story" class="nav-link">会社概要</a>
-      <span class="nav-placeholder" style="color:#7a8f87;font-weight:600;">サービス（準備中）</span>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
+            style="font-size:10px">▼</span></a>
+        <div class="dropdown-menu">
+          <a href="./service-study.html">AI勉強会</a>
+          <a href="./service-advisory.html">AI顧問</a>
+          <a href="./service-system.html">AIシステム開発</a>
+        </div>
+      </div>
       <a class="btn" href="./contact.html">相談する</a>
       <button class="hamburger" aria-label="メニュー">
         <span></span>
@@ -860,7 +895,9 @@
   <div class="mobile-menu">
     <div class="mobile-menu-content">
       <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
-      <span class="mobile-menu-placeholder">サービス（準備中）</span>
+      <a href="./service-study.html" class="mobile-menu-link">AI勉強会</a>
+      <a href="./service-advisory.html" class="mobile-menu-link">AI顧問</a>
+      <a href="./service-system.html" class="mobile-menu-link">AIシステム開発</a>
       <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
     </div>
   </div>
@@ -955,21 +992,21 @@
           <p>ニーズに合わせて、3つの形でサポートします。この他にも柔軟に。</p>
         </div>
         <div class="service-grid">
-          <div class="card service-card fade-up" style="cursor:default;">
+          <a href="./service-study.html" class="card service-card fade-up" style="color:inherit;">
             <div class="icon-lg">🎓</div>
             <h3>AI勉強会</h3>
             <p class="mini">AIを「優秀な人間」に例え、専門用語を使わずにAIの基礎と可能性をお伝えすることにはじまり、さまざまな事例に触れつつ多様な仕事での導入や活用を追求します。</p>
-          </div>
-          <div class="card service-card fade-up" style="cursor:default;">
+          </a>
+          <a href="./service-advisory.html" class="card service-card fade-up" style="color:inherit;">
             <div class="icon-lg">🤝</div>
             <h3>AI顧問</h3>
             <p class="mini">クライアントさまの想いと事業を深く理解し、常に最新の情報と実践を活かしたブレないAI活用で伴走し続けます。ご予算に合わせた頻度や作業を対応できます。</p>
-          </div>
-          <div class="card service-card fade-up" style="cursor:default;">
+          </a>
+          <a href="./service-system.html" class="card service-card fade-up" style="color:inherit;">
             <div class="icon-lg">💻</div>
             <h3>AIシステム開発</h3>
             <p class="mini">現場の想いや専門性をとことん引き出し、それを反映させたAIシステムを設計・開発します。データの蓄積と活用を最大限できる設計で、現場の反応と変化を見ながら段階的に。</p>
-          </div>
+          </a>
         </div>
       </div>
     </section>
