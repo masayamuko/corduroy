@@ -376,39 +376,30 @@
 
     .mobile-menu-placeholder {
       padding: 16px 20px;
-      color: #7a8f87;
+    }
+
+    .mobile-menu-link {
+      padding: 14px 20px;
+      color: var(--ink);
       font-weight: 600;
-      font-size: 14px;
+      border-radius: 12px;
+      transition: background 0.2s;
+      text-align: left;
     }
 
-    .mobile-menu-cta {
-      background: linear-gradient(120deg, #176148, #0f3d2e);
-      color: #fff !important;
-      margin-top: 8px;
-      text-align: center;
+    .mobile-menu-link:hover {
+      background: var(--mint);
     }
 
-    .mobile-menu-cta:hover {
-      background: linear-gradient(120deg, #1a7252, #123d2e);
+    .mobile-menu-logo {
+      padding: 0 20px 20px;
+      text-align: left;
     }
 
-    /* Overlay backdrop */
-    .mobile-menu-backdrop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 3500;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-menu-backdrop.active {
-      opacity: 1;
-      pointer-events: all;
+    .mobile-menu-divider {
+      height: 1px;
+      background: #eef2f0;
+      margin: 8px 20px;
     }
 
     @media(max-width:768px) {
@@ -425,7 +416,8 @@
 
       .nav-link,
       .nav-placeholder,
-      .nav .btn {
+      .nav .btn,
+      .dropdown {
         display: none !important;
       }
 
@@ -448,7 +440,6 @@
       </a>
       <div class="sp"></div>
       <a href="./index.html#brand-story" class="nav-link">会社概要</a>
-      <a href="./index.html#brand-story" class="nav-link">会社概要</a>
       <div class="dropdown">
         <a href="#" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
             style="font-size:10px">▼</span></a>
@@ -468,12 +459,24 @@
   </header>
   <div class="mobile-menu">
     <div class="mobile-menu-content">
-      <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
-      <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
-      <a href="./service-study.html" class="mobile-menu-link">AI勉強会</a>
-      <a href="./service-advisory.html" class="mobile-menu-link">AI顧問</a>
-      <a href="./service-system.html" class="mobile-menu-link">AIシステム開発</a>
-      <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
+      <div class="mobile-menu-logo">
+        <img src="./logo.png" alt="株式会社コールテン" style="height:32px;">
+      </div>
+      <div class="mobile-menu-group">
+        <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
+      </div>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-menu-group">
+        <small
+          style="padding:0 20px; color:#7a8f87; font-size:11px; font-weight:700; display:block; margin-bottom:4px;">SERVICES</small>
+        <a href="./service-study.html" class="mobile-menu-link">AI勉強会</a>
+        <a href="./service-advisory.html" class="mobile-menu-link">AI顧問</a>
+        <a href="./service-system.html" class="mobile-menu-link">AIシステム開発</a>
+      </div>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-menu-group">
+        <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
+      </div>
     </div>
   </div>
 

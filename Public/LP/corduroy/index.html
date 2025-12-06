@@ -733,7 +733,8 @@
 
       .nav-link,
       .nav-placeholder,
-      .nav .btn {
+      .nav .btn,
+      .dropdown {
         display: none !important;
       }
 
@@ -816,7 +817,7 @@
     }
 
     .mobile-menu-link {
-      padding: 16px 20px;
+      padding: 14px 20px;
       color: var(--ink);
       font-weight: 600;
       border-radius: 12px;
@@ -826,6 +827,17 @@
 
     .mobile-menu-link:hover {
       background: var(--mint);
+    }
+
+    .mobile-menu-logo {
+      padding: 0 20px 20px;
+      text-align: left;
+    }
+
+    .mobile-menu-divider {
+      height: 1px;
+      background: #eef2f0;
+      margin: 8px 20px;
     }
 
     .mobile-menu-placeholder {
@@ -894,11 +906,24 @@
   </header>
   <div class="mobile-menu">
     <div class="mobile-menu-content">
-      <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
-      <a href="./service-study.html" class="mobile-menu-link">AI勉強会</a>
-      <a href="./service-advisory.html" class="mobile-menu-link">AI顧問</a>
-      <a href="./service-system.html" class="mobile-menu-link">AIシステム開発</a>
-      <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
+      <div class="mobile-menu-logo">
+        <img src="./logo.png" alt="株式会社コールテン" style="height:32px;">
+      </div>
+      <div class="mobile-menu-group">
+        <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
+      </div>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-menu-group">
+        <small
+          style="padding:0 20px; color:#7a8f87; font-size:11px; font-weight:700; display:block; margin-bottom:4px;">SERVICES</small>
+        <a href="./service-study.html" class="mobile-menu-link">AI勉強会</a>
+        <a href="./service-advisory.html" class="mobile-menu-link">AI顧問</a>
+        <a href="./service-system.html" class="mobile-menu-link">AIシステム開発</a>
+      </div>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-menu-group">
+        <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
+      </div>
     </div>
   </div>
 
