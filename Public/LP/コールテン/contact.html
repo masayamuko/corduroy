@@ -360,17 +360,50 @@
       opacity: 1;
       transform: translateY(0);
     }
-    footer{background:#f5f7f6;border-top:1px solid var(--line);margin-top:40px}
-    .footer-inner{max-width:1180px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:14px;color:#335649}
-    .footer-links{display:flex;gap:14px;flex-wrap:wrap}
-    .footer-links a{color:#124034;font-weight:700}
+
+    footer {
+      background: #f5f7f6;
+      border-top: 1px solid var(--line);
+      margin-top: 40px
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: #335649
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .footer-links a {
+      color: #124034;
+      font-weight: 700
+    }
 
     @media(max-width:768px) {
       section {
         padding: 60px 16px
       }
 
+      .hero {
+        padding: 100px 16px 60px
+      }
+
+      /* Mobile header layout */
       .nav {
+        justify-content: center;
+        position: relative;
         gap: 12px;
         font-size: 14px;
       }
@@ -379,26 +412,170 @@
         height: 40px;
       }
 
-      .hero {
-        padding: 100px 16px 60px
+      .nav .sp {
+        display: none;
+      }
+
+      .nav-link,
+      .nav-placeholder,
+      .nav .btn {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex !important;
+      }
+
+      .header-logo {
+        margin: 0;
       }
     }
 
+    /* Hamburger menu styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4200;
+      width: 48px;
+      height: 48px;
+      justify-content: center;
+      align-items: center;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+      z-index: 4000;
+      transition: right 0.3s ease;
+      padding-top: 80px;
+      pointer-events: none;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+      pointer-events: auto;
+    }
+
+    .mobile-menu-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 24px;
+    }
+
+    .mobile-menu-link {
+      padding: 16px 20px;
+      color: var(--ink);
+      font-weight: 600;
+      border-radius: 12px;
+      transition: background 0.2s;
+      text-align: left;
+    }
+
+    .mobile-menu-link:hover {
+      background: var(--mint);
+    }
+
+    .mobile-menu-placeholder {
+      padding: 16px 20px;
+      color: #7a8f87;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .mobile-menu-cta {
+      background: linear-gradient(120deg, #176148, #0f3d2e);
+      color: #fff !important;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .mobile-menu-cta:hover {
+      background: linear-gradient(120deg, #1a7252, #123d2e);
+    }
+
+    /* Overlay backdrop */
+    .mobile-menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 3500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-menu-backdrop.active {
+      opacity: 1;
+      pointer-events: all;
+    }
   </style>
 </head>
 
-  <body>
+<body>
   <header>
     <div class="container nav">
       <a href="./index.html" class="header-logo">
         <img src="./logo.png" alt="株式会社コールテン">
       </a>
       <div class="sp"></div>
-      <a href="./index.html#brand-story">会社概要</a>
+      <a href="./index.html#brand-story" class="nav-link">会社概要</a>
       <span class="nav-placeholder" style="color:#7a8f87;font-weight:600;">サービス（準備中）</span>
       <a class="btn" href="./contact.html">相談する</a>
+      <button class="hamburger" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
+  <div class="mobile-menu">
+    <div class="mobile-menu-content">
+      <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
+      <span class="mobile-menu-placeholder">サービス（準備中）</span>
+      <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
+    </div>
+  </div>
 
   <main>
     <section class="hero">
@@ -551,6 +728,38 @@
   </footer>
 
   <script>
+    // --- Mobile Menu Handler ---
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const body = document.body;
+
+      // Create backdrop
+      const backdrop = document.createElement('div');
+      backdrop.className = 'mobile-menu-backdrop';
+      body.appendChild(backdrop);
+
+      function toggleMenu() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        backdrop.classList.toggle('active');
+        body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      }
+
+      if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+      }
+
+      // Close menu when clicking backdrop
+      backdrop.addEventListener('click', toggleMenu);
+
+      // Close menu when clicking a link
+      const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+      });
+    });
+
     // --- Scroll Fade-in Animation ---
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
