@@ -482,77 +482,80 @@
       padding: 24px;
     }
 
+    .mobile-menu-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0 20px;
+    }
+
     .mobile-menu-link {
+      display: block;
       padding: 16px 20px;
       color: var(--ink);
       font-weight: 600;
-      border-radius: 12px;
-      transition: background 0.2s;
+      border-radius: 4px;
+      border: 1px solid #eef2f0;
+      background: #fff;
+      transition: all 0.2s ease;
       text-align: left;
+      text-decoration: none;
+    }
+
+    .mobile-menu-link::before {
+      content: "#";
+      color: #176148;
+      margin-right: 8px;
+      font-weight: 400;
     }
 
     .mobile-menu-link:hover {
-      background: var(--mint);
+      background: #f8fbf9;
+      border-color: #176148;
     }
 
     .mobile-menu-placeholder {
       padding: 16px 20px;
+    }
 
-      .mobile-menu-link {
-        padding: 14px 20px;
-        color: var(--ink);
-        font-weight: 600;
-        border-radius: 12px;
-        transition: background 0.2s;
-        text-align: left;
+    .mobile-menu-logo {
+      padding: 0 20px 20px;
+      text-align: left;
+    }
+
+    .mobile-menu-divider {
+      height: 1px;
+      background: #eef2f0;
+      margin: 8px 20px;
+    }
+
+    @media(max-width:768px) {
+
+      /* Mobile header layout */
+      .nav {
+        justify-content: center;
+        position: relative;
       }
 
-      .mobile-menu-link:hover {
-        background: var(--mint);
+      .nav .sp {
+        display: none;
       }
 
-      .mobile-menu-logo {
-        padding: 0 20px 20px;
-        text-align: left;
+      .nav-link,
+      .nav-placeholder,
+      .nav .btn,
+      .dropdown {
+        display: none !important;
       }
 
-      .mobile-menu-divider {
-        height: 1px;
-        background: #eef2f0;
-        margin: 8px 20px;
+      .hamburger {
+        display: flex !important;
       }
 
-      .mobile-menu-placeholder {
-        padding: 16px 20px;
+      .header-logo {
+        margin: 0;
       }
-
-      @media(max-width:768px) {
-
-        /* Mobile header layout */
-        .nav {
-          justify-content: center;
-          position: relative;
-        }
-
-        .nav .sp {
-          display: none;
-        }
-
-        .nav-link,
-        .nav-placeholder,
-        .nav .btn,
-        .dropdown {
-          display: none !important;
-        }
-
-        .hamburger {
-          display: flex !important;
-        }
-
-        .header-logo {
-          margin: 0;
-        }
-      }
+    }
   </style>
 </head>
 
