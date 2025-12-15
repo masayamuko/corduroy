@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTLHM3EM7C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GTLHM3EM7C');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>クライアントの声｜フリーランス 中野たかろーさん｜株式会社コールテン</title>
+    <meta name="description" content="検索代替から“第二の自分”づくりへ。聞き手（コールテン代表・向）が想いを聞き出し、広報の盤上テトくんがサポートした中野さんのAI活用ストーリー。">
+    <link rel="icon" href="./faviconC.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'CraftMincho';
+            src: url('./craftmincho.otf') format('opentype');
+            font-display: swap;
+        }
+
+        :root {
+            --green: #0f3d2e;
+            --mint: #e4f2ea;
+            --cream: #f9f5ec;
+            --line: #d7e6de;
+            --text: #0f1f1a;
+            --ink: #0d2b21;
+            --sea: #1f6f5a;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: "Noto Sans JP", "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text);
+            background: #fbfaf8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #ffffffcc;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--line);
+            z-index: 1200;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .04)
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 20px 24px
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--ink);
+            letter-spacing: 0.02em
+        }
+
+        .nav .sp {
+            flex: 1
+        }
+
+        .nav a:hover {
+            color: var(--sea)
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            background: #fff;
+            border: 1px solid #eef2f0;
+            border-radius: 16px;
+            box-shadow: 0 18px 36px rgba(0, 0, 0, .08);
+            padding: 8px;
+            display: none;
+            z-index: 20;
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity .2s, transform .2s;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--ink);
+            font-weight: 600;
+            border-radius: 10px
+        }
+
+        .dropdown-menu a:hover {
+            background: #f3f8f6
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 20px;
+            border-radius: 16px;
+            border: 1px solid var(--green);
+            background: linear-gradient(120deg, #176148, #0f3d2e);
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 12px 28px rgba(15, 61, 46, .2), 0 2px 4px rgba(0, 0, 0, .05);
+            letter-spacing: 0.03em;
+            transition: .2s all
+        }
+
+        .btn.secondary {
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--ink);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .06)
+        }
+
+        .header-logo img {
+            height: 48px;
+            vertical-align: middle;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            font-family: 'CraftMincho', "Space Grotesk", sans-serif
+        }
+
+        h1 {
+            font-size: clamp(32px, 4.8vw, 50px);
+            line-height: 1.2
+        }
+
+        h2 {
+            font-size: clamp(26px, 3.4vw, 36px);
+            line-height: 1.25
+        }
+
+        h3 {
+            font-size: clamp(20px, 2.6vw, 24px)
+        }
+
+        section {
+            padding: 70px 24px
+        }
+
+        .hero {
+            padding: 110px 24px 80px;
+            background: linear-gradient(135deg, #f2f6ff, #f4fbf7);
+            text-align: center
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 14px auto 0;
+            line-height: 1.8;
+            color: #244238
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eef2f0;
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .05)
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 16px
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 12px;
+            background: var(--mint);
+            color: #124034;
+            font-weight: 700;
+            font-size: 12px;
+            border: 1px solid #d6e8df
+        }
+
+        ul {
+            margin: 10px 0 0 18px;
+            padding: 0;
+            line-height: 1.75;
+            color: #335649
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px
+        }
+
+        @media(min-width:840px) {
+            .grid.cols-2 {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        .avatar-frame {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+        }
+
+        .avatar-lg {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .08);
+            background: #fff;
+        }
+
+        .avatar-lg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 10px;
+            background: #fff;
+            border: 1px solid var(--line);
+            font-weight: 700;
+            font-size: 12px;
+            color: #1f3d32
+        }
+
+        .characters {
+            display: grid;
+            gap: 16px;
+        }
+
+        @media(min-width:840px) {
+            .characters {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .character-card {
+            text-align: center;
+            padding: 16px;
+            border: 1px solid #eef2f0;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 10px 22px rgba(0, 0, 0, .04);
+        }
+
+        .character-card img {
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+            margin: 0 auto 8px;
+            display: block;
+        }
+
+        .character-role {
+            display: inline-block;
+            padding: 6px 10px;
+            background: #f1f7f3;
+            border: 1px solid #d6e8df;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #124034;
+            margin-bottom: 6px;
+        }
+
+        .character-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: 1fr;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        @media(min-width:900px) {
+            .character-grid.cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .dialogue {
+            display: grid;
+            gap: 26px;
+            margin: 16px auto 18px;
+            max-width: 640px;
+        }
+
+        .bubble {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            width: 100%;
+            margin: 0;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .bubble-avatar {
+            position: relative;
+            width: 82px;
+            height: 82px;
+            flex-shrink: 0;
+        }
+
+        .bubble-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, .08);
+            display: block;
+        }
+
+        .bubble-text {
+            background: #e7f4ef;
+            border: 1px solid #cde5db;
+            border-radius: 12px;
+            padding: 10px 12px;
+            line-height: 1.7;
+            color: #12382c;
+            width: 100%;
+            position: relative;
+        }
+
+        .bubble.right {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+
+        .bubble.teto .bubble-text {
+            background: #e7f4ef;
+            border: 1px solid #cde5db;
+            color: #12382c;
+        }
+
+        .bubble.right .bubble-text {
+            background: #f4f1ff;
+            border: 1px solid #e2dcfa;
+            color: #1f2440;
+            text-align: left;
+        }
+
+        .big-bubble .bubble img {
+            width: 64px;
+            height: 64px;
+        }
+
+        .big-bubble .bubble-text {
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .big-bubble {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .voice-note {
+            margin: 22px auto 0;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid #f2ddbf;
+            background: #fff7ea;
+            box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+            color: #3a2c15;
+            line-height: 1.7;
+            max-width: 640px;
+        }
+
+        .voice-note .note-name {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 10px;
+            background: #fbe9cc;
+            color: #6a4618;
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .dialogue-flow {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        /* 名前タグをアイコン下に重ねる */
+        .bubble .name-tag {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 2px 6px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+            font-weight: 700;
+            font-size: 10px;
+            color: #0f3d2e;
+            text-align: center;
+            width: 82px;
+            z-index: 2;
+        }
+
+        .bubble.right .name-tag {
+            left: 50%;
+            right: auto;
+        }
+
+        .bubble .bubble-name {
+            display: none;
+        }
+
+        /* 中野さん（右）の吹き出しカラー */
+        .bubble.right .bubble-text {
+            background: #f4f1ff;
+            border: 1px solid #e2dcfa;
+            color: #1f2440;
+            text-align: left;
+        }
+
+        blockquote {
+            margin: 10px 0 16px;
+            padding: 12px 16px;
+            border-left: 4px solid var(--line);
+            background: #f8fbf9;
+            border-radius: 8px;
+            color: #234638;
+            line-height: 1.7;
+        }
+
+        .subhead {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            font-size: 12px;
+            color: #124034;
+            padding: 6px 10px;
+            border: 1px solid #d6e8df;
+            border-radius: 10px;
+            background: #f1f7f3;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        /* 新規追加: ビジュアライゼーション用 */
+        .chat-ui-mock {
+            background: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #fff;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .chat-ui-msg {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-ui-msg.ai {
+            color: #a8d5c4;
+        }
+
+        .prompt-box {
+            background: #f0f7ff;
+            border: 1px dashed #4a90e2;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            position: relative;
+        }
+
+        .prompt-label {
+            position: absolute;
+            top: -12px;
+            left: 12px;
+            background: #4a90e2;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 11px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .cycle-diagram {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .cycle-step {
+            background: #fff;
+            border: 2px solid #eef2f0;
+            border-radius: 12px;
+            padding: 15px;
+            width: 140px;
+            text-align: center;
+            font-weight: bold;
+            color: #124034;
+            position: relative;
+        }
+
+        .cycle-step::after {
+            content: "→";
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cbd5d0;
+            font-weight: bold;
+        }
+
+        .cycle-step:last-child::after {
+            content: "↻";
+            right: auto;
+            left: 50%;
+            bottom: -30px;
+            top: auto;
+            transform: translateX(-50%) rotate(90deg);
+        }
+
+        @media(max-width: 600px) {
+            .cycle-step::after {
+                content: "↓";
+                right: 50%;
+                top: 100%;
+                transform: translateX(50%);
+            }
+
+            .cycle-diagram {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+
+        @media(max-width:768px) {
+            h1 {
+                font-size: 32px
+            }
+
+            section {
+                padding: 60px 16px
+            }
+
+            .nav {
+                gap: 12px;
+                font-size: 14px
+            }
+
+            .header-logo img {
+                height: 40px;
+            }
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 4200;
+            width: 48px;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--ink);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile menu overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: #fff;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 4000;
+            transition: right 0.3s ease;
+            padding-top: 80px;
+            pointer-events: none;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+            pointer-events: auto;
+        }
+
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 24px;
+        }
+
+        .mobile-menu-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 0 20px;
+        }
+
+        .mobile-menu-link {
+            display: block;
+            padding: 16px 20px;
+            color: var(--ink);
+            font-weight: 600;
+            border-radius: 4px;
+            border: 1px solid #eef2f0;
+            background: #fff;
+            transition: all 0.2s ease;
+            text-align: left;
+            text-decoration: none;
+        }
+
+        .mobile-menu-group:nth-of-type(2) .mobile-menu-link::before {
+            content: "#";
+            color: #176148;
+            margin-right: 8px;
+            font-weight: 400;
+        }
+
+        .mobile-menu-link:hover {
+            background: #f8fbf9;
+            border-color: #176148;
+        }
+
+        .mobile-menu-logo {
+            padding: 0 20px 20px;
+            text-align: left;
+        }
+
+        .mobile-menu-divider {
+            height: 1px;
+            background: #eef2f0;
+            margin: 8px 20px;
+        }
+
+        .mobile-menu-placeholder {
+            padding: 16px 20px;
+            color: #7a8f87;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .mobile-menu-cta {
+            background: linear-gradient(120deg, #176148, #0f3d2e);
+            color: #fff !important;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .mobile-menu-cta:hover {
+            background: linear-gradient(120deg, #1a7252, #123d2e);
+        }
+
+        /* Overlay backdrop */
+        .mobile-menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 3500;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-backdrop.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        @media(max-width:768px) {
+
+            /* Mobile header layout */
+            .nav {
+                justify-content: center;
+                position: relative;
+            }
+
+            .nav .sp {
+                display: none;
+            }
+
+            .nav-link,
+            .nav-placeholder,
+            .nav .btn,
+            .dropdown {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
+            .header-logo {
+                margin: 0;
+            }
+        }
+
+        /* Intro Section Styling */
+        .intro-section {
+            background: #f4fbf7;
+            border-top: 1px solid #eef2f0;
+            border-bottom: 1px solid #eef2f0;
+        }
+
+        .intro-section .character-grid {
+            max-width: 960px;
+        }
+
+        .intro-section .big-bubble {
+            max-width: 960px;
+        }
+
+        .intro-section .big-bubble .bubble-avatar img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .intro-section .big-bubble .bubble-avatar {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <a href="./index.html" class="header-logo">
+                <img src="./logo.png" alt="株式会社コールテン">
+            </a>
+            <div class="sp"></div>
+            <a href="./index.html#brand-story" class="nav-link">会社概要</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
+                        style="font-size:10px">▼</span></a>
+                <div class="dropdown-menu">
+                    <a href="./service-study.html">AI勉強会</a>
+                    <a href="./service-advisory.html">AI顧問</a>
+                    <a href="./service-system.html">AIシステム開発</a>
+                </div>
+            </div>
+            <a class="btn" href="./contact.html">相談する</a>
+            <button class="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-logo">
+                <img src="./logo.png" alt="株式会社コールテン" style="height:32px;">
+            </div>
+            <div class="mobile-menu-group">
+                <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
+            </div>
+            <div class="mobile-menu-divider"></div>
+            <div class="mobile-menu-group">
+                <small
+                    style="padding:0 20px; color:#7a8f87; font-size:11px; font-weight:700; display:block; margin-bottom:4px;">SERVICES</small>
+                <a href="./service-study.html" class="mobile-menu-link">AI勉強会</a>
+                <a href="./service-advisory.html" class="mobile-menu-link">AI顧問</a>
+                <a href="./service-system.html" class="mobile-menu-link">AIシステム開発</a>
+            </div>
+            <div class="mobile-menu-divider"></div>
+            <div class="mobile-menu-group">
+                <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="avatar-frame">
+                    <div class="avatar-lg"><img
+                            src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                            alt="中野さん"></div>
+                </div>
+                <h1>フリーランス<br>中野たかろーさん</h1>
+                <div class="meta">
+                    <span class="tag">AI勉強会</span>
+                    <span class="pill">動画編集 / WEB制作 / カメラマン</span>
+                </div>
+                <p>
+                    「検索ツールとして使うだけ」から「第二の自分」へ。価値観やクセまで学習させることで、言葉足らずでも阿吽の呼吸で返してくれる“最強の相談相手”を獲得。動画分析や新規案件獲得の足がかりまで見えた、中野たかろーさんの変革ストーリー。
+                </p>
+            </div>
+        </section>
+
+
+
+
+        <section class="intro-section">
+            <div class="container">
+                <div class="card big-bubble" style="margin-bottom:16px;">
+                    <div class="dialogue">
+                        <div class="bubble teto">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                                    alt="盤上テトくん">
+                                <span class="name-tag">盤上テト</span>
+                            </div>
+                            <div class="bubble-text">
+                                広報担当のテトです！</br>ここからはボクが、たかろーさんに話を聞いていくね。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="character-grid cols-2">
+                    <div class="character-card">
+                        <span class="character-role"
+                            style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+                        <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                            alt="中野さん">
+                        <h3 style="margin:2px 0 4px;">中野たかろーさん</h3>
+                        <p class="mini" style="margin:0; color:#335649;">
+                            動画編集・Web制作・カメラマンとして活躍するフリーランス。ChatGPT基礎講座&第二の自分作り講座に参加。</p>
+                    </div>
+                    <div class="character-card">
+                        <span class="character-role"
+                            style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+                        <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                            alt="向 雅也">
+                        <h3 style="margin:2px 0 4px;">向 雅也</h3>
+                        <p class="mini" style="margin:0; color:#335649;">ChatGPT基礎講座&第二の自分作り講座で講師を担当しました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="card dialogue-flow">
+                <div class="dialogue">
+                    <div class="bubble teto">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                                alt="盤上テトくん">
+                            <span class="name-tag">盤上テト</span>
+                        </div>
+                        <div class="bubble-text">
+                            自己紹介をお願いします！
+                        </div>
+                    </div>
+                    <div class="bubble right">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                                alt="たかろーさん">
+                            <span class="name-tag">たかろーさん</span>
+                        </div>
+                        <div class="bubble-text">
+                            たかろーです。フリーランスの「ウェブクリエイター」として動画編集、Web制作、カメラマンなどしてます。
+                        </div>
+                    </div>
+
+                    <div class="bubble teto">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                                alt="盤上テトくん">
+                            <span class="name-tag">盤上テト</span>
+                        </div>
+                        <div class="bubble-text">
+                            講座受ける前のAI活用状況を教えてください！
+                        </div>
+                    </div>
+                    <div class="bubble right">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                                alt="たかろーさん">
+                            <span class="name-tag">たかろーさん</span>
+                        </div>
+                        <div class="bubble-text">
+                            ChatoGPTを検索代わりに少し使うくらいでしたね。Geminiとかは全然触ってなかった。「調べるだけのもの」っていう認識しかなかったです。
+                        </div>
+                    </div>
+
+                    <div class="bubble teto">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                                alt="盤上テトくん">
+                            <span class="name-tag">盤上テト</span>
+                        </div>
+                        <div class="bubble-text">
+                            そこから「第二の自分」づくりをやってみて、どうだった？
+                        </div>
+                    </div>
+                    <div class="bubble right">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                                alt="たかろーさん">
+                            <span class="name-tag">たかろーさん</span>
+                        </div>
+                        <div class="bubble-text">
+                            自分自身の価値観や、体調のクセまで深掘りして教え込んで相談相手みたいになるんですよ。言葉足らずでも「こういうことですよね？」って補完してくれるし。
+                        </div>
+                    </div>
+
+                    <!-- Feature Highlight: Context Awareness -->
+                    <div class="card"
+                        style="background:#222; border:none; color:#eee; padding:20px; font-family:monospace; margin:10px 0;">
+                        <div style="color:#888; margin-bottom:10px; font-size:12px;">// 実際の応答イメージ</div>
+                        <p style="margin:0 0 10px 0;">たかろー：「なんか今日調子出ないわ…これやるべき？」</p>
+                        <p style="color:#a8d5c4; margin:0;">
+                            AI：「たかろーさん、今の気圧配置だと偏頭痛が出やすい傾向がありますよね（※過去ログ参照）。無理に作業せず、まずは情報の整理だけに留めませんか？」</p>
+                    </div>
+
+                    <div class="bubble teto">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                                alt="盤上テトくん">
+                            <span class="name-tag">盤上テト</span>
+                        </div>
+                        <div class="bubble-text">
+                            すごい！本当に自分のこと分かってくれてるね。良い学びもあった？
+                        </div>
+                    </div>
+                    <div class="bubble right">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                                alt="たかろーさん">
+                            <span class="name-tag">たかろーさん</span>
+                        </div>
+                        <div class="bubble-text">
+                            生成AIが返答する時の仕組みなどをわかりやすく学べたので。AIの嘘に振り回されることが減りました。ソース元や公式情報かどうかは毎回確認する癖がつきました。あと、AIってたまに気を遣っていいことしか言わない時があるんですよ。だから、こんな感じで入れるようになりました。
+                        </div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <span class="prompt-label">たかろーさんの鉄板プロンプト</span>
+                        <p style="margin:0; font-weight:700; color:#2c3e50;">「忖度せずに話して」</p>
+                        <p style="margin:8px 0 0; font-size:13px; color:#555;">※本当のことを知りたい時、相談相手として甘えをなくしたい時に必ず添える一言。
+                        </p>
+                    </div>
+
+                    <div class="voice-note">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                                style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+                                alt="向">
+                            <span class="note-name" style="margin:0">担当 向より</span>
+                        </div>
+                        第二の自分づくり講座ではChatGPTを小さく試し、第二の自分に育てながら基本機能の理解を楽しく深められます。自分を深く理解した『最強の資産』になるので、このように自分を知っている前提で稼働させやすくなります。
+                    </div>
+
+                    <div class="bubble teto">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                                alt="盤上テトくん">
+                            <span class="name-tag">盤上テト</span>
+                        </div>
+                        <div class="bubble-text">
+                            これから、その「第二の自分」とどうなっていきたい？
+                        </div>
+                    </div>
+                    <div class="bubble right">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                                alt="たかろーさん">
+                            <span class="name-tag">たかろーさん</span>
+                        </div>
+                        <div class="bubble-text">
+                            自分の仕事のやり方についても教え込んでいって、業務を手伝ってもらって圧縮して時間を捻出したいですね。その時間で新しい案件を受けて、さらに単価も上げていく。YouTube運用代行まで手を広げるための土台にしたいです。
+                        </div>
+                    </div>
+
+                    <!-- Feature Highlight: Growth Cycle -->
+                    <div class="cycle-diagram">
+                        <div class="cycle-step">AIで業務圧縮</div>
+                        <div class="cycle-step">時間捻出</div>
+                        <div class="cycle-step">新規案件獲得</div>
+                        <div class="cycle-step">単価アップ</div>
+                    </div>
+
+                    <div class="bubble right">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                                alt="たかろーさん">
+                            <span class="name-tag">たかろーさん</span>
+                        </div>
+                        <div class="bubble-text">
+                            （継続的にいただいてる動画編集の案件で）自分だけだと苦手なアクセス解析そしてレポートを定期で作るようにして、実績を数値化して他のクライアントさんにも提案できる。そのループを作りたいですね。
+                        </div>
+                    </div>
+
+                    <div class="bubble teto">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                                alt="盤上テトくん">
+                            <span class="name-tag">盤上テト</span>
+                        </div>
+                        <div class="bubble-text">
+                            最後に、この講座の良さを一言でいうと？
+                        </div>
+                    </div>
+                    <div class="bubble right">
+                        <div class="bubble-avatar">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                                alt="たかろーさん">
+                            <span class="name-tag">たかろーさん</span>
+                        </div>
+                        <div class="bubble-text">
+                            「第二の自分」は誰とも被らない資産になるし、新しいAIが出てもブレない軸になります。いきなり独学で走るより、コールテンさんみたいにたくさん実践して裏側（仕組み）を知っている人と一緒に、相談できる状態で走るのが一番効率よかったと思います。
+                        </div>
+                    </div>
+
+                    <div class="voice-note">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                                style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+                                alt="向">
+                            <span class="note-name" style="margin:0">担当 向より</span>
+                        </div>
+                        第二の自分として育てていったChatGPTでは、その過程で学んだChatGPTの基礎に加え、仕事のやり方も教え込んで効率化できます！さらに上級講座ではCursorを使った「第二の自分」へ移行することで、大量のアウトプットを出力できるように転用することも可能です。
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container" style="padding-bottom:100px">
+            <div class="card" style="max-width:720px;margin:0 auto;text-align:center">
+                <h3>クリエイターの「時間」と「単価」を作る</h3>
+                <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">
+                    コールテンは、あなたの価値観を理解した「第二の自分」づくりを伴走します。<br>
+                    まずは小さく試して、その効果を体感してみませんか？
+                </p>
+                <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                    <a class="btn" href="./index.html#contact">相談する</a>
+                    <a class="btn secondary" href="./voices.html">他のクライアントの声</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // --- Mobile Menu Handler ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const body = document.body;
+
+            // Create backdrop
+            const backdrop = document.createElement('div');
+            backdrop.className = 'mobile-menu-backdrop';
+            body.appendChild(backdrop);
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                backdrop.classList.toggle('active');
+                body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            }
+
+            if (hamburger) {
+                hamburger.addEventListener('click', toggleMenu);
+            }
+
+            // Close menu when clicking backdrop
+            backdrop.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a link
+            const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.querySelector('.dropdown-toggle');
+            const menu = document.querySelector('.dropdown-menu');
+            if (toggle && menu) {
+                toggle.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); menu.classList.toggle('active'); });
+                document.addEventListener('click', (e) => { if (!menu.contains(e.target) && menu.classList.contains('active')) menu.classList.remove('active'); });
+            }
+        });
+    </script>
+</body>
+
+</html>
