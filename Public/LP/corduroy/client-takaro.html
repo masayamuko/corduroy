@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GTLHM3EM7C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GTLHM3EM7C');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>中野たかろーさん｜クライアント紹介｜株式会社コールテン</title>
+    <meta name="description" content="フリーランスとして活躍する中野たかろーさんのAI活用事例。検索ツールから「第二の自分」へ進化したChatGPT活用ストーリーをご紹介。">
+    <link rel="icon" href="./faviconC.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'CraftMincho';
+            src: url('./craftmincho.otf') format('opentype');
+            font-display: swap;
+        }
+
+        :root {
+            --green: #0f3d2e;
+            --mint: #e4f2ea;
+            --cream: #f9f5ec;
+            --line: #d7e6de;
+            --text: #0f1f1a;
+            --ink: #0d2b21;
+            --sea: #1f6f5a;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: "Noto Sans JP", "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+            color: var(--text);
+            background: #fbfaf8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #ffffffcc;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--line);
+            z-index: 1200;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .04)
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 20px 24px
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--ink);
+            letter-spacing: 0.02em
+        }
+
+        .nav .sp {
+            flex: 1
+        }
+
+        .nav a:hover {
+            color: var(--sea)
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            background: #fff;
+            border: 1px solid #eef2f0;
+            border-radius: 16px;
+            box-shadow: 0 18px 36px rgba(0, 0, 0, .08);
+            padding: 8px;
+            display: none;
+            z-index: 20;
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity .2s, transform .2s;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--ink);
+            font-weight: 600;
+            border-radius: 10px
+        }
+
+        .dropdown-menu a:hover {
+            background: #f3f8f6
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 20px;
+            border-radius: 16px;
+            border: 1px solid var(--green);
+            background: linear-gradient(120deg, #176148, #0f3d2e);
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 12px 28px rgba(15, 61, 46, .2), 0 2px 4px rgba(0, 0, 0, .05);
+            letter-spacing: 0.03em;
+            transition: .2s all
+        }
+
+        .btn.secondary {
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--ink);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .06)
+        }
+
+        .btn:hover {
+            transform: translateY(-2px)
+        }
+
+        .header-logo img {
+            height: 48px;
+            vertical-align: middle;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            font-family: 'CraftMincho', "Space Grotesk", sans-serif
+        }
+
+        h1 {
+            font-size: clamp(32px, 4.8vw, 50px);
+            line-height: 1.2
+        }
+
+        h2 {
+            font-size: clamp(26px, 3.4vw, 36px);
+            line-height: 1.25
+        }
+
+        h3 {
+            font-size: clamp(20px, 2.6vw, 24px)
+        }
+
+        section {
+            padding: 70px 24px
+        }
+
+        .hero {
+            padding: 110px 24px 80px;
+            background: linear-gradient(135deg, #f2f6ff, #f4fbf7);
+            text-align: center
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 14px auto 0;
+            line-height: 1.8;
+            color: #244238
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eef2f0;
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .05);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, .08);
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 16px
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 12px;
+            background: var(--mint);
+            color: #124034;
+            font-weight: 700;
+            font-size: 12px;
+            border: 1px solid #d6e8df
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 10px;
+            background: #fff;
+            border: 1px solid var(--line);
+            font-weight: 700;
+            font-size: 12px;
+            color: #1f3d32
+        }
+
+        .avatar-frame {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+        }
+
+        .avatar-lg {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .08);
+            background: #fff;
+        }
+
+        .avatar-lg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 40px
+        }
+
+        .section-head small {
+            display: block;
+            color: var(--sea);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            font-family: "Space Grotesk", sans-serif
+        }
+
+        .article-grid {
+            display: grid;
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        @media(min-width: 768px) {
+            .article-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        .article-card {
+            display: block;
+            background: #fff;
+            border: 1px solid #eef2f0;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, .1);
+        }
+
+        .article-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f2f6ff, #f4fbf7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-type {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: #e8f4f0;
+            color: #0f3d2e;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            font-size: 14px;
+            color: #335649;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: #7a8f87;
+        }
+
+        .placeholder-section {
+            background: #f9fafb;
+            border: 2px dashed #d7e6de;
+            border-radius: 16px;
+            padding: 60px 24px;
+            text-align: center;
+            color: #7a8f87;
+        }
+
+        .placeholder-section h3 {
+            color: #7a8f87;
+            margin-bottom: 8px;
+        }
+
+        @media(max-width:768px) {
+            h1 {
+                font-size: 32px
+            }
+
+            section {
+                padding: 60px 16px
+            }
+
+            .nav {
+                gap: 12px;
+                font-size: 14px
+            }
+
+            .header-logo img {
+                height: 40px;
+            }
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 4200;
+            width: 48px;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--ink);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile menu overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: #fff;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 4000;
+            transition: right 0.3s ease;
+            padding-top: 80px;
+            pointer-events: none;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+            pointer-events: auto;
+        }
+
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 24px;
+        }
+
+        .mobile-menu-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 0 20px;
+        }
+
+        .mobile-menu-link {
+            display: block;
+            padding: 16px 20px;
+            color: var(--ink);
+            font-weight: 600;
+            border-radius: 4px;
+            border: 1px solid #eef2f0;
+            background: #fff;
+            transition: all 0.2s ease;
+            text-align: left;
+            text-decoration: none;
+        }
+
+        .mobile-menu-group:nth-of-type(2) .mobile-menu-link::before {
+            content: "#";
+            color: #176148;
+            margin-right: 8px;
+            font-weight: 400;
+        }
+
+        .mobile-menu-link:hover {
+            background: #f8fbf9;
+            border-color: #176148;
+        }
+
+        .mobile-menu-logo {
+            padding: 0 20px 20px;
+            text-align: left;
+        }
+
+        .mobile-menu-divider {
+            height: 1px;
+            background: #eef2f0;
+            margin: 8px 20px;
+        }
+
+        .mobile-menu-cta {
+            background: linear-gradient(120deg, #176148, #0f3d2e);
+            color: #fff !important;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .mobile-menu-cta:hover {
+            background: linear-gradient(120deg, #1a7252, #123d2e);
+        }
+
+        /* Overlay backdrop */
+        .mobile-menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 3500;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-backdrop.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        @media(max-width:768px) {
+
+            /* Mobile header layout */
+            .nav {
+                justify-content: center;
+                position: relative;
+            }
+
+            .nav .sp {
+                display: none;
+            }
+
+            .nav-link,
+            .nav-placeholder,
+            .nav .btn,
+            .dropdown {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
+            .header-logo {
+                margin: 0;
+            }
+        }
+
+        footer {
+            background: #f5f7f6;
+            border-top: 1px solid var(--line);
+            margin-top: 40px
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #335649
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap
+        }
+
+        .footer-links a {
+            color: #124034;
+            font-weight: 700
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <a href="./index.html" class="header-logo">
+                <img src="./logo.png" alt="株式会社コールテン">
+            </a>
+            <div class="sp"></div>
+            <a href="./index.html#brand-story" class="nav-link">会社概要</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
+                        style="font-size:10px">▼</span></a>
+                <div class="dropdown-menu">
+                    <a href="./service-study.html">AI勉強会</a>
+                    <a href="./service-advisory.html">AI顧問</a>
+                    <a href="./service-system.html">AIシステム開発</a>
+                </div>
+            </div>
+            <a class="btn" href="./contact.html">相談する</a>
+            <button class="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-logo">
+                <img src="./logo.png" alt="株式会社コールテン" style="height:32px;">
+            </div>
+            <div class="mobile-menu-group">
+                <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
+            </div>
+            <div class="mobile-menu-divider"></div>
+            <div class="mobile-menu-group">
+                <small
+                    style="padding:0 20px; color:#7a8f87; font-size:11px; font-weight:700; display:block; margin-bottom:4px;">SERVICES</small>
+                <a href="./service-study.html" class="mobile-menu-link">AI勉強会</a>
+                <a href="./service-advisory.html" class="mobile-menu-link">AI顧問</a>
+                <a href="./service-system.html" class="mobile-menu-link">AIシステム開発</a>
+            </div>
+            <div class="mobile-menu-divider"></div>
+            <div class="mobile-menu-group">
+                <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="avatar-frame">
+                    <div class="avatar-lg"><img
+                            src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                            alt="中野たかろーさん"></div>
+                </div>
+                <h1>フリーランス<br>中野たかろーさん</h1>
+                <div class="meta">
+                    <span class="tag">AI勉強会</span>
+                    <span class="pill">動画編集 / WEB制作 / カメラマン</span>
+                </div>
+                <p>
+                    検索ツールとしての利用から「第二の自分」へ。価値観やクセまで学習させることで、言葉足らずでも阿吽の呼吸で返してくれる"最強の相談相手"を獲得した中野たかろーさんのAI活用ストーリー。
+                </p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-head">
+                <small>Interview Articles</small>
+                <h2>インタビュー記事</h2>
+                <p>たかろーさんのAI活用について、詳しくお話を伺いました。</p>
+            </div>
+            <div class="article-grid">
+                <a href="./voice-takaro.html" class="article-card">
+                    <div class="article-thumbnail">
+                        <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                            alt="たかろーさんインタビュー">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-type">Interview</span>
+                        <h3 class="article-title">「検索ツール」から「第二の自分」へ</h3>
+                        <p class="article-excerpt">
+                            ChatGPTを単なる検索ツールとして使っていた状態から、価値観やクセまで学習させた「第二の自分」として活用するまでの変革ストーリー。
+                        </p>
+                        <div class="article-meta">
+                            <span>📅 2025年1月</span>
+                            <span>⏱️ 読了時間: 約10分</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="section-head">
+                <small>Client Stories</small>
+                <h2>クライアント自慢記事</h2>
+                <p>たかろーさんの活躍や成果をご紹介する記事を掲載予定です。</p>
+            </div>
+            <div class="placeholder-section">
+                <h3>📝 準備中</h3>
+                <p>たかろーさんの素晴らしい活動や成果について、<br>近日中に詳しくご紹介する予定です。</p>
+            </div>
+        </section>
+
+        <section id="contact" class="container" style="padding-bottom:100px">
+            <div class="card" style="max-width:720px;margin:0 auto;text-align:center">
+                <h3>同じように伴走してほしい方へ</h3>
+                <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">
+                    コールテンでは、紹介限定・長期前提でAI伴走を行っています。まずは小さく試して、合うかどうかを一緒に確認しましょう。</p>
+                <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                    <a class="btn" href="./index.html#contact">無料相談する</a>
+                    <a class="btn secondary" href="./voices.html">他のクライアントの声</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-inner">
+            <div>© 株式会社コールテン</div>
+            <div class="footer-links">
+                <a href="./index.html">TOP</a>
+                <a href="./contact.html">お問い合わせ</a>
+                <a href="./privacy.html">プライバシーポリシー</a>
+                <a href="./tokushoho.html">特定商取引法に基づく表記</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // --- Mobile Menu Handler ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const body = document.body;
+
+            // Create backdrop
+            const backdrop = document.createElement('div');
+            backdrop.className = 'mobile-menu-backdrop';
+            body.appendChild(backdrop);
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                backdrop.classList.toggle('active');
+                body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            }
+
+            if (hamburger) {
+                hamburger.addEventListener('click', toggleMenu);
+            }
+
+            // Close menu when clicking backdrop
+            backdrop.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a link
+            const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.querySelector('.dropdown-toggle');
+            const menu = document.querySelector('.dropdown-menu');
+            if (toggle && menu) {
+                toggle.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); menu.classList.toggle('active'); });
+                document.addEventListener('click', (e) => { if (!menu.contains(e.target) && menu.classList.contains('active')) menu.classList.remove('active'); });
+            }
+        });
+    </script>
+</body>
+
+</html>
