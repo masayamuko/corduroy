@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIに相談しながら作る、はじめてのホームページ制作 | 株式会社コールテン</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Canva風デザイン設定 
+           コールテン様のブランドカラー + クラフト感
+        */
+        :root {
+            --color-bg: #F9F5F0;
+            --color-primary: #2F5D50;
+            /* 深い緑 */
+            --color-brown: #8C6A4B;
+            /* 温かい茶色 */
+            --color-accent: #E68C3A;
+            /* アクセントオレンジ */
+            --color-text: #4A4238;
+            --color-line: #06C755;
+            /* LINE Green */
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.8;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' opacity='0.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-serif {
+            font-family: 'Shippori Mincho', serif;
+        }
+
+        /* --- Canva風の装飾クラス --- */
+
+        /* マスキングテープ風 */
+        .masking-tape {
+            background-color: rgba(230, 140, 58, 0.2);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            transform: rotate(-1deg);
+            display: inline-block;
+            padding: 0 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .masking-tape-center {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(1deg);
+            width: 100px;
+            height: 24px;
+            background-color: rgba(230, 140, 58, 0.3);
+            opacity: 0.8;
+            z-index: 10;
+        }
+
+        /* 手書き風の囲み線 */
+        .hand-drawn-border {
+            border: 2px solid var(--color-brown);
+            border-radius: 2px 255px 2px 25px / 255px 5px 225px 5px;
+            box-shadow: 2px 3px 0 rgba(140, 106, 75, 0.1);
+            background: white;
+        }
+
+        /* メモ風ボックス */
+        .memo-box {
+            background: #FFFBF0;
+            padding: 24px;
+            box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .memo-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 切り抜き写真風 */
+        .photo-card {
+            background: white;
+            padding: 10px 10px 40px 10px;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+            transform: rotate(2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-card:hover {
+            transform: rotate(0deg) scale(1.02);
+            z-index: 10;
+        }
+
+        /* Webサイトプレビュー風フレーム */
+        .browser-frame {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+
+        .browser-header {
+            background: #f1f5f9;
+            padding: 6px 12px;
+            display: flex;
+            gap: 6px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        /* コーデュロイテクスチャ（CSSのみで表現） */
+        .bg-corduroy {
+            background-color: var(--color-primary);
+            background-image: repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 4px,
+                    rgba(255, 255, 255, 0.05) 4px,
+                    rgba(255, 255, 255, 0.05) 8px);
+            color: white;
+        }
+
+        /* ボタン */
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: white;
+            font-weight: bold;
+            border-radius: 9999px;
+            padding: 1rem 2.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 0 #c0702b;
+            display: inline-block;
+        }
+
+        .btn-primary:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #c0702b;
+        }
+
+        .btn-line {
+            background-color: var(--color-line);
+            color: white;
+            font-weight: bold;
+            border-radius: 9999px;
+            padding: 1rem 2.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 0 #048C3A;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-line:hover {
+            background-color: #05B34C;
+        }
+
+        .btn-line:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #048C3A;
+        }
+
+        /* フローティングアニメーション */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* 数字の装飾 */
+        .step-number {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 4rem;
+            line-height: 1;
+            color: rgba(47, 93, 80, 0.1);
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            z-index: 0;
+            font-weight: 700;
+        }
+
+        /* 吹き出し（参加者の声） */
+        .speech-bubble {
+            position: relative;
+            background: #fff;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(140, 106, 75, 0.1);
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 2rem;
+            border-width: 0 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent #fff;
+            display: block;
+            width: 0;
+        }
+    </style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+    <!-- ナビゲーション -->
+    <nav class="fixed w-full z-50 bg-[#F9F5F0]/90 backdrop-blur-sm py-4 border-b border-[#8C6A4B]/10">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i data-lucide="book-heart" class="w-6 h-6 text-[#2F5D50]"></i>
+                <span class="font-bold text-[#2F5D50] text-lg font-serif tracking-wide">株式会社コールテン</span>
+            </div>
+            <a href="#contact"
+                class="hidden md:block bg-[#2F5D50] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-[#1a3d33] transition">
+                お問い合わせ
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. ヒーローエリア -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- 背景装飾 -->
+        <div
+            class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-[#2F5D50]/5 z-0 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-[#E68C3A]/5 z-0 pointer-events-none">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- テキスト -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <div class="inline-block mask-tape mb-4 transform -rotate-2">
+                        <span class="bg-[#E68C3A] text-white px-3 py-1 text-sm font-bold rounded-sm shadow-sm">
+                            <i data-lucide="sparkles" class="inline w-3 h-3 mr-1"></i>Webサイト制作で見つける
+                        </span>
+                    </div>
+                    <h1 class="text-4xl lg:text-5xl font-bold text-[#4A4238] leading-tight mb-8 font-serif">
+                        AIではじめてのホームページ作りWorkshop<br>
+                        <span class="text-2xl lg:text-3xl mt-4 block text-[#8C6A4B]">
+                            <span class="relative inline-block">
+                                <span
+                                    class="absolute bottom-2 left-0 w-full h-3 bg-[#E68C3A]/30 -z-10 rounded-sm"></span>
+                                身につくのは、一生使える「AI基礎力」
+                            </span>
+                        </span>
+                    </h1>
+                    <p class="text-lg text-[#8C6A4B] mb-10 leading-relaxed font-medium">
+                        難しいコードも、複雑なプロンプトもいりません。<br>
+                        AIを「魔法」ではなく、何でも一緒に作れる<br>
+                        「最高の相棒」にするためのワークショップです。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="btn-primary text-lg">
+                            ワークショップに参加する
+                        </a>
+                        <a href="#story"
+                            class="bg-white border-2 border-[#8C6A4B] text-[#8C6A4B] px-8 py-4 rounded-full text-lg font-bold hover:bg-[#F9F5F0] transition flex items-center justify-center gap-2">
+                            コールテンの想い <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ビジュアル -->
+                <div class="lg:w-1/2 relative h-[400px] w-full flex justify-center items-center">
+                    <div
+                        class="photo-card w-64 h-80 absolute z-20 flex flex-col items-center justify-center border border-gray-100">
+                        <div
+                            class="w-full h-full bg-[#F0F4F3] rounded overflow-hidden flex flex-col items-center justify-center relative">
+                            <!-- クマ（AI） -->
+                            <div
+                                class="w-24 h-24 bg-[#2F5D50] rounded-full flex items-center justify-center mb-2 animate-float">
+                                <i data-lucide="bot" class="w-12 h-12 text-white"></i>
+                            </div>
+                            <!-- ユーザー -->
+                            <div
+                                class="w-20 h-20 bg-white rounded-full flex items-center justify-center border-2 border-[#8C6A4B] absolute bottom-4 right-4 shadow-md">
+                                <i data-lucide="user" class="w-10 h-10 text-[#8C6A4B]"></i>
+                            </div>
+                            <div
+                                class="absolute top-4 left-4 bg-white px-2 py-1 text-xs rounded shadow text-[#2F5D50] font-bold">
+                                相談中...
+                            </div>
+                        </div>
+                        <p class="text-center font-handwriting text-gray-500 mt-2 text-sm font-serif">AI Partner & Me
+                        </p>
+                    </div>
+                    <div class="absolute top-0 right-10 w-32 h-8 bg-[#E68C3A]/20 transform rotate-12 z-0"></div>
+                    <div class="absolute bottom-10 left-10 bg-white p-3 rounded-full shadow-lg z-30 animate-bounce"
+                        style="animation-duration: 3s;">
+                        <i data-lucide="message-circle-heart" class="w-8 h-8 text-[#E68C3A]"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 波線区切り -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[50px]">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#FFF" opacity="1"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- 2. こんなお悩み (AI活用編) -->
+    <section class="py-20 relative bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#8C6A4B] font-bold tracking-widest text-sm uppercase">BEFORE</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-[#4A4238] font-serif mb-4 mt-2">
+                    AIの「本当のすごさ」<br>まだ知らない気がしませんか？
+                </h2>
+                <div class="w-24 h-1 bg-[#E68C3A] mx-auto rounded-full opacity-60"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- 悩み1 -->
+                <div class="memo-box transform rotate-1 hover:rotate-0">
+                    <div class="masking-tape-center"></div>
+                    <div class="text-center mt-4">
+                        <div
+                            class="w-12 h-12 bg-[#8C6A4B]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#8C6A4B]">
+                            <i data-lucide="search" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-[#5A4D41] font-bold mb-2">検索代わりにしか...</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">「調べ物には使うけど、それ以上の使い方がわからない。『すごい』と言われてもピンとこない」
+                        </p>
+                    </div>
+                </div>
+                <!-- 悩み2 -->
+                <div class="memo-box transform -rotate-1 hover:rotate-0 md:mt-8">
+                    <div class="masking-tape-center"></div>
+                    <div class="text-center mt-4">
+                        <div
+                            class="w-12 h-12 bg-[#8C6A4B]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#8C6A4B]">
+                            <i data-lucide="frown" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-[#5A4D41] font-bold mb-2">自分には作れない</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">「周りはAIでサイトや動画を作っているけど、自分には技術がないから無理だと諦めている」</p>
+                    </div>
+                </div>
+                <!-- 悩み3 -->
+                <div class="memo-box transform rotate-2 hover:rotate-0">
+                    <div class="masking-tape-center"></div>
+                    <div class="text-center mt-4">
+                        <div
+                            class="w-12 h-12 bg-[#8C6A4B]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#8C6A4B]">
+                            <i data-lucide="puzzle" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-[#5A4D41] font-bold mb-2">本質がわからない</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">「プロンプトのコピペじゃなくて、もっと自分の頭の拡張として使いこなしたいのに...」</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 解決策 -->
+    <section class="py-24 bg-[#2F5D50]/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#E68C3A] font-bold tracking-widest text-sm uppercase">SOLUTION</span>
+                <h2 class="text-3xl font-bold text-[#4A4238] mt-2 mb-4 font-serif">「作り方」ごと、AIに聞けばいい。</h2>
+                <p class="text-[#8C6A4B]">必要なのは技術ではありません。<span class="bg-[#E68C3A]/20 px-1">AIへの上手な相談力</span>です。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+                <!-- 左：NG -->
+                <div class="relative opacity-60 hover:opacity-100 transition duration-500">
+                    <div
+                        class="absolute -top-4 -left-4 bg-gray-500 text-white px-3 py-1 text-xs font-bold rounded transform -rotate-3 z-10">
+                        もったいない使い方
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-dashed border-gray-300">
+                        <div class="flex gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center shrink-0">
+                                <i data-lucide="user" class="w-5 h-5 text-gray-500"></i>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded-2xl rounded-tl-none text-sm text-gray-600">
+                                カフェのホームページのコードを書いて。
+                            </div>
+                        </div>
+                        <div class="flex flex-row-reverse gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center shrink-0">
+                                <i data-lucide="bot" class="w-5 h-5 text-gray-500"></i>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded-2xl rounded-tr-none text-sm text-gray-600">
+                                （情報が足りないので、一般的なテンプレを出します...）
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右：コールテン流 -->
+                <div class="relative transform md:scale-105">
+                    <div
+                        class="absolute -top-6 -right-4 bg-[#E68C3A] text-white px-4 py-1 font-bold rounded-full transform rotate-3 z-10 shadow-lg flex items-center gap-1">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i> コールテン流
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl hand-drawn-border border-[#E68C3A]">
+                        <div class="flex gap-3 mb-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#8C6A4B] flex items-center justify-center shrink-0 text-white">
+                                <i data-lucide="user" class="w-5 h-5"></i>
+                            </div>
+                            <div
+                                class="bg-[#FFFBF0] p-3 rounded-2xl rounded-tl-none text-sm text-[#4A4238] border border-[#8C6A4B]/20">
+                                おしゃれなサイトを作りたいんだけど、<br><strong>そもそも何が必要か教えて？</strong><br>私でも作れる方法で案内してほしいな。
+                            </div>
+                        </div>
+                        <div class="flex flex-row-reverse gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#2F5D50] flex items-center justify-center shrink-0 text-white">
+                                <i data-lucide="bot" class="w-5 h-5"></i>
+                            </div>
+                            <div
+                                class="bg-[#2F5D50]/10 p-3 rounded-2xl rounded-tr-none text-sm text-[#2F5D50] font-medium">
+                                わかりました！まずは「誰に見せたいか」を一緒に決めましょう。<br>コードは私が書くので、あなたはデザインの好みを教えてくださいね。
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-xs mt-2 text-[#2F5D50] font-bold">作り方から相談することで、プロ級の成果物に。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 参加者の声と制作事例（移動＆強化） -->
+    <section class="py-24 bg-white border-t border-[#8C6A4B]/10">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span
+                    class="bg-[#2F5D50] text-white px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase inline-block mb-4">
+                    VOICE & WORKS
+                </span>
+                <h2 class="text-3xl font-bold text-[#4A4238] mb-6 font-serif">
+                    こんなに素敵なサイトができるのに、<br>
+                    これがただの<span class="marker-highlight">「練習台」</span>なんです。
+                </h2>
+                <p class="text-[#8C6A4B]">
+                    参加者のみなさんがAIと対話して作った「はじめての作品」です。<br>
+                    ここでの経験が、その後の「何でも作れる自信」につながっています。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Case 1 -->
+                <div class="group">
+                    <!-- プレビュー画像 -->
+                    <div class="browser-frame mb-4 transform group-hover:translate-y-[-5px] transition duration-300">
+                        <div class="browser-header">
+                            <div class="dot bg-red-400"></div>
+                            <div class="dot bg-yellow-400"></div>
+                            <div class="dot bg-green-400"></div>
+                        </div>
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop"
+                                alt="カフェサイト" class="object-cover w-full h-full">
+                            <div
+                                class="absolute inset-0 bg-[#2F5D50]/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-bold">
+                                「温かみのあるカフェ」
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 感想 -->
+                    <div class="speech-bubble">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="text-xs bg-[#2F5D50] text-white px-2 py-0.5 rounded">会社員 (30代)</div>
+                            <div class="text-xs text-gray-400">AI歴: ほぼゼロ</div>
+                        </div>
+                        <p class="text-sm text-[#5A4D41] leading-relaxed">
+                            「今まで検索にしか使っていなかったAIが、こんなに頼れる相棒になるとは！サイトが作れたことより、<strong>『AIになんでも聞けばいいんだ』</strong>という安心感を得られたのが最大の収穫です。」
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="group md:mt-8">
+                    <!-- プレビュー画像 -->
+                    <div class="browser-frame mb-4 transform group-hover:translate-y-[-5px] transition duration-300">
+                        <div class="browser-header">
+                            <div class="dot bg-red-400"></div>
+                            <div class="dot bg-yellow-400"></div>
+                            <div class="dot bg-green-400"></div>
+                        </div>
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="https://images.unsplash.com/photo-1499750310159-5254f4cc1529?q=80&w=800&auto=format&fit=crop"
+                                alt="ポートフォリオ" class="object-cover w-full h-full">
+                            <div
+                                class="absolute inset-0 bg-[#2F5D50]/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-bold">
+                                「シンプルな自己紹介」
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 感想 -->
+                    <div class="speech-bubble">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="text-xs bg-[#E68C3A] text-white px-2 py-0.5 rounded">個人事業主 (40代)</div>
+                            <div class="text-xs text-gray-400">AI歴: 少し</div>
+                        </div>
+                        <p class="text-sm text-[#5A4D41] leading-relaxed">
+                            「自分の想いをAIが汲み取って形にしてくれた時、感動しました。<strong>『作り方がわからない』はもう諦める理由にならない</strong>んですね。仕事の幅が広がりそうです。」
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="group">
+                    <!-- プレビュー画像 -->
+                    <div class="browser-frame mb-4 transform group-hover:translate-y-[-5px] transition duration-300">
+                        <div class="browser-header">
+                            <div class="dot bg-red-400"></div>
+                            <div class="dot bg-yellow-400"></div>
+                            <div class="dot bg-green-400"></div>
+                        </div>
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="https://images.unsplash.com/photo-1530785602389-07594beb8b73?q=80&w=800&auto=format&fit=crop"
+                                alt="お花屋さん" class="object-cover w-full h-full">
+                            <div
+                                class="absolute inset-0 bg-[#2F5D50]/80 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-bold">
+                                「街のお花屋さん」
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 感想 -->
+                    <div class="speech-bubble">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="text-xs bg-[#8C6A4B] text-white px-2 py-0.5 rounded">主婦 (50代)</div>
+                            <div class="text-xs text-gray-400">AI歴: ゼロ</div>
+                        </div>
+                        <p class="text-sm text-[#5A4D41] leading-relaxed">
+                            「息子に『時代遅れ』と言われて参加しましたが、私でも素敵なページが作れました！先生の教え方が優しくて、<strong>AIが怖いものから楽しいものに変わりました</strong>。」
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ワークショップの3ステップ -->
+    <section class="py-24 bg-[#F9F5F0]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-[#4A4238] mb-4 font-serif">ワークショップの流れ</h2>
+                <p class="text-[#8C6A4B]">プロの思考プロセスを、AIと一緒に3ステップで体験します。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Step 1 -->
+                <div class="relative pt-8">
+                    <div class="step-number">01</div>
+                    <div
+                        class="bg-white p-8 rounded-[2rem] h-full border border-gray-100 hover:border-[#E68C3A] transition relative z-10">
+                        <div
+                            class="w-14 h-14 bg-[#F9F5F0] rounded-full flex items-center justify-center mb-6 shadow-sm text-[#D97E63]">
+                            <i data-lucide="test-tube-2" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#8C6A4B] mb-4">まずは「丸投げ」<br>してみる</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            いきなり正解を目指しません。まずはAIに「適当に作って」と投げかけ、あえて失敗します。そこで「AIの癖」を知る実験を行います。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative pt-8">
+                    <div class="step-number">02</div>
+                    <div
+                        class="bg-white p-8 rounded-[2rem] h-full border border-gray-100 hover:border-[#E68C3A] transition relative z-10">
+                        <div
+                            class="w-14 h-14 bg-[#F9F5F0] rounded-full flex items-center justify-center mb-6 shadow-sm text-[#6B8E23]">
+                            <i data-lucide="messages-square" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#8C6A4B] mb-4">AIに「作り方」を<br>相談する</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            「良いサイトを作るには何が必要？」とAIに質問します。ペルソナや構成など、プロがやる「要件定義」をAIと一緒に作り上げます。
+                        </p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2 text-[#8C6A4B]/20">
+                        <i data-lucide="arrow-right" class="w-8 h-8"></i>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative pt-8">
+                    <div class="step-number">03</div>
+                    <div
+                        class="bg-white p-8 rounded-[2rem] h-full border border-gray-100 hover:border-[#E68C3A] transition relative z-10">
+                        <div
+                            class="w-14 h-14 bg-[#F9F5F0] rounded-full flex items-center justify-center mb-6 shadow-sm text-[#8C6A4B]">
+                            <i data-lucide="refresh-cw" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#8C6A4B] mb-4">共同作業で<br>ブラッシュアップ</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            一度で終わりではありません。「もっと温かく」「写真を大きく」など対話を重ね、理想に近づけていく<strong>「共創のプロセス」</strong>を体感します。
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <span
+                                class="text-xs bg-[#F9F5F0] border border-[#2F5D50] text-[#2F5D50] px-2 py-1 rounded">公開もできる！</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -left-6 transform -translate-y-1/2 text-[#8C6A4B]/20">
+                        <i data-lucide="arrow-right" class="w-8 h-8"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ストーリー/コラム (PASSION - Storytelling Version) -->
+    <section id="story" class="py-24 relative overflow-hidden bg-[#FDFCF8]">
+        <!-- 背景パターン -->
+        <div class="absolute inset-0 opacity-30"
+            style="background-image: repeating-linear-gradient(45deg, #E68C3A 0, #E68C3A 1px, transparent 0, transparent 50%); background-size: 40px 40px;">
+        </div>
+        <div class="absolute inset-0 bg-white/80"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- ヘッダー -->
+            <div class="text-center mb-16">
+                <span
+                    class="inline-block py-1 px-4 border border-[#8C6A4B] rounded-full text-[#8C6A4B] text-xs font-bold tracking-widest mb-4 bg-white">PASSION</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-[#4A4238] font-serif leading-tight">
+                    Webサイト作りは、<br>
+                    ただの<span class="relative inline-block px-2 z-10">「練習台」<span
+                            class="absolute bottom-2 left-0 w-full h-3 bg-[#E68C3A] -z-10 opacity-60 transform -skew-x-12 rounded"></span></span>にすぎません。
+                </h2>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- 中央線 (PCのみ表示) -->
+                    <div
+                        class="absolute left-1/2 top-0 bottom-0 w-1 bg-[#8C6A4B]/20 transform -translate-x-1/2 hidden md:block">
+                    </div>
+
+                    <!-- Story 1: 挫折 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 mb-24 relative">
+                        <div class="md:w-1/2 md:text-right order-2 md:order-1">
+                            <h3 class="text-xl font-bold text-[#5A4D41] mb-3">「作り方がわからない」という壁</h3>
+                            <p class="text-[#8C6A4B] leading-relaxed">
+                                何かを作りたいと思った時、<br>
+                                多くの人がここで諦めてしまいます。<br>
+                                「プログラミングなんて知らないし…」<br>
+                                AIに頼んでみても、思った通りのものは出てこない。
+                            </p>
+                        </div>
+                        <div
+                            class="z-10 order-1 md:order-2 bg-white border-4 border-[#F9F5F0] w-20 h-20 rounded-full flex items-center justify-center shadow-sm">
+                            <i data-lucide="cloud-rain" class="w-10 h-10 text-gray-400"></i>
+                        </div>
+                        <div class="md:w-1/2 order-3 md:order-3 md:pl-8"></div>
+                    </div>
+
+                    <!-- Story 2: 転換 -->
+                    <div class="flex flex-col md:flex-row items-center gap-8 mb-24 relative">
+                        <div class="md:w-1/2 order-3 md:order-1"></div>
+                        <div
+                            class="z-10 order-1 md:order-2 bg-[#2F5D50] border-4 border-[#E68C3A] w-24 h-24 rounded-full flex items-center justify-center shadow-lg transform md:scale-110">
+                            <i data-lucide="lightbulb" class="w-12 h-12 text-white"></i>
+                        </div>
+                        <div class="md:w-1/2 order-2 md:order-3 md:pl-8">
+                            <h3 class="text-2xl font-bold text-[#2F5D50] mb-4 font-serif">発想を、逆転させる。</h3>
+                            <div
+                                class="text-[#4A4238] font-bold text-lg leading-relaxed bg-white/90 p-6 rounded-2xl shadow-sm border border-[#2F5D50]/10 inline-block relative">
+                                <div class="absolute -top-2 -left-2 text-[#E68C3A]"><i data-lucide="quote"
+                                        class="w-6 h-6 fill-current"></i></div>
+                                作り方がわからないなら、<br>
+                                <span class="text-[#E68C3A] text-xl border-b-2 border-[#E68C3A]">作り方ごとAIに聞けばいい。</span>
+                            </div>
+                            <p class="text-[#5A4D41] mt-6 leading-relaxed">
+                                Webサイトの専門知識は要りません。<br>
+                                必要なのは、AIという相棒に<br>
+                                「どうすれば作れる？」と問いかける力だけです。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Story 3: 未来 (万能感) -->
+                    <div
+                        class="relative bg-white p-12 rounded-[2.5rem] shadow-xl border border-[#8C6A4B]/10 text-center mx-4 md:mx-0 z-20 group hover:shadow-2xl transition duration-500">
+                        <!-- 装飾背景 -->
+                        <div
+                            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#2F5D50] via-[#8C6A4B] to-[#E68C3A]">
+                        </div>
+
+                        <div
+                            class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-[#E68C3A] text-white px-6 py-2 rounded-full font-bold shadow-md flex items-center gap-2 whitespace-nowrap z-10">
+                            <i data-lucide="key" class="w-4 h-4"></i> 手に入るのは「万能感」
+                        </div>
+
+                        <p class="text-lg text-[#5A4D41] leading-relaxed mb-10 mt-6 font-medium">
+                            この「対話の型」さえ身につければ、<br>
+                            あなたの可能性は無限に広がります。
+                        </p>
+
+                        <div class="flex flex-wrap justify-center gap-4 mb-10">
+                            <span
+                                class="bg-[#F9F5F0] text-[#8C6A4B] px-5 py-2 rounded-full font-bold text-sm border border-[#8C6A4B]/20">アプリ開発</span>
+                            <span
+                                class="bg-[#F9F5F0] text-[#8C6A4B] px-5 py-2 rounded-full font-bold text-sm border border-[#8C6A4B]/20">動画制作</span>
+                            <span
+                                class="bg-[#F9F5F0] text-[#8C6A4B] px-5 py-2 rounded-full font-bold text-sm border border-[#8C6A4B]/20">業務ツール</span>
+                            <span
+                                class="bg-[#F9F5F0] text-[#E68C3A] px-5 py-2 rounded-full font-bold text-sm border border-[#E68C3A]/20 bg-white shadow-sm">まだ見ぬアイデア</span>
+                        </div>
+
+                        <div class="relative inline-block mb-4">
+                            <p class="text-3xl md:text-4xl font-serif text-[#2F5D50] font-bold relative z-10">
+                                「自分には、何でも作れる。」
+                            </p>
+                            <div class="absolute -bottom-2 left-0 w-full h-4 bg-[#E68C3A]/20 rounded-full -z-0"></div>
+                        </div>
+
+                        <p class="text-[#5A4D41] mt-6">
+                            そんなワクワクする未来への最初の一歩を、<br>
+                            一緒に踏み出しませんか？
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. こんなものが作れます -->
+    <section class="py-16 bg-[#F9F5F0] border-t border-dashed border-[#8C6A4B]/20">
+        <div class="container mx-auto px-6">
+            <h3 class="text-center text-[#8C6A4B] font-bold mb-8 flex items-center justify-center gap-2">
+                <i data-lucide="monitor" class="w-5 h-5"></i>
+                この考え方で、こんなものが作れます
+            </h3>
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-[#5A4D41]">
+                <span class="bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">ポートフォリオサイト</span>
+                <span class="bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">お店の紹介ページ</span>
+                <span class="bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">イベント告知ページ</span>
+                <span class="bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">簡単なWebアプリ</span>
+                <span class="bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">業務効率化ツール</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. 準備・サポート体制 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- 準備するもの (Gemini) -->
+                <div>
+                    <h3 class="text-xl font-bold text-[#2F5D50] mb-6 flex items-center gap-2 font-serif">
+                        <i data-lucide="check-square" class="w-6 h-6"></i>
+                        参加に必要なもの
+                    </h3>
+                    <div class="bg-[#F9F5F0] p-6 rounded-2xl border border-gray-100">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="laptop" class="w-5 h-5 text-[#8C6A4B] mt-1 shrink-0"></i>
+                                <div>
+                                    <p class="font-bold text-[#4A4238]">ノートパソコン</p>
+                                    <p class="text-xs text-gray-500">※スマホ・タブレットは非推奨です</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-[#8C6A4B] mt-1 shrink-0"></i>
+                                <div>
+                                    <p class="font-bold text-[#4A4238]">Gemini Advanced (Google One AI Premium)</p>
+                                    <p class="text-sm text-gray-600 mt-1">
+                                        Googleの最高性能AIを使用します（月額2,900円）。<br>
+                                        <span class="text-[#E68C3A] font-bold">1ヶ月無料トライアル</span>が利用可能です！
+                                    </p>
+                                    <div
+                                        class="mt-2 bg-white p-3 rounded-lg border border-[#E68C3A]/30 text-xs text-[#5A4D41]">
+                                        <strong>💡 実質0円で参加できます</strong><br>
+                                        無料期間中に解約すれば、手数料や利用料は一切かかりません。まずはこのワークショップのためだけにお試しください。
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- サポート体制 -->
+                <div>
+                    <h3 class="text-xl font-bold text-[#2F5D50] mb-6 flex items-center gap-2 font-serif">
+                        <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                        安心のサポート
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex gap-4">
+                            <div
+                                class="w-12 h-12 bg-[#5865F2]/10 rounded-full flex items-center justify-center shrink-0 text-[#5865F2]">
+                                <i data-lucide="message-square" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-[#4A4238]">参加者限定 Discordコミュニティ</p>
+                                <p class="text-sm text-gray-600">
+                                    「AIに聞いてもわからなかった」を気軽に相談できる場所。実践者同士で知見をシェアし合えます。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex gap-4 opacity-70">
+                            <div
+                                class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center shrink-0 text-gray-400">
+                                <i data-lucide="calendar" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-[#4A4238]">月1回のオンライン相談会</p>
+                                <p class="text-xs font-bold text-[#E68C3A] mb-1">Coming Soon</p>
+                                <p class="text-sm text-gray-600">
+                                    講師に直接質問できるミーティングも準備中です。（※オプション予定）
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. プラン紹介 -->
+    <section id="plan" class="py-24 bg-[#2F5D50] text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-corduroy opacity-30 pointer-events-none"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-12 font-serif">ワークショッププラン</h2>
+
+            <div class="max-w-xl mx-auto bg-white text-[#4A4238] rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative">
+                <div class="absolute top-0 left-0 w-full h-3 bg-[#E68C3A]"></div>
+
+                <h3 class="text-2xl font-bold text-[#2F5D50] mb-2 text-center font-serif">
+                    スタンダードプラン
+                </h3>
+                <p class="text-center text-gray-500 mb-8 text-sm">Web制作を通じてAIの基礎・応用をマスター</p>
+
+                <div class="text-center mb-8">
+                    <span class="text-5xl font-bold text-[#4A4238] font-serif">¥15,000</span>
+                    <span class="text-gray-500 text-sm">/ 3時間</span>
+                </div>
+
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-start gap-3 text-sm">
+                        <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50]"><i data-lucide="check"
+                                class="w-4 h-4"></i></div>
+                        <span>AIへの「作り方の聞き方」を習得</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm">
+                        <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50]"><i data-lucide="check"
+                                class="w-4 h-4"></i></div>
+                        <span>Webサイト（LP）1ページの制作・公開</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm">
+                        <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50]"><i data-lucide="check"
+                                class="w-4 h-4"></i></div>
+                        <span>Discordコミュニティ参加権</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-sm">
+                        <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50]"><i data-lucide="check"
+                                class="w-4 h-4"></i></div>
+                        <span>復習用アーカイブ動画プレゼント</span>
+                    </li>
+                </ul>
+
+                <a href="#contact"
+                    class="block w-full text-center py-4 bg-[#E68C3A] text-white font-bold text-lg rounded-full shadow-lg hover:bg-[#d67e30] transition transform hover:-translate-y-1">
+                    このプランで申し込む
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Q&A -->
+    <section class="py-24 bg-[#F9F5F0]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-bold text-center text-[#4A4238] mb-12 font-serif">よくある質問</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Q1 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-[#8C6A4B]/10">
+                    <h3 class="font-bold text-[#8C6A4B] mb-2 flex items-center gap-2">
+                        <span class="bg-[#F3F6E8] w-6 h-6 rounded flex items-center justify-center text-xs">Q</span>
+                        Gemini無料版では参加できませんか？
+                    </h3>
+                    <p class="text-sm text-gray-600 pl-8">
+                        より高度な推論能力を持つ有料版（Advanced）の使用を前提としています。無料版でも動くことはありますが、今回お伝えする「本質的な対話」を体験いただくため、無料トライアルを活用して有料版のご用意をお願いしています。
+                    </p>
+                </div>
+                <!-- Q2 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-[#8C6A4B]/10">
+                    <h3 class="font-bold text-[#8C6A4B] mb-2 flex items-center gap-2">
+                        <span class="bg-[#F3F6E8] w-6 h-6 rounded flex items-center justify-center text-xs">Q</span>
+                        作ったWebサイトはずっと残りますか？
+                    </h3>
+                    <p class="text-sm text-gray-600 pl-8">
+                        はい、公開方法によりますが、基本的には無料で維持できる方法をお伝えしますので、ワークショップ後もずっと使い続けることができます。
+                    </p>
+                </div>
+                <!-- Q3 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-[#8C6A4B]/10">
+                    <h3 class="font-bold text-[#8C6A4B] mb-2 flex items-center gap-2">
+                        <span class="bg-[#F3F6E8] w-6 h-6 rounded flex items-center justify-center text-xs">Q</span>
+                        本当に知識ゼロでも大丈夫ですか？
+                    </h3>
+                    <p class="text-sm text-gray-600 pl-8">
+                        大歓迎です！「HTMLって何？」という状態の方こそ、AIの凄さを一番実感していただけると思います。専門用語もAIが優しく解説してくれます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. フッター / CTA -->
+    <footer id="contact" class="bg-[#4A4238] text-[#F9F5F0] py-24 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10"
+            style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #000 10px, #000 11px);">
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6 font-serif">Webサイト作りで、<br>AI活用の「応用力」を一生モノに。</h2>
+            <p class="mb-12 opacity-80">コールテンと一緒に、新しいボタンを見つけにいきませんか？</p>
+
+            <div class="bg-[#F9F5F0] text-[#4A4238] max-w-lg mx-auto p-10 rounded-[2rem] hand-drawn-border">
+                <h3 class="text-xl font-bold mb-4 text-[#2F5D50] flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    まずはLINEで相談・予約
+                </h3>
+                <p class="text-sm text-gray-600 mb-8 leading-relaxed">
+                    日程の確認や、ご質問もLINEでお気軽に。<br>
+                    「<strong>Webサイト作りに興味があって</strong>」と一言送信してください。
+                </p>
+
+                <a href="#"
+                    class="btn-line w-full justify-center text-lg py-4 shadow-lg transform transition hover:scale-105">
+                    <!-- LINE Icon SVG -->
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" class="mr-2">
+                        <path
+                            d="M20.2 10.5c0 4.4-4.5 8-10.2 8-1.1 0-2.1-.2-3.1-.5-.2-.1-.5 0-.7.2l-2.7 1.8c-.5.3-1.1-.2-.9-.8l.7-3c.1-.3 0-.6-.2-.8-1.8-1.4-2.9-3.3-2.9-5.3 0-4.4 4.5-8 10.2-8s10.2 3.6 10.2 8z" />
+                    </svg>
+                    LINE公式アカウントに登録
+                </a>
+
+                <p class="text-xs text-gray-400 mt-4">
+                    ※自動応答ではなく、スタッフが丁寧にお返しします。
+                </p>
+            </div>
+
+            <div
+                class="mt-20 border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-center gap-4 text-sm opacity-60">
+                <p>&copy; 2024 Corduroy Inc.</p>
+                <div class="hidden md:block">|</div>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

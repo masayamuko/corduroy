@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube運用パートナー</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .animate-fade-up {
+      animation: fadeUp 0.8s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased">
+  <header id="site-header" class="fixed w-full z-50 transition-all duration-300 bg-white/50 backdrop-blur-sm py-4">
+    <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+      <div class="flex flex-col">
+        <h1 class="font-serif font-bold text-xl md:text-2xl text-slate-900 tracking-tight leading-none">
+          YouTube運用パートナー
+        </h1>
+        <span class="text-xs font-sans font-medium text-amber-600 mt-1 tracking-wider">講師・カウンセラー専門</span>
+      </div>
+
+      <nav class="hidden md:flex space-x-8 items-center">
+        <a href="#solution" class="text-sm font-medium text-slate-600 hover:text-indigo-900 transition-colors relative group">
+          サービス内容
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#story" class="text-sm font-medium text-slate-600 hover:text-indigo-900 transition-colors relative group">
+          想い
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#process" class="text-sm font-medium text-slate-600 hover:text-indigo-900 transition-colors relative group">
+          制作の流れ
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#price" class="text-sm font-medium text-slate-600 hover:text-indigo-900 transition-colors relative group">
+          料金
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#contact" class="text-sm font-medium text-slate-600 hover:text-indigo-900 transition-colors relative group">
+          お問い合わせ
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-500 transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#contact" class="px-5 py-2.5 bg-indigo-900 text-white text-sm font-bold rounded shadow hover:bg-indigo-800 transition-all transform hover:-translate-y-0.5">
+          無料相談する
+        </a>
+      </nav>
+
+      <button id="menu-btn" class="md:hidden p-2 text-slate-600 hover:text-indigo-900" aria-expanded="false" aria-controls="mobile-nav">
+        <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+        <i id="close-icon" data-lucide="x" class="w-6 h-6 hidden"></i>
+      </button>
+    </div>
+
+    <div id="mobile-nav" class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 py-4 px-4 flex flex-col space-y-4 hidden">
+      <a href="#solution" class="text-base font-medium text-slate-700 py-3 border-b border-slate-50 flex justify-between items-center" data-close-menu>
+        サービス内容
+        <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300"></i>
+      </a>
+      <a href="#story" class="text-base font-medium text-slate-700 py-3 border-b border-slate-50 flex justify-between items-center" data-close-menu>
+        想い
+        <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300"></i>
+      </a>
+      <a href="#process" class="text-base font-medium text-slate-700 py-3 border-b border-slate-50 flex justify-between items-center" data-close-menu>
+        制作の流れ
+        <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300"></i>
+      </a>
+      <a href="#price" class="text-base font-medium text-slate-700 py-3 border-b border-slate-50 flex justify-between items-center" data-close-menu>
+        料金
+        <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300"></i>
+      </a>
+      <a href="#contact" class="text-base font-medium text-slate-700 py-3 border-b border-slate-50 flex justify-between items-center" data-close-menu>
+        お問い合わせ
+        <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300"></i>
+      </a>
+      <a href="#contact" class="w-full text-center py-3 bg-indigo-900 text-white font-bold rounded mt-2" data-close-menu>
+        無料相談に申し込む
+      </a>
+    </div>
+  </header>
+
+  <section class="relative min-h-screen md:min-h-[90vh] flex items-center pt-28 pb-20 overflow-hidden bg-slate-50">
+    <div class="absolute top-0 right-0 w-full md:w-[55%] h-full bg-slate-200 z-0">
+      <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600" alt="落ち着いたオフィスで相談に乗る様子" class="w-full h-full object-cover opacity-90 mix-blend-multiply">
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent md:via-slate-50/40"></div>
+      <div class="absolute inset-0 bg-indigo-900/10 mix-blend-overlay"></div>
+    </div>
+
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur border border-slate-200 text-indigo-900 text-sm font-bold rounded-full mb-8 shadow-sm animate-fade-up">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          コーチ・講師・カウンセラー専門 動画制作パートナー
+        </div>
+
+        <h2 class="font-serif font-bold text-slate-900 leading-[1.2] tracking-tight mb-8 animate-fade-up">
+          <span class="text-3xl md:text-5xl block mb-2">その素晴らしい<span class="text-indigo-800 border-b-4 border-amber-400/50">「専門知識」</span>を、</span>
+          <span class="text-3xl md:text-5xl block mb-4">必要とする<span class="text-amber-600">「誰か」</span>に届けませんか？</span>
+          <span class="block text-lg md:text-xl font-sans font-medium text-slate-600 mt-6 leading-relaxed max-w-xl">
+            企画・撮影・編集・分析まで完全丸投げOK。<br>
+            教育ボランティア経験者が、あなたの「品格」を守りながら<br class="hidden md:inline">
+            想いを届けるYouTube運用をサポートします。
+          </span>
+        </h2>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-up">
+          <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-indigo-900 hover:bg-indigo-800 rounded shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 group">
+            無料相談（YouTube診断）
+            <i data-lucide="arrow-right" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+          <a href="#story" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 rounded shadow-sm hover:shadow-md transition-all">
+            私の想いを知る
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 animate-fade-up">
+          <div class="flex items-center gap-3 bg-white/80 backdrop-blur p-3 rounded-lg border border-slate-200 shadow-sm">
+            <i data-lucide="clock" class="w-5 h-5 text-indigo-600"></i>
+            <span class="text-sm font-bold text-slate-700 whitespace-pre-line leading-tight">丸投げで\n時間創出</span>
+          </div>
+          <div class="flex items-center gap-3 bg-white/80 backdrop-blur p-3 rounded-lg border border-slate-200 shadow-sm">
+            <i data-lucide="star" class="w-5 h-5 text-amber-500"></i>
+            <span class="text-sm font-bold text-slate-700 whitespace-pre-line leading-tight">AI活用で\n高品質×速い</span>
+          </div>
+          <div class="flex items-center gap-3 bg-white/80 backdrop-blur p-3 rounded-lg border border-slate-200 shadow-sm">
+            <i data-lucide="heart" class="w-5 h-5 text-rose-500"></i>
+            <span class="text-sm font-bold text-slate-700 whitespace-pre-line leading-tight">教育・心理への\n深い理解</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 font-serif leading-tight">
+          「伝えたいことは山ほどある。でも…」<br>
+          こんなお悩み、一人で抱えていませんか？
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-amber-300 to-amber-500 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-slate-50 p-8 rounded-lg border border-slate-100 flex gap-5 hover:shadow-lg transition-all duration-300 hover:border-indigo-100 group">
+          <div class="shrink-0 bg-white p-4 rounded-full shadow-sm h-fit group-hover:scale-110 transition-transform">
+            <i data-lucide="clock" class="w-8 h-8 text-indigo-900"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-slate-800 mb-3 border-b border-dashed border-slate-300 pb-2 inline-block">時間がない</h3>
+            <p class="text-slate-600 leading-relaxed">日々のセッションや研修準備に追われ、動画編集なんて覚える暇がない。</p>
+          </div>
+        </div>
+        <div class="bg-slate-50 p-8 rounded-lg border border-slate-100 flex gap-5 hover:shadow-lg transition-all duration-300 hover:border-indigo-100 group">
+          <div class="shrink-0 bg-white p-4 rounded-full shadow-sm h-fit group-hover:scale-110 transition-transform">
+            <i data-lucide="monitor-play" class="w-8 h-8 text-indigo-900"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-slate-800 mb-3 border-b border-dashed border-slate-300 pb-2 inline-block">技術がない</h3>
+            <p class="text-slate-600 leading-relaxed">一度自分でやってみたが、テロップを入れるだけで数時間かかり挫折した。</p>
+          </div>
+        </div>
+        <div class="bg-slate-50 p-8 rounded-lg border border-slate-100 flex gap-5 hover:shadow-lg transition-all duration-300 hover:border-indigo-100 group">
+          <div class="shrink-0 bg-white p-4 rounded-full shadow-sm h-fit group-hover:scale-110 transition-transform">
+            <i data-lucide="x-circle" class="w-8 h-8 text-indigo-900"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-slate-800 mb-3 border-b border-dashed border-slate-300 pb-2 inline-block">頼れる人がいない</h3>
+            <p class="text-slate-600 leading-relaxed">クラウドソーシングで安く頼んだら、意図と違う「軽い動画」になって返ってきた。</p>
+          </div>
+        </div>
+        <div class="bg-slate-50 p-8 rounded-lg border border-slate-100 flex gap-5 hover:shadow-lg transition-all duration-300 hover:border-indigo-100 group">
+          <div class="shrink-0 bg-white p-4 rounded-full shadow-sm h-fit group-hover:scale-110 transition-transform">
+            <i data-lucide="heart" class="w-8 h-8 text-indigo-900"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg text-slate-800 mb-3 border-b border-dashed border-slate-300 pb-2 inline-block">踏み出せない</h3>
+            <p class="text-slate-600 leading-relaxed">「今さらYouTubeなんて遅いのでは？」「炎上が怖い」と二の足を踏んでいる。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 text-center px-4">
+        <div class="inline-block bg-gradient-to-br from-indigo-900 to-slate-900 text-white px-8 py-10 rounded-2xl max-w-3xl shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-white opacity-5" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 20px 20px;"></div>
+          <p class="text-xl md:text-2xl font-serif font-medium leading-relaxed relative z-10">
+            そのお悩み、私に預けてください。<br>
+            あなたがパソコンの前で悩んでいる時間で、<br>
+            <span class="text-amber-400 font-bold border-b border-amber-400/30">本来救えるはずだった「誰か」</span>が、<br class="md:hidden">今もどこかで待っています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solution" class="py-24 bg-slate-50">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-20">
+        <span class="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-3 block">Solution</span>
+        <h2 class="text-2xl md:text-4xl font-bold text-slate-900 leading-tight font-serif">
+          私は単なる「動画編集者」ではありません。<br>
+          あなたの事業を加速させる<span class="inline-block relative z-10">「右腕パートナー」<span class="absolute bottom-1 left-0 w-full h-3 bg-amber-300 -z-10 opacity-60"></span></span>です。
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-xl transition-all duration-300 border-b-4 border-indigo-900">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=800" alt="Learning" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4 bg-indigo-900 text-white w-10 h-10 flex items-center justify-center font-bold font-serif rounded shadow-lg">01</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">教育・心理業界への<br>「深いリスペクト」</h3>
+            <p class="text-slate-600 leading-relaxed text-justify text-sm">
+              教育ボランティア10年の経験と、当事者としての視点を持っています。あなたの「品格」や「想い」を深く理解し、その価値を損なうことなく動画へ翻訳します。
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-xl transition-all duration-300 border-b-4 border-amber-500">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Analytics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4 bg-amber-500 text-white w-10 h-10 flex items-center justify-center font-bold font-serif rounded shadow-lg">02</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">「再生数」より<br>「信頼」を稼ぐ設計</h3>
+            <p class="text-slate-600 leading-relaxed text-justify text-sm">
+              大切なのは「100万再生」より「1人の深い共感」です。Web制作の知見を活かし、視聴者が自然と「相談したくなる」集客導線を設計します。
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden group hover:shadow-xl transition-all duration-300 border-b-4 border-emerald-600">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" alt="AI Technology" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-4 left-4 bg-emerald-600 text-white w-10 h-10 flex items-center justify-center font-bold font-serif rounded shadow-lg">03</div>
+          </div>
+          <div class="p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">AI活用による<br>「負担ゼロ」の運用</h3>
+            <p class="text-slate-600 leading-relaxed text-justify text-sm">
+              面倒な編集作業はAI活用で効率化し、全て私にお任せください。あなたは「カメラの前で話すだけ」。本業に集中しながら発信を継続できます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="py-24 bg-slate-900 text-slate-300 relative overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=1600" alt="Dark textured background" class="w-full h-full object-cover opacity-10 grayscale">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-900 z-0"></div>
+
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+      <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+        <div class="md:w-1/2">
+          <div class="mb-8">
+            <span class="text-amber-500 font-bold tracking-widest text-xs uppercase mb-2 block">My Story</span>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6">なぜ、私がこの仕事をするのか</h2>
+            <div class="w-16 h-1 bg-amber-500"></div>
+          </div>
+          <div class="leading-loose">
+            <p class="text-white font-bold text-xl mb-6">
+              「生きづらさを抱える人を、間接的に救いたい」
+            </p>
+            <p class="mb-4 text-sm md:text-base">
+              正直にお話しします。私自身、社会生活を送る中で、ASD/ADHDの特性による「生きづらさ」を感じてきた人間です。
+              どう生きていけばいいのか分からず、暗闇の中にいた時、私を救ってくれたのは画面の向こうの専門家の方々の言葉でした。
+            </p>
+            <p class="mb-4 text-sm md:text-base">
+              私には、あなたのように直接誰かをカウンセリングする資格はありません。教壇に立ち、道を指し示すこともできません。
+            </p>
+            <p class="text-sm md:text-base">
+              しかし、<span class="text-amber-400 font-bold">あなたの「救いの言葉」を、デジタルの力で遠くへ届ける技術</span>なら持っています。
+            </p>
+          </div>
+        </div>
+
+        <div class="md:w-1/2 relative">
+          <div class="bg-slate-800 p-8 rounded-lg border-l-4 border-amber-500 shadow-2xl relative">
+            <div class="absolute -top-4 -left-4 text-6xl text-amber-500/20 font-serif">"</div>
+            <p class="text-slate-200 italic font-serif text-lg leading-relaxed mb-6">
+              素晴らしい知見を持つあなたが、慣れない編集作業に疲弊して発信を止めてしまうのは、社会にとって大きな損失です。<br><br>
+              どうか、編集なんて面倒なことは私に任せてください。<br>
+              そして、あなたは目の前の一人を救うことに全力を注いでください。<br>
+              その背中を、私が全力で支えます。
+            </p>
+            <div class="flex items-center gap-4 mt-4 border-t border-slate-700 pt-4">
+              <div class="w-12 h-12 bg-slate-600 rounded-full overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200" alt="Editor" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <p class="text-white font-bold text-sm">YouTube運用パートナー</p>
+                <p class="text-xs text-slate-400">代表・動画編集者</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="py-24 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16">
+        <span class="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-2 block">Process</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 font-serif">制作の流れ</h2>
+      </div>
+
+      <div class="relative max-w-5xl mx-auto">
+        <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -z-10 transform -translate-y-1/2"></div>
+
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-0">
+          <div class="flex flex-col items-center group relative">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3 border-4 transition-all duration-300 z-10 bg-white border-slate-100 text-slate-400 group-hover:border-indigo-100 group-hover:text-indigo-600">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-600 mb-1">ヒアリング</h3>
+            <div class="text-xs text-slate-400">STEP 01</div>
+          </div>
+          <div class="flex flex-col items-center group relative">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3 border-4 transition-all duration-300 z-10 bg-white border-slate-100 text-slate-400 group-hover:border-indigo-100 group-hover:text-indigo-600">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-600 mb-1">企画・台本</h3>
+            <div class="text-xs text-slate-400">STEP 02</div>
+          </div>
+          <div class="flex flex-col items-center group relative">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3 border-4 transition-all duration-300 z-10 bg-amber-500 border-white text-white shadow-lg scale-110">
+              <i data-lucide="video" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-bold text-amber-600 mb-1">撮影</h3>
+            <div class="text-xs text-slate-400">STEP 03</div>
+          </div>
+          <div class="flex flex-col items-center group relative">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3 border-4 transition-all duration-300 z-10 bg-white border-slate-100 text-slate-400 group-hover:border-indigo-100 group-hover:text-indigo-600">
+              <i data-lucide="scissors" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-600 mb-1">編集</h3>
+            <div class="text-xs text-slate-400">STEP 04</div>
+          </div>
+          <div class="flex flex-col items-center group relative">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3 border-4 transition-all duration-300 z-10 bg-white border-slate-100 text-slate-400 group-hover:border-indigo-100 group-hover:text-indigo-600">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-600 mb-1">確認</h3>
+            <div class="text-xs text-slate-400">STEP 05</div>
+          </div>
+          <div class="flex flex-col items-center group relative">
+            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3 border-4 transition-all duration-300 z-10 bg-white border-slate-100 text-slate-400 group-hover:border-indigo-100 group-hover:text-indigo-600">
+              <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+            </div>
+            <h3 class="text-sm font-bold text-slate-600 mb-1">納品</h3>
+            <div class="text-xs text-slate-400">STEP 06</div>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-slate-50 p-6 rounded-lg border border-slate-200 max-w-3xl mx-auto text-center">
+          <h4 class="font-bold text-slate-800 mb-2 flex items-center justify-center gap-2">
+            <i data-lucide="video" class="w-5 h-5 text-amber-500"></i>
+            STEP 03：撮影について
+          </h4>
+          <p class="text-sm text-slate-600">
+            カメラやスマホでの自撮り素材をお送りいただきます。照明の当て方やマイクの設定など、<br class="hidden md:block">
+            撮影のコツは事前に丁寧にレクチャーしますので、初めての方でも安心です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price" class="py-24 bg-slate-50 border-t border-slate-200">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16">
+        <span class="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-2 block">Price</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 font-serif mb-4">料金プラン</h2>
+        <p class="text-slate-600">あなたの状況に合わせて、3つのプランをご用意しました。</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-end">
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden order-3 md:order-1 hover:shadow-md transition-shadow">
+          <div class="bg-slate-100 p-4 text-center border-b border-slate-200">
+            <h3 class="font-serif font-bold text-lg text-slate-700">【梅】スターター</h3>
+            <p class="text-xs text-slate-500 mt-1">まずは試してみたい方へ</p>
+          </div>
+          <div class="p-6">
+            <div class="text-center mb-6">
+              <span class="text-sm text-slate-500">1本</span>
+              <div class="text-3xl font-bold text-slate-800">20,000<span class="text-sm font-normal ml-1">円〜</span></div>
+              <span class="text-xs text-slate-400">(税抜)</span>
+            </div>
+            <ul class="space-y-3 mb-8 pl-2">
+              <li class="flex gap-2 text-sm text-slate-600"><i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0"></i>カット編集</li>
+              <li class="flex gap-2 text-sm text-slate-600"><i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0"></i>フルテロップ</li>
+              <li class="flex gap-2 text-sm text-slate-600"><i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0"></i>BGM・SE挿入</li>
+              <li class="flex gap-2 text-sm text-slate-600"><i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0"></i>色調補正・整音</li>
+            </ul>
+            <a href="#contact" class="block w-full py-3 text-center border border-slate-300 rounded text-slate-600 font-bold hover:bg-slate-50 transition-colors text-sm">
+              単発で依頼する
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-2xl border-2 border-indigo-900 overflow-hidden transform md:-translate-y-4 relative order-1 md:order-2 z-10">
+          <div class="bg-indigo-900 text-white text-center py-3 text-sm font-bold tracking-wider">
+            おすすめ（推奨）
+          </div>
+          <div class="bg-indigo-50 p-6 text-center border-b border-indigo-100">
+            <h3 class="font-serif font-bold text-2xl text-indigo-900">【竹】スタンダード</h3>
+            <p class="text-sm text-indigo-700 mt-1">企画から分析まで標準サポート</p>
+          </div>
+          <div class="p-8">
+            <div class="text-center mb-8">
+              <span class="text-sm text-slate-500">月額</span>
+              <div class="text-4xl font-bold text-indigo-900">100,000<span class="text-lg font-normal ml-1">円〜</span></div>
+              <span class="text-xs text-slate-400">(税抜) ※編集費別途</span>
+            </div>
+            <ul class="space-y-4 mb-8 pl-2">
+              <li class="flex gap-3 text-slate-700 font-bold text-sm"><i data-lucide="check-circle" class="w-5 h-5 text-indigo-600 shrink-0"></i>企画構成・台本作成（月4本）</li>
+              <li class="flex gap-3 text-slate-700 text-sm"><i data-lucide="check-circle" class="w-5 h-5 text-indigo-600 shrink-0"></i>月1回の定例MTG（60分）</li>
+              <li class="flex gap-3 text-slate-700 text-sm"><i data-lucide="check-circle" class="w-5 h-5 text-indigo-600 shrink-0"></i>チャンネル分析・改善レポート</li>
+              <li class="flex gap-3 text-slate-700 text-sm"><i data-lucide="check-circle" class="w-5 h-5 text-indigo-600 shrink-0"></i>サムネイル作成</li>
+              <li class="flex gap-3 text-slate-700 text-sm"><i data-lucide="check-circle" class="w-5 h-5 text-indigo-600 shrink-0"></i>アップロード代行</li>
+            </ul>
+            <a href="#contact" class="block w-full py-4 text-center bg-amber-500 text-white rounded font-bold hover:bg-amber-600 transition-colors shadow-lg">
+              このプランで相談する
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden order-2 md:order-3 hover:shadow-md transition-shadow">
+          <div class="bg-slate-800 p-4 text-center border-b border-slate-700">
+            <h3 class="font-serif font-bold text-lg text-white">【松】フルセット</h3>
+            <p class="text-xs text-slate-300 mt-1">全て丸投げ・最短成果</p>
+          </div>
+          <div class="p-6">
+            <div class="text-center mb-6">
+              <span class="text-sm text-slate-500">月額</span>
+              <div class="text-3xl font-bold text-slate-800">200,000<span class="text-sm font-normal ml-1">円〜</span></div>
+              <span class="text-xs text-slate-400">(税抜) ※編集費別途</span>
+            </div>
+            <ul class="space-y-3 mb-8 pl-2">
+              <li class="flex gap-2 text-sm text-slate-600 font-bold"><i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0"></i>スタンダードの内容全て</li>
+              <li class="flex gap-2 text-sm text-slate-600"><i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0"></i>撮影ディレクション・訪問</li>
+              <li class="flex gap-2 text-sm text-slate-600"><i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0"></i>広告運用・活用相談</li>
+              <li class="flex gap-2 text-sm text-slate-600"><i data-lucide="check-circle" class="w-4 h-4 text-slate-400 shrink-0"></i>定例MTG（90分）</li>
+            </ul>
+            <a href="#contact" class="block w-full py-3 text-center border border-slate-300 rounded text-slate-600 font-bold hover:bg-slate-50 transition-colors text-sm">
+              最上位プランで相談
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="text-center mb-16">
+        <span class="text-indigo-600 font-bold tracking-widest text-xs uppercase mb-2 block">FAQ</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 font-serif">よくある質問</h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4" id="faq-list">
+        <div class="border-b border-slate-200">
+          <button class="w-full text-left py-5 px-2 hover:bg-slate-50 transition-colors flex justify-between items-center group" data-faq-button>
+            <span class="font-bold text-slate-800 pr-4 flex items-center group-hover:text-indigo-900 transition-colors">
+              <span class="text-indigo-900 mr-3 text-xl font-serif italic opacity-30">Q.</span> 地方在住ですが依頼できますか？
+            </span>
+            <span class="faq-icon">
+              <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 faq-down"></i>
+              <i data-lucide="chevron-up" class="w-5 h-5 text-slate-400 faq-up hidden"></i>
+            </span>
+          </button>
+          <div class="pb-6 pl-10 pr-4 hidden" data-faq-content>
+            <div class="flex">
+              <span class="text-amber-500 font-bold mr-3 text-xl font-serif italic opacity-50">A.</span>
+              <p class="text-slate-600 leading-relaxed text-sm md:text-base">はい、完全オンラインで完結するため全国どこからでもご依頼いただけます。Zoom等で密にコミュニケーションを取りますのでご安心ください。</p>
+            </div>
+          </div>
+        </div>
+        <div class="border-b border-slate-200">
+          <button class="w-full text-left py-5 px-2 hover:bg-slate-50 transition-colors flex justify-between items-center group" data-faq-button>
+            <span class="font-bold text-slate-800 pr-4 flex items-center group-hover:text-indigo-900 transition-colors">
+              <span class="text-indigo-900 mr-3 text-xl font-serif italic opacity-30">Q.</span> まだチャンネルがありません。立ち上げからお願いできますか？
+            </span>
+            <span class="faq-icon">
+              <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 faq-down"></i>
+              <i data-lucide="chevron-up" class="w-5 h-5 text-slate-400 faq-up hidden"></i>
+            </span>
+          </button>
+          <div class="pb-6 pl-10 pr-4 hidden" data-faq-content>
+            <div class="flex">
+              <span class="text-amber-500 font-bold mr-3 text-xl font-serif italic opacity-50">A.</span>
+              <p class="text-slate-600 leading-relaxed text-sm md:text-base">もちろんです。チャンネルの開設、アイコンやヘッダー画像の設定など、初期設定からまるごとサポートいたします。</p>
+            </div>
+          </div>
+        </div>
+        <div class="border-b border-slate-200">
+          <button class="w-full text-left py-5 px-2 hover:bg-slate-50 transition-colors flex justify-between items-center group" data-faq-button>
+            <span class="font-bold text-slate-800 pr-4 flex items-center group-hover:text-indigo-900 transition-colors">
+              <span class="text-indigo-900 mr-3 text-xl font-serif italic opacity-30">Q.</span> AIを使うと品質が悪くなりませんか？
+            </span>
+            <span class="faq-icon">
+              <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 faq-down"></i>
+              <i data-lucide="chevron-up" class="w-5 h-5 text-slate-400 faq-up hidden"></i>
+            </span>
+          </button>
+          <div class="pb-6 pl-10 pr-4 hidden" data-faq-content>
+            <div class="flex">
+              <span class="text-amber-500 font-bold mr-3 text-xl font-serif italic opacity-50">A.</span>
+              <p class="text-slate-600 leading-relaxed text-sm md:text-base">いいえ、AIはあくまで「作業の効率化」に使います。最終的な言葉のニュアンスや間の取り方は、人の手と目で丁寧に調整しますので、高品質な動画に仕上がります。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 bg-indigo-900 text-white text-center px-4 relative overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1600" alt="Background" class="w-full h-full object-cover opacity-10 blur-sm">
+    </div>
+
+    <div class="container mx-auto max-w-4xl relative z-10">
+      <div class="bg-white/5 backdrop-blur-md rounded-2xl p-8 md:p-16 border border-white/10 shadow-2xl">
+        <div class="inline-block bg-amber-500 text-indigo-950 font-bold px-4 py-1 rounded-full text-xs tracking-wider mb-8">
+          毎月3社限定
+        </div>
+        <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8 leading-tight">
+          あなたの「届けたい想い」を<br>お聞かせください。
+        </h2>
+        <p class="text-indigo-100 text-lg mb-12 leading-relaxed max-w-2xl mx-auto">
+          まずは現状の課題を整理し、YouTube活用の可能性を診断する「壁打ち相談」を無料で行っています。<br>
+          「まだ頼むか分からない」という段階でも構いません。<br>
+          お話できるのを楽しみにしています。
+        </p>
+        <button class="bg-white text-indigo-900 hover:bg-indigo-50 font-bold text-xl px-12 py-5 rounded shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 w-full md:w-auto flex items-center justify-center gap-3 mx-auto group">
+          <i data-lucide="mail" class="w-6 h-6 text-indigo-900"></i>
+          無料相談に申し込む
+          <i data-lucide="arrow-right" class="w-5 h-5 text-indigo-300 group-hover:translate-x-1 transition-transform"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-900">
+    <div class="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <div class="font-serif font-bold text-xl text-white mb-2">YouTube運用パートナー</div>
+        <p class="text-xs">コーチ・講師・カウンセラー専門動画制作</p>
+      </div>
+      <div class="flex gap-6 text-xs">
+        <a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a>
+        <a href="#" class="hover:text-white transition-colors">特定商取引法に基づく表記</a>
+      </div>
+      <div class="text-xs">
+        &copy; <span id="year"></span> YouTube Partner. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    const header = document.getElementById('site-header');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    const setHeaderState = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-white/95', 'shadow-md', 'py-3');
+        header.classList.remove('bg-white/50', 'backdrop-blur-sm', 'py-4');
+      } else {
+        header.classList.remove('bg-white/95', 'shadow-md', 'py-3');
+        header.classList.add('bg-white/50', 'backdrop-blur-sm', 'py-4');
+      }
+    };
+
+    setHeaderState();
+    window.addEventListener('scroll', setHeaderState);
+
+    menuBtn.addEventListener('click', () => {
+      const isHidden = mobileNav.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden', !isHidden);
+      closeIcon.classList.toggle('hidden', isHidden);
+      menuBtn.setAttribute('aria-expanded', String(!isHidden));
+    });
+
+    document.querySelectorAll('[data-close-menu]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (!mobileNav.classList.contains('hidden')) {
+          mobileNav.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    const faqButtons = document.querySelectorAll('[data-faq-button]');
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const isOpen = !content.classList.contains('hidden');
+
+        faqButtons.forEach((btn) => {
+          const panel = btn.nextElementSibling;
+          const downIcon = btn.querySelector('.faq-down');
+          const upIcon = btn.querySelector('.faq-up');
+          panel.classList.add('hidden');
+          if (downIcon) downIcon.classList.remove('hidden');
+          if (upIcon) upIcon.classList.add('hidden');
+        });
+
+        if (!isOpen) {
+          const downIcon = button.querySelector('.faq-down');
+          const upIcon = button.querySelector('.faq-up');
+          content.classList.remove('hidden');
+          if (downIcon) downIcon.classList.add('hidden');
+          if (upIcon) upIcon.classList.remove('hidden');
+        }
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -31,17 +31,33 @@
     }
 
     :root {
-      --green: #0f3d2e;
-      --mint: #e4f2ea;
-      --cream: #f9f5ec;
-      --line: #d7e6de;
-      --text: #0f1f1a;
-      --accent: #f0a532;
-      --ink: #0d2b21;
-      --shadow: 0 20px 50px rgba(0, 0, 0, .08);
-      --orange: #f7c27c;
-      --sand: #f3e7d6;
-      --sea: #1f6f5a;
+      /* Core Palette - Deep & Rich */
+      --green: #0b3326;
+      --mint: #eef7f3;
+      --mint-dark: #c8e1d6;
+      --cream: #fbf9f5;
+      --white: #ffffff;
+
+      /* Accents */
+      --accent: #d4a04d;
+      --orange: #f2bd78;
+
+      /* Text */
+      --text: #1a2e28;
+      --text-light: #486358;
+      --ink: #052018;
+
+      /* UI Elements */
+      --line: #dbebe3;
+      --line-strong: #bfd6cc;
+      --sea: #16614e;
+
+      /* Effects */
+      --shadow-sm: 0 2px 4px rgba(5, 32, 24, 0.04), 0 1px 2px rgba(5, 32, 24, 0.02);
+      --shadow-md: 0 8px 16px rgba(5, 32, 24, 0.06), 0 4px 8px rgba(5, 32, 24, 0.03);
+      --shadow-lg: 0 24px 48px rgba(5, 32, 24, 0.08), 0 12px 24px rgba(5, 32, 24, 0.04);
+      --glass: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(255, 255, 255, 0.4);
     }
 
     html {
@@ -51,20 +67,52 @@
     *,
     *::before,
     *::after {
-      box-sizing: border-box;
+      box-sizing: border-box
     }
 
     body {
       margin: 0;
       font-family: "Noto Sans JP", "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
-      background: #fbfaf8;
-      overflow-x: hidden;
+      background: var(--cream);
+      /* Keeping index specific background image or reverting to study page style? 
+         Index has specific hero image, let's keep body mostly clean but match vars. */
+    }
+
+    .hero {
+      background: url('./img/tateBG.png') center/cover no-repeat;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+      padding: 60px 0;
+    }
+
+    /* Hero Text Color Override */
+    .hero h1,
+    .hero p,
+    .hero small {
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Kanji & Hiragana Sizing */
+    .jp-kanji {
+      font-size: 1em;
+    }
+
+    .jp-hiragana {
+      font-size: 0.7em;
     }
 
     a {
       text-decoration: none;
-      color: inherit
+      color: inherit;
+      transition: color 0.2s ease;
     }
 
     img {
@@ -72,234 +120,375 @@
       display: block;
     }
 
+    /* Header & Nav */
     header {
       position: sticky;
       top: 0;
-      background: #ffffffcc;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(22, 97, 78, 0.08);
       z-index: 1200;
-      /* モバイルメニューはヘッダー外に出し、上に重ねる */
-      box-shadow: 0 8px 30px rgba(0, 0, 0, .04)
     }
 
     .container {
-      max-width: 1180px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 20px 24px
+      padding: 0 32px;
     }
 
     .nav {
       display: flex;
-      gap: 20px;
+      gap: 32px;
       align-items: center;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 15px;
-      color: var(--ink);
-      position: relative;
-      letter-spacing: 0.02em
+      color: var(--text);
+      letter-spacing: 0.03em;
+      height: 72px;
     }
 
-    .nav a:hover {
-      color: var(--sea)
+    .nav a:not(.btn):hover {
+      color: var(--sea);
     }
 
     .nav .sp {
-      flex: 1
+      flex: 1;
     }
 
     .nav .header-logo img {
-      height: 48px;
+      height: 44px;
       vertical-align: middle;
+      transition: transform 0.3s ease;
+    }
+
+    .header-logo:hover img {
+      transform: scale(1.05);
     }
 
     .dropdown {
       position: relative;
-      display: inline-block
+      display: inline-block;
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
 
     .dropdown-menu {
       position: absolute;
       top: 100%;
-      left: 0;
-      min-width: 180px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      min-width: 220px;
       background: #fff;
-      border: 1px solid #eef2f0;
-      border-radius: 16px;
-      box-shadow: 0 18px 36px rgba(0, 0, 0, .08);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
       padding: 8px;
       display: none;
       z-index: 20;
-      margin-top: 10px;
       opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity .2s, transform .2s;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .dropdown-menu.active {
       display: block;
       opacity: 1;
-      transform: translateY(0)
+      transform: translateX(-50%) translateY(0);
     }
 
     .dropdown-menu a {
       display: block;
       padding: 12px 16px;
-      color: var(--ink);
-      font-weight: 600;
-      border-radius: 10px
+      color: var(--text);
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s;
     }
 
     .dropdown-menu a:hover {
-      background: #f3f8f6
+      background: var(--mint);
+      color: var(--sea);
     }
 
+    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      padding: 13px 22px;
-      border-radius: 16px;
-      border: 1px solid var(--green);
-      background: linear-gradient(120deg, #176148, #0f3d2e);
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: 100px;
+      border: none;
+      background: var(--sea);
       color: #fff;
       font-weight: 700;
-      box-shadow: 0 12px 28px rgba(15, 61, 46, .2), 0 2px 4px rgba(0, 0, 0, .05);
-      letter-spacing: 0.03em;
-      transition: .2s all
-    }
-
-    .btn.secondary {
-      background: #fff;
-      border: 1px solid var(--line);
-      color: var(--ink);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, .06)
+      font-size: 15px;
+      box-shadow: 0 4px 12px rgba(22, 97, 78, 0.25);
+      letter-spacing: 0.05em;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(15, 61, 46, .25), 0 4px 8px rgba(0, 0, 0, .05);
-      filter: brightness(1.05)
+      box-shadow: 0 8px 20px rgba(22, 97, 78, 0.35);
+      background: #0f4d3d;
+      filter: none;
+      /* Reset index filter */
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid var(--text-light);
+      color: var(--text);
+      box-shadow: none;
     }
 
     .btn.secondary:hover {
-      box-shadow: 0 14px 30px rgba(0, 0, 0, .1)
+      border-color: var(--sea);
+      color: var(--sea);
+      background: rgba(22, 97, 78, 0.03);
+      box-shadow: none;
     }
 
+    /* Typography */
     h1,
     h2,
     h3,
     h4 {
       margin: 0;
       color: var(--ink);
-      letter-spacing: -0.02em;
-      font-family: 'CraftMincho', "Space Grotesk", sans-serif
+      font-family: 'CraftMincho', serif;
+      font-feature-settings: "palt";
+      letter-spacing: 0.05em;
     }
 
     h1 {
-      font-size: clamp(36px, 5vw, 56px);
-      line-height: 1.25;
-      letter-spacing: .05em;
-    }
-
-    h1 .jp-hiragana,
-    h2 .jp-hiragana {
-      font-size: 0.8em;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.15;
     }
 
     h2 {
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.2;
-      letter-spacing: .05em;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.3;
+      margin-bottom: 16px;
     }
 
     h3 {
-      font-size: clamp(20px, 2.5vw, 24px)
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 600;
     }
 
+    p {
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      color: var(--text-light);
+    }
+
+    /* Section & Head */
     section {
-      padding: 80px 24px
+      padding: 100px 0;
+      /* Updated padding */
+      position: relative;
     }
 
     .section-head {
       text-align: center;
-      margin-bottom: 48px
+      margin-bottom: 72px;
+      /* Updated margin */
+      position: relative;
     }
 
     .section-head small {
-      display: block;
-      color: var(--sea);
-      font-weight: 700;
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
-      font-family: "Space Grotesk", sans-serif
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
     }
 
     .section-head p {
-      max-width: 640px;
-      margin: 12px auto 0;
-      color: #335649;
-      line-height: 1.8
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--text-light);
     }
 
-    .hero {
-      padding: 120px 24px 100px;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764646793/2_nx3zef.png');
-      background-size: cover;
-      background-position: center;
-      color: #fff;
+    /* Hamburger & Mobile Menu Styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4200;
+      width: 48px;
+      height: 48px;
+      justify-content: center;
+      align-items: center;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .hero-inner {
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 320px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -8px 0 30px rgba(0, 0, 0, 0.1);
+      z-index: 4000;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding-top: 80px;
+      pointer-events: none;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+      pointer-events: auto;
+    }
+
+    .mobile-menu-content {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 28px;
+      gap: 8px;
+      padding: 24px;
+      height: 100%;
+      overflow-y: auto;
     }
 
-    .hero h1,
-    .hero p,
-    .hero small {
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    .mobile-menu-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0 12px;
     }
 
-    .hero p {
-      font-size: 18px;
-      max-width: 680px;
-      margin: 0 auto 28px;
-      line-height: 1.85
+    .mobile-menu-link {
+      display: block;
+      padding: 14px 16px;
+      color: var(--ink);
+      font-weight: 600;
+      border-radius: 12px;
+      background: transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
     }
 
-    .card {
-      background: #fff;
-      border: 1px solid #eef2f0;
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .02), 0 20px 45px rgba(0, 0, 0, .06);
-      transition: .25s transform, .25s box-shadow
+    .mobile-menu-link:hover,
+    .mobile-menu-link:active {
+      background: var(--mint);
+      color: var(--sea);
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .02), 0 28px 60px rgba(0, 0, 0, .09)
+    .mobile-menu-logo {
+      padding: 0 28px 20px;
+      text-align: left;
     }
 
-    .card h3 {
-      margin-bottom: 12px
+    .mobile-menu-divider {
+      height: 1px;
+      background: var(--line);
+      margin: 12px 24px;
+      opacity: 0.6;
     }
 
-    .mini {
-      font-size: 16px;
-      color: #335649;
-      line-height: 1.75
+    .mobile-menu-cta {
+      background: var(--sea) !important;
+      color: #fff !important;
+      text-align: center;
+      margin-top: 12px;
+      box-shadow: 0 4px 12px rgba(22, 97, 78, 0.2);
     }
+
+    .mobile-menu-cta:active {
+      transform: scale(0.98);
+    }
+
+    .mobile-menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(5, 32, 24, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 3500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .mobile-menu-backdrop.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @media(max-width:768px) {
+      .nav {
+        justify-content: space-between;
+        padding: 0 20px;
+        height: 60px;
+        /* Mobile height */
+      }
+
+      .nav .sp,
+      .nav-link,
+      .nav-placeholder,
+      .nav .btn,
+      .dropdown {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex !important;
+        position: static;
+        transform: none;
+      }
+
+      .header-logo {
+        margin: 0;
+      }
+
+      .header-logo img {
+        height: 36px !important;
+      }
+    }
+
 
     /* Voices Cards */
     #voices .voice-bubbles {
@@ -1103,7 +1292,7 @@
         <!-- S-san (Coming Soon) -->
         <div class="voice-card fade-up" style="transition-delay:.25s; opacity:0.7; cursor:default;">
           <div class="voice-avatar-block" style="filter:grayscale(100%);">
-            <div class="voice-avatar"><img src="./dummy_s_san.png" alt="Sさん"></div>
+            <div class="voice-avatar"><img src="./img/dummy_s_san.png" alt="Sさん"></div>
             <div class="voice-title">NPO法人N</div>
             <div class="voice-meta">Sさん</div>
             <span class="voice-tag" style="background:#ddd; color:#666; border-color:#ccc;">準備中</span>

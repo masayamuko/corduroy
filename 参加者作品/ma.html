@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>As iZ Media Arts Program - ありのままの心を育む</title>
+
+    <!-- Google Fonts: Zen Maru Gothic & Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'asiz-cream': '#FAFAF5',
+                        'asiz-beige': '#F0EFE9',
+                        'asiz-brown': '#4A4036',
+                        'asiz-text': '#333333',
+                        'asiz-blue': '#A8D0E6',
+                        'asiz-pink': '#F4B6C2',
+                        'asiz-green': '#A0E8AF',
+                        'asiz-yellow': '#FDE992',
+                        'asiz-orange': '#F7C59F'
+                    },
+                    fontFamily: {
+                        sans: ['"Zen Maru Gothic"', 'sans-serif'],
+                        eng: ['"Nunito"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for Organic Shapes & Smoothness */
+        body {
+            background-color: #FAFAF5;
+            color: #333333;
+            font-feature-settings: "palt";
+        }
+
+        .blob-shape {
+            position: absolute;
+            filter: blur(40px);
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .handwritten-border {
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+        }
+
+        .organic-btn {
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .organic-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Smooth Anchor Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Card Hover Effect */
+        .feature-card {
+            transition: transform 0.3s ease-out;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Cycle Diagram Styles */
+        .cycle-item {
+            @apply flex flex-col items-center justify-center text-center p-4 bg-white/80 rounded-full shadow-sm w-32 h-32 md:w-40 md:h-40 border-4 border-white;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased leading-relaxed overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-[#FAFAF5]/90 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-xl md:text-2xl font-bold text-asiz-brown tracking-widest font-eng">
+                As iZ
+            </div>
+            <nav class="hidden md:flex space-x-8 text-asiz-brown font-medium">
+                <a href="#about" class="hover:text-asiz-pink transition-colors">As iZについて</a>
+                <a href="#program" class="hover:text-asiz-blue transition-colors">プログラムの特徴</a>
+                <a href="#voice" class="hover:text-asiz-green transition-colors">導入の理由</a>
+            </nav>
+            <a href="#trial"
+                class="organic-btn bg-asiz-pink text-white px-6 py-2 rounded-full font-bold shadow-md hover:bg-[#EE9CA7] flex items-center gap-2">
+                <i class="fa-solid fa-paper-plane text-sm"></i>
+                <span class="text-sm md:text-base">トライアル体験</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Area -->
+    <section
+        class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden flex items-center justify-center min-h-[85vh]">
+        <!-- Background Blobs -->
+        <div class="blob-shape bg-asiz-blue w-64 h-64 rounded-full top-10 -left-10 mix-blend-multiply animate-blob">
+        </div>
+        <div
+            class="blob-shape bg-asiz-pink w-72 h-72 rounded-full top-0 -right-10 mix-blend-multiply animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="blob-shape bg-asiz-yellow w-80 h-80 rounded-full -bottom-20 left-20 mix-blend-multiply animate-blob animation-delay-4000">
+        </div>
+
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-asiz-brown mb-6 leading-tight">
+                ありのままがいい。<br>
+                <span class="relative inline-block mt-2">
+                    完璧な私ならもうここにいる。
+                    <svg class="absolute w-full h-3 -bottom-1 left-0 text-asiz-yellow opacity-60" viewBox="0 0 100 10"
+                        preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" />
+                    </svg>
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                評価も採点もない「As iZ（ありのまま）」の時間で、<br class="hidden md:block">
+                子どもたちの <strong class="text-asiz-pink">心の回復力</strong> を育み、自ら立ち上がる力を支えます。
+            </p>
+
+            <div class="flex flex-col items-center gap-4">
+                <a href="#trial"
+                    class="organic-btn bg-gradient-to-r from-asiz-pink to-[#F0A0B0] text-white text-lg md:text-xl font-bold px-10 py-4 rounded-full shadow-lg transform transition hover:scale-105 flex items-center gap-3">
+                    トライアルワークショップを見てみる
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </a>
+
+                <!-- Hero Image Placeholder -->
+                <div class="mt-12 relative w-full max-w-4xl mx-auto">
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-asiz-blue via-asiz-pink to-asiz-yellow rounded-[2rem] blur opacity-30">
+                    </div>
+                    <div
+                        class="relative bg-white rounded-[2rem] overflow-hidden shadow-xl aspect-video md:aspect-[21/9]">
+                        <!-- Replace src with actual image of children smiling/interacting with cameras -->
+                        <img src="https://images.unsplash.com/photo-1536337005238-94b997371b40?q=80&w=2069&auto=format&fit=crop"
+                            alt="カメラを持って笑顔を見せる子どもたち"
+                            class="w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-700">
+                        <div class="absolute inset-0 bg-asiz-brown/10 mix-blend-multiply"></div>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="mt-8 flex flex-wrap justify-center gap-6 text-gray-500 text-sm font-bold opacity-80">
+                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                        <i class="fa-brands fa-canadian-maple-leaf text-asiz-pink"></i>
+                        カナダ全土で信頼されるプログラム
+                    </div>
+                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                        <i class="fa-solid fa-user-doctor text-asiz-blue"></i>
+                        精神科医・専門家推奨
+                    </div>
+                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                        <i class="fa-solid fa-history text-asiz-green"></i>
+                        30年の実績
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Section -->
+    <section id="about" class="py-20 bg-asiz-beige/50 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-asiz-brown mb-4">
+                    カナダから届いた、<br class="md:hidden">心を育てる30年のバトン。
+                </h2>
+                <div class="w-16 h-1 bg-asiz-orange mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    私たちは30年以上にわたり、若者たちの「言葉にならない声」に耳を傾け続けてきました。<br>
+                    ただ「変える」のではなく、一人ひとりに「寄り添う」ことから始めています。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Stat 1 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm text-center handwritten-border transform rotate-1 hover:rotate-0 transition duration-300">
+                    <div class="text-4xl font-eng font-bold text-asiz-pink mb-2">30<span class="text-xl">years</span>
+                    </div>
+                    <p class="font-bold text-gray-700 mb-2">歴史と実績</p>
+                    <p class="text-sm text-gray-500">北米を中心に、数多くの子どもたちの成長を見守り続けてきました。</p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm text-center handwritten-border transform -rotate-1 hover:rotate-0 transition duration-300 relative z-10">
+                    <div class="text-4xl font-eng font-bold text-asiz-blue mb-2">McGill</div>
+                    <p class="font-bold text-gray-700 mb-2">医学的・科学的根拠</p>
+                    <p class="text-sm text-gray-500">マギル大学の研究により、プログラムの有効性が実証されています。</p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm text-center handwritten-border transform rotate-1 hover:rotate-0 transition duration-300">
+                    <div class="text-4xl font-eng font-bold text-asiz-green mb-2">97<span class="text-xl">%</span></div>
+                    <p class="font-bold text-gray-700 mb-2">ポジティブな変化</p>
+                    <p class="text-sm text-gray-500">参加した子どもたちのほとんどが、自己肯定感の向上を実感しています。</p>
+                </div>
+            </div>
+
+            <p class="text-center text-xs text-gray-400 mt-8">※ Based on LOVE (Leave Out Violence Everywhere) program
+                impact reports.</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12 max-w-6xl">
+            <div class="md:w-1/2">
+                <!-- Illustration Placeholder -->
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 bg-asiz-yellow rounded-full blur-3xl opacity-20 transform translate-x-4 translate-y-4">
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop"
+                        alt="多様な人々が手を取り合うイメージ"
+                        class="relative rounded-[2rem] shadow-lg w-full h-auto object-cover grayscale-[20%] sepia-[10%] hover:grayscale-0 transition duration-500">
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <span class="text-asiz-pink font-bold tracking-wider text-sm mb-2 block">OUR STORY</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-asiz-brown mb-6">
+                    誰も置いていかない。<br>
+                    「As iZ（ありのまま）」を<br>大切にする理由。
+                </h2>
+                <div class="space-y-4 text-gray-600 leading-relaxed">
+                    <p>
+                        創設者トゥインクル・ルドバーグは、かつて暴力の連鎖に苦しむ若者たちを目の当たりにしました。
+                    </p>
+                    <p>
+                        「加害者も被害者も生まない社会を作りたい」
+                    </p>
+                    <p>
+                        その強い願いから、このプログラムは生まれました。As iZという名前には、「As is（ありのまま）」を受け入れ、「A to Z（すべての人）」を含み込む多様性への敬意が込められています。
+                    </p>
+                    <p>
+                        私たちは、アートと対話を通じて、子どもたちが自分自身の物語を愛せるようサポートし続けます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & EQ Section -->
+    <section class="py-20 bg-asiz-cream relative overflow-hidden">
+        <!-- Decoration -->
+        <svg class="absolute top-0 left-0 w-full h-24 text-white transform -scale-y-100" viewBox="0 0 1440 320"
+            preserveAspectRatio="none">
+            <path fill="currentColor" fill-opacity="1"
+                d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+
+        <div class="container mx-auto px-4 mt-12 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-asiz-brown mb-4">
+                「言葉にできない感情」が、<br>行き場を失っていませんか？
+            </h2>
+            <p class="text-gray-600 mb-12">
+                世界経済フォーラムでも注目される「EQ（心の知能指数）」を高める5つのスキル。<br>
+                これらは机上の学習ではなく、体験の中でこそ育まれます。
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <!-- EQ Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm w-40 md:w-48 feature-card border-b-4 border-asiz-blue">
+                    <div
+                        class="w-12 h-12 bg-asiz-blue/20 rounded-full flex items-center justify-center mx-auto mb-4 text-asiz-blue">
+                        <i class="fa-regular fa-face-smile text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-asiz-brown mb-2 text-sm md:text-base">自己認識</h3>
+                    <p class="text-xs text-gray-500">自分の感情に<br>気づく力</p>
+                </div>
+                <!-- EQ Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm w-40 md:w-48 feature-card border-b-4 border-asiz-pink">
+                    <div
+                        class="w-12 h-12 bg-asiz-pink/20 rounded-full flex items-center justify-center mx-auto mb-4 text-asiz-pink">
+                        <i class="fa-solid fa-sliders text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-asiz-brown mb-2 text-sm md:text-base">自己管理</h3>
+                    <p class="text-xs text-gray-500">感情をコントロールし意欲に変える力</p>
+                </div>
+                <!-- EQ Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm w-40 md:w-48 feature-card border-b-4 border-asiz-green">
+                    <div
+                        class="w-12 h-12 bg-asiz-green/20 rounded-full flex items-center justify-center mx-auto mb-4 text-asiz-green">
+                        <i class="fa-solid fa-hand-holding-heart text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-asiz-brown mb-2 text-sm md:text-base">共感</h3>
+                    <p class="text-xs text-gray-500">他者の気持ちを<br>理解し寄り添う力</p>
+                </div>
+                <!-- EQ Card 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm w-40 md:w-48 feature-card border-b-4 border-asiz-yellow">
+                    <div
+                        class="w-12 h-12 bg-asiz-yellow/20 rounded-full flex items-center justify-center mx-auto mb-4 text-asiz-orange">
+                        <i class="fa-solid fa-users text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-asiz-brown mb-2 text-sm md:text-base">関係管理</h3>
+                    <p class="text-xs text-gray-500">周囲と良好な<br>関係を築く力</p>
+                </div>
+                <!-- EQ Card 5 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm w-40 md:w-48 feature-card border-b-4 border-asiz-brown">
+                    <div
+                        class="w-12 h-12 bg-asiz-brown/20 rounded-full flex items-center justify-center mx-auto mb-4 text-asiz-brown">
+                        <i class="fa-solid fa-compass text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-asiz-brown mb-2 text-sm md:text-base">責任ある意思決定</h3>
+                    <p class="text-xs text-gray-500">状況を理解し<br>適切な行動を選ぶ力</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section (MAP) -->
+    <section id="program" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-asiz-blue font-bold tracking-wider text-sm mb-2 block">SOLUTION</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-asiz-brown">
+                    アート（写真）× 対話で育む<br>
+                    メディア・アーツ・プログラム(MAP)
+                </h2>
+            </div>
+
+            <!-- 5 Features -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 max-w-6xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="flex flex-col items-center text-center p-6">
+                    <div
+                        class="w-20 h-20 bg-asiz-yellow/30 rounded-full flex items-center justify-center mb-4 blob-animation">
+                        <i class="fa-solid fa-shapes text-3xl text-asiz-orange"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">1. Playful (楽しむ)</h3>
+                    <p class="text-gray-600 text-sm">勉強ではなく、遊びのような感覚で。楽しみながら自然とEQを高めます。</p>
+                </div>
+                <!-- Feature 2: Highlighted -->
+                <div
+                    class="flex flex-col items-center text-center p-8 bg-asiz-cream rounded-[2rem] border-2 border-asiz-pink/20 shadow-lg transform -translate-y-2">
+                    <div class="w-24 h-24 bg-asiz-pink/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-camera text-4xl text-asiz-pink"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2 text-asiz-pink">2. Easy Art (写真表現)</h3>
+                    <p class="text-gray-600">絵が苦手でも大丈夫。「カメラ」を通すことで、言葉にできない感情を誰でも簡単に表現できます。</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="flex flex-col items-center text-center p-6">
+                    <div class="w-20 h-20 bg-asiz-green/30 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-shield-heart text-3xl text-asiz-green"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">3. Safe Space (安心安全)</h3>
+                    <p class="text-gray-600 text-sm">評価・判断・採点をしない。どんな自分を出しても否定されない環境を守ります。</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="flex flex-col items-center text-center p-6 lg:ml-auto">
+                    <div class="w-20 h-20 bg-asiz-blue/30 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-binoculars text-3xl text-asiz-blue"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">4. Risk Catch (SOS察知)</h3>
+                    <p class="text-gray-600 text-sm">楽しい活動の中で、子どもの小さな変化や発するSOSをいち早くキャッチします。</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="flex flex-col items-center text-center p-6 lg:mr-auto">
+                    <div class="w-20 h-20 bg-asiz-brown/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-seedling text-3xl text-asiz-brown"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">5. Mental Health (心の健康)</h3>
+                    <p class="text-gray-600 text-sm">問題が起きる前の「予防的アプローチ」で、心の健康と回復力を促進します。</p>
+                </div>
+            </div>
+
+            <!-- Cycle Diagram (Simplified CSS Representation) -->
+            <div class="bg-asiz-beige/30 py-16 rounded-[3rem] text-center relative overflow-hidden">
+                <h3 class="font-bold text-asiz-brown mb-10">As iZの好循環サイクル</h3>
+
+                <div class="relative w-full max-w-md mx-auto aspect-square flex items-center justify-center">
+                    <!-- Circular dashed line -->
+                    <div class="absolute inset-0 rounded-full border-4 border-dashed border-asiz-green/30 animate-spin-slow"
+                        style="animation-duration: 60s;"></div>
+
+                    <!-- Center -->
+                    <div
+                        class="absolute z-10 bg-asiz-brown text-white w-32 h-32 rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
+                        EQ向上<br>心の回復
+                    </div>
+
+                    <!-- Nodes -->
+                    <div
+                        class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6 bg-white px-4 py-2 rounded-full shadow-sm text-sm font-bold text-asiz-pink">
+                        自己表現
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-6 bg-white px-4 py-2 rounded-full shadow-sm text-sm font-bold text-asiz-blue">
+                        自己受容
+                    </div>
+                    <div
+                        class="absolute left-0 top-1/2 transform -translate-x-6 -translate-y-1/2 bg-white px-4 py-2 rounded-full shadow-sm text-sm font-bold text-asiz-green">
+                        共感
+                    </div>
+                    <div
+                        class="absolute right-0 top-1/2 transform translate-x-6 -translate-y-1/2 bg-white px-4 py-2 rounded-full shadow-sm text-sm font-bold text-asiz-yellow">
+                        関係構築
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Why Section -->
+    <section id="voice" class="py-20 bg-asiz-brown text-asiz-cream relative">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <i class="fa-solid fa-quote-left text-4xl text-asiz-beige/20 mb-6"></i>
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 leading-relaxed">
+                安心できる人間関係の構築には<br>
+                「継続的な時間」と「仲間」が必要です。
+            </h2>
+            <div class="text-left md:text-center space-y-6 text-lg font-light leading-loose opacity-90">
+                <p>
+                    心の変化には時間がかかります。だからこそ、As iZは12〜22週間という期間を大切にしています。
+                </p>
+                <p>
+                    一過性のイベントのような「点」ではなく、「線」で寄り添い続けること。<br class="hidden md:block">
+                    そうすることで、子どもたちは安心して心を開き、<br class="hidden md:block">
+                    自分たちで支え合う力を身につけていきます。
+                </p>
+                <p>
+                    これは、先生方にとっても、<br>
+                    <span
+                        class="text-asiz-yellow font-bold border-b border-asiz-yellow">生徒たちが互いに支え合うクラス作り</span>への大きな一歩となります。
+                </p>
+            </div>
+            <i class="fa-solid fa-quote-right text-4xl text-asiz-beige/20 mt-6"></i>
+        </div>
+    </section>
+
+    <!-- Offer Section (Trial) -->
+    <section id="trial" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-white to-asiz-pink/10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div
+                class="max-w-4xl mx-auto bg-white rounded-[3rem] shadow-2xl p-8 md:p-16 text-center border-4 border-asiz-cream">
+                <span
+                    class="bg-asiz-pink text-white px-4 py-1 rounded-full text-sm font-bold mb-6 inline-block">学校・教育施設・自治体様向け</span>
+
+                <h2 class="text-2xl md:text-4xl font-bold text-asiz-brown mb-6">
+                    まずは、子どもたちが楽しめそうか、<br>体験してください。
+                </h2>
+                <p class="text-gray-600 mb-10">
+                    いきなりの導入はハードルが高いと思います。<br>
+                    まずは1回完結のワークショップで、子どもたちの表情がどう変わるか、<br>
+                    その目で確かめてみませんか？
+                </p>
+
+                <!-- 修正：手書き風のデザインに変更し、サイト全体のトーンと統一 -->
+                <div
+                    class="relative bg-white p-8 md:p-10 mb-12 text-left md:w-3/4 mx-auto handwritten-border shadow-lg transform rotate-1 border border-asiz-brown/10">
+                    <!-- マスキングテープ風のあしらい -->
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-asiz-pink/40 opacity-90 rotate-[-2deg] shadow-sm backdrop-blur-sm"
+                        style="mask-image: linear-gradient(45deg, transparent 5px, black 5px); -webkit-mask-image: linear-gradient(45deg, transparent 0, black 0);">
+                    </div>
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-asiz-pink/30 -rotate-1"
+                        style="clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%);">
+                    </div>
+
+                    <h3 class="font-bold text-center text-xl mb-6 text-asiz-brown pb-2 relative inline-block w-full">
+                        トライアルワークショップ概要
+                        <span
+                            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-asiz-yellow rounded-full opacity-60"></span>
+                    </h3>
+
+                    <ul class="space-y-4 text-gray-700">
+                        <li
+                            class="flex items-start gap-4 p-3 rounded-lg hover:bg-asiz-cream transition-colors duration-300">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-asiz-pink/20 rounded-full flex items-center justify-center text-asiz-pink shadow-sm">
+                                <i class="fa-regular fa-clock text-lg"></i>
+                            </div>
+                            <div class="pt-1">
+                                <span class="font-bold text-asiz-brown block mb-1 text-sm">時間</span>
+                                <span class="text-base">60〜90分（学校や施設のスケジュールに柔軟に対応します）</span>
+                            </div>
+                        </li>
+                        <li
+                            class="flex items-start gap-4 p-3 rounded-lg hover:bg-asiz-cream transition-colors duration-300">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-asiz-blue/20 rounded-full flex items-center justify-center text-asiz-blue shadow-sm">
+                                <i class="fa-solid fa-camera-retro text-lg"></i>
+                            </div>
+                            <div class="pt-1">
+                                <span class="font-bold text-asiz-brown block mb-1 text-sm">内容</span>
+                                <span class="text-base">カメラを使った「感情の可視化」体験ワーク</span>
+                            </div>
+                        </li>
+                        <li
+                            class="flex items-start gap-4 p-3 rounded-lg hover:bg-asiz-cream transition-colors duration-300">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-asiz-green/20 rounded-full flex items-center justify-center text-asiz-green shadow-sm">
+                                <i class="fa-solid fa-map-location-dot text-lg"></i>
+                            </div>
+                            <div class="pt-1">
+                                <span class="font-bold text-asiz-brown block mb-1 text-sm">対象</span>
+                                <span class="text-base">福岡エリアの学校・教育施設様</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p
+                        class="mt-6 text-xs text-center text-gray-400 bg-asiz-beige/30 py-2 rounded-full mx-auto w-fit px-6">
+                        <i class="fa-solid fa-circle-info mr-1"></i> 導入義務はありません。「まずは見て判断する」ためにお使いください。
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="#contact"
+                        class="organic-btn bg-asiz-pink text-white text-lg font-bold px-10 py-4 rounded-full shadow-lg hover:bg-[#EE9CA7] flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-comment-dots"></i>
+                        トライアルについて相談する
+                    </a>
+                    <a href="#"
+                        class="organic-btn bg-white text-asiz-brown border-2 border-asiz-brown/10 text-lg font-bold px-8 py-4 rounded-full shadow-sm hover:bg-gray-50 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-file-arrow-down text-asiz-blue"></i>
+                        詳細資料をダウンロード
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-asiz-cream pt-20 pb-10 border-t border-asiz-brown/10">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl font-bold text-asiz-brown mb-2">お問い合わせ</h2>
+                <p class="text-gray-500 text-sm">些細なことでも、お気軽にご連絡ください。<br>As iZのスタッフが丁寧にお答えします。</p>
+            </div>
+
+            <!-- Hand-written style form -->
+            <form class="space-y-6 bg-white p-8 md:p-12 rounded-xl shadow-sm handwritten-border">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">学校・団体名</label>
+                    <input type="text"
+                        class="w-full bg-asiz-beige/30 border-b-2 border-gray-200 focus:border-asiz-pink focus:outline-none p-3 transition-colors rounded-t-md"
+                        placeholder="例：福岡市立〇〇中学校">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">お名前</label>
+                    <input type="text"
+                        class="w-full bg-asiz-beige/30 border-b-2 border-gray-200 focus:border-asiz-pink focus:outline-none p-3 transition-colors rounded-t-md"
+                        placeholder="例：佐藤 太郎">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">メールアドレス</label>
+                    <input type="email"
+                        class="w-full bg-asiz-beige/30 border-b-2 border-gray-200 focus:border-asiz-pink focus:outline-none p-3 transition-colors rounded-t-md"
+                        placeholder="example@school.ed.jp">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">ご相談内容</label>
+                    <textarea rows="4"
+                        class="w-full bg-asiz-beige/30 border-b-2 border-gray-200 focus:border-asiz-pink focus:outline-none p-3 transition-colors rounded-t-md"
+                        placeholder="トライアルに興味があります。〇月頃の実施は可能でしょうか？"></textarea>
+                </div>
+                <div class="pt-4 text-center">
+                    <button type="button"
+                        class="bg-asiz-brown text-white font-bold px-12 py-3 rounded-full hover:bg-gray-700 transition duration-300 shadow-md">
+                        送信する
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-16 text-center text-gray-400 text-sm">
+                <div class="mb-4">
+                    <span class="font-eng font-bold text-xl tracking-widest text-asiz-brown block mb-2">As iZ</span>
+                    <p>一般社団法人 As iZ (アズイズ)</p>
+                </div>
+                <p>&copy; 2025 As iZ Media Arts Program. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

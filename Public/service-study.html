@@ -31,17 +31,36 @@
     }
 
     :root {
-      --green: #0f3d2e;
-      --mint: #e4f2ea;
-      --cream: #f9f5ec;
-      --line: #d7e6de;
-      --text: #0f1f1a;
-      --accent: #f0a532;
-      --ink: #0d2b21;
-      --shadow: 0 20px 50px rgba(0, 0, 0, .08);
-      --orange: #f7c27c;
-      --sand: #f3e7d6;
-      --sea: #1f6f5a;
+      /* Core Palette - Deep & Rich */
+      --green: #0b3326;
+      --mint: #eef7f3;
+      --mint-dark: #c8e1d6;
+      --cream: #fbf9f5;
+      --white: #ffffff;
+
+      /* Accents */
+      --accent: #d4a04d;
+      /* Muted Gold for premium feel */
+      --orange: #f2bd78;
+
+      /* Text */
+      --text: #1a2e28;
+      --text-light: #486358;
+      --ink: #052018;
+      /* Darker, richer black-green */
+
+      /* UI Elements */
+      --line: #dbebe3;
+      --line-strong: #bfd6cc;
+      --sea: #16614e;
+      /* Deep Teal */
+
+      /* Effects */
+      --shadow-sm: 0 2px 4px rgba(5, 32, 24, 0.04), 0 1px 2px rgba(5, 32, 24, 0.02);
+      --shadow-md: 0 8px 16px rgba(5, 32, 24, 0.06), 0 4px 8px rgba(5, 32, 24, 0.03);
+      --shadow-lg: 0 24px 48px rgba(5, 32, 24, 0.08), 0 12px 24px rgba(5, 32, 24, 0.04);
+      --glass: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(255, 255, 255, 0.4);
     }
 
     html {
@@ -58,44 +77,48 @@
       margin: 0;
       font-family: "Noto Sans JP", "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
-      background: #fbfaf8;
+      background: var(--cream);
+      background-image: radial-gradient(circle at 10% 10%, rgba(22, 97, 78, 0.03) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(212, 160, 77, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
     }
 
     a {
       text-decoration: none;
-      color: inherit
+      color: inherit;
+      transition: color 0.2s ease;
     }
 
     header {
       position: sticky;
       top: 0;
-      background: #ffffffcc;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(22, 97, 78, 0.08);
       z-index: 1200;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, .04)
     }
 
     .container {
-      max-width: 1180px;
+      max-width: 1240px;
+      /* Slightly wider for modern feel */
       margin: 0 auto;
-      padding: 20px 24px
+      padding: 0 32px;
     }
 
     .nav {
       display: flex;
-      gap: 20px;
+      gap: 32px;
       align-items: center;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 15px;
-      color: var(--ink);
-      position: relative;
-      letter-spacing: 0.02em
+      color: var(--text);
+      letter-spacing: 0.03em;
+      height: 72px;
     }
 
-    .nav a:hover {
-      color: var(--sea)
+    .nav a:not(.btn):hover {
+      color: var(--sea);
     }
 
     .nav .sp {
@@ -104,202 +127,280 @@
 
     .dropdown {
       position: relative;
-      display: inline-block
+      display: inline-block;
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
 
     .dropdown-menu {
       position: absolute;
       top: 100%;
-      left: 0;
-      min-width: 180px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      min-width: 220px;
       background: #fff;
-      border: 1px solid #eef2f0;
-      border-radius: 16px;
-      box-shadow: 0 18px 36px rgba(0, 0, 0, .08);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
       padding: 8px;
       display: none;
       z-index: 20;
-      margin-top: 10px;
       opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity .2s, transform .2s;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .dropdown-menu.active {
       display: block;
       opacity: 1;
-      transform: translateY(0)
+      transform: translateX(-50%) translateY(0);
     }
 
     .dropdown-menu a {
       display: block;
       padding: 12px 16px;
-      color: var(--ink);
-      font-weight: 600;
-      border-radius: 10px
+      color: var(--text);
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s;
     }
 
     .dropdown-menu a:hover {
-      background: #f3f8f6
+      background: var(--mint);
+      color: var(--sea);
     }
 
+    /* Modern Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      padding: 13px 22px;
-      border-radius: 16px;
-      border: 1px solid var(--green);
-      background: linear-gradient(120deg, #176148, #0f3d2e);
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: 100px;
+      /* Pill shape */
+      border: none;
+      background: var(--sea);
       color: #fff;
       font-weight: 700;
-      box-shadow: 0 12px 28px rgba(15, 61, 46, .2), 0 2px 4px rgba(0, 0, 0, .05);
-      letter-spacing: 0.03em;
-      transition: .2s all
-    }
-
-    .btn.secondary {
-      background: #fff;
-      border: 1px solid var(--line);
-      color: var(--ink);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, .06)
+      font-size: 15px;
+      box-shadow: 0 4px 12px rgba(22, 97, 78, 0.25);
+      letter-spacing: 0.05em;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(15, 61, 46, .25), 0 4px 8px rgba(0, 0, 0, .05);
-      filter: brightness(1.05)
+      box-shadow: 0 8px 20px rgba(22, 97, 78, 0.35);
+      background: #0f4d3d;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid var(--text-light);
+      /* Thin, elegant border */
+      color: var(--text);
+      box-shadow: none;
     }
 
     .btn.secondary:hover {
-      box-shadow: 0 14px 30px rgba(0, 0, 0, .1)
+      border-color: var(--sea);
+      color: var(--sea);
+      background: rgba(22, 97, 78, 0.03);
     }
 
+    /* Typography */
     h1,
     h2,
     h3,
     h4 {
       margin: 0;
       color: var(--ink);
-      letter-spacing: -0.02em;
-      font-family: 'CraftMincho', "Space Grotesk", sans-serif
+      font-family: 'CraftMincho', serif;
+      font-feature-settings: "palt";
     }
 
     h1 {
-      font-size: clamp(36px, 5vw, 56px);
-      line-height: 1.25;
-      letter-spacing: .05em;
-    }
-
-    h1 .jp-hiragana,
-    h2 .jp-hiragana {
-      font-size: 0.8em;
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1.15;
+      letter-spacing: 0.05em;
     }
 
     h2 {
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.2;
-      letter-spacing: .05em;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.3;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
     }
 
     h3 {
-      font-size: clamp(20px, 2.5vw, 24px)
+      font-size: 20px;
+      line-height: 1.5;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    p {
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      color: var(--text-light);
     }
 
     section {
-      padding: 80px 24px
+      padding: 100px 0;
+      position: relative;
     }
 
+    /* Section Headers */
     .section-head {
       text-align: center;
-      margin-bottom: 48px
+      margin-bottom: 72px;
+      position: relative;
     }
 
     .section-head small {
-      display: block;
-      color: var(--sea);
-      font-weight: 700;
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
-      font-family: "Space Grotesk", sans-serif
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
     }
 
     .section-head p {
-      max-width: 640px;
-      margin: 12px auto 0;
-      color: #335649;
-      line-height: 1.8
+      max-width: 600px;
+      margin: 0 auto;
     }
 
+    /* Hero Section */
     .hero {
-      padding: 120px 24px 100px;
+      padding: 160px 0 140px;
+      background: transparent;
+      /* Using body background */
+      text-align: center;
       position: relative;
       overflow: hidden;
-      text-align: center;
-      background: linear-gradient(180deg, #f8f3eb 0%, #fbfaf8 100%);
     }
+
+    /* Subtle texture overlay for Hero */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2316614e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    @keyframes heroPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+    }
+
 
     .hero-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 28px;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
-      margin-bottom: 18px
+      margin-bottom: 32px;
+      background: linear-gradient(135deg, var(--ink) 0%, var(--sea) 60%, var(--ink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      /* Subtle text shadow for depth */
+      text-shadow: 0 20px 40px rgba(22, 97, 78, 0.1);
     }
 
     .hero p {
-      font-size: 18px;
-      color: #234638;
-      max-width: 680px;
-      margin: 0 auto 28px;
-      line-height: 1.85
+      font-size: 20px;
+      color: var(--text);
+      max-width: 760px;
+      margin: 0 auto 40px;
+      line-height: 2;
+      font-weight: 400;
     }
 
+    /* Modern Card Design */
     .card {
       background: #fff;
-      border: 1px solid #eef2f0;
+      border: 1px solid rgba(22, 97, 78, 0.08);
+      /* Very subtle border */
       border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .02), 0 20px 45px rgba(0, 0, 0, .06);
-      transition: .25s transform, .25s box-shadow
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    /* Card glow effect on hover */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--mint) 0%, var(--sea) 50%, var(--mint) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .02), 0 28px 60px rgba(0, 0, 0, .09)
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(22, 97, 78, 0.2);
+    }
+
+    .card:hover::before {
+      opacity: 1;
     }
 
     .card h3 {
-      margin-bottom: 12px
+      font-size: 24px;
+      /* Larger */
+      margin-bottom: 16px;
+      color: var(--ink);
     }
 
-    .mini {
+    .card .mini {
       font-size: 16px;
-      color: #335649;
-      line-height: 1.75
-    }
-
-    .pill {
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: #fff;
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, .06);
-      font-weight: 600;
-      color: #1f3d32
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 0;
+      /* Let flex handle spacing if needed */
     }
 
     .grid {
       display: grid;
-      gap: 24px
+      gap: 32px;
     }
 
-    @media(min-width:720px) {
+    @media(min-width:768px) {
       .grid.cols-3 {
         grid-template-columns: repeat(3, 1fr)
       }
@@ -309,64 +410,174 @@
       }
     }
 
+    /* FAQ Styling */
     .faq details {
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
+      border-radius: 20px;
+      padding: 24px 32px;
       background: #fff;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq details:hover {
+      border-color: var(--sea);
+      box-shadow: var(--shadow-md);
+    }
+
+    .faq details[open] {
+      border-color: var(--sea);
+      background: #fff;
+      box-shadow: var(--shadow-md);
+      padding-bottom: 32px;
     }
 
     .faq summary {
       cursor: pointer;
       font-weight: 700;
-      color: #0f3d2e;
-      font-size: 16px
+      color: var(--ink);
+      font-size: 18px;
+      padding: 4px 0;
+      transition: color 0.2s ease;
+      list-style: none;
+      position: relative;
+      padding-right: 48px;
     }
 
-    ul {
-      margin: 10px 0 0 18px;
-      padding: 0;
-      color: #335649;
-      line-height: 1.8
+    .faq summary::-webkit-details-marker {
+      display: none;
     }
 
-    li {
-      margin-bottom: 8px;
+    .faq summary::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 28px;
+      color: var(--sea);
+      font-weight: 300;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    .faq details[open] summary::after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .faq details[open] summary {
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+    }
+
+    .faq summary:hover {
+      color: var(--sea);
+    }
+
+    /* Icon styling */
     .icon-lg {
-      font-size: 32px;
-      margin-bottom: 12px;
+      font-size: 64px;
+      margin-bottom: 32px;
       color: var(--sea);
       line-height: 1;
-      display: inline-block;
-      background: linear-gradient(135deg, var(--mint), #cde8de);
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, .05)
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #fff 0%, var(--mint) 100%);
+      border-radius: 40px;
+      /* Squircleish */
+      border: 1px solid var(--white);
+      box-shadow:
+        0 16px 32px rgba(22, 97, 78, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 1);
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    .fade-up.is-visible .icon-lg:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow:
+        0 24px 48px rgba(22, 97, 78, 0.15),
+        inset 0 2px 4px rgba(255, 255, 255, 1);
+    }
+
+    @keyframes iconFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(2deg);
+      }
+    }
+
+    /* Background Utilities */
     .bg-gradient-soft {
-      background: linear-gradient(180deg, #fbfaf8 0%, #f5f9f7 100%)
+      background: linear-gradient(180deg, var(--cream) 0%, #f1f7f5 100%);
+      position: relative;
+    }
+
+    .bg-gradient-soft::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(22, 97, 78, 0.02) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(22, 97, 78, 0.02) 0%, transparent 40%);
+      pointer-events: none;
     }
 
     .bg-contact {
-      background: linear-gradient(180deg, #f5f9f7 0%, #e6f3ed 100%)
+      background: linear-gradient(135deg, #f0f7f4 0%, #e6f3ed 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bg-contact::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(22, 97, 78, 0.03) 0%, transparent 60%);
+      animation: rotateBg 20s linear infinite;
+    }
+
+    @keyframes rotateBg {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* Header Logo */
     .header-logo img {
-      height: 48px;
+      height: 44px;
       vertical-align: middle;
+      transition: transform 0.3s ease;
+    }
+
+    .header-logo:hover img {
+      transform: scale(1.05);
     }
 
     /* Animation */
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .fade-up.is-visible {
@@ -379,28 +590,32 @@
     }
 
     .fade-up:nth-child(3) {
-      transition-delay: .2s
+      transition-delay: .15s
     }
 
     .fade-up:nth-child(4) {
+      transition-delay: .2s
+    }
+
+    .fade-up:nth-child(5) {
+      transition-delay: .25s
+    }
+
+    .fade-up:nth-child(6) {
       transition-delay: .3s
     }
 
     @media(max-width:768px) {
       h1 {
-        font-size: 34px
+        font-size: 36px
       }
 
       h2 {
         font-size: 28px
       }
 
-      section {
-        padding: 60px 16px
-      }
-
       .hero {
-        padding: 80px 16px 60px
+        padding: 120px 20px 80px
       }
 
       .hero p {
@@ -409,16 +624,31 @@
 
       .grid.cols-2,
       .grid.cols-3 {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .card {
+        padding: 28px;
+        border-radius: 20px;
       }
 
       .nav {
         gap: 12px;
         font-size: 14px;
+        height: 60px;
       }
 
       .header-logo img {
-        height: 40px;
+        height: 36px;
+      }
+
+      .section-head {
+        margin-bottom: 40px;
+      }
+
+      section {
+        padding: 60px 20px;
       }
     }
 
@@ -432,7 +662,8 @@
       cursor: pointer;
       padding: 12px;
       position: absolute;
-      right: 8px;
+      right: 16px;
+      /* Adjusted spacing */
       top: 50%;
       transform: translateY(-50%);
       z-index: 4200;
@@ -445,15 +676,15 @@
     }
 
     .hamburger span {
-      width: 24px;
+      width: 22px;
       height: 2px;
       background: var(--ink);
       transition: all 0.3s ease;
-      border-radius: 2px;
+      border-radius: 4px;
     }
 
     .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(7px, 7px);
+      transform: rotate(45deg) translate(5px, 5px);
     }
 
     .hamburger.active span:nth-child(2) {
@@ -461,20 +692,21 @@
     }
 
     .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
+      transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* Mobile menu overlay */
+    /* Mobile menu */
     .mobile-menu {
       position: fixed;
       top: 0;
       right: -100%;
-      width: 280px;
+      width: 85%;
+      max-width: 320px;
       height: 100vh;
       background: #fff;
-      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+      box-shadow: -8px 0 30px rgba(0, 0, 0, 0.1);
       z-index: 4000;
-      transition: right 0.3s ease;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       padding-top: 80px;
       pointer-events: none;
     }
@@ -489,67 +721,56 @@
       flex-direction: column;
       gap: 8px;
       padding: 24px;
+      height: 100%;
+      overflow-y: auto;
     }
 
     .mobile-menu-group {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      padding: 0 20px;
+      gap: 8px;
+      padding: 0 12px;
     }
 
     .mobile-menu-link {
       display: block;
-      padding: 16px 20px;
+      padding: 14px 16px;
       color: var(--ink);
       font-weight: 600;
-      border-radius: 4px;
-      border: 1px solid #eef2f0;
-      background: #fff;
+      border-radius: 12px;
+      background: transparent;
       transition: all 0.2s ease;
-      text-align: left;
       text-decoration: none;
     }
 
-    .mobile-menu-group:nth-of-type(2) .mobile-menu-link::before {
-      content: "#";
-      color: #176148;
-      margin-right: 8px;
-      font-weight: 400;
-    }
-
-    .mobile-menu-link:hover {
-      background: #f8fbf9;
-      border-color: #176148;
+    .mobile-menu-link:hover,
+    .mobile-menu-link:active {
+      background: var(--mint);
+      color: var(--sea);
     }
 
     .mobile-menu-logo {
-      padding: 0 20px 20px;
+      padding: 0 28px 20px;
       text-align: left;
     }
 
     .mobile-menu-divider {
       height: 1px;
-      background: #eef2f0;
-      margin: 8px 20px;
-    }
-
-    .mobile-menu-placeholder {
-      padding: 16px 20px;
-      color: #7a8f87;
-      font-weight: 600;
-      font-size: 14px;
+      background: var(--line);
+      margin: 12px 24px;
+      opacity: 0.6;
     }
 
     .mobile-menu-cta {
-      background: linear-gradient(120deg, #176148, #0f3d2e);
+      background: var(--sea) !important;
       color: #fff !important;
-      margin-top: 8px;
       text-align: center;
+      margin-top: 12px;
+      box-shadow: 0 4px 12px rgba(22, 97, 78, 0.2);
     }
 
-    .mobile-menu-cta:hover {
-      background: linear-gradient(120deg, #1a7252, #123d2e);
+    .mobile-menu-cta:active {
+      transform: scale(0.98);
     }
 
     /* Overlay backdrop */
@@ -559,11 +780,12 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(5, 32, 24, 0.4);
+      backdrop-filter: blur(4px);
       z-index: 3500;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.4s ease;
     }
 
     .mobile-menu-backdrop.active {
@@ -572,17 +794,12 @@
     }
 
     @media(max-width:768px) {
-
-      /* Mobile header layout */
       .nav {
-        justify-content: center;
-        position: relative;
+        justify-content: space-between;
+        padding: 0 20px;
       }
 
-      .nav .sp {
-        display: none;
-      }
-
+      .nav .sp,
       .nav-link,
       .nav-placeholder,
       .nav .btn,
@@ -592,6 +809,8 @@
 
       .hamburger {
         display: flex !important;
+        position: static;
+        transform: none;
       }
 
       .header-logo {
@@ -602,24 +821,102 @@
     /* Tag styles */
     .tag {
       display: inline-block;
-      padding: 5px 12px;
-      border-radius: 999px;
-      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 11px;
       font-weight: 700;
-      margin-right: 6px;
-      margin-bottom: 8px;
-      letter-spacing: 0.02em;
+      margin-right: 8px;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
     }
 
     .tag-tool {
       background: var(--ink);
       color: #fff;
+      box-shadow: 0 4px 10px rgba(5, 32, 24, 0.15);
     }
 
     .tag-level {
       background: #fff;
-      border: 1px solid var(--green);
-      color: var(--green);
+      border: 1px solid var(--line-strong);
+      color: var(--sea);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    }
+
+    .tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 60px 0;
+      margin-top: 0;
+    }
+
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .footer-links a:hover {
+      color: var(--sea);
+    }
+
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--sea);
+      transition: width 0.3s ease;
+    }
+
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+
+    footer div:first-child {
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    @media(max-width:768px) {
+      .footer-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .footer-links {
+        justify-content: center;
+        gap: 20px;
+      }
     }
   </style>
 </head>
@@ -672,19 +969,272 @@
     </div>
   </div>
 
+  <style>
+    /* ... (Previous Styles) ... */
+
+    /* New Styles for Refinements */
+
+    /* Cute List for "For You" */
+    .cute-list {
+      background: #fff;
+      border: 2px dashed var(--line);
+      border-radius: 32px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .cute-list::after {
+      content: '✨';
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      font-size: 40px;
+      animation: floatEmoji 3s ease-in-out infinite;
+    }
+
+    @keyframes floatEmoji {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(10deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(-10deg);
+      }
+    }
+
+    .cute-list-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: var(--text);
+      font-weight: 500;
+      padding: 12px 20px;
+      background: var(--mint);
+      border-radius: 100px;
+    }
+
+    .cute-list-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cute-list-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--sea);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* Triangle Layout for Basics */
+    .triangle-layout {
+      position: relative;
+      height: auto;
+      max-width: 900px;
+      margin: 60px auto 0;
+      display: grid;
+      grid-template-areas:
+        ". top ."
+        "left . right";
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .triangle-item {
+      text-align: center;
+      width: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .triangle-item.top {
+      grid-area: top;
+    }
+
+    .triangle-item.left {
+      grid-area: left;
+    }
+
+    .triangle-item.right {
+      grid-area: right;
+    }
+
+    .circle-shape {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, var(--sea) 0%, var(--ink) 100%);
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: transform 0.3s ease;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Connecting lines */
+    .triangle-layout::before {
+      content: '';
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 300px;
+      border-left: 2px dashed var(--line-strong);
+      border-right: 2px dashed var(--line-strong);
+      border-bottom: 2px dashed var(--line-strong);
+      border-bottom-left-radius: 100px;
+      border-bottom-right-radius: 100px;
+      z-index: 0;
+      clip-path: polygon(0% 100%, 50% 0%, 100% 100%, 0% 100%);
+      /* Simplified triangle shape approx */
+      /* Actually simpler to just use specific lines if clip-path is tricky for open triangle */
+      background: transparent;
+      border: none;
+    }
+
+    /* Custom SVG lines for connection might be better, simplified here with pseudo-elements on items if needed, or just let them float */
+
+    .circle-shape:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .circle-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .circle-title {
+      font-weight: 700;
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .basics-desc {
+      text-align: left;
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--text);
+      width: 100%;
+    }
+
+    .basics-desc b {
+      display: block;
+      color: var(--sea);
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .btn-mini {
+      display: inline-block;
+      padding: 8px 24px;
+      border: 1px solid var(--sea);
+      border-radius: 20px;
+      color: var(--sea);
+      background: transparent;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-mini:hover {
+      background: var(--sea);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Voices Group Box */
+    .voices-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+
+    .voices-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .voices-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .voices-icon {
+      font-size: 20px;
+      line-height: 1;
+      margin-top: 4px;
+    }
+
+    .voices-text {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    @media(max-width: 768px) {
+      .triangle-layout {
+        grid-template-areas:
+          "top"
+          "left"
+          "right";
+        gap: 32px;
+      }
+
+      .triangle-layout::before {
+        display: none;
+      }
+
+      .voices-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
   <main>
     <section class="hero">
       <div class="container hero-inner">
         <div class="fade-up">
           <div class="icon-lg">🎓</div>
           <h1>AI勉強会</h1>
-          <p class="lead" style="max-width:720px;margin:16px auto 0;">
-            AIを「使える」だけで終わらせず、仕事で「使い続けられる型」にする勉強会です。
-            3つの基礎講座からどこでも参加でき、その先はコミュニティと上級講座までつながります。
-          </p>
-          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;">
+          <p class="lead" style="max-width:720px;margin:20px auto 0;">
+            AIを「学ぶ」だけで終わらせず、<br>仕事や生活で「使い続けられる」へ</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
             <a class="btn" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer">LINE登録で無料セミナー</a>
-            <a class="btn secondary" href="#briefing">3分の無料説明会</a>
+            <a class="btn secondary" href="#briefing">無料説明会</a>
           </div>
         </div>
       </div>
@@ -693,29 +1243,21 @@
     <section class="bg-gradient-soft">
       <div class="container">
         <div class="section-head fade-up">
-          <small>Why Corduroy</small>
-          <h2>コールテンのAI勉強会が選ばれる理由</h2>
+          <small>Why</small>
+          <h2>コールテンの勉強会</h2>
         </div>
         <div class="grid cols-3">
           <div class="card fade-up">
-            <h3>本質志向の学び</h3>
-            <p class="mini">稼ぐための短期テクではなく、長く使える「思考と型」を扱います。</p>
-          </div>
-          <div class="card fade-up">
-            <h3>実務導入の裏付け</h3>
-            <p class="mini">自社サイトはAIで要件整理〜コード生成〜調整まで対応。現場に落とし込み済みです。</p>
+            <h3>本質思考の学び</h3>
+            <p class="mini">稼ぐための短期テクニックではなく、ツールが変わっても長く使える「思考と型」を扱います。</p>
           </div>
           <div class="card fade-up">
             <h3>教える技術</h3>
-            <p class="mini">元日本語教師/コーチの経験を活かし、理解が積み上がる設計で届けます。</p>
+            <p class="mini">元日本語教師/コーチの経験を活かし、つまずきやすいポイントを押さえた、理解が積み上がる学習設計です。</p>
           </div>
           <div class="card fade-up">
-            <h3>福岡オフライン</h3>
-            <p class="mini">顔が見える距離で継続できる、ローカル密度の高い学びの場です。</p>
-          </div>
-          <div class="card fade-up">
-            <h3>継続の導線</h3>
-            <p class="mini">講座→コミュニティ→上級講座まで、無理なくステップアップできます。</p>
+            <h3>オフラインで継続</h3>
+            <p class="mini">福岡での対面開催にこだわり、顔が見える距離感で、モチベーションを維持しながら続けられる環境です。</p>
           </div>
         </div>
       </div>
@@ -723,18 +1265,21 @@
 
     <section class="container">
       <div class="section-head fade-up">
-        <small>For You</small>
-        <h2>こんな方におすすめ</h2>
+        <small>Recommend</small>
+        <h2>ココがおすすめ！</h2>
       </div>
-      <div class="grid cols-2">
-        <div class="card fade-up">
-          <p class="mini">AIを触ったことはあるが、活用の仕方が定まらない方。</p>
+      <div class="cute-list fade-up">
+        <div class="cute-list-item">
+          <div class="cute-list-icon">✔</div>
+          <span>AIを触ったことはあるが、活用の仕方が定まらない方</span>
         </div>
-        <div class="card fade-up">
-          <p class="mini">事業や現場に落とし込み、再現性のある使い方を身につけたい方。</p>
+        <div class="cute-list-item">
+          <div class="cute-list-icon">✔</div>
+          <span>事業や現場に落とし込み、再現性のある使い方を身につけたい方</span>
         </div>
-        <div class="card fade-up">
-          <p class="mini">一度学んで終わりではなく、継続して育てていきたい方。</p>
+        <div class="cute-list-item">
+          <div class="cute-list-icon">✔</div>
+          <span>一度学んで終わりではなく、継続して育てていきたい方</span>
         </div>
       </div>
     </section>
@@ -743,69 +1288,89 @@
       <div class="container">
         <div class="section-head fade-up">
           <small>Basics</small>
-          <h2>3つの基礎講座（どこからでも参加OK）</h2>
+          <h2>3つの基礎講座</h2>
+          <p>興味を持てるどの講座でも参加できます！</p>
         </div>
-        <div class="grid cols-3">
-          <div class="card fade-up">
-            <div>
-              <span class="tag tag-tool">AI基礎</span>
-              <span class="tag tag-level">無料</span>
+
+        <div class="triangle-layout fade-up">
+          <!-- Top Item -->
+          <div class="triangle-item top">
+            <div class="circle-shape">
+              <div class="circle-icon">🌱</div>
+              <div class="circle-title">AI基礎講座</div>
             </div>
-            <h3>AI基礎講座</h3>
-            <p class="mini">AIの前提を整理して、迷わず使える入口を作ります。</p>
-            <p class="mini"><b>得られること：</b>AIの得意/不得意、指示の前提、ツール全体像</p>
-            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-              <a class="btn secondary" href="./service-study.html">講座LPを見る</a>
-              <a class="btn secondary" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer">LINE登録</a>
-            </div>
-          </div>
-          <div class="card fade-up">
-            <div>
-              <span class="tag tag-tool">第二の自分</span>
-              <span class="tag tag-level">無料</span>
-            </div>
-            <h3>第二の自分づくり講座</h3>
-            <p class="mini">AIに価値観と判断軸を写し、相談相手に育てます。</p>
-            <p class="mini"><b>得られること：</b>自分の言葉で考えるAI、壁打ち相棒</p>
-            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-              <a class="btn secondary" href="./service-study.html">講座LPを見る</a>
-              <a class="btn secondary" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer">LINE登録</a>
+            <div class="basics-desc">
+              <b>理論的に積み上げたい方へ</b>
+              AIの仕組みや得意不得意を整理し、<br>
+              迷わず使いこなすための土台を作ります。
+              <div style="margin-top:16px;text-align:center;">
+                <a href="./service-study.html" class="btn-mini">詳細を見る</a>
+              </div>
             </div>
           </div>
-          <div class="card fade-up">
-            <div>
-              <span class="tag tag-tool">制作体験</span>
-              <span class="tag tag-level">無料</span>
+
+          <!-- Left Item -->
+          <div class="triangle-item left">
+            <div class="circle-shape">
+              <div class="circle-icon">🤝</div>
+              <div class="circle-title">第二の自分<br>作り講座</div>
             </div>
-            <h3>AIで何かを作る体験講座</h3>
-            <p class="mini">AIと一緒にゼロから形にする成功体験。</p>
-            <p class="mini"><b>得られること：</b>目的→素材→構造→表現の型</p>
-            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-              <a class="btn secondary" href="./service-study.html">講座LPを見る</a>
-              <a class="btn secondary" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer">LINE登録</a>
+            <div class="basics-desc">
+              <b>内省や自己理解が好きな方へ</b>
+              自分の価値観や判断軸をAIに写し、<br>
+              深く壁打ちができる「相棒」を育てます。
+              <div style="margin-top:16px;text-align:center;">
+                <a href="./service-study.html" class="btn-mini">詳細を見る</a>
+              </div>
             </div>
           </div>
+
+          <!-- Right Item -->
+          <div class="triangle-item right">
+            <div class="circle-shape">
+              <div class="circle-icon">🔨</div>
+              <div class="circle-title">AIで作る<br>体験講座</div>
+            </div>
+            <div class="basics-desc">
+              <b>効率的に形を作りたい方へ</b>
+              Web制作を通してAI活用を実践し、<br>
+              未経験から「作れる」成功体験を学びます。
+              <div style="margin-top:16px;text-align:center;">
+                <a href="./service-study/AI-workshop.html" class="btn-mini">詳細を見る</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:60px;">
+          <!-- One big action button wrapper if needed, or keeping the individual links as "A-tag style buttons" as requested? 
+                  User said "Aぐらいの一つのボタンにしてください... それぞれの詳細を下に書き出す... それら3つプラス..." 
+                  I put textual links "詳細を見る" inside the desc boxes to keep it clean, as user wanted to remove LINE buttons here. -->
         </div>
       </div>
     </section>
 
     <section class="container">
       <div class="section-head fade-up">
-        <small>Community</small>
-        <h2>受講後のサポート：コミュニティ「木木会」</h2>
-        <p>完成していなくてOK。過程を持ち寄り、続けられる環境をつくります。</p>
+        <small>Support</small>
+        <h2>AIコミュニティでサポート</h2>
+        <p>講座で学んだことを実践し、深めるための環境です。</p>
       </div>
-      <div class="grid cols-2">
-        <div class="card fade-up">
-          <h3>月1回の木木会</h3>
-          <p class="mini">もくもく作業＋短い発表。福岡のオフラインで、日曜昼を基本に開催します。</p>
-        </div>
-        <div class="card fade-up">
-          <h3>再受講・継続の安心</h3>
-          <p class="mini">受けて終わりではなく、コミュニティ内で再受講や相談ができます。</p>
+
+      <div class="card fade-up" style="max-width:800px; margin:0 auto; text-align:center;">
+        <h3>AIコミュニティー「もくもく会」</h3>
+        <p class="mini">
+          月に1回、3時間、参加者同士でのAIコミュニティー活動です。<br>講座で学んだことを活かして「もくもく」それぞれのAI作業を進めます。講座での学びを実践し、わからないところは質問したり、参加者同士で聞き合うことができます。<br>
+          最近作ったものを発表したり、互いに刺激をもらえる楽しい場所です。
+        </p>
+        <div
+          style="margin-top:24px; display:inline-flex; gap:12px; align-items:center; background:var(--mint); padding:12px 24px; border-radius:100px;">
+          <span style="font-size:20px;">🗓️</span>
+          <span style="font-weight:700; color:var(--sea);">日曜昼開催（基本）</span>
         </div>
       </div>
-      <div style="text-align:center;margin-top:20px;">
+
+      <div style="text-align:center;margin-top:32px;">
         <a class="btn" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer">LINE登録で参加案内を見る</a>
       </div>
     </section>
@@ -814,39 +1379,21 @@
       <div class="container">
         <div class="section-head fade-up">
           <small>Advanced</small>
-          <h2>上級講座：ターミナル操作ができるAI講座</h2>
-          <p>もっと深く作る人へ。出力の質と深さを一段上げる講座です。</p>
+          <h2>さらなる高みを目指せ</h2>
+          <p>もっと深く、大量に作りたい方へ。</p>
         </div>
         <div class="card fade-up" style="max-width:860px;margin:0 auto;">
-          <p class="mini">
-            複数の情報を扱いながら制作したい方、業務の大量処理を高速化したい方に向けた内容です。
-            初級受講後のステップとして軽めに紹介します。
-          </p>
-          <div style="margin-top:12px;">
-            <a class="btn secondary" href="./service-study.html">上級講座LPを見る</a>
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <h3 style="margin-bottom:16px;">ターミナル操作ができるAI講座</h3>
+            <p class="mini" style="text-align:center;">
+              パソコンの中に直接AIを導入し、複雑な操作を自動化する仕組みを作ります。<br>
+              Webサイト制作や記事執筆などの大量の成果物を、一気に生成・処理できる環境を構築します。<br>
+              実務での圧倒的な効率化を目指す方に向けた応用講座です。
+            </p>
+            <div style="margin-top:24px;">
+              <a class="btn secondary" href="./service-study.html">詳細を見る</a>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="section-head fade-up">
-        <small>Guide</small>
-        <h2>AI使い分けガイド（最初の一歩）</h2>
-        <p>どれから始めればいいかを、目的別に整理します。</p>
-      </div>
-      <div class="grid cols-3">
-        <div class="card fade-up">
-          <h3>相談/整理/企画</h3>
-          <p class="mini">まずはブラウザで対話できるAIから。考えの棚卸しに向きます。</p>
-        </div>
-        <div class="card fade-up">
-          <h3>見た目の試作</h3>
-          <p class="mini">画像/デザイン系AIで雰囲気を掴み、方向性を固めます。</p>
-        </div>
-        <div class="card fade-up">
-          <h3>実務の大量処理</h3>
-          <p class="mini">上級講座で扱うターミナル操作AIで、出力の深さを上げます。</p>
         </div>
       </div>
     </section>
@@ -855,17 +1402,18 @@
       <div class="section-head fade-up">
         <small>Instructor</small>
         <h2>講師について</h2>
-        <p>実務に落とし込めるAI活用を、丁寧に伴走します。</p>
       </div>
-      <div class="card fade-up" style="max-width:860px;margin:0 auto;">
-        <h3>向雅也（コールテン代表）</h3>
-        <p class="mini">
-          企業導入/自社導入の実績があり、現場で使える形に落とし込んでいます。
-          フリーランス歴10年、コーチ歴3年、日本語教師/コーチ歴の合算で5年。
-        </p>
-        <p class="mini">
-          自社サイトはChatGPTで要件整理〜コード生成〜調整まで実施。AIの使い分けガイドも共有します。
-        </p>
+      <div class="card fade-up"
+        style="max-width:860px;margin:0 auto; display:flex; align-items:center; gap:24px; text-align:left;">
+        <!-- Avatar could go here if available -->
+        <div>
+          <h3>向雅也（コールテン代表）</h3>
+          <p class="mini" style="margin-top:12px;">
+            企業導入/自社導入の実績があり、現場で使える形に落とし込んでいます。<br>
+            フリーランス歴10年、コーチ歴3年、日本語教師/コーチ歴の合算で5年。<br>
+            実務に落とし込めるAI活用を、丁寧に伴走します。
+          </p>
+        </div>
       </div>
     </section>
 
@@ -873,23 +1421,31 @@
       <div class="section-head fade-up">
         <small>Voices</small>
         <h2>参加者の声</h2>
-        <p>受講前の不安から、受講後の変化まで。</p>
       </div>
-      <div class="grid cols-2">
-        <div class="card fade-up">
-          <p class="mini">触ったことはあるけど活用できていなかった。講座の型で仕事に使える感覚が出た。</p>
-        </div>
-        <div class="card fade-up">
-          <p class="mini">AIの指示が曖昧だったと気づけた。考え方を整えたら結果が安定した。</p>
-        </div>
-        <div class="card fade-up">
-          <p class="mini">一人だと続かなかったけど、木木会で作業が進むようになった。</p>
-        </div>
-        <div class="card fade-up">
-          <p class="mini">自分の言葉がAIに伝わる感覚が出て、壁打ちが楽になった。</p>
-        </div>
+
+      <!-- Grouped Text Testimonials -->
+      <div class="voices-box fade-up">
+        <ul class="voices-list">
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">触ったことはあるけど活用できていなかったが、講座の型で仕事に使える感覚が出た。</div>
+          </li>
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">AIへの指示が曖昧だったと気づけた。考え方を整えたら結果が安定した。</div>
+          </li>
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">一人だと続かなかったけど、黙々会で作業が進むようになった。</div>
+          </li>
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">自分の言葉がAIに伝わる感覚が出て、壁打ちが楽になった。</div>
+          </li>
+        </ul>
       </div>
-      <div class="fade-up" style="display:grid;gap:24px;max-width:960px;margin:24px auto 0;">
+
+      <div class="fade-up" style="display:grid;gap:24px;max-width:900px;margin:0 auto;">
         <a href="./voice-takaro.html" class="card"
           style="display:block;text-decoration:none;transition:transform .2s, box-shadow .2s;">
           <div style="display:flex;gap:20px;align-items:center;">
@@ -918,7 +1474,7 @@
         <small>FAQ</small>
         <h2>よくあるご質問</h2>
       </div>
-      <div class="fade-up">
+      <div class="fade-up" style="max-width:800px; margin:0 auto;">
         <details open>
           <summary>AI初心者でも参加できますか？</summary>
           <p class="mini">
@@ -926,8 +1482,12 @@
           </p>
         </details>
         <details>
-          <summary>必要なものはありますか？</summary>
-          <p class="mini">PC（Windows/Mac）とインターネット環境が必要です。講座によっては有料版の利用が必要な場合があります。</p>
+          <summary>パソコンを持っていないのですが参加できますか？</summary>
+          <p class="mini">講座では実際に操作を行うため、PC（Windows/Mac）の持参をお願いしております。タブレットやスマホのみでは受講が難しい内容が含まれます。</p>
+        </details>
+        <details>
+          <summary>必要なソフトやツールはありますか？</summary>
+          <p class="mini">基本的にはブラウザ（Google Chrome等）があれば受講可能です。ChatGPTなどのAIツールへの登録が必要ですが、講座内で案内する場合もあります。</p>
         </details>
         <details>
           <summary>開催場所・形式について</summary>
@@ -944,13 +1504,16 @@
       <div class="container">
         <div class="section-head fade-up">
           <small>Briefing</small>
-          <h2>3分で全体像がわかる無料説明会</h2>
-          <p>あなたに合う入口が見つかる短い説明会です。</p>
+          <h2>無料説明会</h2>
+          <p>あなたに合う入り口が見つかる、短い説明会です。</p>
         </div>
         <div class="card fade-up" style="max-width:720px;margin:0 auto;text-align:center;">
-          <p class="mini">AI勉強会で「何ができるようになるか」を3分で紹介します。</p>
+          <p class="mini">
+            AI勉強会で何ができるようになるか、どの講座から始めるのがよいかなど、全体像をお話しします。<br>
+            無理な勧誘はありませんので、お気軽にご参加ください。
+          </p>
           <a class="btn" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer"
-            style="margin-top:12px;">LINE登録で無料セミナーを見る</a>
+            style="margin-top:28px;">LINE登録で無料セミナーを見る</a>
         </div>
       </div>
     </section>
@@ -959,13 +1522,14 @@
       <div class="container">
         <div class="section-head fade-up">
           <small>Contact</small>
-          <h2>ご相談はこちらから</h2>
-          <p>ご相談をご希望いただける場合はこちらのコンタクトページで詳細をご確認ください。</p>
+          <h2>その他ご相談はこちらから</h2>
         </div>
         <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
-          <p class="mini" style="margin-bottom:20px;">公式フォームはありません。コンタクトページの案内に沿って、SNSのDMなどからご連絡ください。</p>
-          <a class="btn" href="./contact.html" target="_blank" rel="noopener noreferrer"
-            style="padding:16px 28px;">コンタクトページを見る →</a>
+          <p class="mini" style="margin-bottom:24px;">
+            企業研修のご依頼や、個別のアドバイザリー契約など、勉強会以外のご相談も承っております。<br>
+            コンタクトページの案内に沿ってご連絡ください。
+          </p>
+          <a class="btn" href="./contact.html" target="_blank" rel="noopener noreferrer">コンタクトページを見る →</a>
         </div>
       </div>
     </section>
