@@ -1009,83 +1009,100 @@
     .cute-list-item {
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-      font-size: 18px;
-      color: var(--text);
-      font-weight: 500;
-      padding: 12px 20px;
-      background: var(--mint);
-      border-radius: 100px;
+      gap: 24px;
+      margin-bottom: 24px;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .cute-list-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--sea);
     }
 
     .cute-list-item:last-child {
       margin-bottom: 0;
     }
 
+    .cute-list-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cute-list-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cute-list-content {
+      flex: 1;
+    }
+
+    .cute-list-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
     .cute-list-icon {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       background: var(--sea);
       color: #fff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 12px;
       flex-shrink: 0;
+    }
+
+    .cute-list-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-light);
     }
 
     /* Triangle Layout for Basics */
     .triangle-layout {
       position: relative;
       height: auto;
-      max-width: 900px;
+      max-width: 800px;
+      /* Increased to fit larger circles */
       margin: 60px auto 0;
       display: grid;
-      grid-template-areas:
-        ". top ."
-        "left . right";
+      grid-template-columns: 1fr 1fr;
       gap: 40px;
+      /* Increased gap */
       justify-content: center;
     }
 
     .triangle-item {
       text-align: center;
-      width: 260px;
+      width: 100%;
+      /* Fluid within grid */
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin: 0 auto;
     }
 
     .triangle-item.top {
-      grid-area: top;
-    }
-
-    .triangle-item.left {
-      grid-area: left;
-    }
-
-    .triangle-item.right {
-      grid-area: right;
-    }
-
-    .circle-shape {
-      width: 180px;
-      height: 180px;
-      background: linear-gradient(135deg, var(--sea) 0%, var(--ink) 100%);
-      border: 2px solid var(--white);
-      border-radius: 50%;
-      box-shadow: var(--shadow-md);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      transition: transform 0.3s ease;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 2;
+      grid-column: span 2;
     }
 
     /* Connecting lines */
@@ -1095,77 +1112,99 @@
       top: 90px;
       left: 50%;
       transform: translateX(-50%);
-      width: 400px;
-      height: 300px;
+      width: 320px;
+      /* Adjusted */
+      height: 280px;
+      /* Adjusted */
       border-left: 2px dashed var(--line-strong);
       border-right: 2px dashed var(--line-strong);
       border-bottom: 2px dashed var(--line-strong);
-      border-bottom-left-radius: 100px;
-      border-bottom-right-radius: 100px;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
       z-index: 0;
       clip-path: polygon(0% 100%, 50% 0%, 100% 100%, 0% 100%);
-      /* Simplified triangle shape approx */
-      /* Actually simpler to just use specific lines if clip-path is tricky for open triangle */
       background: transparent;
       border: none;
     }
 
     /* Custom SVG lines for connection might be better, simplified here with pseudo-elements on items if needed, or just let them float */
 
-    .circle-shape:hover {
-      transform: scale(1.05);
+    .circle-shape {
+      width: 340px;
+      height: 340px;
+      background: linear-gradient(135deg, var(--sea) 0%, var(--ink) 100%);
+      border: 4px solid var(--white);
+      border-radius: 50%;
       box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      transition: transform 0.3s ease;
+      margin-bottom: 0;
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .circle-shape:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(5, 32, 24, 0.2);
     }
 
     .circle-icon {
-      font-size: 32px;
+      font-size: 36px;
       margin-bottom: 8px;
     }
 
     .circle-title {
       font-weight: 700;
       color: #fff;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.4;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .basics-desc {
-      text-align: left;
-      background: #fff;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--line);
-      font-size: 14px;
-      color: var(--text);
+      text-align: center;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.9);
       width: 100%;
     }
 
     .basics-desc b {
       display: block;
-      color: var(--sea);
+      color: var(--accent);
+      /* Orange accent for contrast */
       margin-bottom: 8px;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .btn-mini {
       display: inline-block;
-      padding: 8px 24px;
-      border: 1px solid var(--sea);
+      padding: 8px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 20px;
-      color: var(--sea);
-      background: transparent;
-      font-size: 13px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 12px;
       font-weight: 700;
       text-decoration: none;
       transition: all 0.3s ease;
     }
 
     .btn-mini:hover {
-      background: var(--sea);
-      color: #fff;
+      background: #fff;
+      color: var(--sea);
       transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     /* Voices Group Box */
@@ -1207,11 +1246,12 @@
 
     @media(max-width: 768px) {
       .triangle-layout {
-        grid-template-areas:
-          "top"
-          "left"
-          "right";
+        grid-template-columns: 1fr;
         gap: 32px;
+      }
+
+      .triangle-item.top {
+        grid-column: auto;
       }
 
       .triangle-layout::before {
@@ -1246,24 +1286,55 @@
           <small>Recommend</small>
           <h2>ココがおすすめ！</h2>
         </div>
-        <div class="grid cols-3">
-          <div class="card fade-up">
-            <h3>本質的な学び</h3>
-            <p class="mini">短期的に稼ぐための小手先テクニックではなく、<b
-                style="color:var(--sea); border-bottom:2px solid var(--accent);">長期目線の「思考と型」</b>を！</p>
+        <div class="cute-list fade-up">
+          <!-- Item 1 -->
+          <div class="cute-list-item">
+            <div class="cute-list-img">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=300"
+                alt="本質的な学び">
+            </div>
+            <div class="cute-list-content">
+              <div class="cute-list-title">
+                <div class="cute-list-icon">✔</div>
+                <span>本質的な学び</span>
+              </div>
+              <p class="cute-list-text">短期的に稼ぐための小手先テクニックではなく、<b
+                  style="color:var(--sea); border-bottom:2px solid var(--accent);">長期目線の「思考と型」</b>を！</p>
+            </div>
           </div>
-          <div class="card fade-up">
-            <h3>教える技術</h3>
-            <p class="mini">プロコーチ・元日本語教師経験のある講師による<b
-                style="color:var(--sea); border-bottom:2px solid var(--accent);">躓きやすいポイントを押さえた</b>講座</p>
+
+          <!-- Item 2 -->
+          <div class="cute-list-item">
+            <div class="cute-list-img">
+              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=300"
+                alt="教える技術">
+            </div>
+            <div class="cute-list-content">
+              <div class="cute-list-title">
+                <div class="cute-list-icon">✔</div>
+                <span>教える技術</span>
+              </div>
+              <p class="cute-list-text">プロコーチ・元日本語教師経験のある講師による<b
+                  style="color:var(--sea); border-bottom:2px solid var(--accent);">躓きやすいポイントを押さえた</b>講座</p>
+            </div>
           </div>
-          <div class="card fade-up">
-            <h3>対面コミュニティ</h3>
-            <p class="mini">福岡での対面開催でアナログ感も大事に、<b
-                style="color:var(--sea); border-bottom:2px solid var(--accent);">コミュニティで楽しく続け力をつける</b></p>
+
+          <!-- Item 3 -->
+          <div class="cute-list-item">
+            <div class="cute-list-img">
+              <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=300"
+                alt="対面コミュニティ">
+            </div>
+            <div class="cute-list-content">
+              <div class="cute-list-title">
+                <div class="cute-list-icon">✔</div>
+                <span>対面コミュニティ</span>
+              </div>
+              <p class="cute-list-text">福岡での対面開催でアナログ感も大事に、<b
+                  style="color:var(--sea); border-bottom:2px solid var(--accent);">コミュニティで楽しく続け力をつける</b></p>
+            </div>
           </div>
         </div>
-      </div>
     </section>
 
     <section class="bg-gradient-soft">
@@ -1280,13 +1351,13 @@
             <div class="circle-shape">
               <div class="circle-icon">🌱</div>
               <div class="circle-title">AI基礎講座</div>
-            </div>
-            <div class="basics-desc">
-              <b>理論的に積み上げたい方へ</b>
-              AIの仕組みや得意不得意を整理し、<br>
-              迷わず使いこなすための土台を作ります。
-              <div style="margin-top:16px;text-align:center;">
-                <a href="./service-study.html" class="btn-mini">詳細を見る</a>
+              <div class="basics-desc">
+                <b>理論的に積み上げたい方へ</b>
+                AIの仕組みや得意不得意を整理し、<br>
+                迷わず使いこなすための土台を作ります。
+                <div style="margin-top:16px;text-align:center;">
+                  <a href="./service-study.html" class="btn-mini">詳細を見る</a>
+                </div>
               </div>
             </div>
           </div>
@@ -1296,13 +1367,13 @@
             <div class="circle-shape">
               <div class="circle-icon">🤝</div>
               <div class="circle-title">第二の自分<br>作り講座</div>
-            </div>
-            <div class="basics-desc">
-              <b>内省や自己理解が好きな方へ</b>
-              自分の価値観や判断軸をAIに写し、<br>
-              深く壁打ちができる「相棒」を育てます。
-              <div style="margin-top:16px;text-align:center;">
-                <a href="./service-study.html" class="btn-mini">詳細を見る</a>
+              <div class="basics-desc">
+                <b>内省や自己理解が好きな方へ</b>
+                自分の価値観や判断軸をAIに写し、<br>
+                深く壁打ちができる「相棒」を育てます。
+                <div style="margin-top:16px;text-align:center;">
+                  <a href="./service-study.html" class="btn-mini">詳細を見る</a>
+                </div>
               </div>
             </div>
           </div>
@@ -1312,13 +1383,13 @@
             <div class="circle-shape">
               <div class="circle-icon">🔨</div>
               <div class="circle-title">AIで作る<br>体験講座</div>
-            </div>
-            <div class="basics-desc">
-              <b>効率的に形を作りたい方へ</b>
-              Web制作を通してAI活用を実践し、<br>
-              未経験から「作れる」成功体験を学びます。
-              <div style="margin-top:16px;text-align:center;">
-                <a href="./service-study/AI-workshop.html" class="btn-mini">詳細を見る</a>
+              <div class="basics-desc">
+                <b>効率的に形を作りたい方へ</b>
+                Web制作を通してAI活用を実践し、<br>
+                未経験から「作れる」成功体験を学びます。
+                <div style="margin-top:16px;text-align:center;">
+                  <a href="./service-study/AI-workshop.html" class="btn-mini">詳細を見る</a>
+                </div>
               </div>
             </div>
           </div>
@@ -1340,9 +1411,10 @@
       </div>
 
       <div class="card fade-up" style="max-width:800px; margin:0 auto; text-align:center;">
-        <h3>AIコミュニティー「もくもく会」</h3>
+        <h3>AIコミュニティー「糸口会」</h3>
         <p class="mini">
-          月に1回、3時間、参加者同士でのAIコミュニティー活動です。<br>講座で学んだことを活かして「もくもく」それぞれのAI作業を進めます。講座での学びを実践し、わからないところは質問したり、参加者同士で聞き合うことができます。<br>
+          毎月1回、悩んでることの糸口を見つける会です。<br>
+          講座で学んだことを活かしてそれぞれのAI作業を進めつつ、わからないところは質問したり、参加者同士で聞き合うことができます。<br>
           最近作ったものを発表したり、互いに刺激をもらえる楽しい場所です。
         </p>
         <div
