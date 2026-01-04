@@ -341,8 +341,13 @@
     /* Hero Section */
     .hero {
       padding: 160px 0 140px;
-      background: transparent;
-      /* Using body background */
+      /* Dot/Spark Pattern: Playful "Pop" / Idea style */
+      background-color: var(--cream);
+      background-image:
+        radial-gradient(circle, rgba(212, 160, 77, 0.6) 2px, transparent 2.5px),
+        radial-gradient(circle, rgba(22, 97, 78, 0.3) 2px, transparent 2.5px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
       text-align: center;
       position: relative;
       overflow: hidden;

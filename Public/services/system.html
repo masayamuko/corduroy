@@ -339,8 +339,15 @@
     /* Hero Section */
     .hero {
       padding: 160px 0 140px;
-      background: transparent;
-      /* Using body background */
+      /* Tech/Grid Pattern: Bolder Blueprint Style */
+      background-color: var(--cream);
+      background-image:
+        linear-gradient(rgba(22, 97, 78, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22, 97, 78, 0.1) 1px, transparent 1px),
+        linear-gradient(rgba(22, 97, 78, 0.05) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(22, 97, 78, 0.05) 2px, transparent 2px);
+      background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+      background-position: -1px -1px;
       text-align: center;
       position: relative;
       overflow: hidden;
