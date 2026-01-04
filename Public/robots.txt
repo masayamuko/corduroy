@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://corduroy.co.jp/sitemap.xml
