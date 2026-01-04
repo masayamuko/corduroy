@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "プライバシーポリシー｜株式会社コールテン";
+const description = "株式会社コールテンのプライバシーポリシーです。取得する情報、利用目的、第三者提供、管理、開示請求、Cookieの取扱い、お問い合わせ窓口などを記載しています。";
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <section class="container">
+      <div class="section-head">
+        <small>Privacy Policy</small>
+        <h1>プライバシーポリシー</h1>
+        <p class="mini">株式会社コールテン（以下「当社」）は、提供するサービスにおいて取得する個人情報の適切な保護と管理に努めます。</p>
+      </div>
+      <div class="card">
+        <dl>
+          <dt>1. 取得する情報</dt>
+          <dd>
+            <ul>
+              <li>氏名、メールアドレス、電話番号、住所</li>
+              <li>会社名、部署名、役職</li>
+              <li>お問い合わせ内容</li>
+              <li>LINE公式アカウント連携によるユーザー情報</li>
+              <li>アクセス解析のためのCookie情報</li>
+              <li>AIシステム構築に必要なデータ（取得する場合は契約時に明示）</li>
+            </ul>
+          </dd>
+
+          <dt>2. 利用目的</dt>
+          <dd>
+            <ul>
+              <li>サービスの提供および運営</li>
+              <li>お問い合わせ対応</li>
+              <li>見積・提案・契約手続き</li>
+              <li>LINE/AIシステムの構築・運用支援</li>
+              <li>サービス改善および新サービス開発</li>
+              <li>法令に基づく場合やトラブル対応</li>
+            </ul>
+          </dd>
+
+          <dt>3. 個人情報の第三者提供</dt>
+          <dd>
+            上記利用目的達成のため外部委託先へ提供する場合、本人の同意がある場合、法令に基づく場合を除き第三者提供は行いません。委託先とは秘密保持契約を締結し適切に管理します。
+          </dd>
+
+          <dt>4. 個人情報の管理</dt>
+          <dd>不正アクセス、紛失、破損、改ざん、漏洩等を防止するため、合理的かつ適切な安全管理措置を講じます。</dd>
+
+          <dt>5. 個人情報の開示・訂正・削除</dt>
+          <dd>本人から開示・訂正・利用停止・削除の請求があった場合、合理的な範囲で対応します。下記窓口までご連絡ください。</dd>
+
+          <dt>6. Cookie等の利用</dt>
+          <dd>アクセス解析（Google Analytics等）のためCookieを使用する場合があります。Cookieにより個人を特定することはありません。</dd>
+
+          <dt>7. お問い合わせ窓口</dt>
+          <dd>
+            株式会社コールテン<br>
+            所在地：〒810-0001 福岡県福岡市中央区天神2丁目2番12号 T&amp;Jビルディング7F<br>
+            メール：<a href="mailto:info@corduroy.co.jp">info@corduroy.co.jp</a><br>
+            電話：070-5273-0383<br>
+            担当：個人情報保護管理者（向 雅也）
+          </dd>
+
+          <dt>8. 改定</dt>
+          <dd>本ポリシーは必要に応じて改定することがあります。改定後は当サイトに掲載した時点で効力を生じます。</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    section {
+      padding: 80px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-head small {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    dl {
+      margin: 0
+    }
+
+    dt {
+      font-weight: 800;
+      color: var(--ink);
+      margin-top: 32px;
+      font-size: 18px;
+    }
+
+    dt:first-child {
+      margin-top: 0;
+    }
+
+    dd {
+      margin: 12px 0 0 0;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0 0 0;
+    }
+
+    a {
+      color: var(--sea);
+      text-decoration: underline;
+    }
+
+    @media(max-width:768px) {
+      section {
+        padding: 60px 0;
+      }
+      .card {
+        padding: 24px;
+      }
+    }
+</style>

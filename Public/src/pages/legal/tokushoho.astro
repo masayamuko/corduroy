@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "特定商取引法に基づく表記｜株式会社コールテン";
+const description = "株式会社コールテンの特定商取引法に基づく表記ページです。販売事業者、所在地、連絡先、料金、キャンセル・返金ポリシーなどを掲載しています。";
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <section class="container">
+      <div class="section-head">
+        <small>Legal</small>
+        <h1>特定商取引法に基づく表記</h1>
+        <p class="mini">株式会社コールテン</p>
+      </div>
+      <div class="card">
+        <dl>
+          <dt>販売事業者名</dt>
+          <dd>株式会社コールテン</dd>
+
+          <dt>運営責任者</dt>
+          <dd>代表取締役　向 雅也</dd>
+
+          <dt>所在地</dt>
+          <dd>〒810-0001<br>福岡県福岡市中央区天神2丁目2番12号 T&amp;Jビルディング7F</dd>
+
+          <dt>電話番号</dt>
+          <dd>
+            070-5273-0383<br>
+            <small class="note">
+              ※営業電話が大変多いため、お電話にはAI音声で自動応答しております。<br>
+              お問い合わせ内容と折り返し先の電話番号を録音いただければ、担当者より折り返しご連絡いたします。<br>
+              ※営業電話はお断りしております。<br>
+              ※お急ぎの方、またはスムーズなやり取りをご希望の方は、<a href="/contact">お問い合わせページ</a>または<a href="https://lin.ee/aQqPH7S">公式LINE</a>からのお問い合わせをお勧めいたします。
+            </small>
+          </dd>
+
+          <dt>メールアドレス</dt>
+          <dd><a href="mailto:info@corduroy.co.jp">info@corduroy.co.jp</a></dd>
+
+          <dt>ウェブサイト</dt>
+          <dd><a href="https://www.corduroy.co.jp/">https://www.corduroy.co.jp/</a></dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="container info-section">
+      <div class="card">
+        <h2>料金・お支払い</h2>
+        <dl>
+          <dt>販売価格</dt>
+          <dd>各サービス紹介ページまたはお見積りにて表示します。すべて税込価格で表示します。</dd>
+
+          <dt>商品代金以外に必要な料金</dt>
+          <dd>
+            <ul>
+              <li>銀行振込手数料（振込の場合）</li>
+              <li>通信にかかるインターネット通信費</li>
+              <li>対面サポート等の交通費（別途必要な場合）</li>
+            </ul>
+          </dd>
+
+          <dt>お支払方法</dt>
+          <dd>銀行振込、クレジットカード（導入する場合）、その他契約書または請求書に記載の方法</dd>
+
+          <dt>お支払い時期</dt>
+          <dd>契約締結後、請求書記載の期日までにお支払いください。</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="container info-section">
+      <div class="card">
+        <h2>提供・キャンセル・返金</h2>
+        <dl>
+          <dt>サービス提供時期</dt>
+          <dd>契約書・提案書・お見積書に記載のスケジュールに基づき提供します。</dd>
+
+          <dt>キャンセル・返金について</dt>
+          <dd>
+            <ul>
+              <li>着手前のキャンセル：実費を除き返金可能</li>
+              <li>着手後のキャンセル：作業進捗に応じた費用をご請求</li>
+              <li>納品後の返金：サービスの性質上、返金には応じられません</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="container info-section">
+      <div class="card">
+        <h2>その他の重要事項</h2>
+        <dl>
+          <dt>ソフトウェア・デジタルサービスに関する注意</dt>
+          <dd>AIモデル設定・システム構築・LINE連携等、成果物の仕様は事前に説明し、クライアントの了承のもと提供します。運用後の成果や効果を保証するものではありません。</dd>
+
+          <dt>役務提供に関する特記事項</dt>
+          <dd>サービス内容は改善のため予告なく変更される場合があります。</dd>
+
+          <dt>特別な販売条件</dt>
+          <dd>法人向けサービスにつき、利用規約または契約書に準じます。不当な要求があった場合、取引をお断りする場合があります。</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    section {
+      padding: 80px 0;
+    }
+
+    .info-section {
+      padding-top: 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-head small {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--mint);
+      padding-bottom: 8px;
+    }
+
+    dl {
+      margin: 0
+    }
+
+    dt {
+      font-weight: 800;
+      color: var(--ink);
+      margin-top: 32px;
+      font-size: 18px;
+    }
+
+    dt:first-child {
+      margin-top: 0;
+    }
+
+    dd {
+      margin: 12px 0 0 0;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    .note {
+      display: block;
+      margin-top: 8px;
+      color: #7a8f87;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0 0 0;
+    }
+
+    a {
+      color: var(--sea);
+      text-decoration: underline;
+    }
+
+    @media(max-width:768px) {
+      section {
+        padding: 60px 0;
+      }
+      .card {
+        padding: 24px;
+      }
+    }
+</style>

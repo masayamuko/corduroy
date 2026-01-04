@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二の自分作り講座 | 株式会社コールテン</title>
+    <meta name="description" content="自分の価値観や判断軸をAIに写し、深く壁打ちができる「相棒」を育てます。内省や自己理解を深めるための、あなた専用のAI構築講座。">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="株式会社コールテン">
+    <link rel="canonical" href="https://corduroy.co.jp/services/study/SecondME">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://corduroy.co.jp/services/study/SecondME">
+    <meta property="og:title" content="第二の自分作り講座 | 株式会社コールテン">
+    <meta property="og:description" content="自分の価値観や判断軸をAIに写し、深く壁打ちができる「相棒」を育てます。内省や自己理解を深めるための、あなた専用のAI構築講座。">
+    <meta property="og:image" content="https://corduroy.co.jp/assets/images/ogp.png">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="株式会社コールテン">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="第二の自分作り講座 | 株式会社コールテン">
+    <meta name="twitter:description" content="自分の価値観や判断軸をAIに写し、深く壁打ちができる「相棒」を育てます。内省や自己理解を深めるための、あなた専用のAI構築講座。">
+    <meta name="twitter:image" content="https://corduroy.co.jp/assets/images/ogp.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "第二の自分作り講座",
+      "description": "自分の価値観や判断軸をAIに写し、深く壁打ちができる「相棒」を育てます。",
+      "provider": {
+        "@type": "Organization",
+        "name": "株式会社コールテン",
+        "sameAs": "https://corduroy.co.jp/"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://corduroy.co.jp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "サービス",
+          "item": "https://corduroy.co.jp/#service"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI勉強会",
+          "item": "https://corduroy.co.jp/services/study/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "第二の自分作り講座",
+          "item": "https://corduroy.co.jp/services/study/SecondME"
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --color-bg: #F9F5F0;
+            --color-primary: #2F5D50;
+            --color-brown: #8C6A4B;
+            --color-accent: #E68C3A;
+            --color-text: #4A4238;
+            --color-line: #06C755;
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.8;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' opacity='0.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-serif {
+            font-family: 'Shippori Mincho', serif;
+        }
+
+        .masking-tape {
+            background-color: rgba(230, 140, 58, 0.2);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            transform: rotate(-1deg);
+            display: inline-block;
+            padding: 0 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .masking-tape-center {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(1deg);
+            width: 100px;
+            height: 24px;
+            background-color: rgba(230, 140, 58, 0.3);
+            opacity: 0.8;
+            z-index: 10;
+        }
+
+        .hand-drawn-border {
+            border: 2px solid var(--color-brown);
+            border-radius: 2px 255px 2px 25px / 255px 5px 225px 5px;
+            box-shadow: 2px 3px 0 rgba(140, 106, 75, 0.1);
+            background: white;
+        }
+
+        .memo-box {
+            background: #FFFBF0;
+            padding: 24px;
+            box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .memo-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .bg-corduroy {
+            background-color: var(--color-primary);
+            background-image: repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 4px,
+                    rgba(255, 255, 255, 0.05) 4px,
+                    rgba(255, 255, 255, 0.05) 8px);
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: white;
+            font-weight: bold;
+            border-radius: 9999px;
+            padding: 1rem 2.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 0 #c0702b;
+            display: inline-block;
+        }
+
+        .btn-primary:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #c0702b;
+        }
+
+        .btn-line {
+            background-color: var(--color-line);
+            color: white;
+            font-weight: bold;
+            border-radius: 9999px;
+            padding: 1rem 2.5rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 0 #048C3A;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-line:hover {
+            background-color: #05B34C;
+        }
+
+        .btn-line:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #048C3A;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .step-number {
+            font-family: 'Shippori Mincho', serif;
+            font-size: 4rem;
+            line-height: 1;
+            color: rgba(47, 93, 80, 0.1);
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            z-index: 0;
+            font-weight: 700;
+        }
+
+        .speech-bubble {
+            position: relative;
+            background: #fff;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(140, 106, 75, 0.1);
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 2rem;
+            border-width: 0 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent #fff;
+            display: block;
+            width: 0;
+        }
+    </style>
+</head>
+
+<body class="antialiased overflow-x-hidden">
+
+    <!-- ナビゲーション -->
+    <nav class="fixed w-full z-50 bg-[#F9F5F0]/90 backdrop-blur-sm py-4 border-b border-[#8C6A4B]/10">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i data-lucide="book-heart" class="w-6 h-6 text-[#2F5D50]"></i>
+                <span class="font-bold text-[#2F5D50] text-lg font-serif tracking-wide">AI勉強会「第二の自分作り講座」</span>
+            </div>
+            <a href="#contact"
+                class="hidden md:block bg-[#2F5D50] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-[#1a3d33] transition">
+                お問い合わせ
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. ヒーローエリア -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div
+            class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-[#2F5D50]/5 z-0 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-[#E68C3A]/5 z-0 pointer-events-none">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <div class="inline-block mask-tape mb-4 transform -rotate-2">
+                        <span class="bg-[#E68C3A] text-white px-3 py-1 text-sm font-bold rounded-sm shadow-sm">
+                            <i data-lucide="sparkles" class="inline w-3 h-3 mr-1"></i>AIで自己理解の先へ
+                        </span>
+                    </div>
+                    <h1 class="text-4xl lg:text-5xl font-bold text-[#4A4238] leading-tight mb-8 font-serif">
+                        第二の自分作り講座<br>
+                        <span class="text-2xl lg:text-3xl mt-4 block text-[#8C6A4B]">
+                            <span class="relative inline-block">
+                                <span
+                                    class="absolute bottom-2 left-0 w-full h-3 bg-[#E68C3A]/30 -z-10 rounded-sm"></span>
+                                あなたの価値観を写す<br>「第二の自分」を育てる
+                            </span>
+                        </span>
+                    </h1>
+                    <p class="text-lg text-[#8C6A4B] mb-10 leading-relaxed font-medium">
+                        汎用的なAIではなく、あなたの分身のようなAIを。<br>
+                        内省や自己理解を深め、24時間365日いつでも客観的な視点で<br>
+                        語り合える「究極の相棒」を構築します。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="btn-primary text-lg">
+                            講座に申し込む
+                        </a>
+                        <a href="#story"
+                            class="bg-white border-2 border-[#8C6A4B] text-[#8C6A4B] px-8 py-4 rounded-full text-lg font-bold hover:bg-[#F9F5F0] transition flex items-center justify-center gap-2">
+                            講座の目的 <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 relative h-[500px] w-full flex justify-center items-center">
+                    <!-- ミラー風ビジュアル -->
+                    <div class="relative w-80 h-80 md:w-96 md:h-96">
+                        <div class="absolute inset-0 bg-[#2F5D50]/10 rounded-full animate-pulse"></div>
+                        <div
+                            class="absolute inset-4 bg-white rounded-full shadow-inner flex items-center justify-center">
+                            <div class="flex gap-6 md:gap-10">
+                                <div
+                                    class="w-20 h-20 md:w-32 md:h-32 bg-[#8C6A4B] rounded-full flex items-center justify-center text-white shadow-lg">
+                                    <i data-lucide="user" class="w-10 h-10 md:w-16 md:h-16"></i>
+                                </div>
+                                <div
+                                    class="w-20 h-20 md:w-32 md:h-32 bg-[#2F5D50] rounded-full flex items-center justify-center text-white shadow-lg animate-float">
+                                    <i data-lucide="bot" class="w-10 h-10 md:w-16 md:h-16"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute -bottom-4 right-0 bg-[#E68C3A] text-white px-6 py-3 rounded-2xl shadow-xl z-30 font-bold text-sm md:text-base">
+                            Value Sync 100%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[50px]">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#FFF" opacity="1"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- 2. こんなお悩み -->
+    <section class="py-20 relative bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#8C6A4B] font-bold tracking-widest text-sm uppercase">BEFORE</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-[#4A4238] font-serif mb-4 mt-2">
+                    「AIって結局、便利な検索ツール」<br>で止まっていませんか？
+                </h2>
+                <div class="w-24 h-1 bg-[#E68C3A] mx-auto rounded-full opacity-60"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="memo-box transform rotate-1 hover:rotate-0">
+                    <div class="masking-tape-center"></div>
+                    <div class="text-center mt-4">
+                        <div
+                            class="w-12 h-12 bg-[#8C6A4B]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#8C6A4B]">
+                            <i data-lucide="repeat" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-[#5A4D41] font-bold mb-2">毎回同じ説明をしている</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">「前提条件や背景を毎回プロンプトに入力するのが手間。チャットを変えると文脈を忘れてしまう」
+                        </p>
+                    </div>
+                </div>
+                <div class="memo-box transform -rotate-1 hover:rotate-0 md:mt-8">
+                    <div class="masking-tape-center"></div>
+                    <div class="text-center mt-4">
+                        <div
+                            class="w-12 h-12 bg-[#8C6A4B]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#8C6A4B]">
+                            <i data-lucide="search" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-[#5A4D41] font-bold mb-2">検索エンジンの延長</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            「調べ物や文章要約には使うけれど、自分の思考を深めたり、新しいアイデアを出す壁打ちには使えていない」</p>
+                    </div>
+                </div>
+                <div class="memo-box transform rotate-2 hover:rotate-0">
+                    <div class="masking-tape-center"></div>
+                    <div class="text-center mt-4">
+                        <div
+                            class="w-12 h-12 bg-[#8C6A4B]/10 rounded-full flex items-center justify-center mx-auto mb-4 text-[#8C6A4B]">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-[#5A4D41] font-bold mb-2">使いこなす人への憧れ</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            「AIで自己分析したり、ビジネスの相棒にしている人を見ると、自分ももっと本質的な使い方をしてみたいと思う」</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Mindset (New Section) -->
+    <section class="py-24 bg-[#F9F5F0] relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-[#2F5D50] font-bold tracking-widest text-sm uppercase">MINDSET</span>
+                <h2 class="text-3xl font-bold text-[#4A4238] mt-2 mb-4 font-serif">一生懸命「教え込む」必要はありません。</h2>
+                <p class="text-[#8C6A4B]">AI育成のカギは、<span class="bg-[#E68C3A]/20 px-1">頑張りどころを変える</span>ことです。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Misconception -->
+                <div
+                    class="bg-white/50 p-8 rounded-3xl border border-gray-200 relative overflow-hidden grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-500">
+                    <div
+                        class="absolute top-0 left-0 bg-gray-200 text-gray-600 px-4 py-1 text-xs font-bold rounded-br-xl">
+                        誤解</div>
+                    <h3 class="text-xl font-bold text-gray-700 mb-4 mt-2">「私が全て指示しなきゃ...」</h3>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-20 h-20 bg-gray-100 rounded-full flex-shrink-0 flex items-center justify-center text-4xl">
+                            💦</div>
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <p>❌ 膨大な情報を整理してプロンプトに書く</p>
+                            <p>❌ AIが理解できるよう、必死に言語化する</p>
+                            <p>❌ 疲れて結局「もういいや」と諦める</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reality -->
+                <div
+                    class="bg-white p-8 rounded-3xl border-2 border-[#E68C3A] relative shadow-xl transform md:-translate-y-4">
+                    <div
+                        class="absolute top-0 left-0 bg-[#E68C3A] text-white px-4 py-1 text-xs font-bold rounded-br-xl">
+                        正解</div>
+                    <h3 class="text-xl font-bold text-[#E68C3A] mb-4 mt-2">「AIが必要なことを聞いてくる」</h3>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="w-20 h-20 bg-[#FEF6E9] rounded-full flex-shrink-0 flex items-center justify-center text-4xl">
+                            ✨</div>
+                        <div class="space-y-2 text-sm text-[#4A4238]">
+                            <p class="font-bold">⭕ ゴールだけ伝えれば、AIがリードする</p>
+                            <p class="font-bold">⭕ あなたは質問に答えていくだけ</p>
+                            <p class="font-bold">⭕ 自然と「必要な情報」が整理されていく</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-[#FEF6E9] p-4 rounded-xl text-xs text-[#8C6A4B] leading-relaxed">
+                        第2の自分作りは、AIがガイド役。あなたはそれに乗っかるだけで、気づけば詳細な<br>「取扱説明書」が出来上がっています。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 解決策 (機能活用) -->
+    <section class="py-24 bg-[#2F5D50]/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#E68C3A] font-bold tracking-widest text-sm uppercase">SOLUTION</span>
+                <h2 class="text-3xl font-bold text-[#4A4238] mt-2 mb-4 font-serif">ChatGPTの全機能を、<br>あなたの「脳の拡張」へ。</h2>
+                <p class="text-[#8C6A4B]">GPTsを作るだけではありません。<span class="bg-[#E68C3A]/20 px-1">記憶と文脈の完全な管理</span>を習得します。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-xl font-bold text-[#2F5D50] mb-4 flex items-center gap-2">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                        「記憶」の適切な配置場所
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                        「メモリ機能」「カスタム指示」「プロジェクト機能」。<br>
+                        これらをどう使い分ければ、AIがあなたのことを忘れず、かつ混乱せずに動けるか？<br>
+                        データの保存場所と呼び出し方の「クセ」を学びます。
+                    </p>
+                    <div class="bg-[#F9F5F0] p-4 rounded-xl text-xs font-bold text-[#8C6A4B]">
+                        習得スキル：メモリ管理 / プロジェクト機能の使い分け / コンテキストの呼び出し
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-[#E68C3A]/30 transform md:scale-105">
+                    <h3 class="text-xl font-bold text-[#E68C3A] mb-4 flex items-center gap-2">
+                        <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+                        Canvasで思考を「編集」する
+                    </h3>
+                    <p class="text-sm text-[#4A4238] leading-relaxed mb-6">
+                        チャットで流れてしまうアイデアを、Canvas機能を使ってドキュメントとして残す。<br>
+                        AIと一緒に画面を見ながら、修正し、磨き上げる。<br>
+                        「会話」から「共創」へ、使い方のステージを一段引き上げます。
+                    </p>
+                    <div class="bg-[#2F5D50] p-4 rounded-xl text-xs font-bold text-white">
+                        成果：AIとの対話ログが、そのまま使える「成果物」になる
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ワークショップの3ステップ -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-[#4A4238] mb-4 font-serif">講座の3ステップ</h2>
+                <p class="text-[#8C6A4B]">マインドセットから機能マスターへ。着実に「分身」を育てます。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="relative pt-8">
+                    <div class="step-number">01</div>
+                    <div
+                        class="bg-[#F9F5F0] p-8 rounded-[2rem] h-full border border-transparent hover:border-[#E68C3A] transition relative z-10">
+                        <div
+                            class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm text-[#D97E63]">
+                            <i data-lucide="brain" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#8C6A4B] mb-4">主従逆転のマインドセット</h3>
+                        <div class="text-sm text-gray-600 leading-relaxed">
+                            「AIに指示しなきゃ」という思い込みを外します。AIがあなたにインタビューし、必要な情報を引き出す体験を通じて、楽に高品質なアウトプットが出る感覚を掴みます。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pt-8">
+                    <div class="step-number">02</div>
+                    <div
+                        class="bg-[#F9F5F0] p-8 rounded-[2rem] h-full border border-transparent hover:border-[#E68C3A] transition relative z-10">
+                        <div
+                            class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm text-[#6B8E23]">
+                            <i data-lucide="message-circle" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#8C6A4B] mb-4">対話トレーニング</h3>
+                        <div class="text-sm text-gray-600 leading-relaxed">
+                            実際にAIとの壁打ちを行います。思考が深まる問いかけ、意外な視点の提示。あなたの「思考の癖」や「大切にしている価値観」が、対話の中で自然と言語化されていきます。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pt-8">
+                    <div class="step-number">03</div>
+                    <div
+                        class="bg-[#F9F5F0] p-8 rounded-[2rem] h-full border border-transparent hover:border-[#E68C3A] transition relative z-10">
+                        <div
+                            class="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm text-[#8C6A4B]">
+                            <i data-lucide="cpu" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#8C6A4B] mb-4">機能フル活用マスター</h3>
+                        <div class="text-sm text-gray-600 leading-relaxed">
+                            対話で得た情報をどこに保存するか。「メモリ」への書き込み方、プロジェクトごとの情報の切り分け、Canvasでの資料化。AIを「第二の脳」として機能させるための技術的な設定を完了させます。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ストーリー -->
+    <section id="story" class="py-24 relative overflow-hidden bg-[#FDFCF8]">
+        <div class="absolute inset-0 opacity-30"
+            style="background-image: repeating-linear-gradient(45deg, #E68C3A 0, #E68C3A 1px, transparent 0, transparent 50%); background-size: 40px 40px;">
+        </div>
+        <div class="absolute inset-0 bg-white/80"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <span
+                    class="inline-block py-1 px-4 border border-[#8C6A4B] rounded-full text-[#8C6A4B] text-xs font-bold tracking-widest mb-4 bg-white">PASSION</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-[#4A4238] font-serif leading-tight">
+                    最も優れたAIは、世界情勢ではなく、<br><span class="relative inline-block px-2 z-10">「あなたのこと」<span
+                            class="absolute bottom-2 left-0 w-full h-3 bg-[#E68C3A] -z-10 opacity-60 transform -skew-x-12 rounded"></span></span>を知るAIです。
+                </h2>
+            </div>
+
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-lg text-[#5A4D41] leading-relaxed mb-10 font-medium">
+                    最先端のデータをすべて持っているAIよりも、<br>
+                    「あなたが大切にしていること」を一言ですべて理解し、<br>
+                    それに基づいて助言してくれるAIの方が、はるかに人生を加速させます。
+                </p>
+                <div class=" hand-drawn-border p-10 bg-white shadow-xl">
+                    <h3 class="text-2xl font-bold text-[#2F5D50] mb-6 font-serif">一生、一人の自分ではなくなる。</h3>
+                    <p class="text-[#8C6A4B] leading-relaxed">
+                        客観性を手に入れることは、これまでは他人の力を借りるしかありませんでした。<br>
+                        しかしAIを正しく「分身」に育てることで、<br>
+                        あなたはいつでも、自分自身を外側から観察し、対話できるようになります。
+                    </p>
+                    <p class="text-[#8C6A4B] mt-6 font-bold text-xl">
+                        迷いが確信に変わるスピードを、<br>
+                        10倍、100倍に引き上げてみませんか。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. 準備・サポート体制 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div>
+                    <h3 class="text-xl font-bold text-[#2F5D50] mb-6 flex items-center gap-2 font-serif">
+                        <i data-lucide="check-square" class="w-6 h-6"></i>
+                        参加に必要なもの
+                    </h3>
+                    <div class="bg-[#F9F5F0] p-6 rounded-2xl border border-gray-100">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="laptop" class="w-5 h-5 text-[#8C6A4B] mt-1 shrink-0"></i>
+                                <div>
+                                    <p class="font-bold text-[#4A4238]">ノートパソコンまたはタブレット</p>
+                                    <p class="text-xs text-gray-500">※深い入力作業を伴うためPC推奨です</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-[#8C6A4B] mt-1 shrink-0"></i>
+                                <div>
+                                    <p class="font-bold text-[#4A4238]">ChatGPT 有料プラン(Plus-)</p>
+                                    <p class="text-sm text-gray-600 mt-1">「カスタマイズ機能（GPTs等）」を使用するため、有料版のご用意をお願いしています。</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-[#2F5D50] mb-6 flex items-center gap-2 font-serif">
+                        <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                        安心のサポート
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex gap-4">
+                            <div
+                                class="w-12 h-12 bg-[#2F5D50]/10 rounded-full flex items-center justify-center shrink-0 text-[#2F5D50]">
+                                <i data-lucide="lock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-[#4A4238]">プライバシーへの配慮</p>
+                                <p class="text-sm text-gray-600">自分だけの情報を安全に扱うための設定方法から丁寧にお伝えします。</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-[#E68C3A]/30 shadow-md flex gap-4">
+                            <div
+                                class="w-12 h-12 bg-[#E68C3A]/10 rounded-full flex items-center justify-center shrink-0 text-[#E68C3A]">
+                                <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-[#4A4238]">アップデート作業会</p>
+                                <p class="text-sm text-gray-600">講座後の「育て方」に迷ったら、コミュニティの作業会でいつでも調整可能です。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. プラン紹介 -->
+    <section id="plan" class="py-24 bg-[#2F5D50] text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-corduroy opacity-30 pointer-events-none"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl font-bold text-center mb-12 font-serif">料金プラン</h2>
+
+            <div class="max-w-lg mx-auto">
+                <div
+                    class="bg-white text-[#4A4238] rounded-[2.5rem] p-8 md:p-10 shadow-xl relative flex flex-col border-2 border-[#8C6A4B]/10">
+                    <h3 class="text-2xl font-bold text-[#2F5D50] mb-2 text-center font-serif">
+                        第二の自分作り講座
+                    </h3>
+                    <p class="text-center text-gray-500 mb-8 text-sm">一生の資産になる「自分専用AI」を構築する</p>
+
+                    <div class="text-center mb-8">
+                        <span class="text-4xl font-bold text-[#4A4238] font-serif">¥20,000</span>
+                        <span class="text-gray-500 text-xs">/ 3時間</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-10 flex-grow">
+                        <li class="flex items-start gap-3 text-sm">
+                            <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50] shrink-0"><i data-lucide="check"
+                                    class="w-4 h-4"></i></div>
+                            <span>価値観と言語化のサポート（個別ヒアリング）</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50] shrink-0"><i data-lucide="check"
+                                    class="w-4 h-4"></i></div>
+                            <span>あなた専用のカスタムGPT（または指示書）構築</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50] shrink-0"><i data-lucide="check"
+                                    class="w-4 h-4"></i></div>
+                            <span>深い壁打ちのための対話トレーニング</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50] shrink-0"><i data-lucide="check"
+                                    class="w-4 h-4"></i></div>
+                            <span>コミュニティ「糸口会」1ヶ月体験権</span>
+                        </li>
+                    </ul>
+
+                    <a href="#contact"
+                        class="block w-full text-center py-4 bg-[#E68C3A] text-white font-bold rounded-full shadow-lg hover:bg-[#d67e30] transition transform hover:-translate-y-1">
+                        この講座に申し込む
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. フッター / CTA -->
+    <footer id="contact" class="bg-[#4A4238] text-[#F9F5F0] py-24 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10"
+            style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #000 10px, #000 11px);">
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6 font-serif">自分を客観視し、可能性を解放する。<br>究極の相棒作りをここから始めましょう。</h2>
+            <p class="mb-12 opacity-80">まずはお気軽にLINEで日程や内容についてご相談ください。</p>
+
+            <div class="bg-[#F9F5F0] text-[#4A4238] max-w-lg mx-auto p-10 rounded-[2rem] hand-drawn-border">
+                <h3 class="text-xl font-bold mb-4 text-[#2F5D50] flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    LINEで相談・予約
+                </h3>
+                <a href="https://lin.ee/aQqPH7S"
+                    class="btn-line w-full justify-center text-lg py-4 shadow-lg transform transition hover:scale-105">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" class="mr-2">
+                        <path
+                            d="M20.2 10.5c0 4.4-4.5 8-10.2 8-1.1 0-2.1-.2-3.1-.5-.2-.1-.5 0-.7.2l-2.7 1.8c-.5.3-1.1-.2-.9-.8l.7-3c.1-.3 0-.6-.2-.8-1.8-1.4-2.9-3.3-2.9-5.3 0-4.4 4.5-8 10.2-8s10.2 3.6 10.2 8z" />
+                    </svg>
+                    LINE公式アカウントに登録
+                </a>
+                <p class="text-xs text-gray-400 mt-4">「第二の自分作り講座について」と一言送信してください。</p>
+            </div>
+
+            <div
+                class="mt-20 border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-center gap-4 text-sm opacity-60">
+                <p>&copy; 2024 Corduroy Inc.</p>
+                <div class="flex gap-4">
+                    <a href="/legal/privacy" class="hover:text-white">Privacy Policy</a>
+                    <a href="/contact" class="hover:text-white">Contact</a>
+                    <a href="/services/study" class="hover:text-white">Study Home</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

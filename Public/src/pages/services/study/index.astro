@@ -1,0 +1,906 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = "AI勉強会｜株式会社コールテン";
+const description = "社長と現場でトーンを変えたAI勉強会。合意形成と小さく試すための土台をつくり、現場で活きるプロンプト・活用設計を一緒に育てます。";
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="fade-up">
+          <div class="icon-lg">🎓</div>
+          <h1>AI勉強会</h1>
+          <p class="lead" style="max-width:720px;margin:20px auto 0;">
+            AIを「学ぶ」だけで終わらせず、<br>仕事や生活で「使い続けられる」へ</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
+            <a class="btn" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer">LINE登録で無料セミナー</a>
+            <a class="btn secondary" href="#briefing">無料説明会</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Recommend</small>
+          <h2>ココがおすすめ！</h2>
+        </div>
+        <div class="cute-list fade-up">
+          <!-- Item 1 -->
+          <div class="cute-list-item">
+            <div class="cute-list-img">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=300"
+                alt="本質的な学び">
+            </div>
+            <div class="cute-list-content">
+              <div class="cute-list-title">
+                <div class="cute-list-icon">✔</div>
+                <span>本質的な学び</span>
+              </div>
+              <p class="cute-list-text">短期的に稼ぐための小手先テクニックではなく、<b
+                  style="color:var(--sea); border-bottom:2px solid var(--accent);">長期目線の「思考と型」</b>を！</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="cute-list-item">
+            <div class="cute-list-img">
+              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=300"
+                alt="教える技術">
+            </div>
+            <div class="cute-list-content">
+              <div class="cute-list-title">
+                <div class="cute-list-icon">✔</div>
+                <span>教える技術</span>
+              </div>
+              <p class="cute-list-text">プロコーチ・元日本語教師経験のある講師による<b
+                  style="color:var(--sea); border-bottom:2px solid var(--accent);">躓きやすいポイントを押さえた</b>講座</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="cute-list-item">
+            <div class="cute-list-img">
+              <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=300"
+                alt="対面コミュニティ">
+            </div>
+            <div class="cute-list-content">
+              <div class="cute-list-title">
+                <div class="cute-list-icon">✔</div>
+                <span>対面コミュニティ</span>
+              </div>
+              <p class="cute-list-text">福岡での対面開催でアナログ感も大事に、<b
+                  style="color:var(--sea); border-bottom:2px solid var(--accent);">コミュニティで楽しく続け力をつける</b></p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Basics</small>
+          <h2>3つの基礎講座</h2>
+          <p>興味を持てるどの講座でも参加できます！</p>
+        </div>
+
+        <div class="triangle-layout fade-up">
+          <!-- Top Item -->
+          <div class="triangle-item top">
+            <a href="/services/study/basicAI" class="circle-link">
+              <div class="circle-shape">
+                <div class="circle-icon">🌱</div>
+                <div class="circle-title">AI基礎講座</div>
+                <div class="basics-desc">
+                  <b>基礎からしっかりと積み上げたい方へ</b>
+                  AIを「人」に例え、特性や対話法を学び、活用練習。活用事例から「AIで何ができるか」も具体的に知ることができます。
+                </div>
+                <div class="click-hint">
+                  <span>クリックして詳細を見る</span>
+                  <span class="arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Left Item -->
+          <div class="triangle-item left">
+            <a href="/services/study/SecondME" class="circle-link">
+              <div class="circle-shape">
+                <div class="circle-icon">🤝</div>
+                <div class="circle-title">第二の自分<br>作り講座</div>
+                <div class="basics-desc">
+                  <b>自分の「分身」が欲しい方へ</b>
+                  ChatGPTの機能をフル活用して、あなたを覚え込ませてあなたにぴったりのAI活用ができるようになります。
+                </div>
+                <div class="click-hint">
+                  <span>クリックして詳細を見る</span>
+                  <span class="arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Right Item -->
+          <div class="triangle-item right">
+            <a href="/services/study/AIdeWEB" class="circle-link">
+              <div class="circle-shape">
+                <div class="circle-icon">🔨</div>
+                <div class="circle-title">AIで作る<br>体験講座</div>
+                <div class="basics-desc">
+                  <b>未経験でもAIで「何か」を作りたい方へ</b>
+                  Webサイトやゲーム制作などを通して、知識がなくても「AI使えば自分にもできる」を体感を持って学べます。
+                </div>
+                <div class="click-hint">
+                  <span>クリックして詳細を見る</span>
+                  <span class="arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Support</small>
+        <h2>継続サポート</h2>
+        <p>基礎講座を受けた人のみ参加できる有料AIコミュニティーです。</p>
+      </div>
+
+      <div class="card fade-up" style="max-width:800px; margin:0 auto; text-align:center;">
+        <h3>AI活用コミュニティー「糸口会」</h3>
+        <p class="mini">
+          AI活用の糸口を見つける会です。<br>
+          講座で学んだことを活かして、それぞれのAI作業を進めつつ、わからないところは質問したり、参加者同士で聞き合うことができます。AIで作ったものを発表したり、互いに刺激をもらえる楽しい場所です。
+        </p>
+        <div
+          style="margin-top:24px; display:inline-flex; gap:12px; align-items:center; background:var(--mint); padding:12px 24px; border-radius:100px;">
+          <span style="font-size:20px;">🗓️</span>
+          <span style="font-weight:700; color:var(--sea);">日曜昼開催（基本）</span>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <a class="btn" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer">LINE登録で参加案内を見る</a>
+      </div>
+    </section>
+
+    <section class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Advanced</small>
+          <h2>さらなる高みを目指せ</h2>
+          <p>もっと深く、大量に作りたい方へ。</p>
+        </div>
+        <div class="card fade-up" style="max-width:860px;margin:0 auto;">
+          <div style="display:flex; flex-direction:column; align-items:center;">
+            <h3 style="margin-bottom:16px;">ターミナル操作ができるAI講座</h3>
+            <p class="mini" style="text-align:center;">
+              パソコンの中に直接AIを導入し、複雑な操作を自動化する仕組みを作ります。<br>
+              Webサイト制作や記事執筆などの大量の成果物を、一気に生成・処理できる環境を構築します。<br>
+              実務での圧倒的な効率化を目指す方に向けた応用講座です。
+            </p>
+            <div style="margin-top:24px;">
+              <a class="btn secondary" href="/">詳細を見る</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Instructor</small>
+        <h2>講師について</h2>
+      </div>
+      <div class="card fade-up"
+        style="max-width:860px;margin:0 auto; display:flex; align-items:center; gap:24px; text-align:left;">
+        <!-- Avatar could go here if available -->
+        <div>
+          <h3>向雅也（コールテン代表）</h3>
+          <p class="mini" style="margin-top:12px;">
+            企業導入/自社導入の実績があり、現場で使える形に落とし込んでいます。<br>
+            フリーランス歴10年、コーチ歴3年、日本語教師/コーチ歴の合算で5年。<br>
+            実務に落とし込めるAI活用を、丁寧に伴走します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Voices</small>
+        <h2>参加者の声</h2>
+      </div>
+
+      <!-- Grouped Text Testimonials -->
+      <div class="voices-box fade-up">
+        <ul class="voices-list">
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">触ったことはあるけど活用できていなかったが、講座の型で仕事に使える感覚が出た。</div>
+          </li>
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">AIへの指示が曖昧だったと気づけた。考え方を整えたら結果が安定した。</div>
+          </li>
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">一人だと続かなかったけど、黙々会で作業が進むようになった。</div>
+          </li>
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">自分の言葉がAIに伝わる感覚が出て、壁打ちが楽になった。</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="fade-up" style="display:grid;gap:24px;max-width:900px;margin:0 auto;">
+        <a href="/voices/takaro" class="card"
+          style="display:block;text-decoration:none;transition:transform .2s, box-shadow .2s;color:inherit;">
+          <div style="display:flex;gap:20px;align-items:center;">
+            <div style="flex-shrink:0;">
+              <img
+                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
+                alt="中野たかろーさん" style="width:80px;height:80px;border-radius:50%;object-fit:cover;">
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;gap:8px;margin-bottom:8px;">
+                <span
+                  style="display:inline-block;padding:4px 10px;border-radius:8px;background:#e8f4f0;color:#0f3d2e;font-size:11px;font-weight:700;">Interview</span>
+              </div>
+              <h3 style="font-size:18px;margin:0 0 8px 0;color:var(--ink);">「検索ツール」から「第二の自分」へ</h3>
+              <p style="font-size:14px;color:#335649;margin:0;line-height:1.6;">
+                フリーランス・中野たかろーさん｜ChatGPTを単なる検索ツールとして使っていた状態から、価値観やクセまで学習させた「第二の自分」として活用するまでの変革ストーリー。
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="container faq">
+      <div class="section-head fade-up">
+        <small>FAQ</small>
+        <h2>よくあるご質問</h2>
+      </div>
+      <div class="fade-up" style="max-width:800px; margin:0 auto;">
+        <details open>
+          <summary>AI初心者でも参加できますか？</summary>
+          <p class="mini">
+            はい、大丈夫です。基礎講座はブラウザでの対話から始めます。初めての方も安心して受講できます。
+          </p>
+        </details>
+        <details>
+          <summary>パソコンを持っていないのですが参加できますか？</summary>
+          <p class="mini">講座では実際に操作を行うため、PC（Windows/Mac）の持参をお願いしております。タブレットやスマホのみでは受講が難しい内容が含まれます。</p>
+        </details>
+        <details>
+          <summary>必要なソフトやツールはありますか？</summary>
+          <p class="mini">基本的にはブラウザ（Google Chrome等）があれば受講可能です。ChatGPTなどのAIツールへの登録が必要ですが、講座内で案内する場合もあります。</p>
+        </details>
+        <details>
+          <summary>開催場所・形式について</summary>
+          <p class="mini">現在は「福岡市内でのオフライン開催」のみとなっております。オンラインでの開催は未定です。</p>
+        </details>
+        <details>
+          <summary>開催日程は決まっていますか？</summary>
+          <p class="mini">日程はLINE登録で優先的にご案内します。まずはお気軽にご登録ください。</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="briefing" class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Briefing</small>
+          <h2>無料説明会</h2>
+          <p>あなたに合う入り口が見つかる、短い説明会です。</p>
+        </div>
+        <div class="card fade-up" style="max-width:720px;margin:0 auto;text-align:center;">
+          <p class="mini">
+            AI勉強会で何ができるようになるか、どの講座から始めるのがよいかなど、全体像をお話しします。<br>
+            無理な勧誘はありませんので、お気軽にご参加ください。
+          </p>
+          <a class="btn" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer"
+            style="margin-top:28px;">LINE登録で無料セミナーを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-contact">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Contact</small>
+          <h2>その他ご相談はこちらから</h2>
+        </div>
+        <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
+          <p class="mini" style="margin-bottom:24px;">
+            企業研修のご依頼や、個別のアドバイザリー契約など、勉強会以外のご相談も承っております。<br>
+            コンタクトページの案内に沿ってご連絡ください。
+          </p>
+          <a class="btn" href="/contact" target="_blank" rel="noopener noreferrer">コンタクトページを見る →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+/* Section & Head */
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 72px;
+    position: relative;
+}
+
+.section-head small {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 12px;
+}
+
+.section-head p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-light);
+}
+
+/* Hero Section */
+.hero {
+    padding: 160px 0 140px;
+    background-color: var(--cream);
+    background-image:
+    radial-gradient(circle, rgba(212, 160, 77, 0.6) 2px, transparent 2.5px),
+    radial-gradient(circle, rgba(22, 97, 78, 0.3) 2px, transparent 2.5px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2316614e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    margin-bottom: 32px;
+    background: linear-gradient(135deg, var(--ink) 0%, var(--sea) 60%, var(--ink) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    text-shadow: 0 20px 40px rgba(22, 97, 78, 0.1);
+}
+
+.hero p {
+    font-size: 20px;
+    color: var(--text);
+    max-width: 760px;
+    margin: 0 auto 40px;
+    line-height: 2;
+    font-weight: 400;
+}
+
+.icon-lg {
+    font-size: 64px;
+    margin-bottom: 32px;
+    color: var(--sea);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #fff 0%, var(--mint) 100%);
+    border-radius: 40px;
+    border: 1px solid var(--white);
+    box-shadow: 0 16px 32px rgba(22, 97, 78, 0.1), inset 0 2px 4px rgba(255, 255, 255, 1);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.is-visible .icon-lg:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 24px 48px rgba(22, 97, 78, 0.15), inset 0 2px 4px rgba(255, 255, 255, 1);
+}
+
+/* Background Utilities */
+.bg-gradient-soft {
+    background: linear-gradient(180deg, var(--cream) 0%, #f1f7f5 100%);
+    position: relative;
+}
+
+.bg-gradient-soft::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+    radial-gradient(circle at 10% 20%, rgba(22, 97, 78, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(22, 97, 78, 0.02) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.bg-contact {
+    background: linear-gradient(135deg, #f0f7f4 0%, #e6f3ed 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-contact::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(22, 97, 78, 0.03) 0%, transparent 60%);
+    animation: rotateBg 20s linear infinite;
+}
+
+@keyframes rotateBg {
+    from { transition: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Card */
+.card {
+    background: #fff;
+    border: 1px solid rgba(22, 97, 78, 0.08);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--mint) 0%, var(--sea) 50%, var(--mint) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(22, 97, 78, 0.2);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: var(--ink);
+}
+
+.card .mini {
+    font-size: 16px;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* Cute List */
+.cute-list {
+    background: #fff;
+    border: 2px dashed var(--line);
+    border-radius: 32px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cute-list::after {
+    content: '✨';
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 40px;
+    animation: floatEmoji 3s ease-in-out infinite;
+}
+
+@keyframes floatEmoji {
+    0%, 100% { transform: translateY(0) rotate(10deg); }
+    50% { transform: translateY(-10px) rotate(-10deg); }
+}
+
+.cute-list-item {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.cute-list-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--sea);
+}
+
+.cute-list-item:last-child {
+    margin-bottom: 0;
+}
+
+.cute-list-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.cute-list-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cute-list-content {
+    flex: 1;
+}
+
+.cute-list-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.cute-list-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--sea);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.cute-list-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+/* Triangle Layout */
+.triangle-layout {
+    position: relative;
+    height: auto;
+    max-width: 800px;
+    margin: 60px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    justify-content: center;
+}
+
+.triangle-item {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.triangle-item.top {
+    grid-column: span 2;
+}
+
+.triangle-layout::before {
+    content: '';
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 280px;
+    border-left: 2px dashed var(--line-strong);
+    border-right: 2px dashed var(--line-strong);
+    border-bottom: 2px dashed var(--line-strong);
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    z-index: 0;
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%, 0% 100%);
+    background: transparent;
+    border: none;
+}
+
+/* Interactive Circle Links */
+.circle-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.circle-link:hover {
+    transform: scale(1.05);
+}
+
+/* Enhanced Circle Shape */
+.circle-shape {
+    width: 340px;
+    height: 340px;
+    background: linear-gradient(135deg, var(--sea) 0%, var(--ink) 100%);
+    border: 4px solid var(--white);
+    border-radius: 50%;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.circle-link:hover .circle-shape {
+    box-shadow: 0 0 30px rgba(22, 97, 78, 0.3), 0 0 60px rgba(22, 97, 78, 0.1);
+    border-color: var(--sea);
+    background: #fff;
+}
+
+.circle-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.circle-title {
+    font-weight: 700;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+}
+
+.circle-link:hover .circle-title {
+    color: var(--sea);
+    text-shadow: none;
+}
+
+.basics-desc {
+    text-align: center;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    transition: opacity 0.3s ease;
+    min-height: 80px;
+}
+
+.basics-desc b {
+    display: block;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.circle-link:hover .basics-desc {
+    opacity: 0;
+}
+
+.click-hint {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: var(--sea);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.circle-link:hover .click-hint {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+.click-hint .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.circle-link:hover .click-hint .arrow {
+    transform: translateX(4px);
+}
+
+/* Voices Group Box */
+.voices-box {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.voices-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.voices-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.voices-icon {
+    font-size: 20px;
+    line-height: 1;
+    margin-top: 4px;
+}
+
+.voices-text {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* FAQ Styling */
+.faq details {
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px 32px;
+    background: #fff;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.faq details:hover {
+    border-color: var(--sea);
+    box-shadow: var(--shadow-md);
+}
+
+.faq details[open] {
+    border-color: var(--sea);
+    background: #fff;
+    box-shadow: var(--shadow-md);
+    padding-bottom: 32px;
+}
+
+.faq summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 18px;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+    list-style: none;
+    position: relative;
+    padding-right: 48px;
+}
+
+.faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    color: var(--sea);
+    font-weight: 300;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq details[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.faq details[open] summary {
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+}
+
+.faq summary:hover {
+    color: var(--sea);
+}
+
+@media(max-width: 768px) {
+    .hero { padding: 120px 20px 80px; }
+    .hero p { font-size: 16px; }
+    .card { padding: 28px; }
+    .triangle-layout { grid-template-columns: 1fr; gap: 32px; }
+    .triangle-item.top { grid-column: auto; }
+    .triangle-layout::before { display: none; }
+    .voices-list { grid-template-columns: 1fr; }
+    .cute-list { padding: 24px; }
+    .cute-list-item { flex-direction: column; text-align: center; }
+    .cute-list-img { margin: 0 auto; }
+    .cute-list-title { justify-content: center; }
+}
+</style>

@@ -1,0 +1,189 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+    title="クライアントの声｜Shu行政書士事務所 沼澤さん｜株式会社コールテン"
+    description="第二の自分ワークで価値観を反映したAIを構築。沼澤さんのAI勉強会事例。"
+    canonicalUrl="https://corduroy.co.jp/voices/numazawa"
+    ogUrl="https://corduroy.co.jp/voices/numazawa"
+    ogType="article"
+>
+    <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "Organization",
+        "name": "株式会社コールテン"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "沼澤",
+        "jobTitle": "代表"
+      },
+      "reviewBody": "AIを人に例える説明で指示の出し方が腹落ち。第二の自分をつくるワークで価値観に沿ったAIが動き始め、書類仕事やチャットボットづくりにも活かせました。"
+    }
+    </script>
+
+    <main>
+        <section class="hero">
+          <div class="container hero-inner fade-up">
+            <div class="avatar-frame">
+              <div class="avatar-lg"><img
+                  src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/%E8%A1%8C%E6%94%BF%E6%9B%B8%E5%A3%AB_%E6%B2%BC%E6%BE%A4%E5%91%A8%E5%B9%B3%E3%81%95%E3%82%93_mvhj9o.png"
+                  alt="沼澤さん"></div>
+            </div>
+            <h1>Shu行政書士事務所 代表<br>沼澤さん</h1>
+            <div class="meta">
+              <span class="tag">AI勉強会</span>
+              <span class="pill">行政書士 / DX推進</span>
+            </div>
+            <p>AI未経験からスタートし、第二の自分ワークで価値観を反映したAIを構築。書類業務の効率化とチャットボット活用を進め、DX担当としても活かしています。</p>
+          </div>
+        </section>
+    
+        <section class="container">
+          <div class="grid cols-2">
+            <div class="card">
+              <h3>Before</h3>
+              <ul class="mini">
+                <li>AIにほぼ触れておらず、ついていけない不安が大きかった。</li>
+                <li>書類業務が多いが、活用方法がわからず手作業中心だった。</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>After</h3>
+              <ul class="mini">
+                <li>AIを人に見立てた説明で指示設計が腹落ちし、安定した出力が得られるように。</li>
+                <li>第二の自分ワークで価値観を反映したAIを構築し、書類効率化やチャットボットに活用。</li>
+                <li>行政書士会のDX担当としても学びを展開し、業界導入を推進。</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+    
+        <section class="container">
+          <div class="card" style="border-left: 4px solid var(--sea);">
+            <h3>印象的な一言</h3>
+            <p style="line-height:1.8;margin-top:8px;color:#234638;">
+              「AIを人に例える説明で指示の出し方が腹落ち。第二の自分をつくるワークで価値観に沿ったAIが動き始め、書類仕事やチャットボットづくりにも活かせました。」</p>
+          </div>
+        </section>
+    
+        <section id="contact" class="container" style="padding-bottom:100px">
+          <div class="card" style="max-width:720px;margin:0 auto;text-align:center">
+            <h3>同じように伴走してほしい方へ</h3>
+            <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">
+              コールテンの勉強会・伴走は紹介限定・長期前提です。まずは小さく試し、安心して進められる形を一緒に作ります。</p>
+            <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+              <a class="btn" href="/contact">相談方法を見る</a>
+              <a class="btn secondary" href="/voices/">他のクライアントの声</a>
+            </div>
+          </div>
+        </section>
+      </main>
+</Layout>
+
+<style>
+    /* Hero */
+    .hero {
+        padding: 160px 0 100px;
+        text-align: center;
+        background: transparent;
+    }
+
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
+
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 12px;
+        color: var(--text-light);
+    }
+
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
+
+    .avatar-lg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+
+    .grid {
+        display: grid;
+        gap: 32px;
+    }
+
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+
+    @media(min-width:768px) {
+        .grid.cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 60px; }
+    }
+</style>

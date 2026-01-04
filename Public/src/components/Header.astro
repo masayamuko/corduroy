@@ -1,0 +1,368 @@
+---
+---
+<header>
+    <div class="container nav">
+      <a href="/" class="header-logo">
+        <img src="/assets/images/logo.png" alt="株式会社コールテン">
+      </a>
+      <div class="sp"></div>
+      <a href="/#brand-story" class="nav-link">会社概要</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
+            style="font-size:10px">▼</span></a>
+        <div class="dropdown-menu">
+          <a href="/services/study/">AI勉強会</a>
+          <a href="/services/advisory">AI顧問</a>
+          <a href="/services/system">AIシステム開発</a>
+        </div>
+      </div>
+      <a class="btn" href="/contact">相談する</a>
+      <button class="hamburger" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-menu">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-logo">
+        <img src="/assets/images/logo.png" alt="株式会社コールテン" style="height:32px;">
+      </div>
+      <div class="mobile-menu-group">
+        <a href="/#brand-story" class="mobile-menu-link">会社概要</a>
+      </div>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-menu-group">
+        <small
+          style="padding:0 20px; color:#7a8f87; font-size:11px; font-weight:700; display:block; margin-bottom:4px;">SERVICES</small>
+        <a href="/services/study/" class="mobile-menu-link">AI勉強会</a>
+        <a href="/services/advisory" class="mobile-menu-link">AI顧問</a>
+        <a href="/services/system" class="mobile-menu-link">AIシステム開発</a>
+      </div>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-menu-group">
+        <a href="/contact" class="mobile-menu-link mobile-menu-cta">相談する</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Mobile Menu Handler ---
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const body = document.body;
+
+      // Create backdrop if not exists (checked for robustness)
+      let backdrop = document.querySelector('.mobile-menu-backdrop');
+      if (!backdrop) {
+        backdrop = document.createElement('div');
+        backdrop.className = 'mobile-menu-backdrop';
+        body.appendChild(backdrop);
+      }
+
+      function toggleMenu() {
+        hamburger?.classList.toggle('active');
+        mobileMenu?.classList.toggle('active');
+        backdrop?.classList.toggle('active');
+        if (body && mobileMenu) {
+            body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+      }
+
+      if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+      }
+
+      // Close menu when clicking backdrop
+      if (backdrop) {
+         backdrop.addEventListener('click', toggleMenu);
+      }
+
+      // Close menu when clicking a link
+      const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+      });
+    });
+
+    // --- Dropdown Click Handler ---
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropdownToggle = document.querySelector('.dropdown-toggle');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+
+      if (dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          dropdownMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (event) {
+          if (!dropdownMenu.contains(event.target as Node) && dropdownMenu.classList.contains('active')) {
+            dropdownMenu.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
+
+  <style>
+    /* Header & Nav */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(22, 97, 78, 0.08);
+      z-index: 1200;
+    }
+
+    .nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text);
+      letter-spacing: 0.03em;
+      height: 72px;
+    }
+
+    .nav a:not(.btn):hover {
+      color: var(--sea);
+    }
+
+    .nav .sp {
+      flex: 1;
+    }
+
+    .nav .header-logo img {
+      height: 44px;
+      vertical-align: middle;
+      transition: transform 0.3s ease;
+    }
+
+    .header-logo:hover img {
+      transform: scale(1.05);
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      min-width: 220px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      padding: 8px;
+      display: none;
+      z-index: 20;
+      opacity: 0;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dropdown-menu.active {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 16px;
+      color: var(--text);
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--mint);
+      color: var(--sea);
+    }
+
+    /* Hamburger & Mobile Menu Styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4200;
+      width: 48px;
+      height: 48px;
+      justify-content: center;
+      align-items: center;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 320px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -8px 0 30px rgba(0, 0, 0, 0.1);
+      z-index: 4000;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding-top: 80px;
+      pointer-events: none;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+      pointer-events: auto;
+    }
+
+    .mobile-menu-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 24px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .mobile-menu-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0 12px;
+    }
+
+    .mobile-menu-link {
+      display: block;
+      padding: 14px 16px;
+      color: var(--ink);
+      font-weight: 600;
+      border-radius: 12px;
+      background: transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .mobile-menu-link:hover,
+    .mobile-menu-link:active {
+      background: var(--mint);
+      color: var(--sea);
+    }
+
+    .mobile-menu-logo {
+      padding: 0 28px 20px;
+      text-align: left;
+    }
+
+    .mobile-menu-divider {
+      height: 1px;
+      background: var(--line);
+      margin: 12px 24px;
+      opacity: 0.6;
+    }
+
+    .mobile-menu-cta {
+      background: var(--sea) !important;
+      color: #fff !important;
+      text-align: center;
+      margin-top: 12px;
+      box-shadow: 0 4px 12px rgba(22, 97, 78, 0.2);
+    }
+
+    .mobile-menu-cta:active {
+      transform: scale(0.98);
+    }
+
+    /* We need global styles for backdrop for it to be appended to body */
+  </style>
+
+<style is:global>
+    .mobile-menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(5, 32, 24, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 3500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .mobile-menu-backdrop.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @media(max-width:768px) {
+      .nav {
+        justify-content: space-between;
+        padding: 0 20px;
+        height: 60px;
+      }
+
+      .nav .sp,
+      .nav-link,
+      .nav-placeholder,
+      .nav .btn,
+      .dropdown {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex !important;
+        position: static;
+        transform: none;
+      }
+
+      .header-logo {
+        margin: 0;
+      }
+
+      .header-logo img {
+        height: 36px !important;
+      }
+    }
+</style>
