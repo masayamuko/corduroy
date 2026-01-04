@@ -13,9 +13,9 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>クライアントさまの声｜株式会社コールテン</title>
-  <meta name="description" content="株式会社コールテンのクライアント事例・声をご紹介。AI勉強会・顧問・システム開発での実践や感想を掲載しています。">
-  <link rel="icon" href="./faviconC.ico">
+  <title>特定商取引法に基づく表記｜株式会社コールテン</title>
+  <meta name="description" content="株式会社コールテンの特定商取引法に基づく表記ページです。販売事業者、所在地、連絡先、料金、キャンセル・返金ポリシーなどを掲載しています。">
+  <link rel="icon" href="../assets/images/faviconC.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -24,7 +24,7 @@
   <style>
     @font-face {
       font-family: 'CraftMincho';
-      src: url('./craftmincho.otf') format('opentype');
+      src: url('../assets/fonts/craftmincho.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
@@ -238,6 +238,7 @@
       font-size: clamp(28px, 4vw, 42px);
       line-height: 1.3;
       letter-spacing: 0.05em;
+      margin-bottom: 24px;
     }
 
     h3 {
@@ -258,118 +259,44 @@
       position: relative;
     }
 
-    .hero {
-      padding: 120px 0 60px;
-      text-align: center;
-      background: transparent;
-    }
-
-    .hero-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* Animations */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .fade-up.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .voices-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 32px;
-    }
-
-    .voice-card {
+    .card {
       background: #fff;
       border: 1px solid var(--line);
-      border-radius: 32px;
-      padding: 32px;
+      border-radius: 24px;
+      padding: 40px;
       box-shadow: var(--shadow-md);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
     }
 
-    .voice-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--sea);
+    dl {
+      margin: 0
     }
 
-    .voice-card::before {
-      content: "VOICE";
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      font-size: 10px;
+    dt {
       font-weight: 800;
-      color: var(--sea);
-      opacity: 0.1;
-      letter-spacing: 0.2em;
-    }
-
-    .voice-meta {
-      font-weight: 700;
       color: var(--ink);
-      font-size: 16px;
-      line-height: 1.4;
+      margin-top: 32px;
+      font-size: 18px;
     }
 
-    .avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      border: 2px solid #fff;
-      background: var(--mint);
+    dt:first-child {
+      margin-top: 0;
     }
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    dd {
+      margin: 12px 0 0 0;
+      color: var(--text-light);
+      line-height: 1.8;
     }
 
-    .service-tag {
-      display: inline-block;
-      padding: 4px 12px;
-      background: var(--mint);
-      color: var(--sea);
-      font-size: 11px;
-      font-weight: 700;
-      border-radius: 100px;
-      margin-top: 8px;
-    }
-
-    .bg-contact {
-      background: var(--green);
-      color: #fff;
-    }
-
-    .bg-contact h2,
-    .bg-contact p {
-      color: #fff;
+    ul {
+      padding-left: 20px;
+      margin: 8px 0 0 0;
     }
 
     .section-head {
       text-align: center;
       margin-bottom: 72px;
+      position: relative;
     }
 
     .section-head small {
@@ -550,12 +477,9 @@
         height: 36px !important;
       }
 
-      .voices-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 100px 20px 60px;
+      .card {
+        padding: 24px;
+        border-radius: 20px;
       }
     }
   </style>
@@ -564,21 +488,21 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="./index.html" class="header-logo">
-        <img src="./logo.png" alt="株式会社コールテン">
+      <a href="../index.html" class="header-logo">
+        <img src="../assets/images/logo.png" alt="株式会社コールテン">
       </a>
       <div class="sp"></div>
-      <a href="./index.html#brand-story" class="nav-link">会社概要</a>
+      <a href="../index.html#brand-story" class="nav-link">会社概要</a>
       <div class="dropdown">
         <a href="#" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
             style="font-size:10px">▼</span></a>
         <div class="dropdown-menu">
-          <a href="./service-study.html">AI勉強会</a>
-          <a href="./service-advisory.html">AI顧問</a>
-          <a href="./service-system.html">AIシステム開発</a>
+          <a href="../services/study/">AI勉強会</a>
+          <a href="../services/advisory.html">AI顧問</a>
+          <a href="../services/system.html">AIシステム開発</a>
         </div>
       </div>
-      <a class="btn" href="./contact.html">相談する</a>
+      <a class="btn" href="../contact.html">相談する</a>
       <button class="hamburger" aria-label="メニュー">
         <span></span>
         <span></span>
@@ -589,131 +513,123 @@
   <div class="mobile-menu">
     <div class="mobile-menu-content">
       <div class="mobile-menu-logo">
-        <img src="./logo.png" alt="株式会社コールテン" style="height:32px;">
+        <img src="../assets/images/logo.png" alt="株式会社コールテン" style="height:32px;">
       </div>
       <div class="mobile-menu-group">
-        <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
+        <a href="../index.html#brand-story" class="mobile-menu-link">会社概要</a>
       </div>
       <div class="mobile-menu-divider"></div>
       <div class="mobile-menu-group">
         <small
           style="padding:0 20px; color:#7a8f87; font-size:11px; font-weight:700; display:block; margin-bottom:4px;">SERVICES</small>
-        <a href="./service-study.html" class="mobile-menu-link">AI勉強会</a>
-        <a href="./service-advisory.html" class="mobile-menu-link">AI顧問</a>
-        <a href="./service-system.html" class="mobile-menu-link">AIシステム開発</a>
+        <a href="../services/study/" class="mobile-menu-link">AI勉強会</a>
+        <a href="../services/advisory.html" class="mobile-menu-link">AI顧問</a>
+        <a href="../services/system.html" class="mobile-menu-link">AIシステム開発</a>
       </div>
       <div class="mobile-menu-divider"></div>
       <div class="mobile-menu-group">
-        <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
+        <a href="../contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
       </div>
     </div>
   </div>
 
   <main>
-    <section class="hero">
-      <div class="container hero-inner fade-up">
-        <div class="icon-lg">💬</div>
-        <h1>クライアントさまの声</h1>
-        <p>株式会社コールテンのサービスを導入いただいたクライアントさまの声を掲載しています。</p>
-      </div>
-    </section>
-
     <section class="container">
-      <div class="voices-grid">
-        <div class="voice-card fade-up" style="opacity:0.8; cursor:default;">
-          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
-            <div class="avatar" style="filter:grayscale(100%);"><img
-                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%B9%E3%83%86%E3%82%99%E3%83%8B%E3%82%A2%E3%83%AB_%E4%BD%90%E9%87%8E%E3%81%95%E3%82%93_pbyfhl.png"
-                alt="佐野さん"></div>
-            <div>
-              <div class="voice-meta">株式会社スデニアル<br>代表 佐野さん</div>
-              <div class="service-tag" style="background:#ddd; color:#666;">準備中</div>
-            </div>
-          </div>
-          <p class="mini"><b>Before:</b> 議事録要約程度のAI活用。<br><b>Now:</b> CodexでPC操作込みの爆速シミュレーション、提案の幅が桁違いに。</p>
-        </div>
-        <div class="voice-card fade-up" style="transition-delay: .1s; opacity:0.8; cursor:default;">
-          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
-            <div class="avatar" style="filter:grayscale(100%);"><img
-                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/NPO%E6%B3%95%E4%BA%BA%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%95%E3%83%A9%E3%83%AF%E3%83%BC%E3%82%B9%E3%82%99_%E7%AA%AA%E7%94%B0%E3%81%95%E3%82%93_fxbwmu.png"
-                alt="窪田さん"></div>
-            <div>
-              <div class="voice-meta">NPO法人スマイリーフラワーズ<br>代表 窪田さん</div>
-              <div class="service-tag" style="background:#ddd; color:#666;">準備中</div>
-            </div>
-          </div>
-          <p class="mini"><b>Before:</b> 最新ツールのキャッチアップに不安。<br><b>Now:</b> 業務理解に基づく提案でミスマッチなく導入、手間と無駄を削減。</p>
-        </div>
-        <a href="./voice-takaro.html" class="voice-card fade-up" data-voice="takaro" style="transition-delay: .2s">
-          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
-            <div class="avatar"><img
-                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9_%E4%B8%AD%E9%87%8E%E3%81%95%E3%82%93_crlwfl.png"
-                alt="中野たかろーさん"></div>
-            <div>
-              <div class="voice-meta">フリーランス<br>中野たかろーさん</div>
-              <div class="service-tag">AI勉強会</div>
-            </div>
-          </div>
-          <p class="mini"><b>Before:</b> 検索ツールとしての利用に留まり、回答の精度に不満。<br><b>Now:</b>
-            「第二の自分」を構築し、孤独なフリーランス業務の最強の相談相手に。</p>
-        </a>
-        <div class="voice-card fade-up" style="transition-delay: .3s; opacity:0.8; cursor:default;">
-          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
-            <div class="avatar" style="filter:grayscale(100%);"><img
-                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/%E8%A1%8C%E6%94%BF%E6%9B%B8%E5%A3%AB_%E6%B2%BC%E6%BE%A4%E5%91%A8%E5%B9%B3%E3%81%95%E3%82%93_mvhj9o.png"
-                alt="沼澤さん"></div>
-            <div>
-              <div class="voice-meta">Shu行政書士事務所<br>代表 沼澤さん</div>
-              <div class="service-tag" style="background:#ddd; color:#666;">準備中</div>
-            </div>
-          </div>
-          <p class="mini"><b>Before:</b> AI未経験で不安、書類業務は手作業。<br><b>Now:</b> 第二の自分ワークで価値観を反映したAIを稼働、書類効率化とDX推進に活用。</p>
-        </div>
+      <div class="section-head">
+        <small>Legal</small>
+        <h1>特定商取引法に基づく表記</h1>
+        <p class="mini">株式会社コールテン（登記情報に基づく正式名称）</p>
+      </div>
+      <div class="card">
+        <dl>
+          <dt>販売事業者名</dt>
+          <dd>株式会社コールテン</dd>
 
-        <!-- Higashide-san (Coming Soon) -->
-        <div class="voice-card fade-up" style="transition-delay: .4s; opacity:0.8; cursor:default;">
-          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
-            <div class="avatar" style="filter:grayscale(100%);"><img
-                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765800932/Instagram_Image_1_h8majz.jpg"
-                alt="東出さん"></div>
-            <div>
-              <div class="voice-meta">北海道留学センター<br>代表 東出さん</div>
-              <div class="service-tag" style="background:#ddd; color:#666; border-color:#ccc;">準備中</div>
-            </div>
-          </div>
-          <p class="mini"><b>Before:</b> 広報素材を作るのに費用や時間などコストがかかりうまく作れない。<br><b>Now:</b>
-            業務理解とミーティングファイルなどを渡すだけでコミュニケーションコストと費用を抑えてAI開発。</p>
-        </div>
+          <dt>運営責任者</dt>
+          <dd>代表取締役　向 雅也</dd>
 
-        <!-- S-san (Coming Soon) -->
-        <div class="voice-card fade-up" style="transition-delay: .5s; opacity:0.8; cursor:default;">
-          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
-            <div class="avatar" style="filter:grayscale(100%);"><img src="./img/dummy_s_san.png" alt="Sさん"></div>
-            <div>
-              <div class="voice-meta">NPO法人N<br>Sさん</div>
-              <div class="service-tag" style="background:#ddd; color:#666; border-color:#ccc;">準備中</div>
-            </div>
-          </div>
-          <p class="mini"><b>Before:</b> 複数の施設のWEBサイトがバラバラ、うまく運用できてない。<br><b>Now:</b>
-            法人ドメインを取得して法人サイトに統合。運用スタッフとして関わってもらえる関係に。</p>
-        </div>
+          <dt>所在地</dt>
+          <dd>〒810-0001<br>福岡県福岡市中央区天神2丁目2番12号 T&amp;Jビルディング7F</dd>
+
+          <dt>電話番号</dt>
+          <dd>
+            070-5273-0383<br>
+            <small style="display:block; margin-top:8px; color:#7a8f87; line-height:1.6;">
+              ※営業電話が大変多いため、お電話にはAI音声で自動応答しております。<br>
+              お問い合わせ内容と折り返し先の電話番号を録音いただければ、担当者より折り返しご連絡いたします。<br>
+              ※営業電話はお断りしております。<br>
+              ※お急ぎの方、またはスムーズなやり取りをご希望の方は、<a href="../contact.html"
+                style="color:#176148; font-weight:600;">お問い合わせページ</a>または<a href="https://lin.ee/aQqPH7S"
+                style="color:#176148; font-weight:600;">公式LINE</a>からのお問い合わせをお勧めいたします。
+            </small>
+          </dd>
+
+          <dt>メールアドレス</dt>
+          <dd><a href="mailto:info@corduroy.co.jp">info@corduroy.co.jp</a></dd>
+
+          <dt>ウェブサイト</dt>
+          <dd><a href="https://www.corduroy.co.jp/">https://www.corduroy.co.jp/</a></dd>
+        </dl>
       </div>
     </section>
 
-    <section id="contact" class="bg-contact">
-      <div class="container">
-        <div class="section-head fade-up" style="text-align:center">
-          <small style="color:var(--orange)">Contact</small>
-          <h2>ご相談はこちらから</h2>
-          <p>ご相談をご希望いただける場合はこちらのコンタクトページで詳細をご確認ください。</p>
-        </div>
-        <div class="card fade-up"
-          style="max-width:680px; margin:0 auto; text-align:center; background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); backdrop-filter:blur(10px);">
-          <p class="mini" style="margin-bottom:24px; color:rgba(255,255,255,0.8)">
-            公式フォームはありません。コンタクトページの案内に沿って、SNSのDMなどからご連絡ください。</p>
-          <a class="btn" href="./contact.html"
-            style="background:var(--white); color:var(--green); box-shadow:none;">コンタクトページを見る →</a>
-        </div>
+    <section class="container" style="padding-top:0">
+      <div class="card" style="display:grid;gap:16px">
+        <h2>料金・お支払い</h2>
+        <dl>
+          <dt>販売価格</dt>
+          <dd>各サービス紹介ページまたはお見積りにて表示します。すべて税込価格で表示します。</dd>
+
+          <dt>商品代金以外に必要な料金</dt>
+          <dd>
+            <ul>
+              <li>銀行振込手数料（振込の場合）</li>
+              <li>通信にかかるインターネット通信費</li>
+              <li>対面サポート等の交通費（別途必要な場合）</li>
+            </ul>
+          </dd>
+
+          <dt>お支払方法</dt>
+          <dd>銀行振込、クレジットカード（導入する場合）、その他契約書または請求書に記載の方法</dd>
+
+          <dt>お支払い時期</dt>
+          <dd>契約締結後、請求書記載の期日までにお支払いください。</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:0">
+      <div class="card" style="display:grid;gap:16px">
+        <h2>提供・キャンセル・返金</h2>
+        <dl>
+          <dt>サービス提供時期</dt>
+          <dd>契約書・提案書・お見積書に記載のスケジュールに基づき提供します。</dd>
+
+          <dt>キャンセル・返金について</dt>
+          <dd>
+            <ul>
+              <li>着手前のキャンセル：実費を除き返金可能</li>
+              <li>着手後のキャンセル：作業進捗に応じた費用をご請求</li>
+              <li>納品後の返金：サービスの性質上、返金には応じられません</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:0">
+      <div class="card" style="display:grid;gap:16px">
+        <h2>その他の重要事項</h2>
+        <dl>
+          <dt>ソフトウェア・デジタルサービスに関する注意</dt>
+          <dd>AIモデル設定・システム構築・LINE連携等、成果物の仕様は事前に説明し、クライアントの了承のもと提供します。運用後の成果や効果を保証するものではありません。</dd>
+
+          <dt>役務提供に関する特記事項</dt>
+          <dd>サービス内容は改善のため予告なく変更される場合があります。</dd>
+
+          <dt>特別な販売条件</dt>
+          <dd>法人向けサービスにつき、利用規約または契約書に準じます。不当な要求があった場合、取引をお断りする場合があります。</dd>
+        </dl>
       </div>
     </section>
     <footer>
@@ -721,36 +637,16 @@
         style="max-width:1240px; margin:0 auto; padding:40px 32px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; border-top:1px solid var(--line); margin-top:40px;">
         <div style="font-weight:500; color:var(--text-light);">© 株式会社コールテン</div>
         <div class="footer-links" style="display:flex; gap:24px;">
-          <a href="./index.html" style="font-weight:500; color:var(--text);">TOP</a>
-          <a href="./contact.html" style="font-weight:500; color:var(--text);">お問い合わせ</a>
-          <a href="./privacy.html" style="font-weight:500; color:var(--text);">プライバシーポリシー</a>
-          <a href="./tokushoho.html" style="font-weight:500; color:var(--text);">特定商取引法に基づく表記</a>
+          <a href="../index.html" style="font-weight:500; color:var(--text);">TOP</a>
+          <a href="../contact.html" style="font-weight:500; color:var(--text);">お問い合わせ</a>
+          <a href="../legal/privacy.html" style="font-weight:500; color:var(--text);">プライバシーポリシー</a>
+          <a href="../legal/tokushoho.html" style="font-weight:500; color:var(--text);">特定商取引法に基づく表記</a>
         </div>
       </div>
     </footer>
   </main>
 </body>
 <script>
-  // --- Dropdown Click Handler ---
-  document.addEventListener('DOMContentLoaded', function () {
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-
-    if (dropdownToggle && dropdownMenu) {
-      dropdownToggle.addEventListener('click', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        dropdownMenu.classList.toggle('active');
-      });
-
-      document.addEventListener('click', function (event) {
-        if (!dropdownMenu.contains(event.target) && dropdownMenu.classList.contains('active')) {
-          dropdownMenu.classList.remove('active');
-        }
-      });
-    }
-  });
-
   // --- Mobile Menu Handler ---
   document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
@@ -783,17 +679,26 @@
     });
   });
 
-  // --- Scroll Fade-in Animation ---
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => {
-    observer.observe(el);
+  // --- Dropdown Click Handler ---
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    if (dropdownToggle && dropdownMenu) {
+      dropdownToggle.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        dropdownMenu.classList.toggle('active');
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!dropdownMenu.contains(event.target) && dropdownMenu.classList.contains('active')) {
+          dropdownMenu.classList.remove('active');
+        }
+      });
+    }
   });
 </script>
+</body>
 
 </html>

@@ -13,9 +13,9 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>特定商取引法に基づく表記｜株式会社コールテン</title>
-  <meta name="description" content="株式会社コールテンの特定商取引法に基づく表記ページです。販売事業者、所在地、連絡先、料金、キャンセル・返金ポリシーなどを掲載しています。">
-  <link rel="icon" href="./faviconC.ico">
+  <title>クライアントの声｜NPO法人スマイリーフラワーズ 窪田さん｜株式会社コールテン</title>
+  <meta name="description" content="業務理解に基づく提案でミスマッチなく導入。NPO法人スマイリーフラワーズ窪田さんのAI顧問事例。">
+  <link rel="icon" href="../assets/images/faviconC.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -24,9 +24,7 @@
   <style>
     @font-face {
       font-family: 'CraftMincho';
-      src: url('./craftmincho.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
+      src: url('../assets/fonts/craftmincho.otf') format('opentype');
       font-display: swap;
     }
 
@@ -60,10 +58,6 @@
       --glass-border: rgba(255, 255, 255, 0.4);
     }
 
-    html {
-      scroll-behavior: smooth
-    }
-
     *,
     *::before,
     *::after {
@@ -82,11 +76,9 @@
 
     a {
       text-decoration: none;
-      color: inherit;
-      transition: color 0.2s ease;
+      color: inherit
     }
 
-    /* Header & Nav */
     header {
       position: sticky;
       top: 0;
@@ -119,17 +111,7 @@
     }
 
     .nav .sp {
-      flex: 1;
-    }
-
-    .nav .header-logo img {
-      height: 44px;
-      vertical-align: middle;
-      transition: transform 0.3s ease;
-    }
-
-    .header-logo:hover img {
-      transform: scale(1.05);
+      flex: 1
     }
 
     .dropdown {
@@ -177,7 +159,7 @@
       color: var(--sea);
     }
 
-    /* Buttons */
+    /* Modern Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -217,7 +199,6 @@
       background: rgba(22, 97, 78, 0.03);
     }
 
-    /* Typography */
     h1,
     h2,
     h3,
@@ -238,7 +219,6 @@
       font-size: clamp(28px, 4vw, 42px);
       line-height: 1.3;
       letter-spacing: 0.05em;
-      margin-bottom: 24px;
     }
 
     h3 {
@@ -259,58 +239,120 @@
       position: relative;
     }
 
+    .hero {
+      padding: 160px 0 100px;
+      text-align: center;
+      background: transparent;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 16px auto 0;
+    }
+
     .card {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 40px;
+      padding: 32px;
       box-shadow: var(--shadow-md);
     }
 
-    dl {
-      margin: 0
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
     }
 
-    dt {
-      font-weight: 800;
-      color: var(--ink);
-      margin-top: 32px;
-      font-size: 18px;
-    }
-
-    dt:first-child {
-      margin-top: 0;
-    }
-
-    dd {
-      margin: 12px 0 0 0;
-      color: var(--text-light);
-      line-height: 1.8;
-    }
-
-    ul {
-      padding-left: 20px;
-      margin: 8px 0 0 0;
-    }
-
-    .section-head {
-      text-align: center;
-      margin-bottom: 72px;
-      position: relative;
-    }
-
-    .section-head small {
+    .tag {
       display: inline-block;
-      color: var(--accent);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 16px;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 12px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      background: var(--mint);
+      color: var(--sea);
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid var(--line);
     }
 
-    /* Hamburger & Mobile Menu Styles */
+    .grid {
+      display: grid;
+      gap: 32px;
+    }
+
+    .avatar-frame {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+
+    .avatar-lg {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: #fff;
+    }
+
+    .avatar-lg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    @media(max-width:768px) {
+      .nav {
+        justify-content: space-between;
+        padding: 0 20px;
+      }
+
+      .nav .sp,
+      .nav-link,
+      .nav-placeholder,
+      .nav .btn,
+      .dropdown {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex !important;
+        position: static;
+        transform: none;
+      }
+
+      .header-logo {
+        margin: 0;
+      }
+
+      .header-logo img {
+        height: 36px !important;
+      }
+
+      .hero {
+        padding: 100px 20px 60px;
+      }
+    }
+
+    /* Hamburger menu styles */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -352,6 +394,7 @@
       transform: rotate(-45deg) translate(5px, -5px);
     }
 
+    /* Mobile menu */
     .mobile-menu {
       position: fixed;
       top: 0;
@@ -429,6 +472,7 @@
       transform: scale(0.98);
     }
 
+    /* Overlay backdrop */
     .mobile-menu-backdrop {
       position: fixed;
       top: 0;
@@ -447,62 +491,27 @@
       opacity: 1;
       pointer-events: all;
     }
-
-    @media(max-width:768px) {
-      .nav {
-        justify-content: space-between;
-        padding: 0 20px;
-        height: 60px;
-      }
-
-      .nav .sp,
-      .nav-link,
-      .nav-placeholder,
-      .nav .btn,
-      .dropdown {
-        display: none !important;
-      }
-
-      .hamburger {
-        display: flex !important;
-        position: static;
-        transform: none;
-      }
-
-      .header-logo {
-        margin: 0;
-      }
-
-      .header-logo img {
-        height: 36px !important;
-      }
-
-      .card {
-        padding: 24px;
-        border-radius: 20px;
-      }
-    }
   </style>
 </head>
 
 <body>
   <header>
     <div class="container nav">
-      <a href="./index.html" class="header-logo">
-        <img src="./logo.png" alt="株式会社コールテン">
+      <a href="../index.html" class="header-logo">
+        <img src="../assets/images/logo.png" alt="株式会社コールテン">
       </a>
       <div class="sp"></div>
-      <a href="./index.html#brand-story" class="nav-link">会社概要</a>
+      <a href="../index.html#brand-story" class="nav-link">会社概要</a>
       <div class="dropdown">
         <a href="#" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
             style="font-size:10px">▼</span></a>
         <div class="dropdown-menu">
-          <a href="./service-study.html">AI勉強会</a>
-          <a href="./service-advisory.html">AI顧問</a>
-          <a href="./service-system.html">AIシステム開発</a>
+          <a href="../services/study/">AI勉強会</a>
+          <a href="../services/advisory.html">AI顧問</a>
+          <a href="../services/system.html">AIシステム開発</a>
         </div>
       </div>
-      <a class="btn" href="./contact.html">相談する</a>
+      <a class="btn" href="../contact.html">相談する</a>
       <button class="hamburger" aria-label="メニュー">
         <span></span>
         <span></span>
@@ -513,123 +522,80 @@
   <div class="mobile-menu">
     <div class="mobile-menu-content">
       <div class="mobile-menu-logo">
-        <img src="./logo.png" alt="株式会社コールテン" style="height:32px;">
+        <img src="../assets/images/logo.png" alt="株式会社コールテン" style="height:32px;">
       </div>
       <div class="mobile-menu-group">
-        <a href="./index.html#brand-story" class="mobile-menu-link">会社概要</a>
+        <a href="../index.html#brand-story" class="mobile-menu-link">会社概要</a>
       </div>
       <div class="mobile-menu-divider"></div>
       <div class="mobile-menu-group">
         <small
           style="padding:0 20px; color:#7a8f87; font-size:11px; font-weight:700; display:block; margin-bottom:4px;">SERVICES</small>
-        <a href="./service-study.html" class="mobile-menu-link">AI勉強会</a>
-        <a href="./service-advisory.html" class="mobile-menu-link">AI顧問</a>
-        <a href="./service-system.html" class="mobile-menu-link">AIシステム開発</a>
+        <a href="../services/study/" class="mobile-menu-link">AI勉強会</a>
+        <a href="../services/advisory.html" class="mobile-menu-link">AI顧問</a>
+        <a href="../services/system.html" class="mobile-menu-link">AIシステム開発</a>
       </div>
       <div class="mobile-menu-divider"></div>
       <div class="mobile-menu-group">
-        <a href="./contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
+        <a href="../contact.html" class="mobile-menu-link mobile-menu-cta">相談する</a>
       </div>
     </div>
   </div>
 
   <main>
+    <section class="hero">
+      <div class="container">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/NPO%E6%B3%95%E4%BA%BA%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%AA%E3%83%BC%E3%83%95%E3%83%A9%E3%83%AF%E3%83%BC%E3%82%B9%E3%82%99_%E7%AA%AA%E7%94%B0%E3%81%95%E3%82%93_fxbwmu.png"
+              alt="窪田さん"></div>
+        </div>
+        <h1>NPO法人スマイリーフラワーズ<br>代表 窪田さん</h1>
+        <div class="meta">
+          <span class="tag">AI顧問</span>
+          <span class="pill">留学支援/社会的養護</span>
+        </div>
+        <p>最新ツールのキャッチアップに不安があったところ、業務理解にもとづく提案でミスマッチなく導入。手間と無駄を減らしながらDXを進めています。</p>
+      </div>
+    </section>
+
     <section class="container">
-      <div class="section-head">
-        <small>Legal</small>
-        <h1>特定商取引法に基づく表記</h1>
-        <p class="mini">株式会社コールテン（登記情報に基づく正式名称）</p>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Before</h3>
+          <ul>
+            <li>最新のIT/AIツールを追いきれず、導入のズレやミスマッチを懸念していた。</li>
+            <li>キャッチアップに割ける時間が限られ、最適な選定・タイミングを判断しづらかった。</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>After</h3>
+          <ul>
+            <li>業務理解にもとづく提案で、置いていかれずに最新ツールを導入できる環境に。</li>
+            <li>その場で一緒に試しながら導入するため、手間と無駄が大きく削減。</li>
+            <li>ミスマッチの少ない提案で、導入ストレスを抑えつつDXを推進。</li>
+          </ul>
+        </div>
       </div>
+    </section>
+
+    <section class="container">
       <div class="card">
-        <dl>
-          <dt>販売事業者名</dt>
-          <dd>株式会社コールテン</dd>
-
-          <dt>運営責任者</dt>
-          <dd>代表取締役　向 雅也</dd>
-
-          <dt>所在地</dt>
-          <dd>〒810-0001<br>福岡県福岡市中央区天神2丁目2番12号 T&amp;Jビルディング7F</dd>
-
-          <dt>電話番号</dt>
-          <dd>
-            070-5273-0383<br>
-            <small style="display:block; margin-top:8px; color:#7a8f87; line-height:1.6;">
-              ※営業電話が大変多いため、お電話にはAI音声で自動応答しております。<br>
-              お問い合わせ内容と折り返し先の電話番号を録音いただければ、担当者より折り返しご連絡いたします。<br>
-              ※営業電話はお断りしております。<br>
-              ※お急ぎの方、またはスムーズなやり取りをご希望の方は、<a href="./contact.html"
-                style="color:#176148; font-weight:600;">お問い合わせページ</a>または<a href="https://lin.ee/aQqPH7S"
-                style="color:#176148; font-weight:600;">公式LINE</a>からのお問い合わせをお勧めいたします。
-            </small>
-          </dd>
-
-          <dt>メールアドレス</dt>
-          <dd><a href="mailto:info@corduroy.co.jp">info@corduroy.co.jp</a></dd>
-
-          <dt>ウェブサイト</dt>
-          <dd><a href="https://www.corduroy.co.jp/">https://www.corduroy.co.jp/</a></dd>
-        </dl>
+        <h3>印象的な一言</h3>
+        <p style="line-height:1.8;margin-top:8px;color:#234638;">
+          「業務を理解したうえでピッタリなツールを適切なタイミングで提案してくれるので、置いていかれずに済んでいます。導入のズレや無駄が減り、手間も大きく削減できました。」</p>
       </div>
     </section>
 
-    <section class="container" style="padding-top:0">
-      <div class="card" style="display:grid;gap:16px">
-        <h2>料金・お支払い</h2>
-        <dl>
-          <dt>販売価格</dt>
-          <dd>各サービス紹介ページまたはお見積りにて表示します。すべて税込価格で表示します。</dd>
-
-          <dt>商品代金以外に必要な料金</dt>
-          <dd>
-            <ul>
-              <li>銀行振込手数料（振込の場合）</li>
-              <li>通信にかかるインターネット通信費</li>
-              <li>対面サポート等の交通費（別途必要な場合）</li>
-            </ul>
-          </dd>
-
-          <dt>お支払方法</dt>
-          <dd>銀行振込、クレジットカード（導入する場合）、その他契約書または請求書に記載の方法</dd>
-
-          <dt>お支払い時期</dt>
-          <dd>契約締結後、請求書記載の期日までにお支払いください。</dd>
-        </dl>
-      </div>
-    </section>
-
-    <section class="container" style="padding-top:0">
-      <div class="card" style="display:grid;gap:16px">
-        <h2>提供・キャンセル・返金</h2>
-        <dl>
-          <dt>サービス提供時期</dt>
-          <dd>契約書・提案書・お見積書に記載のスケジュールに基づき提供します。</dd>
-
-          <dt>キャンセル・返金について</dt>
-          <dd>
-            <ul>
-              <li>着手前のキャンセル：実費を除き返金可能</li>
-              <li>着手後のキャンセル：作業進捗に応じた費用をご請求</li>
-              <li>納品後の返金：サービスの性質上、返金には応じられません</li>
-            </ul>
-          </dd>
-        </dl>
-      </div>
-    </section>
-
-    <section class="container" style="padding-top:0">
-      <div class="card" style="display:grid;gap:16px">
-        <h2>その他の重要事項</h2>
-        <dl>
-          <dt>ソフトウェア・デジタルサービスに関する注意</dt>
-          <dd>AIモデル設定・システム構築・LINE連携等、成果物の仕様は事前に説明し、クライアントの了承のもと提供します。運用後の成果や効果を保証するものではありません。</dd>
-
-          <dt>役務提供に関する特記事項</dt>
-          <dd>サービス内容は改善のため予告なく変更される場合があります。</dd>
-
-          <dt>特別な販売条件</dt>
-          <dd>法人向けサービスにつき、利用規約または契約書に準じます。不当な要求があった場合、取引をお断りする場合があります。</dd>
-        </dl>
+    <section id="contact" class="container" style="padding-bottom:100px">
+      <div class="card" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>同じように伴走してほしい方へ</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">
+          コールテンは紹介限定・長期前提でAI伴走を行います。小さく試し、合うかどうかを一緒に確かめましょう。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a class="btn" href="./index.html#contact">無料相談する</a>
+          <a class="btn secondary" href="../voices/">他のクライアントの声</a>
+        </div>
       </div>
     </section>
     <footer>
@@ -637,68 +603,79 @@
         style="max-width:1240px; margin:0 auto; padding:40px 32px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; border-top:1px solid var(--line); margin-top:40px;">
         <div style="font-weight:500; color:var(--text-light);">© 株式会社コールテン</div>
         <div class="footer-links" style="display:flex; gap:24px;">
-          <a href="./index.html" style="font-weight:500; color:var(--text);">TOP</a>
-          <a href="./contact.html" style="font-weight:500; color:var(--text);">お問い合わせ</a>
-          <a href="./privacy.html" style="font-weight:500; color:var(--text);">プライバシーポリシー</a>
-          <a href="./tokushoho.html" style="font-weight:500; color:var(--text);">特定商取引法に基づく表記</a>
+          <a href="../index.html" style="font-weight:500; color:var(--text);">TOP</a>
+          <a href="../contact.html" style="font-weight:500; color:var(--text);">お問い合わせ</a>
+          <a href="../legal/privacy.html" style="font-weight:500; color:var(--text);">プライバシーポリシー</a>
+          <a href="../legal/tokushoho.html" style="font-weight:500; color:var(--text);">特定商取引法に基づく表記</a>
         </div>
       </div>
     </footer>
   </main>
-</body>
-<script>
-  // --- Mobile Menu Handler ---
-  document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const body = document.body;
+  <script>
+    // --- Mobile Menu Handler ---
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const body = document.body;
 
-    // Create backdrop
-    const backdrop = document.createElement('div');
-    backdrop.className = 'mobile-menu-backdrop';
-    body.appendChild(backdrop);
+      // Create backdrop
+      const backdrop = document.createElement('div');
+      backdrop.className = 'mobile-menu-backdrop';
+      body.appendChild(backdrop);
 
-    function toggleMenu() {
-      hamburger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      backdrop.classList.toggle('active');
-      body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-    }
+      function toggleMenu() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        backdrop.classList.toggle('active');
+        body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      }
 
-    if (hamburger) {
-      hamburger.addEventListener('click', toggleMenu);
-    }
+      if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+      }
 
-    // Close menu when clicking backdrop
-    backdrop.addEventListener('click', toggleMenu);
+      // Close menu when clicking backdrop
+      backdrop.addEventListener('click', toggleMenu);
 
-    // Close menu when clicking a link
-    const mobileLinks = document.querySelectorAll('.mobile-menu-link');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', toggleMenu);
-    });
-  });
-
-  // --- Dropdown Click Handler ---
-  document.addEventListener('DOMContentLoaded', function () {
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-
-    if (dropdownToggle && dropdownMenu) {
-      dropdownToggle.addEventListener('click', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        dropdownMenu.classList.toggle('active');
+      // Close menu when clicking a link
+      const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
       });
+    });
 
-      document.addEventListener('click', function (event) {
-        if (!dropdownMenu.contains(event.target) && dropdownMenu.classList.contains('active')) {
-          dropdownMenu.classList.remove('active');
+    // --- Dropdown Click Handler ---
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropdownToggle = document.querySelector('.dropdown-toggle');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+
+      if (dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          dropdownMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (event) {
+          if (!dropdownMenu.contains(event.target) && dropdownMenu.classList.contains('active')) {
+            dropdownMenu.classList.remove('active');
+          }
+        });
+      }
+    });
+
+    // --- Scroll Fade-in Animation ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
         }
       });
-    }
-  });
-</script>
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 
 </html>
