@@ -628,6 +628,108 @@
       }
     }
 
+    @keyframes rotateBg {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Interactive Circle Links */
+    .circle-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .circle-link:hover {
+      transform: scale(1.05);
+      /* color: inherit; Keep text color inherited */
+    }
+
+    /* Enhanced Circle Shape for interaction */
+    .circle-shape {
+      /* Existing styles assumed to apply, ensuring transition */
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      /* For positioning hint */
+    }
+
+    .circle-link:hover .circle-shape {
+      /* Strong Glow Effect */
+      box-shadow:
+        0 0 30px rgba(22, 97, 78, 0.3),
+        0 0 60px rgba(22, 97, 78, 0.1);
+      border-color: var(--sea);
+      background: #fff;
+      /* Ensure bg is solid */
+    }
+
+    /* Title Color Change */
+    .circle-title {
+      transition: color 0.3s ease;
+    }
+
+    .circle-link:hover .circle-title {
+      color: var(--sea);
+    }
+
+    /* Description Fade Out */
+    .basics-desc {
+      transition: opacity 0.3s ease;
+      min-height: 80px;
+      /* Reserve space to prevent layout jump if needed, though abspos hint won't affect flow */
+    }
+
+    .circle-link:hover .basics-desc {
+      opacity: 0;
+    }
+
+    /* Visual Hint (Button Style) */
+    .click-hint {
+      position: absolute;
+      top: 65%;
+      /* Adjusted for layout */
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+
+      background: var(--sea);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 14px;
+      white-space: nowrap;
+
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .circle-link:hover .click-hint {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      pointer-events: auto;
+    }
+
+    .click-hint .arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .circle-link:hover .click-hint .arrow {
+      transform: translateX(4px);
+    }
+
     /* Header Logo */
     .header-logo img {
       height: 44px;
@@ -1414,50 +1516,56 @@
         <div class="triangle-layout fade-up">
           <!-- Top Item -->
           <div class="triangle-item top">
-            <div class="circle-shape">
-              <div class="circle-icon">🌱</div>
-              <div class="circle-title">AI基礎講座</div>
-              <div class="basics-desc">
-                <b>理論的に積み上げたい方へ</b>
-                AIの仕組みや得意不得意を整理し、<br>
-                迷わず使いこなすための土台を作ります。
-                <div style="margin-top:16px;text-align:center;">
-                  <a href="../../index.html" class="btn-mini">詳細を見る</a>
+            <a href="./basicAI.html" class="circle-link">
+              <div class="circle-shape">
+                <div class="circle-icon">🌱</div>
+                <div class="circle-title">AI基礎講座</div>
+                <div class="basics-desc">
+                  <b>基礎からしっかりと積み上げたい方へ</b>
+                  AIを「人」に例え、特性や対話法を学び、活用練習。活用事例から「AIで何ができるか」も具体的に知ることができます。
+                </div>
+                <div class="click-hint">
+                  <span>クリックして詳細を見る</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           <!-- Left Item -->
           <div class="triangle-item left">
-            <div class="circle-shape">
-              <div class="circle-icon">🤝</div>
-              <div class="circle-title">第二の自分<br>作り講座</div>
-              <div class="basics-desc">
-                <b>内省や自己理解が好きな方へ</b>
-                自分の価値観や判断軸をAIに写し、<br>
-                深く壁打ちができる「相棒」を育てます。
-                <div style="margin-top:16px;text-align:center;">
-                  <a href="../../index.html" class="btn-mini">詳細を見る</a>
+            <a href="./SecondME.html" class="circle-link">
+              <div class="circle-shape">
+                <div class="circle-icon">🤝</div>
+                <div class="circle-title">第二の自分<br>作り講座</div>
+                <div class="basics-desc">
+                  <b>自分の「分身」が欲しい方へ</b>
+                  ChatGPTの機能をフル活用して、あなたを覚え込ませてあなたにぴったりのAI活用ができるようになります。
+                </div>
+                <div class="click-hint">
+                  <span>クリックして詳細を見る</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
           <!-- Right Item -->
           <div class="triangle-item right">
-            <div class="circle-shape">
-              <div class="circle-icon">🔨</div>
-              <div class="circle-title">AIで作る<br>体験講座</div>
-              <div class="basics-desc">
-                <b>効率的に形を作りたい方へ</b>
-                Web制作を通してAI活用を実践し、<br>
-                未経験から「作れる」成功体験を学びます。
-                <div style="margin-top:16px;text-align:center;">
-                  <a href="./AI-workshop.html" class="btn-mini">詳細を見る</a>
+            <a href="./AIdeWEB.html" class="circle-link">
+              <div class="circle-shape">
+                <div class="circle-icon">🔨</div>
+                <div class="circle-title">AIで作る<br>体験講座</div>
+                <div class="basics-desc">
+                  <b>未経験でもAIで「何か」を作りたい方へ</b>
+                  Webサイトやゲーム制作などを通して、知識がなくても「AI使えば自分にもできる」を体感を持って学べます。
+                </div>
+                <div class="click-hint">
+                  <span>クリックして詳細を見る</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -1472,16 +1580,15 @@
     <section class="container">
       <div class="section-head fade-up">
         <small>Support</small>
-        <h2>AIコミュニティでサポート</h2>
-        <p>講座で学んだことを実践し、深めるための環境です。</p>
+        <h2>継続サポート</h2>
+        <p>基礎講座を受けた人のみ参加できる有料AIコミュニティーです。</p>
       </div>
 
       <div class="card fade-up" style="max-width:800px; margin:0 auto; text-align:center;">
-        <h3>AIコミュニティー「糸口会」</h3>
+        <h3>AI活用コミュニティー「糸口会」</h3>
         <p class="mini">
-          毎月1回、悩んでることの糸口を見つける会です。<br>
-          講座で学んだことを活かしてそれぞれのAI作業を進めつつ、わからないところは質問したり、参加者同士で聞き合うことができます。<br>
-          最近作ったものを発表したり、互いに刺激をもらえる楽しい場所です。
+          AI活用の糸口を見つける会です。<br>
+          講座で学んだことを活かして、それぞれのAI作業を進めつつ、わからないところは質問したり、参加者同士で聞き合うことができます。AIで作ったものを発表したり、互いに刺激をもらえる楽しい場所です。
         </p>
         <div
           style="margin-top:24px; display:inline-flex; gap:12px; align-items:center; background:var(--mint); padding:12px 24px; border-radius:100px;">
