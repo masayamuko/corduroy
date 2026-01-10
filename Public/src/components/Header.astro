@@ -8,9 +8,10 @@
       <div class="sp"></div>
       <a href="/#brand-story" class="nav-link">私たちの想い</a>
       <div class="dropdown">
-        <a href="#" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
+        <a href="/services" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
             style="font-size:10px">▼</span></a>
         <div class="dropdown-menu">
+          <a href="/services">サービス一覧</a>
           <a href="/services/study/">AI勉強会</a>
           <a href="/services/advisory">AI顧問</a>
           <a href="/services/system">AIシステム開発</a>
@@ -36,6 +37,7 @@
       <div class="mobile-menu-group">
         <small
           style="padding:0 20px; color:#7a8f87; font-size:11px; font-weight:700; display:block; margin-bottom:4px;">SERVICES</small>
+        <a href="/services" class="mobile-menu-link">サービス一覧</a>
         <a href="/services/study/" class="mobile-menu-link">AI勉強会</a>
         <a href="/services/advisory" class="mobile-menu-link">AI顧問</a>
         <a href="/services/system" class="mobile-menu-link">AIシステム開発</a>
@@ -87,25 +89,6 @@
       });
     });
 
-    // --- Dropdown Click Handler ---
-    document.addEventListener('DOMContentLoaded', function () {
-      const dropdownToggle = document.querySelector('.dropdown-toggle');
-      const dropdownMenu = document.querySelector('.dropdown-menu');
-
-      if (dropdownToggle && dropdownMenu) {
-        dropdownToggle.addEventListener('click', function (event) {
-          event.preventDefault();
-          event.stopPropagation();
-          dropdownMenu.classList.toggle('active');
-        });
-
-        document.addEventListener('click', function (event) {
-          if (!dropdownMenu.contains(event.target as Node) && dropdownMenu.classList.contains('active')) {
-            dropdownMenu.classList.remove('active');
-          }
-        });
-      }
-    });
   </script>
 
   <style>
@@ -175,6 +158,13 @@
     }
 
     .dropdown-menu.active {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
       display: block;
       opacity: 1;
       transform: translateX(-50%) translateY(0);

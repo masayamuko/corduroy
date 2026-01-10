@@ -171,6 +171,20 @@ import Layout from '../../layouts/Layout.astro';
             </div>
           </div>
         </section>
+
+        <section class="bg-other">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Other Services</small>
+              <h2>その他のサービスを見る</h2>
+              <p>学びから伴走まで、目的に合わせて選べます。</p>
+            </div>
+            <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
+              <p class="mini" style="margin-bottom:20px;">AI勉強会・AI顧問も含めた一覧ページをご覧ください。</p>
+              <a class="btn secondary" href="/services" style="padding:14px 26px;">サービス一覧ページへ →</a>
+            </div>
+          </div>
+        </section>
     
         <section id="contact" class="bg-contact">
           <div class="container">
@@ -348,58 +362,69 @@ import Layout from '../../layouts/Layout.astro';
       margin-bottom: 16px;
       transition: all 0.3s ease;
       box-shadow: var(--shadow-sm);
+      position: relative;
     }
-
-    .faq details:hover {
-      border-color: var(--sea);
-      box-shadow: var(--shadow-md);
-    }
-
     .faq details[open] {
-      border-color: var(--sea);
-      background: #fff;
-      box-shadow: var(--shadow-md);
-      padding-bottom: 32px;
+      box-shadow: 0 4px 12px rgba(22, 97, 78, 0.05);
     }
-
+    
     .faq summary {
-      cursor: pointer;
       font-weight: 700;
-      color: var(--ink);
-      font-size: 18px;
-      padding: 4px 0;
-      transition: color 0.2s ease;
+      cursor: pointer;
       list-style: none;
       position: relative;
       padding-right: 48px;
+      color: #16614e;
+      font-size: 18px;
     }
-
     .faq summary::-webkit-details-marker {
       display: none;
     }
-
+    
+    /* Button Design: 2-hole Outline Button */
     .faq summary::after {
-      content: '+';
+      content: '';
       position: absolute;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 28px;
-      color: var(--sea);
-      font-weight: 300;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #fff; /* White background */
+      border: 2px solid var(--sea); /* Green Outline */
+      
+      /* 2 holes (Green dots) */
+      background-image: 
+        radial-gradient(circle at 38% 50%, var(--sea) 2px, transparent 2.5px),
+        radial-gradient(circle at 62% 50%, var(--sea) 2px, transparent 2.5px);
+      background-repeat: no-repeat;
+      
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
+    /* Open State: Change to Green X */
     .faq details[open] summary::after {
-      transform: translateY(-50%) rotate(45deg);
+      border-color: var(--sea);
+      background-color: #fff;
+      
+      /* Draw Diagonal X using green linear gradients */
+      background-image: 
+        linear-gradient(45deg, transparent 44%, var(--sea) 44%, var(--sea) 56%, transparent 56%),
+        linear-gradient(-45deg, transparent 44%, var(--sea) 44%, var(--sea) 56%, transparent 56%);
+      
+      background-position: center;
+      background-size: 50% 50%;
+      transform: translateY(-50%) rotate(180deg);
     }
 
-    .faq details[open] summary {
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 24px;
-      padding-bottom: 16px;
+    .faq p {
+      margin-top: 16px;
+      line-height: 1.8;
+      color: #6f827a;
+      font-size: 15px;
     }
-
     .faq summary:hover {
       color: var(--sea);
     }
@@ -446,6 +471,10 @@ import Layout from '../../layouts/Layout.astro';
       background: linear-gradient(135deg, #f0f7f4 0%, #e6f3ed 100%);
       position: relative;
       overflow: hidden;
+    }
+
+    .bg-other {
+      background: #f7faf9;
     }
 
     .bg-contact::before {

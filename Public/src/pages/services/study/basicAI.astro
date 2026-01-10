@@ -241,6 +241,79 @@
             display: block;
             width: 0;
         }
+
+        /* FAQ Styling */
+        .faq details {
+            border: 1px solid rgba(140, 106, 75, 0.2);
+            border-radius: 20px;
+            padding: 24px 32px;
+            background: #fff;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .faq details[open] {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--color-text);
+            font-size: 18px;
+            padding: 4px 0;
+            list-style: none;
+            position: relative;
+            padding-right: 48px;
+        }
+
+        .faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Button Design: 2-hole Outline Button */
+        .faq summary::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #fff; /* White background */
+            border: 2px solid var(--color-primary); /* Green Outline */
+            
+            /* 2 holes (Green dots) */
+            background-image: 
+              radial-gradient(circle at 38% 50%, var(--color-primary) 2px, transparent 2.5px),
+              radial-gradient(circle at 62% 50%, var(--color-primary) 2px, transparent 2.5px);
+            background-repeat: no-repeat;
+            
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Open State: Change to Green X */
+        .faq details[open] summary::after {
+            border-color: var(--color-primary);
+            background-color: #fff;
+            
+            /* Draw Diagonal X using green linear gradients */
+            background-image: 
+              linear-gradient(45deg, transparent 44%, var(--color-primary) 44%, var(--color-primary) 56%, transparent 56%),
+              linear-gradient(-45deg, transparent 44%, var(--color-primary) 44%, var(--color-primary) 56%, transparent 56%);
+            
+            background-position: center;
+            background-size: 50% 50%;
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .faq details[open] summary {
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 
@@ -701,6 +774,44 @@
                         この講座に申し込む
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- 10. FAQ -->
+    <section class="py-24 bg-[#F9F5F0] faq">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-[#2F5D50] font-bold tracking-widest text-sm uppercase">Q&A</span>
+                <h2 class="text-3xl font-bold text-[#4A4238] mt-2 font-serif">よくあるご質問</h2>
+            </div>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <details>
+                    <summary>AIを全く使ったことがない初心者でも大丈夫ですか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        はい、大歓迎です。本講座は「アカウントの作り方」や「最初の挨拶」から始めることも可能です。難しい専門用語を使わず、直感的に理解できるようカリキュラムを組んでいますので、安心してご参加ください。
+                    </p>
+                </details>
+                <details>
+                    <summary>パソコンは必要ですか？スマホだけではダメですか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        原則としてPC（Windows/Mac）のご持参をお願いしております。画面共有を行ったり、効率的な操作（ショートカットキーなど）をお伝えするため、スマホやタブレットのみでは十分な学習効果が得られない場合があります。
+                    </p>
+                </details>
+                <details>
+                    <summary>ChatGPTの有料プラン（Plus）への登録は必須ですか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        必須ではありません。無料版でも受講可能です。ただし、最新モデル（GPT-4など）や画像生成機能、Canvas機能などは有料版のみの機能となるため、より深い体験をされたい場合は受講期間中だけでも有料プラン（月額20ドル）への加入をおすすめしています。
+                    </p>
+                </details>
+                <details>
+                    <summary>オンラインでの開催はありますか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        現在は福岡市内での対面（オフライン）開催を基本としております。対面ならではの空気感や、即時のフィードバックを大切にしています。遠方の方や、企業研修としてのオンライン実施については個別にご相談ください。
+                    </p>
+                </details>
             </div>
         </div>
     </section>

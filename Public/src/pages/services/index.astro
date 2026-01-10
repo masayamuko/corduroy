@@ -1,0 +1,867 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="サービス一覧・選び方ガイド｜株式会社コールテン"
+  description="AI勉強会・AI顧問・AIシステム開発の3サービスを比較し、あなたに合う入り口を選べる一覧ページ。目的や体制に応じた導入ルートも紹介します。"
+  canonicalUrl="https://corduroy.co.jp/services"
+  ogUrl="https://corduroy.co.jp/services"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://corduroy.co.jp/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "サービス一覧",
+        "item": "https://corduroy.co.jp/services"
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="fade-up">
+          <small>Services Overview</small>
+          <h1>あなたに合うAI活用の入口を、<br>
+            <span class="highlight">3つのサービス</span>から。</h1>
+          <p>学ぶ・伴走・仕組み化。必要な深さとスピードに合わせて、最適な入り口をご提案します。</p>
+          <div class="hero-tags">
+            <span class="pill">比較しやすい</span>
+            <span class="pill">目的別に選べる</span>
+            <span class="pill">段階的に広げる</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Case Studies -->
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Case Study</small>
+        <h2>導入事例</h2>
+        <p>「どこから入るか」のヒントに。実際の活用事例をご紹介します。</p>
+      </div>
+      <div class="case-grid">
+        <div class="case-card fade-up">
+          <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="中野たかろー氏"></div>
+          <div class="case-content">
+            <h3>中野たかろー氏 <span class="case-role">フリーランス</span></h3>
+            <div class="case-flow">
+              <span class="flow-tag">AI勉強会</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-tag">AI顧問</span>
+            </div>
+            <p>毎月の定期的な個別サポートを受けながら、勉強会コミュニティでも作業を進行。「とことん一緒にやってもらう」スタイルで、自身のプロダクト開発を加速させています。</p>
+          </div>
+        </div>
+        <div class="case-card fade-up">
+          <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野氏"></div>
+          <div class="case-content">
+            <h3>株式会社スデニアル <span class="case-role">代表 佐野氏</span></h3>
+            <div class="case-flow">
+              <span class="flow-tag">AI顧問</span>
+            </div>
+            <p>毎週の定期訪問でAI活用を学びつつ、自社サービスの開発も並行して支援。AI駆動での開発手法を習得し、どんどん自社でAIを活用できる組織へと変化しています。</p>
+          </div>
+        </div>
+        <div class="case-card fade-up">
+          <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/kubota_smileyflowers.png" alt="窪田氏"></div>
+          <div class="case-content">
+            <h3>NPO法人スマイリーフラワーズ <span class="case-role">代表 窪田氏</span></h3>
+            <div class="case-flow">
+              <span class="flow-tag">AI顧問</span>
+              <span class="flow-arrow">→</span>
+              <span class="flow-tag">AIシステム開発</span>
+            </div>
+            <p>Webコンサルティングの文脈からAI顧問を開始。相談を重ねる中で、AIフレンドリーな新事業基盤の構築へ移行。AI駆動でのサイト更新システムやコンテンツ生成フローを実装中です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOVED: Comparison Table -->
+    <section class="bg-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Comparison</small>
+          <h2>サービス比較表</h2>
+          <p>特徴と進め方を並べて、選びやすく整理しています。</p>
+        </div>
+        <div class="table-wrap fade-up">
+          <div class="scroll-hint">横にスクロールできます →</div>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th><span class="th-icon">🎓</span>AI勉強会</th>
+                <th><span class="th-icon">🤝</span>AI顧問</th>
+                <th><span class="th-icon">🛠️</span>AIシステム開発</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>目的</td>
+                <td>学ぶ・試す</td>
+                <td>伴走・定着</td>
+                <td>仕組み化</td>
+              </tr>
+              <tr>
+                <td>対象</td>
+                <td>個人・フリーランス・法人</td>
+                <td>フリーランス・法人</td>
+                <td>フリーランス・法人</td>
+              </tr>
+              <tr>
+                <td>期間</td>
+                <td>1日（2時間）〜</td>
+                <td>1ヶ月〜</td>
+                <td>3ヶ月〜</td>
+              </tr>
+              <tr>
+                <td>スタイル</td>
+                <td>研修・ワークショップ受講<br><small>作業会・グループ相談</small></td>
+                <td>月次伴走・個別相談</td>
+                <td>開発プロジェクト</td>
+              </tr>
+              <tr>
+                <td>サポート</td>
+                <td>コミュニティ参加</td>
+                <td>運用定着・チャット相談</td>
+                <td>保守・追加開発</td>
+              </tr>
+              <tr>
+                <td>得るもの</td>
+                <td>活用スキル・資料</td>
+                <td>ロードマップ・社内実装</td>
+                <td>システム一式・運用ノウハウ</td>
+              </tr>
+              <tr>
+                <td>費用感</td>
+                <td>小 <small>（リーズナブル）</small></td>
+                <td>中 <small>（月額固定）</small></td>
+                <td>大 <small>（要件による）</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- REDESIGNED: 3 Services (Horizontal Layout) -->
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>3 Services Detail</small>
+        <h2>各サービスの詳細</h2>
+        <p>それぞれの特徴と、得られるメリットについて。</p>
+      </div>
+      <div class="services-list">
+        <!-- Service 1 -->
+        <article class="service-row fade-up">
+          <div class="service-info">
+            <div class="service-header">
+              <span class="service-icon">🎓</span>
+              <h3>AI勉強会</h3>
+            </div>
+            <p class="service-desc">現場が動くAIリテラシーを、短期間で。<br>社内の共通言語をつくり、小さな成功体験を生み出します。</p>
+            <div class="service-tags">
+              <span class="tag">まず学ぶ</span>
+              <span class="tag">短期集中</span>
+            </div>
+            
+            <!-- NEW: 3 Mini Boxes -->
+            <div class="mini-features-grid">
+              <div class="mini-feat">
+                <span class="feat-label">基礎</span>
+                <span class="feat-val">3講座</span>
+              </div>
+              <div class="mini-feat">
+                <span class="feat-label">プロ</span>
+                <span class="feat-val">2講座</span>
+              </div>
+              <div class="mini-feat">
+                <span class="feat-label">糸口会</span>
+                <span class="feat-val">コミュニティ</span>
+              </div>
+            </div>
+          </div>
+          <div class="service-right">
+            <div class="service-meta">
+              <ul>
+                <li><strong>対象：</strong>AI初学者 / 実務担当者</li>
+                <li><strong>形式：</strong>ウェビナー / ワークショップ</li>
+                <li><strong>ゴール：</strong>AIツールの基礎習得</li>
+              </ul>
+            </div>
+            <a class="btn mini margin-top" href="/services/study/">詳しく見る →</a>
+          </div>
+        </article>
+
+        <!-- Service 2 -->
+        <article class="service-row fade-up">
+          <div class="service-info">
+            <div class="service-header">
+              <span class="service-icon">🤝</span>
+              <h3>AI顧問</h3>
+            </div>
+            <p class="service-desc">AI活用の方向性を、伴走しながら定着へ。<br>事業課題に合わせたツール選定と運用ルールを設計します。</p>
+            <div class="service-tags">
+              <span class="tag">伴走支援</span>
+              <span class="tag">中長期</span>
+            </div>
+            
+            <!-- NEW: Pricing -->
+            <div class="pricing-info">
+              <p>個人：<span class="price">月3万円〜</span></p>
+              <p>法人：<span class="price">月5万円〜</span></p>
+            </div>
+          </div>
+          <div class="service-right">
+            <div class="service-meta">
+              <ul>
+                <li><strong>対象：</strong>経営層 / プロジェクトリーダー</li>
+                <li><strong>形式：</strong>月次定例 ＋ チャット相談</li>
+                <li><strong>ゴール：</strong>社内活用の自走化</li>
+              </ul>
+            </div>
+            <a class="btn mini margin-top" href="/services/advisory">詳しく見る →</a>
+          </div>
+        </article>
+
+        <!-- Service 3 -->
+        <article class="service-row fade-up">
+          <div class="service-info">
+            <div class="service-header">
+              <span class="service-icon">💻</span>
+              <h3>AIシステム開発</h3>
+            </div>
+            <p class="service-desc">業務を変えるAIシステムを、実装まで。<br>既存システムとの連携や、独自のAIアプリ開発を行います。</p>
+            <div class="service-tags">
+              <span class="tag">システム化</span>
+              <span class="tag">開発</span>
+            </div>
+            
+            <!-- NEW: 3 Strengths -->
+            <div class="mini-features-grid">
+              <div class="mini-feat">
+                <span class="feat-icon">📍</span>
+                <span class="feat-val-sm">現場訪問</span>
+              </div>
+              <div class="mini-feat">
+                <span class="feat-icon">🗣️</span>
+                <span class="feat-val-sm">対話開発</span>
+              </div>
+              <div class="mini-feat">
+                <span class="feat-icon">✨</span>
+                <span class="feat-val-sm">実用本位</span>
+              </div>
+            </div>
+          </div>
+          <div class="service-right">
+            <div class="service-meta">
+              <ul>
+                <li><strong>対象：</strong>業務改善担当 / IT部門</li>
+                <li><strong>形式：</strong>要件定義〜開発〜運用</li>
+                <li><strong>ゴール：</strong>業務プロセスの自動化</li>
+              </ul>
+            </div>
+            <a class="btn mini margin-top" href="/services/system">詳しく見る →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- REVAMPED: Utilization Routes -->
+    <section class="bg-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Route Guide</small>
+          <h2>あなたに合うコールテンとの付き合い方</h2>
+          <p>あなたの状況や目的に合わせて、最適な関わり方を選べます。</p>
+        </div>
+
+        <div class="routes-grid">
+          <!-- Individual -->
+          <div class="route-column fade-up">
+            <h3 class="route-title"><span class="route-icon">👤</span>個人 <span class="sub">趣味・学習</span></h3>
+            <div class="route-options-row">
+              <div class="route-btn-group center">
+                <div class="route-step primary"><span class="step-icon">🎓</span>AI勉強会<span class="mini-tag">グループ</span></div>
+              </div>
+              <div class="or-circle">OR</div>
+              <div class="route-btn-group center">
+                <div class="route-step primary"><span class="step-icon">🤝</span>AI顧問<span class="mini-tag">個別</span></div>
+              </div>
+            </div>
+            <p class="route-note">みんなで楽しく学びたいなら「勉強会」、自分のペースで深く個別相談したいなら「顧問」。自分に合うスタイルで。</p>
+          </div>
+
+          <!-- Freelance -->
+          <div class="route-column fade-up">
+            <h3 class="route-title"><span class="route-icon">💻</span>フリーランス <span class="sub">業務活用・提案</span></h3>
+            <div class="route-split-freelance horizontal">
+              <!-- Path 1 -->
+              <div class="freelance-path center">
+                <span class="path-label-sm">業務改善</span>
+                <div class="route-step"><span class="step-icon">🎓</span>AI勉強会<span class="mini-tag">基礎講座</span></div>
+                <div class="or-text-v">or</div>
+                <div class="route-step"><span class="step-icon">🤝</span>AI顧問<span class="mini-tag">個別サポート</span></div>
+                <p class="mini-note">自分の業務を効率化</p>
+              </div>
+              <!-- Path 2 -->
+              <div class="freelance-path center">
+                <span class="path-label-sm">価値提案</span>
+                <div class="route-step"><span class="step-icon">🎓</span>AI勉強会<span class="mini-tag">プロ</span></div>
+                <div class="arrow-down-xs">↓</div>
+                <div class="route-step"><span class="step-icon">🤝</span>AI顧問<span class="mini-tag">AI事業支援</span></div>
+                <p class="mini-note">学んだAIを生かした事業をする上でのサポートをします</p>
+              </div>
+              <!-- Path 3 -->
+              <div class="freelance-path center">
+                <span class="path-label-sm">開発</span>
+                <div class="multi-choice-v">
+                  <span class="route-step sm"><span class="step-icon">🎓</span>AI勉強会<span class="mini-tag">プロ</span></span>
+                  <span class="or-text-xs">or</span>
+                  <span class="route-step sm"><span class="step-icon">🛠️</span>AIシステム開発</span>
+                </div>
+                <div class="arrow-down-xs">↓</div>
+                <div class="route-step"><span class="step-icon">🤝</span>AI顧問<span class="mini-tag">サポート</span></div>
+                <p class="mini-note">実装・ツール作成</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corporate -->
+          <div class="route-column wide fade-up">
+            <h3 class="route-title"><span class="route-icon">🏢</span>法人 <span class="sub">組織導入・事業活用</span></h3>
+            <div class="route-split-cols">
+              <!-- Route A -->
+              <div class="route-col-item">
+                <span class="path-label-lg">人材育成ルート</span>
+                <div class="path-flow-vertical">
+                  <div class="route-step large"><span class="step-icon">🎓</span>AI勉強会</div>
+                  <div class="arrow-down">↓</div>
+                  <div class="route-step large">社内研修</div>
+                  <div class="arrow-down">↓</div>
+                  <div class="route-step large"><span class="step-icon">🤝</span>AI顧問</div>
+                </div>
+                <p class="path-desc">勉強会で手触りを確認し、研修で全体へ。顧問で定着させる「文化醸成」重視。</p>
+              </div>
+              <!-- Route B -->
+              <div class="route-col-item">
+                <span class="path-label-lg">実装先行ルート</span>
+                <div class="path-flow-vertical">
+                  <div class="route-step large"><span class="step-icon">🛠️</span>AIシステム開発</div>
+                  <div class="arrow-down">↓</div>
+                  <div class="route-step large"><span class="step-icon">🤝</span>AI顧問<span class="mini-tag dark">運用・改善</span></div>
+                </div>
+                <p class="path-desc">まずシステムを実装し、運用・改善を顧問形式で伴走する「成果」重視。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-contact">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Contact</small>
+          <h2>まずは相談から</h2>
+          <p>あなたに合う入口をご案内します。無理な勧誘はありません。</p>
+        </div>
+        <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
+          <p class="mini" style="margin-bottom:20px;">現在の課題や体制を簡単に教えていただければ、最適な進め方を整理します。</p>
+          <a class="btn" href="/contact" style="padding:16px 28px;">相談する →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  section {
+    padding: 100px 0;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 140px 0 100px;
+    background: radial-gradient(circle at 10% 20%, rgba(22, 97, 78, 0.12), transparent 55%),
+      radial-gradient(circle at 90% 10%, rgba(120, 179, 162, 0.18), transparent 60%),
+      #f9fbfa;
+    text-align: center;
+  }
+  .hero-inner { max-width: 980px; }
+  .hero h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    margin-top: 16px;
+    line-height: 1.3;
+  }
+  .hero p {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #5a6b64;
+  }
+  .highlight { color: var(--sea); }
+  .hero-tags {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .pill {
+    background: #e8f2ee;
+    color: var(--sea);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* Common Components */
+  .bg-soft { background: #f7faf9; }
+  .bg-contact { background: linear-gradient(180deg, rgba(232, 242, 238, 0.6), rgba(232, 242, 238, 0)); }
+  .btn.mini {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  .margin-top { margin-top: 16px; }
+
+  /* Case Studies */
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .case-card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #e1e9e5;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .case-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f0f6f3;
+  }
+  .case-icon img { width: 100%; height: 100%; object-fit: cover; }
+  
+  .case-content h3 { font-size: 16px; margin-bottom: 8px; display: flex; flex-direction: column; gap: 2px; }
+  .case-role { font-size: 12px; color: #889993; font-weight: normal; }
+  
+  .case-flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .flow-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sea);
+    background: #e8f2ee;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+  .flow-arrow { font-size: 10px; color: #cbd5d0; }
+
+  .case-content p {
+    font-size: 13px;
+    color: #5a6b64;
+    line-height: 1.6;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e1e9e5;
+    box-shadow: 0 12px 30px rgba(22, 97, 78, 0.06);
+    position: relative;
+  }
+  .scroll-hint {
+    display: none;
+    font-size: 10px;
+    color: #889993;
+    text-align: right;
+    margin-bottom: 4px;
+  }
+  
+  table { width: 100%; border-collapse: collapse; min-width: 700px; /* Ensure scroll on small screens */ }
+  
+  th, td {
+    padding: 16px;
+    border-bottom: 1px solid #edf3f0;
+    text-align: center; /* CENTER ALIGNMENT as requested */
+    font-size: 14px;
+    line-height: 1.6;
+    vertical-align: middle;
+  }
+
+  /* Dark Headers & First Column */
+  th {
+    background: #35524a;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  tbody tr td:first-child {
+    background: #416158;
+    color: #ffffff;
+    font-weight: 600;
+    width: 120px;
+  }
+  /* Adjust border for dark cells */
+  th, tbody tr td:first-child {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* Services Detail (Horizontal) */
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .service-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+    background: #fff;
+    border: 1px solid #e4eee9;
+    border-radius: 20px;
+    padding: 32px;
+    align-items: stretch; /* Stretch to allow footer alignment */
+    position: relative;
+  }
+  .service-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .service-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .service-icon { font-size: 28px; }
+  .service-header h3 { font-size: 22px; margin: 0; }
+  .service-desc { font-size: 15px; color: #5a6b64; margin-bottom: 16px; flex-grow: 1; }
+  .service-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    background: #f0f6f3;
+    color: #4f655d;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    border: 1px solid #dce8e3;
+  }
+  
+  .service-meta {
+    background: #f9fbfa;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 13px;
+    color: #4a5e55;
+    height: 100%; /* Fill space */
+  }
+  .service-meta ul { list-style: none; padding: 0; margin: 0; line-height: 2; }
+  
+  /* Button repositioning */
+  .service-right .btn {
+    align-self: flex-end; /* Right align */
+    margin-top: 16px;
+    width: auto;
+  }
+
+  /* Service Card Updates - Mini Features & Pricing */
+  .mini-features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 16px;
+    width: 100%;
+  }
+  .mini-feat {
+    background: #f0f6f3;
+    border-radius: 8px;
+    padding: 8px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 11px;
+    height: 100%;
+  }
+  .feat-label { font-weight: bold; color: #35524a; margin-bottom: 2px; }
+  .feat-val { color: #5a6b64; font-size: 10px; }
+  .feat-icon { font-size: 16px; margin-bottom: 2px; }
+  .feat-val-sm { font-size: 10px; font-weight: bold; color: #35524a; line-height: 1.2; }
+
+  .pricing-info {
+    margin-top: 16px;
+    background: #f9fbfa;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+  }
+  .pricing-info p {
+    font-size: 12px;
+    color: #5a6b64;
+    margin: 4px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .pricing-info .price {
+    font-weight: bold;
+    color: #35524a;
+  }
+
+  /* Routes Guide */
+  .routes-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack vertically (full width) */
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .route-column {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #e1e9e5;
+  }
+  .route-column.wide { grid-column: auto; } /* No need for span if single column */
+  
+  .route-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #f0f6f3;
+    padding-bottom: 12px;
+  }
+  .route-icon { font-size: 28px; }
+  .route-title .sub { font-size: 14px; color: #889993; font-weight: normal; margin-left: auto; }
+  
+  /* Buttons & Steps */
+  .route-step {
+    background: var(--sea);
+    color: #fff;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.3;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .step-icon { font-size: 20px; margin-bottom: 4px; }
+  .th-icon { margin-right: 4px; font-size: 16px; vertical-align: middle; }
+
+  .route-step.large {
+    padding: 16px;
+    font-size: 16px;
+    flex-direction: row; 
+    gap: 8px;
+  }
+  .route-step.large .step-icon { margin-bottom: 0; font-size: 22px; }
+
+  .route-step.primary {
+    background: #35524a;
+    min-width: 160px;
+  }
+  
+  .mini-tag { font-size: 10px; opacity: 0.9; font-weight: normal; margin-top: 2px; }
+  .mini-tag.dark { color: #f0f6f3; font-weight: 700; opacity: 1; margin-left: auto; margin-top: 0;}
+
+  /* Individual Layout */
+  .route-options-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .route-btn-group { flex: 1; display: flex; justify-content: center; }
+  .route-btn-group.center { width: 100%; }
+  
+  .or-circle {
+    width: 36px;
+    height: 36px;
+    background: #e1e9e5;
+    color: #5a6b64;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  /* Freelance specific - Horizontal Layout */
+  .route-split-freelance.horizontal {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .freelance-path {
+    background: #f9fbfa;
+    padding: 20px 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    border: 1px solid #eef4f1;
+  }
+  .freelance-path.center {
+    justify-content: flex-start;
+  }
+  .path-label-sm {
+    font-size: 15px;
+    font-weight: 700;
+    color: #35524a;
+    border-bottom: 2px solid #cbd5d0;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    width: 100%;
+    text-align: center;
+  }
+  .arrow-down-xs { color: #cbd5d0; font-size: 14px; margin: 4px 0; }
+  .or-text-v { font-size: 12px; color: #889993; font-weight: bold; margin: 6px 0; }
+  .or-text-xs { font-size: 12px; color: #889993; margin: 0 4px; }
+  
+  .multi-choice-v {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px dashed #cbd5d0;
+    width: 100%;
+  }
+  .route-step.sm {
+    font-size: 13px;
+    padding: 8px;
+    width: 100%;
+  }
+
+  .mini-note { 
+    font-size: 13px; 
+    color: #4a5e55; 
+    margin-top: auto; 
+    padding-top: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* Corporate Layout - Split Columns */
+  .route-split-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .route-col-item {
+    background: #f9fbfa;
+    padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .path-label-lg {
+    font-size: 16px;
+    font-weight: 700;
+    color: #35524a;
+    background: #e8f2ee;
+    padding: 6px 16px;
+    border-radius: 99px;
+    display: inline-block;
+  }
+  .path-flow-vertical {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    max-width: 240px;
+  }
+  .arrow-down { text-align: center; color: #cbd5d0; font-size: 18px; line-height: 1; }
+  .path-desc {
+    font-size: 13px;
+    color: #5a6b64;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  .route-note {
+    margin-top: 16px;
+    border-top: 1px dashed #e1e9e5;
+    padding-top: 12px;
+    font-size: 12px;
+    color: #6f827a;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 960px) {
+    .case-grid { grid-template-columns: 1fr; }
+    .services-list { gap: 24px; }
+    .service-row { grid-template-columns: 1fr; text-align: left; gap: 20px; }
+    .service-right .btn { align-self: flex-start; width: 100%; text-align: center; }
+    
+    .routes-grid { grid-template-columns: 1fr; }
+    .route-split-cols { grid-template-columns: 1fr; gap: 20px; }
+    
+    .scroll-hint { display: block; }
+
+    /* Freelance stack on mobile */
+    .route-split-freelance.horizontal { grid-template-columns: 1fr; }
+  }
+</style>

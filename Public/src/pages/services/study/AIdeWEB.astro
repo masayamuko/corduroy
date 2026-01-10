@@ -297,6 +297,79 @@
             display: block;
             width: 0;
         }
+
+        /* FAQ Styling */
+        .faq details {
+            border: 1px solid rgba(140, 106, 75, 0.2);
+            border-radius: 20px;
+            padding: 24px 32px;
+            background: #fff;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .faq details[open] {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--color-text);
+            font-size: 18px;
+            padding: 4px 0;
+            list-style: none;
+            position: relative;
+            padding-right: 48px;
+        }
+
+        .faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Button Design: 2-hole Outline Button */
+        .faq summary::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #fff; /* White background */
+            border: 2px solid var(--color-primary); /* Green Outline */
+            
+            /* 2 holes (Green dots) */
+            background-image: 
+              radial-gradient(circle at 38% 50%, var(--color-primary) 2px, transparent 2.5px),
+              radial-gradient(circle at 62% 50%, var(--color-primary) 2px, transparent 2.5px);
+            background-repeat: no-repeat;
+            
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Open State: Change to Green X */
+        .faq details[open] summary::after {
+            border-color: var(--color-primary);
+            background-color: #fff;
+            
+            /* Draw Diagonal X using green linear gradients */
+            background-image: 
+              linear-gradient(45deg, transparent 44%, var(--color-primary) 44%, var(--color-primary) 56%, transparent 56%),
+              linear-gradient(-45deg, transparent 44%, var(--color-primary) 44%, var(--color-primary) 56%, transparent 56%);
+            
+            background-position: center;
+            background-size: 50% 50%;
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .faq details[open] summary {
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 
@@ -1019,40 +1092,37 @@
     </section>
 
     <!-- 10. Q&A -->
-    <section class="py-24 bg-[#F9F5F0]">
+    <section class="py-24 bg-[#F9F5F0] faq">
         <div class="container mx-auto px-6">
-            <h2 class="text-2xl font-bold text-center text-[#4A4238] mb-12 font-serif">よくある質問</h2>
+            <div class="text-center mb-16">
+                <span class="text-[#2F5D50] font-bold tracking-widest text-sm uppercase">Q&A</span>
+                <h2 class="text-3xl font-bold text-[#4A4238] mt-2 font-serif">よくあるご質問</h2>
+            </div>
             <div class="max-w-3xl mx-auto space-y-4">
-                <!-- Q1 -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-[#8C6A4B]/10">
-                    <h3 class="font-bold text-[#8C6A4B] mb-2 flex items-center gap-2">
-                        <span class="bg-[#F3F6E8] w-6 h-6 rounded flex items-center justify-center text-xs">Q</span>
-                        Gemini無料版では参加できませんか？
-                    </h3>
-                    <p class="text-sm text-gray-600 pl-8">
-                        より高度な推論能力を持つ有料版（Advanced）の使用を前提としています。無料版でも動くことはありますが、今回お伝えする「本質的な対話」を体験いただくため、無料トライアルを活用して有料版のご用意をお願いしています。
+                <details>
+                    <summary>Gemini無料版では参加できませんか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        より高度な推論能力を持つ有料版（Advanced）の使用を前提としています。無料版でも動くことはありますが、今回お伝えする「本質的な対話」を体験いただくため、無料トライアルを活用して有料版のご用意をお願いしています。キャンペーン等で無料期間がある場合も多いので、ぜひご確認ください。
                     </p>
-                </div>
-                <!-- Q2 -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-[#8C6A4B]/10">
-                    <h3 class="font-bold text-[#8C6A4B] mb-2 flex items-center gap-2">
-                        <span class="bg-[#F3F6E8] w-6 h-6 rounded flex items-center justify-center text-xs">Q</span>
-                        作ったWebサイトはずっと残りますか？
-                    </h3>
-                    <p class="text-sm text-gray-600 pl-8">
-                        はい、公開方法によりますが、基本的には無料で維持できる方法をお伝えしますので、ワークショップ後もずっと使い続けることができます。
+                </details>
+                <details>
+                    <summary>作ったWebサイトはずっと残りますか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        はい、公開方法によりますが、基本的には無料で維持できる方法（VercelやGitHub Pagesなど）をお伝えしますので、ワークショップ後もずっと使い続けることができます。ご自身のポートフォリオやイベント告知にぜひ活用してください。
                     </p>
-                </div>
-                <!-- Q3 -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-[#8C6A4B]/10">
-                    <h3 class="font-bold text-[#8C6A4B] mb-2 flex items-center gap-2">
-                        <span class="bg-[#F3F6E8] w-6 h-6 rounded flex items-center justify-center text-xs">Q</span>
-                        本当に知識ゼロでも大丈夫ですか？
-                    </h3>
-                    <p class="text-sm text-gray-600 pl-8">
-                        大歓迎です！「HTMLって何？」という状態の方こそ、AIの凄さを一番実感していただけると思います。専門用語もAIが優しく解説してくれます。
+                </details>
+                <details>
+                    <summary>本当に知識ゼロでも大丈夫ですか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        大歓迎です！「HTMLって何？」「サーバーって美味しいの？」という状態の方こそ、AIの凄さを一番実感していただけると思います。専門用語もAIが優しく解説してくれますので、安心してご参加ください。
                     </p>
-                </div>
+                </details>
+                 <details>
+                    <summary>どんなものが作れますか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        まずは簡単な自己紹介ページやランディングページ（LP）から始めます。慣れてくれば、簡単なゲーム（スロットマシーンやクイズなど）や、業務効率化のための計算ツールなども作れるようになります。「こんなの欲しい」を形にする楽しさを味わってください。
+                    </p>
+                </details>
             </div>
         </div>
     </section>
