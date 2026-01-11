@@ -142,6 +142,72 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
             </a>
           </div>
         </div>
+
+        <!-- NEW: Basic Course Schedule -->
+        <div class="card fade-up" style="max-width:680px; margin:56px auto 0; text-align:center;">
+          <h3 style="margin-bottom:24px; font-size:20px; color:var(--ink);">開催日程</h3>
+          <div class="schedule-grid">
+            <!-- Wed Night -->
+            <div class="schedule-item">
+              <span class="schedule-icon">🌙</span>
+              <h4 class="schedule-title">AI Night</h4>
+              <p class="schedule-date">
+                <strong>第1水曜日</strong><br>19:00〜21:00
+              </p>
+            </div>
+            <!-- Sat Morning -->
+            <div class="schedule-item">
+              <span class="schedule-icon">☀️</span>
+              <h4 class="schedule-title">AI朝活会</h4>
+              <p class="schedule-date">
+                <strong>第2土曜日</strong><br>10:00〜12:00
+              </p>
+            </div>
+          </div>
+          <p class="mini" style="margin-top:20px; opacity:0.8;">※ 日程は変更になる場合があります。</p>
+        </div>
+
+        <style>
+          .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+          }
+          .schedule-item {
+            background: #f9fbfa;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #eef4f1;
+            transition: transform 0.2s;
+          }
+          .schedule-item:hover {
+            transform: translateY(-2px);
+            background: #fff;
+            border-color: var(--sea);
+          }
+          .schedule-icon {
+            display: block;
+            font-size: 32px;
+            margin-bottom: 8px;
+          }
+          .schedule-title {
+            margin: 0 0 8px;
+            font-weight: 700;
+            color: var(--ink);
+            font-size: 16px;
+          }
+          .schedule-date {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+          }
+          @media (max-width: 600px) {
+            .schedule-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
       </div>
     </section>
 
@@ -158,10 +224,13 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
           AI活用の糸口を見つける会です。<br>
           講座で学んだことを活かして、それぞれのAI作業を進めつつ、わからないところは質問したり、参加者同士で聞き合うことができます。AIで作ったものを発表したり、互いに刺激をもらえる楽しい場所です。
         </p>
-        <div
-          style="margin-top:24px; display:inline-flex; gap:12px; align-items:center; background:var(--mint); padding:12px 24px; border-radius:100px;">
-          <span style="font-size:20px;">🗓️</span>
-          <span style="font-weight:700; color:var(--sea);">日曜昼開催（基本）</span>
+        <div style="margin-top:24px; text-align:left; display:inline-block;">
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li style="display:flex; align-items:center; gap:8px; font-weight:700; color:var(--ink);">
+              <span style="font-size:1.2em;">🗓️</span> 
+              <span>日曜昼開催（基本）</span>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -197,10 +266,15 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
         <h2>講師について</h2>
       </div>
       <div class="card fade-up"
-        style="max-width:860px;margin:0 auto; display:flex; align-items:center; gap:24px; text-align:left;">
-        <!-- Avatar could go here if available -->
-        <div>
-          <h3>向雅也（コールテン代表）</h3>
+        style="max-width:860px;margin:0 auto; display:flex; align-items:center; gap:32px; text-align:left;">
+        <div class="instructor-image">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" 
+               alt="向 雅也" 
+               style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div style="flex:1;">
+          <small style="display:block; color:var(--sea); font-weight:700; margin-bottom:4px;">株式会社コールテン代表</small>
+          <h3>向 雅也</h3>
           <p class="mini" style="margin-top:12px;">
             企業導入/自社導入の実績があり、現場で使える形に落とし込んでいます。<br>
             フリーランス歴10年、コーチ歴3年、日本語教師/コーチ歴の合算で5年。<br>
@@ -288,7 +362,14 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
         </details>
         <details>
           <summary>開催日程は決まっていますか？</summary>
-          <p class="mini">日程はLINE登録で優先的にご案内します。まずはお気軽にご登録ください。</p>
+          <div class="mini">
+            <p>現在は以下の日程で開催しています。</p>
+            <ul style="list-style:none; padding:0; margin:12px 0;">
+              <li style="margin-bottom:8px;"><strong>🗓 第3水曜日</strong>：19:00〜21:00</li>
+              <li><strong>🗓 第4土曜日</strong>：10:00〜12:00</li>
+            </ul>
+            <p style="font-size:0.9em; opacity:0.8;">※ 日程は変更になる場合があります。最新情報はLINEでご案内します。</p>
+          </div>
         </details>
       </div>
     </section>
@@ -606,7 +687,47 @@ section {
     height: 100%;
     object-fit: cover;
 }
+    #brand-story .story-lead {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 16px;
+      text-align: center;
+    }
 
+    /* Instructor Avatar */
+    .instructor-image {
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      background: #eee;
+    }
+    .placeholder-avatar {
+      width: 100%;
+      height: 100%;
+      background: #35524a;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 640px) {
+      .card[style*="display:flex"] {
+        flex-direction: column;
+        text-align: center !important;
+      }
+      .instructor-image {
+        width: 120px;
+        height: 120px;
+      }
+    }
 .cute-list-content {
     flex: 1;
 }

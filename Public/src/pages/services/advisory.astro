@@ -217,9 +217,9 @@ import Layout from '../../layouts/Layout.astro';
                 <li>制作比率: 低（クライアント主導）</li>
               </ul>
               <div class="ratio-bar" aria-label="制作割合">
-                <span class="ratio client" style="width:75%;">クライアント</span>
+                <span class="ratio client" style="width:75%;">あなた</span>
                 <span class="ratio joint" style="width:15%;">共同</span>
-                <span class="ratio cord" style="width:10%;">コー</span>
+                <span class="ratio cord" style="width:10%; display:flex; align-items:center; justify-content:center;"><img src="/favicon.svg" alt="Cor" style="width:14px; height:14px; opacity:0.8;"></span>
               </div>
               <h2 style="margin-top:auto; margin-bottom:0; font-size:28px;">月額 5万円〜</h2>
             </div>
@@ -232,9 +232,9 @@ import Layout from '../../layouts/Layout.astro';
                 <li>制作比率: 中（共同制作）</li>
               </ul>
               <div class="ratio-bar" aria-label="制作割合">
-                <span class="ratio client" style="width:45%;">クライアント</span>
+                <span class="ratio client" style="width:45%;">あなた</span>
                 <span class="ratio joint" style="width:35%;">共同</span>
-                <span class="ratio cord" style="width:20%;">コー</span>
+                <span class="ratio cord" style="width:20%; display:flex; align-items:center; justify-content:center;"><img src="/favicon.svg" alt="Cor" style="width:14px; height:14px; opacity:0.8;"></span>
               </div>
               <h2 style="margin-top:auto; margin-bottom:0; font-size:28px;">月額 10万円〜</h2>
             </div>
@@ -247,9 +247,9 @@ import Layout from '../../layouts/Layout.astro';
                 <li>制作比率: 高（コールテン主導）</li>
               </ul>
               <div class="ratio-bar" aria-label="制作割合">
-                <span class="ratio client" style="width:20%;">クライアント</span>
+                <span class="ratio client" style="width:20%;">あなた</span>
                 <span class="ratio joint" style="width:30%;">共同</span>
-                <span class="ratio cord" style="width:50%;">コー</span>
+                <span class="ratio cord" style="width:50%; display:flex; align-items:center; justify-content:center;"><img src="/favicon.svg" alt="Cor" style="width:14px; height:14px; opacity:0.8;"></span>
               </div>
               <h2 style="margin-top:auto; margin-bottom:0; font-size:28px;">月額 20万円〜</h2>
             </div>
@@ -343,10 +343,19 @@ import Layout from '../../layouts/Layout.astro';
               <p class="mini" style="margin-bottom:8px;">
                 伴走リード（月額20万円）で6ヶ月〜1年伴走した場合の想定です。
               </p>
-              <ul class="mini-list" style="max-width:600px; margin:0 auto; text-align:left; background:#fff; padding:16px 24px; border-radius:12px; border:1px dashed #cbd5d0;">
-                <li><strong>伴走スタンダード (10万円)</strong>：ミーティング回数と作業時間が半分になるため、上記の進捗には<strong>約2倍の期間</strong>を要します。</li>
-                <li><strong>伴走ライト (5万円)</strong>：月1回の相談が主となるため、実作業のほとんどをお客様自身で進めていただく必要があります。上記のロードマップ通りの進捗をこのプランのみで実現するのは<strong>極めて困難</strong>です。</li>
-                <li style="margin-top:12px; color:#35524a; background:#e8f2ee; padding:8px 12px; border-radius:8px;"><strong>💡 補足</strong>：既にAI活用の基礎がある人材などがいた場合は、伴走ライトなどで1年で実現することも可能です。</li>
+              <ul class="mini-list" style="max-width:680px; margin:0 auto; text-align:left; background:#fff; padding:24px 32px; border-radius:12px; border:1px dashed #cbd5d0; list-style:none;">
+                <li style="margin-bottom:12px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+                  <span style="background:#e8f2ee; color:#35524a; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:13px; white-space:nowrap;">伴走スタンダード (10万円)</span>
+                  <span style="flex:1;">ミーティング回数と作業時間が半分になるため、上記の進捗には<strong>約2倍の期間</strong>を要します。</span>
+                </li>
+                <li style="margin-bottom:12px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+                  <span style="background:#e8f2ee; color:#35524a; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:13px; white-space:nowrap;">伴走ライト (5万円)</span>
+                  <span style="flex:1;">月1回の相談が主となるため、実作業のほとんどをお客様自身で進めていただく必要があります。上記のロードマップ通りの進捗をこのプランのみで実現するのは<strong>極めて困難</strong>です。</span>
+                </li>
+                <li style="margin-top:16px; color:#35524a; background:#e8f2ee; padding:12px 16px; border-radius:8px; display:flex; gap:8px;">
+                  <span>💡</span>
+                  <span><strong>補足</strong>：既にAI活用の基礎がある人材などがいた場合は、伴走ライトなどで1年で実現することも可能です。</span>
+                </li>
               </ul>
             </div>
 
