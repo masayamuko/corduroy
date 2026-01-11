@@ -5,8 +5,7 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
 ---
 
 <Layout title={title}>
-  <Fragment slot="head">
-    <script type="application/ld+json">
+    <script slot="head" type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -16,7 +15,41 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
         "description": "紹介限定・長期前提で伴走するAIパートナー。AI勉強会・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。"
       }
     </script>
-  </Fragment>
+    <script slot="head" type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "AI導入は初めてですが、大丈夫ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "もちろんです。コールテンのお客さまの多くは「AIを初めて本格的に導入する」という方々です。専門用語を使わず、基礎の基礎から丁寧にサポートしますのでご安心ください。"
+          }
+        }, {
+          "@type": "Question",
+          "name": "どのような業種に対応していますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "特定の業種に限らず対応可能です。これまで、教育、士業、NPO、サービス業など幅広い分野でサポート実績があります。「その仕事におけるAIの活かし方」を一緒に考えます。"
+          }
+        }, {
+          "@type": "Question",
+          "name": "AIを入れると、人の仕事はなくなりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "いいえ、なくなりません。私たちは「AIは人の仕事を奪うものではなく、人が本来やりたいこと（想い）を実現するためのパートナー」だと考えています。面倒な作業をAIに任せて、人間らしい創造的な時間を増やすお手伝いをします。"
+          }
+        }, {
+          "@type": "Question",
+          "name": "費用はどのくらいかかりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ご予算やフェーズに合わせて柔軟に対応します。月額制の顧問契約から、単発の研修、システム開発まで幅広くご用意しています。まずは無料相談で、現状の課題とご希望をお聞かせください。"
+          }
+        }]
+      }
+    </script>
   <main id="top">
     <section class="hero">
       <div class="container hero-inner">
@@ -26,7 +59,7 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
               class="jp-kanji">AI</span><span class="jp-hiragana">活用</span></h1>
           <p>やりたいことに集中できて、毎日の仕事が少しでも楽しくなるように。<br>心地よいAI活用を、想いに寄り添いながら一緒につくっていきます。</p>
           <small style="display:block; margin-top:16px; margin-bottom: 8px;">株式会社コールテン</small>
-          <a class="btn" href="/contact">さっそく相談してみる →</a>
+          <a class="btn" href="/contact" data-ga-event="cta_click" data-ga-label="hero_contact">さっそく相談してみる →</a>
         </div>
       </div>
     </section>
@@ -243,6 +276,39 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
         </div>
       </div>
     </section>
+    <section class="container faq">
+      <div class="section-head fade-up">
+        <small>FAQ</small>
+        <h2>よくあるご質問</h2>
+      </div>
+      <div class="fade-up" style="max-width:800px; margin:0 auto;">
+        <details class="faq-item">
+          <summary>AI導入は初めてですが、大丈夫ですか？</summary>
+          <p class="mini">
+            もちろんです。コールテンのお客さまの多くは「AIを初めて本格的に導入する」という方々です。専門用語を使わず、基礎の基礎から丁寧にサポートしますのでご安心ください。
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>どのような業種に対応していますか？</summary>
+          <p class="mini">
+            特定の業種に限らず対応可能です。これまで、教育、士業、NPO、サービス業など幅広い分野でサポート実績があります。「その仕事におけるAIの活かし方」を一緒に考えます。
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>AIを入れると、人の仕事はなくなりますか？</summary>
+          <p class="mini">
+            いいえ、なくなりません。私たちは「AIは人の仕事を奪うものではなく、人が本来やりたいこと（想い）を実現するためのパートナー」だと考えています。面倒な作業をAIに任せて、人間らしい創造的な時間を増やすお手伝いをします。
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>費用はどのくらいかかりますか？</summary>
+          <p class="mini">
+            ご予算やフェーズに合わせて柔軟に対応します。月額制の顧問契約から、単発の研修、システム開発まで幅広くご用意しています。まずは無料相談で、現状の課題とご希望をお聞かせください。
+          </p>
+        </details>
+      </div>
+    </section>
+
     <section id="contact" class="bg-contact">
       <div class="container">
         <div class="section-head fade-up">
@@ -251,7 +317,7 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
         </div>
         <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
           <p class="mini" style="margin-bottom:20px;">ご相談をご希望いただける場合はこちらのコンタクトページで詳細をご確認ください。</p>
-          <a class="btn" href="/contact" target="_blank" rel="noopener noreferrer"
+          <a class="btn" href="/contact" target="_blank" rel="noopener noreferrer" data-ga-event="cta_click" data-ga-label="contact_section"
             style="padding:16px 28px;">相談方法を見る →</a>
         </div>
       </div>
@@ -617,5 +683,51 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
       color: var(--ink);
       margin-bottom: 16px;
       text-align: center;
+    }
+    /* FAQ Styles */
+    details.faq-item {
+      background: #fff;
+      border: 1px solid #eef2f0;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    details.faq-item:hover {
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        border-color: var(--line-strong);
+    }
+    details.faq-item summary {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 18px;
+      cursor: pointer;
+      list-style: none; /* Hide default triangle */
+      position: relative;
+      padding-right: 30px;
+    }
+    details.faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    details.faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--sea);
+      transition: transform 0.2s;
+    }
+    details.faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+    details.faq-item p.mini {
+      margin-top: 16px;
+      margin-bottom: 0;
+      line-height: 1.8;
+      color: var(--text-light);
     }
 </style>

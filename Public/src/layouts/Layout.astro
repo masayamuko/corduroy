@@ -14,11 +14,20 @@ interface Props {
 const { 
     title, 
     description, 
-    canonicalUrl = "https://corduroy.co.jp/", 
-    ogUrl = "https://corduroy.co.jp/", 
+    canonicalUrl, 
+    ogUrl, 
     ogImage = "https://corduroy.co.jp/assets/images/ogp.png",
     ogType = "website"
 } = Astro.props;
+
+const siteBase = Astro.site?.href ?? "https://corduroy.co.jp";
+const rawPath = Astro.url?.pathname ?? "/";
+const normalizedPath = rawPath
+  .replace(/\/index\.html$/i, "/")
+  .replace(/\.html$/i, "");
+const pageUrl = new URL(normalizedPath, siteBase).href;
+const resolvedCanonicalUrl = canonicalUrl ?? pageUrl;
+const resolvedOgUrl = ogUrl ?? pageUrl;
 ---
 
 <!doctype html>
@@ -39,10 +48,10 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI勉強会・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。"} />
-		<link rel="canonical" href={canonicalUrl} />
+		<link rel="canonical" href={resolvedCanonicalUrl} />
         
         <meta property="og:type" content={ogType}>
-        <meta property="og:url" content={ogUrl}>
+        <meta property="og:url" content={resolvedOgUrl}>
         <meta property="og:title" content={title}>
         <meta property="og:description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI勉強会・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。"}>
         <meta property="og:image" content={ogImage}>
@@ -51,7 +60,7 @@ const {
 
         <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:url" content={ogUrl}>
+        <meta name="twitter:url" content={resolvedOgUrl}>
         <meta name="twitter:title" content={title}>
         <meta name="twitter:description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI勉強会・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。"}>
         <meta name="twitter:image" content={ogImage}>
@@ -71,15 +80,35 @@ const {
             const observer = new IntersectionObserver((entries) => {
               entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                  entry.target.classList.add('is-visible');
+                  entry.target.classList.remove('pending');
+                  observer.unobserve(entry.target);
                 }
               });
             }, { 
                 threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                rootMargin: '0px'
             });
             document.querySelectorAll('.fade-up').forEach(el => {
+              el.classList.add('pending');
               observer.observe(el);
+              // Fallback to ensure visibility
+              setTimeout(() => {
+                  if (el.classList.contains('pending')) {
+                      el.classList.remove('pending');
+                  }
+              }, 3000);
+            });
+
+            // --- GA CTA Tracking ---
+            document.addEventListener('click', (event) => {
+              const target = event.target.closest('[data-ga-event]');
+              if (!target || typeof gtag !== 'function') return;
+              const eventName = target.getAttribute('data-ga-event');
+              if (!eventName) return;
+              gtag('event', eventName, {
+                event_label: target.getAttribute('data-ga-label') || undefined,
+                event_category: target.getAttribute('data-ga-category') || undefined,
+              });
             });
         </script>
 	</body>
@@ -376,14 +405,15 @@ const {
     }
     
     /* Fade Up Animation */
+    /* Fade Up Animation */
     .fade-up {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .fade-up.is-visible {
         opacity: 1;
         transform: translateY(0);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-up.pending {
+        opacity: 0;
+        transform: translateY(30px);
     }
     
     /* ============================================

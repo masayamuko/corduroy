@@ -6,6 +6,50 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
 ---
 
 <Layout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "AI初心者でも参加できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、大丈夫です。基礎講座はブラウザでの対話から始めます。初めての方も安心して受講できます。"
+          }
+        }, {
+          "@type": "Question",
+          "name": "パソコンを持っていないのですが参加できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "講座では実際に操作を行うため、PC（Windows/Mac）の持参をお願いしております。タブレットやスマホのみでは受講が難しい内容が含まれます。"
+          }
+        }, {
+          "@type": "Question",
+          "name": "必要なソフトやツールはありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "基本的にはブラウザ（Google Chrome等）があれば受講可能です。ChatGPTなどのAIツールへの登録が必要ですが、講座内で案内する場合もあります。"
+          }
+        }, {
+          "@type": "Question",
+          "name": "開催場所・形式について",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "現在は「福岡市内でのオフライン開催」のみとなっております。オンラインでの開催は未定です。"
+          }
+        }, {
+          "@type": "Question",
+          "name": "開催日程は決まっていますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "現在は、基礎講座（第1水曜・第2土曜）、糸口会（第3水曜・第4土曜）の日程で開催しています。日程は変更になる場合があります。"
+          }
+        }]
+      }
+    </script>
+  </Fragment>
   <main>
     <section class="hero">
       <div class="container hero-inner">
@@ -167,47 +211,7 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
           <p class="mini" style="margin-top:20px; opacity:0.8;">※ 日程は変更になる場合があります。</p>
         </div>
 
-        <style>
-          .schedule-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-          }
-          .schedule-item {
-            background: #f9fbfa;
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid #eef4f1;
-            transition: transform 0.2s;
-          }
-          .schedule-item:hover {
-            transform: translateY(-2px);
-            background: #fff;
-            border-color: var(--sea);
-          }
-          .schedule-icon {
-            display: block;
-            font-size: 32px;
-            margin-bottom: 8px;
-          }
-          .schedule-title {
-            margin: 0 0 8px;
-            font-weight: 700;
-            color: var(--ink);
-            font-size: 16px;
-          }
-          .schedule-date {
-            margin: 0;
-            font-size: 14px;
-            color: var(--text-light);
-            line-height: 1.5;
-          }
-          @media (max-width: 600px) {
-            .schedule-grid {
-              grid-template-columns: 1fr;
-            }
-          }
-        </style>
+
       </div>
     </section>
 
@@ -264,13 +268,7 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
               <span class="btn secondary" style="cursor: default; opacity: 0.6; padding:8px 16px; font-size:12px;">準備中</span>
             </div>
           </div>
-          <style>
-            @media (max-width: 640px) {
-              div[style*="grid-template-columns"] {
-                grid-template-columns: 1fr !important;
-              }
-            }
-          </style>
+
         </div>
       </div>
     </section>
@@ -1073,4 +1071,53 @@ section {
     .cute-list-img { margin: 0 auto; }
     .cute-list-title { justify-content: center; }
 }
+    /* Schedule Styles */
+
+    .schedule-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .schedule-item {
+        background: #f9fbfa;
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid #eef4f1;
+        transition: transform 0.2s;
+    }
+    .schedule-item:hover {
+        transform: translateY(-2px);
+        background: #fff;
+        border-color: var(--sea);
+    }
+    .schedule-icon {
+        display: block;
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+    .schedule-title {
+        margin: 0 0 8px;
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 16px;
+    }
+    .schedule-date {
+        margin: 0;
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.5;
+    }
+    @media (max-width: 600px) {
+        .schedule-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Responsive override for inline-style grid */
+    @media (max-width: 640px) {
+        div[style*="grid-template-columns"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
+
 </style>
