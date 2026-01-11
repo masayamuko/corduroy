@@ -226,9 +226,13 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
         </p>
         <div style="margin-top:24px; text-align:left; display:inline-block;">
           <ul style="list-style:none; padding:0; margin:0;">
+            <li style="display:flex; align-items:center; gap:8px; font-weight:700; color:var(--ink); margin-bottom:4px;">
+              <span style="font-size:1.2em;">🌙</span> 
+              <span>AI Night：第3水曜日 19:00〜21:00</span>
+            </li>
             <li style="display:flex; align-items:center; gap:8px; font-weight:700; color:var(--ink);">
-              <span style="font-size:1.2em;">🗓️</span> 
-              <span>日曜昼開催（基本）</span>
+              <span style="font-size:1.2em;">☀️</span> 
+              <span>AI朝活会：第4土曜日 10:00〜12:00</span>
             </li>
           </ul>
         </div>
@@ -241,21 +245,32 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
       <div class="container">
         <div class="section-head fade-up">
           <small>Advanced</small>
-          <h2>さらなる高みを目指せ</h2>
-          <p>もっと深く、大量に作りたい方へ。</p>
+          <h2>上級講座</h2>
+          <p>もっと深く、大量に作りたい方。<br>とことんAIを使い倒したい人。</p>
         </div>
         <div class="card fade-up" style="max-width:860px;margin:0 auto;">
-          <div style="display:flex; flex-direction:column; align-items:center;">
-            <h3 style="margin-bottom:16px;">ターミナル操作ができるAI講座</h3>
-            <p class="mini" style="text-align:center;">
-              パソコンの中に直接AIを導入し、複雑な操作を自動化する仕組みを作ります。<br>
-              Webサイト制作や記事執筆などの大量の成果物を、一気に生成・処理できる環境を構築します。<br>
-              実務での圧倒的な効率化を目指す方に向けた応用講座です。
-            </p>
-            <div style="margin-top:24px;">
-              <span class="btn secondary" style="cursor: default; opacity: 0.6;">準備中</span>
+          <h3 style="text-align:center; margin-bottom:24px; font-size:20px;">AIを仕事でバリバリに活用していくための講座</h3>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+            <!-- Agent Course -->
+            <div style="background:#f9fbfa; padding:24px; border-radius:16px; text-align:center;">
+              <h4 style="margin-bottom:12px; font-weight:700;">AIエージェント作成講座</h4>
+              <p class="mini" style="margin-bottom:16px;">自律的にタスクをこなすAIエージェントの設計と実装を学びます。</p>
+              <span class="btn secondary" style="cursor: default; opacity: 0.6; padding:8px 16px; font-size:12px;">準備中</span>
+            </div>
+            <!-- CLI Course -->
+            <div style="background:#f9fbfa; padding:24px; border-radius:16px; text-align:center;">
+              <h4 style="margin-bottom:12px; font-weight:700;">CLI活用講座</h4>
+              <p class="mini" style="margin-bottom:16px;">パソコンにAIを抱え入れて、パソコン内のファイルを直接操作してもらう技術を習得します。</p>
+              <span class="btn secondary" style="cursor: default; opacity: 0.6; padding:8px 16px; font-size:12px;">準備中</span>
             </div>
           </div>
+          <style>
+            @media (max-width: 640px) {
+              div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+              }
+            }
+          </style>
         </div>
       </div>
     </section>
@@ -364,9 +379,17 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
           <summary>開催日程は決まっていますか？</summary>
           <div class="mini">
             <p>現在は以下の日程で開催しています。</p>
-            <ul style="list-style:none; padding:0; margin:12px 0;">
-              <li style="margin-bottom:8px;"><strong>🗓 第3水曜日</strong>：19:00〜21:00</li>
-              <li><strong>🗓 第4土曜日</strong>：10:00〜12:00</li>
+            
+            <p style="font-weight:700; color:var(--sea); margin-top:16px; margin-bottom:8px;">🎓 基礎講座</p>
+            <ul style="list-style:none; padding:0; margin:0;">
+              <li style="margin-bottom:4px;"><strong>🗓 第1水曜日</strong>（AI Night）</li>
+              <li><strong>🗓 第2土曜日</strong>（AI朝活会）</li>
+            </ul>
+
+            <p style="font-weight:700; color:var(--sea); margin-top:16px; margin-bottom:8px;">🤝 糸口会（コミュニティ）</p>
+            <ul style="list-style:none; padding:0; margin:0;">
+              <li style="margin-bottom:4px;"><strong>🌙 第3水曜日</strong>：19:00〜21:00（AI Night）</li>
+              <li><strong>☀️ 第4土曜日</strong>：10:00〜12:00（AI朝活会）</li>
             </ul>
             <p style="font-size:0.9em; opacity:0.8;">※ 日程は変更になる場合があります。最新情報はLINEでご案内します。</p>
           </div>

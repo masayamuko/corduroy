@@ -5,6 +5,18 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
 ---
 
 <Layout title={title}>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "株式会社コールテン",
+        "url": "https://corduroy.co.jp",
+        "logo": "https://corduroy.co.jp/assets/images/faviconC.ico",
+        "description": "紹介限定・長期前提で伴走するAIパートナー。AI勉強会・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。"
+      }
+    </script>
+  </Fragment>
   <main id="top">
     <section class="hero">
       <div class="container hero-inner">
