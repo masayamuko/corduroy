@@ -1,4 +1,13 @@
+---
+const schedule = [
+  { date: '2026.03.11', day: '水', time: '19:00-22:00', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.04.04', day: '土', time: '10:00-13:00', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.06.10', day: '水', time: '19:00-22:00', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.07.04', day: '土', time: '10:00-13:00', place: '草原さんオフィス（赤坂）' },
+];
+---
 <!DOCTYPE html>
+
 <html lang="ja">
 
 <head>
@@ -424,7 +433,7 @@
                         「最高の相棒」にするためのワークショップです。
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#contact" class="btn-primary text-lg">
+                        <a href="#contact" class="btn-primary text-lg" data-ga-event="contact_click" data-ga-label="study_aideweb_hero">
                             ワークショップに参加する
                         </a>
                         <a href="#story"
@@ -993,6 +1002,40 @@
     </section>
 
     <!-- 9. プラン紹介 -->
+    <!-- Schedule Section (Added) -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-[#2F5D50] font-bold tracking-widest text-sm uppercase">SCHEDULE</span>
+                <h2 class="text-3xl font-bold text-[#4A4238] mt-2 font-serif">開催スケジュール</h2>
+                <p class="text-[#8C6A4B] mt-4">会場：福岡市内（天神エリア）レンタルスペース<br><span class="text-sm">※詳細な場所は申し込み後にお伝えします</span></p>
+            </div>
+            <div class="max-w-xl mx-auto bg-[#F9F5F0] rounded-3xl p-6 md:p-10 shadow-sm border border-[#8C6A4B]/10">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-[#8C6A4B]/20 text-[#8C6A4B]">
+                                <th class="p-4 font-bold">日時</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-[#4A4238]">
+                            {schedule.map((item) => (
+                                <tr class="border-b border-[#8C6A4B]/10 hover:bg-white/50 transition">
+                                    <td class="p-4 font-bold bg-[#8C6A4B]/5 rounded-lg mb-2 md:mb-0 block md:table-cell">
+                                        <span class="text-[#2F5D50] text-lg">{item.date}</span> <span class="text-sm">({item.day})</span>
+                                        <span class="md:hidden inline-block mx-2"> </span>
+                                        <span class="font-medium block md:inline-block md:ml-4">{item.time}</span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. プラン紹介 -->
     <section id="plan" class="py-24 bg-[#2F5D50] text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-corduroy opacity-30 pointer-events-none"></div>
         <div class="container mx-auto px-6 relative z-10">
@@ -1147,7 +1190,7 @@
                     「<strong>Webサイト作りに興味があって</strong>」と一言送信してください。
                 </p>
 
-                <a href="https://lin.ee/aQqPH7S"
+                <a href="https://lin.ee/aQqPH7S" data-ga-event="line_click" data-ga-label="study_aideweb_footer"
                     class="btn-line w-full justify-center text-lg py-4 shadow-lg transform transition hover:scale-105">
                     <!-- LINE Icon SVG -->
                     <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" class="mr-2">
@@ -1168,7 +1211,7 @@
                 <div class="hidden md:block">|</div>
                 <div class="flex gap-4">
                     <a href="/legal/privacy" class="hover:text-white">Privacy Policy</a>
-                    <a href="/contact" class="hover:text-white">Contact</a>
+                    <a href="/contact" class="hover:text-white" data-ga-event="contact_click" data-ga-label="study_aideweb_footer_contact">Contact</a>
                 </div>
             </div>
         </div>

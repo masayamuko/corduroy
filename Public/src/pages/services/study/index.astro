@@ -1,8 +1,61 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
-const title = "AI勉強会｜株式会社コールテン";
-const description = "社長と現場でトーンを変えたAI勉強会。合意形成と小さく試すための土台をつくり、現場で活きるプロンプト・活用設計を一緒に育てます。";
+const title = "福岡のAI勉強会・コミュニティ（対面/オフライン）｜株式会社コールテン";
+const description = "福岡エリア（天神）で開催中。社長と現場でトーンを変えたAI勉強会。合意形成と小さく試すための土台をつくり、現場で活きるプロンプト・活用設計を一緒に育てます。（オンライン開催も準備中）";
+
+// Schedule Data 2026
+const schedule2026 = [
+  { date: '2026.01.03', day: '土', type: '講座', time: '10:00-13:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
+  { date: '2026.01.14', day: '水', type: '講座', time: '19:00-21:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
+  { date: '2026.01.17', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.01.28', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.02.07', day: '土', type: '講座', time: '10:00-12:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
+  { date: '2026.02.11', day: '水', type: '講座', time: '19:00-22:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
+  { date: '2026.02.21', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.02.25', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.03.07', day: '土', type: '講座', time: '10:00-13:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
+  { date: '2026.03.11', day: '水', type: '講座', time: '19:00-22:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
+  { date: '2026.03.21', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.03.25', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.04.04', day: '土', type: '講座', time: '10:00-13:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
+  { date: '2026.04.08', day: '水', type: '講座', time: '19:00-21:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
+  { date: '2026.04.18', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.04.22', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.05.02', day: '土', type: '講座', time: '10:00-12:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
+  { date: '2026.05.13', day: '水', type: '講座', time: '19:00-22:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
+  { date: '2026.05.16', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.05.27', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.06.06', day: '土', type: '講座', time: '10:00-13:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
+  { date: '2026.06.10', day: '水', type: '講座', time: '19:00-22:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
+  { date: '2026.06.20', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.06.24', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.07.04', day: '土', type: '講座', time: '10:00-13:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
+  { date: '2026.07.08', day: '水', type: '講座', time: '19:00-21:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
+  { date: '2026.07.18', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.07.22', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.08.01', day: '土', type: '講座', time: '10:00-12:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
+  { date: '2026.08.12', day: '水', type: '講座', time: '19:00-22:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
+  { date: '2026.08.15', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.08.26', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.09.05', day: '土', type: '講座', time: '10:00-13:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
+  { date: '2026.09.09', day: '水', type: '講座', time: '19:00-22:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
+  { date: '2026.09.19', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.09.23', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.10.03', day: '土', type: '講座', time: '10:00-13:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
+  { date: '2026.10.14', day: '水', type: '講座', time: '19:00-21:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
+  { date: '2026.10.17', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.10.28', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.11.07', day: '土', type: '講座', time: '10:00-12:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
+  { date: '2026.11.11', day: '水', type: '講座', time: '19:00-22:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
+  { date: '2026.11.21', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.11.25', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.12.05', day: '土', type: '講座', time: '10:00-13:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
+  { date: '2026.12.09', day: '水', type: '講座', time: '19:00-22:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
+  { date: '2026.12.19', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+  { date: '2026.12.23', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
+];
+
 ---
 
 <Layout title={title} description={description}>
@@ -55,10 +108,11 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
       <div class="container hero-inner">
         <div class="fade-up">
           <div class="icon-lg">🎓</div>
-          <h1>AI勉強会</h1>
+          <h1>AI勉強会 <span style="font-size:0.5em; vertical-align:middle; background:var(--sea); color:#ffffff !important; -webkit-text-fill-color:#ffffff !important; padding:4px 8px; border-radius:4px; font-weight:700; font-family:'Noto Sans JP', sans-serif;">福岡</span></h1>
           <p class="lead" style="max-width:720px;margin:20px auto 0;">
             AIを「学ぶ」だけで終わらせず、<br>仕事や生活で「使い続けられる」へ</p>
-          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
+          <p style="margin-top:10px; font-size:0.9em; color:var(--text-light);">※現在は福岡市内での対面開催が中心です（オンラインも準備中）</p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
             <a class="btn" href="#briefing">LINE登録で無料セミナー</a>
             <a class="btn" href="#basics">📚 基礎講座一覧を見る</a>
           </div>
@@ -187,33 +241,66 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
           </div>
         </div>
 
-        <!-- NEW: Basic Course Schedule -->
-        <div class="card fade-up" style="max-width:680px; margin:56px auto 0; text-align:center;">
-          <h3 style="margin-bottom:24px; font-size:20px; color:var(--ink);">開催日程</h3>
-          <div class="schedule-grid">
-            <!-- Wed Night -->
-            <div class="schedule-item">
-              <span class="schedule-icon">🌙</span>
-              <h4 class="schedule-title">AI Night</h4>
-              <p class="schedule-date">
-                <strong>第1水曜日</strong><br>19:00〜21:00
-              </p>
-            </div>
-            <!-- Sat Morning -->
-            <div class="schedule-item">
-              <span class="schedule-icon">☀️</span>
-              <h4 class="schedule-title">AI朝活会</h4>
-              <p class="schedule-date">
-                <strong>第2土曜日</strong><br>10:00〜12:00
-              </p>
+        <!-- NEW: Annual Schedule Section -->
+        <section id="schedule" style="margin-top: 80px;">
+          <div class="section-head fade-up">
+            <small>Schedule</small>
+            <h2>2026年 開催スケジュール</h2>
+            <p style="font-weight:700; color:var(--ink); margin-bottom:8px;">会場は福岡市内（天神エリア）のレンタルスペースで行います。</p>
+            <p>※ 現在は、濃密なサポートができる「対面クラス」を中心に開催しています。<br>オンライン開催も準備中ですので、遠方の方はLINE登録してお待ちください。<br>日程がつかない場合は、個別相談や代替日も検討可能です。</p>
+          </div>
+          <div class="card fade-up" style="width:fit-content; max-width:100%; margin:0 auto; padding:0; overflow:hidden;">
+            <div class="table-wrap">
+              <table class="schedule-table">
+                <thead>
+                  <tr>
+                    <th>講座名・内容</th>
+                    <th>日時</th>
+                    <th></th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  {schedule2026
+                    .filter(item => item.type !== '作業会') // Exclude Work Sessions
+                    .filter(item => {
+                        const date = new Date(item.date.replace(/\./g, '-'));
+                        const now = new Date('2026-01-12'); // Fixed Reference Date for logic
+                        const end = new Date('2026-04-30');
+                        return date >= now && date <= end;
+                    })
+                    .map((item) => (
+                    <tr class={item.type === '作業会' ? 'type-work' : 'type-lecture'}>
+                      <td class="title">
+                          <span class="course-icon">{item.icon}</span>
+                          <span class="course-name">{item.title}</span>
+                      </td>
+                      <td class="datetime">
+                        <span class="date">{item.date}<span class="day">({item.day})</span></span>
+                        <br class="mobile-break">
+                        <span class="time">{item.time}</span>
+                      </td>
+                      <td class="action">
+                        <a href={item.link} class="btn-sm">詳細・申込</a>
+                      </td>
+
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
-          <p class="mini" style="margin-top:20px; opacity:0.8;">※ 日程は変更になる場合があります。</p>
-        </div>
+          <div style="text-align:center; margin-top:24px;" class="fade-up">
+             <a class="btn" href="#contact">日程について相談する</a>
+          </div>
+        </section>
+
 
 
       </div>
     </section>
+
+
 
     <section class="container">
       <div class="section-head fade-up">
@@ -230,13 +317,19 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
         </p>
         <div style="margin-top:24px; text-align:left; display:inline-block;">
           <ul style="list-style:none; padding:0; margin:0;">
-            <li style="display:flex; align-items:center; gap:8px; font-weight:700; color:var(--ink); margin-bottom:4px;">
-              <span style="font-size:1.2em;">🌙</span> 
-              <span>AI Night：第3水曜日 19:00〜21:00</span>
+            <li style="display:flex; align-items:flex-start; gap:8px; font-weight:700; color:var(--ink); margin-bottom:12px;">
+              <span style="font-size:1.2em; line-height:1.4;">🌙</span> 
+              <span>
+                AI Night：第3水曜日 19:00〜21:00<br>
+                <span style="font-weight:400; font-size:0.9em; color:var(--text-light);">開催予定：1/28, 2/25, 3/25</span>
+              </span>
             </li>
-            <li style="display:flex; align-items:center; gap:8px; font-weight:700; color:var(--ink);">
-              <span style="font-size:1.2em;">☀️</span> 
-              <span>AI朝活会：第4土曜日 10:00〜12:00</span>
+            <li style="display:flex; align-items:flex-start; gap:8px; font-weight:700; color:var(--ink);">
+              <span style="font-size:1.2em; line-height:1.4;">☀️</span> 
+              <span>
+                AI朝活会：第4土曜日 10:00〜12:00<br>
+                <span style="font-weight:400; font-size:0.9em; color:var(--text-light);">開催予定：1/17, 2/21, 3/21</span>
+              </span>
             </li>
           </ul>
         </div>
@@ -244,6 +337,7 @@ const description = "社長と現場でトーンを変えたAI勉強会。合意
 
 
     </section>
+
 
     <section class="bg-gradient-soft">
       <div class="container">
@@ -1113,11 +1207,112 @@ section {
         }
     }
 
-    /* Responsive override for inline-style grid */
-    @media (max-width: 640px) {
-        div[style*="grid-template-columns"] {
-            grid-template-columns: 1fr !important;
+
+    /* Schedule Styles */
+
+    .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: auto;
+    }
+    .schedule-table th, .schedule-table td {
+        padding: 12px 10px; /* Reduced vertical/horizontal padding */
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+        vertical-align: middle;
+    }
+    .schedule-table th {
+        font-weight: 700;
+        color: var(--sea);
+        background: #f9fbfa;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+    .schedule-table tbody tr:hover {
+        background: #fdfcf8;
+    }
+    .schedule-table .title {
+        font-weight: 700;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 140px; /* Minimum width for readability */
+        width: 100%; /* Expand to fill space */
+    }
+    .course-icon {
+        font-size: 1.2em;
+        flex-shrink: 0;
+    }
+    .schedule-table .datetime {
+        font-feature-settings: "palt";
+        line-height: 1.4;
+        width: 1%; /* Shrink to fit content */
+        white-space: nowrap;
+    }
+    .schedule-table .date {
+        font-weight: 700;
+        color: var(--ink);
+        font-family: "Space Grotesk", sans-serif;
+        white-space: nowrap;
+        margin-right: 4px;
+    }
+    .schedule-table .day {
+        font-size: 0.9em;
+        color: var(--text-light);
+    }
+    .schedule-table .time {
+        font-size: 13px;
+        color: var(--text);
+        display: inline-block;
+        white-space: nowrap;
+    }
+    .schedule-table .action {
+        text-align: right;
+        padding-right: 8px;
+        width: 1%; /* Shrink to fit content */
+        white-space: nowrap;
+    }
+    .btn-sm {
+        display: inline-block;
+        padding: 6px 10px;
+        border: 1px solid var(--sea);
+        border-radius: 6px;
+        color: var(--sea);
+        font-size: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        background: #fff;
+        transition: all 0.2s;
+        white-space: nowrap;
+    }
+    .btn-sm:hover {
+        background: var(--sea);
+        color: #fff;
+    }
+
+    .mobile-break {
+        display: none;
+    }
+
+    @media (max-width: 600px) {
+        .mobile-break {
+            display: block;
+        }
+        .schedule-table th, .schedule-table td {
+            padding: 10px 6px; /* Even smaller padding on mobile */
+        }
+        .schedule-table .title {
+            font-size: 14px;
+            min-width: unset;
+        }
+        .schedule-table .datetime {
+            font-size: 13px;
+        }
+        .schedule-table .date {
+            font-size: 13px;
         }
     }
+
 
 </style>
