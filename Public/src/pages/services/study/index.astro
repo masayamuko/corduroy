@@ -315,24 +315,59 @@ const schedule2026 = [
           AI活用の糸口を見つける会です。<br>
           講座で学んだことを活かして、それぞれのAI作業を進めつつ、わからないところは質問したり、参加者同士で聞き合うことができます。AIで作ったものを発表したり、互いに刺激をもらえる楽しい場所です。
         </p>
-        <div style="margin-top:24px; text-align:left; display:inline-block;">
-          <ul style="list-style:none; padding:0; margin:0;">
-            <li style="display:flex; align-items:flex-start; gap:8px; font-weight:700; color:var(--ink); margin-bottom:12px;">
-              <span style="font-size:1.2em; line-height:1.4;">🌙</span> 
-              <span>
-                AI Night：第4水曜日 19:00〜21:00<br>
-                <span style="font-weight:400; font-size:0.9em; color:var(--text-light);">（開催予定：1/28, 2/25, 3/25）</span>
-              </span>
-            </li>
-            <li style="display:flex; align-items:flex-start; gap:8px; font-weight:700; color:var(--ink);">
-              <span style="font-size:1.2em; line-height:1.4;">☀️</span> 
-              <span>
-                AI朝活会：第3土曜日 10:00〜12:00<br>
-                <span style="font-weight:400; font-size:0.9em; color:var(--text-light);">（開催予定：1/17, 2/21, 3/21）</span>
-              </span>
-            </li>
-          </ul>
+        <div style="margin-top:24px; display:grid; grid-template-columns:1fr; gap:24px; text-align:left;">
+          <!-- AI Night Table -->
+          <div style="background:#f9fbfa; padding:16px; border-radius:12px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px; font-weight:700; color:var(--ink);">
+              <span style="font-size:1.2em;">🌙</span>
+              <span>AI Night<br><span style="font-size:0.8em; font-weight:400; color:var(--text-light);">第4水曜日</span></span>
+            </div>
+            <table style="width:100%; font-size:14px; border-collapse:collapse;">
+              <tr style="border-bottom:1px solid #eee;">
+                <td style="padding:6px 0;">1/28</td>
+                <td style="padding:6px 0; text-align:right;">19:00〜21:00</td>
+              </tr>
+              <tr style="border-bottom:1px solid #eee;">
+                <td style="padding:6px 0;">2/25</td>
+                <td style="padding:6px 0; text-align:right;">19:00〜21:00</td>
+              </tr>
+              <tr>
+                <td style="padding:6px 0;">3/25</td>
+                <td style="padding:6px 0; text-align:right;">19:00〜21:00</td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- AI Morning Table -->
+          <div style="background:#f9fbfa; padding:16px; border-radius:12px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px; font-weight:700; color:var(--ink);">
+              <span style="font-size:1.2em;">☀️</span>
+              <span>AI朝活会<br><span style="font-size:0.8em; font-weight:400; color:var(--text-light);">第3土曜日</span></span>
+            </div>
+            <table style="width:100%; font-size:14px; border-collapse:collapse;">
+              <tr style="border-bottom:1px solid #eee;">
+                <td style="padding:6px 0;">1/17</td>
+                <td style="padding:6px 0; text-align:right;">10:00〜12:00</td>
+              </tr>
+              <tr style="border-bottom:1px solid #eee;">
+                <td style="padding:6px 0;">2/21</td>
+                <td style="padding:6px 0; text-align:right;">10:00〜12:00</td>
+              </tr>
+              <tr>
+                <td style="padding:6px 0;">3/21</td>
+                <td style="padding:6px 0; text-align:right;">10:00〜12:00</td>
+              </tr>
+            </table>
+          </div>
         </div>
+        
+        <style>
+          @media (min-width: 600px) {
+            div[style*="display:grid; grid-template-columns:1fr;"] {
+              grid-template-columns: 1fr 1fr !important;
+            }
+          }
+        </style>
       </div>
 
 
