@@ -1,5 +1,15 @@
 {
   "buildCommand": "cd Public && npm run build",
   "outputDirectory": "Public/dist",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/privacy.html", "destination": "/legal/privacy", "permanent": true },
+    { "source": "/tokushoho.html", "destination": "/legal/tokushoho", "permanent": true },
+    { "source": "/tokushoho", "destination": "/legal/tokushoho", "permanent": true },
+    { "source": "/privacy", "destination": "/legal/privacy", "permanent": true },
+    { "source": "/voice-takaro.html", "destination": "/voices/takaro", "permanent": true },
+    { "source": "/voice-nakano.html", "destination": "/voices/takaro", "permanent": true }
+  ]
 }

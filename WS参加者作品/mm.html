@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お正月＆節分 国際交流パーティー2026 | NPO法人スマイリーフラワーズ</title>
+    <meta name="description" content="天神で世界とつながる！高校生から参加OK、アルコール禁止のクリーンな国際交流パーティー。お菓子持ち寄りで節分・豆まきを楽しもう。">
+    
+    <!-- Google Fonts: M PLUS Rounded 1c -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-pink': '#F2A0A1', // ベースカラー
+                        'brand-red': '#CC0000',  // メインカラー
+                        'brand-gold': '#FFD700', // アクセント
+                        'line-green': '#06C755', // LINEカラー
+                    },
+                    fontFamily: {
+                        'rounded': ['"M PLUS Rounded 1c"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'checkered': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20z'/%3E%3C/g%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: #F2A0A1;
+            /* 市松模様の背景あしらい */
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.2' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* アニメーション: ふわふわ浮かぶ */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 3.5s ease-in-out infinite 1s;
+        }
+
+        /* 写真のコラージュ風スタイル */
+        .photo-collage-circle {
+            border: 4px solid white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            object-fit: cover;
+        }
+        
+        .photo-polaroid {
+            background: white;
+            padding: 8px 8px 24px 8px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: rotate(-3deg);
+        }
+
+        /* 追尾CTAの表示制御 */
+        .fixed-cta {
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .fixed-cta.visible {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased pb-24 md:pb-0">
+
+    <!-- 梅の花のSVG定義 (使い回し用) -->
+    <svg style="display: none;">
+        <symbol id="plum-flower" viewBox="0 0 100 100">
+            <path d="M50 50 C50 20 80 20 80 50 C80 80 50 80 50 50 C50 80 20 80 20 50 C20 20 50 20 50 50" fill="#F0F0F0" />
+            <circle cx="50" cy="50" r="8" fill="#FFD700" />
+            <path d="M50 10 L50 30 M50 70 L50 90 M10 50 L30 50 M70 50 L90 50" stroke="#CC0000" stroke-width="2" />
+        </symbol>
+    </svg>
+
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-sm shadow-sm fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center max-w-2xl">
+            <h1 class="font-bold text-brand-red text-sm md:text-base leading-tight">
+                NPO法人<br>スマイリーフラワーズ
+            </h1>
+            <a href="#cta" class="bg-line-green text-white text-xs md:text-sm font-bold py-2 px-4 rounded-full shadow-md hover:bg-opacity-90 transition transform hover:scale-105">
+                <i class="fab fa-line mr-1"></i> LINE予約(無料)
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="max-w-2xl mx-auto mt-16 bg-white shadow-xl overflow-hidden min-h-screen">
+        
+        <!-- FV (First View) -->
+        <section class="relative bg-brand-pink pt-10 pb-16 px-4 overflow-hidden">
+            <!-- 背景装飾：梅の花 -->
+            <div class="absolute top-10 left-[-20px] text-white opacity-30 animate-float">
+                <i class="fas fa-certificate text-6xl"></i>
+            </div>
+            <div class="absolute bottom-20 right-[-10px] text-brand-gold opacity-40 animate-float-delayed">
+                <i class="fas fa-certificate text-8xl"></i>
+            </div>
+
+            <!-- キャッチコピーエリア -->
+            <div class="relative z-10 text-center mb-8">
+                <p class="text-white font-bold text-sm tracking-widest mb-2 bg-brand-red inline-block px-3 py-1 rounded-full shadow-sm">
+                    高校生から参加OK！アルコール禁止のクリーンな交流会
+                </p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white drop-shadow-md leading-tight mt-2">
+                    天神で世界とつながる！<br>
+                    <span class="text-brand-red bg-white px-2 decoration-brand-gold underline decoration-4 underline-offset-4">お正月＆節分</span><br>
+                    国際交流パーティー
+                </h2>
+                <p class="text-white/90 font-bold mt-2 font-serif italic text-lg">New Year & Setsubun Party</p>
+            </div>
+
+            <!-- ビジュアル（コラージュ風） -->
+            <div class="relative h-64 md:h-80 w-full max-w-sm mx-auto">
+                <!-- 写真1: 笑顔のアップ (円形) -->
+                <div class="absolute top-0 left-0 w-32 h-32 md:w-40 md:h-40 z-20 animate-float">
+                   <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="笑顔の参加者" class="w-full h-full rounded-full photo-collage-circle object-cover">
+                </div>
+                
+                <!-- 写真2: パーティーの様子 (ポラロイド風) -->
+                <div class="absolute top-10 right-4 w-40 md:w-48 z-10 transform rotate-6 hover:rotate-0 transition duration-500">
+                    <div class="bg-white p-2 pb-8 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="交流の様子" class="w-full h-32 object-cover">
+                    </div>
+                </div>
+
+                <!-- 写真3: 豆まきイメージ (円形) -->
+                <div class="absolute bottom-0 left-8 w-28 h-28 md:w-36 md:h-36 z-30 animate-float-delayed">
+                    <img src="http://googleusercontent.com/image_generation_content/2" alt="豆まきイメージ" class="w-full h-full rounded-full photo-collage-circle object-cover border-brand-red">
+                </div>
+
+                <!-- 装飾あしらい -->
+                <div class="absolute bottom-10 right-20 z-0">
+                    <i class="fas fa-fan text-brand-gold text-5xl opacity-80 transform -rotate-12"></i>
+                </div>
+            </div>
+
+            <!-- 帯情報 -->
+            <div class="mt-8 flex flex-wrap justify-center gap-2">
+                <span class="bg-brand-gold text-brand-red font-bold px-3 py-1 rounded-full shadow-sm text-sm">
+                    <i class="fas fa-yen-sign mr-1"></i>参加費無料
+                </span>
+                <span class="bg-white text-brand-red font-bold px-3 py-1 rounded-full shadow-sm text-sm">
+                    <i class="fas fa-shopping-basket mr-1"></i>持ち寄り制
+                </span>
+                <span class="bg-brand-red text-white font-bold px-3 py-1 rounded-full shadow-sm text-sm">
+                    <i class="far fa-calendar-alt mr-1"></i>1/31(土) 13:00~
+                </span>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="py-12 px-6 bg-white text-center">
+            <h3 class="text-xl font-bold text-brand-red mb-6">
+                コロナで遠ざかった世界を、<br>もう一度身近に。
+            </h3>
+            <p class="text-gray-600 leading-relaxed text-sm md:text-base text-left md:text-center">
+                こんにちは、NPO法人スマイリーフラワーズです。<br>
+                私たちは10年以上、若者の留学を応援してきました。<br><br>
+                「いきなり留学」はハードルが高いもの。<br>
+                まずはここ天神で、世界の楽しさに触れてみませんか？<br>
+                <span class="bg-yellow-100 font-bold px-1">英語が話せなくても大丈夫です。</span><br>
+                温かい仲間があなたを待っています。
+            </p>
+        </section>
+
+        <!-- Event Content -->
+        <section class="py-12 px-4 bg-red-50 relative">
+            <div class="absolute top-0 left-0 w-full overflow-hidden opacity-10">
+                 <!-- 市松模様背景 -->
+            </div>
+
+            <div class="text-center mb-10">
+                <span class="text-brand-gold font-serif italic text-lg">Timeline</span>
+                <h3 class="text-2xl font-bold text-gray-800">当日のスケジュール</h3>
+            </div>
+
+            <div class="relative max-w-md mx-auto">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 top-2 bottom-2 w-1 bg-brand-pink/50 rounded"></div>
+
+                <!-- Item 1 -->
+                <div class="relative flex items-start mb-8 pl-12">
+                    <div class="absolute left-0 top-0 bg-brand-red text-white w-9 h-9 rounded-full flex items-center justify-center font-bold shadow-md z-10">
+                        <i class="fas fa-door-open text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="block text-brand-red font-bold text-sm mb-1">13:00</span>
+                        <h4 class="font-bold text-lg mb-1">開場</h4>
+                        <p class="text-sm text-gray-600">受付開始！名札を書いて準備しましょう。</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative flex items-start mb-8 pl-12">
+                    <div class="absolute left-0 top-0 bg-brand-pink text-white w-9 h-9 rounded-full flex items-center justify-center font-bold shadow-md z-10">
+                        <i class="fas fa-handshake text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="block text-brand-red font-bold text-sm mb-1">13:40</span>
+                        <h4 class="font-bold text-lg mb-1">アイスブレイク</h4>
+                        <p class="text-sm text-gray-600">英語が苦手でもOK！体を動かして仲良くなろう。</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative flex items-start mb-8 pl-12">
+                    <div class="absolute left-0 top-0 bg-brand-gold text-white w-9 h-9 rounded-full flex items-center justify-center font-bold shadow-md z-10">
+                        <i class="fas fa-utensils text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="block text-brand-red font-bold text-sm mb-1">14:05</span>
+                        <h4 class="font-bold text-lg mb-1">持ち寄りパーティー <span class="text-xs font-normal text-gray-500 font-serif ml-1">Potluck Party</span></h4>
+                        <p class="text-sm text-gray-600">持ち寄ったお菓子で乾杯（ソフトドリンク）。</p>
+                        <div class="mt-3 transform -rotate-2 w-48 shadow-lg border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="お菓子パーティー" class="w-full">
+                        </div>
+                        <p class="text-xs text-gray-400 mt-1">※写真は過去の交流会の様子です</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative flex items-start pl-12">
+                    <div class="absolute left-0 top-0 bg-brand-red text-white w-9 h-9 rounded-full flex items-center justify-center font-bold shadow-md z-10">
+                        <i class="fas fa-mask text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="block text-brand-red font-bold text-sm mb-1">15:00</span>
+                        <h4 class="font-bold text-lg mb-1">節分・豆まき <span class="text-xs font-normal text-gray-500 font-serif ml-1">MAMEMAKI</span></h4>
+                        <p class="text-sm text-gray-600">日本の文化「MAMEMAKI」体験！「鬼は外！」で大盛りあがり。</p>
+                        <div class="mt-3 transform rotate-2 w-48 shadow-lg border-4 border-white">
+                            <img src="http://googleusercontent.com/image_generation_content/4" alt="豆まき体験" class="w-full">
+                        </div>
+                        <p class="text-xs text-gray-400 mt-1">※写真はイメージです</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rules -->
+        <section class="py-12 px-6 bg-white">
+            <div class="border-4 border-brand-pink border-dashed rounded-2xl p-6 relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-red text-white px-4 py-1 rounded-full font-bold shadow-sm whitespace-nowrap">
+                    <i class="fas fa-heart mr-1"></i> 安心して楽しめる場所に
+                </div>
+
+                <h3 class="text-center font-bold text-xl mt-4 mb-6">参加ルール・持ち物</h3>
+
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg flex items-start">
+                        <i class="fas fa-ban text-brand-red text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm mb-1 decoration-brand-red">禁止事項 <span class="text-xs font-normal text-gray-400">No Alcohol Allowed</span></h4>
+                            <ul class="text-sm text-gray-600 list-disc list-inside">
+                                <li>アルコール持込・飲酒禁止</li>
+                                <li>ネットワークビジネス・宗教・ナンパ等の勧誘行為禁止</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 p-4 rounded-lg flex items-start">
+                        <i class="fas fa-shopping-bag text-brand-gold text-xl mt-1 mr-3"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm mb-1">持ち物</h4>
+                            <p class="text-sm text-gray-600">
+                                1,000円程度のフードまたはドリンク<br>
+                                <span class="text-xs">（シェアしやすい個包装などがおすすめ）</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information -->
+        <section class="py-12 px-6 bg-gray-100">
+            <div class="text-center mb-8">
+                <span class="text-gray-400 font-serif italic">Information</span>
+                <h3 class="text-2xl font-bold text-gray-800">開催概要</h3>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-8 flex-shrink-0 text-center text-brand-pink text-xl"><i class="far fa-clock"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-500">日時</h4>
+                            <p class="font-bold text-lg">2026年1月31日（土）<br>13:00〜16:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="w-8 flex-shrink-0 text-center text-brand-pink text-xl"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-500">場所</h4>
+                            <p class="font-bold">天神チクモクビル 8F</p>
+                            <p class="text-xs text-gray-500">福岡県福岡市中央区天神3丁目10-27</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="w-8 flex-shrink-0 text-center text-brand-pink text-xl"><i class="fas fa-users"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-500">対象 <span class="text-xs font-normal ml-1">Welcome!</span></h4>
+                            <p class="font-bold">高校生以上</p>
+                            <p class="text-sm text-gray-600">（社会人、外国人留学生も大歓迎！）</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Google Maps Embed Placeholder -->
+                <div class="w-full h-48 bg-gray-300 relative">
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.6399127606734!2d130.3941452765103!3d33.58872684207901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541918420455555%3A0x6b4c1a5d6f8b9b0!2z5aSp56We44OB44Kv44Oi44Kv44OT44Or!5e0!3m2!1sja!2sjp!4v1703903100234!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="py-16 px-4 bg-brand-pink text-center relative overflow-hidden">
+            <!-- 背景装飾 -->
+            <div class="absolute inset-0 bg-checkered opacity-30"></div>
+            
+            <div class="relative z-10 bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-4 border-brand-gold max-w-md mx-auto">
+                <p class="text-brand-red font-bold text-sm mb-2 animate-pulse">
+                    <i class="fas fa-exclamation-circle"></i> 申込締切：1月25日(日)まで
+                </p>
+                <h3 class="text-2xl font-extrabold text-gray-800 mb-2">
+                    お正月＆節分<br>国際交流パーティー
+                </h3>
+                <p class="text-xs text-gray-500 mb-6">
+                    会場定員になり次第、受付を終了します。<br>お早めにお申し込みください。
+                </p>
+
+                <!-- メインCVボタン -->
+                <a href="https://line.me/R/ti/p/@example" class="block w-full bg-line-green text-white font-bold text-xl py-4 px-6 rounded-full shadow-lg hover:shadow-xl transition transform hover:scale-105 mb-4 items-center justify-center flex">
+                    <i class="fab fa-line text-3xl mr-2"></i> LINEで今すぐ参加予約
+                </a>
+                
+                <p class="text-xs text-gray-400">参加費無料 / 1分で完了</p>
+
+                <!-- QRコード（ダミー） -->
+                <div class="mt-4 flex justify-center items-center flex-col">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://line.me/R/ti/p/@example" alt="LINE QR Code" class="w-24 h-24 border border-gray-200 p-1">
+                    <span class="text-xs text-gray-400 mt-1">スマホで読取</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8 px-4 text-center text-sm">
+            <div class="mb-4">
+                <h5 class="font-bold text-base mb-1">NPO法人スマイリーフラワーズ</h5>
+                <p class="text-gray-400 text-xs">Smiley Flowers NPO</p>
+            </div>
+            <div class="flex justify-center space-x-4 mb-6">
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fas fa-globe text-xl"></i></a>
+            </div>
+            <ul class="flex justify-center space-x-4 text-xs text-gray-400 mb-4">
+                <li><a href="#" class="hover:underline">運営事務局</a></li>
+                <li><a href="#" class="hover:underline">プライバシーポリシー</a></li>
+            </ul>
+            <p class="text-gray-500 text-xs">&copy; 2025 Smiley Flowers. All Rights Reserved.</p>
+        </footer>
+
+    </main>
+
+    <!-- Fixed Bottom CTA (Sticky) -->
+    <div id="fixed-cta" class="fixed bottom-0 left-0 w-full z-50 p-4 fixed-cta">
+        <a href="#cta" class="block max-w-md mx-auto bg-line-green text-white font-bold text-center py-4 rounded-full shadow-2xl border-2 border-white relative overflow-hidden group">
+            <span class="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-10 transition"></span>
+            <div class="flex items-center justify-center">
+                <span class="bg-white text-line-green text-xs px-2 py-0.5 rounded-sm mr-2 font-bold animate-pulse">無料</span>
+                <span>LINEで予約する</span>
+                <i class="fas fa-chevron-right ml-2 text-sm"></i>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        // スクロール検知して追尾CTAを表示するスクリプト
+        document.addEventListener('DOMContentLoaded', function() {
+            const fixedCta = document.getElementById('fixed-cta');
+            const fvSection = document.querySelector('section'); // 最初のセクション
+            
+            window.addEventListener('scroll', function() {
+                const fvBottom = fvSection.offsetTop + fvSection.offsetHeight;
+                
+                if (window.scrollY > fvBottom - 200) {
+                    fixedCta.classList.add('visible');
+                } else {
+                    fixedCta.classList.remove('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

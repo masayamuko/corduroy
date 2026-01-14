@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ChatWidget from '../components/ChatWidget.jsx';
 
 interface Props {
 	title: string;
@@ -75,6 +76,7 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
         <Header />
 		<slot />
         <Footer />
+        <ChatWidget client:idle />
         <script>
             // --- Scroll Fade-in Animation ---
             const observer = new IntersectionObserver((entries) => {
