@@ -70,7 +70,8 @@ import Layout from '../../layouts/Layout.astro';
           </div>
         </div>
 
-        <div class="character-grid cols-3">
+        <!-- takaro と同じ「2人紹介」フォーマットに統一 -->
+        <div class="character-grid cols-2">
           <div class="character-card">
             <span class="character-role" style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
             <img
@@ -88,17 +89,7 @@ import Layout from '../../layouts/Layout.astro';
               alt="向 雅也"
             />
             <h3 style="margin:2px 0 4px;">向 雅也</h3>
-            <p class="mini" style="margin:0; color:#335649;">AI顧問として伴走し、仮説→検証→提案の回し方を一緒に整えました。</p>
-          </div>
-
-          <div class="character-card">
-            <span class="character-role" style="background:#e9f4ee; border-color:#dbe9e1; color:#124034;">広報担当</span>
-            <img
-              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
-              alt="盤上テト"
-            />
-            <h3 style="margin:2px 0 4px;">盤上テト</h3>
-            <p class="mini" style="margin:0; color:#335649;">ボードゲームとヨーヨーが好き。嗅覚で楽しいものをディグりまくる広報担当。</p>
+            <p class="mini" style="margin:0; color:#335649;">AI顧問として伴走し、仮説→検証→提案が回る形を一緒に整えました。</p>
           </div>
         </div>
       </div>
@@ -148,6 +139,7 @@ import Layout from '../../layouts/Layout.astro';
             <div class="bubble-text">その「シミュレーション」って、マーケのどんな場面？</div>
           </div>
 
+          <!-- 返答を連続させて単調さを崩す -->
           <div class="bubble right">
             <div class="bubble-avatar">
               <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
@@ -155,21 +147,12 @@ import Layout from '../../layouts/Layout.astro';
             </div>
             <div class="bubble-text">どんなデータを持って、どのターゲットに、どういう投稿/打ち手を当てるか。パターンを組み替えたり、仮説を立てたり、そこですね。</div>
           </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
-            </div>
-            <div class="bubble-text">過去の売上データや分析から「どこに仮説を置くか」も？</div>
-          </div>
-
           <div class="bubble right">
             <div class="bubble-avatar">
               <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
               <span class="name-tag">佐野さん</span>
             </div>
-            <div class="bubble-text">そうです。そこから打ち手案を出して、提案に繋げる。その回転が遅かったんです。</div>
+            <div class="bubble-text">過去の売上データや分析から「どこに仮説を置くか」も含めて、打ち手案を出して提案に繋げる。その回転が遅かったんです。</div>
           </div>
 
           <div class="bubble teto">
@@ -220,16 +203,6 @@ import Layout from '../../layouts/Layout.astro';
             <div class="bubble-text">ゼロにはしてないけど、外注コストは抑えられてます。AIで叩き台を作って、必要なところだけプロに整えてもらう感じ。</div>
           </div>
 
-          <div class="voice-note">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
-                style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
-                alt="向 雅也" />
-              <span class="note-name" style="margin:0">担当 向 雅也より</span>
-            </div>
-            AI顧問では、最新ツールの紹介だけで終わらせず、クライアントさんの「事業・状況・想い」に合わせて、仮説→検証→提案が回る形を一緒に作っていきます。
-          </div>
-
           <div class="bubble teto">
             <div class="bubble-avatar">
               <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
@@ -246,7 +219,30 @@ import Layout from '../../layouts/Layout.astro';
             <div class="bubble-text">新規案件でも「AI前提の提案」を自走で回していきたいです。検証して、提案して、改善するスピードを落としたくない。</div>
           </div>
 
+          <div class="voice-note">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+                alt="向" />
+              <span class="note-name" style="margin:0">担当 向より</span>
+            </div>
+            AI顧問では、最新ツールの紹介だけで終わらせず、クライアントさんの「事業・状況・想い」に合わせて、仮説→検証→提案が回る形を一緒に作っていきます。
+          </div>
+
         </div>
+      </div>
+    </section>
+
+    <!-- takaroに合わせて、対話セクションとCTAの間に余白を確保 -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+            style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+            alt="向" />
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        施策設計の精度を上げるには「考える時間」より「試す回数」が重要になる場面が多いです。AIを使って仮説→検証→提案の回転数を上げることで、提案の幅とスピードが一段上がります。
       </div>
     </section>
 
@@ -274,16 +270,14 @@ import Layout from '../../layouts/Layout.astro';
   .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
 
   .card { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 32px; box-shadow: var(--shadow-md); }
-  .grid { display: grid; gap: 32px; }
   .mini { font-size: 14px; color: var(--text-light); line-height: 1.8; }
-  @media(min-width:768px){ .grid.cols-2{ grid-template-columns: repeat(2,1fr);} }
 
   .character-card { text-align: center; padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: #fff; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
   .character-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .character-card img { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 18px rgba(0,0,0,.08); margin: 0 auto 8px; display: block; }
   .character-role { display: inline-block; padding: 6px 10px; background: #f1f7f3; border: 1px solid #d6e8df; border-radius: 10px; font-size: 12px; font-weight: 700; color: #124034; margin-bottom: 6px; }
-  .character-grid { display: grid; gap: 18px; grid-template-columns: 1fr; max-width: 900px; margin: 0 auto; }
-  @media(min-width:900px){ .character-grid.cols-3{ grid-template-columns: repeat(3,1fr);} }
+  .character-grid { display: grid; gap: 18px; grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
+  @media(min-width:900px){ .character-grid.cols-2{ grid-template-columns: repeat(2,1fr);} }
 
   .dialogue-flow { max-width: 760px; margin: 0 auto; }
   .dialogue { display: grid; gap: 26px; margin: 16px auto 18px; max-width: 640px; }
