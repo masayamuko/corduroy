@@ -69,7 +69,7 @@ import Layout from '../../layouts/Layout.astro';
           </div>
         </div>
 
-        <!-- takaro と同じ「2人紹介」フォーマットに統一 -->
+        <!-- takaro と同じフォーマット（2人紹介）に揃える -->
         <div class="character-grid cols-2">
           <div class="character-card">
             <span class="character-role" style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
@@ -119,7 +119,7 @@ import Layout from '../../layouts/Layout.astro';
               <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="沼澤さん" />
               <span class="name-tag">沼澤さん</span>
             </div>
-            <div class="bubble-text">でも、向さんが「第二の自分」って入口を作ってくれたのが大きかったです。AIを“相棒”として扱う感覚が腹落ちしました。</div>
+            <div class="bubble-text">ただ、向さんが「第二の自分」って入口を作ってくれたのが大きくて。AIを“相棒”として扱う感覚が、すっと腹落ちしました。</div>
           </div>
 
           <div class="bubble teto">
@@ -136,6 +136,23 @@ import Layout from '../../layouts/Layout.astro';
               <span class="name-tag">沼澤さん</span>
             </div>
             <div class="bubble-text">ゲームみたいに没頭しちゃうんです。気づいたら3時間が一瞬で過ぎる。AIでコーチングが受けられる感覚がメリットでした。</div>
+          </div>
+
+          <!-- 追加して1.5倍へ -->
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">ハマると、どんな“良い変化”が一番早く出た？</div>
+          </div>
+
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="沼澤さん" />
+              <span class="name-tag">沼澤さん</span>
+            </div>
+            <div class="bubble-text">考えが言語化される速度が上がりました。モヤっとしたまま止まらずに、「何が詰まってるのか」を会話の中で見つけられる感じです。</div>
           </div>
 
           <div class="bubble teto">
@@ -176,6 +193,23 @@ import Layout from '../../layouts/Layout.astro';
               <span class="name-tag">沼澤さん</span>
             </div>
             <div class="bubble-text">行政書士会のDX推進委員会で副委員長もやっていて、AI導入やセキュリティ観点の整理にも関わっています。</div>
+          </div>
+
+          <!-- 追加：さらに具体を増やす -->
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">DX推進の場だと、AIはどんな役割で使える？</div>
+          </div>
+
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="沼澤さん" />
+              <span class="name-tag">沼澤さん</span>
+            </div>
+            <div class="bubble-text">議論の前段で、論点を整理したり、反対意見も含めて仮説を出したり。関係者が多いほど「会話の土台」を早めに作れるのが助かります。</div>
           </div>
 
           <div class="voice-note">
@@ -234,48 +268,259 @@ import Layout from '../../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* Hero */
-  .hero { padding: 160px 0 100px; text-align: center; background: transparent; }
-  .meta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin-top: 24px; }
-  .tag { display: inline-block; padding: 8px 16px; border-radius: 100px; background: var(--mint); color: var(--sea); font-weight: 700; font-size: 13px; border: 1px solid var(--line); }
-  .pill { display: inline-block; padding: 8px 16px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-weight: 700; font-size: 13px; color: var(--text-light); }
-  .avatar-frame { width: 160px; height: 160px; margin: 0 auto; display: flex; align-items: center; justify-content: center; background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat; }
-  .avatar-lg { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow-md); background: #fff; }
-  .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+    /* Hero */
+    .hero {
+        padding: 160px 0 100px;
+        text-align: center;
+        background: transparent;
+    }
 
-  .card { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 32px; box-shadow: var(--shadow-md); }
-  .mini { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
 
-  .character-card { text-align: center; padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: #fff; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
-  .character-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-  .character-card img { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 18px rgba(0,0,0,.08); margin: 0 auto 8px; display: block; }
-  .character-role { display: inline-block; padding: 6px 10px; background: #f1f7f3; border: 1px solid #d6e8df; border-radius: 10px; font-size: 12px; font-weight: 700; color: #124034; margin-bottom: 6px; }
-  .character-grid { display: grid; gap: 18px; grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
-  @media(min-width:900px){ .character-grid.cols-2{ grid-template-columns: repeat(2,1fr);} }
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
 
-  .dialogue-flow { max-width: 760px; margin: 0 auto; }
-  .dialogue { display: grid; gap: 26px; margin: 16px auto 18px; max-width: 640px; }
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text-light);
+    }
 
-  .bubble { display: flex; gap: 12px; align-items: flex-start; width: 100%; position: relative; }
-  .bubble-avatar { position: relative; width: 82px; height: 82px; flex-shrink: 0; }
-  .bubble-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; box-shadow: 0 6px 14px rgba(0,0,0,.08); }
-  .bubble-text { background: #e7f4ef; border: 1px solid #cde5db; border-radius: 12px; padding: 10px 12px; line-height: 1.7; color: #12382c; flex: 1; position: relative; }
-  .bubble.right { flex-direction: row-reverse; }
-  .bubble.right .bubble-text { background: #f4f1ff; border: 1px solid #e2dcfa; color: #1f2440; }
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
 
-  .name-tag { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); padding: 2px 8px; border-radius: 8px; background: rgba(255,255,255,.9); box-shadow: 0 4px 10px rgba(0,0,0,.08); font-weight: 700; font-size: 10px; color: #0f3d2e; white-space: nowrap; }
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
 
-  .voice-note { margin: 22px auto 0; padding: 14px 16px; border-radius: 14px; border: 1px solid #f2ddbf; background: #fff7ea; box-shadow: 0 10px 22px rgba(0,0,0,.05); color: #3a2c15; line-height: 1.7; max-width: 640px; }
-  .note-name { display: inline-block; padding: 6px 12px; border-radius: 10px; background: #fbe9cc; color: #6a4618; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
+    .avatar-lg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-  /* Match takaro big bubble sizing */
-  .big-bubble { max-width: 720px; margin: 0 auto; }
-  .big-bubble .bubble img { width: 64px; height: 64px; }
-  .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
 
-  @media(max-width:768px){
-    .hero { padding: 100px 20px 60px; }
-    .bubble-avatar { width: 64px; height: 64px; }
-    .name-tag { font-size: 9px; }
-  }
+    .grid {
+        display: grid;
+        gap: 32px;
+    }
+
+    @media(min-width:768px) {
+        .grid.cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .character-card {
+        text-align: center;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+    }
+
+    .character-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .character-card img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        margin: 0 auto 8px;
+        display: block;
+    }
+
+    .character-role {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f7f3;
+        border: 1px solid #d6e8df;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #124034;
+        margin-bottom: 6px;
+    }
+
+    .character-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+
+    @media(min-width:900px) {
+        .character-grid.cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Dialogue Section */
+    .dialogue-flow {
+        max-width: 760px;
+        margin: 0 auto;
+    }
+
+    .dialogue {
+        display: grid;
+        gap: 26px;
+        margin: 16px auto 18px;
+        max-width: 640px;
+    }
+
+    .bubble {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 12px;
+        padding: 10px 12px;
+        line-height: 1.7;
+        color: #12382c;
+        flex: 1;
+        position: relative;
+    }
+
+    .bubble.right {
+        flex-direction: row-reverse;
+    }
+
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border: 1px solid #e2dcfa;
+        color: #1f2440;
+    }
+
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+
+    .voice-note {
+        margin: 22px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #f2ddbf;
+        background: #fff7ea;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+        color: #3a2c15;
+        line-height: 1.7;
+        max-width: 640px;
+    }
+
+    .note-name {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #fbe9cc;
+        color: #6a4618;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+
+    .big-bubble .bubble img {
+        width: 64px;
+        height: 64px;
+    }
+
+    .big-bubble .bubble-text {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .big-bubble {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 60px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+    }
+
 </style>
