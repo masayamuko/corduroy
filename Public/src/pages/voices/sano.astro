@@ -125,7 +125,6 @@ import Layout from '../../layouts/Layout.astro';
     <section class="container">
       <div class="card dialogue-flow">
         <h3 style="margin-bottom: 6px;">対話（抜粋）</h3>
-        <p class="mini" style="margin-top:0;">※/voices/takaro と同じ「吹き出し対話」フォーマットで掲載しています。</p>
 
         <div class="dialogue">
           <div class="bubble teto">
@@ -149,6 +148,22 @@ import Layout from '../../layouts/Layout.astro';
               <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん" />
               <span class="name-tag">盤上テト</span>
             </div>
+            <div class="bubble-text">そこから一気に変わった分岐点って、何でした？</div>
+          </div>
+
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">「AIでシミュレーションを回す」って感覚が掴めたのが大きかったです。</div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん" />
+              <span class="name-tag">盤上テト</span>
+            </div>
             <div class="bubble-text">「爆速シミュレーション」って、具体的にはどんなシミュレーション？</div>
           </div>
 
@@ -157,18 +172,10 @@ import Layout from '../../layouts/Layout.astro';
               <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
               <span class="name-tag">佐野さん</span>
             </div>
-            <div class="bubble-text">マーケの施策ですね。どんなデータを持って、どのターゲットに、どういう投稿/打ち手を当てるか。パターンを組み替えたり、仮説を立てたり。その回転が速くなりました。</div>
-          </div>
-
-          <div class="voice-note">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
-                style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
-                alt="向さん" />
-              <span class="note-name" style="margin:0">担当 向さんより</span>
+            <div class="bubble-text">
+              マーケの施策ですね。どんなデータを持って、どのターゲットに、どういう投稿/打ち手を当てるか。
+              パターンを組み替えたり、仮説を立てたり。
             </div>
-            佐野さんは元々仕事ができる方（先輩）で、そこにAIが「提案の回転数」を乗せていく形でした。
-            コールテンの伴走では、AIの知識だけでなく「仮説→検証→提案」に落とす流れを、実務の中で一緒に整えていきます。
           </div>
 
           <div class="bubble teto">
@@ -176,7 +183,7 @@ import Layout from '../../layouts/Layout.astro';
               <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん" />
               <span class="name-tag">盤上テト</span>
             </div>
-            <div class="bubble-text">向さんの伴走って、どんな効き方でした？</div>
+            <div class="bubble-text">過去の売上データや分析から「どこに仮説を置くか」も？</div>
           </div>
 
           <div class="bubble right">
@@ -184,7 +191,48 @@ import Layout from '../../layouts/Layout.astro';
               <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
               <span class="name-tag">佐野さん</span>
             </div>
-            <div class="bubble-text">向さんが「仕事を上手くしてくれた」というより、AIを使いこなせる状態に整っていった、っていう感じです。</div>
+            <div class="bubble-text">
+              そうです。そこから打ち手案を出して、提案に繋げる。
+              その回転が速くなりました。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん" />
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">外注との付き合い方も変わりました？</div>
+          </div>
+
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              外注ゼロではないけど、AIで叩き台を作って、必要なところだけプロに整えてもらう。
+              そんな進め方ができるようになりました。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん" />
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">この先、AIをどう使っていきたい？</div>
+          </div>
+
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              新規案件でも「AI前提の提案」を自走で回していきたいです。
+              検証して、提案して、改善するスピードを落としたくない。
+            </div>
           </div>
 
         </div>
@@ -237,9 +285,6 @@ import Layout from '../../layouts/Layout.astro';
   .bubble.right .bubble-text { background: #f4f1ff; border: 1px solid #e2dcfa; color: #1f2440; }
 
   .name-tag { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); padding: 2px 8px; border-radius: 8px; background: rgba(255,255,255,.9); box-shadow: 0 4px 10px rgba(0,0,0,.08); font-weight: 700; font-size: 10px; color: #0f3d2e; white-space: nowrap; }
-
-  .voice-note { margin: 22px auto 0; padding: 14px 16px; border-radius: 14px; border: 1px solid #f2ddbf; background: #fff7ea; box-shadow: 0 10px 22px rgba(0,0,0,.05); color: #3a2c15; line-height: 1.7; max-width: 640px; }
-  .note-name { display: inline-block; padding: 6px 12px; border-radius: 10px; background: #fbe9cc; color: #6a4618; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
 
   @media(max-width:768px){
     .hero { padding: 100px 20px 60px; }
