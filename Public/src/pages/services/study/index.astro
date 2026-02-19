@@ -114,46 +114,6 @@ const schedule2026 = [
       </div>
     </section>
 
-    <!-- NEW: Monthly Events Section -->
-    <section class="container" style="padding-top: 0; padding-bottom: 80px;">
-      <div class="section-head fade-up" style="margin-bottom: 40px;">
-        <small>This Month</small>
-        <h2>今月のイベント情報</h2>
-      </div>
-      <div class="card fade-up" style="width:fit-content; max-width:100%; margin:0 auto; padding:0; overflow:hidden;">
-        <div class="table-wrap">
-          <table class="schedule-table">
-            <thead>
-              <tr>
-                <th>イベント名</th>
-                <th>開催日</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {schedule2026
-                .filter(item => item.date.startsWith('2026.02') && item.type !== '作業会')
-                .map((item) => (
-                <tr class="type-lecture">
-                  <td class="title">
-                      <span class="course-icon">{item.icon}</span>
-                      <span class="course-name">{item.title}</span>
-                  </td>
-                  <td class="datetime">
-                    <span class="date">{item.date}<span class="day">({item.day})</span></span>
-                    <br class="mobile-break">
-                    <span class="time">{item.time}</span>
-                  </td>
-                  <td class="action">
-                    <a href={item.link} class="btn-sm">詳細・申込</a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
 
     <section class="bg-gradient-soft">
       <div class="container">
