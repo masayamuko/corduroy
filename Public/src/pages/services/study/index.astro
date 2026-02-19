@@ -6,12 +6,6 @@ const description = "福岡エリア（天神）で開催中。社長と現場�
 
 // Schedule Data 2026
 const schedule2026 = [
-  { date: '2026.01.03', day: '土', type: '講座', time: '10:00-13:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
-  { date: '2026.01.14', day: '水', type: '講座', time: '19:00-21:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
-  { date: '2026.01.17', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.01.28', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.02.07', day: '土', type: '講座', time: '10:00-12:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
-  { date: '2026.02.11', day: '水', type: '講座', time: '19:00-22:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
   { date: '2026.02.21', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
   { date: '2026.02.25', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
   { date: '2026.03.07', day: '土', type: '講座', time: '10:00-13:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
@@ -138,7 +132,7 @@ const schedule2026 = [
             </thead>
             <tbody>
               {schedule2026
-                .filter(item => item.date.startsWith('2026.01') && item.type !== '作業会')
+                .filter(item => item.date.startsWith('2026.02') && item.type !== '作業会')
                 .map((item) => (
                 <tr class="type-lecture">
                   <td class="title">
@@ -306,7 +300,7 @@ const schedule2026 = [
                     .filter(item => item.type !== '作業会') // Exclude Work Sessions
                     .filter(item => {
                         const date = new Date(item.date.replace(/\./g, '-'));
-                        const now = new Date('2026-01-12'); // Fixed Reference Date for logic
+                        const now = new Date('2026-02-19'); // Fixed Reference Date for logic
                         const end = new Date('2026-04-30');
                         return date >= now && date <= end;
                     })
@@ -365,10 +359,6 @@ const schedule2026 = [
             </div>
             <table style="width:100%; font-size:14px; border-collapse:collapse;">
               <tr style="border-bottom:1px solid #eee;">
-                <td style="padding:6px 0;">1/28</td>
-                <td style="padding:6px 0; text-align:right;">19:00〜21:00</td>
-              </tr>
-              <tr style="border-bottom:1px solid #eee;">
                 <td style="padding:6px 0;">2/25</td>
                 <td style="padding:6px 0; text-align:right;">19:00〜21:00</td>
               </tr>
@@ -386,10 +376,6 @@ const schedule2026 = [
               <span>AI朝活会<br><span style="font-size:0.8em; font-weight:400; color:var(--text-light);">第3土曜日</span></span>
             </div>
             <table style="width:100%; font-size:14px; border-collapse:collapse;">
-              <tr style="border-bottom:1px solid #eee;">
-                <td style="padding:6px 0;">1/17</td>
-                <td style="padding:6px 0; text-align:right;">10:00〜12:00</td>
-              </tr>
               <tr style="border-bottom:1px solid #eee;">
                 <td style="padding:6px 0;">2/21</td>
                 <td style="padding:6px 0; text-align:right;">10:00〜12:00</td>
@@ -556,8 +542,8 @@ const schedule2026 = [
 
             <p style="font-weight:700; color:var(--sea); margin-top:16px; margin-bottom:8px;">🤝 糸口会（コミュニティ）</p>
             <ul style="list-style:none; padding:0; margin:0;">
-              <li style="margin-bottom:4px;"><strong>🌙 第4水曜日</strong>：19:00〜21:00（AI Night）<br><span style="font-size:0.85em; color:var(--text-light); margin-left:1.5em; display:block;">（開催予定：1/28, 2/25, 3/25）</span></li>
-              <li><strong>☀️ 第3土曜日</strong>：10:00〜12:00（AI朝活会）<br><span style="font-size:0.85em; color:var(--text-light); margin-left:1.5em; display:block;">（開催予定：1/17, 2/21, 3/21）</span></li>
+              <li style="margin-bottom:4px;"><strong>🌙 第4水曜日</strong>：19:00〜21:00（AI Night）<br><span style="font-size:0.85em; color:var(--text-light); margin-left:1.5em; display:block;">（開催予定：2/25, 3/25）</span></li>
+              <li><strong>☀️ 第3土曜日</strong>：10:00〜12:00（AI朝活会）<br><span style="font-size:0.85em; color:var(--text-light); margin-left:1.5em; display:block;">（開催予定：2/21, 3/21）</span></li>
             </ul>
             <p style="font-size:0.9em; opacity:0.8;">※ 日程は変更になる場合があります。最新情報はLINEでご案内します。</p>
           </div>
