@@ -1,0 +1,1056 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const title = "3ヶ月AIプログラム｜AI講座（福岡）｜株式会社コールテン";
+const description = "第二の自分を作るところから始まる、3ヶ月でAIを使いこなすプログラム。月1講座×3回＋作業会＋Discordサポート。108,000円。福岡・対面開催。";
+
+// パッケージ スタート期
+const startDates = [
+  { period: '2026 夏期', month: '6月', startDate: '2026.06.06', day: '土', time: '10:00-13:00', label: '第二の自分作り講座', remaining: '受付中' },
+  { period: '2026 秋期', month: '9月', startDate: '2026.09.05', day: '土', time: '10:00-13:00', label: '第二の自分作り講座', remaining: '受付中' },
+  { period: '2026 冬期', month: '12月', startDate: '2026.12.05', day: '土', time: '10:00-13:00', label: '第二の自分作り講座', remaining: '受付中' },
+];
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "3ヶ月AI活用プログラム",
+        "description": "第二の自分を作るところから始まる、3ヶ月でAIを使いこなすプログラム。月1講座×3回＋作業会＋Discordサポート。",
+        "provider": {
+          "@type": "Organization",
+          "name": "株式会社コールテン",
+          "sameAs": "https://corduroy.co.jp/"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "108000",
+          "priceCurrency": "JPY"
+        }
+      }
+    </script>
+  </Fragment>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-inner">
+        <div class="fade-up">
+
+          <!-- 眉上バッジ -->
+          <div class="hero-eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span>3ヶ月AI活用プログラム</span>
+            <span class="eyebrow-sep">|</span>
+            <span>福岡・対面 · 少人数制</span>
+          </div>
+
+          <!-- 3段組タイポグラフィ -->
+          <h1>
+            <span class="h1-pre">3ヶ月で、</span>
+            <span class="h1-main">AIを<mark>使いこなせる</mark></span>
+            <span class="h1-post">自分になる。</span>
+          </h1>
+
+          <!-- 区切りオーナメント -->
+          <div class="hero-ornament">
+            <span class="orn-line"></span>
+            <span class="orn-mark">✦</span>
+            <span class="orn-line"></span>
+          </div>
+
+          <p class="lead">
+            「なんとなく使っている」から卒業して、<br>
+            <b>自分専用のAIと一緒に働く</b>感覚を手に入れる3ヶ月。
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn" href="#program">プログラムの内容を見る</a>
+            <a class="btn secondary" href="/services/study/trial">無料体験会に参加する →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== FOR WHO ===== -->
+    <section class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>For You</small>
+          <h2>こんな方へ</h2>
+        </div>
+        <div class="forwhom-grid fade-up">
+          <div class="forwhom-item">
+            <span class="forwhom-check">✔</span>
+            <p>AIに興味はあるが、<b>使い続けられていない</b></p>
+          </div>
+          <div class="forwhom-item">
+            <span class="forwhom-check">✔</span>
+            <p><b>自分専用のAI</b>を育てて、仕事をラクにしたい</p>
+          </div>
+          <div class="forwhom-item">
+            <span class="forwhom-check">✔</span>
+            <p>独学ではなく<b>体系的に・正しく</b>身につけたい</p>
+          </div>
+          <div class="forwhom-item">
+            <span class="forwhom-check">✔</span>
+            <p>同じ熱量の仲間と<b>オフラインで継続</b>したい</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== PROGRAM ===== -->
+    <section id="program" class="container">
+      <div class="section-head fade-up">
+        <small>Program</small>
+        <h2>3ヶ月プログラムの全体像</h2>
+        <p>月1本の講座を3ヶ月かけて積み上げ、<br>作業会とDiscordサポートで確実に定着させます。</p>
+      </div>
+
+      <!-- Roadmap -->
+      <div class="roadmap fade-up">
+        <div class="roadmap-item">
+          <div class="roadmap-month">Month 1</div>
+          <div class="roadmap-card">
+            <div class="roadmap-icon">🤝</div>
+            <div class="roadmap-tool-badge">
+              <span class="tool-icon">🤖</span> ChatGPT を使用
+            </div>
+            <h3>第二の自分を作る</h3>
+            <p class="mini">自分の価値観・判断軸・口癖をAIに覚え込ませ、「自分専用AI」を育てます。AIとの壁打ちが格段に深くなります。</p>
+            <a href="/services/study/SecondME" class="link-btn">講座詳細を見る →</a>
+          </div>
+        </div>
+
+        <div class="roadmap-arrow">↓</div>
+
+        <div class="roadmap-item">
+          <div class="roadmap-month">Month 2</div>
+          <div class="roadmap-card">
+            <div class="roadmap-icon">🌱</div>
+            <div class="roadmap-tool-badge roadmap-tool-badge--multi">
+              <span class="tool-icon">🔄</span> ChatGPT・Gemini・Claude など汎用スキル
+            </div>
+            <h3>AIの基礎を固める</h3>
+            <p class="mini">AIの仕組みや得意・不得意を整理し、思い通りの回答を引き出す型を身につけます。<b>どのAI・LLMにも応用できる</b>普遍的なベースを作ります。</p>
+            <a href="/services/study/basicAI" class="link-btn">講座詳細を見る →</a>
+          </div>
+        </div>
+
+        <div class="roadmap-arrow">↓</div>
+
+        <div class="roadmap-item">
+          <div class="roadmap-month">Month 3</div>
+          <div class="roadmap-card">
+            <div class="roadmap-icon">🔨</div>
+            <div class="roadmap-tool-badge roadmap-tool-badge--claude">
+              <span class="tool-icon">⚡</span> Claude Code を使用
+            </div>
+            <h3>AIで何かを作る</h3>
+            <p class="mini">Claude Codeを使い、ウェブサイトやツールをAIと一緒に実際に作ります。「知識がなくても作れた」という自信が、AI活用をさらに加速させます。</p>
+            <a href="/services/study/AIdeWEB" class="link-btn">講座詳細を見る →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plus -->
+      <div class="plus-section fade-up">
+        <div class="plus-title">＋ パッケージに含まれるもの</div>
+        <div class="plus-grid">
+          <div class="plus-item">
+            <div class="plus-icon">☀️</div>
+            <div>
+              <strong>作業会（月1回）</strong>
+              <p class="mini">水曜夜 or 土曜朝のどちらか選択。黙々と作業しながら、わからないことをその場で聞けます。</p>
+            </div>
+          </div>
+          <div class="plus-item">
+            <div class="plus-icon">💬</div>
+            <div>
+              <strong>Discord サポート</strong>
+              <p class="mini">講座外でも質問・相談OK。オンラインで気軽につながれるコミュニティです。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== PRICE ===== -->
+    <section class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Price</small>
+          <h2>価格・お申し込み</h2>
+        </div>
+
+        <div class="price-card fade-up">
+          <div class="price-label">3ヶ月AI活用プログラム</div>
+          <div class="price-amount">¥108,000<span class="price-tax">（税込）</span></div>
+          <div class="price-includes">
+            <span>✓ 月1講座 × 3回</span>
+            <span>✓ 作業会 月1回（3ヶ月分）</span>
+            <span>✓ Discord サポート</span>
+          </div>
+          <div class="price-note">
+            ※ スタートは「第二の自分作り講座」がある月。年4回（3・6・9・12月）のご参加タイミングがあります。
+          </div>
+          <a class="btn price-btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
+            LINEで無料説明会を見て申し込む
+          </a>
+          <p class="price-sub">まずは無料説明会（動画）→ 無料体験会 → 申し込みの流れです</p>
+        </div>
+
+        <!-- Start Dates -->
+        <div class="section-head fade-up" style="margin-top:64px; margin-bottom:32px;">
+          <small>Next Start</small>
+          <h2 style="font-size:28px;">次回スタート日程</h2>
+        </div>
+        <div class="start-dates fade-up">
+          {startDates.map((s) => (
+            <div class="start-item">
+              <div class="start-period">{s.period}</div>
+              <div class="start-info">
+                <span class="start-month">{s.month}スタート</span>
+                <span class="start-date">{s.startDate}（{s.day}） {s.time}</span>
+                <span class="start-course">第1講座：{s.label}</span>
+              </div>
+              <span class="start-badge">{s.remaining}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== FLOW ===== -->
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Flow</small>
+        <h2>参加までの流れ</h2>
+      </div>
+      <div class="flow-steps fade-up">
+        <div class="flow-step">
+          <div class="flow-num">01</div>
+          <div class="flow-content">
+            <strong>LINE登録</strong>
+            <p class="mini">LINEを登録すると、無料説明会の動画をご覧いただけます。</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-num">02</div>
+          <div class="flow-content">
+            <strong>無料説明会（動画）を視聴</strong>
+            <p class="mini">プログラムの内容・価格・スタート日程をわかりやすく説明しています。いつでも、何度でも見られます。</p>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-num">03</div>
+          <div class="flow-content">
+            <strong>無料体験会に参加（福岡・対面）</strong>
+            <p class="mini">1時間のデモ&amp;セミナー。AIを実際に体験し、「自分にもできる」という感覚を持ち帰ってください。</p>
+            <a href="/services/study/trial" class="link-btn" style="margin-top:8px;">体験会の詳細を見る →</a>
+          </div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-num">04</div>
+          <div class="flow-content">
+            <strong>3ヶ月プログラムに申し込む</strong>
+            <p class="mini">体験会後、その場でも・後日LINEからでも申し込めます。108,000円（税込）。</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:40px;" class="fade-up">
+        <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">LINEで無料説明会を見る</a>
+      </div>
+    </section>
+
+
+    <!-- ===== INSTRUCTOR ===== -->
+    <section class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Instructor</small>
+          <h2>講師について</h2>
+        </div>
+        <div class="card fade-up" style="max-width:860px; margin:0 auto; display:flex; align-items:center; gap:32px; text-align:left;">
+          <div class="instructor-image">
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                 alt="向 雅也"
+                 style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div style="flex:1;">
+            <small style="display:block; color:var(--sea); font-weight:700; margin-bottom:4px;">株式会社コールテン代表</small>
+            <h3>向 雅也</h3>
+            <p class="mini" style="margin-top:12px;">
+              企業導入・自社導入の実績があり、現場で使える形に落とし込んでいます。<br>
+              フリーランス歴10年、コーチ歴3年、日本語教師歴を含む指導歴5年。<br>
+              「わかりやすく教える」ことを大切に、実務に落とし込めるAI活用を丁寧に伴走します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== VOICES ===== -->
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Voices</small>
+        <h2>参加者の声</h2>
+      </div>
+      <div class="voices-box fade-up">
+        <ul class="voices-list">
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">触ったことはあるけど活用できていなかったが、講座の型で仕事に使える感覚が出た。</div>
+          </li>
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">AIへの指示が曖昧だったと気づけた。考え方を整えたら結果が安定した。</div>
+          </li>
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">一人だと続かなかったけど、作業会で作業が進むようになった。</div>
+          </li>
+          <li class="voices-item">
+            <span class="voices-icon">💬</span>
+            <div class="voices-text">自分の言葉がAIに伝わる感覚が出て、壁打ちが楽になった。</div>
+          </li>
+        </ul>
+      </div>
+      <div class="fade-up" style="display:grid; gap:24px; max-width:900px; margin:0 auto;">
+        <a href="/voices/takaro" class="card" style="display:block; text-decoration:none; color:inherit;">
+          <div style="display:flex; gap:20px; align-items:center;">
+            <div style="flex-shrink:0;">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png"
+                   alt="中野たかろーさん" style="width:80px; height:80px; border-radius:50%; object-fit:cover;">
+            </div>
+            <div style="flex:1;">
+              <div style="margin-bottom:8px;">
+                <span style="display:inline-block; padding:4px 10px; border-radius:8px; background:#e8f4f0; color:#0f3d2e; font-size:11px; font-weight:700;">Interview</span>
+              </div>
+              <h3 style="font-size:18px; margin:0 0 8px 0; color:var(--ink);">「検索ツール」から「第二の自分」へ</h3>
+              <p style="font-size:14px; color:#335649; margin:0; line-height:1.6;">
+                フリーランス・中野たかろーさん｜ChatGPTを単なる検索ツールとして使っていた状態から、価値観やクセまで学習させた「第二の自分」として活用するまでの変革ストーリー。
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ===== FAQ ===== -->
+    <section class="container faq">
+      <div class="section-head fade-up">
+        <small>FAQ</small>
+        <h2>よくあるご質問</h2>
+      </div>
+      <div class="fade-up" style="max-width:800px; margin:0 auto;">
+        <details open>
+          <summary>AI初心者でも参加できますか？</summary>
+          <p class="mini">はい、大丈夫です。基礎講座はブラウザでの対話から始めます。初めての方も安心して受講できます。</p>
+        </details>
+        <details>
+          <summary>3ヶ月の途中から参加できますか？</summary>
+          <p class="mini">プログラムは「第二の自分作り」からスタートする設計のため、途中参加はお受けしていません。次のスタート時期（年4回）にご参加ください。</p>
+        </details>
+        <details>
+          <summary>オンライン参加はできますか？</summary>
+          <p class="mini">講座・作業会ともに福岡市内での対面開催が中心です。オンライン開催は準備中ですので、遠方の方はLINEにてお問い合わせください。</p>
+        </details>
+        <details>
+          <summary>パソコンは必要ですか？</summary>
+          <p class="mini">はい、講座では実際に操作を行うため、PC（Windows/Mac）の持参をお願いしています。タブレットやスマホのみでは受講が難しい内容が含まれます。</p>
+        </details>
+        <details>
+          <summary>無料体験会だけ参加できますか？</summary>
+          <p class="mini">もちろん参加できます。「まず雰囲気を見たい」「自分に合うか確かめたい」という方のための体験会です。体験会後の申し込みは任意です。</p>
+        </details>
+      </div>
+    </section>
+
+
+    <!-- ===== TRIAL CTA ===== -->
+    <section id="trial" class="bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Free Trial</small>
+          <h2>まず、体験してみてください。</h2>
+          <p>無料体験会では、AIのデモと「第二の自分」の実例を1時間で体感できます。<br>「自分にもできる」という自信を持って帰ってください。</p>
+        </div>
+        <div class="card fade-up" style="max-width:640px; margin:0 auto; text-align:center;">
+          <div style="font-size:48px; margin-bottom:16px;">🌱</div>
+          <h3>無料体験会（福岡・対面）</h3>
+          <p class="mini" style="margin-bottom:8px;">AIデモ ＋ 第二の自分デモ ＋ プログラム案内</p>
+          <p class="mini" style="margin-bottom:24px;">参加無料 / 月1回開催 / 福岡市内</p>
+          <a class="btn" href="/services/study/trial">体験会の日程・詳細を見る →</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== LINE CTA ===== -->
+    <section class="bg-contact">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>LINE</small>
+          <h2>まずはLINE登録から</h2>
+          <p>無料説明会（動画）をご覧いただけます。<br>無理な勧誘はありません。いつでも気軽にどうぞ。</p>
+        </div>
+        <div class="card fade-up" style="max-width:640px; margin:0 auto; text-align:center;">
+          <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+             style="margin-top:8px;">LINE登録で無料説明会を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OTHER SERVICES ===== -->
+    <section class="bg-other">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Other Services</small>
+          <h2>その他のサービスを見る</h2>
+          <p>伴走やシステム開発まで、目的に合わせて選べます。</p>
+        </div>
+        <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
+          <p class="mini" style="margin-bottom:20px;">AI顧問・AIシステム開発も含めた一覧ページをご覧ください。</p>
+          <a class="btn secondary" href="/services" style="padding:14px 26px;">サービス一覧ページへ →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+/* ===== Section & Head ===== */
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 72px;
+  position: relative;
+}
+
+.section-head small {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+}
+
+.section-head p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-light);
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 130px 0 110px;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(circle, rgba(212, 160, 77, 0.25) 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(22, 97, 78, 0.12) 1.5px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2316614e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.4;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+  pointer-events: none;
+}
+
+/* 中央グロー */
+.hero-glow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(22, 97, 78, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* 眉上バッジ */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(22, 97, 78, 0.15);
+  border-radius: 99px;
+  padding: 7px 18px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--sea);
+  margin-bottom: 36px;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 12px rgba(22, 97, 78, 0.07), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.eyebrow-dot {
+  width: 7px; height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(212, 160, 77, 0.25);
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(212, 160, 77, 0.25); }
+  50%       { box-shadow: 0 0 0 6px rgba(212, 160, 77, 0.08); }
+}
+.eyebrow-sep { opacity: 0.2; font-weight: 300; }
+
+/* H1 — 3段組タイポグラフィ */
+.hero h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 0;
+  /* reset */
+  background: none;
+  -webkit-text-fill-color: initial;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  text-shadow: none;
+}
+
+/* 段1: 小さく薄く — 「3ヶ月で、」*/
+.h1-pre {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  color: var(--text-light);
+  letter-spacing: 0.2em;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+/* 段2: 一番大きく — 「AIを使いこなせる」*/
+.h1-main {
+  display: block;
+  font-size: clamp(2.8rem, 8vw, 5.6rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+/* キーワードハイライト */
+.h1-main mark {
+  background: none;
+  color: var(--sea);
+  position: relative;
+  display: inline-block;
+}
+.h1-main mark::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -2px; right: -2px;
+  height: 10px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--orange) 100%);
+  opacity: 0.35;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+/* 段3: 中くらい — 「自分になる。」*/
+.h1-post {
+  display: block;
+  font-size: clamp(1.7rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--sea) 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 2px;
+}
+
+/* オーナメント区切り */
+.hero-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 36px auto 28px;
+  max-width: 220px;
+}
+.orn-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 160, 77, 0.5), transparent);
+}
+.orn-mark {
+  color: var(--accent);
+  font-size: 11px;
+  opacity: 0.7;
+  letter-spacing: 0;
+}
+
+.hero p.lead {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: var(--text);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 2.1;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== Backgrounds ===== */
+.bg-gradient-soft {
+  background: linear-gradient(180deg, var(--cream) 0%, #f1f7f5 100%);
+}
+.bg-contact {
+  background: linear-gradient(135deg, #f0f7f4 0%, #e6f3ed 100%);
+  position: relative;
+  overflow: hidden;
+}
+.bg-other { background: #f7faf9; }
+
+/* ===== Card ===== */
+.card {
+  background: #fff;
+  border: 1px solid rgba(22, 97, 78, 0.08);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--mint) 0%, var(--sea) 50%, var(--mint) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(22, 97, 78, 0.2); }
+.card:hover::before { opacity: 1; }
+.card h3 { font-size: 24px; margin-bottom: 16px; color: var(--ink); }
+.card .mini { font-size: 16px; color: var(--text-light); line-height: 1.8; margin-bottom: 0; }
+
+/* ===== For Whom ===== */
+.forwhom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.forwhom-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid rgba(22, 97, 78, 0.1);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+}
+.forwhom-check {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  background: var(--sea);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-top: 2px;
+}
+.forwhom-item p { font-size: 15px; line-height: 1.7; color: var(--text); margin: 0; }
+
+/* ===== Roadmap ===== */
+.roadmap {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.roadmap-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.roadmap-month {
+  flex-shrink: 0;
+  width: 80px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 28px;
+  text-align: center;
+}
+.roadmap-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid rgba(22, 97, 78, 0.1);
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.roadmap-card:hover { transform: translateX(6px); box-shadow: var(--shadow-md); border-color: rgba(22, 97, 78, 0.25); }
+.roadmap-icon { font-size: 32px; margin-bottom: 12px; }
+.roadmap-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--ink); }
+.roadmap-card .mini { font-size: 14px; color: var(--text-light); line-height: 1.7; margin-bottom: 12px; }
+.roadmap-arrow {
+  text-align: center;
+  font-size: 24px;
+  color: var(--sea);
+  opacity: 0.4;
+  margin: 8px 0 8px 40px;
+}
+/* テキストリンク（フローなど）*/
+.link-arrow {
+  font-size: 13px;
+  color: var(--sea);
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+.link-arrow:hover { text-decoration: underline; }
+
+/* ボタン型リンク（ロードマップカード内）*/
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 9px 18px;
+  border: 1.5px solid var(--sea);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sea);
+  text-decoration: none;
+  background: rgba(22,97,78,0.04);
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+.link-btn:hover {
+  background: var(--sea);
+  color: #fff;
+  transform: translateX(2px);
+}
+
+/* ツールバッジ */
+.roadmap-tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(22,97,78,0.07);
+  border: 1px solid rgba(22,97,78,0.2);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--sea);
+  margin-bottom: 10px;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.03em;
+}
+.roadmap-tool-badge--multi {
+  background: rgba(42,100,150,0.06);
+  border-color: rgba(42,100,150,0.2);
+  color: #2a6496;
+}
+.roadmap-tool-badge--claude {
+  background: rgba(124,58,237,0.07);
+  border-color: rgba(124,58,237,0.25);
+  color: #6d28d9;
+}
+.tool-icon { font-size: 13px; }
+
+/* ===== Plus Section ===== */
+.plus-section {
+  margin-top: 56px;
+  background: linear-gradient(135deg, #f0f7f4 0%, #e6f3ed 100%);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.plus-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--sea);
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.plus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.plus-item { display: flex; gap: 16px; align-items: flex-start; }
+.plus-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.plus-item strong { display: block; font-size: 15px; margin-bottom: 6px; color: var(--ink); }
+.plus-item .mini { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+
+/* ===== Price Card ===== */
+.price-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid rgba(22, 97, 78, 0.15);
+  border-radius: 32px;
+  padding: 48px 40px;
+  text-align: center;
+  box-shadow: 0 24px 56px rgba(22, 97, 78, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.price-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--mint) 0%, var(--sea) 50%, var(--accent) 100%);
+}
+.price-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--sea);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+.price-amount {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.price-tax { font-size: 18px; font-weight: 400; color: var(--text-light); }
+.price-includes {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.price-includes span {
+  font-size: 13px;
+  background: #e8f4f0;
+  color: var(--sea);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-weight: 600;
+}
+.price-note {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  background: #f9fbfa;
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+.price-btn { width: 100%; margin-bottom: 12px; }
+.price-sub { font-size: 12px; color: var(--text-light); }
+
+/* ===== Start Dates ===== */
+.start-dates {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.start-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid rgba(22, 97, 78, 0.1);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+}
+.start-period {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  width: 72px;
+}
+.start-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.start-month { font-size: 16px; font-weight: 700; color: var(--ink); }
+.start-date { font-size: 13px; color: var(--text-light); }
+.start-course { font-size: 12px; color: var(--sea); font-weight: 600; }
+.start-badge {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  background: #e8f4f0;
+  color: var(--sea);
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+
+/* ===== Flow ===== */
+.flow-steps {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.flow-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid rgba(22, 97, 78, 0.08);
+  border-radius: 20px;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+}
+.flow-num {
+  flex-shrink: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--sea);
+  opacity: 0.35;
+  line-height: 1;
+  padding-top: 3px;
+  width: 32px;
+}
+.flow-content strong { display: block; font-size: 16px; margin-bottom: 6px; color: var(--ink); }
+.flow-content .mini { font-size: 14px; color: var(--text-light); line-height: 1.7; margin: 0; }
+.flow-arrow {
+  text-align: center;
+  font-size: 20px;
+  color: var(--sea);
+  opacity: 0.3;
+  margin: 6px 0 6px 16px;
+}
+
+/* ===== Voices ===== */
+.voices-box {
+  background: #fff;
+  border: 2px dashed rgba(22, 97, 78, 0.2);
+  border-radius: 24px;
+  padding: 32px 40px;
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+.voices-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.voices-item { display: flex; gap: 16px; align-items: flex-start; }
+.voices-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.voices-text { font-size: 15px; color: var(--text); line-height: 1.7; }
+
+/* ===== Instructor ===== */
+.instructor-image {
+  flex-shrink: 0;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: #eee;
+}
+
+/* ===== FAQ ===== */
+.faq details {
+  border-bottom: 1px solid rgba(22, 97, 78, 0.1);
+  padding: 20px 0;
+}
+.faq summary {
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--ink);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq summary::after { content: '+'; color: var(--sea); font-size: 20px; }
+.faq details[open] summary::after { content: '−'; }
+.faq details p.mini { margin-top: 12px; font-size: 15px; color: var(--text-light); line-height: 1.8; }
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .sp-only { display: inline; }
+  .forwhom-grid { grid-template-columns: 1fr; }
+  .plus-grid { grid-template-columns: 1fr; }
+  .roadmap-item { flex-direction: column; gap: 8px; }
+  .roadmap-month { padding-top: 0; text-align: left; width: auto; }
+  .roadmap-arrow { margin-left: 0; }
+  .start-item { flex-wrap: wrap; }
+  .card[style*="display:flex"] { flex-direction: column; text-align: center !important; }
+  .instructor-image { width: 120px; height: 120px; }
+  .price-amount { font-size: 40px; }
+  .price-includes { flex-direction: column; align-items: center; }
+}
+</style>

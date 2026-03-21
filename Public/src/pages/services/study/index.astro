@@ -1,1340 +1,1201 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
-const title = "福岡のAI勉強会・コミュニティ（対面/オフライン）｜株式会社コールテン";
-const description = "福岡エリア（天神）で開催中。社長と現場でトーンを変えたAI勉強会。合意形成と小さく試すための土台をつくり、現場で活きるプロンプト・活用設計を一緒に育てます。（オンライン開催も準備中）";
-
-// Schedule Data 2026
-const schedule2026 = [
-  { date: '2026.02.21', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.02.25', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.03.07', day: '土', type: '講座', time: '10:00-13:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
-  { date: '2026.03.11', day: '水', type: '講座', time: '19:00-22:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
-  { date: '2026.03.21', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.03.25', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.04.04', day: '土', type: '講座', time: '10:00-13:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
-  { date: '2026.04.08', day: '水', type: '講座', time: '19:00-21:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
-  { date: '2026.04.18', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.04.22', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.05.02', day: '土', type: '講座', time: '10:00-12:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
-  { date: '2026.05.13', day: '水', type: '講座', time: '19:00-22:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
-  { date: '2026.05.16', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.05.27', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.06.06', day: '土', type: '講座', time: '10:00-13:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
-  { date: '2026.06.10', day: '水', type: '講座', time: '19:00-22:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
-  { date: '2026.06.20', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.06.24', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.07.04', day: '土', type: '講座', time: '10:00-13:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
-  { date: '2026.07.08', day: '水', type: '講座', time: '19:00-21:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
-  { date: '2026.07.18', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.07.22', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.08.01', day: '土', type: '講座', time: '10:00-12:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
-  { date: '2026.08.12', day: '水', type: '講座', time: '19:00-22:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
-  { date: '2026.08.15', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.08.26', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.09.05', day: '土', type: '講座', time: '10:00-13:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
-  { date: '2026.09.09', day: '水', type: '講座', time: '19:00-22:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
-  { date: '2026.09.19', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.09.23', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.10.03', day: '土', type: '講座', time: '10:00-13:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
-  { date: '2026.10.14', day: '水', type: '講座', time: '19:00-21:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
-  { date: '2026.10.17', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.10.28', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.11.07', day: '土', type: '講座', time: '10:00-12:00', title: 'AI基礎講座', place: '草原さんオフィス（赤坂）', icon: '🌱', link: '/services/study/basicAI' },
-  { date: '2026.11.11', day: '水', type: '講座', time: '19:00-22:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
-  { date: '2026.11.21', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.11.25', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.12.05', day: '土', type: '講座', time: '10:00-13:00', title: '第二の自分作り講座', place: '草原さんオフィス（赤坂）', icon: '🤝', link: '/services/study/SecondME' },
-  { date: '2026.12.09', day: '水', type: '講座', time: '19:00-22:00', title: 'AIでサイト作り講座', place: '草原さんオフィス（赤坂）', icon: '🔨', link: '/services/study/AIdeWEB' },
-  { date: '2026.12.19', day: '土', type: '作業会', time: '10:00-12:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-  { date: '2026.12.23', day: '水', type: '作業会', time: '19:00-21:00', title: '黙々作業会', place: '草原さんオフィス（赤坂）' },
-];
-
+const title = "コールテンのAI講座｜無料動画講座で始める AI との付き合い方｜株式会社コールテン";
+const description = "AIに全部やらせるのではなく、AIと一緒に自分の人生をもっと面白くする。コールテン式 AIの型 入門講座を無料で視聴できます。LINE登録後すぐに視聴可能。福岡・対面AI講座。";
 ---
 
 <Layout title={title} description={description}>
-  <Fragment slot="head">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "AI初心者でも参加できますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "はい、大丈夫です。基礎講座はブラウザでの対話から始めます。初めての方も安心して受講できます。"
-          }
-        }, {
-          "@type": "Question",
-          "name": "パソコンを持っていないのですが参加できますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "講座では実際に操作を行うため、PC（Windows/Mac）の持参をお願いしております。タブレットやスマホのみでは受講が難しい内容が含まれます。"
-          }
-        }, {
-          "@type": "Question",
-          "name": "必要なソフトやツールはありますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "基本的にはブラウザ（Google Chrome等）があれば受講可能です。ChatGPTなどのAIツールへの登録が必要ですが、講座内で案内する場合もあります。"
-          }
-        }, {
-          "@type": "Question",
-          "name": "開催場所・形式について",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "現在は「福岡市内でのオフライン開催」のみとなっております。オンラインでの開催は未定です。"
-          }
-        }, {
-          "@type": "Question",
-          "name": "開催日程は決まっていますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "現在は、基礎講座（第1水曜・第2土曜）、糸口会（第3水曜・第4土曜）の日程で開催しています。日程は変更になる場合があります。"
-          }
-        }]
-      }
-    </script>
-  </Fragment>
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="fade-up">
-          <div class="icon-lg">🎓</div>
-          <h1>AI勉強会 <span style="font-size:0.5em; vertical-align:middle; background:var(--sea); color:#ffffff !important; -webkit-text-fill-color:#ffffff !important; padding:4px 8px; border-radius:4px; font-weight:700; font-family:'Noto Sans JP', sans-serif;">福岡</span></h1>
-          <p class="lead" style="max-width:720px;margin:20px auto 0;">
-            AIを「学ぶ」だけで終わらせず、<br>仕事や生活で「使い続けられる」へ</p>
-          <p style="margin-top:10px; font-size:0.9em; color:var(--text-light);">※現在は福岡市内での対面開催が中心です（オンラインも準備中）</p>
-          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
-            <a class="btn" href="#briefing">LINE登録で無料セミナー</a>
-            <a class="btn" href="#basics">📚 基礎講座一覧を見る</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<main>
 
+<!-- =====================================================
+  01. HERO
+===================================================== -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="container hero-inner">
+    <div class="fade-up">
 
-    <section class="bg-gradient-soft">
-      <div class="container">
-        <div class="section-head fade-up">
-          <small>Recommend</small>
-          <h2>ココがおすすめ！</h2>
-        </div>
-        <div class="cute-list fade-up">
-          <!-- Item 1 -->
-          <div class="cute-list-item">
-            <div class="cute-list-img">
-              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=300"
-                alt="本質的な学び">
-            </div>
-            <div class="cute-list-content">
-              <div class="cute-list-title">
-                <div class="cute-list-icon">✔</div>
-                <span>本質的な学び</span>
-              </div>
-              <p class="cute-list-text">短期的に稼ぐための小手先テクニックではなく、<b
-                  style="color:var(--sea); border-bottom:2px solid var(--accent);">長期目線の「思考と型」</b>を！</p>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="cute-list-item">
-            <div class="cute-list-img">
-              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=300"
-                alt="教える技術">
-            </div>
-            <div class="cute-list-content">
-              <div class="cute-list-title">
-                <div class="cute-list-icon">✔</div>
-                <span>教える技術</span>
-              </div>
-              <p class="cute-list-text">プロコーチ・元日本語教師経験のある講師による<b
-                  style="color:var(--sea); border-bottom:2px solid var(--accent);">躓きやすいポイントを押さえた</b>講座</p>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="cute-list-item">
-            <div class="cute-list-img">
-              <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=300"
-                alt="対面コミュニティ">
-            </div>
-            <div class="cute-list-content">
-              <div class="cute-list-title">
-                <div class="cute-list-icon">✔</div>
-                <span>対面コミュニティ</span>
-              </div>
-              <p class="cute-list-text">福岡での対面開催でアナログ感も大事に、<b
-                  style="color:var(--sea); border-bottom:2px solid var(--accent);">コミュニティで楽しく続け力をつける</b></p>
-            </div>
-          </div>
-        </div>
-    </section>
-
-    <section id="basics" class="bg-gradient-soft">
-      <div class="container">
-        <div class="section-head fade-up">
-          <small>Basics</small>
-          <h2>3つの基礎講座</h2>
-          <p>興味を持てるどの講座でも参加できます！</p>
-        </div>
-
-        <div class="triangle-layout fade-up">
-          <!-- Top Item -->
-          <div class="triangle-item top">
-            <a href="/services/study/basicAI" class="circle-link">
-              <div class="circle-shape">
-                <div class="circle-icon">🌱</div>
-                <div class="circle-title">AI基礎講座</div>
-                <div class="basics-desc">
-                  <b>基礎からしっかりと積み上げたい方へ</b>
-                  AIを「人」に例え、特性や対話法を学び、活用練習。活用事例から「AIで何ができるか」も具体的に知ることができます。
-                </div>
-                <div class="click-hint">
-                  <span>クリックして詳細を見る</span>
-                  <span class="arrow">→</span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Left Item -->
-          <div class="triangle-item left">
-            <a href="/services/study/SecondME" class="circle-link">
-              <div class="circle-shape">
-                <div class="circle-icon">🤝</div>
-                <div class="circle-title">第二の自分<br>作り講座</div>
-                <div class="basics-desc">
-                  <b>自分の「分身」が欲しい方へ</b>
-                  ChatGPTの機能をフル活用して、あなたを覚え込ませてあなたにぴったりのAI活用ができるようになります。
-                </div>
-                <div class="click-hint">
-                  <span>クリックして詳細を見る</span>
-                  <span class="arrow">→</span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <!-- Right Item -->
-          <div class="triangle-item right">
-            <a href="/services/study/AIdeWEB" class="circle-link">
-              <div class="circle-shape">
-                <div class="circle-icon">🔨</div>
-                <div class="circle-title">AIで作る<br>体験講座</div>
-                <div class="basics-desc">
-                  <b>未経験でもAIで「何か」を作りたい方へ</b>
-                  Webサイトやゲーム制作などを通して、知識がなくても「AI使えば自分にもできる」を体感を持って学べます。
-                </div>
-                <div class="click-hint">
-                  <span>クリックして詳細を見る</span>
-                  <span class="arrow">→</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- NEW: Annual Schedule Section -->
-        <section id="schedule" style="margin-top: 80px;">
-          <div class="section-head fade-up">
-            <small>Schedule</small>
-            <h2>2026年 開催スケジュール</h2>
-            <p style="font-weight:700; color:var(--ink); margin-bottom:8px;">会場は福岡市内（天神エリア）のレンタルスペースで行います。</p>
-            <p>※ 現在は、濃密なサポートができる「対面クラス」を中心に開催しています。<br>オンライン開催も準備中ですので、遠方の方はLINE登録してお待ちください。<br>日程がつかない場合は、個別相談や代替日も検討可能です。</p>
-          </div>
-          <div class="card fade-up" style="width:fit-content; max-width:100%; margin:0 auto; padding:0; overflow:hidden;">
-            <div class="table-wrap">
-              <table class="schedule-table">
-                <thead>
-                  <tr>
-                    <th>講座名・内容</th>
-                    <th>日時</th>
-                    <th></th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  {schedule2026
-                    .filter(item => item.type !== '作業会') // Exclude Work Sessions
-                    .filter(item => {
-                        const date = new Date(item.date.replace(/\./g, '-'));
-                        const now = new Date('2026-02-19'); // Fixed Reference Date for logic
-                        const end = new Date('2026-04-30');
-                        return date >= now && date <= end;
-                    })
-                    .map((item) => (
-                    <tr class={item.type === '作業会' ? 'type-work' : 'type-lecture'}>
-                      <td class="title">
-                          <span class="course-icon">{item.icon}</span>
-                          <span class="course-name">{item.title}</span>
-                      </td>
-                      <td class="datetime">
-                        <span class="date">{item.date}<span class="day">({item.day})</span></span>
-                        <br class="mobile-break">
-                        <span class="time">{item.time}</span>
-                      </td>
-                      <td class="action">
-                        <a href={item.link} class="btn-sm">詳細・申込</a>
-                      </td>
-
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div style="text-align:center; margin-top:24px;" class="fade-up">
-             <a class="btn" href="#contact">日程について相談する</a>
-          </div>
-        </section>
-
-
-
-      </div>
-    </section>
-
-
-
-    <section class="container">
-      <div class="section-head fade-up">
-        <small>Support</small>
-        <h2>継続サポート</h2>
-        <p>基礎講座を受けた人のみ参加できる有料AIコミュニティーです。</p>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>コールテンのAI講座</span>
+        <span class="eyebrow-sep">|</span>
+        <span>福岡・対面</span>
       </div>
 
-      <div class="card fade-up" style="max-width:800px; margin:0 auto; text-align:center;">
-        <h3>AI活用コミュニティー「糸口会」</h3>
-        <p class="mini">
-          AI活用の糸口を見つける会です。<br>
-          講座で学んだことを活かして、それぞれのAI作業を進めつつ、わからないところは質問したり、参加者同士で聞き合うことができます。AIで作ったものを発表したり、互いに刺激をもらえる楽しい場所です。
-        </p>
-        <div style="margin-top:24px; display:grid; grid-template-columns:1fr; gap:24px; text-align:left;">
-          <!-- AI Night Table -->
-          <div style="background:#f9fbfa; padding:16px; border-radius:12px;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px; font-weight:700; color:var(--ink);">
-              <span style="font-size:1.2em;">🌙</span>
-              <span>AI Night<br><span style="font-size:0.8em; font-weight:400; color:var(--text-light);">第4水曜日</span></span>
-            </div>
-            <table style="width:100%; font-size:14px; border-collapse:collapse;">
-              <tr style="border-bottom:1px solid #eee;">
-                <td style="padding:6px 0;">2/25</td>
-                <td style="padding:6px 0; text-align:right;">19:00〜21:00</td>
-              </tr>
-              <tr>
-                <td style="padding:6px 0;">3/25</td>
-                <td style="padding:6px 0; text-align:right;">19:00〜21:00</td>
-              </tr>
-            </table>
-          </div>
+      <h1>
+        <span class="h1-pre">丸投げ・検索でしか使わないを卒業する。</span>
+        <span class="h1-main">AIと<mark>一緒に</mark>、</span>
+        <span class="h1-post">自分の人生をもっと面白くする。</span>
+      </h1>
 
-          <!-- AI Morning Table -->
-          <div style="background:#f9fbfa; padding:16px; border-radius:12px;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px; font-weight:700; color:var(--ink);">
-              <span style="font-size:1.2em;">☀️</span>
-              <span>AI朝活会<br><span style="font-size:0.8em; font-weight:400; color:var(--text-light);">第3土曜日</span></span>
-            </div>
-            <table style="width:100%; font-size:14px; border-collapse:collapse;">
-              <tr style="border-bottom:1px solid #eee;">
-                <td style="padding:6px 0;">2/21</td>
-                <td style="padding:6px 0; text-align:right;">10:00〜12:00</td>
-              </tr>
-              <tr>
-                <td style="padding:6px 0;">3/21</td>
-                <td style="padding:6px 0; text-align:right;">10:00〜12:00</td>
-              </tr>
-            </table>
-          </div>
+      <div class="hero-ornament">
+        <span class="orn-line"></span><span class="orn-mark">✦</span><span class="orn-line"></span>
+      </div>
+
+      <p class="hero-lead">
+        AI活用は、全部やってもらうためのものじゃない。<br>
+        一緒に考え、一緒に育っていく。<br>
+        コールテンは、そのための<b>型</b>を教えます。
+      </p>
+
+      <p class="hero-entry">
+        <strong>無料動画講座</strong>まもなく公開。<br>LINE登録で公開のお知らせを受け取れます。
+      </p>
+
+      <a class="btn-line-lg" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
+        <span class="line-icon">LINE</span>
+        LINE登録して公開を待つ
+      </a>
+      <p class="hero-sub">無料 · 公開と同時にお知らせします · いつでも解除OK</p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+  01.5 思想・宣言セクション
+===================================================== -->
+<section class="manifesto-section">
+  <div class="manifesto-bg" aria-hidden="true"></div>
+  <div class="manifesto-inner fade-up">
+    <p class="manifesto-label">Corduroy's Philosophy</p>
+    <h2 class="manifesto-heading">
+      AIは、全部任せる<br>ための存在じゃない。
+    </h2>
+    <div class="manifesto-body">
+      <p>
+        考えることを手放すほど、<br>
+        人も、AIも、やせ細っていく。
+      </p>
+      <p>
+        でも、<br>
+        一緒に考え、<br>
+        少しずつ理解し合い、<br>
+        育てるように付き合っていくと、<br>
+        AIはただの道具を超えていく。
+      </p>
+      <p>
+        コールテンが教えたいのは、<br>
+        効率化のためのテクニックではなく、<br>
+        <em>人もAIも育つ、付き合い方の型</em>です。
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+  02. こんな方におすすめ
+===================================================== -->
+<section class="bg-soft">
+  <div class="container">
+    <div class="section-head fade-up">
+      <small>For You</small>
+      <h2>こんな方におすすめです</h2>
+    </div>
+    <div class="forwhom-grid fade-up">
+      <div class="fwi">
+        <span class="fwi-icon">🤔</span>
+        <p>AIを触ってみたけど、<b>しっくりきていない</b></p>
+      </div>
+      <div class="fwi">
+        <span class="fwi-icon">🎲</span>
+        <p>難しいプロンプトを見ると、<b>身構えてしまう</b></p>
+      </div>
+      <div class="fwi">
+        <span class="fwi-icon">🌱</span>
+        <p>AIを便利ツールで終わらせず、<b>もっと深く使いたい</b></p>
+      </div>
+      <div class="fwi">
+        <span class="fwi-icon">🌍</span>
+        <p>仕事にも日常にも、<b>AIを活かしたい</b></p>
+      </div>
+      <div class="fwi">
+        <span class="fwi-icon">💬</span>
+        <p>難しいことを<b>わかりやすく、非エンジニア目線</b>で学びたい</p>
+      </div>
+      <div class="fwi">
+        <span class="fwi-icon">🤝</span>
+        <p>AIに丸投げするのではなく、<b>一緒に考える使い方</b>を知りたい</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+  03. 無料動画講座（メインセクション）
+===================================================== -->
+<section id="free" class="container">
+  <div class="section-head fade-up">
+    <small>Free Course</small>
+    <h2>コールテン式 AIの型 入門講座</h2>
+    <p>AIへの3つの思い込みをひっくり返す、コールテン独自の無料動画講座。</p>
+  </div>
+
+  <!-- 準備中カード -->
+  <div class="free-card fade-up coming-soon-card">
+    <div class="coming-soon-inner">
+      <div class="coming-soon-badge">準備中</div>
+      <h3 class="coming-soon-title">無料動画講座、まもなく公開。</h3>
+      <p class="coming-soon-desc">
+        LINEご登録いただいた方に、公開のお知らせをお届けします。<br>
+        登録しておくと、公開と同時にすぐ視聴できます。
+      </p>
+      <a class="btn-line-lg" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
+        <span class="line-icon">LINE</span>
+        LINE登録して公開を待つ
+      </a>
+      <p class="free-note">登録無料 · 押し売りは一切しません</p>
+    </div>
+  </div>
+
+</section>
+
+<!--
+【復元用コメントアウト: 無料講座が公開されたらここのコードに戻す】
+
+<section id="free" class="container">
+  <div class="section-head fade-up">
+    <small>Free Course</small>
+    <h2>コールテン式 AIの型 入門講座</h2>
+    <p>LINE登録後すぐ視聴できます。<strong>AIへの3つの思い込み</strong>がひっくり返ります。</p>
+    <span class="free-badge-inline">無料 · LINE登録で視聴</span>
+  </div>
+
+  <div class="free-card fade-up">
+    <div class="insight-row">
+      <div class="insight-card">
+        <div class="insight-emoji">🧩</div>
+        <div class="insight-num-badge">01</div>
+        <h4>難しく<br>使わなくていい</h4>
+        <p>複雑なプロンプトは不要。AIの特性を知り、<b>シンプルな型</b>で対話するだけで十分です。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-emoji">🤝</div>
+        <div class="insight-num-badge">02</div>
+        <h4>丸投げするほど<br>価値が下がる</h4>
+        <p>全部任せると人もAIも弱くなります。<b>一緒に考えるからこそ</b>、AIの良さが活きます。</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-emoji">🌱</div>
+        <div class="insight-num-badge">03</div>
+        <h4>人生を面白くする<br>相棒になれる</h4>
+        <p>仕事の効率化だけじゃない。自分を教え込むほど、<b>日常や挑戦に寄り添う</b>存在になります。</p>
+      </div>
+    </div>
+
+    <div class="free-diff">
+      AIの世界は変化が速いからこそ、この講座では流行りの機能説明ではなく、<b>どんなAIにも応用できる本質的な型</b>をお伝えします。
+    </div>
+
+    <div class="free-cta-wrap">
+      <a class="btn-line-lg" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
+        <span class="line-icon">LINE</span>
+        無料動画を今すぐ見る
+      </a>
+      <p class="free-note">登録後すぐに視聴できます · 料金は一切かかりません</p>
+    </div>
+  </div>
+
+</section>
+-->
+
+
+<!-- =====================================================
+  03.5 情緒・関係性セクション
+===================================================== -->
+<section class="emotional-section">
+  <div class="emotional-bg" aria-hidden="true"></div>
+  <div class="emotional-inner fade-up">
+    <h2 class="emotional-heading">
+      AIを、検索窓のまま<br>で終わらせない。
+    </h2>
+    <div class="emotional-body">
+      <p>
+        今日のモヤモヤを整理したり、<br>
+        まだ言葉になっていない夢を話したり、<br>
+        新しい挑戦の背中を押してもらったり。
+      </p>
+      <p>
+        AIは、正しく付き合えば、<br>
+        仕事のためだけじゃなく、<br>
+        <em>人生そのものを少し面白くしてくれる。</em>
+      </p>
+      <p>
+        ただ使うのではなく、<br>
+        少しずつ自分を教えながら、<br>
+        一緒に育っていく。
+      </p>
+      <p class="emotional-sign">
+        コールテンは、<br>
+        そんなAIとの関係をつくる入口を<br>
+        届けたいと思っています。
+      </p>
+    </div>
+    <a class="emotional-cta" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
+      <span class="line-icon">LINE</span>
+      LINE登録して公開を待つ
+    </a>
+  </div>
+</section>
+
+
+<!-- 視聴者の声 -->
+<section class="voices-section container">
+  <div class="voices-row fade-up">
+    <p class="voices-label">視聴者の声</p>
+    <div class="voices-grid">
+      <div class="voice-card">
+        <p class="voice-text">「AIに指示してるつもりが、ただ質問してただけだとわかった。型を知ったら全然違う」</p>
+        <span class="voice-attr">30代・会社員</span>
+      </div>
+      <div class="voice-card">
+        <p class="voice-text">「難しいと思っていたけど、これなら自分でもできると思えた。見てよかった」</p>
+        <span class="voice-attr">40代・フリーランス</span>
+      </div>
+      <div class="voice-card">
+        <p class="voice-text">「AIを道具としか思ってなかったのに、なんか相棒みたいに感じられるようになった」</p>
+        <span class="voice-attr">30代・起業家</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+  04. Why Corduroy
+===================================================== -->
+<section class="bg-soft">
+  <div class="container">
+    <div class="section-head fade-up">
+      <small>Why Corduroy</small>
+      <h2>コールテンの講座が<br>選ばれる理由</h2>
+      <p>他のAI講座との、根本的な違いがあります。</p>
+    </div>
+    <div class="reasons-grid fade-up">
+      <div class="reason-card">
+        <div class="reason-num">01</div>
+        <div class="reason-icon">🎯</div>
+        <h3>流行りではなく、<br>本質を教える</h3>
+        <p>AIの世界は変化がとても速いからこそ、今だけ使える機能や小手先のテクニックではなく、<b>どんなAIにも応用できる型</b>を大切にしています。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">02</div>
+        <div class="reason-icon">🤝</div>
+        <h3>AIに丸投げしない<br>付き合い方を教える</h3>
+        <p>便利な使い方だけでなく、AIの仕組みを理解しながら一緒に考える方法を学びます。<b>人の力も、AIの出力も、どちらも育つ</b>活用法です。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-num">03</div>
+        <div class="reason-icon">🗣️</div>
+        <h3>非エンジニアだからこそ、<br>同じ目線で伝えられる</h3>
+        <p>AIを使いながら学んできた講師だから、初心者がつまずきやすいところがわかります。<b>難しいことを難しいまま渡さず</b>、わかる言葉で届けます。</p>
+      </div>
+    </div>
+
+    <!-- 4枚目：横長バナー -->
+    <div class="reason-banner fade-up">
+      <div class="reason-banner-icon">🌱</div>
+      <div class="reason-banner-body">
+        <div class="reason-num">04</div>
+        <h3>一人で終わらせず、対面で続けられる</h3>
+        <p>福岡・対面開催だからこそ、同じ熱量の仲間と出会えます。講座の先には、<b>体験講座や継続の場</b>もあります。</p>
+      </div>
+      <a href="/services/study/trial" class="reason-banner-btn">体験会を見る →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+  05. 講師紹介
+===================================================== -->
+<section class="container">
+  <div class="section-head fade-up">
+    <small>Instructor</small>
+    <h2>講師について</h2>
+  </div>
+  <div class="instructor-wrap fade-up">
+    <div class="instructor-photo">
+      <img
+        src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+        alt="向 雅也"
+      >
+    </div>
+    <div class="instructor-body">
+      <div class="instructor-name">
+        <strong>向 雅也</strong>
+        <span>Masaya Muki</span>
+      </div>
+      <div class="instructor-roles">
+        <span>株式会社コールテン代表</span>
+        <span>コーチ</span>
+        <span>日本語教師</span>
+        <span>AI活用講師</span>
+      </div>
+      <div class="instructor-text">
+        <p>もともとエンジニアではない立場から、AIを使いながら、試しながら、つまずきながら学んできました。</p>
+        <p>だからこそ、<b>「AIって難しそう」「自分に使えるのかな」</b>という感覚がよくわかります。</p>
+        <p>コールテンの講座では、難しいことを難しいまま渡すのではなく、AIの特性や仕組みを<b>人にもたとえながら、わかりやすく伝えること</b>を大切にしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =====================================================
+  06. 無料講座の先にある学び
+===================================================== -->
+<section class="bg-soft">
+  <div class="container">
+    <div class="section-head fade-up">
+      <small>Next Step</small>
+      <h2>無料講座の先には、<br>こんな学び方があります</h2>
+      <p>無料動画を見て「もっとやりたい」と思ったら、<br>あなたの状況に合ったステップへ進んでください。</p>
+    </div>
+
+    <div class="next-grid fade-up">
+      <a href="/services/study/trial" class="next-card">
+        <div class="next-persona">まず試してみたい方へ</div>
+        <div class="next-icon">✨</div>
+        <h3>無料体験会</h3>
+        <p>3ヶ月プログラムの学び方を、まず一度体験するための場。AIとの対話を実際に試せます。福岡・対面・無料。</p>
+        <div class="next-meta">無料 / 福岡・対面 / 月1回</div>
+        <span class="next-link-btn">詳細を見る →</span>
+      </a>
+      <a href="/services/study/program" class="next-card next-card--featured">
+        <div class="next-persona">じっくり身につけたい方へ</div>
+        <div class="next-icon">🎓</div>
+        <h3>3ヶ月AI活用プログラム</h3>
+        <p>AIをただ使う段階から、自分に合った相棒として育てていく段階へ。講座・作業会・サポートを通じて3ヶ月かけて深めます。</p>
+        <div class="next-meta">108,000円 / 3ヶ月 / 少人数制</div>
+        <span class="next-link-btn">詳細を見る →</span>
+      </a>
+      <a href="/services/study/corporate" class="next-card">
+        <div class="next-persona">チームで導入したい方へ</div>
+        <div class="next-icon">🏢</div>
+        <h3>法人向けAI研修</h3>
+        <p>AIリテラシーの土台づくりから、業務に合った活用設計まで、目的に応じてカスタマイズします。</p>
+        <div class="next-meta">要相談 / カスタマイズ対応</div>
+        <span class="next-link-btn">詳細を見る →</span>
+      </a>
+    </div>
+
+    <!-- 4枚目：横長バナー -->
+    <a href="/services/study/community" class="community-banner fade-up">
+      <div class="community-banner-left">
+        <span class="community-banner-icon">🌱</span>
+        <div>
+          <p class="community-banner-label">仲間と続けたい方へ</p>
+          <h3>AIコミュニティ「糸口会」</h3>
         </div>
-        
-        <style>
-          @media (min-width: 600px) {
-            div[style*="display:grid; grid-template-columns:1fr;"] {
-              grid-template-columns: 1fr 1fr !important;
-            }
-          }
-        </style>
       </div>
+      <p class="community-banner-desc">一人では続かなかった人も、仲間と一緒なら続けやすい。月2回の作業会＋Discordで、手を動かしながらAIとの付き合い方を深めていく場です。</p>
+      <span class="community-banner-btn">詳細を見る →</span>
+    </a>
+  </div>
+</section>
 
 
-    </section>
+<!-- =====================================================
+  07. FAQ
+===================================================== -->
+<section class="container">
+  <div class="section-head fade-up">
+    <small>FAQ</small>
+    <h2>よくある質問</h2>
+  </div>
+  <div class="faq-list fade-up">
+
+    <details class="faq-item">
+      <summary><span class="faq-q">本当に無料ですか？</span><span class="faq-icon">+</span></summary>
+      <div class="faq-a">はい、完全無料です。LINE登録後に動画が届き、費用は一切かかりません。クレジットカードの登録なども不要です。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary><span class="faq-q">登録後すぐに見られますか？</span><span class="faq-icon">+</span></summary>
+      <div class="faq-a">はい、LINE登録が完了すると自動で動画リンクが届きます。24時間いつでも視聴でき、時間の制限もありません。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary><span class="faq-q">AI初心者でも大丈夫ですか？</span><span class="faq-icon">+</span></summary>
+      <div class="faq-a">はい、大丈夫です。コールテンの講座はAIを使ったことがない方や、触ってみたけどよくわからなかったという方を出発点に設計しています。専門知識は一切不要です。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary><span class="faq-q">パソコンが苦手でも受けられますか？</span><span class="faq-icon">+</span></summary>
+      <div class="faq-a">はい、受けられます。使うのはブラウザ上のAIツールのみで、特別なソフトのインストールは不要です。スマートフォンでも視聴可能です。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary><span class="faq-q">無料講座を見ると、しつこく営業されますか？</span><span class="faq-icon">+</span></summary>
+      <div class="faq-a">しません。無料講座はコールテンの考え方をそのまま伝えるための場所です。押し売りや無理な勧誘は一切行いません。「やってみたい」と思ったときに次のステップを選んでいただければ十分です。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary><span class="faq-q">福岡以外でも参加できますか？</span><span class="faq-icon">+</span></summary>
+      <div class="faq-a">無料動画講座はどこからでも視聴できます。対面の講座・体験会・作業会は現在福岡市内での開催がメインです。オンライン開催は準備中です。</div>
+    </details>
+
+    <details class="faq-item">
+      <summary><span class="faq-q">どんなAIツールを使いますか？</span><span class="faq-icon">+</span></summary>
+      <div class="faq-a">無料動画講座はChatGPTをメインに使います。3ヶ月プログラムでは、第二の自分（ChatGPT）・AI基礎（各種LLM共通の考え方）・AIでサイト作り（Claude Code）を使います。無料版でも受講できる内容です。</div>
+    </details>
+
+  </div>
+</section>
 
 
-    <section class="bg-gradient-soft">
-      <div class="container">
-        <div class="section-head fade-up">
-          <small>Advanced</small>
-          <h2>上級講座</h2>
-          <p>もっと深く、大量に作りたい方。<br>とことんAIを使い倒したい人。</p>
-        </div>
-        <div class="card fade-up" style="max-width:860px;margin:0 auto;">
-          <h3 style="text-align:center; margin-bottom:24px; font-size:20px;">AIを仕事でバリバリに活用していくための講座</h3>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-            <!-- Agent Course -->
-            <div style="background:#f9fbfa; padding:24px; border-radius:16px; text-align:center;">
-              <h4 style="margin-bottom:12px; font-weight:700;">AIエージェント作成講座</h4>
-              <p class="mini" style="margin-bottom:16px;">自律的にタスクをこなすAIエージェントの設計と実装を学びます。</p>
-              <span class="btn secondary" style="cursor: default; opacity: 0.6; padding:8px 16px; font-size:12px;">準備中</span>
-            </div>
-            <!-- CLI Course -->
-            <div style="background:#f9fbfa; padding:24px; border-radius:16px; text-align:center;">
-              <h4 style="margin-bottom:12px; font-weight:700;">CLI活用講座</h4>
-              <p class="mini" style="margin-bottom:16px;">パソコンにAIを抱え入れて、パソコン内のファイルを直接操作してもらう技術を習得します。</p>
-              <span class="btn secondary" style="cursor: default; opacity: 0.6; padding:8px 16px; font-size:12px;">準備中</span>
-            </div>
-          </div>
+<!-- =====================================================
+  08. FINAL CTA
+===================================================== -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner fade-up">
+      <p class="cta-eyebrow">まず、ここから</p>
+      <h2>
+        AIに全部やらせるのではなく、<br>
+        AIと一緒に、自分の人生をもっと面白くする。
+      </h2>
+      <p class="cta-desc">
+        そのための入口となる無料動画講座を、まもなく公開します。<br>
+        LINE登録しておくと、公開と同時にお知らせを受け取れます。
+      </p>
+      <a class="btn-line-xl" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
+        <span class="line-icon">LINE</span>
+        LINE登録して公開を待つ
+      </a>
+      <p class="cta-sub">無料 · 公開と同時にお知らせします · いつでも解除OK</p>
+    </div>
+  </div>
+</section>
 
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="section-head fade-up">
-        <small>Instructor</small>
-        <h2>講師について</h2>
-      </div>
-      <div class="card fade-up"
-        style="max-width:860px;margin:0 auto; display:flex; align-items:center; gap:32px; text-align:left;">
-        <div class="instructor-image">
-          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" 
-               alt="向 雅也" 
-               style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div style="flex:1;">
-          <small style="display:block; color:var(--sea); font-weight:700; margin-bottom:4px;">株式会社コールテン代表</small>
-          <h3>向 雅也</h3>
-          <p class="mini" style="margin-top:12px;">
-            企業導入/自社導入の実績があり、現場で使える形に落とし込んでいます。<br>
-            フリーランス歴10年、コーチ歴3年、日本語教師/コーチ歴の合算で5年。<br>
-            実務に落とし込めるAI活用を、丁寧に伴走します。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="section-head fade-up">
-        <small>Voices</small>
-        <h2>参加者の声</h2>
-      </div>
-
-      <!-- Grouped Text Testimonials -->
-      <div class="voices-box fade-up">
-        <ul class="voices-list">
-          <li class="voices-item">
-            <span class="voices-icon">💬</span>
-            <div class="voices-text">触ったことはあるけど活用できていなかったが、講座の型で仕事に使える感覚が出た。</div>
-          </li>
-          <li class="voices-item">
-            <span class="voices-icon">💬</span>
-            <div class="voices-text">AIへの指示が曖昧だったと気づけた。考え方を整えたら結果が安定した。</div>
-          </li>
-          <li class="voices-item">
-            <span class="voices-icon">💬</span>
-            <div class="voices-text">一人だと続かなかったけど、黙々会で作業が進むようになった。</div>
-          </li>
-          <li class="voices-item">
-            <span class="voices-icon">💬</span>
-            <div class="voices-text">自分の言葉がAIに伝わる感覚が出て、壁打ちが楽になった。</div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="fade-up" style="display:grid;gap:24px;max-width:900px;margin:0 auto;">
-        <a href="/voices/takaro" class="card"
-          style="display:block;text-decoration:none;transition:transform .2s, box-shadow .2s;color:inherit;">
-          <div style="display:flex;gap:20px;align-items:center;">
-            <div style="flex-shrink:0;">
-              <img
-                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png"
-                alt="中野たかろーさん" style="width:80px;height:80px;border-radius:50%;object-fit:cover;">
-            </div>
-            <div style="flex:1;">
-              <div style="display:flex;gap:8px;margin-bottom:8px;">
-                <span
-                  style="display:inline-block;padding:4px 10px;border-radius:8px;background:#e8f4f0;color:#0f3d2e;font-size:11px;font-weight:700;">Interview</span>
-              </div>
-              <h3 style="font-size:18px;margin:0 0 8px 0;color:var(--ink);">「検索ツール」から「第二の自分」へ</h3>
-              <p style="font-size:14px;color:#335649;margin:0;line-height:1.6;">
-                フリーランス・中野たかろーさん｜ChatGPTを単なる検索ツールとして使っていた状態から、価値観やクセまで学習させた「第二の自分」として活用するまでの変革ストーリー。
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section class="container faq">
-      <div class="section-head fade-up">
-        <small>FAQ</small>
-        <h2>よくあるご質問</h2>
-      </div>
-      <div class="fade-up" style="max-width:800px; margin:0 auto;">
-        <details open>
-          <summary>AI初心者でも参加できますか？</summary>
-          <p class="mini">
-            はい、大丈夫です。基礎講座はブラウザでの対話から始めます。初めての方も安心して受講できます。
-          </p>
-        </details>
-        <details>
-          <summary>パソコンを持っていないのですが参加できますか？</summary>
-          <p class="mini">講座では実際に操作を行うため、PC（Windows/Mac）の持参をお願いしております。タブレットやスマホのみでは受講が難しい内容が含まれます。</p>
-        </details>
-        <details>
-          <summary>必要なソフトやツールはありますか？</summary>
-          <p class="mini">基本的にはブラウザ（Google Chrome等）があれば受講可能です。ChatGPTなどのAIツールへの登録が必要ですが、講座内で案内する場合もあります。</p>
-        </details>
-        <details>
-          <summary>開催場所・形式について</summary>
-          <p class="mini">現在は「福岡市内でのオフライン開催」のみとなっております。オンラインでの開催は未定です。</p>
-        </details>
-        <details>
-          <summary>開催日程は決まっていますか？</summary>
-          <div class="mini">
-            <p>現在は以下の日程で開催しています。</p>
-            
-            <p style="font-weight:700; color:var(--sea); margin-top:16px; margin-bottom:8px;">🎓 基礎講座</p>
-            <ul style="list-style:none; padding:0; margin:0;">
-              <li style="margin-bottom:4px;"><strong>🗓 第2水曜日</strong>（AI Night）</li>
-              <li><strong>🗓 第1土曜日</strong>（AI朝活会）</li>
-            </ul>
-
-            <p style="font-weight:700; color:var(--sea); margin-top:16px; margin-bottom:8px;">🤝 糸口会（コミュニティ）</p>
-            <ul style="list-style:none; padding:0; margin:0;">
-              <li style="margin-bottom:4px;"><strong>🌙 第4水曜日</strong>：19:00〜21:00（AI Night）<br><span style="font-size:0.85em; color:var(--text-light); margin-left:1.5em; display:block;">（開催予定：2/25, 3/25）</span></li>
-              <li><strong>☀️ 第3土曜日</strong>：10:00〜12:00（AI朝活会）<br><span style="font-size:0.85em; color:var(--text-light); margin-left:1.5em; display:block;">（開催予定：2/21, 3/21）</span></li>
-            </ul>
-            <p style="font-size:0.9em; opacity:0.8;">※ 日程は変更になる場合があります。最新情報はLINEでご案内します。</p>
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <section id="briefing" class="bg-gradient-soft">
-      <div class="container">
-        <div class="section-head fade-up">
-          <small>Briefing</small>
-          <h2>無料説明会</h2>
-          <p>あなたに合う入り口が見つかる、短い説明会です。</p>
-        </div>
-        <div class="card fade-up" style="max-width:720px;margin:0 auto;text-align:center;">
-          <p class="mini">
-            AI勉強会で何ができるようになるか、どの講座から始めるのがよいかなど、全体像をお話しします。<br>
-            無理な勧誘はありませんので、お気軽にご参加ください。
-          </p>
-          <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
-            style="margin-top:28px;">LINE登録で無料セミナーを見る</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="bg-other">
-      <div class="container">
-        <div class="section-head fade-up">
-          <small>Other Services</small>
-          <h2>その他のサービスを見る</h2>
-          <p>伴走やシステム開発まで、目的に合わせて選べます。</p>
-        </div>
-        <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
-          <p class="mini" style="margin-bottom:20px;">AI顧問・AIシステム開発も含めた一覧ページをご覧ください。</p>
-          <a class="btn secondary" href="/services" style="padding:14px 26px;">サービス一覧ページへ →</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="bg-contact">
-      <div class="container">
-        <div class="section-head fade-up">
-          <small>Contact</small>
-          <h2>その他ご相談はこちらから</h2>
-        </div>
-        <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
-          <p class="mini" style="margin-bottom:24px;">
-            企業研修のご依頼や、個別のアドバイザリー契約など、勉強会以外のご相談も承っております。<br>
-            コンタクトページの案内に沿ってご連絡ください。
-          </p>
-          <a class="btn" href="/contact" target="_blank" rel="noopener noreferrer">コンタクトページを見る →</a>
-        </div>
-      </div>
-    </section>
-  </main>
+</main>
 </Layout>
 
 <style>
-/* Section & Head */
-section {
-    padding: 100px 0;
-    position: relative;
-}
+/* =====================================================
+   BASE
+===================================================== */
+section { padding: 96px 0; position: relative; }
 
-.section-head {
-    text-align: center;
-    margin-bottom: 72px;
-    position: relative;
-}
-
+.section-head { text-align: center; margin-bottom: 60px; }
 .section-head small {
-    display: inline-block;
-    color: var(--accent);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 12px;
+  display: inline-block; color: var(--accent);
+  font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.15em; margin-bottom: 12px;
+  font-family: "Space Grotesk", sans-serif; font-size: 11.5px;
+}
+.section-head h2 { margin-bottom: 12px; }
+.section-head p { max-width: 520px; margin: 0 auto; color: var(--text-light); line-height: 1.85; }
+.section-head strong { color: var(--sea); }
+
+.bg-soft { background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%); }
+
+/* =====================================================
+   LINE BUTTONS
+===================================================== */
+.btn-line-lg {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #06C755; color: #fff;
+  padding: 18px 44px; border-radius: 100px;
+  font-weight: 700; font-size: 17px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(6,199,85,0.32);
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-line-lg:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(6,199,85,0.42); background: #05b84e; }
+
+.btn-line-xl {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #06C755; color: #fff;
+  padding: 22px 52px; border-radius: 100px;
+  font-weight: 700; font-size: 19px;
+  text-decoration: none;
+  box-shadow: 0 8px 28px rgba(6,199,85,0.38);
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-line-xl:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(6,199,85,0.46); background: #05b84e; }
+
+.line-icon {
+  background: #fff; color: #06C755;
+  font-size: 10px; font-weight: 900;
+  padding: 2px 5px; border-radius: 4px;
+  font-family: "Space Grotesk", sans-serif; letter-spacing: 0;
 }
 
-.section-head p {
-    max-width: 600px;
-    margin: 0 auto;
-    color: var(--text-light);
-}
-
-/* Hero Section */
+/* =====================================================
+   HERO
+===================================================== */
 .hero {
-    padding: 160px 0 140px;
-    background-color: var(--cream);
-    background-image:
-    radial-gradient(circle, rgba(212, 160, 77, 0.6) 2px, transparent 2.5px),
-    radial-gradient(circle, rgba(22, 97, 78, 0.3) 2px, transparent 2.5px);
-    background-size: 40px 40px;
-    background-position: 0 0, 20px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  padding: 130px 0 110px;
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(circle, rgba(212,160,77,0.22) 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(22,97,78,0.1) 1.5px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  text-align: center; position: relative; overflow: hidden;
 }
-
 .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2316614e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.5;
-    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
-    pointer-events: none;
+  content: ""; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%2316614e' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+  pointer-events: none;
 }
-
+.hero-glow {
+  position: absolute; top: 40%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse, rgba(22,97,78,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
 .hero-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    position: relative;
-    z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
 }
 
+/* Eyebrow */
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(22,97,78,0.15);
+  border-radius: 99px; padding: 7px 18px;
+  font-size: 11.5px; font-weight: 600; color: var(--sea);
+  margin-bottom: 36px;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  box-shadow: 0 2px 12px rgba(22,97,78,0.07);
+}
+.eyebrow-dot {
+  width: 7px; height: 7px; background: var(--accent);
+  border-radius: 50%; flex-shrink: 0;
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(212,160,77,0.25); }
+  50%       { box-shadow: 0 0 0 6px rgba(212,160,77,0.08); }
+}
+.eyebrow-sep { opacity: 0.2; font-weight: 300; }
+
+/* H1 3段組 */
 .hero h1 {
-    margin-bottom: 32px;
-    background: linear-gradient(135deg, var(--ink) 0%, var(--sea) 60%, var(--ink) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    text-shadow: 0 20px 40px rgba(22, 97, 78, 0.1);
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  margin-bottom: 0;
+  background: none; -webkit-text-fill-color: initial;
+  -webkit-background-clip: initial; background-clip: initial;
+}
+.h1-pre {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-weight: 400; color: var(--text-light);
+  letter-spacing: 0.12em; line-height: 1;
+  font-family: "Noto Sans JP", sans-serif; margin-bottom: 4px;
+}
+.h1-main {
+  font-size: clamp(2.8rem, 8vw, 5.6rem);
+  font-weight: 700; color: var(--ink);
+  line-height: 1.05; letter-spacing: 0.01em; position: relative;
+}
+.h1-main mark {
+  background: none; color: var(--sea);
+  position: relative; display: inline-block;
+}
+.h1-main mark::after {
+  content: '';
+  position: absolute; bottom: 2px; left: -2px; right: -2px; height: 10px;
+  background: linear-gradient(90deg, var(--accent) 0%, #e07b39 100%);
+  opacity: 0.35; border-radius: 4px; z-index: -1;
+}
+.h1-post {
+  font-size: clamp(1.3rem, 3.2vw, 2.4rem);
+  font-weight: 700; letter-spacing: 0.04em; line-height: 1.35;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--sea) 70%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
-.hero p {
-    font-size: 20px;
-    color: var(--text);
-    max-width: 760px;
-    margin: 0 auto 40px;
-    line-height: 2;
-    font-weight: 400;
+/* Ornament */
+.hero-ornament {
+  display: flex; align-items: center; gap: 14px;
+  margin: 28px auto 20px; max-width: 200px;
+}
+.orn-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,160,77,0.45), transparent); }
+.orn-mark { color: var(--accent); font-size: 11px; opacity: 0.65; }
+
+.hero-lead {
+  font-size: clamp(0.85rem, 1.5vw, 0.98rem);
+  color: var(--text-light); max-width: 420px;
+  margin: 0 auto 24px; line-height: 2.3;
+  letter-spacing: 0.02em;
+}
+.hero-lead b { color: var(--sea); }
+
+.hero-entry {
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  color: #06C755; max-width: 480px;
+  margin: 28px auto 30px; line-height: 1.6;
+  font-weight: 700; letter-spacing: 0.02em;
+}
+.hero-entry strong {
+  color: #06C755;
 }
 
-.icon-lg {
-    font-size: 64px;
-    margin-bottom: 32px;
-    color: var(--sea);
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, #fff 0%, var(--mint) 100%);
-    border-radius: 40px;
-    border: 1px solid var(--white);
-    box-shadow: 0 16px 32px rgba(22, 97, 78, 0.1), inset 0 2px 4px rgba(255, 255, 255, 1);
-    position: relative;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.hero-sub { font-size: 12px; color: var(--text-light); margin-top: 12px; letter-spacing: 0.04em; }
+
+/* =====================================================
+   こんな方に
+===================================================== */
+.forwhom-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  max-width: 840px; margin: 0 auto;
+}
+.fwi {
+  display: flex; align-items: flex-start; gap: 11px;
+  background: #fff; border: 1px solid rgba(22,97,78,0.08);
+  border-radius: 14px; padding: 16px 18px;
+  box-shadow: 0 2px 6px rgba(5,32,24,0.03);
+}
+.fwi-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.fwi p { font-size: 14px; color: var(--text); line-height: 1.7; margin: 0; }
+.fwi b { color: var(--ink); }
+
+/* =====================================================
+   FREE COURSE
+===================================================== */
+.free-card {
+  max-width: 860px; margin: 0 auto;
+  background: #fff;
+  border: 2px solid rgba(22,97,78,0.12);
+  border-radius: 32px; padding: 52px 56px;
+  box-shadow: 0 8px 40px rgba(5,32,24,0.07);
+  position: relative; overflow: hidden;
+}
+.free-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, #06C755 0%, var(--sea) 50%, var(--accent) 100%);
 }
 
-.fade-up.is-visible .icon-lg:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 24px 48px rgba(22, 97, 78, 0.15), inset 0 2px 4px rgba(255, 255, 255, 1);
+/* セクションヘッド内バッジ */
+.free-badge-inline {
+  display: inline-block;
+  background: rgba(6,199,85,0.1); color: #059245;
+  border: 1px solid rgba(6,199,85,0.3);
+  border-radius: 99px; padding: 5px 14px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.05em;
+  margin-top: 14px; font-family: "Space Grotesk", sans-serif;
 }
 
-/* Background Utilities */
-.bg-gradient-soft {
-    background: linear-gradient(180deg, var(--cream) 0%, #f1f7f5 100%);
-    position: relative;
+/* 3 insight cards */
+.insight-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-bottom: 32px;
+}
+.insight-card {
+  background: linear-gradient(160deg, #f7fbf9, #f2f9f6);
+  border: 1px solid rgba(22,97,78,0.12);
+  border-radius: 20px; padding: 28px 22px;
+  text-align: center;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.insight-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(5,32,24,0.08); }
+.insight-emoji { font-size: 2.4rem; margin-bottom: 10px; display: block; }
+.insight-num-badge {
+  display: inline-block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 10.5px; font-weight: 700;
+  color: var(--accent); letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+.insight-card h4 {
+  font-size: 1rem; font-weight: 800;
+  color: var(--ink); line-height: 1.45;
+  margin-bottom: 12px;
+}
+.insight-card p {
+  font-size: 0.875rem; color: var(--text-light);
+  line-height: 1.8; margin: 0;
+}
+.insight-card b { color: var(--sea); }
+
+/* 差別化バー */
+.free-diff {
+  background: linear-gradient(135deg, rgba(22,97,78,0.04), rgba(22,97,78,0.08));
+  border: 1px solid rgba(22,97,78,0.14);
+  border-left: 4px solid var(--sea);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 22px;
+  font-size: 0.95rem; color: var(--text); line-height: 1.8;
+  margin-bottom: 36px;
+}
+.free-diff b { color: var(--sea); }
+
+/* CTA */
+.free-cta-wrap { text-align: center; }
+.free-note { font-size: 12px; color: var(--text-light); margin-top: 12px; }
+
+/* 準備中カード */
+.coming-soon-card { text-align: center; }
+.coming-soon-inner { padding: 20px 0; }
+.coming-soon-badge {
+  display: inline-block;
+  background: rgba(212,160,77,0.12); color: #8a6320;
+  border: 1px solid rgba(212,160,77,0.4);
+  border-radius: 99px; padding: 5px 16px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  margin-bottom: 24px; font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
+}
+.coming-soon-title {
+  font-size: 1.6rem; font-weight: 800;
+  color: var(--ink); line-height: 1.4;
+  margin-bottom: 20px;
+}
+.coming-soon-desc {
+  font-size: 0.975rem; color: var(--text-light);
+  line-height: 1.9; margin-bottom: 36px;
 }
 
-.bg-gradient-soft::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-    radial-gradient(circle at 10% 20%, rgba(22, 97, 78, 0.02) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(22, 97, 78, 0.02) 0%, transparent 40%);
-    pointer-events: none;
+/* 視聴者の声 */
+.voices-row {
+  max-width: 860px; margin: 32px auto 0;
+}
+.voices-label {
+  font-size: 11px; font-weight: 700; color: var(--accent);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  font-family: "Space Grotesk", sans-serif;
+  text-align: center; margin-bottom: 16px;
+}
+.voices-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+}
+.voice-card {
+  background: #fff; border: 1px solid rgba(22,97,78,0.09);
+  border-radius: 16px; padding: 22px 20px;
+  box-shadow: 0 2px 8px rgba(5,32,24,0.03);
+}
+.voice-text {
+  font-size: 0.9rem; color: var(--text);
+  line-height: 1.75; margin: 0 0 12px;
+  font-style: italic;
+}
+.voice-text::before { content: '❝ '; color: var(--accent); font-style: normal; font-size: 1.1rem; }
+.voice-attr {
+  font-size: 11.5px; color: var(--text-light);
+  font-family: "Space Grotesk", sans-serif;
 }
 
-.bg-contact {
-    background: linear-gradient(135deg, #f0f7f4 0%, #e6f3ed 100%);
-    position: relative;
-    overflow: hidden;
+/* =====================================================
+   WHY CORDUROY
+===================================================== */
+.reasons-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  max-width: 900px; margin: 0 auto 20px;
+}
+.reason-card {
+  background: #fff; border: 1px solid rgba(22,97,78,0.08);
+  border-radius: 20px; padding: 28px 22px;
+  box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+  transition: all 0.3s ease;
+}
+.reason-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(5,32,24,0.08); }
+.reason-num {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px; font-weight: 700; color: var(--accent);
+  letter-spacing: 0.1em; margin-bottom: 12px;
+}
+.reason-icon { font-size: 30px; margin-bottom: 12px; }
+.reason-card h3 { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 10px; line-height: 1.5; }
+.reason-card p { font-size: 13px; color: var(--text-light); line-height: 1.8; margin: 0; }
+.reason-card b { color: var(--sea); }
+
+/* 理由04バナー */
+.reason-banner {
+  display: flex; align-items: center; gap: 28px;
+  max-width: 900px; margin: 0 auto;
+  background: linear-gradient(135deg, rgba(22,97,78,0.06) 0%, rgba(22,97,78,0.02) 100%);
+  border: 1.5px solid rgba(22,97,78,0.18);
+  border-radius: 20px; padding: 28px 36px;
+  box-shadow: 0 2px 12px rgba(5,32,24,0.05);
+}
+.reason-banner-icon { font-size: 2.6rem; flex-shrink: 0; }
+.reason-banner-body { flex: 1; }
+.reason-banner-body .reason-num { margin-bottom: 6px; }
+.reason-banner-body h3 { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.reason-banner-body p { font-size: 14px; color: var(--text-light); line-height: 1.75; margin: 0; }
+.reason-banner-body b { color: var(--sea); }
+.reason-banner-btn {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center;
+  padding: 11px 22px; border: 1.5px solid var(--sea); border-radius: 999px;
+  font-size: 13px; font-weight: 700; color: var(--sea);
+  text-decoration: none; background: rgba(22,97,78,0.05);
+  white-space: nowrap;
+  transition: all 0.22s ease;
+}
+.reason-banner-btn:hover { background: var(--sea); color: #fff; }
+
+/* =====================================================
+   INSTRUCTOR
+===================================================== */
+.instructor-wrap {
+  display: grid; grid-template-columns: 200px 1fr; gap: 48px;
+  max-width: 820px; margin: 0 auto; align-items: start;
+}
+.instructor-photo img {
+  width: 180px; height: 180px; border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 28px rgba(5,32,24,0.1);
+}
+.instructor-name strong {
+  display: block; font-size: 22px; color: var(--ink); margin-bottom: 2px;
+}
+.instructor-name span {
+  font-size: 13px; color: var(--text-light);
+  font-family: "Space Grotesk", sans-serif; letter-spacing: 0.08em;
+}
+.instructor-roles {
+  display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 20px;
+}
+.instructor-roles span {
+  background: rgba(22,97,78,0.07); color: var(--sea);
+  border: 1px solid rgba(22,97,78,0.15);
+  border-radius: 99px; padding: 4px 11px;
+  font-size: 12px; font-weight: 600;
+}
+.instructor-text p {
+  font-size: 14.5px; color: var(--text); line-height: 1.9; margin-bottom: 12px;
+}
+.instructor-text p:last-child { margin-bottom: 0; }
+.instructor-text b { color: var(--ink); }
+
+/* =====================================================
+   NEXT STEPS — 3 cards + 1 banner
+===================================================== */
+.next-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  max-width: 900px; margin: 0 auto 20px;
+}
+.next-card {
+  display: flex; flex-direction: column; gap: 8px;
+  background: #fff; border: 1px solid rgba(22,97,78,0.1);
+  border-radius: 20px; padding: 26px 22px;
+  text-decoration: none; color: inherit;
+  box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  position: relative; overflow: hidden;
+}
+.next-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--mint, #d6ede9), var(--sea));
+  opacity: 0; transition: opacity 0.3s;
+}
+.next-card:hover { transform: translateY(-7px); box-shadow: 0 14px 36px rgba(5,32,24,0.1); }
+.next-card:hover::after { opacity: 1; }
+
+.next-card--featured {
+  border-color: rgba(22,97,78,0.22);
+  box-shadow: 0 4px 20px rgba(22,97,78,0.09);
+}
+.next-card--featured .next-persona { color: var(--sea); }
+
+.next-persona {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em;
+  color: var(--accent); text-transform: uppercase;
+  font-family: "Space Grotesk", sans-serif;
+  padding-bottom: 10px; border-bottom: 1px solid rgba(22,97,78,0.1);
+}
+.next-icon { font-size: 32px; margin-top: 4px; }
+.next-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin: 0; line-height: 1.4; }
+.next-card p { font-size: 13px; color: var(--text-light); line-height: 1.75; flex: 1; margin: 0; }
+.next-meta { font-size: 12px; font-weight: 700; color: var(--sea); }
+.next-link-btn {
+  display: inline-flex; align-items: center;
+  padding: 8px 16px; border: 1.5px solid var(--sea); border-radius: 999px;
+  font-size: 12.5px; font-weight: 700; color: var(--sea);
+  background: rgba(22,97,78,0.04);
+  transition: all 0.22s ease; width: fit-content; margin-top: 2px;
+}
+.next-card:hover .next-link-btn { background: var(--sea); color: #fff; }
+
+/* 糸口会バナー */
+.community-banner {
+  display: flex; align-items: center; gap: 28px;
+  max-width: 900px; margin: 0 auto;
+  background: linear-gradient(135deg, #1a3a2a 0%, #162b36 100%);
+  border-radius: 20px; padding: 28px 36px;
+  text-decoration: none; color: inherit;
+  box-shadow: 0 4px 20px rgba(5,32,24,0.14);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.community-banner:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(5,32,24,0.2); }
+.community-banner-left {
+  display: flex; align-items: center; gap: 16px;
+  flex-shrink: 0;
+}
+.community-banner-icon { font-size: 2.4rem; }
+.community-banner-label {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(212,160,77,0.85);
+  font-family: "Space Grotesk", sans-serif; margin-bottom: 4px;
+}
+.community-banner h3 {
+  font-size: 18px; font-weight: 700; color: #fff;
+  margin: 0; white-space: nowrap;
+}
+.community-banner-desc {
+  flex: 1; font-size: 13.5px; color: rgba(255,255,255,0.65);
+  line-height: 1.8; margin: 0;
+}
+.community-banner-btn {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center;
+  padding: 11px 22px;
+  border: 1.5px solid rgba(255,255,255,0.3); border-radius: 999px;
+  font-size: 13px; font-weight: 700; color: #fff;
+  background: rgba(255,255,255,0.07);
+  white-space: nowrap;
+  transition: all 0.22s ease;
+}
+.community-banner:hover .community-banner-btn {
+  background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.5);
 }
 
-.bg-other {
-    background: #f7faf9;
+/* =====================================================
+   MANIFESTO SECTION（思想・宣言）
+===================================================== */
+.manifesto-section {
+  position: relative;
+  min-height: 80vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+.manifesto-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover; background-position: center;
+  filter: brightness(0.38) saturate(0.7);
+  transform: scale(1.02);
+  transition: transform 8s ease;
+}
+.manifesto-section:hover .manifesto-bg { transform: scale(1.0); }
+/* フォールバック：画像なし環境 */
+.manifesto-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #0a1f14 0%, #162535 50%, #1a1428 100%);
+  opacity: 0.55;
+}
+.manifesto-inner {
+  position: relative; z-index: 1;
+  max-width: 680px; margin: 0 auto;
+  padding: 100px 2rem;
+  text-align: center;
+}
+.manifesto-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(212,160,77,0.75);
+  margin-bottom: 32px;
+}
+.manifesto-heading {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800; line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 48px;
+  background: none; -webkit-text-fill-color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+.manifesto-body {
+  display: flex; flex-direction: column; gap: 28px;
+}
+.manifesto-body p {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: rgba(255,255,255,0.72);
+  line-height: 2.1; margin: 0;
+}
+.manifesto-body em {
+  font-style: normal;
+  color: rgba(212,160,77,0.9);
+  font-weight: 600;
 }
 
-.bg-contact::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(22, 97, 78, 0.03) 0%, transparent 60%);
-    animation: rotateBg 20s linear infinite;
+/* =====================================================
+   EMOTIONAL SECTION（情緒・関係性）
+===================================================== */
+.emotional-section {
+  position: relative;
+  min-height: 75vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+  padding: 0;
+}
+.emotional-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover; background-position: center 30%;
+  filter: brightness(0.3) saturate(0.5);
+  transform: scale(1.02);
+  transition: transform 8s ease;
+}
+.emotional-section:hover .emotional-bg { transform: scale(1.0); }
+.emotional-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,30,20,0.7) 0%, rgba(15,25,40,0.5) 100%);
+}
+.emotional-inner {
+  position: relative; z-index: 1;
+  max-width: 600px;
+  margin-left: max(5vw, calc(50vw - 530px));
+  padding: 100px 2rem 100px;
+}
+.emotional-heading {
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  font-weight: 800; line-height: 1.3;
+  color: #fff; margin-bottom: 44px;
+  background: none; -webkit-text-fill-color: #fff;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+.emotional-body {
+  display: flex; flex-direction: column; gap: 28px;
+  margin-bottom: 48px;
+}
+.emotional-body p {
+  font-size: clamp(0.95rem, 1.7vw, 1.1rem);
+  color: rgba(255,255,255,0.68); line-height: 2.1; margin: 0;
+}
+.emotional-body em {
+  font-style: normal;
+  color: rgba(212,160,77,0.88); font-weight: 600;
+}
+.emotional-sign {
+  font-size: clamp(0.9rem, 1.5vw, 1rem) !important;
+  color: rgba(255,255,255,0.45) !important;
+}
+.emotional-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #06C755; color: #fff;
+  padding: 16px 32px; border-radius: 100px;
+  font-weight: 700; font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(6,199,85,0.35);
+  transition: all 0.3s ease;
+}
+.emotional-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(6,199,85,0.45); background: #05b84e; }
+
+/* 声セクション */
+.voices-section { padding: 64px 0; }
+
+/* =====================================================
+   FAQ
+===================================================== */
+.faq-list {
+  max-width: 700px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.faq-item {
+  background: #fff; border: 1px solid rgba(22,97,78,0.1);
+  border-radius: 14px; overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.faq-item[open] { box-shadow: 0 4px 18px rgba(22,97,78,0.08); }
+.faq-item summary {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 22px; cursor: pointer; list-style: none; gap: 16px;
+  transition: background 0.15s;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { background: rgba(22,97,78,0.03); }
+.faq-q { font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+.faq-icon {
+  flex-shrink: 0; width: 24px; height: 24px;
+  background: rgba(22,97,78,0.08); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; font-weight: 300; color: var(--sea);
+  transition: transform 0.22s, background 0.2s; line-height: 1;
+}
+.faq-item[open] summary .faq-icon { transform: rotate(45deg); background: var(--sea); color: #fff; }
+.faq-a {
+  padding: 16px 22px 20px; border-top: 1px solid rgba(22,97,78,0.07);
+  font-size: 14px; color: var(--text); line-height: 1.85;
 }
 
-@keyframes rotateBg {
-    from { transition: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* =====================================================
+   FINAL CTA
+===================================================== */
+.cta-section {
+  background: linear-gradient(145deg, #0e2a1f 0%, #1a3a4a 50%, #1e1a38 100%);
+  padding: 100px 0;
 }
-
-/* Card */
-.card {
-    background: #fff;
-    border: 1px solid rgba(22, 97, 78, 0.08);
-    border-radius: 24px;
-    padding: 40px;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.cta-inner { text-align: center; max-width: 600px; margin: 0 auto; }
+.cta-eyebrow {
+  font-size: 11px; font-weight: 700;
+  color: rgba(212,160,77,0.85); letter-spacing: 0.15em;
+  text-transform: uppercase; font-family: "Space Grotesk", sans-serif;
+  margin-bottom: 20px;
 }
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 6px;
-    background: linear-gradient(90deg, var(--mint) 0%, var(--sea) 50%, var(--mint) 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
+.cta-section h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  color: #fff; margin-bottom: 16px; line-height: 1.5; font-weight: 700;
 }
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(22, 97, 78, 0.2);
+.cta-desc {
+  font-size: 1.05rem; color: rgba(255,255,255,0.68);
+  line-height: 1.85; margin-bottom: 36px;
 }
+.cta-sub { font-size: 12px; color: rgba(255,255,255,0.38); margin-top: 14px; letter-spacing: 0.04em; }
 
-.card:hover::before {
-    opacity: 1;
+/* =====================================================
+   FADE UP
+===================================================== */
+.fade-up {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+.fade-up.visible { opacity: 1; transform: none; }
 
-.card h3 {
-    font-size: 24px;
-    margin-bottom: 16px;
-    color: var(--ink);
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 860px) {
+  .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+  .next-grid { grid-template-columns: repeat(2, 1fr); }
+  .reason-banner { flex-wrap: wrap; gap: 16px; }
+  .reason-banner-btn { width: 100%; text-align: center; justify-content: center; }
+  .community-banner { flex-wrap: wrap; gap: 16px; }
+  .community-banner h3 { white-space: normal; }
+  .community-banner-btn { width: 100%; text-align: center; justify-content: center; }
 }
-
-.card .mini {
-    font-size: 16px;
-    color: var(--text-light);
-    line-height: 1.8;
-    margin-bottom: 0;
+@media (max-width: 768px) {
+  .forwhom-grid { grid-template-columns: 1fr 1fr; }
+  .insight-row { grid-template-columns: 1fr; gap: 12px; }
+  .voices-grid { grid-template-columns: 1fr; }
+  .instructor-wrap { grid-template-columns: 1fr; text-align: center; }
+  .instructor-photo { display: flex; justify-content: center; }
+  .instructor-roles { justify-content: center; }
 }
-
-/* Cute List */
-.cute-list {
-    background: #fff;
-    border: 2px dashed var(--line);
-    border-radius: 32px;
-    padding: 40px;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
+@media (max-width: 640px) {
+  section { padding: 68px 0; }
+  .hero { padding: 88px 0 72px; }
+  .forwhom-grid { grid-template-columns: 1fr; }
+  .reasons-grid { grid-template-columns: 1fr; }
+  .next-grid { grid-template-columns: 1fr; }
+  .free-card { padding: 32px 24px; }
+  .insight-row { grid-template-columns: 1fr; }
+  .voices-grid { grid-template-columns: 1fr; }
 }
-
-.cute-list::after {
-    content: '✨';
-    position: absolute;
-    top: -20px;
-    right: -10px;
-    font-size: 40px;
-    animation: floatEmoji 3s ease-in-out infinite;
-}
-
-@keyframes floatEmoji {
-    0%, 100% { transform: translateY(0) rotate(10deg); }
-    50% { transform: translateY(-10px) rotate(-10deg); }
-}
-
-.cute-list-item {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 24px;
-    padding: 24px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-}
-
-.cute-list-item:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--sea);
-}
-
-.cute-list-item:last-child {
-    margin-bottom: 0;
-}
-
-.cute-list-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 16px;
-    overflow: hidden;
-    flex-shrink: 0;
-    box-shadow: var(--shadow-sm);
-}
-
-.cute-list-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-    #brand-story .story-lead {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    /* Instructor Avatar */
-    .instructor-image {
-      flex-shrink: 0;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid #fff;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      background: #eee;
-    }
-    .placeholder-avatar {
-      width: 100%;
-      height: 100%;
-      background: #35524a;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      font-weight: 700;
-    }
-
-    @media (max-width: 640px) {
-      .card[style*="display:flex"] {
-        flex-direction: column;
-        text-align: center !important;
-      }
-      .instructor-image {
-        width: 120px;
-        height: 120px;
-      }
-    }
-.cute-list-content {
-    flex: 1;
-}
-
-.cute-list-title {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 8px;
-}
-
-.cute-list-icon {
-    width: 24px;
-    height: 24px;
-    background: var(--sea);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    flex-shrink: 0;
-}
-
-.cute-list-text {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text-light);
-}
-
-/* Triangle Layout */
-.triangle-layout {
-    position: relative;
-    height: auto;
-    max-width: 800px;
-    margin: 60px auto 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    justify-content: center;
-}
-
-.triangle-item {
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.triangle-item.top {
-    grid-column: span 2;
-}
-
-.triangle-layout::before {
-    content: '';
-    position: absolute;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 320px;
-    height: 280px;
-    border-left: 2px dashed var(--line-strong);
-    border-right: 2px dashed var(--line-strong);
-    border-bottom: 2px dashed var(--line-strong);
-    border-bottom-left-radius: 60px;
-    border-bottom-right-radius: 60px;
-    z-index: 0;
-    clip-path: polygon(0% 100%, 50% 0%, 100% 100%, 0% 100%);
-    background: transparent;
-    border: none;
-}
-
-/* Interactive Circle Links */
-.circle-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.circle-link:hover {
-    transform: scale(1.05);
-}
-
-/* Enhanced Circle Shape */
-.circle-shape {
-    width: 340px;
-    height: 340px;
-    background: linear-gradient(135deg, var(--sea) 0%, var(--ink) 100%);
-    border: 4px solid var(--white);
-    border-radius: 50%;
-    box-shadow: var(--shadow-lg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 32px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    margin-bottom: 0;
-    position: relative;
-    z-index: 2;
-    color: #fff;
-}
-
-.circle-link:hover .circle-shape {
-    box-shadow: 0 0 30px rgba(22, 97, 78, 0.3), 0 0 60px rgba(22, 97, 78, 0.1);
-    border-color: var(--sea);
-    background: #fff;
-}
-
-.circle-icon {
-    font-size: 36px;
-    margin-bottom: 8px;
-}
-
-.circle-title {
-    font-weight: 700;
-    color: #fff;
-    font-size: 18px;
-    line-height: 1.4;
-    margin-bottom: 16px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: color 0.3s ease;
-}
-
-.circle-link:hover .circle-title {
-    color: var(--sea);
-    text-shadow: none;
-}
-
-.basics-desc {
-    text-align: center;
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.9);
-    width: 100%;
-    transition: opacity 0.3s ease;
-    min-height: 80px;
-}
-
-.basics-desc b {
-    display: block;
-    color: var(--accent);
-    margin-bottom: 8px;
-    font-size: 14px;
-}
-
-.circle-link:hover .basics-desc {
-    opacity: 0;
-}
-
-.click-hint {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    background: var(--sea);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.circle-link:hover .click-hint {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    pointer-events: auto;
-}
-
-.click-hint .arrow {
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.circle-link:hover .click-hint .arrow {
-    transform: translateX(4px);
-}
-
-/* Voices Group Box */
-.voices-box {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    padding: 40px;
-    box-shadow: var(--shadow-sm);
-    max-width: 900px;
-    margin: 0 auto 40px;
-}
-
-.voices-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-}
-
-.voices-item {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-}
-
-.voices-icon {
-    font-size: 20px;
-    line-height: 1;
-    margin-top: 4px;
-}
-
-.voices-text {
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-/* FAQ Styling */
-.faq details {
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 24px 32px;
-    background: #fff;
-    margin-bottom: 16px;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-    position: relative;
-}
-
-.faq details[open] {
-    box-shadow: var(--shadow-md);
-}
-
-.faq summary {
-    cursor: pointer;
-    font-weight: 700;
-    color: var(--ink);
-    font-size: 18px;
-    padding: 4px 0;
-    list-style: none;
-    position: relative;
-    padding-right: 48px;
-}
-
-.faq summary::-webkit-details-marker {
-    display: none;
-}
-
-/* Button Design: 2-hole Outline Button */
-.faq summary::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: #fff; /* White background */
-    border: 2px solid var(--sea); /* Green Outline */
-    
-    /* 2 holes (Green dots) */
-    background-image: 
-      radial-gradient(circle at 38% 50%, var(--sea) 2px, transparent 2.5px),
-      radial-gradient(circle at 62% 50%, var(--sea) 2px, transparent 2.5px);
-    background-repeat: no-repeat;
-    
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Open State: Change to Green X */
-.faq details[open] summary::after {
-    border-color: var(--sea);
-    background-color: #fff;
-    
-    /* Draw Diagonal X using green linear gradients */
-    background-image: 
-      linear-gradient(45deg, transparent 44%, var(--sea) 44%, var(--sea) 56%, transparent 56%),
-      linear-gradient(-45deg, transparent 44%, var(--sea) 44%, var(--sea) 56%, transparent 56%);
-    
-    background-position: center;
-    background-size: 50% 50%;
-    transform: translateY(-50%) rotate(180deg);
-}
-
-.faq details[open] summary {
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-}
-
-@media(max-width: 768px) {
-    .hero { padding: 120px 20px 80px; }
-    .hero p { font-size: 16px; }
-    .card { padding: 28px; }
-    .triangle-layout { grid-template-columns: 1fr; gap: 32px; }
-    .triangle-item.top { grid-column: auto; }
-    .triangle-layout::before { display: none; }
-    .voices-list { grid-template-columns: 1fr; }
-    .cute-list { padding: 24px; }
-    .cute-list-item { flex-direction: column; text-align: center; }
-    .cute-list-img { margin: 0 auto; }
-    .cute-list-title { justify-content: center; }
-}
-    /* Schedule Styles */
-
-    .schedule-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-    .schedule-item {
-        background: #f9fbfa;
-        padding: 20px;
-        border-radius: 16px;
-        border: 1px solid #eef4f1;
-        transition: transform 0.2s;
-    }
-    .schedule-item:hover {
-        transform: translateY(-2px);
-        background: #fff;
-        border-color: var(--sea);
-    }
-    .schedule-icon {
-        display: block;
-        font-size: 32px;
-        margin-bottom: 8px;
-    }
-    .schedule-title {
-        margin: 0 0 8px;
-        font-weight: 700;
-        color: var(--ink);
-        font-size: 16px;
-    }
-    .schedule-date {
-        margin: 0;
-        font-size: 14px;
-        color: var(--text-light);
-        line-height: 1.5;
-    }
-    @media (max-width: 600px) {
-        .schedule-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-
-
-    /* Schedule Styles */
-
-    .schedule-table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: auto;
-    }
-    .schedule-table th, .schedule-table td {
-        padding: 12px 10px; /* Reduced vertical/horizontal padding */
-        text-align: left;
-        border-bottom: 1px solid var(--line);
-        vertical-align: middle;
-    }
-    .schedule-table th {
-        font-weight: 700;
-        color: var(--sea);
-        background: #f9fbfa;
-        white-space: nowrap;
-        font-size: 14px;
-    }
-    .schedule-table tbody tr:hover {
-        background: #fdfcf8;
-    }
-    .schedule-table .title {
-        font-weight: 700;
-        color: var(--ink);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        min-width: 140px; /* Minimum width for readability */
-        width: 100%; /* Expand to fill space */
-    }
-    .course-icon {
-        font-size: 1.2em;
-        flex-shrink: 0;
-    }
-    .schedule-table .datetime {
-        font-feature-settings: "palt";
-        line-height: 1.4;
-        width: 1%; /* Shrink to fit content */
-        white-space: nowrap;
-    }
-    .schedule-table .date {
-        font-weight: 700;
-        color: var(--ink);
-        font-family: "Space Grotesk", sans-serif;
-        white-space: nowrap;
-        margin-right: 4px;
-    }
-    .schedule-table .day {
-        font-size: 0.9em;
-        color: var(--text-light);
-    }
-    .schedule-table .time {
-        font-size: 13px;
-        color: var(--text);
-        display: inline-block;
-        white-space: nowrap;
-    }
-    .schedule-table .action {
-        text-align: right;
-        padding-right: 8px;
-        width: 1%; /* Shrink to fit content */
-        white-space: nowrap;
-    }
-    .btn-sm {
-        display: inline-block;
-        padding: 6px 10px;
-        border: 1px solid var(--sea);
-        border-radius: 6px;
-        color: var(--sea);
-        font-size: 12px;
-        font-weight: 700;
-        text-decoration: none;
-        background: #fff;
-        transition: all 0.2s;
-        white-space: nowrap;
-    }
-    .btn-sm:hover {
-        background: var(--sea);
-        color: #fff;
-    }
-
-    .mobile-break {
-        display: none;
-    }
-
-    @media (max-width: 600px) {
-        .mobile-break {
-            display: block;
-        }
-        .schedule-table th, .schedule-table td {
-            padding: 10px 6px; /* Even smaller padding on mobile */
-        }
-        .schedule-table .title {
-            font-size: 14px;
-            min-width: unset;
-        }
-        .schedule-table .datetime {
-            font-size: 13px;
-        }
-        .schedule-table .date {
-            font-size: 13px;
-        }
-    }
-
-
 </style>
+
+<script>
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.09 }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
