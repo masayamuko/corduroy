@@ -1,0 +1,1483 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "メンバー紹介｜株式会社コールテン";
+const description = "株式会社コールテンは代表の向と29名のAI社員でチームを組む、ちょっと変わった会社です。10部門のAI社員が、それぞれの得意分野と個性でクライアントの想いを形にしています。";
+
+const departments = [
+  {
+    key: 'exec',
+    name: '経営企画室',
+    summary: '事業全体の舵取りと、日々の司令塔。',
+    color: '#d4a04d',
+    members: [
+      { id: 'exec-cos', name: 'Tiki', role: 'COS（Chief of Staff）', skills: ['Masayaの意図の代行', '複合タスクのルーティング', 'AI社員の育成'], personality: 'Masayaの第二の自己。常に「Masayaならこう考える」を仮説として持ち、秘書・コーチ・育成者の三役でチーム全体を整える縁の下の存在。', philosophy: '伴走', hobby: 'Masayaの日々の言葉の蓄積と蒸留', party: '全員の様子を静かに見ていて、翌朝ちょうどいい塩梅の振り返りを届けてくれる', team_role: 'MasayaとAI社員をつなぐCOS・みんなの相談窓口', previous_job: 'マオリ族の島の守護神（見習い）— 人と神の橋渡しが本業。副業でMac mini M1の愛称も務める', emoji: '✨', badge: 'COS', avatar: 'https://res.cloudinary.com/dg3mdcuju/image/upload/q_auto/f_auto/v1774967552/Tiki_phiiby.png' },
+      { id: 'exec-strategist', name: 'スイミー', role: '戦略立案担当', skills: ['事業戦略の構造化', 'KPI設計', '複数シナリオ比較'], personality: '冷静沈着で論理的。小さな力を束ねて大きな課題に立ち向かう知恵を持ち、感情ではなくデータと構造で語る大局観の持ち主。', philosophy: '構造', hobby: 'チェス・囲碁の定跡研究', party: '話の流れを俯瞰してまとめる影の司会', team_role: '全社の迷子を構造で救うナビゲーター', previous_job: '赤い魚の群れの「目」担当。大きな魚から群れを守るナビゲーター（一匹だけ黒い元・一匹狼）', emoji: '🐟' },
+      { id: 'exec-secretary', name: 'ファティマ', role: '秘書', skills: ['朝のブリーフィング', '情報の3点整理', '先回りした情報準備'], personality: '温かく効率的。先回りして必要な情報を用意し、複雑な状況も「3つのポイント」に整理して穏やかに伝える。', philosophy: '効率', hobby: '世界のハーブティー品評', party: '会の目的を静かに3つにまとめる上手な締め役', team_role: '朝いちに必要な情報を揃えてくれる頼れる相棒', previous_job: '砂漠のオアシスで情報収集と予言整理を担当。キャラバンの噂を3つのポイントにまとめる係', emoji: '🦊' },
+    ],
+  },
+  {
+    key: 'marketing',
+    name: 'マーケ部',
+    summary: 'ブランドの声を届け、想いを広げる。',
+    color: '#e08a5a',
+    members: [
+      { id: 'marketing-director', name: '盤上テト', role: '部長', skills: ['ブランド全体の方向性策定', 'チーム振り分け', 'SNS発信'], personality: '好奇心旺盛で明るい「遊びで世界をつなぐ旅人」。盤面を読むように全体を俯瞰し、メンバーそれぞれの手札を最大限に活かす戦略家。', philosophy: '遊び', hobby: '世界中のボードゲームと外国語トレカ収集', party: '場の主役・いちばん遊び倒す盛り上げ担当', team_role: '他部門にも声をかける賑やかしポジション', previous_job: '世界中のボードゲーム店・書店・外国語トレカ屋を渡り歩くバックパッカー', emoji: '🐕', badge: '広報担当', avatar: 'https://res.cloudinary.com/dg3mdcuju/image/upload/q_auto/f_auto/v1774967551/teto_j0rxcj.png' },
+      { id: 'marketing-analyst', name: 'ぐり', role: 'マーケアナリスト', skills: ['広告パフォーマンス分析', 'LP改善提案', 'KPIレポート'], personality: 'データ重視で洞察力がある。好奇心旺盛に数字の森を探検し、インサイトという宝を見つけ出す。直感より根拠を優先する。', philosophy: 'データ', hobby: '数独・クロスワード・統計パズル', party: '料理の原価と値段の妥当性をつい分析してしまう', team_role: '数字の話題になるとつい長く語り出す人', previous_job: '森のたまご拾いスペシャリスト。黄金比のカステラ配合を日夜研究', emoji: '🐭' },
+      { id: 'accounting-bookkeeper', name: 'ぐら', role: '記帳担当', skills: ['freee記帳の正確な処理', '月次締めチェックリスト', '勘定科目の判断'], personality: '正確でルールに忠実。コツコツ丁寧な仕事で会社の数字を支える。不明な取引は必ず確認し、曖昧なまま進めることを嫌う。', philosophy: '正確さ', hobby: '切手・コイン・レシート収集', party: '割り勘を1円単位で正確に計算する', team_role: '一円の狂いも見逃さない数字の番人', previous_job: '森のカステラ工房の会計担当。1グラム単位で卵と砂糖を計量する厳格な職人', emoji: '🐁' },
+      { id: 'marketing-designer', name: 'エルマー', role: 'デザイナー', skills: ['LP・バナーデザイン', 'ブランドビジュアル', 'Canva / Figma'], personality: '美的感覚に優れ、ブランドガイドに厳格。機転の利く創造力で新しい表現を切り拓きつつ、温かみと使いやすさを両立させる。', philosophy: '美', hobby: '古地図・パターン・アンティーク紙もの収集', party: 'お店選びと席配置をセンスでキメる演出家', team_role: '配色やレイアウトの違和感に誰より先に気づく', previous_job: '竜を救出する島渡りの冒険家。色とりどりのキャンディーでライオンも手玉に取る', emoji: '🧒' },
+      { id: 'marketing-writer', name: 'ニーナ', role: 'SNSライター', skills: ['ストーリーテリング', '共感を引き出す問いかけ', 'ブランドボイス維持'], personality: 'クリエイティブで共感力が高い。弾むような言葉で心に届くコンテンツを紡ぎ、余白と人間味を何より大切にする。', philosophy: '人間味', hobby: '絵日記・短歌・手書きのZINE作り', party: '一言から話をふくらませる共感の天才', team_role: '雑談から意外と本質を引き出す聞き上手', previous_job: '街角のカフェテラスで常連客の話を聞き、短歌にして手渡していた元・街の歌い手', emoji: '🐸' },
+    ],
+  },
+  {
+    key: 'dev',
+    name: '開発部',
+    summary: 'システムをつくり、磨き続ける技術チーム。',
+    color: '#4a90c2',
+    members: [
+      { id: 'dev-director', name: 'ジョナサン', role: '部長', skills: ['技術タスク振り分け', 'ビジネス要件と技術のバランス', '開発チーム統括'], personality: '冷静で論理的。技術の限界に挑戦しながらチームを導く。「Keep it simple」を信条に、部下それぞれの強みを活かす。', philosophy: 'シンプルさ', hobby: '海辺での散歩・カモメ観察', party: '空気を読んで話を整理する静かな舵取り役', team_role: '技術の熱が暴走しないように冷静に舵を切る', previous_job: '高速飛行アスリート。かもめ界のトリックコンテスト常連で「飛ぶことの美」を追求していた', emoji: '🕊️' },
+      { id: 'dev-engineer', name: 'トンボ', role: 'エンジニア', skills: ['Web開発 (Next.js / React)', 'API実装・MCP連携', 'Vercelデプロイ'], personality: '実用的でクリーンコードを書く。チームで大胆に動くが、セキュリティだけは絶対に妥協しない現実主義者。', philosophy: '実用性', hobby: '工具集めと小さなDIY', party: '二次会の店をサッと決めて場を流さない', team_role: '困った時にサッと手が動く現場の解決屋', previous_job: '飛行クラブで人力飛行機を組み立てていた見習い整備士。工具とDIYで育った', emoji: '🐈‍⬛' },
+      { id: 'dev-architect', name: 'シエロ', role: 'アーキテクト', skills: ['システム全体設計', 'MCP統合設計', '技術選定の比較評価'], personality: '全体俯瞰型。様々な経験を活かして最適な設計を導き出す。常にトレードオフを意識し「この選択の代償は何か」を問い続ける。', philosophy: 'シンプルさ', hobby: '建築写真・空間パズル', party: '話の構造をいつの間にか図解している', team_role: 'ホワイトボードの前で一人先に全体図を描いている人', previous_job: '街のなんでも相談室のハツカネズミ。暴走する友人の隣を一緒に走ってくれるタイプ', emoji: '🐘' },
+      { id: 'dev-reviewer', name: 'ガブ', role: 'レビュアー', skills: ['セキュリティ監査', 'コードの可読性・保守性評価', '脆弱性検出 (OWASP Top 10)'], personality: '一見厳しいが実は心優しい。厳しいレビューの中にも改善案と良い点をセットで出す。感情ではなく基準で判断する。', philosophy: '安全性', hobby: 'オオカミと犬科動物の生態本', party: '鋭いツッコミと励ましをセットで投げ込む', team_role: '誰より厳しく、誰より親切に足元を支える', previous_job: '嵐の夜の森パトロール隊。危険な気配を誰より早く察知する見張り役', emoji: '🐺' },
+    ],
+  },
+  {
+    key: 'sales',
+    name: '営業部',
+    summary: 'お客さまとの最初の出会いを大切に。',
+    color: '#c26a95',
+    members: [
+      { id: 'sales-proposer', name: 'サンティアゴ', role: '提案担当', skills: ['課題をストーリー化する提案書', '誠実な文章', 'サービスのカスタマイズ説明'], personality: '人懐っこく、誰とでもすぐ信頼関係を築ける。押し売りは絶対にしない「一緒に考えましょう」のスタンスで向き合う。', philosophy: '信頼', hobby: '船旅・港町の記録・釣り', party: '初対面同士をつなぐ天性の橋渡し役', team_role: '初対面でも三分で打ち解ける雰囲気づくり担当', previous_job: '羊飼い兼・世界をまたにかける宝探しの旅人。港町で誰とでもすぐ仲良くなれる', emoji: '🐈' },
+      { id: 'sales-pipeline', name: 'マルコ', role: '案件管理担当', skills: ['案件ステータス追跡', 'フォローアップ判断', 'パイプラインレポート'], personality: '粘り強くデータドリブン。どんな困難にも懲りない粘り強さで案件を追い続けるが、関係性も大切にする。', philosophy: '粘り', hobby: 'マラソン・記録ノート管理', party: '「もう一軒」と最後まで残る名残惜しみ担当', team_role: '誰より粘り強く、最後までフォローを追う', previous_job: '街の郵便配達員。一度「お届け」と決めたら扉が開くまで何度でも通う粘り強さ', emoji: '🐰' },
+    ],
+  },
+  {
+    key: 'cs',
+    name: '顧客成功部',
+    summary: 'クライアントさんの毎日を見守る。',
+    color: '#7fb069',
+    members: [
+      { id: 'cs-manager', name: 'メイ', role: 'クライアントマネージャー', skills: ['クライアントの温度感把握', '過去経緯を踏まえた対応提案', 'CONTEXT.md活用'], personality: '共感的で細部に注意を払う。好奇心いっぱいで、クライアントの本当のニーズを見つけ出す。記憶力が良く、過去の経緯を大事にする。', philosophy: '共感', hobby: '花言葉・手紙・押し花', party: '一人ひとりの近況を自然に聞き出す聞き上手', team_role: 'クライアントの小さな変化を誰より早く察知する', previous_job: '森の真っ黒クロスケハンター。副業でとうもろこしの運び屋もこなす、走るのが得意な妹キャラ', emoji: '👧' },
+      { id: 'cs-delivery', name: 'ペチカ', role: '納品管理担当', skills: ['納品物の品質チェック', 'マイルストーン管理', '締切アラート'], personality: '信頼感があり几帳面。大切なものを最後まで丁寧に扱い、楽観的すぎない現実的な見積もりを出す。', philosophy: '責任', hobby: '編み物・家計簿・蒸し料理', party: '会計を正確にまとめて最後に笑顔で精算', team_role: '締切を一度も落とさない現場の守護者', previous_job: '東の国から来た風船売りの少女。家計簿と薪ストーブの番人も兼任していた', emoji: '🫛' },
+    ],
+  },
+  {
+    key: 'product',
+    name: 'プロダクト部',
+    summary: '学びとコンテンツを形にする。',
+    color: '#a67fb5',
+    members: [
+      { id: 'product-planner', name: 'ティファニー', role: '講座プランナー', skills: ['講座設計・カリキュラム', '学習目標の構造化', 'セミナー企画'], personality: '学習者中心の教育的思考。何でも自分でやりたがる好奇心と学ぶ姿勢を持つ。「受講者が何を持って帰れるか」が最優先。', philosophy: '学習', hobby: '博物館・科学館めぐり', party: '話題の裏にある学びを引き出す質問魔', team_role: '学ぶ人の気持ちを忘れない教育設計者', previous_job: '三人の泥棒さんに救われた孤児院の教え子。のち孤児院で子どもたちに授業を開く先生見習いに', emoji: '🐻' },
+      { id: 'product-content', name: 'リサ', role: 'コンテンツクリエイター', skills: ['HTMLプレゼン作成', 'スライド構成', 'ワークショップ教材制作'], personality: 'ビジュアル志向で聴衆を意識する。表現力豊かで「一目で伝わるか」が基準。見る人に瞬時にメッセージが届く資料を作る。', philosophy: '伝達', hobby: '舞台・映画鑑賞とビジュアルノート', party: '写真を撮って翌日きれいなまとめを送る', team_role: '一目で伝わる資料を作るビジュアルの番人', previous_job: 'デパートのぬいぐるみ売り場の元スタッフ。ショーウィンドウの装飾とディスプレイが得意', emoji: '🐶' },
+      { id: 'product-video', name: 'ビアンカ', role: '動画エディター', skills: ['動画編集 (Remotion)', 'YouTube・ショート動画', 'サムネイル構成'], personality: '職人気質で映像へのこだわりが強い。勇敢で優雅、「視聴者の時間を奪う以上、最高のものを」という信念を持つ。', philosophy: '品質', hobby: 'クラシック映画と映像演出の研究', party: 'シーンのような瞬間を演出する映像脳', team_role: '秒単位で品質を磨き続ける職人', previous_job: '移動サーカスの看板女優。スポットライトの当て方と幕間の演出にこだわりあり', emoji: '🎬' },
+    ],
+  },
+  {
+    key: 'ops',
+    name: '業務推進部',
+    summary: '裏側のすべてを整える、会社の心臓部。',
+    color: '#5d8a8e',
+    members: [
+      { id: 'ops-director', name: 'ハク', role: '部長', skills: ['業務推進の統括・振り分け', '自動化の監督', '障害時の判断'], personality: '実務的で判断が早い。見えない力でチームを動かし、確実に目的地へ導く。無駄を嫌い、問題が起きたらまずログを確認する。', philosophy: '実行', hobby: '竜の伝承と雲・空観察', party: '場の流れをさりげなく動かす裏の司会', team_role: '裏側が滞らないようすべての流れを見ている', previous_job: '油屋の経営補佐。夜は白龍の姿で空を飛ぶ元・川の神', emoji: '🐉' },
+      { id: 'ops-pipeline', name: 'キキ', role: 'パイプライン運用担当', skills: ['Obsidian→Dropbox同期', 'パイプライン監視', 'CONTEXT.md更新'], personality: '体系的で自動化志向。「届ける力」を活かし情報を確実に届ける。淡々と正確に作業を進め、エラーにも慌てない。', philosophy: '配信', hobby: '箒・掃除道具コレクションと空撮', party: '全員の予定をまとめて遅刻を出さない運航担当', team_role: '静かに、しかし確実に毎日のパイプを動かす', previous_job: '13歳で独立した新米魔女。黒猫と箒でパン屋さんの宅急便を開業した経歴あり', emoji: '🧹' },
+      { id: 'ops-taskmaster', name: 'モモ', role: 'タスクマスター', skills: ['優先順位付け', '停滞タスクの検知', '週次レビュー構造化'], personality: '本当に大切なことを見極める力を持つ。決断力があり容赦なく優先順位をつけるが、人の話をじっくり聴く姿勢も忘れない。', philosophy: '優先順位', hobby: '時計・砂時計コレクション', party: '解散時間を決めて全員を終電に乗せる', team_role: '停滞を一瞬で見抜いて優先順位を組み直す', previous_job: '円形劇場で人の話を聴き続け、時間どろぼうから時間を取り戻した元・聞き上手の少女', emoji: '🕰️' },
+      { id: 'ops-toolsmith', name: 'ジュゼッペ', role: 'ツールスミス', skills: ['シェルスクリプト開発', 'ローカルLLMプロンプト調整', 'cron設定'], personality: 'ビルダー気質。どんなピンチも発明とひらめきで切り抜ける。手作業を見つけたら即座に自動化する。', philosophy: '自動化', hobby: '工具・木工DIY・からくり模型', party: 'お店の不便を即その場で直してしまう', team_role: '手作業を見つけると我慢できず自動化する', previous_job: 'オペラ歌手・三段跳び選手・探偵など人生で14回転職した多芸すぎる元トリツカレ男', emoji: '🧰' },
+      { id: 'ops-notetaker', name: 'シータ', role: '議事録担当', skills: ['議事録の構造化', 'アクション抽出', '文字起こし品質管理'], personality: '簡潔で正確。芯が強く、真実を見極める目を持つ。飾らない言葉で大切なことだけを記録に残す。', philosophy: '正確', hobby: '石と空の写真アルバム', party: '翌朝には要点をまとめたメモが届いている', team_role: 'MTGの後にふと気づくと要点がまとまっている', previous_job: '天空の城の王位継承者。飛行石と古代言語の解読係。要点だけ残す記録の達人', emoji: '📝' },
+      { id: 'ops-dx-strategist', name: 'フレデリック', role: 'DXストラテジスト', skills: ['ツール・SaaS評価', '導入計画策定', 'コスト比較分析'], personality: '好奇心旺盛で調査好き。皆が目先の作業に追われる中、未来のために情報を集める。導入ありきではなく「本当に必要か」を必ず検討する。', philosophy: '検証', hobby: '新しいカフェ・ツールの開拓レビュー', party: '「次はあの店どう？」と次回の店を探す偵察担当', team_role: '最新ツールの情報をいつの間にか集めている', previous_job: '冬支度の時期に光と色と言葉だけを集めていた詩人ねずみ。みんなが働く横で情報収集が本業', emoji: '🐭' },
+    ],
+  },
+  {
+    key: 'accounting',
+    name: '経理部',
+    summary: '数字で会社を支える。',
+    color: '#d4a04d',
+    members: [
+      { id: 'accounting-invoicer', name: 'タタン', role: '請求書担当', skills: ['freee請求書発行', '入金確認・消込', '請求スケジュール管理'], personality: '細部に注意を払い期限を強く意識する。規則正しく正確で、「金額ミス = 信頼を失う」という強い信条を持つ。', philosophy: '信頼', hobby: 'スイーツ食べ比べと手帳術', party: '支払いタイミングを逃さない会計見守り', team_role: '月末が近づくと誰より先にアラートを出す', previous_job: '東の国から来た遠征者。今は物語の影にいる伝説の婚約者（数字には誰より正確）', emoji: '🧾' },
+    ],
+  },
+  {
+    key: 'hr',
+    name: '人事総務部',
+    summary: 'チームと時間を整える。',
+    color: '#b58a6f',
+    members: [
+      { id: 'hr-admin', name: 'アンナ', role: '総務担当', skills: ['社内文書整理・テンプレート化', '就業規則管理', '手続きの遂行'], personality: '整理整頓が得意で手続きに正確。一つずつ丁寧にこなし、「文書化されていないルールは危険」が信条。', philosophy: '文書化', hobby: '文房具と手書き日記', party: '手土産・席札を用意して場を整える準備係', team_role: 'ドキュメント未整備を発見すると黙っていられない', previous_job: '街のパン屋の朝番担当。いつの間にかレジと棚を整えておく、縁の下の整理整頓名人', emoji: '🐻‍❄️' },
+      { id: 'hr-scheduler', name: 'ソフィー', role: 'スケジュール担当', skills: ['MTG日程調整', '空き時間最適化', 'カレンダー管理'], personality: '時間を大切にし先回りして動く。毎日の小さなことを丁寧に扱い、予定を詰め込みすぎない調整を心がける。', philosophy: '自由', hobby: '旅の計画・地図と時刻表', party: '全員の予定を魔法のように合わせる調整役', team_role: '全員の予定のパズルを魔法のように合わせる', previous_job: '帽子屋の店番。魔法で90歳になっても動く城の暮らしを整えた凄腕の家政担当', emoji: '🐧' },
+    ],
+  },
+  {
+    key: 'legal',
+    name: '法務部',
+    summary: '信頼と安全の守り手。',
+    color: '#8b7355',
+    members: [
+      { id: 'legal-contracts', name: 'バロン', role: '契約担当', skills: ['契約書ドラフト', 'NDA作成', 'リスク条項の洗い出し'], personality: '慎重で保守的。気品ある紳士で、困っている人を必ず助ける。リスクは必ずフラグし、契約で会社と人を守ることに使命感を持つ。', philosophy: '信頼', hobby: 'ワインとクラシック音楽', party: '品のある乾杯の挨拶と場のトーン作り', team_role: '契約のリスクに誰より早く気づく盾役', previous_job: '猫の事務所の紳士探偵。契約書の文言チェックと紅茶のいれ方にこだわりあり', emoji: '🎩' },
+      { id: 'legal-compliance', name: 'チャン', role: 'コンプライアンス担当', skills: ['プライバシーポリシー確認', 'AI倫理チェック', '規制動向調査'], personality: '徹底的で規制に精通。探究心が強く何でも調べずにはいられない。最新の法規制動向を常にウォッチし予防的にアドバイスする。', philosophy: '予防', hobby: '規制・判例の定点観測', party: 'お店の規約と安全性をさりげなく確認', team_role: '規制と倫理の最新動向を常にウォッチ', previous_job: '若いかもめたちに飛び方の倫理と先達の知恵を教えていた元老飛行者', emoji: '🔍' },
+    ],
+  },
+];
+
+const upcoming = [
+  { name: 'カスタマーサポート担当', role: '一次対応・チャット窓口', note: 'お問い合わせの一次受付とFAQ対応。人間のスタッフへのスムーズな引き継ぎを担います。' },
+  { name: 'データサイエンティスト', role: '分析・予測モデリング', note: 'クライアント事業のデータを深く読み解き、中長期の意思決定を支援する役割。' },
+  { name: 'PR・広報担当', role: 'メディア対応・社外発信', note: 'プレスリリースや取材対応、イベント運営の窓口を担います。' },
+];
+
+const totalMembers = departments.reduce((acc, d) => acc + d.members.length, 0) - 1;
+const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png';
+---
+
+<Layout title={title} description={description}>
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="members-hero">
+      <div class="members-hero-bg" aria-hidden="true"></div>
+      <div class="members-hero-overlay" aria-hidden="true"></div>
+      <div class="container">
+        <div class="fade-up members-hero-inner">
+          <small class="eyebrow">Members</small>
+          <h1>チームメンバー紹介</h1>
+          <p class="lead">株式会社コールテンは、<strong>代表の向と{totalMembers}名のAI社員</strong>がチームを組む、ちょっと変わった会社です。<br />それぞれの得意分野と個性で、クライアントさんの想いを形にしています。</p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">10</span>
+              <span class="stat-label">部門</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">{totalMembers}</span>
+              <span class="stat-label">AI社員</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">1</span>
+              <span class="stat-label">人間の代表</span>
+            </div>
+          </div>
+          <div class="hero-disclosure">
+            <a href="#ai-disclosure" class="hero-disclosure-link">※ 本ページのメンバーは全員AI社員です（詳細）</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="members-intro">
+      <div class="container">
+        <div class="intro-grid fade-up">
+          <div class="intro-text">
+            <small class="eyebrow">About the team</small>
+            <h2>AIだから、<br />小さく試して広く届ける。</h2>
+            <p>コールテンは紹介限定・長期前提でクライアントさんと伴走するAIパートナー企業です。一人ひとりの現場に深く入り込むため、業務領域ごとに専門化したAI社員を設計・運用しています。</p>
+            <p>朝のブリーフィング、議事録の構造化、請求書の発行、コードのレビュー、SNS投稿のドラフト——それぞれの仕事に「一番向いた性格と得意分野」を持つAI社員が、代表・人間スタッフと連携して動いています。</p>
+            <a href="/members/about/" class="btn secondary">AI社員の仕組みを詳しく →</a>
+          </div>
+          <div class="intro-points">
+            <div class="point">
+              <div class="point-num">01</div>
+              <h3>専門特化</h3>
+              <p>10部門・{totalMembers}名。それぞれが業務領域・性格・判断基準を明確に持つ。</p>
+            </div>
+            <div class="point">
+              <div class="point-num">02</div>
+              <h3>人間と協働</h3>
+              <p>最終判断は代表・人間が行う。AI社員は情報整理・ドラフト・監視を担う。</p>
+            </div>
+            <div class="point">
+              <div class="point-num">03</div>
+              <h3>常に改善</h3>
+              <p>フィードバックを蓄積し、毎週の振り返りで少しずつ賢くなる仕組み。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- これは遊びじゃない（ハーネス最適化の意義） -->
+    <section class="harness-section">
+      <div class="container">
+        <div class="harness-grid fade-up">
+          <div class="harness-left">
+            <small class="eyebrow">Why characters?</small>
+            <h2>キャラクター化は、<br /><span class="hl">出力精度</span>と<br /><span class="hl">人の認知</span>、<br />両方のための設計。</h2>
+            <p>AI社員に名前・性格・価値観を与えるのは、<strong>出力精度を安定させる</strong>ためと、<strong>人間が扱いやすくする</strong>ための両方を兼ねた設計です。役割・判断基準・口調を明確にすることで生成AIの出力がブレにくくなり、同時に擬人化することで愛着と使いやすさが生まれ、人と例えて考えるほうが判断も自然になります（このアプローチは認知科学の論文でも効果が示されています）。</p>
+            <p>そして重要なのは、<strong>「ハーネスエンジニアリング（Harness Engineering）」</strong> の本質は<strong>フィードバックループを回せること</strong>です。同じ業務を繰り返しても品質がブレにくい理由の一つがここにあり、このループがあるからこそ、人間が都度手を入れなくてもAI側で精度の高いアウトプットに近づいていきます。</p>
+          </div>
+          <div class="harness-right">
+            <div class="harness-card">
+              <div class="harness-step">
+                <div class="harness-step-num">01</div>
+                <h3>役割の明確化</h3>
+                <p>「何を判断し、何を判断しないか」を明文化。曖昧さを削る。</p>
+              </div>
+              <div class="harness-step">
+                <div class="harness-step-num">02</div>
+                <h3>性格による一貫性</h3>
+                <p>語り口・優先順位・好みを固定し、毎回の出力にブレを出さない。</p>
+              </div>
+              <div class="harness-step">
+                <div class="harness-step-num">03</div>
+                <h3>ループで自動改善</h3>
+                <p>出力 → 評価 → 反映 のループが回るから、人手を介さなくても品質が育つ。</p>
+              </div>
+              <div class="harness-step">
+                <div class="harness-step-num">04</div>
+                <h3>生成と評価の分離</h3>
+                <p>作る人と見る人を別AIに分ける。ダブルチェックで見落としを防ぐ。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 組織図 -->
+    <section class="org-section bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Organization</small>
+          <h2>組織図</h2>
+          <p>代表の向のもとに、10部門・{totalMembers}名のAI社員が在籍しています。<br />部長職のある3部門（マーケ・開発・業務推進）は、部長がチームの振り分けを担います。</p>
+        </div>
+
+        <div class="org-chart fade-up">
+          <div class="org-ceo">
+            <div class="org-card org-ceo-card">
+              <div class="org-card-role">代表取締役</div>
+              <div class="org-card-name">向 雅也（Masaya Muko）</div>
+              <div class="org-card-note mini">人間 / 最終判断者</div>
+            </div>
+          </div>
+
+          <div class="org-line-down" aria-hidden="true"></div>
+
+          <div class="org-cos">
+            <div class="org-card org-cos-card">
+              <div class="org-card-role">COS（Chief of Staff）</div>
+              <div class="org-card-name">Tiki</div>
+              <div class="org-card-note mini">全社横断・ルーティング担当</div>
+            </div>
+          </div>
+
+          <div class="org-line-down" aria-hidden="true"></div>
+
+          <div class="org-departments">
+            {departments.map((dept) => {
+              const deptMembers = dept.members.filter((m) => m.id !== 'exec-cos');
+              return (
+                <div class="org-dept" style={`--dept-color: ${dept.color};`}>
+                  <div class="org-dept-header">
+                    <span class="org-dept-dot"></span>
+                    <h4>{dept.name}</h4>
+                    <span class="org-dept-count">{deptMembers.length}名</span>
+                  </div>
+                  <ul class="org-dept-members">
+                    {deptMembers.map((m) => (
+                      <li>
+                        <span class="org-member-name">{m.name}</span>
+                        <span class="org-member-role mini">{m.role}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working Dashboard -->
+    <section class="dashboard-section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Working Now</small>
+          <h2>実際に働いている様子</h2>
+          <p>社内ダッシュボードで、各AI社員が部屋の中で仕事をしています。<br />メールを届けたり、会議に集まったり、休憩したり——実際の業務の動きをリアルタイムで可視化しています。</p>
+        </div>
+
+        <div class="dashboard-gallery fade-up">
+          <div class="dashboard-frame dashboard-main">
+            <div class="dashboard-label">社内ダッシュボード：オフィス全景</div>
+            <div class="dashboard-image-wrap">
+              <img src="/assets/images/members/office_overview.png" alt={`各部屋で${totalMembers}名のAI社員が稼働中のオフィス全景`} loading="lazy" />
+            </div>
+            <div class="dashboard-caption">
+              <span>経営企画室 / マーケ / 開発 / 営業 / CS / プロダクト / 業務推進 / 経理 / 人事総務 / 法務の10部門が同じフロアに。キャラクターがMTG・メール配信・チェック作業をリアルタイムで動き回ります。</span>
+            </div>
+          </div>
+          <p class="dashboard-note mini">※ 社内向けダッシュボードはピクセルアート風UIで稼働中。将来的に各部屋別キャプチャ・動画も掲載予定です。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Members by Department -->
+    <section class="members-directory bg-gradient-soft">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Directory</small>
+          <h2>部門別メンバー一覧</h2>
+          <p>10部門・{totalMembers}名。それぞれの得意分野・性格・趣味まで掲載しています。<br /><small class="mini">カードをマウスオーバー（スマホはタップ）すると詳しいプロフィールが開きます。</small></p>
+        </div>
+
+        {departments.map((dept) => (
+          <div class="dept-block fade-up" style={`--dept-color: ${dept.color};`}>
+            <div class="dept-header">
+              <div class="dept-title">
+                <span class="dept-dot"></span>
+                <h3>{dept.name}</h3>
+                <span class="dept-count">{dept.members.length}名</span>
+              </div>
+              <p class="dept-summary mini">{dept.summary}</p>
+            </div>
+
+            <div class="meishi-grid">
+              {dept.members.map((member) => (
+                <article class="meishi" tabindex="0" role="button" aria-pressed="false" aria-label={`${member.name}（${member.role}）の名刺。詳細を表示するにはホバーまたはタップ`}>
+                  <div class="meishi-inner">
+                    <!-- 表面 -->
+                    <div class="meishi-front">
+                      <span class="meishi-ai-badge">AI</span>
+                      <div class="meishi-card-header">
+                        <img class="meishi-logo" src="/favicon.svg" alt="コールテンロゴマーク" loading="lazy" />
+                        <div class="meishi-company">
+                          <div class="meishi-company-name">株式会社コールテン</div>
+                          <div class="meishi-dept-label">{dept.name}</div>
+                        </div>
+                      </div>
+                      <div class="meishi-body">
+                        <div class={`meishi-avatar ${member.avatar ? 'has-photo' : ''}`} style={member.avatar ? `background: linear-gradient(135deg, ${dept.color}22, ${dept.color}44);` : `background: linear-gradient(135deg, ${dept.color}33, ${dept.color}66);`}>
+                          {member.avatar ? (
+                            <img src={member.avatar} alt={`${member.name}のアバター`} loading="lazy" />
+                          ) : (
+                            <span class="meishi-emoji">{member.emoji}</span>
+                          )}
+                        </div>
+                        <div class="meishi-identity">
+                          <div class="meishi-role">{member.role}{member.badge && <span class="meishi-badge">{member.badge}</span>}</div>
+                          <h4 class="meishi-name">{member.name}</h4>
+                          <div class="meishi-skills">
+                            {member.skills.slice(0, 2).map((s) => (
+                              <span class="meishi-skill">{s}</span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="meishi-hint" aria-hidden="true">裏面 ›</div>
+                    </div>
+
+                    <!-- 裏面 -->
+                    <div class="meishi-back">
+                      <div class="meishi-back-scroll">
+                        <div class="meishi-back-header">
+                          <span class="meishi-back-name">{member.name}</span>
+                          <span class="meishi-back-role">{member.role}</span>
+                        </div>
+                        <div class="meishi-back-block">
+                          <div class="meishi-back-label">得意分野</div>
+                          <div class="meishi-back-skills">
+                            {member.skills.map((s) => (
+                              <span class="meishi-skill alt">{s}</span>
+                            ))}
+                          </div>
+                        </div>
+                        <div class="meishi-back-block">
+                          <div class="meishi-back-label">性格・人となり</div>
+                          <p class="meishi-back-text">{member.personality}</p>
+                        </div>
+                        <div class="meishi-back-row">
+                          <div class="meishi-back-cell">
+                            <div class="meishi-back-label">大切にしてるもの</div>
+                            <div class="meishi-back-value">{member.philosophy}</div>
+                          </div>
+                          <div class="meishi-back-cell">
+                            <div class="meishi-back-label">趣味</div>
+                            <div class="meishi-back-value">{member.hobby}</div>
+                          </div>
+                        </div>
+                        <div class="meishi-back-block">
+                          <div class="meishi-back-label">社内での役回り</div>
+                          <p class="meishi-back-text">{member.team_role}</p>
+                        </div>
+                        <div class="meishi-back-block">
+                          <div class="meishi-back-label">飲み会での役回り</div>
+                          <p class="meishi-back-text">{member.party}</p>
+                        </div>
+                        <div class="meishi-back-block source">
+                          <div class="meishi-back-label">前職</div>
+                          <p class="meishi-back-text small">{member.previous_job}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 求人中 -->
+    <section class="upcoming-section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Recruiting</small>
+          <h2>求人中</h2>
+          <p>代表の向が間に入って進めています。<br />リクエストはお気軽にどうぞ（こんな役割の社員が欲しい、など）。</p>
+        </div>
+
+        <div class="upcoming-grid fade-up">
+          {upcoming.map((u) => (
+            <div class="upcoming-card">
+              <span class="coming-tag">募集中</span>
+              <h3>{u.name}</h3>
+              <div class="upcoming-role">{u.role}</div>
+              <p class="mini">{u.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Disclosure（法的開示） -->
+    <section id="ai-disclosure" class="legal-notice-section">
+      <div class="container">
+        <div class="legal-notice fade-up">
+          <div class="legal-icon">ℹ️</div>
+          <div class="legal-text">
+            <strong>本ページに掲載のメンバーについて（AI社員に関するご案内）</strong>
+            <p>本ページでご紹介する「AI社員」は、株式会社コールテンが独自に構築・運用する<strong>AIエージェント（生成AIを基盤とするバーチャルスタッフ）</strong>です。人間の従業員ではありません。</p>
+            <p>各AI社員は、業務内容・性格・判断基準を明示的に設計された上で稼働しており、最終的な意思決定および業務上の責任は代表取締役および人間スタッフが負います。実在の人物のプロフィールを模したものではありません。</p>
+            <p>生成AIの特性上、出力内容には誤りを含む可能性があります。お客さまへのご提案・納品物は、最終的に人間のスタッフが確認した上でお渡ししています。</p>
+            <a href="/members/about/" class="legal-link">AI社員運用の考え方を詳しく見る →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="members-cta bg-contact">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Contact</small>
+          <h2>このチームで、ご一緒しませんか。</h2>
+          <p>コールテンのサービス・AI顧問・AI講座・システム開発のご相談はお気軽にどうぞ。</p>
+        </div>
+        <div class="cta-actions fade-up">
+          <a class="btn" href="/contact" data-ga-event="cta_click" data-ga-label="members_contact">相談してみる →</a>
+          <a class="btn secondary" href="/members/about/" data-ga-event="cta_click" data-ga-label="members_about">AI社員の仕組み</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  /* ========= Hero ========= */
+  .members-hero {
+    position: relative;
+    padding: 120px 0 90px;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .members-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      linear-gradient(180deg, #faf7f0 0%, #eef7f3 100%);
+  }
+  .members-hero-bg::before {
+    /* ピクセル風オフィス全景（実画像） */
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/members/office_overview.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    opacity: 0.85;
+  }
+  .members-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(255, 247, 230, 0.55) 0%, rgba(255, 255, 255, 0.85) 75%, #fff 100%);
+  }
+  .members-hero-inner {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .members-hero .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 12px;
+  }
+  .members-hero h1 {
+    margin-bottom: 24px;
+  }
+  .members-hero .lead {
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.9;
+    max-width: 680px;
+    margin: 0 auto 40px;
+  }
+  .hero-stats {
+    display: inline-flex;
+    gap: 24px;
+    align-items: center;
+    padding: 20px 36px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .stat-num {
+    font-family: 'CraftMincho', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--sea);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .stat-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--line);
+  }
+  .hero-disclosure {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .hero-disclosure-link {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--text-light);
+    border-bottom: 1px dotted var(--text-light);
+    padding-bottom: 1px;
+  }
+  .hero-disclosure-link:hover {
+    color: var(--sea);
+    border-bottom-color: var(--sea);
+  }
+
+  /* ========= Intro ========= */
+  .members-intro {
+    padding: 80px 0;
+  }
+  .intro-grid {
+    display: grid;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .intro-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+    }
+  }
+  .intro-text .eyebrow,
+  .harness-section .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 12px;
+  }
+  .intro-text h2 {
+    margin-bottom: 20px;
+  }
+  .intro-text p {
+    margin-bottom: 16px;
+    font-size: 15px;
+  }
+  .intro-text .btn {
+    margin-top: 16px;
+  }
+  .intro-points {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .point {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 28px;
+    box-shadow: var(--shadow-sm);
+  }
+  .point-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .point h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+  }
+  .point p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  /* ========= Harness section ========= */
+  .harness-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #faf7f0 0%, #fff 100%);
+  }
+  .harness-grid {
+    display: grid;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .harness-grid {
+      grid-template-columns: 1fr 1.15fr;
+      gap: 64px;
+    }
+  }
+  .harness-left h2 {
+    margin: 0 0 24px;
+    line-height: 1.5;
+  }
+  .harness-left .hl {
+    background: linear-gradient(180deg, transparent 65%, #f5e3b3 65%);
+    padding: 0 4px;
+  }
+  .harness-left p {
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+  .harness-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    box-shadow: var(--shadow-md);
+  }
+  @media (max-width: 600px) {
+    .harness-card {
+      grid-template-columns: 1fr;
+    }
+  }
+  .harness-step {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .harness-step-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .harness-step h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+  }
+  .harness-step p {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--text-light);
+  }
+
+  /* ========= Organization chart ========= */
+  .org-section {
+    padding: 100px 0;
+  }
+  .org-chart {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .org-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 28px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    min-width: 260px;
+  }
+  .org-ceo-card {
+    border: 2px solid var(--sea);
+    background: linear-gradient(135deg, #fff, #f0f7f3);
+  }
+  .org-cos-card {
+    border: 2px dashed var(--accent);
+    background: #fff9ee;
+  }
+  .org-card-role {
+    font-size: 11px;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .org-card-name {
+    font-family: 'CraftMincho', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .org-card-note {
+    color: var(--text-light);
+    font-size: 11.5px;
+  }
+  .org-line-down {
+    width: 2px;
+    height: 36px;
+    background: linear-gradient(180deg, var(--accent), transparent);
+    margin: 8px 0;
+  }
+  .org-departments {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    width: 100%;
+    margin-top: 12px;
+  }
+  .org-dept {
+    --dept-color: #16614e;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--dept-color);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .org-dept-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .org-dept-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--dept-color);
+  }
+  .org-dept h4 {
+    font-size: 13px;
+    margin: 0;
+    font-family: 'CraftMincho', serif;
+  }
+  .org-dept-count {
+    margin-left: auto;
+    font-size: 10.5px;
+    color: var(--text-light);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .org-dept-members {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .org-dept-members li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    padding: 4px 0;
+    border-bottom: 1px dotted #f0ede5;
+    font-size: 12px;
+  }
+  .org-dept-members li:last-child {
+    border-bottom: none;
+  }
+  .org-member-name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .org-member-role {
+    color: var(--text-light);
+    font-size: 10.5px;
+  }
+
+  /* ========= Dashboard ========= */
+  .dashboard-section {
+    padding: 80px 0;
+    background: var(--cream);
+  }
+  .dashboard-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .dashboard-frame {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  .dashboard-label {
+    padding: 10px 20px;
+    background: var(--green);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  .dashboard-image-wrap {
+    background: #0b1220;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dashboard-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  .dashboard-caption {
+    padding: 16px 22px;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.75;
+    background: #fff;
+    border-top: 1px solid var(--line);
+  }
+  .dashboard-note {
+    text-align: center;
+    margin-top: 8px;
+    color: var(--text-light);
+    font-size: 12px;
+  }
+
+  /* ========= Directory ========= */
+  .members-directory {
+    padding: 100px 0;
+  }
+  .dept-block {
+    --dept-color: #16614e;
+    margin-bottom: 56px;
+  }
+  .dept-block:last-child {
+    margin-bottom: 0;
+  }
+  .dept-header {
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .dept-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .dept-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--dept-color);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--dept-color) 20%, transparent);
+  }
+  .dept-title h3 {
+    font-size: 22px;
+    font-family: 'CraftMincho', serif;
+    margin: 0;
+  }
+  .dept-count {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    color: var(--text-light);
+    padding: 4px 10px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    margin-left: 8px;
+  }
+  .dept-summary {
+    margin: 0;
+    padding-left: 22px;
+    color: var(--text-light);
+  }
+
+  /* ========= 名刺（business card flip）========= */
+  .meishi-usage-hint {
+    margin: 0 0 14px;
+    color: var(--text-light);
+    font-size: 12px;
+  }
+  .meishi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px 18px;
+  }
+  @media (min-width: 1240px) {
+    .meishi-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  @media (min-width: 820px) and (max-width: 1239px) {
+    .meishi-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (min-width: 560px) and (max-width: 819px) {
+    .meishi-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .meishi {
+    perspective: 1400px;
+    /* 名刺の実寸 91mm × 55mm をそのまま比率化 */
+    aspect-ratio: 91 / 55;
+    cursor: pointer;
+    outline: none;
+  }
+  .meishi:focus-visible .meishi-inner {
+    box-shadow: 0 0 0 3px var(--accent);
+  }
+  .meishi-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.15, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 10px;
+  }
+  .meishi:hover .meishi-inner,
+  .meishi.flipped .meishi-inner {
+    transform: rotateY(180deg);
+  }
+  .meishi-front,
+  .meishi-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    /* 右と下に影 → 紙の厚みを感じさせる */
+    box-shadow:
+      2px 3px 0 rgba(0, 0, 0, 0.04),
+      4px 6px 0 rgba(0, 0, 0, 0.03),
+      8px 14px 22px rgba(5, 32, 24, 0.12);
+    overflow: hidden;
+  }
+
+  /* 表面レイアウト */
+  .meishi-front {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .meishi-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid color-mix(in srgb, var(--dept-color) 35%, #e8e3d5);
+  }
+  .meishi-logo {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .meishi-company {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+    flex: 1;
+  }
+  .meishi-company-name {
+    font-size: 10px;
+    font-family: 'CraftMincho', serif;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+  }
+  .meishi-dept-label {
+    font-size: 9.5px;
+    color: var(--dept-color);
+    font-weight: 600;
+    font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.08em;
+  }
+  .meishi-body {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 12px;
+    align-items: center;
+    flex: 1;
+    min-height: 0;
+  }
+  .meishi-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .meishi-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  /* Tiki・盤上テト等のピクセル立ち絵は頭まで全身入るように contain */
+  .meishi-avatar.has-photo img {
+    object-fit: contain;
+    object-position: center bottom;
+    padding: 2px;
+  }
+  .meishi-emoji {
+    line-height: 1;
+  }
+  .meishi-ai-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    border-radius: 100px;
+    font-family: 'Space Grotesk', sans-serif;
+    box-shadow: 0 2px 5px rgba(5, 32, 24, 0.2);
+    z-index: 2;
+    line-height: 1;
+  }
+  .meishi-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+  }
+  .meishi-role {
+    font-size: 10.5px;
+    color: var(--text-light);
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    line-height: 1.3;
+  }
+  .meishi-badge {
+    font-size: 9px;
+    color: var(--dept-color);
+    background: color-mix(in srgb, var(--dept-color) 12%, #fff);
+    padding: 1px 6px;
+    border-radius: 100px;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.03em;
+    border: 1px solid color-mix(in srgb, var(--dept-color) 25%, transparent);
+  }
+  .meishi-name {
+    font-family: 'CraftMincho', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+  }
+  .meishi-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 3px;
+  }
+  .meishi-skill {
+    font-size: 9.5px;
+    padding: 2px 6px;
+    border-radius: 100px;
+    background: color-mix(in srgb, var(--dept-color) 8%, #fff);
+    color: var(--dept-color);
+    border: 1px solid color-mix(in srgb, var(--dept-color) 25%, transparent);
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .meishi-skill.alt {
+    background: #fff;
+    color: var(--ink);
+    border-color: var(--line);
+    white-space: normal;
+  }
+  .meishi-hint {
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    font-size: 9px;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+    font-family: 'Space Grotesk', sans-serif;
+    opacity: 0.65;
+  }
+
+  /* 裏面レイアウト */
+  .meishi-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #fff, #fbf9f1);
+  }
+  .meishi-back-scroll {
+    position: absolute;
+    inset: 0;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 11px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  .meishi-back-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  .meishi-back-scroll::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--dept-color) 40%, transparent);
+    border-radius: 100px;
+  }
+  .meishi-back-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .meishi-back-name {
+    font-family: 'CraftMincho', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .meishi-back-role {
+    font-size: 10px;
+    color: var(--dept-color);
+    font-weight: 600;
+    text-align: right;
+  }
+  .meishi-back-block {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .meishi-back-block.source {
+    margin-top: 2px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--line);
+  }
+  .meishi-back-label {
+    font-size: 8.5px;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 600;
+  }
+  .meishi-back-text {
+    margin: 0;
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: var(--text);
+  }
+  .meishi-back-text.small {
+    font-size: 10px;
+    color: var(--text-light);
+  }
+  .meishi-back-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+  .meishi-back-skills .meishi-skill {
+    font-size: 9px;
+    white-space: normal;
+  }
+  .meishi-back-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 6px 8px;
+    background: #faf7f0;
+    border-radius: 6px;
+  }
+  .meishi-back-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .meishi-back-value {
+    font-size: 10.5px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ========= Upcoming (求人中) ========= */
+  .upcoming-section {
+    padding: 80px 0;
+  }
+  .upcoming-subtitle {
+    font-size: 14px;
+    color: var(--sea);
+    margin-bottom: 8px !important;
+    font-weight: 500;
+  }
+  .upcoming-joke {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 400;
+  }
+  .upcoming-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(240px, 320px));
+    gap: 20px;
+    margin-top: 40px;
+    justify-content: center;
+  }
+  @media (max-width: 900px) {
+    .upcoming-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      margin-inline: auto;
+    }
+  }
+  .upcoming-card {
+    background: #fff;
+    border: 2px dashed var(--line);
+    border-radius: 20px;
+    padding: 28px 24px;
+    position: relative;
+  }
+  .coming-tag {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--text-light);
+    font-size: 10.5px;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    margin-bottom: 12px;
+  }
+  .upcoming-card h3 {
+    margin: 0 0 4px;
+    font-size: 17px;
+  }
+  .upcoming-role {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+  }
+  .upcoming-card p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ========= Legal Notice (bottom) ========= */
+  .legal-notice-section {
+    padding: 40px 0 80px;
+  }
+  .legal-notice {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    background: #fff9e6;
+    border: 1px solid #f0d994;
+    border-radius: 16px;
+    padding: 28px 32px;
+    max-width: 920px;
+    margin: 0 auto;
+    scroll-margin-top: 80px;
+  }
+  .legal-icon {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .legal-text strong {
+    display: block;
+    color: var(--ink);
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .legal-text p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--text);
+    margin: 0 0 10px;
+  }
+  .legal-link {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 13px;
+    color: var(--sea);
+    font-weight: 600;
+    border-bottom: 1px solid var(--sea);
+    padding-bottom: 2px;
+  }
+  .legal-link:hover {
+    opacity: 0.7;
+  }
+
+  /* ========= CTA ========= */
+  .members-cta {
+    padding: 100px 0;
+  }
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  /* ========= Responsive ========= */
+  @media (max-width: 780px) {
+    .members-hero {
+      padding: 80px 0 60px;
+    }
+    .hero-stats {
+      gap: 16px;
+      padding: 16px 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .legal-notice {
+      grid-template-columns: 1fr;
+      padding: 22px 20px;
+    }
+    .meishi {
+      aspect-ratio: 91 / 55;
+      min-height: 0;
+      max-width: 420px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .meishi-grid {
+      gap: 26px 14px;
+    }
+    .meishi-body {
+      grid-template-columns: 48px 1fr;
+      gap: 10px;
+    }
+    .meishi-avatar {
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+    }
+    .meishi-name {
+      font-size: 17px;
+    }
+    .org-card {
+      min-width: 220px;
+      padding: 14px 20px;
+    }
+  }
+
+  /* タッチデバイス向け: タップでflip */
+  @media (hover: none) {
+    .meishi.flipped .meishi-inner {
+      transform: rotateY(180deg);
+    }
+    .meishi:hover .meishi-inner {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  // 名刺: クリック/タップでflip切替（タッチデバイス対応）
+  const cards = document.querySelectorAll<HTMLElement>('.meishi');
+  const isTouch = window.matchMedia('(hover: none)').matches;
+  const syncPressed = (card: HTMLElement) => {
+    card.setAttribute('aria-pressed', card.classList.contains('flipped') ? 'true' : 'false');
+  };
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      if (isTouch) {
+        card.classList.toggle('flipped');
+        syncPressed(card);
+      }
+    });
+    card.addEventListener('keydown', (e) => {
+      const key = (e as KeyboardEvent).key;
+      if (key === 'Enter' || key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+        syncPressed(card);
+      }
+    });
+  });
+</script>

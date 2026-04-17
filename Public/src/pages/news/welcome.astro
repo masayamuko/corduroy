@@ -1,0 +1,198 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "お知らせページを新設しました｜株式会社コールテン";
+const description = "コールテンから皆さまへのお知らせ・活動報告・学びをまとめる場を新設しました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://corduroy.co.jp/news/welcome/"
+  ogUrl="https://corduroy.co.jp/news/welcome/"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "@id": "https://corduroy.co.jp/news/welcome/#article",
+    "url": "https://corduroy.co.jp/news/welcome/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://corduroy.co.jp/news/welcome/"
+    },
+    "headline": "お知らせページを新設しました",
+    "datePublished": "2026-04-17",
+    "dateModified": "2026-04-17",
+    "image": "https://corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Organization",
+      "@id": "https://corduroy.co.jp/#organization",
+      "name": "株式会社コールテン"
+    },
+    "publisher": {
+      "@id": "https://corduroy.co.jp/#organization"
+    },
+    "description": "コールテンから皆さまへのお知らせ・活動報告・学びをまとめる場を新設しました。"
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/news/">お知らせ</a>
+          <span>/</span>
+          <span>welcome</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-04-17</time>
+            <span class="cat">お知らせ</span>
+          </div>
+          <h1>お知らせページを新設しました</h1>
+        </header>
+
+        <section class="article-body fade-up">
+          <p>
+            コールテンのウェブサイトに「お知らせ」ページを新設しました。
+            これまでサービス紹介やクライアントの声を中心に発信してきましたが、
+            これからは会社としての小さな動きや、AI活用にまつわる気づきも
+            少しずつ共有していきたいと思っています。
+          </p>
+
+          <h2>ここで発信していくこと</h2>
+          <ul>
+            <li>サービスの更新情報や開催予定</li>
+            <li>クライアントの声や事例の追加告知</li>
+            <li>AI活用にまつわる現場での気づき</li>
+            <li>コールテンの活動報告（月次・四半期）</li>
+          </ul>
+
+          <h2>発信ペースについて</h2>
+          <p>
+            コールテンは紹介限定・長期前提で伴走する会社なので、
+            発信はゆっくりペースになると思います。
+            数を出すことよりも、誰かの役に立つ内容を
+            ていねいに届けていければと考えています。
+          </p>
+
+          <h2>これからもよろしくお願いします</h2>
+          <p>
+            ご意見・ご感想や、取り上げてほしいテーマがあれば、
+            <a href="/contact">お問い合わせページ</a>からお気軽にお寄せください。
+            紹介からのご相談もお待ちしています。
+          </p>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/news/" class="btn secondary">← お知らせ一覧に戻る</a>
+          <a href="/contact" class="btn">相談方法を見る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article { padding: 120px 0 100px; }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-left: 14px;
+    border-left: 4px solid var(--sea);
+  }
+  .article-body p { margin-bottom: 24px; }
+  .article-body ul {
+    padding-left: 24px;
+    margin: 16px 0 28px;
+  }
+  .article-body li {
+    margin-bottom: 8px;
+    line-height: 1.9;
+  }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover {
+    text-decoration-color: var(--sea);
+  }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-foot { justify-content: center; }
+  }
+</style>

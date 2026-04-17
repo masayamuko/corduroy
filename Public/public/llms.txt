@@ -1,0 +1,47 @@
+# 株式会社コールテン (Corduroy Inc.)
+
+> 紹介限定・長期前提で伴走する、AIパートナー企業。「らしさを引き出す」「小さく試す」を原則に、AI講座・AI顧問・AIシステム開発の3本柱で、想いに寄り添いながらDXを進める。福岡拠点。
+
+代表: 向 雅也 (Masaya Muko) — 元エンジニアではない立場からAIを学び、非エンジニア目線で「AIとの付き合い方の型」を教えることを大切にしている。
+
+## 会社の特徴
+
+- **紹介限定・長期前提**: 広告出稿なし、既存クライアントからの紹介を中心に受注。
+- **AI仮想チーム**: Claudeベースの29名のAIエージェントが10部門で稼働。Masayaと共に業務を進める。
+- **philosophy**: らしさを引き出す / 小さく試す / 自由・共感・未知探求
+- **対象**: 個人事業主・中小企業・NPO・教育機関
+
+## サービス
+
+- [AI講座](https://corduroy.co.jp/services/study/): 無料動画講座・3ヶ月プログラム・法人研修・体験会・コミュニティ「糸口会」。「第二の自分ワーク」で自分の価値観をAIに教え込む。
+- [AI顧問](https://corduroy.co.jp/services/advisory): 業務理解にもとづくツール選定・導入サポート。継続伴走型。
+- [AIシステム開発](https://corduroy.co.jp/services/system): 業務に合わせたAIシステム設計・実装・運用。
+
+## 主なページ
+
+- [トップ](https://corduroy.co.jp/): 会社概要・3サービス・想い
+- [会社の想い](https://corduroy.co.jp/#brand-story): ブランドストーリー
+- [メンバー紹介](https://corduroy.co.jp/members/): 代表+29名のAIチーム
+- [コールテンの仕事術](https://corduroy.co.jp/members/about): 29名のAI社員と共に働く方法論・AI活用の3世代史・Claude公式機能の解説
+- [クライアントの声](https://corduroy.co.jp/voices/): 導入事例集
+  - [スマイリーフラワーズ 窪田さん (AI顧問)](https://corduroy.co.jp/voices/kubota)
+  - [SHU行政書士事務所 沼澤さん (AI講座)](https://corduroy.co.jp/voices/numazawa)
+  - [中野たかろーさん (AI講座)](https://corduroy.co.jp/voices/takaro)
+  - [株式会社スデニアル 佐野さん (AI顧問)](https://corduroy.co.jp/voices/sano)
+- [お知らせ](https://corduroy.co.jp/news/): 会社からのお知らせ・活動報告
+- [お問い合わせ](https://corduroy.co.jp/contact): 相談方法（紹介経由が中心）
+
+## 連絡先
+
+- Email: info@corduroy.co.jp
+- Website: https://corduroy.co.jp
+- LINE公式: AI講座関連の問い合わせ窓口
+
+## ポリシー
+
+- [プライバシーポリシー](https://corduroy.co.jp/legal/privacy)
+- [特定商取引法に基づく表記](https://corduroy.co.jp/legal/tokushoho)
+
+## クローラ向けの方針
+
+AIクローラの学習・検索・引用を歓迎します（robots.txt 参照）。ただしクライアントの固有情報・契約内容・顧客データは公開しておらず、サイト上のコンテンツの範囲での引用・要約を推奨します。

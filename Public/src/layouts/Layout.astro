@@ -69,7 +69,43 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-        
+
+        <!-- Organization & WebSite Schema.org -->
+        <script type="application/ld+json" is:inline set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://corduroy.co.jp/#organization",
+                    "name": "株式会社コールテン",
+                    "alternateName": "Corduroy Inc.",
+                    "url": "https://corduroy.co.jp/",
+                    "logo": "https://corduroy.co.jp/assets/images/logo.png",
+                    "description": "紹介限定・長期前提で伴走するAIパートナー。AI講座・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。",
+                    "founder": {
+                        "@type": "Person",
+                        "name": "向 雅也",
+                        "alternateName": "Masaya Muko"
+                    },
+                    "sameAs": [],
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "contactType": "customer support",
+                        "email": "info@corduroy.co.jp",
+                        "availableLanguage": ["ja"]
+                    }
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://corduroy.co.jp/#website",
+                    "url": "https://corduroy.co.jp/",
+                    "name": "株式会社コールテン",
+                    "publisher": { "@id": "https://corduroy.co.jp/#organization" },
+                    "inLanguage": "ja-JP"
+                }
+            ]
+        })} />
+
         <slot name="head" />
 	</head>
 	<body>

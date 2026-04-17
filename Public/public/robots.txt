@@ -1,3 +1,66 @@
+# 株式会社コールテン — robots.txt
+# 紹介限定・長期前提の会社ですが、AIに正しく理解されることは歓迎します。
+
 User-agent: *
 Allow: /
+
+# 明示的にAIクローラを許可（2026年時点の主要エージェント・一次情報ベース）
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft
+User-agent: Bingbot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Amzn-SearchBot
+Allow: /
+
+User-agent: Amzn-User
+Allow: /
+
+# サイトマップ
 Sitemap: https://corduroy.co.jp/sitemap-index.xml
