@@ -3,8 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout
-  title="サービス一覧・選び方ガイド｜株式会社コールテン"
-  description="AI講座・AI顧問・AIシステム開発の3サービスを比較し、あなたに合う入り口を選べる一覧ページ。目的や体制に応じた導入ルートも紹介します。"
+  title="無料AI講座｜株式会社コールテン"
+  description="AIの「使い方」より「付き合い方」。自己開示・AI理解・環境づくり——AIコミュ力を磨く、本質的な学びを提供します。まずは無料の動画講座から。"
   canonicalUrl="https://corduroy.co.jp/services"
   ogUrl="https://corduroy.co.jp/services"
 >
@@ -13,564 +13,481 @@ import Layout from '../../layouts/Layout.astro';
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "無料AI講座", "item": "https://corduroy.co.jp/services" }
+    ]
+  }
+  </script>
+
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "ホーム",
-        "item": "https://corduroy.co.jp/"
+        "@type": "Question",
+        "name": "AIの知識がなくても大丈夫ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい。コールテンの講座は「AIの使い方」ではなく「AIとの付き合い方」を学ぶものです。専門知識は必要ありません。スマホでLINEが使える方なら、どなたでも始められます。" }
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "サービス一覧",
-        "item": "https://corduroy.co.jp/services"
+        "@type": "Question",
+        "name": "どんな業種・職種でも活用できますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい。AIコミュ力は特定のツールや業界に依存しない、コミュニケーションの基礎スキルです。経営者、フリーランス、会社員など、さまざまな方にご活用いただいています。" }
+      },
+      {
+        "@type": "Question",
+        "name": "無料動画講座だけでも学べますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい。まずは動画講座でAIコミュ力の基本を掴んでいただけます。その上で、より深く学びたい方にはAI講座やAI顧問などのサービスもご用意しています。" }
+      },
+      {
+        "@type": "Question",
+        "name": "他のAI講座との違いは何ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "多くのAI講座は「ツールの操作方法」や「プロンプトのテクニック」を教えます。コールテンは、AIとの関係性そのものを育てるアプローチ。一時的なスキルではなく、AIと長く付き合っていくための土台をつくります。" }
+      },
+      {
+        "@type": "Question",
+        "name": "受講後、すぐにAIを活用できるようになりますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "「すぐに完璧に」というより、「少しずつ関係性が育っていく」イメージです。人間関係と同じで、焦らず続けることで、気づけば自然にAIと協力できるようになっています。" }
+      },
+      {
+        "@type": "Question",
+        "name": "コールテンの講座はオンラインですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、すべてオンラインで受講いただけます。お住まいの地域に関係なく、インターネット環境があればどこからでも参加できます。" }
+      },
+      {
+        "@type": "Question",
+        "name": "どのくらいの期間で変化を感じられますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "個人差はありますが、多くの方が2〜3週間ほどで「AIとのやり取りが楽しくなってきた」と実感されています。人間関係と同じで、焦らず続けることで着実に変化が起こります。" }
+      },
+      {
+        "@type": "Question",
+        "name": "法人・チームでの導入は可能ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい。法人向けのAI顧問サービスでは、チーム全体でAIコミュ力を高める支援を行っています。お気軽にお問い合わせください。" }
       }
     ]
   }
   </script>
 
   <main>
+
+    <!-- =====================================================
+      01. HERO
+    ===================================================== -->
     <section class="hero">
       <div class="container hero-inner">
         <div class="fade-up">
-          <small>Services Overview</small>
-          <h1>あなたに合うAI活用の入口を、<br>
-            <span class="highlight">3つのサービス</span>から。</h1>
-          <p>学ぶ・伴走・仕組み化。必要な深さとスピードに合わせて、最適な入り口をご提案します。</p>
-          <div class="hero-tags">
-            <span class="pill">比較しやすい</span>
-            <span class="pill">目的別に選べる</span>
-            <span class="pill">段階的に広げる</span>
+          <small>What We Believe</small>
+          <h1>AI活用のすべては、<br>AIとの<span class="highlight">「関係性」</span>にある。</h1>
+          <p class="hero-lead">AIコミュ力を磨く、本質的な学びを提供。</p>
+          <div class="hero-cta">
+            <a class="btn-line" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+               data-ga-event="cta_click" data-ga-label="services_hero_line">
+              <span class="line-icon-sm">LINE</span>
+              無料動画講座を受ける
+            </a>
+            <a class="btn secondary" href="/contact">お問い合わせ</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- NEW: Case Studies -->
-    <section class="container">
-      <div class="section-head fade-up">
-        <small>Case Study</small>
-        <h2>導入事例</h2>
-        <p>「どこから入るか」のヒントに。実際の活用事例をご紹介します。</p>
-      </div>
-      <div class="case-grid">
-        <div class="case-card fade-up">
-          <div class="case-content">
-            <div class="case-flow">
-              <span class="flow-tag">🎓 AI講座</span>
-              <span class="flow-arrow">→</span>
-              <span class="flow-tag">🤝 AI顧問</span>
+
+    <!-- =====================================================
+      02. 共感 — よくある思い込み
+    ===================================================== -->
+    <section class="empathy-section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Does This Sound Familiar?</small>
+          <h2>こんな"思い込み"していませんか？</h2>
+        </div>
+        <div class="empathy-list">
+          <div class="empathy-item fade-up">
+            <div class="empathy-icon" aria-hidden="true">?</div>
+            <div class="empathy-body">
+              <p class="empathy-myth">「プロンプトを工夫すれば、もっといい答えが返ってくるはず」</p>
+              <p class="empathy-truth">もちろんプロンプトも大事。でも実は、もっと手前——あなた自身をAIに伝えること——に力を入れた方が、結果が大きく変わることが多いんです。</p>
             </div>
-            
+          </div>
+          <div class="empathy-item fade-up">
+            <div class="empathy-icon" aria-hidden="true">?</div>
+            <div class="empathy-body">
+              <p class="empathy-myth">「AIには正解の使い方がある」</p>
+              <p class="empathy-truth">人によってAIとの付き合い方はまったく違います。「正解」を探すより、自分に合ったスタイルを育てていく方が近道かもしれません。</p>
+            </div>
+          </div>
+          <div class="empathy-item fade-up">
+            <div class="empathy-icon" aria-hidden="true">?</div>
+            <div class="empathy-body">
+              <p class="empathy-myth">「もっと高機能なAIを使えばうまくいく」</p>
+              <p class="empathy-truth">ツールを変えても、関係性が変わらなければ、本質的な変化は起きにくいものです。</p>
+            </div>
+          </div>
+          <div class="empathy-item fade-up">
+            <div class="empathy-icon" aria-hidden="true">?</div>
+            <div class="empathy-body">
+              <p class="empathy-myth">「AIは指示すれば動く便利な道具」</p>
+              <p class="empathy-truth">道具としても優秀。でもそれだけだと、AIの本当の力を引き出しきれていないかもしれません。</p>
+            </div>
+          </div>
+          <div class="empathy-item fade-up">
+            <div class="empathy-icon" aria-hidden="true">?</div>
+            <div class="empathy-body">
+              <p class="empathy-myth">「使いこなせない自分が悪い」</p>
+              <p class="empathy-truth">「使いこなす」というフレーム自体を、一度手放してみませんか？</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+      03. 転換 — 使い方 < 関係性
+    ===================================================== -->
+    <section class="shift-section">
+      <div class="container">
+        <div class="shift-box fade-up">
+          <small>A Different Approach</small>
+          <div class="shift-heading">
+            <span class="shift-small">使い方を学ぶ</span>
+            <span class="shift-symbol">&lt;</span>
+            <span class="shift-large">関係性を育てる。</span>
+          </div>
+          <div class="shift-body">
+            <p>「使いこなそう」と力むのをやめて、<br>AIとの"関係性"に目を向けた人たちは、<br>驚くほど自然に、楽しみながらAIを活用しています。</p>
+            <p>大事なのは、高度なテクニックではありません。<br>人間関係と同じように、<strong>お互いを知り、歩み寄ること</strong>。</p>
+            <p>コールテンはこれを<strong>「AIコミュ力」</strong>と呼んでいます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+      04. AIコミュ力 3つのカギ
+    ===================================================== -->
+    <section id="ai-comm" class="comm-section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>AI Communication Skills</small>
+          <h2>AIコミュ力を育てる、3つのカギ。</h2>
+        </div>
+
+        <!-- 三角ダイアグラム -->
+        <div class="skill-diagram fade-up">
+          <svg viewBox="0 0 340 280" fill="none" class="skill-svg" role="img" aria-label="AIコミュ力の3要素: 自己開示、AI理解、環境づくり">
+            <line x1="170" y1="55" x2="70" y2="225" stroke="#16614e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.25"/>
+            <line x1="170" y1="55" x2="270" y2="225" stroke="#16614e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.25"/>
+            <line x1="70" y1="225" x2="270" y2="225" stroke="#16614e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.25"/>
+            <circle cx="170" cy="55" r="48" fill="#16614e"/>
+            <text x="170" y="48" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">自己</text>
+            <text x="170" y="68" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">開示</text>
+            <circle cx="70" cy="225" r="48" fill="#16614e"/>
+            <text x="70" y="218" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">AI</text>
+            <text x="70" y="238" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">理解</text>
+            <circle cx="270" cy="225" r="48" fill="#16614e"/>
+            <text x="270" y="218" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">環境</text>
+            <text x="270" y="238" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">づくり</text>
+          </svg>
+        </div>
+
+        <!-- 1: 自己開示 -->
+        <div class="comm-block fade-up">
+          <div class="comm-header">
+            <span class="comm-num">1</span>
+            <h3>AIに自分を知ってもらう</h3>
+            <span class="comm-tag">#自己開示</span>
+          </div>
+          <div class="comm-two-col">
+            <div class="comm-col human">
+              <div class="comm-label">人間関係では</div>
+              <p>自分のことを知らない相手は、あなたの好みや考え方を手探りで推測しながら接してくる。「この人はどんな人だろう？ 何を大切にしているんだろう？」——まず自分のことを伝えるから、相手はあなたに合った対応ができるようになる。</p>
+            </div>
+            <div class="comm-eq" aria-hidden="true">≒</div>
+            <div class="comm-col ai">
+              <div class="comm-label">AIも似てる</div>
+              <p>一度きりのプロンプトで自己紹介するだけじゃない。継続的に自分の情報をインプットし続けて、AIに「あなた」を覚えてもらう。価値観、仕事のスタイル、好みの表現——伝えれば伝えるほど、AIの返答はあなただけに最適化されていきます。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2: AI理解 -->
+        <div class="comm-block fade-up">
+          <div class="comm-header">
+            <span class="comm-num">2</span>
+            <h3>AIのことを知る</h3>
+            <span class="comm-tag">#AI理解</span>
+          </div>
+          <div class="comm-two-col">
+            <div class="comm-col human">
+              <div class="comm-label">人間関係では</div>
+              <p>相手のことを知らなければ、どう接していいかわからない。「どうしたら仕事しやすい？」「何が得意で、何が苦手？」——相手を理解することが、良いコミュニケーションの第一歩。</p>
+            </div>
+            <div class="comm-eq" aria-hidden="true">≒</div>
+            <div class="comm-col ai">
+              <div class="comm-label">AIも似てる</div>
+              <p>ChatGPTはどういう仕組みで動いているの？ なぜこういう時こう返してくれなかったの？ どうしたら仕事しやすい？——AIの特性を学び、理解していく。相手を知ることで、ぐっと付き合いやすくなります。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3: 環境づくり -->
+        <div class="comm-block fade-up">
+          <div class="comm-header">
+            <span class="comm-num">3</span>
+            <h3>お互いが心地よく働ける場をつくる</h3>
+            <span class="comm-tag">#環境づくり</span>
+          </div>
+          <div class="comm-two-col">
+            <div class="comm-col human">
+              <div class="comm-label">人間関係では</div>
+              <p>お互いのことを知った上で、二人とも気持ちよく過ごせる環境を整えていく。相手の好みも尊重し、自分の快適さも大切にする。それが長く続く関係の基盤になる。</p>
+            </div>
+            <div class="comm-eq" aria-hidden="true">≒</div>
+            <div class="comm-col ai">
+              <div class="comm-label">AIも似てる</div>
+              <p>AIはMarkdownが読みやすい。でも人間には見にくいこともある。ならAIへのインプットはMarkdownで、人間が見るものはブラウザで見やすい形にする。チャットだけだと文脈を忘れてしまうから、ファイルに自分の情報を残していく。お互いが仕事しやすい環境を、一緒につくっていきます。</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+      05. こう変わります — フェーズ別
+    ===================================================== -->
+    <section class="transform-section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Transformation</small>
+          <h2>こう変わります。</h2>
+        </div>
+        <div class="phase-list">
+          <div class="phase-item fade-up">
+            <div class="phase-num">1</div>
+            <div class="phase-content">
+              <p class="phase-before">「AIって結局よくわからない」</p>
+              <span class="phase-arrow" aria-hidden="true">→</span>
+              <p class="phase-after">「こういう仕組みなんだ、面白い」</p>
+            </div>
+          </div>
+          <div class="phase-item fade-up">
+            <div class="phase-num">2</div>
+            <div class="phase-content">
+              <p class="phase-before">「うまく使えない、どうしよう」</p>
+              <span class="phase-arrow" aria-hidden="true">→</span>
+              <p class="phase-after">「AIと一緒にやるの、楽しい」</p>
+            </div>
+          </div>
+          <div class="phase-item fade-up">
+            <div class="phase-num">3</div>
+            <div class="phase-content">
+              <p class="phase-before">「便利だけど、なくても困らない」</p>
+              <span class="phase-arrow" aria-hidden="true">→</span>
+              <p class="phase-after">「いないと不安になるくらいの相棒」</p>
+            </div>
+          </div>
+          <div class="phase-item fade-up">
+            <div class="phase-num">4</div>
+            <div class="phase-content">
+              <p class="phase-before">「毎回同じことを説明している」</p>
+              <span class="phase-arrow" aria-hidden="true">→</span>
+              <p class="phase-after">「何も言わなくても、察してくれる」</p>
+            </div>
+          </div>
+          <div class="phase-item fade-up">
+            <div class="phase-num">5</div>
+            <div class="phase-content">
+              <p class="phase-before">「誰かに教えてもらわないと進めない」</p>
+              <span class="phase-arrow" aria-hidden="true">→</span>
+              <p class="phase-after">「自分とAIで、どんどん新しいことに挑戦できる」</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+      中間CTA
+    ===================================================== -->
+    <section class="mid-cta-section">
+      <div class="container">
+        <div class="mid-cta fade-up">
+          <p>まずは無料の動画講座で、AIコミュ力の第一歩を。</p>
+          <a class="btn-line" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+             data-ga-event="cta_click" data-ga-label="services_mid_line">
+            <span class="line-icon-sm">LINE</span>
+            無料動画講座を受ける
+          </a>
+          <p class="mid-cta-sub">無料 · 無理な勧誘なし · いつでも解除OK</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+      06. なぜコールテンが教えられるのか
+    ===================================================== -->
+    <section class="why-section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Why Corduroy</small>
+          <h2>なぜ、コールテンが<br>「AIとの関係性」を教えられるのか。</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card fade-up">
+            <div class="why-num">01</div>
+            <h3>プロコーチの目で、<br>あなたの可能性を引き出す</h3>
+            <p>代表のMasayaはプロコーチ出身。コーチングとは、答えを教えることではありません。相手の中にある可能性に光を当て、本人も気づいていなかった強みや方向性を一緒に見つけていくこと。「あなたは本当は何がしたいの？」「その先に何がある？」——そんな問いかけの技術で、AIの可能性も、あなたの可能性も引き出します。</p>
+          </div>
+          <div class="why-card fade-up">
+            <div class="why-num">02</div>
+            <h3>毎日の実践から<br>生まれたメソッド</h3>
+            <p>ChatGPTに自分の価値観を教え込む実験から始まり、今ではClaude Codeで29名のAIエージェントと一緒に会社を経営。1対1のコミュニケーションから組織マネジメントまで、AIとの関係性を日々深めている実践の中から生まれたメソッドです。</p>
+          </div>
+          <div class="why-card fade-up">
+            <div class="why-num">03</div>
+            <h3>あなたが一人で<br>歩けるようになること</h3>
+            <p>本質的なAIとの付き合い方を身につけたら、あなたはそれぞれの分野で自分の力で前に進んでいける。コーチにとって最高の成果は、クライアントがコーチを必要としなくなること。本質を一緒に学び、旅立ちを一緒に目指す。それが私たちのゴールです。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+      07. みなさんの声
+    ===================================================== -->
+    <section class="case-section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>Voices</small>
+          <h2>みなさんの声</h2>
+        </div>
+        <div class="case-grid">
+          <div class="case-card fade-up">
+            <div class="case-content">
+              <div class="case-flow">
+                <span class="flow-tag">AI講座</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-tag">AI顧問</span>
+              </div>
               <div class="case-header-row">
-                <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="中野高郎さん"></div>
+                <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="中野高郎さん" loading="lazy" width="64" height="64"></div>
                 <h3>フリーランス <span class="case-role">中野高郎さん</span></h3>
               </div>
-              
               <p>最初は「第2の自分作りワークショップ」でAIに自分を覚えさせることからスタート。その後、ノーコードでWebサイトを制作し、基礎講座を一通り受講。現在はコミュニティの作業会に参加しつつ、AI顧問のサポートも受けながら、自身の様々な業務でAI活用を進めています。</p>
+            </div>
+          </div>
+          <div class="case-card fade-up">
+            <div class="case-content">
+              <div class="case-flow">
+                <span class="flow-tag">AI顧問</span>
+                <span class="flow-arrow">→</span>
+                <span class="flow-tag special">事業パートナー</span>
+              </div>
+              <div class="case-header-row">
+                <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" loading="lazy" width="64" height="64"></div>
+                <h3>株式会社スデニアル <span class="case-role">代表 佐野さん</span></h3>
+              </div>
+              <p class="preparing">現在公開準備中...</p>
+            </div>
           </div>
         </div>
-        
-        <div class="case-card fade-up">
-          <div class="case-content">
-            <div class="case-flow">
-              <span class="flow-tag">🤝 AI顧問</span>
-              <span class="flow-arrow">→</span>
-              <span class="flow-tag special">💼 事業パートナー</span>
-            </div>
-
-            <div class="case-header-row">
-              <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん"></div>
-              <h3>株式会社スデニアル <span class="case-role">代表 佐野さん</span></h3>
-            </div>
-            
-            <p class="preparing">現在公開準備中...</p>
-          </div>
-        </div>
-
-        <div class="case-card fade-up">
-          <div class="case-content">
-            <div class="case-flow">
-              <span class="flow-tag">🤝 AI顧問</span>
-              <span class="flow-arrow">→</span>
-              <span class="flow-tag">🛠️ AIシステム開発</span>
-            </div>
-
-            <div class="case-header-row">
-              <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/kubota_smileyflowers.png" alt="窪田さん"></div>
-              <h3>NPO法人スマイリーフラワーズ <span class="case-role">代表 窪田さん</span></h3>
-            </div>
-            
-            <p class="preparing">現在公開準備中...</p>
-          </div>
-        </div>
-      </div>
       </div>
     </section>
 
-    <!-- NEW: Recommended For Section -->
-    <section class="container">
-      <div class="section-head fade-up">
-        <small>Recommendation</small>
-        <h2>こんな人におすすめ!</h2>
-        <p>「自分はどこから入るべき？」のヒント。<br>あなたの希望や状況に合わせて選んでみてください。</p>
-      </div>
-      <div class="recommended-grid">
-        <div class="rec-item fade-up center-item">
-          <div class="rec-icon">🎓</div>
-          <h3>AI講座</h3>
-          <ul class="rec-list">
-            <li>まずは基礎から安く学びたい</li>
-            <li>集団行動でもOK</li>
-            <li>自分で手を動かして学びたい</li>
-          </ul>
-        </div>
-        <div class="rec-item fade-up center-item">
-          <div class="rec-icon">🤝</div>
-          <h3>AI顧問</h3>
-          <ul class="rec-list">
-            <li>マンツーマンで学びたい</li>
-            <li>自分専用のロードマップが欲しい</li>
-            <li>自分のやりたい事に特化してほしい</li>
-          </ul>
-        </div>
-        <div class="rec-item fade-up center-item">
-          <div class="rec-icon">🛠️</div>
-          <h3>AIシステム開発</h3>
-          <ul class="rec-list">
-            <li>自分は詳しくならなくていい</li>
-            <li>社内にAIシステムを入れたい</li>
-            <li>自分専用のツールを作ってほしい</li>
-          </ul>
-        </div>
-      </div>
-      <style>
-        /* Recommended Section Specifics */
-        .recommended-grid {
-          display: flex !important;
-          flex-direction: row !important;
-          justify-content: space-between;
-          align-items: flex-start;
-          gap: 24px;
-          width: 100%;
-        }
-        @media (max-width: 768px) {
-          .recommended-grid {
-            flex-direction: column !important;
-            align-items: center !important;
-          }
-          .rec-item {
-            width: 100%;
-            max-width: 400px;
-          }
-        }
-        .rec-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 24px;
-          /* Seamless design: No background, no shadow */
-        }
-        .rec-icon {
-          font-size: 48px;
-          margin-bottom: 24px;
-          background: #e8f2ee; /* Lighter background for icon circle */
-          width: 90px;
-          height: 90px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          color: #35524a;
-        }
-        .rec-item h3 {
-          font-size: 20px;
-          margin-bottom: 16px;
-          color: #35524a;
-        }
-        .rec-list {
-          list-style: none;
-          padding: 0;
-          margin-top: 8px;
-          text-align: left;
-          width: 100%;
-          max-width: 260px; /* Limit width for readability */
-        }
-        .rec-list li {
-          position: relative;
-          padding-left: 24px;
-          margin-bottom: 10px;
-          font-size: 14px;
-          color: #5a6b64;
-          line-height: 1.5;
-        }
-        .rec-list li::before {
-          content: '✔';
-          position: absolute;
-          left: 0;
-          color: #E68C3A; /* Orange check for visibility */
-          font-weight: bold;
-        }
-      </style>
-    </section>
 
-    <!-- MOVED: Comparison Table -->
-    <section class="bg-soft">
+    <!-- =====================================================
+      08. よくある質問
+    ===================================================== -->
+    <section class="faq-section">
       <div class="container">
         <div class="section-head fade-up">
-          <small>Comparison</small>
-          <h2>サービス比較表</h2>
-          <p>特徴と進め方を並べて、選びやすく整理しています。</p>
+          <small>FAQ</small>
+          <h2>よくある質問</h2>
         </div>
-        <div class="table-wrap fade-up">
-          <div class="scroll-hint">横にスクロールできます →</div>
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>項目</th>
-                <th><span class="th-icon">🎓</span>AI講座</th>
-                <th><span class="th-icon">🤝</span>AI顧問</th>
-                <th><span class="th-icon">🛠️</span>AIシステム開発</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>目的</td>
-                <td>学ぶ・試す</td>
-                <td>伴走・定着</td>
-                <td>仕組み化</td>
-              </tr>
-              <tr>
-                <td>対象</td>
-                <td>個人・フリーランス・法人</td>
-                <td>フリーランス・法人</td>
-                <td>フリーランス・法人</td>
-              </tr>
-              <tr>
-                <td>期間</td>
-                <td>1日（2時間）〜</td>
-                <td>1ヶ月〜</td>
-                <td>3ヶ月〜</td>
-              </tr>
-              <tr>
-                <td>スタイル</td>
-                <td>研修・ワークショップ受講<br><small>作業会・グループ相談</small></td>
-                <td>月次伴走・個別相談</td>
-                <td>開発プロジェクト</td>
-              </tr>
-              <tr>
-                <td>サポート</td>
-                <td>コミュニティ参加</td>
-                <td>運用定着・チャット相談</td>
-                <td>保守・追加開発</td>
-              </tr>
-              <tr>
-                <td>得るもの</td>
-                <td>活用スキル・資料</td>
-                <td>ロードマップ・社内実装</td>
-                <td>システム一式・運用ノウハウ</td>
-              </tr>
-              <tr>
-                <td>費用</td>
-                <td class="cost-lg">💰</td>
-                <td class="cost-lg">💰💰</td>
-                <td class="cost-lg">💰💰💰</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="faq-list">
+          <details class="faq-item fade-up" open>
+            <summary>AIの知識がなくても大丈夫ですか？</summary>
+            <p>はい。コールテンの講座は「AIの使い方」ではなく「AIとの付き合い方」を学ぶものです。専門知識は必要ありません。スマホでLINEが使える方なら、どなたでも始められます。</p>
+          </details>
+          <details class="faq-item fade-up">
+            <summary>どんな業種・職種でも活用できますか？</summary>
+            <p>はい。AIコミュ力は特定のツールや業界に依存しない、コミュニケーションの基礎スキルです。経営者、フリーランス、会社員など、さまざまな方にご活用いただいています。</p>
+          </details>
+          <details class="faq-item fade-up">
+            <summary>無料動画講座だけでも学べますか？</summary>
+            <p>はい。まずは動画講座でAIコミュ力の基本を掴んでいただけます。その上で、より深く学びたい方にはAI講座やAI顧問などのサービスもご用意しています。</p>
+          </details>
+          <details class="faq-item fade-up">
+            <summary>他のAI講座との違いは何ですか？</summary>
+            <p>多くのAI講座は「ツールの操作方法」や「プロンプトのテクニック」を教えます。コールテンは、AIとの関係性そのものを育てるアプローチ。一時的なスキルではなく、AIと長く付き合っていくための土台をつくります。</p>
+          </details>
+          <details class="faq-item fade-up">
+            <summary>受講後、すぐにAIを活用できるようになりますか？</summary>
+            <p>「すぐに完璧に」というより、「少しずつ関係性が育っていく」イメージです。人間関係と同じで、焦らず続けることで、気づけば自然にAIと協力できるようになっています。</p>
+          </details>
+          <details class="faq-item fade-up">
+            <summary>コールテンの講座はオンラインですか？</summary>
+            <p>はい、すべてオンラインで受講いただけます。お住まいの地域に関係なく、インターネット環境があればどこからでも参加できます。</p>
+          </details>
+          <details class="faq-item fade-up">
+            <summary>どのくらいの期間で変化を感じられますか？</summary>
+            <p>個人差はありますが、多くの方が2〜3週間ほどで「AIとのやり取りが楽しくなってきた」と実感されています。人間関係と同じで、焦らず続けることで着実に変化が起こります。</p>
+          </details>
+          <details class="faq-item fade-up">
+            <summary>法人・チームでの導入は可能ですか？</summary>
+            <p>はい。法人向けのAI顧問サービスでは、チーム全体でAIコミュ力を高める支援を行っています。お気軽にお問い合わせください。</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- REDESIGNED: 3 Services (Horizontal Layout) -->
-    <section class="container">
-      <div class="section-head fade-up">
-        <small>3 Services Detail</small>
-        <h2>各サービスの詳細</h2>
-        <p>それぞれの特徴と、得られるメリットについて。</p>
-      </div>
-      <div class="services-list">
-        <!-- Service 1 -->
-        <article class="service-row fade-up">
-          <div class="service-info">
-            <div class="service-header">
-              <span class="service-icon">🎓</span>
-              <h3>AI講座</h3>
-            </div>
-            <p class="service-desc">現場が動くAIリテラシーを、短期間で。<br>社内の共通言語をつくり、小さな成功体験を生み出します。</p>
 
-            
-            <!-- NEW: 3 Mini Boxes -->
-            <div class="mini-features-grid">
-              <div class="mini-feat">
-                <span class="feat-label">基礎</span>
-                <span class="feat-val">3講座</span>
-              </div>
-              <div class="mini-feat">
-                <span class="feat-label">プロ</span>
-                <span class="feat-val">2講座</span>
-              </div>
-              <div class="mini-feat">
-                <span class="feat-label">糸口会</span>
-                <span class="feat-val">コミュニティ</span>
-              </div>
-            </div>
-          </div>
-          <div class="service-right">
-            <h3 class="service-catchphrase">「AIアレルギー」を払拭し、<br>組織の共通言語をつくる。</h3>
-            <div class="service-visual-meta">
-              <span class="meta-icon">🗓️</span>
-              <span class="meta-text">ウェビナー / ワークショップ</span>
-            </div>
-            <a class="btn mini margin-top" href="/services/study/" style="color:#fff;">詳しく見る →</a>
-          </div>
-        </article>
-
-        <!-- Service 2 -->
-        <article class="service-row fade-up">
-          <div class="service-info">
-            <div class="service-header">
-              <span class="service-icon">🤝</span>
-              <h3>AI顧問</h3>
-            </div>
-            <p class="service-desc">AI活用の方向性を、伴走しながら定着へ。<br>事業課題に合わせたツール選定と運用ルールを設計します。</p>
-
-            
-            <!-- NEW: Pricing -->
-            <div class="pricing-info">
-              <p>個人：<span class="price">月3万円〜</span></p>
-              <p>法人：<span class="price">月5万円〜</span></p>
-            </div>
-          </div>
-          <div class="service-right">
-            <h3 class="service-catchphrase">リスクを抑えて、<br>「社内活用の自走化」を実現する。</h3>
-            <div class="service-visual-meta">
-              <span class="meta-icon">💬</span>
-              <span class="meta-text">月次定例 ＋ チャット相談</span>
-            </div>
-            <a class="btn mini margin-top" href="/services/advisory" style="color:#fff;">詳しく見る →</a>
-          </div>
-        </article>
-
-        <!-- Service 3 -->
-        <article class="service-row fade-up">
-          <div class="service-info">
-            <div class="service-header">
-              <span class="service-icon">💻</span>
-              <h3>AIシステム開発</h3>
-            </div>
-            <p class="service-desc">業務を変えるAIシステムを、実装まで。<br>既存システムとの連携や、独自のAIアプリ開発を行います。</p>
-
-            
-            <!-- NEW: 3 Strengths -->
-            <div class="mini-features-grid">
-              <div class="mini-feat">
-                <span class="feat-icon">📍</span>
-                <span class="feat-val-sm">現場訪問</span>
-              </div>
-              <div class="mini-feat">
-                <span class="feat-icon">🗣️</span>
-                <span class="feat-val-sm">対話開発</span>
-              </div>
-              <div class="mini-feat">
-                <span class="feat-icon">✨</span>
-                <span class="feat-val-sm">実用本位</span>
-              </div>
-            </div>
-          </div>
-          <div class="service-right">
-            <h3 class="service-catchphrase">手数を減らし、<br>「コア業務」に集中できる環境へ。</h3>
-            <div class="service-visual-meta">
-              <span class="meta-icon">💻</span>
-              <span class="meta-text">要件定義〜開発〜運用</span>
-            </div>
-            <a class="btn mini margin-top" href="/services/system" style="color:#fff;">詳しく見る →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- REVAMPED: Utilization Routes -->
-    <section class="bg-soft">
+    <!-- =====================================================
+      09. Final CTA
+    ===================================================== -->
+    <section class="final-cta">
       <div class="container">
-        <div class="section-head fade-up">
-          <small>Route Guide</small>
-          <h2>目的別おすすめサービス</h2>
-          <p>あなたの状況や目的に合わせて、最適な関わり方を選べます。</p>
-        </div>
-
-        <div class="routes-grid">
-          <!-- Individual -->
-          <div class="route-column fade-up">
-            <h3 class="route-title"><span class="route-icon">👤</span>個人 <span class="sub">趣味・学習</span></h3>
-            <div class="route-options-row">
-              <div class="route-btn-group center">
-                <div class="route-step primary"><span class="step-icon">🎓</span>AI講座<span class="mini-tag">グループ</span></div>
-              </div>
-              <div class="or-circle">OR</div>
-              <div class="route-btn-group center">
-                <div class="route-step primary"><span class="step-icon">🤝</span>AI顧問<span class="mini-tag">個別</span></div>
-              </div>
-            </div>
-            <p class="route-note" style="text-align:center;">みんなで楽しく学びたいなら「勉強会」、自分のペースで深く個別相談したいなら「顧問」。自分に合うスタイルで。</p>
-          </div>
-
-          <!-- Freelance -->
-          <div class="route-column fade-up">
-            <h3 class="route-title"><span class="route-icon">💻</span>フリーランス <span class="sub">業務活用・提案</span></h3>
-            <div class="route-split-freelance horizontal">
-              <!-- Path 1 -->
-              <div class="freelance-path center">
-                <span class="path-label-sm">業務改善</span>
-                <div class="route-step"><span class="step-icon">🎓</span>AI講座<span class="mini-tag">基礎講座</span></div>
-                <div class="or-text-v">or</div>
-                <div class="route-step"><span class="step-icon">🤝</span>AI顧問<span class="mini-tag">個別サポート</span></div>
-                <p class="mini-note">まずは基礎を学んで、自分の業務を効率化していきたい人向け。</p>
-              </div>
-              <!-- Path 2 -->
-              <div class="freelance-path center">
-                <span class="path-label-sm">価値提案</span>
-                <div class="route-step"><span class="step-icon">🎓</span>AI講座<span class="mini-tag">プロ</span></div>
-                <div class="arrow-down-xs">↓</div>
-                <div class="route-step"><span class="step-icon">🤝</span>AI顧問<span class="mini-tag">AI事業支援</span></div>
-                <p class="mini-note">学んだAIを活かして、AIに関する事業をしたい人向け。<br>AI講座の上級講座（プロ講座）から、AI顧問での事業サポートまで提供します。</p>
-              </div>
-              <!-- Path 3 -->
-              <div class="freelance-path center">
-                <span class="path-label-sm">開発</span>
-                <div class="multi-choice-v">
-                  <span class="route-step sm"><span class="step-icon">🎓</span>AI講座<span class="mini-tag">プロ</span></span>
-                  <span class="or-text-xs">or</span>
-                  <span class="route-step sm"><span class="step-icon">🛠️</span>AIシステム開発</span>
-                </div>
-                <div class="arrow-down-xs">↓</div>
-                <div class="route-step"><span class="step-icon">🤝</span>AI顧問<span class="mini-tag">サポート</span></div>
-                <p class="mini-note">自分で基礎から上級講座まで学んで自作するか、コールテンのAIシステム開発を利用するか。状況に合わせてAIシステムを用意するルートです。</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Corporate -->
-          <div class="route-column wide fade-up">
-            <h3 class="route-title"><span class="route-icon">🏢</span>法人 <span class="sub">組織導入・事業活用</span></h3>
-            <div class="route-split-cols">
-              <!-- Route A -->
-              <div class="route-col-item">
-                <span class="path-label-lg">人材育成ルート</span>
-                <div class="path-flow-vertical">
-                  <div class="route-step large"><span class="step-icon">🎓</span>AI講座</div>
-                  <div class="arrow-down">↓</div>
-                  <div class="route-step large">社内研修</div>
-                  <div class="arrow-down">↓</div>
-                  <div class="route-step large"><span class="step-icon">🤝</span>AI顧問</div>
-                </div>
-                <p class="path-desc" style="text-align:center;">勉強会で手触りを確認し、研修で全体へ。<br>顧問で定着させる「文化醸成」重視。</p>
-              </div>
-              <!-- Route B -->
-              <div class="route-col-item">
-                <span class="path-label-lg">実装先行ルート</span>
-                <div class="path-flow-vertical" style="align-items:center;">
-                  <div class="route-step large"><span class="step-icon">🛠️</span>AIシステム開発</div>
-                  <div class="arrow-down">↓</div>
-                  <div class="route-step large"><span class="step-icon">🤝</span>AI顧問</div>
-                </div>
-                <p class="path-desc" style="text-align:center;">まずシステムを実装し、成果重視。<br>その後、AI顧問でツールの維持管理や、さらなるAI活用の発展・応用を目指します。</p>
-              </div>
-            </div>
-            
-            <!-- Route C (New Option) - In-housing -->
-            <div class="route-extra-option orange-theme">
-              <div class="route-col-item full-width center">
-                <h3 class="special-route-title">🔥 AIエージェント制作内製化</h3>
-                
-                <div class="inhouse-content-block">
-                  <p class="inhouse-desc">
-                    自社でAIの基礎から学び、社内でAIエージェントを制作・運用できる体制を整えるプランです。<br>
-                    外部ベンダーに依存せず、自社の業務を深く理解している社員自身が開発することで、真に使えるツールを生み出します。
-                  </p>
-                  
-                  <a href="/services/advisory#roadmap" class="btn-inhouse">
-                    <span class="btn-main">🤝 AI顧問・長期契約</span>
-                    <span class="btn-sub">ロードマップ例を見る →</span>
-                  </a>
-                  
-                  <p class="inhouse-note">
-                    ※ 6ヶ月〜12ヶ月の長期ロードマップで支援します。<br>
-                    ※ 期間は現在の体制や目標とする自動化レベルにより変動します。
-                  </p>
-                </div>
-              </div>
-            </div>
+        <div class="cta-box fade-up">
+          <p class="cta-eyebrow">Free Video Course</p>
+          <h2>まずは無料の動画講座から。</h2>
+          <p class="cta-desc">
+            AIコミュ力の基本を、サクッと動画で学べます。<br>
+            LINE登録しておくと、講座の案内をお届けします。
+          </p>
+          <a class="btn-line-xl" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+             data-ga-event="cta_click" data-ga-label="services_final_line">
+            <span class="line-icon-sm">LINE</span>
+            LINE登録して動画講座の案内を受け取る
+          </a>
+          <p class="cta-sub">無料 · 無理な勧誘なし · いつでも解除OK</p>
+          <div class="cta-alt">
+            <a href="/contact" class="btn secondary">お問い合わせページへ →</a>
           </div>
         </div>
       </div>
     </section>
 
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-24 bg-[#F9F5F0] faq">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-[#4A4238] mb-12 font-serif">よくあるご質問</h2>
-            <div class="max-w-3xl mx-auto space-y-4">
-                <details>
-                    <summary>とりあえず話を聞くだけでも大丈夫ですか？</summary>
-                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
-                        はい、もちろんです。「何から始めたらいいかわからない」という段階からのご相談が大半です。現在の状況をお伺いし、最適なプラン（または今は何もしない方がいいか）をご提案します。
-                    </p>
-                </details>
-                <details>
-                    <summary>どのプランを選べばいいかわかりません。</summary>
-                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
-                        ご安心ください。初回ヒアリング（無料）にて、貴社の課題やゴールをお聞きした上で、最適な組み合わせ（例：まずは勉強会でリテラシーを高めてから顧問契約など）をご提案させていただきます。
-                    </p>
-                </details>
-                <details>
-                    <summary>AI顧問の契約期間に縛りはありますか？</summary>
-                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
-                        基本的には6ヶ月ごとの更新をお願いしておりますが、成果が出ない場合は1ヶ月通知での解約も可能です。まずは3ヶ月お試しで、という形も柔軟に対応しております。
-                    </p>
-                </details>
-                 <details>
-                    <summary>地方でも対応可能ですか？</summary>
-                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
-                        はい、フルリモートでの支援が可能です。チャットツール（Discord/Slack/Chatworkなど）とオンライン会議（Zoom/Meet）を活用し、全国どこでも密なサポートを提供しております。必要に応じて対面での訪問（交通費別途）も行います。
-                    </p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-contact">
-      <div class="container">
-        <div class="section-head fade-up">
-          <small>Contact</small>
-          <h2>まずは相談から</h2>
-          <p>あなたに合う入口をご案内します。無理な勧誘はありません。</p>
-        </div>
-        <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
-          <p class="mini" style="margin-bottom:20px;">現在の課題や体制を簡単に教えていただければ、最適な進め方を整理します。</p>
-          <a class="btn" href="/contact" style="padding:16px 28px;">相談する →</a>
-        </div>
-      </div>
-    </section>
   </main>
 </Layout>
 
-<style>
-  /* Global fix: prevent horizontal overflow on mobile */
-  main {
-    overflow-x: hidden;
-    width: 100%;
-  }
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  section {
-    padding: 100px 0;
-  }
 
-  /* Hero */
+<style>
+  /* ============================================================
+     BASE
+  ============================================================ */
+  main { overflow-x: hidden; width: 100%; }
+  section { padding: 100px 0; }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
   .hero {
     padding: 140px 0 100px;
     background: radial-gradient(circle at 10% 20%, rgba(22, 97, 78, 0.12), transparent 55%),
@@ -579,711 +496,290 @@ import Layout from '../../layouts/Layout.astro';
     text-align: center;
   }
   .hero-inner { max-width: 980px; }
-  .hero h1 {
-    font-size: clamp(32px, 4vw, 48px);
-    margin-top: 16px;
-    line-height: 1.3;
-  }
-  .hero p {
-    margin-top: 16px;
-    font-size: 16px;
-    color: #5a6b64;
-  }
+  .hero h1 { font-size: clamp(28px, 3.5vw, 42px); margin-top: 16px; line-height: 1.5; }
   .highlight { color: var(--sea); }
-  .hero-tags {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
+  .hero-lead { margin-top: 20px; font-size: 18px; color: var(--sea); font-weight: 600; }
+  .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+
+  /* ============================================================
+     LINE BUTTONS
+  ============================================================ */
+  .btn-line, .btn-line-xl {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #06C755; color: #fff; font-weight: 700;
+    border-radius: 100px; text-decoration: none;
+    box-shadow: 0 4px 16px rgba(6, 199, 85, 0.3);
+    transition: all 0.3s ease; cursor: pointer; border: none;
   }
-  .pill {
-    background: #e8f2ee;
-    color: var(--sea);
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 600;
+  .btn-line { padding: 14px 28px; font-size: 15px; }
+  .btn-line-xl { padding: 18px 36px; font-size: 17px; }
+  .btn-line:hover, .btn-line-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(6, 199, 85, 0.4);
+    background: #05b84e;
+  }
+  .line-icon-sm {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.2); border-radius: 6px;
+    padding: 2px 8px; font-size: 12px; font-weight: 900; letter-spacing: 0.05em;
   }
 
-  /* Common Components */
-  .bg-soft { background: #f7faf9; }
-  .bg-contact { background: linear-gradient(180deg, rgba(232, 242, 238, 0.6), rgba(232, 242, 238, 0)); }
-  .btn.mini {
-    display: inline-block;
-    padding: 8px 16px;
-    font-size: 13px;
+  /* ============================================================
+     EMPATHY
+  ============================================================ */
+  .empathy-section { background: var(--cream); }
+  .empathy-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  .empathy-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 16px; padding: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-  .margin-top { margin-top: 16px; }
+  .empathy-item:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .empathy-icon {
+    flex-shrink: 0; width: 32px; height: 32px;
+    background: rgba(212, 160, 77, 0.12); color: var(--accent);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; margin-top: 2px;
+  }
+  .empathy-myth { font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.5; margin-bottom: 8px; }
+  .empathy-truth { font-size: 14px; color: var(--text-light); line-height: 1.7; }
 
-  /* Case Studies */
-  .case-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 40px;
+  /* ============================================================
+     SHIFT — 転換（色反転ストーリー）
+  ============================================================ */
+  .shift-section { background: linear-gradient(180deg, #f7faf9 0%, var(--cream) 100%); }
+  .shift-box { max-width: 760px; margin: 0 auto; text-align: center; }
+  .shift-box small {
+    display: block; font-size: 11px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase;
+    font-family: "Space Grotesk", sans-serif; margin-bottom: 20px;
   }
-  .case-card {
-    background: #2F5D50; /* Green Background */
+  .shift-heading {
+    display: flex; align-items: baseline; justify-content: center;
+    gap: 14px; flex-wrap: wrap; margin-bottom: 32px;
+  }
+  .shift-small { font-size: clamp(16px, 2vw, 20px); color: var(--text-light); font-weight: 500; }
+  .shift-symbol { font-size: clamp(22px, 3vw, 32px); color: var(--accent); font-weight: 300; line-height: 1; }
+  .shift-large {
+    font-size: clamp(26px, 3.5vw, 38px); font-weight: 800;
+    color: var(--ink); font-family: 'CraftMincho', serif;
+  }
+  .shift-body {
+    text-align: center;
+    background: linear-gradient(145deg, #0e3a2d 0%, #16614e 100%);
     color: #fff;
-    padding: 32px 24px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
     border: none;
-    transition: transform 0.3s ease;
+    border-radius: 20px;
+    padding: 48px 40px;
+  }
+  .shift-body p {
+    font-size: 15px; line-height: 2;
+    color: rgba(255, 255, 255, 0.85); margin-bottom: 20px;
+  }
+  .shift-body p:last-child { margin-bottom: 0; }
+  .shift-body strong { color: #fff; font-weight: 700; }
+
+  /* ============================================================
+     COMM — AIコミュ力 3要素
+  ============================================================ */
+  .comm-section { background: var(--cream); }
+
+  /* 三角ダイアグラム */
+  .skill-diagram { max-width: 340px; margin: 32px auto 48px; }
+  .skill-svg { width: 100%; height: auto; }
+
+  .comm-block {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 24px; padding: 40px 36px; margin-bottom: 28px;
+  }
+  .comm-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 28px; flex-wrap: wrap;
+  }
+  .comm-num {
+    flex-shrink: 0; width: 44px; height: 44px;
+    background: var(--sea); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; font-family: 'Space Grotesk', sans-serif;
+  }
+  .comm-header h3 { font-size: 20px; margin: 0; }
+  .comm-tag {
+    margin-left: auto;
+    background: var(--sea); color: #fff;
+    padding: 5px 14px; border-radius: 8px;
+    font-size: 12px; font-weight: 700; white-space: nowrap;
+  }
+  .comm-two-col {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+  .comm-eq {
+    font-size: 2rem;
+    color: var(--accent);
+    opacity: 0.5;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1;
+  }
+  .comm-col { border-radius: 16px; padding: 24px; }
+  .comm-col.human { background: #faf8f5; border: 1px solid #ebe5da; }
+  .comm-col.ai { background: #f0f7f4; border: 1px solid #d4e8df; }
+  .comm-label { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
+  .comm-col p { font-size: 14px; line-height: 1.8; color: var(--text-light); margin: 0; }
+
+  /* ============================================================
+     TRANSFORM — フェーズ別
+  ============================================================ */
+  .transform-section { background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%); }
+  .phase-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .phase-item {
+    display: flex; align-items: center; gap: 20px;
+    padding: 22px 24px; background: #fff; border: 1px solid var(--line);
+    border-radius: 16px; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .phase-item:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .phase-num {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: var(--sea); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 900; font-family: 'Space Grotesk', sans-serif;
+  }
+  .phase-content { display: flex; align-items: center; gap: 16px; flex: 1; }
+  .phase-before { flex: 1; font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
+  .phase-arrow { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; }
+  .phase-after { flex: 1; font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.6; margin: 0; }
+
+  /* ============================================================
+     MID CTA
+  ============================================================ */
+  .mid-cta-section { padding: 60px 0; background: #f0f7f4; }
+  .mid-cta {
+    text-align: center; background: #fff;
+    border: 2px solid var(--sea); border-radius: 20px;
+    padding: 44px 32px; max-width: 640px; margin: 0 auto;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  .mid-cta > p:first-child { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 24px; }
+  .mid-cta-sub { font-size: 12px; color: var(--text-light); margin-top: 12px; letter-spacing: 0.04em; }
+
+  /* ============================================================
+     WHY
+  ============================================================ */
+  .why-section { background: var(--cream); }
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .why-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 20px;
+    padding: 36px 28px; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .why-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .why-num {
+    font-size: 28px; font-weight: 900; color: rgba(22, 97, 78, 0.15);
+    font-family: 'Space Grotesk', sans-serif; margin-bottom: 12px;
+  }
+  .why-card h3 { font-size: 18px; margin-bottom: 12px; }
+  .why-card p { font-size: 14px; line-height: 1.8; color: var(--text-light); }
+
+  /* ============================================================
+     CASE STUDIES
+  ============================================================ */
+  .case-section { background: linear-gradient(180deg, var(--cream) 0%, #f5f9f7 100%); }
+  .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .case-card {
+    background: #2F5D50; color: #fff; padding: 32px 24px; border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex; flex-direction: column; gap: 16px; transition: transform 0.3s ease;
   }
   .case-card:hover { transform: translateY(-4px); }
-
-  .case-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  /* Tags at the top */
-  .case-flow {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-    order: -1; /* Ensure visual top if flex */
-  }
-  .flow-tag {
-    font-size: 13px; /* Larger tag */
-    font-weight: 700;
-    color: #2F5D50;
-    background: #fff;
-    padding: 6px 12px;
-    border-radius: 99px;
-  }
-  /* Special Tag Color */
-  .flow-tag.special {
-    background: #E68C3A;
-    color: #fff;
-  }
-
+  .case-content { display: flex; flex-direction: column; height: 100%; }
+  .case-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .flow-tag { font-size: 13px; font-weight: 700; color: #2F5D50; background: #fff; padding: 6px 12px; border-radius: 99px; }
+  .flow-tag.special { background: #E68C3A; color: #fff; }
   .flow-arrow { font-size: 14px; color: rgba(255,255,255,0.4); }
-
-  /* Icon and Name Row */
-  .case-header-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .case-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #fff;
-    border: 3px solid rgba(255,255,255,0.2);
-    flex-shrink: 0;
-  }
+  .case-header-row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .case-icon { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; background: #fff; border: 3px solid rgba(255,255,255,0.2); flex-shrink: 0; }
   .case-icon img { width: 100%; height: 100%; object-fit: cover; }
-  
-  .case-header-row h3 { 
-    font-size: 18px; 
-    margin: 0; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 4px;
-    line-height: 1.3;
-    color: #fff;
-  }
-  .case-role { 
-    font-size: 12px; 
-    color: rgba(255,255,255,0.7); 
-    font-weight: normal; 
-  }
+  .case-header-row h3 { font-size: 18px; margin: 0; display: flex; flex-direction: column; gap: 4px; line-height: 1.3; color: #fff; }
+  .case-role { font-size: 12px; color: rgba(255,255,255,0.7); font-weight: normal; }
+  .case-content p { font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.7; }
+  .preparing { opacity: 0.6; font-style: italic; }
 
-  .case-content p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.7;
-    margin-top: 8px;
+  /* ============================================================
+     FAQ
+  ============================================================ */
+  .faq-section { background: var(--cream); }
+  .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item {
+    background: #fff; border: 1px solid var(--line); border-radius: 16px;
+    overflow: hidden; transition: box-shadow 0.2s;
   }
-  
-  .preparing {
-    opacity: 0.6;
-    font-style: italic;
+  .faq-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .faq-item summary {
+    padding: 20px 24px; font-size: 15px; font-weight: 700;
+    color: var(--ink); cursor: pointer; list-style: none;
+    display: flex; align-items: center; gap: 12px;
+    position: relative; padding-right: 52px;
   }
+  .faq-item summary::before {
+    content: "Q"; flex-shrink: 0;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--sea); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 900; font-family: 'Space Grotesk', sans-serif;
+  }
+  .faq-item summary::after {
+    content: '+';
+    position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+    font-size: 22px; font-weight: 400; line-height: 1;
+    color: var(--sea); transition: transform 0.2s;
+  }
+  .faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item[open] summary { border-bottom: 1px solid var(--line); }
+  .faq-item p { padding: 20px 24px 20px 64px; font-size: 14px; line-height: 1.8; color: var(--text-light); margin: 0; }
 
-  @media (max-width: 768px) {
+  /* ============================================================
+     FINAL CTA
+  ============================================================ */
+  .final-cta { padding: 80px 0 100px; }
+  .cta-box {
+    background: linear-gradient(145deg, #0e2a1f 0%, #1a3a4a 50%, #1e1a38 100%);
+    color: white; border-radius: 24px; padding: 64px 40px;
+    text-align: center; max-width: 760px; margin: 0 auto;
+  }
+  .cta-eyebrow {
+    font-size: 11px; font-weight: 700; color: rgba(212, 160, 77, 0.85);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    font-family: "Space Grotesk", sans-serif; margin-bottom: 20px;
+  }
+  .cta-box h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 16px; line-height: 1.5; font-weight: 700; color: #fff; }
+  .cta-desc { font-size: 1.05rem; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 36px; }
+  .cta-sub { font-size: 12px; color: rgba(255,255,255,0.38); margin-top: 14px; letter-spacing: 0.04em; }
+  .cta-alt { margin-top: 24px; }
+  .cta-box .btn.secondary { background: transparent; border-color: rgba(255,255,255,0.3); color: white; }
+  .cta-box .btn.secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.08); }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 860px) {
+    .comm-two-col { grid-template-columns: 1fr; }
+    .comm-eq { font-size: 1.5rem; padding: 4px 0; }
+    .why-grid { grid-template-columns: 1fr; }
     .case-grid { grid-template-columns: 1fr; }
+    .comm-block { padding: 28px 20px; }
+    .phase-content { flex-direction: column; gap: 4px; align-items: flex-start; }
+    .phase-arrow { transform: rotate(90deg); }
   }
 
-  /* Table */
-  .table-wrap {
-    overflow-x: auto;
-    background: #fff;
-    border-radius: 16px;
-    border: 1px solid #e1e9e5;
-    box-shadow: 0 12px 30px rgba(22, 97, 78, 0.06);
-    position: relative;
-  }
-  .scroll-hint {
-    display: none;
-    font-size: 10px;
-    color: #889993;
-    text-align: right;
-    margin-bottom: 4px;
-  }
-  
-  table { width: 100%; border-collapse: collapse; min-width: 700px; /* Ensure scroll on small screens */ }
-  
-  th, td {
-    padding: 16px;
-    border-bottom: 1px solid #edf3f0;
-    text-align: center; /* CENTER ALIGNMENT as requested */
-    font-size: 14px;
-    line-height: 1.6;
-    vertical-align: middle;
-  }
-
-  /* Dark Headers & First Column */
-  th {
-    background: #35524a;
-    color: #ffffff;
-    font-weight: 700; /* Bold */
-    font-size: 16px; /* Larger */
-  }
-  
-  tbody tr td:first-child {
-    background: #416158;
-    color: #ffffff;
-    font-weight: 600;
-    width: 120px;
-  }
-  /* Adjust border for dark cells */
-  th, tbody tr td:first-child {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    border-right: 1px solid rgba(255,255,255,0.1);
-  }
-
-  /* Services Detail (Horizontal) */
-  .services-list {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .service-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 1:1 ratio for better balance */
-    gap: 40px;
-    background: #fff;
-    border: 1px solid #e4eee9;
-    border-radius: 20px;
-    padding: 32px;
-    align-items: stretch;
-    position: relative;
-  }
-  .service-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  .service-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-  
-  .service-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-  .service-icon { font-size: 28px; }
-  .service-header h3 { font-size: 22px; margin: 0; }
-  .service-desc { font-size: 15px; color: #5a6b64; margin-bottom: 16px; flex-grow: 1; }
-  .service-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .tag {
-    background: #f0f6f3;
-    color: #4f655d;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 11px;
-    border: 1px solid #dce8e3;
-  }
-  
-  .service-meta {
-    background: #f9fbfa;
-    padding: 20px;
-    border-radius: 12px;
-    font-size: 13px;
-    color: #4a5e55;
-    height: 100%; /* Fill space */
-  }
-  .service-meta ul { list-style: none; padding: 0; margin: 0; line-height: 2; }
-  
-  /* Button repositioning */
-  .service-right .btn {
-    align-self: flex-end; /* Right align */
-    margin-top: 24px;
-    width: auto;
-  }
-
-  /* Service Card Updates - Mini Features & Pricing */
-  .mini-features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    margin-top: 16px;
-    width: 100%;
-  }
-  .mini-feat {
-    background: #f0f6f3;
-    border-radius: 8px;
-    padding: 8px 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 11px;
-    height: 100%;
-  }
-  .feat-label { font-weight: bold; color: #35524a; margin-bottom: 2px; }
-  .feat-val { color: #5a6b64; font-size: 10px; }
-  .feat-icon { font-size: 16px; margin-bottom: 2px; }
-  .feat-val-sm { font-size: 10px; font-weight: bold; color: #35524a; line-height: 1.2; }
-
-  .pricing-info {
-    margin-top: 16px;
-    background: #f9fbfa;
-    padding: 12px;
-    border-radius: 8px;
-    text-align: left;
-  }
-  .pricing-info p {
-    font-size: 12px;
-    color: #5a6b64;
-    margin: 4px 0;
-    display: flex;
-    justify-content: space-between;
-  }
-  .pricing-info .price {
-    font-weight: bold;
-    color: #35524a;
-  }
-
-  /* Routes Guide */
-  .routes-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Stack vertically (full width) */
-    gap: 24px;
-    margin-top: 40px;
-  }
-  .route-column {
-    background: #fff;
-    border-radius: 16px;
-    padding: 24px;
-    border: 1px solid #e1e9e5;
-    max-width: 100%;
-    overflow: hidden;
-  }
-  .route-column.wide { grid-column: auto; } /* No need for span if single column */
-  
-  .route-title {
-    font-size: 24px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 2px solid #f0f6f3;
-    padding-bottom: 12px;
-  }
-  .route-icon { font-size: 28px; }
-  .route-title .sub { font-size: 14px; color: #889993; font-weight: normal; margin-left: auto; }
-  
-  /* Buttons & Steps */
-  .route-step {
-    background: var(--sea);
-    color: #fff;
-    padding: 12px 14px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 700;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.3;
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .step-icon { font-size: 20px; margin-bottom: 4px; }
-  .th-icon { margin-right: 4px; font-size: 16px; vertical-align: middle; }
-
-  .route-step.large {
-    padding: 16px;
-    font-size: 16px;
-    flex-direction: row; 
-    gap: 8px;
-  }
-  .route-step.large .step-icon { margin-bottom: 0; font-size: 22px; }
-
-  .route-step.primary {
-    background: #35524a;
-    min-width: 160px;
-  }
-  
-  .mini-tag { font-size: 10px; opacity: 0.9; font-weight: normal; margin-top: 2px; }
-  .mini-tag.dark { color: #f0f6f3; font-weight: 700; opacity: 1; margin-left: auto; margin-top: 0;}
-
-  /* Individual Layout */
-  .route-options-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .route-btn-group { flex: 1; display: flex; justify-content: center; }
-  .route-btn-group.center { width: 100%; }
-  
-  .or-circle {
-    width: 36px;
-    height: 36px;
-    background: #e1e9e5;
-    color: #5a6b64;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-    flex-shrink: 0;
-  }
-
-  /* Freelance specific - Horizontal Layout */
-  .route-split-freelance.horizontal {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-  }
-  .freelance-path {
-    background: #f9fbfa;
-    padding: 20px 16px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
-    border: 1px solid #eef4f1;
-  }
-  .freelance-path.center {
-    justify-content: flex-start;
-  }
-  .path-label-sm {
-    font-size: 15px;
-    font-weight: 700;
-    color: #35524a;
-    border-bottom: 2px solid #cbd5d0;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-    width: 100%;
-    text-align: center;
-  }
-  .arrow-down-xs { color: #cbd5d0; font-size: 14px; margin: 4px 0; }
-  .or-text-v { font-size: 12px; color: #889993; font-weight: bold; margin: 6px 0; }
-  .or-text-xs { font-size: 12px; color: #889993; margin: 0 4px; }
-  
-  .multi-choice-v {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    background: #fff;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px dashed #cbd5d0;
-    width: 100%;
-  }
-  .route-step.sm {
-    font-size: 13px;
-    padding: 8px;
-    width: 100%;
-  }
-
-  .mini-note { 
-    font-size: 13px; 
-    color: #4a5e55; 
-    margin-top: auto; 
-    padding-top: 12px;
-    font-weight: 500;
-    line-height: 1.5;
-  }
-
-  /* Corporate Layout - Split Columns */
-  .route-split-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  .route-col-item {
-    background: #f9fbfa;
-    padding: 24px;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-  }
-  .path-label-lg {
-    font-size: 16px;
-    font-weight: 700;
-    color: #35524a;
-    background: #e8f2ee;
-    padding: 6px 16px;
-    border-radius: 99px;
-    display: inline-block;
-  }
-  .path-flow-vertical {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 8px;
-    max-width: 240px;
-  }
-  .arrow-down { text-align: center; color: #cbd5d0; font-size: 18px; line-height: 1; }
-  .path-desc {
-    font-size: 13px;
-    color: #5a6b64;
-    line-height: 1.6;
-    margin: 0;
-    text-align: left;
-    width: 100%;
-  }
-
-  .route-note {
-    margin-top: 16px;
-    border-top: 1px dashed #e1e9e5;
-    padding-top: 12px;
-    font-size: 12px;
-    color: #6f827a;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 960px) {
-    .case-grid { grid-template-columns: 1fr; }
-    .services-list { gap: 24px; }
-    .service-row { grid-template-columns: 1fr; text-align: left; gap: 20px; padding: 24px 16px; }
-    .service-right .btn { align-self: flex-start; width: 100%; text-align: center; }
-    
-    .routes-grid { grid-template-columns: 1fr; }
-    .route-split-cols { grid-template-columns: 1fr; gap: 20px; }
-    
-    .scroll-hint { display: block; }
-
-    /* Freelance stack on mobile */
-    .route-split-freelance.horizontal { grid-template-columns: 1fr; }
-
-    /* Fix route columns overflow */
-    .route-column { padding: 16px; }
-    .route-extra-option.orange-theme { padding: 20px 16px; }
-    .route-options-row { flex-direction: column; gap: 12px; }
-    .route-title { font-size: 20px; flex-wrap: wrap; }
-    .inhouse-content-block { padding: 0; }
-    .service-catchphrase { font-size: 18px; }
-  }
-  /* Route C In-housing Special */
-  .route-extra-option.orange-theme {
-    margin-top: 32px;
-    background: #FFF8F0; /* Soft Orange/Red bg */
-    border: 2px solid #E68C3A;
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 8px 24px rgba(230, 140, 58, 0.15);
-  }
-  .route-col-item.full-width.center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .special-route-title {
-    color: #C05621; /* Dark Orange/Red */
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 24px;
-    display: inline-block;
-    border-bottom: 2px solid rgba(192, 86, 33, 0.2);
-    padding-bottom: 8px;
-  }
-
-  .inhouse-content-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .inhouse-desc {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #4A4238;
-  }
-
-  .btn-inhouse {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #E68C3A;
-    color: #fff;
-    padding: 12px 32px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 10px rgba(230, 140, 58, 0.3);
-  }
-  .btn-inhouse:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(230, 140, 58, 0.4);
-    background: #DD8130;
-  }
-  
-  .btn-main { font-size: 16px; font-weight: bold; margin-bottom: 2px; }
-  .btn-sub { font-size: 11px; opacity: 0.9; }
-
-  .inhouse-note {
-    font-size: 12px;
-    color: #8C6A4B;
-    background: rgba(230, 140, 58, 0.1);
-    padding: 12px 20px;
-    border-radius: 8px;
-    line-height: 1.6;
-    text-align: left; /* Align notes left for readability if bullet-like */
-    width: 100%;
-    max-width: 500px;
-  }
-
-  /* FAQ Styles */
-  .faq details {
-      border: 1px solid rgba(140, 106, 75, 0.2);
-      border-radius: 20px;
-      padding: 24px 32px;
-      background: #fff;
-      margin-bottom: 16px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-      position: relative;
-  }
-  .faq details[open] { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-  .faq summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: #35524a;
-      font-size: 18px;
-      padding: 4px 0;
-      list-style: none;
-      position: relative;
-      padding-right: 48px;
-  }
-  .faq summary::-webkit-details-marker { display: none; }
-  
-  /* 2-hole Button */
-  .faq summary::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: #fff;
-      border: 2px solid #35524a;
-      background-image: 
-        radial-gradient(circle at 38% 50%, #35524a 2px, transparent 2.5px),
-        radial-gradient(circle at 62% 50%, #35524a 2px, transparent 2.5px);
-      background-repeat: no-repeat;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  .faq details[open] summary::after {
-      border-color: #35524a;
-      background-color: #fff;
-      background-image: 
-        linear-gradient(45deg, transparent 44%, #35524a 44%, #35524a 56%, transparent 56%),
-        linear-gradient(-45deg, transparent 44%, #35524a 44%, #35524a 56%, transparent 56%);
-      background-position: center;
-      background-size: 50% 50%;
-      transform: translateY(-50%) rotate(180deg);
-  }
-  .faq details[open] summary { margin-bottom: 16px; }
-
-  .route-extra-option {
-    margin-top: 24px;
-    background: #f0f6f3;
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px dashed #35524a;
-  }
-  .route-col-item.full-width {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .path-flow-horizontal {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    justify-content: space-between;
-  }
-  .route-text-block { flex: 1; }
-  .route-text-block p { font-size: 14px; margin: 0; line-height: 1.6; }
-  .small-note { font-size: 12px; color: #5a6b64; margin-top: 4px; }
-  .route-arrow-right { font-size: 18px; color: #cbd5d0; }
-  
-  @media (max-width: 768px) {
-    .path-flow-horizontal { flex-direction: column; text-align: center; }
-    .route-arrow-right { transform: rotate(90deg); }
-    .service-row { grid-template-columns: 1fr; gap: 24px; }
-  }
-  /* New Service Right Column Styles */
-  .service-catchphrase {
-    font-size: 20px;
-    font-weight: 800;
-    color: #35524a;
-    line-height: 1.5;
-    margin-bottom: 24px;
-    letter-spacing: 0.02em;
-  }
-  
-  .service-visual-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #f9fbfa;
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin-bottom: auto; /* Push button to bottom */
-  }
-  .meta-icon { font-size: 24px; }
-  .meta-text { font-size: 14px; font-weight: 700; color: #5a6b64; }
-
-  /* Comparison Table Large Cost */
-  .cost-lg {
-    font-size: 32px;
-    line-height: 1;
+  @media (max-width: 640px) {
+    section { padding: 68px 0; }
+    .hero { padding: 100px 0 68px; }
+    .shift-body { padding: 32px 24px; }
+    .shift-heading { flex-direction: column; gap: 4px; }
+    .comm-tag { margin-left: 0; }
+    .skill-diagram { max-width: 280px; }
   }
 </style>

@@ -48,13 +48,13 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
 		<link rel="icon" type="image/x-icon" href="/assets/images/faviconC.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<meta name="description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI講座・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。"} />
+		<meta name="description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"} />
 		<link rel="canonical" href={resolvedCanonicalUrl} />
         
         <meta property="og:type" content={ogType}>
         <meta property="og:url" content={resolvedOgUrl}>
         <meta property="og:title" content={title}>
-        <meta property="og:description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI講座・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。"}>
+        <meta property="og:description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"}>
         <meta property="og:image" content={ogImage}>
         <meta property="og:locale" content="ja_JP">
         <meta property="og:site_name" content="株式会社コールテン">
@@ -63,7 +63,7 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:url" content={resolvedOgUrl}>
         <meta name="twitter:title" content={title}>
-        <meta name="twitter:description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI講座・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。"}>
+        <meta name="twitter:description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"}>
         <meta name="twitter:image" content={ogImage}>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,7 +81,7 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
                     "alternateName": "Corduroy Inc.",
                     "url": "https://corduroy.co.jp/",
                     "logo": "https://corduroy.co.jp/assets/images/logo.png",
-                    "description": "紹介限定・長期前提で伴走するAIパートナー。AI講座・顧問・システム開発で、想いに寄り添いながら小さく試して広げます。",
+                    "description": "紹介限定・長期前提で伴走するAIパートナー。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。",
                     "founder": {
                         "@type": "Person",
                         "name": "向 雅也",
@@ -326,7 +326,20 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
       background: rgba(22, 97, 78, 0.03);
       box-shadow: none;
     }
-    
+
+    .btn.btn-outline {
+      background: #fff;
+      border: 2px solid var(--sea);
+      color: var(--sea);
+      box-shadow: none;
+    }
+
+    .btn.btn-outline:hover {
+      background: var(--sea);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(22, 97, 78, 0.25);
+    }
+
     /* Card */
     .card {
         background: #fff;

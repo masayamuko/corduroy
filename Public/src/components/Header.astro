@@ -6,19 +6,10 @@
         <img src="/assets/images/logo.png" alt="株式会社コールテン">
       </a>
       <div class="sp"></div>
-      <a href="/#brand-story" class="nav-link">私たちの想い</a>
-      <div class="dropdown">
-        <a href="/services" class="dropdown-toggle" style="display:flex;align-items:center;gap:4px;">サービス <span
-            style="font-size:10px">▼</span></a>
-        <div class="dropdown-menu">
-          <a href="/services">サービス一覧</a>
-          <a href="/services/study/">AI講座</a>
-          <a href="/services/advisory">AI顧問</a>
-          <a href="/services/system">AIシステム開発</a>
-        </div>
-      </div>
+      <a href="/#services" class="nav-link">サービス</a>
       <a href="/members/" class="nav-link">メンバー</a>
       <a href="/news/" class="nav-link">お知らせ</a>
+      <a class="btn btn-outline" href="/services/">無料AI講座</a>
       <a class="btn" href="/contact">相談する</a>
       <button class="hamburger" aria-label="メニュー">
         <span></span>
@@ -33,16 +24,7 @@
         <img src="/assets/images/logo.png" alt="株式会社コールテン" style="height:32px;">
       </div>
       <div class="mobile-menu-group">
-        <a href="/#brand-story" class="mobile-menu-link">会社概要</a>
-      </div>
-      <div class="mobile-menu-divider"></div>
-      <div class="mobile-menu-group">
-        <small
-          style="padding:0 20px; color:#7a8f87; font-size:11px; font-weight:700; display:block; margin-bottom:4px;">SERVICES</small>
-        <a href="/services" class="mobile-menu-link">サービス一覧</a>
-        <a href="/services/study/" class="mobile-menu-link">AI講座</a>
-        <a href="/services/advisory" class="mobile-menu-link">AI顧問</a>
-        <a href="/services/system" class="mobile-menu-link">AIシステム開発</a>
+        <a href="/#services" class="mobile-menu-link">サービス</a>
       </div>
       <div class="mobile-menu-divider"></div>
       <div class="mobile-menu-group">
@@ -51,6 +33,7 @@
       </div>
       <div class="mobile-menu-divider"></div>
       <div class="mobile-menu-group">
+        <a href="/services/" class="mobile-menu-link mobile-menu-cta-outline">無料AI講座</a>
         <a href="/contact" class="mobile-menu-link mobile-menu-cta">相談する</a>
       </div>
     </div>
@@ -137,58 +120,6 @@
 
     .header-logo:hover img {
       transform: scale(1.05);
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%) translateY(10px);
-      min-width: 220px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-      padding: 8px;
-      display: none;
-      z-index: 20;
-      opacity: 0;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .dropdown-menu.active {
-      display: block;
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .dropdown:hover .dropdown-menu,
-    .dropdown:focus-within .dropdown-menu {
-      display: block;
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 12px 16px;
-      color: var(--text);
-      font-weight: 500;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-
-    .dropdown-menu a:hover {
-      background: var(--mint);
-      color: var(--sea);
     }
 
     /* Hamburger & Mobile Menu Styles */
@@ -306,8 +237,17 @@
       box-shadow: 0 4px 12px rgba(22, 97, 78, 0.2);
     }
 
-    .mobile-menu-cta:active {
+    .mobile-menu-cta:active,
+    .mobile-menu-cta-outline:active {
       transform: scale(0.98);
+    }
+
+    .mobile-menu-cta-outline {
+      background: #fff !important;
+      border: 2px solid var(--sea) !important;
+      color: var(--sea) !important;
+      text-align: center;
+      margin-top: 12px;
     }
 
     /* We need global styles for backdrop for it to be appended to body */
@@ -343,8 +283,7 @@
       .nav .sp,
       .nav-link,
       .nav-placeholder,
-      .nav .btn,
-      .dropdown {
+      .nav .btn {
         display: none !important;
       }
 
