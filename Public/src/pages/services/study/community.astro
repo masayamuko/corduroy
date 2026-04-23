@@ -13,6 +13,7 @@ import Layout from '../../../layouts/Layout.astro';
     ============================================================ -->
     <section class="hero">
       <div class="hero-glow"></div>
+      <div class="hero-glow-green"></div>
       <div class="container">
         <div class="eyebrow-badge fade-up">
           <span class="pulse-dot"></span>
@@ -36,9 +37,29 @@ import Layout from '../../../layouts/Layout.astro';
       </div>
     </section>
 
-    <div class="ornament-divider fade-up">
-      <span></span><span class="diamond">✦</span><span></span>
-    </div>
+    <!-- ============================================================
+         FEATURE STRIP
+    ============================================================ -->
+    <section class="feature-strip">
+      <div class="container">
+        <div class="feature-strip-items fade-up">
+          <div class="feature-strip-item">
+            <span class="feature-strip-num">月1回</span>
+            <span class="feature-strip-label">対面の作業会</span>
+          </div>
+          <div class="feature-strip-divider"></div>
+          <div class="feature-strip-item">
+            <span class="feature-strip-num">24/7</span>
+            <span class="feature-strip-label">Discordアクセス</span>
+          </div>
+          <div class="feature-strip-divider"></div>
+          <div class="feature-strip-item">
+            <span class="feature-strip-num">福岡</span>
+            <span class="feature-strip-label">赤坂駅 徒歩すぐ</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ============================================================
          WHAT IS 糸口会
@@ -58,27 +79,23 @@ import Layout from '../../../layouts/Layout.astro';
 
         <div class="what-cards">
           <div class="what-card fade-up">
-            <div class="what-icon">🤝</div>
+            <div class="what-icon-wrap"><span class="what-icon">🤝</span></div>
             <h3>同じくAIを楽しむ仲間とつながれる</h3>
             <p>AIを楽しんでいる人たちと繋がれる。進捗を共有したり、ツールを教え合ったり。一人では続かないことも、仲間がいれば続けられる。</p>
           </div>
           <div class="what-card fade-up">
-            <div class="what-icon">🛠️</div>
+            <div class="what-icon-wrap"><span class="what-icon">🛠️</span></div>
             <h3>月1回、実践する場所</h3>
             <p>「作業会」は話すだけでなく、実際にAIを使って作業する時間。わからないところを質問しながら作業できる。コールテンの講師がそばにいる環境で、詰まったことをその場で解決できる。</p>
           </div>
           <div class="what-card fade-up">
-            <div class="what-icon">💬</div>
+            <div class="what-icon-wrap"><span class="what-icon">💬</span></div>
             <h3>他の人の質問からも学べる</h3>
             <p>Discordでは他のメンバーの質問や発見も流れてくる。「そういう使い方もあるんだ」「そのケースはこうすればいいのか」と、自分では気づかなかった切り口や発想が日々増えていく。</p>
           </div>
         </div>
       </div>
     </section>
-
-    <div class="ornament-divider fade-up">
-      <span></span><span class="diamond">✦</span><span></span>
-    </div>
 
     <!-- ============================================================
          CONTENTS
@@ -143,10 +160,6 @@ import Layout from '../../../layouts/Layout.astro';
         </div>
       </div>
     </section>
-
-    <div class="ornament-divider fade-up">
-      <span></span><span class="diamond">✦</span><span></span>
-    </div>
 
     <!-- ============================================================
          SCHEDULE 2026
@@ -316,10 +329,6 @@ import Layout from '../../../layouts/Layout.astro';
       </div>
     </section>
 
-    <div class="ornament-divider fade-up">
-      <span></span><span class="diamond">✦</span><span></span>
-    </div>
-
     <!-- ============================================================
          MAP / ACCESS
     ============================================================ -->
@@ -361,10 +370,6 @@ import Layout from '../../../layouts/Layout.astro';
       </div>
     </section>
 
-    <div class="ornament-divider fade-up">
-      <span></span><span class="diamond">✦</span><span></span>
-    </div>
-
     <!-- ============================================================
          VOICE / ATMOSPHERE
     ============================================================ -->
@@ -388,10 +393,6 @@ import Layout from '../../../layouts/Layout.astro';
       </div>
     </section>
 
-    <div class="ornament-divider fade-up">
-      <span></span><span class="diamond">✦</span><span></span>
-    </div>
-
     <!-- ============================================================
          HOW TO JOIN
     ============================================================ -->
@@ -408,7 +409,7 @@ import Layout from '../../../layouts/Layout.astro';
               <p>まずLINE公式アカウントに登録。自動でコールテンの講座内容を説明した動画が届きます。</p>
             </div>
           </div>
-          <div class="join-arrow">↓</div>
+          <div class="join-connector"></div>
           <div class="join-step fade-up">
             <div class="step-num">Step 2</div>
             <div class="step-body">
@@ -416,7 +417,7 @@ import Layout from '../../../layouts/Layout.astro';
               <p>月1回開催の無料体験会に参加。AIデモを体験し、講座の雰囲気を確かめてください。</p>
             </div>
           </div>
-          <div class="join-arrow">↓</div>
+          <div class="join-connector"></div>
           <div class="join-step fade-up">
             <div class="step-num">Step 3</div>
             <div class="step-body">
@@ -424,7 +425,7 @@ import Layout from '../../../layouts/Layout.astro';
               <p>AI講座（有料）に参加すると、糸口会（作業会 + Discord）がセットでついてきます。</p>
             </div>
           </div>
-          <div class="join-arrow">↓</div>
+          <div class="join-connector"></div>
           <div class="join-step join-step--highlight fade-up">
             <div class="step-num">🎉</div>
             <div class="step-body">
@@ -435,10 +436,6 @@ import Layout from '../../../layouts/Layout.astro';
         </div>
       </div>
     </section>
-
-    <div class="ornament-divider fade-up">
-      <span></span><span class="diamond">✦</span><span></span>
-    </div>
 
     <!-- ============================================================
          CTA
@@ -473,8 +470,7 @@ import Layout from '../../../layouts/Layout.astro';
      BASE
   ============================================================ */
   .community-page {
-    background: var(--cream, #faf9f7);
-    color: var(--ink, #1a1a2e);
+    color: var(--ink, #052018);
     overflow-x: hidden;
   }
 
@@ -516,19 +512,53 @@ import Layout from '../../../layouts/Layout.astro';
   ============================================================ */
   .hero {
     position: relative;
-    padding: 6rem 0 4rem;
+    padding: 7rem 0 5rem;
     text-align: center;
     overflow: hidden;
+    background: linear-gradient(180deg, var(--cream, #faf9f7) 0%, #fff 50%, var(--mint, #eef7f3) 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(22,97,78,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(181,147,107,0.06) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .hero-glow {
     position: absolute;
-    top: -100px;
+    top: -150px;
     left: 50%;
     transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(181,147,107,0.12) 0%, transparent 70%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(181,147,107,0.1) 0%, rgba(22,97,78,0.03) 50%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow-green {
+    position: absolute;
+    bottom: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(22,97,78,0.06) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -581,7 +611,7 @@ import Layout from '../../../layouts/Layout.astro';
     font-weight: 900;
     letter-spacing: -0.03em;
     line-height: 1.1;
-    color: var(--ink, #1a1a2e);
+    color: var(--ink, #052018);
   }
 
   .h1-main mark {
@@ -593,17 +623,31 @@ import Layout from '../../../layouts/Layout.astro';
   }
 
   .h1-main mark.highlight-green {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--sea, #16614e);
+    background-clip: unset;
+    position: relative;
+    padding: 0 0.05em;
+  }
+
+  .h1-main mark.highlight-green::after {
+    content: '';
+    position: absolute;
+    bottom: 0.05em;
+    left: 0;
+    width: 100%;
+    height: 0.12em;
     background: var(--sea, #16614e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    border-radius: 4px;
+    opacity: 0.25;
   }
 
   .h1-post {
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     font-weight: 700;
     letter-spacing: 0.04em;
-    background: linear-gradient(135deg, var(--sea, #2a6496), var(--mint, #5ba3a0));
+    background: linear-gradient(135deg, var(--sea, #16614e), #2a8a6e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -631,67 +675,130 @@ import Layout from '../../../layouts/Layout.astro';
   }
 
   /* ============================================================
-     ORNAMENT DIVIDER
+     FEATURE STRIP
   ============================================================ */
-  .ornament-divider {
+  .feature-strip {
+    background: var(--green, #0b3326);
+    padding: 2.5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-strip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%, rgba(255,255,255,0.02) 100%);
+    pointer-events: none;
+  }
+
+  .feature-strip-items {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
-    max-width: 400px;
-    margin: 3rem auto;
-    padding: 0 1.5rem;
+    gap: 3rem;
   }
 
-  .ornament-divider span:not(.diamond) {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(181,147,107,0.35), transparent);
+  .feature-strip-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
   }
 
-  .diamond {
-    color: var(--accent, #b5936b);
+  .feature-strip-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+
+  .feature-strip-label {
     font-size: 0.75rem;
-    opacity: 0.7;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .feature-strip-divider {
+    width: 1px;
+    height: 44px;
+    background: rgba(255,255,255,0.15);
   }
 
   /* ============================================================
      WHAT SECTION
   ============================================================ */
   .what-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
+    background: #fff;
   }
 
   .what-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-top: 2rem;
     text-align: left;
   }
 
   .what-card {
-    background: #fff;
-    border: 1px solid rgba(181,147,107,0.15);
-    border-radius: 16px;
+    background: var(--cream, #faf9f7);
+    border: 1px solid rgba(22,97,78,0.08);
+    border-radius: 20px;
     padding: 2rem 1.5rem;
-    transition: box-shadow 0.2s, transform 0.2s;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .what-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sea, #16614e), var(--accent, #b5936b));
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .what-card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+  }
+
+  .what-card:hover::before {
+    opacity: 1;
+  }
+
+  .what-icon-wrap {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--mint, #eef7f3) 0%, rgba(22,97,78,0.06) 100%);
+    margin-bottom: 1.25rem;
   }
 
   .what-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    line-height: 1;
   }
 
   .what-card h3 {
     font-size: 1rem;
     font-weight: 800;
     margin-bottom: 0.6rem;
+    color: var(--ink, #052018);
   }
 
   .what-card p {
@@ -704,7 +811,8 @@ import Layout from '../../../layouts/Layout.astro';
      CONTENTS SECTION
   ============================================================ */
   .contents-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
+    background: var(--cream, #faf9f7);
   }
 
   .contents-section .section-title,
@@ -715,7 +823,7 @@ import Layout from '../../../layouts/Layout.astro';
   .contents-grid {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .content-item {
@@ -723,25 +831,35 @@ import Layout from '../../../layouts/Layout.astro';
     grid-template-columns: 64px 1fr;
     gap: 1.5rem;
     background: #fff;
-    border: 1px solid rgba(181,147,107,0.15);
-    border-radius: 16px;
+    border: 1px solid rgba(22,97,78,0.08);
+    border-left: 4px solid var(--sea, #16614e);
+    border-radius: 4px 20px 20px 4px;
     padding: 2rem;
     align-items: start;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  .content-item:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
   }
 
   .content-number {
     font-size: 2.5rem;
     font-weight: 900;
-    color: rgba(181,147,107,0.25);
+    color: var(--sea, #16614e);
     line-height: 1;
     letter-spacing: -0.05em;
     font-family: 'Space Grotesk', sans-serif;
+    opacity: 0.2;
   }
 
   .content-body h3 {
     font-size: 1.1rem;
     font-weight: 800;
     margin-bottom: 0.75rem;
+    color: var(--ink, #052018);
   }
 
   .content-tags {
@@ -752,9 +870,9 @@ import Layout from '../../../layouts/Layout.astro';
   }
 
   .tag {
-    background: rgba(42,100,150,0.08);
-    color: var(--sea, #2a6496);
-    border: 1px solid rgba(42,100,150,0.2);
+    background: rgba(22,97,78,0.06);
+    color: var(--sea, #16614e);
+    border: 1px solid rgba(22,97,78,0.15);
     border-radius: 999px;
     padding: 0.2rem 0.7rem;
     font-size: 0.72rem;
@@ -783,15 +901,17 @@ import Layout from '../../../layouts/Layout.astro';
      SCHEDULE SECTION
   ============================================================ */
   .schedule-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
+    background: #fff;
   }
 
   .schedule-table-wrap {
     overflow-x: auto;
-    border-radius: 12px;
-    border: 1px solid rgba(181,147,107,0.2);
+    border-radius: 16px;
+    border: 1px solid rgba(22,97,78,0.1);
     margin-bottom: 1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
   }
 
   .schedule-table {
@@ -801,13 +921,14 @@ import Layout from '../../../layouts/Layout.astro';
   }
 
   .schedule-table th {
-    background: rgba(181,147,107,0.08);
-    padding: 0.85rem 1.5rem;
+    background: var(--sea, #16614e);
+    color: #fff;
+    padding: 1rem 1.5rem;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-align: left;
-    border-bottom: 1px solid rgba(181,147,107,0.15);
+    border-bottom: none;
   }
 
   .schedule-table td {
@@ -821,14 +942,18 @@ import Layout from '../../../layouts/Layout.astro';
     border-bottom: none;
   }
 
+  .schedule-table tbody tr:nth-child(even) {
+    background: rgba(22,97,78,0.02);
+  }
+
   .schedule-table tbody tr:hover {
-    background: rgba(181,147,107,0.04);
+    background: rgba(22,97,78,0.05);
   }
 
   .schedule-subtitle {
     font-size: 1rem;
     font-weight: 800;
-    color: var(--ink, #1a1a2e);
+    color: var(--ink, #052018);
     margin-bottom: 0.75rem;
     text-align: left;
   }
@@ -839,7 +964,7 @@ import Layout from '../../../layouts/Layout.astro';
 
   .badge {
     display: inline-block;
-    padding: 0.15rem 0.6rem;
+    padding: 0.2rem 0.7rem;
     border-radius: 999px;
     font-size: 0.75rem;
     font-weight: 700;
@@ -870,15 +995,17 @@ import Layout from '../../../layouts/Layout.astro';
      MAP SECTION
   ============================================================ */
   .map-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
+    background: linear-gradient(180deg, var(--cream, #faf9f7) 0%, var(--mint, #eef7f3) 100%);
   }
 
   .map-wrap {
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(181,147,107,0.2);
+    border: 1px solid rgba(22,97,78,0.1);
     margin-bottom: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
   }
 
   .map-wrap iframe {
@@ -887,7 +1014,7 @@ import Layout from '../../../layouts/Layout.astro';
 
   .map-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     text-align: left;
   }
@@ -897,9 +1024,10 @@ import Layout from '../../../layouts/Layout.astro';
     align-items: flex-start;
     gap: 0.75rem;
     background: #fff;
-    border: 1px solid rgba(181,147,107,0.15);
-    border-radius: 12px;
+    border: 1px solid rgba(22,97,78,0.08);
+    border-radius: 16px;
     padding: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
   }
 
   .map-info-icon {
@@ -912,6 +1040,7 @@ import Layout from '../../../layouts/Layout.astro';
     font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 0.2rem;
+    color: var(--ink, #052018);
   }
 
   .map-info-item p {
@@ -925,24 +1054,43 @@ import Layout from '../../../layouts/Layout.astro';
      VOICE SECTION
   ============================================================ */
   .voice-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
+    background: #fff;
   }
 
   .voice-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     text-align: left;
   }
 
   .voice-card {
-    background: #fff;
-    border: 1px solid rgba(181,147,107,0.15);
-    border-left: 4px solid var(--accent, #b5936b);
-    border-radius: 0 12px 12px 0;
-    padding: 1.5rem;
+    background: var(--cream, #faf9f7);
+    border: 1px solid rgba(22,97,78,0.06);
+    border-radius: 20px;
+    padding: 2rem 1.5rem 1.5rem;
     margin: 0;
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  .voice-card::before {
+    content: '\201C';
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: var(--sea, #16614e);
+    opacity: 0.12;
+    position: absolute;
+    top: 0.4rem;
+    left: 1.2rem;
+  }
+
+  .voice-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
   }
 
   .voice-card p {
@@ -950,21 +1098,25 @@ import Layout from '../../../layouts/Layout.astro';
     line-height: 1.8;
     color: #333;
     margin-bottom: 0.75rem;
-    font-style: italic;
+    font-style: normal;
+    position: relative;
   }
 
   .voice-card cite {
     font-size: 0.78rem;
-    color: #888;
+    color: var(--sea, #16614e);
     font-style: normal;
+    font-weight: 600;
+    opacity: 0.7;
   }
 
   /* ============================================================
      JOIN SECTION
   ============================================================ */
   .join-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     text-align: center;
+    background: var(--cream, #faf9f7);
   }
 
   .join-steps {
@@ -978,30 +1130,42 @@ import Layout from '../../../layouts/Layout.astro';
 
   .join-step {
     background: #fff;
-    border: 1px solid rgba(181,147,107,0.2);
-    border-radius: 12px;
+    border: 1px solid rgba(22,97,78,0.1);
+    border-radius: 16px;
     padding: 1.5rem;
     text-align: left;
     width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+
+  .join-step:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
   }
 
   .join-step--highlight {
-    background: linear-gradient(135deg, rgba(181,147,107,0.08), rgba(42,100,150,0.06));
-    border-color: rgba(181,147,107,0.35);
+    background: linear-gradient(135deg, rgba(22,97,78,0.04), rgba(22,97,78,0.08));
+    border-color: rgba(22,97,78,0.2);
   }
 
   .step-num {
-    font-size: 0.72rem;
+    display: inline-block;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.1em;
-    color: var(--accent, #b5936b);
-    margin-bottom: 0.4rem;
+    color: #fff;
+    background: var(--sea, #16614e);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.6rem;
   }
 
   .step-body h3 {
     font-size: 1rem;
     font-weight: 800;
     margin-bottom: 0.4rem;
+    color: var(--ink, #052018);
   }
 
   .step-body p {
@@ -1011,11 +1175,10 @@ import Layout from '../../../layouts/Layout.astro';
     margin: 0;
   }
 
-  .join-arrow {
-    font-size: 1.5rem;
-    color: var(--accent, #b5936b);
-    opacity: 0.5;
-    padding: 0.25rem 0;
+  .join-connector {
+    width: 2px;
+    height: 28px;
+    background: linear-gradient(to bottom, var(--sea, #16614e), rgba(22,97,78,0.15));
   }
 
   /* ============================================================
@@ -1023,14 +1186,40 @@ import Layout from '../../../layouts/Layout.astro';
   ============================================================ */
   .cta-section {
     padding: 5rem 0 6rem;
+    background: #fff;
   }
 
   .cta-box {
-    background: linear-gradient(135deg, var(--ink, #1a1a2e) 0%, #2a3a5e 100%);
+    background: linear-gradient(135deg, var(--green, #0b3326) 0%, #1a4a3a 50%, #0d3f2f 100%);
     color: white;
     border-radius: 24px;
     padding: 3.5rem 2.5rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(11,51,38,0.3);
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-box::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -60px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(181,147,107,0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .cta-eyebrow {
@@ -1038,8 +1227,9 @@ import Layout from '../../../layouts/Layout.astro';
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
+    color: rgba(181,147,107,0.8);
     margin-bottom: 1rem;
+    position: relative;
   }
 
   .cta-box h2 {
@@ -1047,6 +1237,8 @@ import Layout from '../../../layouts/Layout.astro';
     font-weight: 900;
     margin-bottom: 1.25rem;
     line-height: 1.3;
+    color: #fff;
+    position: relative;
   }
 
   .cta-desc {
@@ -1054,6 +1246,7 @@ import Layout from '../../../layouts/Layout.astro';
     line-height: 1.9;
     color: rgba(255,255,255,0.75);
     margin-bottom: 2rem;
+    position: relative;
   }
 
   .cta-buttons {
@@ -1062,17 +1255,28 @@ import Layout from '../../../layouts/Layout.astro';
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
+    position: relative;
   }
 
   .cta-box .btn {
     background: white;
-    color: var(--ink, #1a1a2e);
+    color: var(--green, #0b3326);
+    font-weight: 700;
+  }
+
+  .cta-box .btn:hover {
+    background: var(--mint, #eef7f3);
   }
 
   .cta-box .btn.secondary {
     background: transparent;
     border-color: rgba(255,255,255,0.35);
     color: white;
+  }
+
+  .cta-box .btn.secondary:hover {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.08);
   }
 
   /* LINE button */
@@ -1087,13 +1291,15 @@ import Layout from '../../../layouts/Layout.astro';
     padding: 0.9rem 2rem;
     border-radius: 999px;
     text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
     box-shadow: 0 4px 16px rgba(6,199,85,0.3);
+    position: relative;
   }
 
   .btn-line-lg:hover {
     background: #05b04b;
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(6,199,85,0.4);
   }
 
   /* ============================================================
@@ -1113,8 +1319,44 @@ import Layout from '../../../layouts/Layout.astro';
   /* ============================================================
      RESPONSIVE
   ============================================================ */
+  @media (max-width: 860px) {
+    .what-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .voice-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .map-info {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 640px) {
-    .hero { padding: 4rem 0 3rem; }
+    .hero {
+      padding: 5rem 0 3.5rem;
+    }
+
+    .feature-strip-items {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .feature-strip-divider {
+      width: 40px;
+      height: 1px;
+    }
+
+    .what-section,
+    .contents-section,
+    .schedule-section,
+    .map-section,
+    .voice-section,
+    .join-section,
+    .cta-section {
+      padding: 3.5rem 0;
+    }
 
     .content-item {
       grid-template-columns: 1fr;
