@@ -10,8 +10,8 @@ const posts = [
   {
     slug: 'nks-kashiko-instructor',
     date: '2026-04-21',
-    category: '子ども支援',
-    title: '日本こども色彩協会のkashiko色彩インストラクター認定講座を修了しました',
+    category: ['活動報告', '子ども支援'],
+    title: '一般社団法人日本こども色彩協会のkashiko色彩インストラクター認定講座を修了しました',
     excerpt: '5年ぶりの連続講座。色彩を通じて「じぶん色」を引き出すkashikoプログラムを学び、学び続けることの大切さを再確認しました。',
     thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
     external: false,
@@ -29,8 +29,8 @@ const posts = [
     slug: 'shu-ai-advisory',
     date: '2026-04-01',
     category: '活動報告',
-    title: '行政書士の沼澤さんにAI顧問契約をいただきました',
-    excerpt: 'しゅう行政書士事務所の沼澤さんに、3ヶ月のお試しAI顧問契約をいただきました。一人で仕事をしている方がAIエージェントでチーム化していく第一歩をサポートしています。',
+    title: '行政書士のしゅうへいさんにAI顧問契約をいただきました',
+    excerpt: 'しゅう行政書士事務所のしゅうへいさんに、3ヶ月のお試しAI顧問契約をいただきました。一人で仕事をしている方がAIエージェントでチーム化していく第一歩をサポートしています。',
     thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
     external: false,
   },
@@ -47,8 +47,17 @@ const posts = [
     slug: 'ohara-partnership',
     date: '2025-12-24',
     category: '活動報告',
-    title: '一般社団法人OHARAさんのAI活用をサポートしています',
-    excerpt: '外国人との共生社会に取り組む一般社団法人OHARAさんから、団体内のAI活用や士業の方々への研修についてご相談をいただきました。月1回のミーティングで少しずつAI化を進めています。',
+    title: '一般社団法人OHRAさんと定期ミーティングを始めました',
+    excerpt: '外国人との共生社会に取り組む一般社団法人OHRAさんから、団体内のAI活用や士業の方々への研修についてご相談をいただきました。月1回のミーティングで少しずつAI化を進めています。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+    external: false,
+  },
+  {
+    slug: 'tkr-ai-advisory',
+    date: '2025-12-24',
+    category: '活動報告',
+    title: 'フリーランスたかろーさんにAI顧問契約をいただきました',
+    excerpt: '動画編集者としてフリーランスで活動するたかろーさんに、AI顧問契約をいただきました。Claude Codeを用いた動画編集やAI活用で、フリーランスとしての業務を便利にするサポートをしています。',
     thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
     external: false,
   },
@@ -65,7 +74,7 @@ const posts = [
     slug: 'san-partnership',
     date: '2025-12-01',
     category: 'パートナー自慢',
-    title: '株式会社スデニアルの佐野さんと毎週ミーティングしています',
+    title: '株式会社スデニアルの佐野さんと定期ミーティングを開始しました',
     excerpt: '2025年12月から株式会社スデニアルの佐野さんと毎週ミーティング。プロマーケター×AI活用で、本当に価値あるものを届けるための協業を模索しています。',
     thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
     external: false,
@@ -127,7 +136,10 @@ const description = "コールテンの活動報告やAI活用に関する気づ
               <div class="post-body">
                 <div class="post-meta">
                   <time class="post-date">{post.date}</time>
-                  <span class="post-cat">{post.category}</span>
+                  {Array.isArray(post.category)
+                    ? post.category.map(cat => <span class="post-cat">{cat}</span>)
+                    : <span class="post-cat">{post.category}</span>
+                  }
                 </div>
                 <h2 class="post-title">{post.title}</h2>
                 <p class="post-excerpt">{post.excerpt}</p>
