@@ -132,6 +132,17 @@ const description = "コールテンの活動報告やAI活用に関する気づ
           <button type="button" class="sort-btn" data-sort="asc">古い順</button>
         </div>
       </div>
+      <a href="/members/about/" class="featured-banner fade-up" data-featured-category="AI活用">
+        <div class="featured-banner-inner">
+          <div class="featured-banner-text">
+            <span class="featured-eyebrow">FEATURED</span>
+            <h2 class="featured-title">コールテンの仕事術 — 29名のAI社員と共に。</h2>
+            <p class="featured-desc">なぜ1体ではなく29名に分けたのか。Claude Agent SDKの公式機能を活用したAI活用の全容を公開。</p>
+            <span class="featured-link">詳しく見る →</span>
+          </div>
+        </div>
+      </a>
+
       <div class="posts-list fade-up">
         {posts.length === 0 ? (
           <div class="empty-state">
@@ -365,6 +376,84 @@ const description = "コールテンの活動報告やAI活用に関する気づ
     color: var(--text-light);
   }
 
+  /* Featured Banner */
+  .featured-banner {
+    display: block;
+    max-width: 820px;
+    margin: 0 auto 28px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  .featured-banner:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(5,32,24,0.12);
+  }
+  .featured-banner.banner-hidden {
+    display: none;
+  }
+  .featured-banner-inner {
+    background: linear-gradient(135deg, var(--sea) 0%, #1a7a60 60%, var(--mint) 100%);
+    padding: 40px 40px;
+    position: relative;
+  }
+  .featured-banner-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle at 90% 20%, rgba(255,255,255,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .featured-banner-text {
+    position: relative;
+    z-index: 1;
+  }
+  .featured-eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 14px;
+    background: rgba(255,255,255,0.15);
+    padding: 4px 12px;
+    border-radius: 99px;
+  }
+  .featured-title {
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+    margin: 0 0 12px;
+  }
+  .featured-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.85;
+    margin: 0 0 18px;
+    max-width: 560px;
+  }
+  .featured-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: "Space Grotesk", sans-serif;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 16px;
+    border-radius: 99px;
+    transition: background 0.2s ease;
+  }
+  .featured-banner:hover .featured-link {
+    background: rgba(255,255,255,0.25);
+  }
+
   @media (max-width: 640px) {
     .hero { padding: 40px 16px 28px; }
     .filter-controls { flex-direction: column; gap: 12px; }
@@ -372,6 +461,8 @@ const description = "コールテンの活動報告やAI活用に関する気づ
     .post-card { padding: 20px; gap: 16px; }
     .post-thumb { width: 72px; height: 72px; border-radius: 10px; }
     .post-title { font-size: 17px; }
+    .featured-banner-inner { padding: 28px 24px; }
+    .featured-title { font-size: 19px; }
   }
 </style>
 
@@ -382,8 +473,19 @@ const description = "コールテンの活動報告やAI活用に関する気づ
     const postsList = document.querySelector('.posts-list');
     const cards = document.querySelectorAll('.post-card[data-categories]');
     const emptyMsg = document.querySelector('.filter-empty');
+    const featuredBanner = document.querySelector('.featured-banner[data-featured-category]');
     let activeCategory = 'すべて';
     let sortOrder = 'desc';
+
+    function updateBanner() {
+      if (!featuredBanner) return;
+      const bannerCat = featuredBanner.dataset.featuredCategory;
+      if (activeCategory === 'すべて' || activeCategory === bannerCat) {
+        featuredBanner.classList.remove('banner-hidden');
+      } else {
+        featuredBanner.classList.add('banner-hidden');
+      }
+    }
 
     function applyFilter() {
       let visibleCount = 0;
@@ -419,6 +521,7 @@ const description = "コールテンの活動報告やAI活用に関する気づ
     function update() {
       applySort();
       applyFilter();
+      updateBanner();
     }
 
     function updateAria() {
