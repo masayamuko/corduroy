@@ -219,9 +219,11 @@ import Layout from '../../layouts/Layout.astro';
               <div class="ratio-bar" aria-label="制作割合">
                 <span class="ratio client" style="width:75%;">あなた</span>
                 <span class="ratio joint" style="width:15%;">共同</span>
-                <span class="ratio cord" style="width:10%; display:flex; align-items:center; justify-content:center;"><img src="/favicon.svg" alt="Cor" style="width:14px; height:14px; opacity:0.8;"></span>
+                <span class="ratio cord" style="width:10%; display:flex; align-items:center; justify-content:center;"><img src="/assets/images/faviconC.ico" alt="コールテン" style="width:16px; height:16px; border-radius:3px;"></span>
               </div>
-              <h2 style="margin-top:auto; margin-bottom:0; font-size:28px;">月額 5万円〜</h2>
+              <div class="price-display" style="margin-top:auto; margin-bottom:0;">
+                <span class="price-number">5</span><span class="price-unit">万円<span class="price-slash">/月</span></span>
+              </div>
             </div>
             <div class="card fade-up">
               <h3>伴走スタンダード</h3>
@@ -234,9 +236,11 @@ import Layout from '../../layouts/Layout.astro';
               <div class="ratio-bar" aria-label="制作割合">
                 <span class="ratio client" style="width:45%;">あなた</span>
                 <span class="ratio joint" style="width:35%;">共同</span>
-                <span class="ratio cord" style="width:20%; display:flex; align-items:center; justify-content:center;"><img src="/favicon.svg" alt="Cor" style="width:14px; height:14px; opacity:0.8;"></span>
+                <span class="ratio cord" style="width:20%; display:flex; align-items:center; justify-content:center;"><img src="/assets/images/faviconC.ico" alt="コールテン" style="width:16px; height:16px; border-radius:3px;"></span>
               </div>
-              <h2 style="margin-top:auto; margin-bottom:0; font-size:28px;">月額 10万円〜</h2>
+              <div class="price-display" style="margin-top:auto; margin-bottom:0;">
+                <span class="price-number">10</span><span class="price-unit">万円<span class="price-slash">/月</span></span>
+              </div>
             </div>
             <div class="card fade-up">
               <h3>伴走リード</h3>
@@ -249,9 +253,11 @@ import Layout from '../../layouts/Layout.astro';
               <div class="ratio-bar" aria-label="制作割合">
                 <span class="ratio client" style="width:20%;">あなた</span>
                 <span class="ratio joint" style="width:30%;">共同</span>
-                <span class="ratio cord" style="width:50%; display:flex; align-items:center; justify-content:center;"><img src="/favicon.svg" alt="Cor" style="width:14px; height:14px; opacity:0.8;"></span>
+                <span class="ratio cord" style="width:50%; display:flex; align-items:center; justify-content:center;"><img src="/assets/images/faviconC.ico" alt="コールテン" style="width:16px; height:16px; border-radius:3px;"></span>
               </div>
-              <h2 style="margin-top:auto; margin-bottom:0; font-size:28px;">月額 20万円〜</h2>
+              <div class="price-display" style="margin-top:auto; margin-bottom:0;">
+                <span class="price-number">20</span><span class="price-unit">万円<span class="price-slash">/月</span></span>
+              </div>
             </div>
           </div>
           <p class="mini" style="text-align:center; margin-top:40px; color:var(--text-light); font-size:14px;">
@@ -345,11 +351,11 @@ import Layout from '../../layouts/Layout.astro';
               </p>
               <ul class="mini-list" style="max-width:680px; margin:0 auto; text-align:left; background:#fff; padding:24px 32px; border-radius:12px; border:1px dashed #cbd5d0; list-style:none;">
                 <li style="margin-bottom:12px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
-                  <span style="background:#e8f2ee; color:#35524a; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:13px; white-space:nowrap;">伴走スタンダード (10万円)</span>
+                  <span style="background:#e8f2ee; color:#35524a; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:13px; white-space:nowrap;">伴走スタンダード（10万円/月）</span>
                   <span style="flex:1;">ミーティング回数と作業時間が半分になるため、上記の進捗には<strong>約2倍の期間</strong>を要します。</span>
                 </li>
                 <li style="margin-bottom:12px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
-                  <span style="background:#e8f2ee; color:#35524a; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:13px; white-space:nowrap;">伴走ライト (5万円)</span>
+                  <span style="background:#e8f2ee; color:#35524a; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:13px; white-space:nowrap;">伴走ライト（5万円/月）</span>
                   <span style="flex:1;">月1回の相談が主となるため、実作業のほとんどをお客様自身で進めていただく必要があります。上記のロードマップ通りの進捗をこのプランのみで実現するのは<strong>極めて困難</strong>です。</span>
                 </li>
                 <li style="margin-top:16px; color:#35524a; background:#e8f2ee; padding:12px 16px; border-radius:8px; display:flex; gap:8px;">
@@ -403,53 +409,6 @@ import Layout from '../../layouts/Layout.astro';
               <h3 style="color:#7a8f87;margin-bottom:8px;">📝 準備中</h3>
               <p class="mini" style="color:#7a8f87;">AI顧問サービスを利用されているクライアントの<br>インタビュー記事を近日公開予定です。</p>
             </div>
-          </div>
-        </section>
-
-        <section class="bg-other">
-          <div class="container">
-            <div class="section-head fade-up">
-              <small>Other Services</small>
-              <h2>その他のサービスを見る</h2>
-              <p>学びからコミュニティまで、目的に合わせて選べます。</p>
-            </div>
-            <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center;">
-              <p class="mini" style="margin-bottom:20px;">AI講座・AIコミュニティも含めた一覧ページをご覧ください。</p>
-              <a class="btn secondary" href="/services" style="padding:14px 26px;">サービス一覧ページへ →</a>
-            </div>
-          </div>
-        </section>
-
-        <section class="container" style="padding: 60px 0;">
-          <div class="section-head fade-up" style="text-align:center;">
-            <small style="color:var(--accent); font-family:'Space Grotesk',sans-serif; letter-spacing:0.15em; font-size:12px; font-weight:600;">CASE STUDIES</small>
-            <h2 style="margin-top:10px;">導入事例（AI顧問）</h2>
-            <p class="mini" style="margin-top:10px;">実際にAI顧問として伴走させていただいているクライアントさまの声です。</p>
-          </div>
-          <div class="fade-up" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; max-width:860px; margin:30px auto 0;">
-            <a href="/voices/sano" class="case-card" style="display:block; padding:22px; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow-sm); text-decoration:none; color:inherit; transition:all .3s;">
-              <div style="display:flex; gap:12px; align-items:center; margin-bottom:10px;">
-                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" style="width:48px; height:48px; border-radius:14px; object-fit:cover;" loading="lazy" />
-                <div>
-                  <div style="font-weight:700; font-size:14px;">株式会社スデニアル 佐野さん</div>
-                  <div style="font-size:12px; color:var(--text-light);">マーケ施策のシミュレーション</div>
-                </div>
-              </div>
-              <p class="mini" style="margin:0;">「議事録要約止まりだったAI活用から、仮説→検証→提案を一気に回せる状態へ」</p>
-            </a>
-            <a href="/voices/kubota" class="case-card" style="display:block; padding:22px; background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow-sm); text-decoration:none; color:inherit; transition:all .3s;">
-              <div style="display:flex; gap:12px; align-items:center; margin-bottom:10px;">
-                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/kubota_smileyflowers.png" alt="窪田さん" style="width:48px; height:48px; border-radius:14px; object-fit:cover;" loading="lazy" />
-                <div>
-                  <div style="font-weight:700; font-size:14px;">NPO スマイリーフラワーズ 窪田さん</div>
-                  <div style="font-size:12px; color:var(--text-light);">ツール選定・導入サポート</div>
-                </div>
-              </div>
-              <p class="mini" style="margin:0;">「業務を理解した上で最適なツールを提案してくれるので、置いていかれずに済みます」</p>
-            </a>
-          </div>
-          <div style="text-align:center; margin-top:24px;">
-            <a class="btn secondary" href="/voices/">他のクライアントさまの声 →</a>
           </div>
         </section>
 
@@ -895,6 +854,31 @@ import Layout from '../../layouts/Layout.astro';
     .ratio.client { background: #cbd5d0; color: #35524a; }
     .ratio.joint { background: #7fb6a6; }
     .ratio.cord { background: #35524a; }
+
+    /* Price Display */
+    .price-display {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .price-number {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.03em;
+    }
+    .price-unit {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+    .price-slash {
+      font-size: 14px;
+      font-weight: 500;
+      color: #999;
+    }
 
     @media(max-width:768px) {
       section { padding: 60px 0; }
