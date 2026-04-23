@@ -11,8 +11,6 @@ import preact from '@astrojs/preact';
 export default defineConfig({
   site: 'https://www.corduroy.co.jp',
   trailingSlash: 'always',
-  redirects: {
-    '/clients/takaro': '/voices/takaro/',
-  },
+  redirects: {},
   integrations: [sitemap(), preact()]
 });
