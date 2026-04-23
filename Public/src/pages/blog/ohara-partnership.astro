@@ -1,0 +1,206 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "一般社団法人OHARAさんのAI活用をサポートしています｜株式会社コールテン";
+const description = "外国人との共生社会に取り組む一般社団法人OHARAさんから、団体内のAI活用や士業の方々への研修についてご相談をいただきました。月1回のミーティングで少しずつAI化を進めています。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://corduroy.co.jp/blog/ohara-partnership/"
+  ogUrl="https://corduroy.co.jp/blog/ohara-partnership/"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://corduroy.co.jp/blog/ohara-partnership/#article",
+    "url": "https://corduroy.co.jp/blog/ohara-partnership/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://corduroy.co.jp/blog/ohara-partnership/"
+    },
+    "headline": "一般社団法人OHARAさんのAI活用をサポートしています",
+    "datePublished": "2025-12-24",
+    "dateModified": "2025-12-24",
+    "image": "https://corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Organization",
+      "@id": "https://corduroy.co.jp/#organization",
+      "name": "株式会社コールテン"
+    },
+    "publisher": {
+      "@id": "https://corduroy.co.jp/#organization"
+    },
+    "description": "外国人との共生社会に取り組む一般社団法人OHARAさんから、団体内のAI活用や士業の方々への研修についてご相談をいただきました。月1回のミーティングで少しずつAI化を進めています。"
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>ohara-partnership</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2025-12-24</time>
+            <span class="cat">活動報告</span>
+          </div>
+          <h1>一般社団法人OHARAさんのAI活用をサポートしています</h1>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <p>
+              <a href="https://ohra.asia/" target="_blank" rel="noopener noreferrer">一般社団法人OHARA</a>さんから、
+              団体内でのAI活用を進めたい、関わりのある士業の方々へのAI活用研修を実施したいというご相談をいただきました。
+            </p>
+
+            <h2>外国人との共生社会のために</h2>
+            <p>
+              OHARAさんは、かつて技能実習生と呼ばれていた外国人労働者の方々が置かれた問題に心を痛め、
+              外国人との共生社会に対して何かできることがないか——そんな思いでさまざまな活動をされている団体です。
+              その志に、深く共感しています。
+            </p>
+
+            <h2>高校の同級生との再会</h2>
+            <p>
+              代表の梅田さんは、実は高校の同級生です。
+              ひょんなことから再会し、お互いの活動について話しているうちに、
+              AIの活用で何かお手伝いできることがあるのではないかという話になりました。
+            </p>
+            <p>
+              僕自身、大学生の頃にカナダのバンクーバーにワーキングホリデーで渡り、
+              大学ではサークルで留学生のサポートにも携わっていました。
+              社会人になってからも留学エージェントさんとお仕事をさせていただいた経験があり、
+              外国人との関わりや異文化の中で生きることの素晴らしさは、肌で感じてきました。
+              だからこそ、OHARAさんの活動の素晴らしさに共感し、
+              できることがあればという思いで関わらせていただいています。
+            </p>
+
+            <h2>月1回のミーティングから少しずつ</h2>
+            <p>
+              現在は月に1回ほどミーティングを重ねながら、
+              少しずつ団体内のAI活用を進めていこうという話になっています。
+              小さな一歩からでも、一緒に取り組んでいければと思っています。
+            </p>
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-left: 14px;
+    border-left: 4px solid var(--sea);
+  }
+  .article-body p { margin-bottom: 24px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover {
+    text-decoration-color: var(--sea);
+  }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-foot { justify-content: center; }
+  }
+</style>
