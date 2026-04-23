@@ -407,21 +407,35 @@ const description = "コールテンの活動報告やAI活用に関する気づ
       if (emptyMsg) postsList.appendChild(emptyMsg);
     }
 
+    function update() {
+      applySort();
+      applyFilter();
+    }
+
+    function updateAria() {
+      chips.forEach(c => c.setAttribute('aria-pressed', c.classList.contains('active')));
+      sortBtns.forEach(b => b.setAttribute('aria-pressed', b.classList.contains('active')));
+    }
+
     chips.forEach(chip => {
+      chip.setAttribute('aria-pressed', chip.classList.contains('active'));
       chip.addEventListener('click', () => {
         chips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         activeCategory = chip.dataset.filter;
-        applyFilter();
+        update();
+        updateAria();
       });
     });
 
     sortBtns.forEach(btn => {
+      btn.setAttribute('aria-pressed', btn.classList.contains('active'));
       btn.addEventListener('click', () => {
         sortBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         sortOrder = btn.dataset.sort;
-        applySort();
+        update();
+        updateAria();
       });
     });
   });
