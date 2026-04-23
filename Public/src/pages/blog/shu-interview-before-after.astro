@@ -1,0 +1,862 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "「調べるだけ」のAIから「相棒」へ —— 行政書士しゅうへいさんのBeforeAfter｜株式会社コールテン";
+const description = "AIを検索ツール止まりで使っていた行政書士のしゅうへいさんが、対話型の相棒として活用するようになるまで。内省の回転数が上がり、AI会社への転身やDX推進副委員長就任へと繋がったBeforeAfterを聞きました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/shu-interview-before-after/"
+  ogUrl="https://www.corduroy.co.jp/blog/shu-interview-before-after/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/shu-interview-before-after/#article",
+    "url": "https://www.corduroy.co.jp/blog/shu-interview-before-after/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/shu-interview-before-after/"
+    },
+    "headline": "「調べるだけ」のAIから「相棒」へ —— 行政書士しゅうへいさんのBeforeAfter",
+    "datePublished": "2026-03-18",
+    "dateModified": "2026-03-18",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "周平",
+      "jobTitle": "行政書士 / DX推進 / AI会社勤務"
+    },
+    "description": "AIを検索ツール止まりで使っていた行政書士のしゅうへいさんが、対話型の相棒として活用するようになるまで。内省の回転数が上がり、AI会社への転身やDX推進副委員長就任へと繋がったBeforeAfterを聞きました。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "しゅうへいさんBeforeAfter" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "BeforeAfterはどれくらいの期間で実感できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "しゅうへいさんの場合、最初のセッションから3時間没頭するほどの変化を実感しました。AIを検索ツールから対話相手に切り替えるだけで、数週間のうちに内省の回転数が上がり、仕事の判断スピードも変わったそうです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AIを対話相手にするとはどういうことですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "単に質問して答えを受け取るのではなく、AIの返答に対して自分の考えをぶつけ、さらに深掘りしていくやり方です。コーチングのように自分の思考を整理・言語化するプロセスが生まれ、内省の質と速度が大きく変わります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "行政書士業務にAIは使えますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "しゅうへいさんは行政書士としての専門性とAI活用を掛け合わせ、DX推進副委員長やAI会社での業務など活躍の幅を広げました。法令リサーチや書類整理だけでなく、業務フロー改善や研修設計にもAIが活きるとのことです。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png"
+              alt="しゅうへいさん"
+              onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';"></div>
+        </div>
+        <h1>「調べるだけ」のAIから「相棒」へ<br><span class="h1-sub">行政書士しゅうへいさんのBeforeAfter</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">BeforeAfter</span>
+          <span class="result-badge">対話型AI</span>
+          <span class="result-badge">内省回転数UP</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">AI活用 / キャリア</span>
+        </div>
+        <p>
+          行政書士として活動するしゅうへいさん。AIの使い方は「調べもの」止まりだった。コールテンの「第二の自分ワーク」をきっかけに、AIが対話の相棒へと変わり、キャリアそのものが動き出したBeforeAfterを聞きました。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>ここからはボクが、しゅうへいさんにBeforeAfterを聞いていくね。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png"
+                alt="しゅうへいさん"
+                onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+            <h3 style="margin:2px 0 4px;">しゅうへいさん</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              行政書士。DX推進副委員長。AI開発会社にも勤務。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">「第二の自分ワーク」を通じてAI活用を伴走サポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <!-- ナラティブ導入 -->
+        <div class="narrative">
+          <p>
+            「AIの返答を"良い/悪い"で切って終わると伸びない。柔軟に捉えて自分の軸で使うと、どんどん面白くなる」——しゅうへいさんはそう言い切った。
+          </p>
+          <p>
+            行政書士として士業の世界にいながら、AI開発会社に勤め、行政書士会のDX推進副委員長も務める。その転機は、コールテンの「スマフラ講座」だった。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== 出会い: スマフラ講座 ===== -->
+          <div class="section-label">出会い: スマフラ講座がきっかけ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              しゅうへいさん、コールテンとの出会いはどこから？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              スマフラ講座ですね。向さんが講師をやっていた、AIの使い方を学ぶ講座。最初は「便利ツールの紹介かな」くらいの気持ちで参加したんですけど、全然違った。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              何が違ったの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              「第二の自分をつくる」っていうコンセプト。AIに調べてもらうんじゃなくて、AIと対話して自分を掘り下げていく。それが入口で、一気にハマった。
+            </div>
+          </div>
+
+          <!-- ===== 初速が異常 ===== -->
+          <div class="section-label">初速が異常——ゲーム感覚で3時間</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              最初の体験ってどんな感じだった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              ゲーム感覚に近かったです。気づいたら3時間経ってた。「次はこう聞いてみよう」「この角度はどうだ」って、どんどん深掘りしたくなる。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              Before のときは、AIに聞いて「ふーん」で終わり。内省に繋がらなかったんです。でも対話型に切り替えた瞬間、回転数が全然変わった。
+            </div>
+          </div>
+
+          <!-- ===== 合う人の特徴 ===== -->
+          <div class="section-label">合う人の特徴——ゼロイチで切らない人</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              この使い方って、どんな人に合うと思う？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              AIの返答をゼロイチで切らない人。「使えるか使えないか」じゃなくて、「ここを膨らませたら面白いかも」って柔軟に捉えられる人は、どんどん伸びると思います。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              逆に合わない人は？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              「良い/悪い」でパッと判断して終わる人。AIの返答って完璧じゃないけど、そこから自分の軸で広げていくのが面白いんですよ。ゼロイチで切ると、そこで止まっちゃう。
+            </div>
+          </div>
+
+          <!-- ===== 仕事での変化 ===== -->
+          <div class="section-label">仕事での変化——AI会社で対話型が武器に</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              AIの使い方が変わって、仕事面ではどう変わった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              大きかったのは、AI開発の会社に入ったこと。面接で「AIとどう関わってきたか」を聞かれたとき、対話型で使ってきた経験がそのまま武器になりました。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              上司に「AIと対話して進めて」と言われたとき、第二の自分づくりで染み付いたやり方がそのまま強みになった。Beforeの自分だったら、何をしていいかわからなかったと思います。
+            </div>
+          </div>
+
+          <!-- ===== DX推進 ===== -->
+          <div class="section-label">DX推進副委員長への道</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              行政書士会のDX推進副委員長にもなったんだよね。それもAI活用がきっかけ？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              そうですね。AI活用の経験が評価されて声がかかった。Beforeの自分は、士業の仕事を淡々とこなすだけだった。Afterは、テクノロジーで業界を動かす側に立てている。
+            </div>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>しゅうへいさんのBeforeAfterは、ツールの使い方が変わっただけではない。「自分との向き合い方」が変わったことで、キャリアの選択肢そのものが広がった。AIが内省の相棒になったとき、見えてくる景色はまるで違う。</p>
+          </div>
+
+          <!-- ===== プルクオート ===== -->
+          <blockquote class="pull-quote">
+            「AIの返答を"良い/悪い"で切って終わると伸びない。<br>柔軟に捉えて自分の軸で使うと、<br>どんどん面白くなる」
+          </blockquote>
+
+          <!-- ===== コールテンの学び ===== -->
+          <div class="section-label">コールテンの学び——「第二の自分」が入口</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              コールテンで一番学びになったことって何だった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              「第二の自分をつくる」というコンセプトが入口として最高だったこと。技術を教わるんじゃなくて、自分を知ることから始まるっていうのが新しかった。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              しゅうへいさん、ありがとう！BeforeAfterがすごくリアルに伝わったよ。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">しゅうへいさん</span>
+            </div>
+            <div class="bubble-text">
+              こちらこそ。AIって「何ができるか」より「どう付き合うか」が大事だと思うんです。それを体感できたのが、一番の変化ですね。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        しゅうへいさんの変化は「ツールの使い方が変わった」ではなく、「自分との向き合い方が変わった」ことで起きています。AIを検索エンジンの代わりに使うか、対話の相棒として使うかで、得られるものは全然違う。しゅうへいさんは後者を選んで、キャリアそのものを動かしました。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>BeforeAfterはどれくらいの期間で実感できますか？</summary>
+          <p>しゅうへいさんの場合、最初のセッションから3時間没頭するほどの変化を実感しました。AIを検索ツールから対話相手に切り替えるだけで、数週間のうちに内省の回転数が上がり、仕事の判断スピードも変わったそうです。</p>
+        </details>
+        <details class="faq-item">
+          <summary>AIを対話相手にするとはどういうことですか？</summary>
+          <p>単に質問して答えを受け取るのではなく、AIの返答に対して自分の考えをぶつけ、さらに深掘りしていくやり方です。コーチングのように自分の思考を整理・言語化するプロセスが生まれ、内省の質と速度が大きく変わります。</p>
+        </details>
+        <details class="faq-item">
+          <summary>行政書士業務にAIは使えますか？</summary>
+          <p>しゅうへいさんは行政書士としての専門性とAI活用を掛け合わせ、DX推進副委員長やAI会社での業務など活躍の幅を広げました。法令リサーチや書類整理だけでなく、業務フロー改善や研修設計にもAIが活きるとのことです。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/clients/shu/" style="font-size:13px; color:var(--sea);">しゅうへいさんの記事一覧 →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>AIとの「付き合い方」を変えてみませんか？</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、あなたに合ったAI活用を「第二の自分ワーク」から一緒に見つけます。<br>
+          まずは小さく試して、その変化を体感してみませんか？
+        </p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>AI顧問サービス</strong>です。対話型のAI活用を、毎週のミーティングで伴走します。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    /* Hero */
+    .hero {
+        padding: 160px 0 32px;
+        text-align: center;
+        background: transparent;
+    }
+    .intro-section {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h1-sub {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 600;
+        display: block;
+        margin-top: 8px;
+        color: var(--text-light);
+    }
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text-light);
+    }
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .character-card {
+        text-align: center;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+    .character-card img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        margin: 0 auto 8px;
+        display: block;
+    }
+    .character-role {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f7f3;
+        border: 1px solid #d6e8df;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #124034;
+        margin-bottom: 6px;
+    }
+    .character-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    @media(min-width:900px) {
+        .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Dialogue Section */
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue {
+        display: grid;
+        gap: 26px;
+        margin: 16px auto 18px;
+        max-width: 640px;
+    }
+    .bubble {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 12px;
+        padding: 10px 12px;
+        line-height: 1.7;
+        color: #12382c;
+        flex: 1;
+        position: relative;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border: 1px solid #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+    .voice-note {
+        margin: 22px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #f2ddbf;
+        background: #fff7ea;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+        color: #3a2c15;
+        line-height: 1.7;
+        max-width: 640px;
+    }
+    .note-name {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #fbe9cc;
+        color: #6a4618;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .prompt-box {
+        background: var(--mint);
+        border: 1px dashed var(--sea);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 16px 0;
+        position: relative;
+    }
+    .prompt-label {
+        position: absolute;
+        top: -12px;
+        left: 12px;
+        background: var(--sea);
+        color: #fff;
+        padding: 2px 8px;
+        font-size: 11px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    .cycle-diagram {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+    .cycle-step {
+        background: #fff;
+        border: 2px solid var(--line);
+        border-radius: 12px;
+        padding: 15px;
+        width: 140px;
+        text-align: center;
+        font-weight: bold;
+        color: var(--green);
+        position: relative;
+    }
+    .cycle-step::after {
+        content: "\2192";
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--line-strong);
+        font-weight: bold;
+    }
+    .cycle-step:last-child::after {
+        content: "\21BB";
+        right: auto;
+        left: 50%;
+        bottom: -30px;
+        top: auto;
+        transform: translateX(-50%) rotate(90deg);
+    }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
+    }
+
+    /* ===== ナラティブ・セクションラベル・プルクオート ===== */
+
+    .narrative {
+        max-width: 640px;
+        margin: 0 auto 32px;
+        line-height: 2;
+        font-size: 15px;
+        color: var(--text);
+    }
+    .narrative p {
+        margin-bottom: 20px;
+    }
+
+    .narrative-inline {
+        max-width: 640px;
+        margin: 10px auto;
+        padding: 20px 24px;
+        background: #faf8f5;
+        border-radius: 12px;
+        line-height: 1.9;
+        font-size: 14.5px;
+        color: #555;
+    }
+    .narrative-inline p {
+        margin: 0 0 14px;
+    }
+    .narrative-inline p:last-child {
+        margin-bottom: 0;
+    }
+
+    .section-label {
+        margin: 32px -32px 16px;
+        padding: 14px 32px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--sea, #16614e);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        border-left: none;
+    }
+
+    .pull-quote {
+        margin: 36px -32px;
+        padding: 2.5rem 32px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-top: 3px solid var(--accent, #d4a574);
+        border-bottom: 3px solid var(--accent, #d4a574);
+        background: #faf8f5;
+        color: var(--heading, #2c1810);
+        line-height: 1.9;
+        quotes: none;
+    }
+
+    /* FAQ */
+    .faq-heading {
+        font-size: 18px;
+        margin-bottom: 16px;
+        padding-left: 14px;
+        border-left: 3px solid var(--sea);
+    }
+    .faq-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    .faq-item summary {
+        padding: 16px 20px;
+        font-weight: 600;
+        font-size: 14.5px;
+        cursor: pointer;
+        list-style: none;
+    }
+    .faq-item summary::before {
+        content: "Q. ";
+        color: var(--sea);
+        font-weight: 700;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p {
+        padding: 0 20px 16px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #555;
+    }
+
+    @media(max-width: 600px) {
+        .cycle-step::after {
+            content: "\2193";
+            right: 50%;
+            top: 100%;
+            transform: translateX(50%);
+        }
+        .cycle-diagram {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 20px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+        .section-label {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+        .pull-quote {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 2rem 24px;
+            font-size: 1rem;
+        }
+        .narrative-inline p { margin-bottom: 12px; }
+        .narrative-inline p:last-child { margin-bottom: 0; }
+    }
+</style>

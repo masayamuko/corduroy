@@ -1,0 +1,435 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "行政書士業務にAIを導入する —— 在留資格申請の効率化への挑戦｜株式会社コールテン";
+const description = "「定型はAIに任せて、判断が必要な部分に人の時間を集中させたい」。行政書士の石井文美さんに、在留資格申請業務へのAI導入の実際と今後の展望を聞きました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/aym-interview-immigration-ai/"
+  ogUrl="https://www.corduroy.co.jp/blog/aym-interview-immigration-ai/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/aym-interview-immigration-ai/#article",
+    "url": "https://www.corduroy.co.jp/blog/aym-interview-immigration-ai/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/aym-interview-immigration-ai/"
+    },
+    "headline": "行政書士業務にAIを導入する —— 在留資格申請の効率化への挑戦",
+    "datePublished": "2026-02-01",
+    "dateModified": "2026-02-01",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "石井文美",
+      "jobTitle": "行政書士"
+    },
+    "description": "「定型はAIに任せて、判断が必要な部分に人の時間を集中させたい」。行政書士の石井文美さんに、在留資格申請業務へのAI導入の実際と今後の展望を聞きました。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "石井さんインタビュー — 士業×AI" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "行政書士業務にAIは使える？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "定型的な申請書類の入力補助、書類画像からの項目抽出、音声ヒアリングの文字起こしなど、繰り返しの多い業務でAIは大きな効果を発揮します。ただし、理由書など判断が必要な部分は人間の確認が必須です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "在留資格申請の自動化とは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "書類画像から必要項目をAIで抽出し、CSVに変換して申請書に自動入力するフローです。特定技能や技人国など件数の多い在留資格から優先的に導入することで、業務効率が大幅に向上します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AI導入の予算感は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "石井さんの場合、低コストで始められるツールから段階的に導入しています。高額なシステムを一括導入するのではなく、まず議事録化や定型入力補助から小さく始めて効果を確認しながら拡大するアプローチです。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png"
+              alt="石井さん"></div>
+        </div>
+        <h1>行政書士業務にAIを導入する<br><span class="h1-sub">在留資格申請の効率化への挑戦</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">士業×AI</span>
+          <span class="result-badge">在留資格</span>
+          <span class="result-badge">業務効率化</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">士業 / AI導入</span>
+        </div>
+        <p>
+          在留資格申請という定型業務の多い分野に、AIをどう導入するか。行政書士の石井文美さんに、その挑戦の最前線を聞きました。
+        </p>
+      </div>
+    </section>
+
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>今日は石井さんに、行政書士業務のAI活用を聞いていくよ。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role" style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="石井さん">
+            <h3 style="margin:2px 0 4px;">石井文美さん</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">行政書士。在留資格申請業務を中心に、AI導入による効率化に取り組む。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role" style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">AI顧問として業務効率化を伴走サポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <div class="narrative">
+          <p>
+            「定型はAIに任せて、判断が必要な部分に人の時間を集中させたい」——石井さんの課題意識は明確だった。
+          </p>
+          <p>
+            在留資格の申請業務は、書類の種類も多く、件数も多い。その中で「AIに任せられる部分」と「人間が判断すべき部分」を切り分けること。それが石井さんのAI導入の出発点だった。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <div class="section-label">行政書士業務の課題</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              行政書士の仕事で、一番時間がかかるのはどこ？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="石井さん">
+              <span class="name-tag">石井さん</span>
+            </div>
+            <div class="bubble-text">
+              申請書類への入力ですね。在留資格の認定・変更・更新、それぞれフォーマットが決まっていて、同じような情報を何度も入力する。この繰り返しが膨大なんです。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              件数が多いのはどの在留資格？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="石井さん">
+              <span class="name-tag">石井さん</span>
+            </div>
+            <div class="bubble-text">
+              特定技能と技人国ですね。この2つだけでかなりの件数があるので、ここから優先的にAI化したいと考えました。
+            </div>
+          </div>
+
+          <div class="section-label">定型申請のAI入力補助</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              具体的にはどんなフローでAIを使ってるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="石井さん">
+              <span class="name-tag">石井さん</span>
+            </div>
+            <div class="bubble-text">
+              まず書類の画像をAIに読み込ませて、必要な項目を抽出します。それをCSVに変換して、申請書のフォーマットに自動入力する。人間がやると30分かかるところが、5分で終わります。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              理由書はAIに書かせてるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="石井さん">
+              <span class="name-tag">石井さん</span>
+            </div>
+            <div class="bubble-text">
+              理由書は下書きまではAIに作らせますが、最終確認は必ず人間がやります。ここは判断が必要な部分なので。AIに丸投げはできないし、すべきでもない。
+            </div>
+          </div>
+
+          <div class="section-label">音声ヒアリングと議事録化</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              ヒアリングの部分でもAIを使ってる？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="石井さん">
+              <span class="name-tag">石井さん</span>
+            </div>
+            <div class="bubble-text">
+              はい。クライアントとのヒアリングを録音して、文字起こし→議事録化まで自動でやってます。これが実用フェーズに入ってきていて、かなり助かっています。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              コスト面はどう？高額なシステムが必要だったりする？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="石井さん">
+              <span class="name-tag">石井さん</span>
+            </div>
+            <div class="bubble-text">
+              低コストで始められるツールから段階的に入れてます。最初から大きなシステムを入れると失敗のリスクが高いので。まず小さく試して、効果を確認してから広げる。向さんにもそう勧められました。
+            </div>
+          </div>
+
+          <div class="narrative-inline">
+            <p>石井さんのAI導入は「全部AIに任せる」ではなく「定型はAI、判断は人間」という明確な線引きから始まっている。この切り分けがあるからこそ、業務の質を落とさずに効率化が実現できている。</p>
+          </div>
+
+          <blockquote class="pull-quote">
+            「定型はAIに任せて、<br>判断が必要な部分に人の時間を集中させたい」
+          </blockquote>
+
+          <div class="section-label">これからの展望</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              今後のAI活用の展望は？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="石井さん">
+              <span class="name-tag">石井さん</span>
+            </div>
+            <div class="bubble-text">
+              特定技能以外の在留資格にも横展開していきたいですね。あと、他の行政書士にもこのノウハウを共有して、業界全体の効率化に貢献できたらと思っています。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              石井さん、ありがとうございました！士業×AIの最前線、勉強になったよ。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);" alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        石井さんとの取り組みで印象的なのは「定型はAI、判断は人間」という線引きの明確さです。AIを導入するとき、「全部任せたい」か「全部怖い」の両極端になりがちですが、石井さんは最初から業務を分解して、AIに任せる部分を特定していた。だから導入がスムーズだし、成果も出ている。士業のAI活用のモデルケースになると思います。
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>行政書士業務にAIは使える？</summary>
+          <p>定型的な申請書類の入力補助、書類画像からの項目抽出、音声ヒアリングの文字起こしなど、繰り返しの多い業務でAIは大きな効果を発揮します。ただし、理由書など判断が必要な部分は人間の確認が必須です。</p>
+        </details>
+        <details class="faq-item">
+          <summary>在留資格申請の自動化とは？</summary>
+          <p>書類画像から必要項目をAIで抽出し、CSVに変換して申請書に自動入力するフローです。特定技能や技人国など件数の多い在留資格から優先的に導入することで、業務効率が大幅に向上します。</p>
+        </details>
+        <details class="faq-item">
+          <summary>AI導入の予算感は？</summary>
+          <p>石井さんの場合、低コストで始められるツールから段階的に導入しています。高額なシステムを一括導入するのではなく、まず議事録化や定型入力補助から小さく始めて効果を確認しながら拡大するアプローチです。</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/blog/aym-interview-aura-startup/" style="font-size:13px; color:var(--sea);">オーラ立ち上げインタビュー →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>士業のAI活用を一緒に始めませんか</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、業務の分解からAIツールの選定・導入まで伴走します。<br>
+          まずは小さく試して、その効果を体感してみませんか？
+        </p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    .hero { padding: 160px 0 32px; text-align: center; background: transparent; }
+    .intro-section { padding-top: 0; margin-top: 0; }
+    .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 800px; margin: 0 auto; }
+    .h1-sub { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; display: block; margin-top: 8px; color: var(--text-light); }
+    .meta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin-top: 24px; }
+    .tag { display: inline-block; padding: 8px 16px; border-radius: 100px; background: var(--mint); color: var(--sea); font-weight: 700; font-size: 13px; border: 1px solid var(--line); }
+    .pill { display: inline-block; padding: 8px 16px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-weight: 700; font-size: 13px; color: var(--text-light); }
+    .avatar-frame { width: 160px; height: 160px; margin: 0 auto; display: flex; align-items: center; justify-content: center; background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat; }
+    .avatar-lg { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow-md); background: #fff; }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-md); }
+    .card.cta-card { transform: none !important; box-shadow: var(--shadow-md) !important; }
+    .character-card { text-align: center; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
+    .character-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .character-card img { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 18px rgba(0,0,0,.08); margin: 0 auto 8px; display: block; }
+    .character-role { display: inline-block; padding: 6px 10px; background: #f1f7f3; border: 1px solid #d6e8df; border-radius: 10px; font-size: 12px; font-weight: 700; color: #124034; margin-bottom: 6px; }
+    .character-grid { display: grid; gap: 18px; grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
+    @media(min-width:900px) { .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); } }
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue { display: grid; gap: 26px; margin: 16px auto 18px; max-width: 640px; }
+    .bubble { display: flex; gap: 12px; align-items: flex-start; width: 100%; position: relative; }
+    .bubble-avatar { position: relative; width: 82px; height: 82px; flex-shrink: 0; }
+    .bubble-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; box-shadow: 0 6px 14px rgba(0,0,0,.08); }
+    .bubble-text { background: #e7f4ef; border: 1px solid #cde5db; border-radius: 12px; padding: 10px 12px; line-height: 1.7; color: #12382c; flex: 1; position: relative; }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text { background: #f4f1ff; border: 1px solid #e2dcfa; color: #1f2440; }
+    .name-tag { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); padding: 2px 8px; border-radius: 8px; background: rgba(255,255,255,0.9); box-shadow: 0 4px 10px rgba(0,0,0,.08); font-weight: 700; font-size: 10px; color: #0f3d2e; white-space: nowrap; }
+    .voice-note { margin: 22px auto 0; padding: 14px 16px; border-radius: 14px; border: 1px solid #f2ddbf; background: #fff7ea; box-shadow: 0 10px 22px rgba(0,0,0,.05); color: #3a2c15; line-height: 1.7; max-width: 640px; }
+    .note-name { display: inline-block; padding: 6px 12px; border-radius: 10px; background: #fbe9cc; color: #6a4618; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
+    .mini { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge { font-size: 13px; padding: 4px 12px; border-radius: 20px; background: var(--mint, #eef7f3); color: var(--sea, #16614e); font-weight: 600; }
+    .narrative { max-width: 640px; margin: 0 auto 32px; line-height: 2; font-size: 15px; color: var(--text); }
+    .narrative p { margin-bottom: 20px; }
+    .narrative-inline { max-width: 640px; margin: 10px auto; padding: 20px 24px; background: #faf8f5; border-radius: 12px; line-height: 1.9; font-size: 14.5px; color: #555; }
+    .narrative-inline p { margin: 0 0 14px; }
+    .narrative-inline p:last-child { margin-bottom: 0; }
+    .section-label { margin: 32px -32px 16px; padding: 14px 32px; font-size: 15px; font-weight: 700; color: #fff; background: var(--sea, #16614e); letter-spacing: 0.05em; line-height: 1.5; border-left: none; }
+    .pull-quote { margin: 36px -32px; padding: 2.5rem 32px; font-size: 1.2rem; font-weight: 600; text-align: center; border-top: 3px solid var(--accent, #d4a574); border-bottom: 3px solid var(--accent, #d4a574); background: #faf8f5; color: var(--heading, #2c1810); line-height: 1.9; quotes: none; }
+    .faq-heading { font-size: 18px; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid var(--sea); }
+    .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+    .faq-item summary { padding: 16px 20px; font-weight: 600; font-size: 14.5px; cursor: pointer; list-style: none; }
+    .faq-item summary::before { content: "Q. "; color: var(--sea); font-weight: 700; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p { padding: 0 20px 16px; font-size: 14px; line-height: 1.9; color: #555; }
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 20px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+        .section-label { margin-left: -32px; margin-right: -32px; padding: 12px 24px; font-size: 14px; }
+        .pull-quote { margin-left: -32px; margin-right: -32px; padding: 2rem 24px; font-size: 1rem; }
+        .narrative-inline p { margin-bottom: 12px; }
+        .narrative-inline p:last-child { margin-bottom: 0; }
+    }
+</style>

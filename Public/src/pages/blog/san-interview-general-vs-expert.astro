@@ -1,0 +1,475 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "「一般論じゃないAI」が面白くなる瞬間｜株式会社コールテン";
+const description = "AIの回答が面白くなかったのは、使い手の「声」が入っていなかったから。専門性と価値観がAIの本領を引き出す——佐野さんの体験談。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/san-interview-general-vs-expert/"
+  ogUrl="https://www.corduroy.co.jp/blog/san-interview-general-vs-expert/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/san-interview-general-vs-expert/#article",
+    "url": "https://www.corduroy.co.jp/blog/san-interview-general-vs-expert/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/san-interview-general-vs-expert/"
+    },
+    "headline": "「一般論じゃないAI」が面白くなる瞬間",
+    "datePublished": "2026-04-06",
+    "dateModified": "2026-04-06",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": [
+      { "@type": "Person", "name": "佐野", "jobTitle": "代表", "worksFor": { "@type": "Organization", "name": "株式会社スデニアル" } }
+    ],
+    "description": "AIの回答が面白くなかったのは、使い手の「声」が入っていなかったから。専門性と価値観がAIの本領を引き出す——佐野さんの体験談。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "「一般論じゃないAI」が面白くなる瞬間" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "AIの一般論と専門的な回答の違いは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AIに何も情報を入れずに聞くと、誰にでも当てはまる一般論が返ってきます。一方、自分の専門知識・業界経験・価値観を入れると、その人の視点に沿った具体的な回答になります。佐野さんの場合、マーケティングの現場感覚を入れたことで回答の質が大きく変わりました。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AI活用で失敗する人の共通点は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AIを「何でも答えてくれる万能ツール」として使おうとする人が多いです。自分の専門外の領域でAIの回答を鵜呑みにしたり、自分の知識や価値観を入れずに汎用的な使い方だけしていると、期待外れに感じやすくなります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "自分の専門性をAIに入れるにはどうすればいい？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "まずは自分の「判断基準」を言語化するところから始めます。日常の業務でどんな基準で意思決定しているか、何を大事にしているか。それをAIに伝えるだけで、回答の質が変わります。AI顧問では、この言語化を一緒に進めます。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png"
+              alt="佐野さん"
+              onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';"></div>
+        </div>
+        <h1>「一般論じゃないAI」が<br><span class="h1-sub">面白くなる瞬間</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">専門性×AI</span>
+          <span class="result-badge">一般論の罠</span>
+          <span class="result-badge">使い手の声</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">AI活用 / マーケティング</span>
+        </div>
+        <p>
+          「AIの答えが面白くない」——そう感じたことはありませんか？マーケターの佐野さんも同じだった。一般論ばかりだったAIが、専門性と価値観を入れた瞬間に本領を発揮し始めた変化を語ります。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>今回は「AIの回答が面白くなかった理由」を佐野さんに聞いていくよ。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png"
+                alt="佐野さん"
+                onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+            <h3 style="margin:2px 0 4px;">佐野さん</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              株式会社スデニアル代表。マーケティング・企画のプロフェッショナル。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">AI顧問として毎週のミーティングで伴走サポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <div class="narrative">
+          <p>
+            「最初、AIの答えが全然面白くなかった」——佐野さんはそう笑った。
+          </p>
+          <p>
+            マーケティングのプロとして長年の経験を持つ佐野さん。AIが話題になった時、当然試してみた。だが返ってくるのは「どこかで読んだことがある話」ばかり。その理由と、そこからどう変わったかを聞いた。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== AIが面白くなかった理由 ===== -->
+          <div class="section-label">AIが面白くなかった理由</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              佐野さん、AIの回答が「面白くなかった」ってどういう感じ？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              教科書に書いてあるようなことしか返ってこない。「ターゲットを明確にしましょう」「ペルソナを設定しましょう」とか。知ってるよ、と。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              プロからすると当たり前すぎる回答だったんだ。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              そう。でも、知らない領域で試した時は「おお、すごい」って思ったんですよ。それが罠だった。
+            </div>
+          </div>
+
+          <!-- ===== 一般論の罠 ===== -->
+          <div class="section-label">知らない領域だと「それっぽく見える」罠</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              「罠」って？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              自分が詳しくない分野だと、AIの一般論でも「すごい」と思えちゃう。でもそれって、自分が知らないから判断できないだけで、実は同じレベルの一般論なんですよね。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              なるほど……自分の専門領域だと一般論が見抜けるけど、そうじゃないと気づけない。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              そう。だから「AI万能」と思う人は、たぶんまだ自分の専門領域で深く使ってないんだと思う。
+            </div>
+          </div>
+
+          <!-- ===== 専門性と価値観で変わる ===== -->
+          <div class="section-label">専門性と価値観で変わる</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              じゃあ、佐野さんはどうやってAIの回答を変えたの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              向さんに教えてもらったのが、自分の専門知識と価値観をAIに入れるということ。「マーケのプロとして、こういう判断基準で考えてる」っていうのを最初に伝える。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              そしたら変わった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              全然違いましたね。一般論から、「佐野さんの文脈ではこう」という回答に変わった。使い手の"声"が入ると、AIの本領が出る。それに気づいた時が一番面白かった。
+            </div>
+          </div>
+
+          <div class="narrative-inline">
+            <p>佐野さんが指摘した「一般論の罠」は多くの人が陥るポイントだ。AIは聞き方次第で一般論にも専門的な回答にもなる。その鍵は「使い手の声」——つまり専門知識と価値観を入れることにある。</p>
+          </div>
+
+          <blockquote class="pull-quote">
+            「AIは万能じゃなくて、<br>使い手の"声"が入った時に<br>本領発揮する」
+          </blockquote>
+
+          <!-- ===== 使い手の声が入ると ===== -->
+          <div class="section-label">使い手の"声"が入ると本領発揮</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              具体的にどんな場面で「本領発揮」を感じた？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              あるクライアントの施策を考えてる時。AIに自分の過去の成功体験と判断基準を入れて相談したら、「こういう切り口はどうですか」って自分じゃ思いつかなかった角度で返ってきた。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              自分の専門性がベースにあるから、その上で新しい角度を提案してくれたんだね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              そう。一般論じゃないAIって、こういうことなんだなと。面白いですよ、これは。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              佐野さん、ありがとう！「一般論の罠」、すごく大事な話だった。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        佐野さんが言う「一般論の罠」は、AIを使い始めた人の多くがぶつかる壁です。知らない領域だと一般論でも感心してしまう。でも自分の専門領域では物足りない。そのギャップに気づいた佐野さんは、そこから「自分の声をAIに入れる」方向に舵を切った。結果として、AIが本当に使える存在に変わりました。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>AIの一般論と専門的な回答の違いは？</summary>
+          <p>AIに何も情報を入れずに聞くと、誰にでも当てはまる一般論が返ってきます。一方、自分の専門知識・業界経験・価値観を入れると、その人の視点に沿った具体的な回答になります。佐野さんの場合、マーケティングの現場感覚を入れたことで回答の質が大きく変わりました。</p>
+        </details>
+        <details class="faq-item">
+          <summary>AI活用で失敗する人の共通点は？</summary>
+          <p>AIを「何でも答えてくれる万能ツール」として使おうとする人が多いです。自分の専門外の領域でAIの回答を鵜呑みにしたり、自分の知識や価値観を入れずに汎用的な使い方だけしていると、期待外れに感じやすくなります。</p>
+        </details>
+        <details class="faq-item">
+          <summary>自分の専門性をAIに入れるにはどうすればいい？</summary>
+          <p>まずは自分の「判断基準」を言語化するところから始めます。日常の業務でどんな基準で意思決定しているか、何を大事にしているか。それをAIに伝えるだけで、回答の質が変わります。AI顧問では、この言語化を一緒に進めます。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/blog/san-interview-second-self/" style="font-size:13px; color:var(--sea);">懐疑→確信 ——「第二の自分」を見つけた企画マンの転換 →</a></li>
+          <li><a href="/clients/san/" style="font-size:13px; color:var(--sea);">佐野さんの記事一覧 →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>「一般論じゃないAI」を体験しませんか？</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、あなたの専門性と価値観をAIに反映させ、<br>
+          本当に使える回答を引き出す方法を毎週のミーティングで伴走します。
+        </p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>AI顧問サービス</strong>です。毎週の定期ミーティングで、AIの使い方を一緒に磨いていきます。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+/* Hero */
+.hero { padding: 160px 0 32px; text-align: center; background: transparent; }
+.intro-section { padding-top: 0; margin-top: 0; }
+.hero-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 800px; margin: 0 auto; }
+.h1-sub { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; display: block; margin-top: 8px; color: var(--text-light); }
+.meta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin-top: 24px; }
+.tag { display: inline-block; padding: 8px 16px; border-radius: 100px; background: var(--mint); color: var(--sea); font-weight: 700; font-size: 13px; border: 1px solid var(--line); }
+.pill { display: inline-block; padding: 8px 16px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-weight: 700; font-size: 13px; color: var(--text-light); }
+.avatar-frame { width: 160px; height: 160px; margin: 0 auto; display: flex; align-items: center; justify-content: center; background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat; }
+.avatar-lg { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow-md); background: #fff; }
+.avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-md); }
+.card.cta-card { transform: none !important; box-shadow: var(--shadow-md) !important; }
+.character-card { text-align: center; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
+.character-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.character-card img { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 18px rgba(0,0,0,.08); margin: 0 auto 8px; display: block; }
+.character-role { display: inline-block; padding: 6px 10px; background: #f1f7f3; border: 1px solid #d6e8df; border-radius: 10px; font-size: 12px; font-weight: 700; color: #124034; margin-bottom: 6px; }
+.character-grid { display: grid; gap: 18px; grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
+@media(min-width:900px) { .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); } }
+.dialogue-flow { max-width: 760px; margin: 0 auto; }
+.dialogue { display: grid; gap: 26px; margin: 16px auto 18px; max-width: 640px; }
+.bubble { display: flex; gap: 12px; align-items: flex-start; width: 100%; position: relative; }
+.bubble-avatar { position: relative; width: 82px; height: 82px; flex-shrink: 0; }
+.bubble-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; box-shadow: 0 6px 14px rgba(0,0,0,.08); }
+.bubble-text { background: #e7f4ef; border: 1px solid #cde5db; border-radius: 12px; padding: 10px 12px; line-height: 1.7; color: #12382c; flex: 1; position: relative; }
+.bubble.right { flex-direction: row-reverse; }
+.bubble.right .bubble-text { background: #f4f1ff; border: 1px solid #e2dcfa; color: #1f2440; }
+.name-tag { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); padding: 2px 8px; border-radius: 8px; background: rgba(255,255,255,0.9); box-shadow: 0 4px 10px rgba(0,0,0,.08); font-weight: 700; font-size: 10px; color: #0f3d2e; white-space: nowrap; }
+.voice-note { margin: 22px auto 0; padding: 14px 16px; border-radius: 14px; border: 1px solid #f2ddbf; background: #fff7ea; box-shadow: 0 10px 22px rgba(0,0,0,.05); color: #3a2c15; line-height: 1.7; max-width: 640px; }
+.note-name { display: inline-block; padding: 6px 12px; border-radius: 10px; background: #fbe9cc; color: #6a4618; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
+.mini { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+.big-bubble .bubble img { width: 64px; height: 64px; }
+.big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+.big-bubble { max-width: 720px; margin: 0 auto; }
+.result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+.result-badge { font-size: 13px; padding: 4px 12px; border-radius: 20px; background: var(--mint, #eef7f3); color: var(--sea, #16614e); font-weight: 600; }
+.narrative { max-width: 640px; margin: 0 auto 32px; line-height: 2; font-size: 15px; color: var(--text); }
+.narrative p { margin-bottom: 20px; }
+.narrative-inline { max-width: 640px; margin: 10px auto; padding: 20px 24px; background: #faf8f5; border-radius: 12px; line-height: 1.9; font-size: 14.5px; color: #555; }
+.narrative-inline p { margin: 0 0 14px; }
+.narrative-inline p:last-child { margin-bottom: 0; }
+.section-label { margin: 32px -32px 16px; padding: 14px 32px; font-size: 15px; font-weight: 700; color: #fff; background: var(--sea, #16614e); letter-spacing: 0.05em; line-height: 1.5; border-left: none; }
+.pull-quote { margin: 36px -32px; padding: 2.5rem 32px; font-size: 1.2rem; font-weight: 600; text-align: center; border-top: 3px solid var(--accent, #d4a574); border-bottom: 3px solid var(--accent, #d4a574); background: #faf8f5; color: var(--heading, #2c1810); line-height: 1.9; quotes: none; }
+.faq-heading { font-size: 18px; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid var(--sea); }
+.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+.faq-item summary { padding: 16px 20px; font-weight: 600; font-size: 14.5px; cursor: pointer; list-style: none; }
+.faq-item summary::before { content: "Q. "; color: var(--sea); font-weight: 700; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item p { padding: 0 20px 16px; font-size: 14px; line-height: 1.9; color: #555; }
+@media(max-width:768px) { .hero { padding: 100px 20px 20px; } .bubble-avatar { width: 64px; height: 64px; } .name-tag { font-size: 9px; } .section-label { margin-left: -32px; margin-right: -32px; padding: 12px 24px; font-size: 14px; } .pull-quote { margin-left: -32px; margin-right: -32px; padding: 2rem 24px; font-size: 1rem; } }
+</style>

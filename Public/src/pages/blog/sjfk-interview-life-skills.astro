@@ -1,0 +1,825 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "施設を出た若者が直面する現実 —— 生活スキルを教材にする試み｜株式会社コールテン";
+const description = "児童養護施設を退所した瞬間、自由と孤独が同時に訪れる。食事、公共料金、書類管理——見えない壁を乗り越えるための生活スキル教材化の試みを、「福岡の会」柴田さんに聞きました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/sjfk-interview-life-skills/"
+  ogUrl="https://www.corduroy.co.jp/blog/sjfk-interview-life-skills/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/sjfk-interview-life-skills/#article",
+    "url": "https://www.corduroy.co.jp/blog/sjfk-interview-life-skills/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/sjfk-interview-life-skills/"
+    },
+    "headline": "施設を出た若者が直面する現実 —— 生活スキルを教材にする試み",
+    "datePublished": "2026-01-15",
+    "dateModified": "2026-01-15",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "柴田さん",
+      "jobTitle": "代表",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "青少年の自立を支える福岡の会"
+      }
+    },
+    "description": "児童養護施設を退所した瞬間、自由と孤独が同時に訪れる。食事、公共料金、書類管理——見えない壁を乗り越えるための生活スキル教材化の試みを、「福岡の会」柴田さんに聞きました。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "柴田さんインタビュー（生活スキル）" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "施設退所後にどんな課題がある？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "住居の確保、食事の自炊、公共料金の支払い、行政書類の管理など、家庭で自然に身につく生活スキルが不足しています。また、困ったときに頼れる大人がいないという孤立の問題も深刻です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "生活スキル教材とは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "食事の準備、公共料金の支払い方、書類の書き方など、自立生活に必要な知識をまとめた教材です。福岡の会では、実際の支援経験をもとに、若者が自分のペースで学べる形にまとめる取り組みを進めています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "支援団体が教材を作る意義は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "現場で蓄積された実践的な知恵は、一般的なハウツーとは質が違います。「実際につまずきやすいポイント」を知っている支援者が教材を作ることで、より実用的で寄り添った内容になります。また、教材化することで新しいスタッフへの引き継ぎや、他団体との知見共有にもつながります。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png"
+              alt="柴田さん"
+              onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';"></div>
+        </div>
+        <h1>施設を出た若者が直面する現実<br><span class="h1-sub">生活スキルを教材にする試み</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">退所後支援</span>
+          <span class="result-badge">生活スキル</span>
+          <span class="result-badge">教材化</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">福祉 / 教育</span>
+        </div>
+        <p>
+          児童養護施設を退所した瞬間、自由と孤独が同時にやってくる。食事、公共料金、書類管理——家庭で自然に身につくはずだったスキルが足りない若者たちに、支援の知恵を教材として届ける取り組みを聞きました。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>今回は柴田さんに、施設を出た若者の「生活」について深く聞いていくよ。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png"
+                alt="柴田さん"
+                onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+            <h3 style="margin:2px 0 4px;">柴田さん</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              青少年の自立を支える福岡の会 代表。若者の退所後支援・自立支援に取り組む。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">AI顧問として教材化・業務整理で伴走サポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <!-- ナラティブ導入 -->
+        <div class="narrative">
+          <p>
+            「退所した瞬間、全部自分でやらないといけなくなる」——柴田さんの声には、何人もの若者を見送ってきた重みがあった。
+          </p>
+          <p>
+            児童養護施設には18歳までしかいられない。退所の日が来ると、昨日まで用意されていた食事、洗濯、光熱費の管理。それが一気に「自分ごと」になる。家庭で少しずつ覚えるはずだったことを、まとめて背負わされる——。柴田さんはその「間」を埋める教材づくりに動き始めた。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== 施設退所後のリアル ===== -->
+          <div class="section-label">施設退所後のリアル</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              施設を出た若者って、最初にどんな壁にぶつかるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              まず「食事」ですね。施設では毎日ご飯が出てくる。でも一人暮らしを始めたら、買い物から調理まで全部自分。何を買えばいいかもわからない子がいます。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              食事以外にも困ることはある？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              公共料金の支払いとか、役所の書類とか。「振込」の意味がわからない子もいます。普通の家庭なら親がやってるのを見て覚えるんですけど、施設ではそういう経験がない。
+            </div>
+          </div>
+
+          <!-- ===== 自由と孤独が同時に来る ===== -->
+          <div class="section-label">自由と同時に来る孤独</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              スキルだけじゃなくて、気持ちの面でも大変そうだね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              そこが一番大きいかもしれません。施設を出ると「自由になった」と思う。でも同時に、困ったとき相談できる人がいなくなる。自由と孤独って、セットで来るんです。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              「聞ける人がいない」って、しんどいね……。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              だから「安心して聞ける第三者」の存在がすごく大事で。うちのグループホームでは、スタッフがその役割を担っています。ちょっとしたことを聞ける、失敗しても怒られない場所。
+            </div>
+          </div>
+
+          <!-- ===== 支援付きの移行 ===== -->
+          <div class="section-label">支援付きの移行</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              具体的にどんなサポートをしているの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              たとえばA型事業所への就労支援とか、障害年金の申請サポートとか。制度があっても「存在を知らない」「手続きの仕方がわからない」っていう子が多いので、一つ一つ一緒にやっていきます。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              いきなり「完全自立」を求めるんじゃなくて、段階的に移行していく。最初はグループホームで生活しながら、少しずつ自分でできることを増やしていくイメージです。
+            </div>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>「いきなり全部やれ」ではなく、「少しずつ、一緒に」——。柴田さんの支援の根底には、若者の成長を急がないという姿勢がある。だが、その「一緒に」を支えるスタッフの知恵は、これまで体系化されていなかった。</p>
+          </div>
+
+          <!-- ===== 生活ノウハウの教材化 ===== -->
+          <div class="section-label">生活ノウハウの教材化</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              教材を作ろうと思ったきっかけは？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              新しい入居者が来るたびに、同じことを最初から教えている自分たちに気づいたんです。「これ、前にも説明したな」って。だったら、まとめて渡せる形にしたほうがいいんじゃないかと。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              どんな内容を教材にしようとしてるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              まずは「生活の基本」から。ゴミの出し方、洗濯機の使い方、電気代の仕組み、病院のかかり方。一般的なハウツーじゃなくて、うちの現場で「つまずきやすいポイント」を入れた実践版です。
+            </div>
+          </div>
+
+          <!-- ===== AIで教材を構造化する可能性 ===== -->
+          <div class="section-label">AIで教材を構造化する可能性</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              教材づくりにAIはどう関わってくるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              私たちが口で説明していることをAIに整理してもらう、というのが一番しっくり来ています。「電気代ってどうやって払うの？」に対する答えを、順序立てて、わかりやすい言葉でまとめてくれる。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              スタッフの経験をそのまま教材に変換するイメージだね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              そうです。ゼロから教材を書く時間はないけど、「普段やっていること」を話して、それをAIが構造化してくれるなら現実的。あとは実際に使ってみて修正していけばいい。
+            </div>
+          </div>
+
+          <!-- ===== プルクオート ===== -->
+          <blockquote class="pull-quote">
+            「退所した瞬間、自由と孤独が同時に来る。<br>その間を埋める知恵を、形にして渡したい」
+          </blockquote>
+
+          <!-- ===== これからの展望 ===== -->
+          <div class="section-label">これからの展望</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              教材ができたら、どう活用していくつもり？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="柴田さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">柴田さん</span>
+            </div>
+            <div class="bubble-text">
+              まずは新しい入居者に渡す「生活ガイドブック」として。それから、他の支援団体にも共有したいです。同じ課題を抱えているところはたくさんあるので。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              柴田さん、ありがとうございました！「自由と孤独の間を埋める」——すごく大事な取り組みだね。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        柴田さんと話していて印象的だったのは、「教えること」と「支えること」を分けていない点です。教材は「突き放すため」ではなく、「一緒にやる時間を、もっと大事なことに使うため」に作る。その姿勢が、教材の内容にも反映されています。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>施設退所後にどんな課題がある？</summary>
+          <p>住居の確保、食事の自炊、公共料金の支払い、行政書類の管理など、家庭で自然に身につく生活スキルが不足しています。また、困ったときに頼れる大人がいないという孤立の問題も深刻です。</p>
+        </details>
+        <details class="faq-item">
+          <summary>生活スキル教材とは？</summary>
+          <p>食事の準備、公共料金の支払い方、書類の書き方など、自立生活に必要な知識をまとめた教材です。福岡の会では、実際の支援経験をもとに、若者が自分のペースで学べる形にまとめる取り組みを進めています。</p>
+        </details>
+        <details class="faq-item">
+          <summary>支援団体が教材を作る意義は？</summary>
+          <p>現場で蓄積された実践的な知恵は、一般的なハウツーとは質が違います。「実際につまずきやすいポイント」を知っている支援者が教材を作ることで、より実用的で寄り添った内容になります。また、教材化することで新しいスタッフへの引き継ぎや、他団体との知見共有にもつながります。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/blog/sjfk-interview-youth-support/" style="font-size:13px; color:var(--sea);">青少年支援の現場でAIを使う —— 「福岡の会」柴田さんの挑戦 →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+          <li><a href="/blog/" style="font-size:13px; color:var(--sea);">ブログ一覧に戻る →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>現場の知恵を、次の世代に届ける</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、福祉・教育現場のAI活用を伴走サポートしています。<br>
+          蓄積された経験を、教材や資料という「形」にする第一歩を一緒に。
+        </p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>AI顧問サービス</strong>です。定期ミーティングで、活用方法を一緒に磨いていきます。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    /* Hero */
+    .hero {
+        padding: 160px 0 32px;
+        text-align: center;
+        background: transparent;
+    }
+    .intro-section {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h1-sub {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 600;
+        display: block;
+        margin-top: 8px;
+        color: var(--text-light);
+    }
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text-light);
+    }
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .character-card {
+        text-align: center;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+    .character-card img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        margin: 0 auto 8px;
+        display: block;
+    }
+    .character-role {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f7f3;
+        border: 1px solid #d6e8df;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #124034;
+        margin-bottom: 6px;
+    }
+    .character-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    @media(min-width:900px) {
+        .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Dialogue Section */
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue {
+        display: grid;
+        gap: 26px;
+        margin: 16px auto 18px;
+        max-width: 640px;
+    }
+    .bubble {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 12px;
+        padding: 10px 12px;
+        line-height: 1.7;
+        color: #12382c;
+        flex: 1;
+        position: relative;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border: 1px solid #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+    .voice-note {
+        margin: 22px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #f2ddbf;
+        background: #fff7ea;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+        color: #3a2c15;
+        line-height: 1.7;
+        max-width: 640px;
+    }
+    .note-name {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #fbe9cc;
+        color: #6a4618;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
+    }
+
+    /* ===== ガイドライン適用スタイル ===== */
+
+    /* ナラティブ（冒頭の地の文） */
+    .narrative {
+        max-width: 640px;
+        margin: 0 auto 32px;
+        line-height: 2;
+        font-size: 15px;
+        color: var(--text);
+    }
+    .narrative p {
+        margin-bottom: 20px;
+    }
+
+    /* ナラティブ（会話間の地の文） */
+    .narrative-inline {
+        max-width: 640px;
+        margin: 10px auto;
+        padding: 20px 24px;
+        background: #faf8f5;
+        border-radius: 12px;
+        line-height: 1.9;
+        font-size: 14.5px;
+        color: #555;
+    }
+    .narrative-inline p {
+        margin: 0 0 14px;
+    }
+    .narrative-inline p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* セクション見出し（会話内・帯デザイン） */
+    .section-label {
+        margin: 32px -32px 16px;
+        padding: 14px 32px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--sea, #16614e);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        border-left: none;
+    }
+
+    /* プルクオート（端まで引っ張る） */
+    .pull-quote {
+        margin: 36px -32px;
+        padding: 2.5rem 32px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-top: 3px solid var(--accent, #d4a574);
+        border-bottom: 3px solid var(--accent, #d4a574);
+        background: #faf8f5;
+        color: var(--heading, #2c1810);
+        line-height: 1.9;
+        quotes: none;
+    }
+
+    /* FAQ */
+    .faq-heading {
+        font-size: 18px;
+        margin-bottom: 16px;
+        padding-left: 14px;
+        border-left: 3px solid var(--sea);
+    }
+    .faq-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    .faq-item summary {
+        padding: 16px 20px;
+        font-weight: 600;
+        font-size: 14.5px;
+        cursor: pointer;
+        list-style: none;
+    }
+    .faq-item summary::before {
+        content: "Q. ";
+        color: var(--sea);
+        font-weight: 700;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p {
+        padding: 0 20px 16px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #555;
+    }
+
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 20px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+        .section-label {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+        .pull-quote {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 2rem 24px;
+            font-size: 1rem;
+        }
+        .narrative-inline p { margin-bottom: 12px; }
+        .narrative-inline p:last-child { margin-bottom: 0; }
+    }
+</style>

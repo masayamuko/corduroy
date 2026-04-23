@@ -1,0 +1,760 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "パートナー型AI顧問の現場 —— 一般社団法人OHARAの立ち上げ支援｜株式会社コールテン";
+const description = "行政書士ネットワーク「OHARA」の立ち上げを、パートナー型AI顧問として伴走。Slack導入・API連携・録音→議事録化など、運営基盤を先に整えたプロセスを代表の梅田さんに聞きました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/ohara-interview-ai-advisor/"
+  ogUrl="https://www.corduroy.co.jp/blog/ohara-interview-ai-advisor/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/ohara-interview-ai-advisor/#article",
+    "url": "https://www.corduroy.co.jp/blog/ohara-interview-ai-advisor/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/ohara-interview-ai-advisor/"
+    },
+    "headline": "パートナー型AI顧問の現場 —— 一般社団法人OHARAの立ち上げ支援",
+    "datePublished": "2026-02-25",
+    "dateModified": "2026-02-25",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "梅田",
+      "jobTitle": "代表",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "一般社団法人OHARA"
+      }
+    },
+    "description": "行政書士ネットワーク「OHARA」の立ち上げを、パートナー型AI顧問として伴走。Slack導入・API連携・録音→議事録化など、運営基盤を先に整えたプロセスを代表の梅田さんに聞きました。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "OHARAインタビュー — AI顧問" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "パートナー型AI顧問とは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "単発のコンサルではなく、定期ミーティングを通じて組織の課題に継続的に伴走するスタイルです。OHARAの場合、立ち上げ初期からSlack導入や議事録自動化まで、運営基盤を一緒に整えています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "会員組織立ち上げでAIは何に使える？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "会員管理の仕組み設計、連絡ツールの選定・導入、ミーティング議事録の自動化、パンフレットの原稿作成など、立ち上げ期に発生する多くの業務をAIで効率化できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Slack導入の効果は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LINEからSlackに移行したことで、チャンネルごとにテーマを分けて情報が整理され、API連携でログの自動保存や通知の自動化が可能になりました。組織の情報基盤が一段上がります。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png"
+              alt="梅田さん"></div>
+        </div>
+        <h1>パートナー型AI顧問の現場<br><span class="h1-sub">一般社団法人OHARAの立ち上げ支援</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">パートナー型</span>
+          <span class="result-badge">会員組織</span>
+          <span class="result-badge">運営基盤</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">組織立ち上げ / AI活用</span>
+        </div>
+        <p>
+          インドネシア人材の適正受け入れを支える行政書士ネットワーク「OHARA」。代表の梅田さんに、パートナー型AI顧問としてコールテンがどう立ち上げに関わったかを聞きました。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>今日は梅田さんに、OHARAの立ち上げとAI顧問の話を聞いていくよ。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png"
+                alt="梅田さん">
+            <h3 style="margin:2px 0 4px;">梅田さん</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              一般社団法人OHARA代表。行政書士ネットワークを通じてインドネシア人材の適正受け入れを推進。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">パートナー型AI顧問として組織立ち上げを伴走サポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <!-- ナラティブ導入 -->
+        <div class="narrative">
+          <p>
+            「制度より先にツールを整えたことで、組織の回り方が変わった」——梅田さんはそう振り返った。
+          </p>
+          <p>
+            一般社団法人OHARAは、インドネシア人材の適正受け入れを支える行政書士ネットワーク。立ち上げ期は決めることが山積みだ。そんな中で、コールテンとの関わりは「まずツールを整えるところ」から始まった。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== OHARAとは ===== -->
+          <div class="section-label">OHARAとは何か</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              まず、OHARAってどんな団体なの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="梅田さん">
+              <span class="name-tag">梅田さん</span>
+            </div>
+            <div class="bubble-text">
+              行政書士のネットワークです。インドネシアからの人材受け入れを適正にサポートするために、信頼できる行政書士をつなぐ仕組みを作っています。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              会員組織としてスタートしたんだよね。設計で大変だったことは？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="梅田さん">
+              <span class="name-tag">梅田さん</span>
+            </div>
+            <div class="bubble-text">
+              パートナーの基準をどう決めるか、連絡をどうするか、議事録をどう残すか。組織としての骨組みを作る部分ですね。制度から固めようとすると身動きが取れなくなるんですよ。
+            </div>
+          </div>
+
+          <!-- ===== AI顧問としての関わり ===== -->
+          <div class="section-label">AI顧問としての関わり</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              コールテンにはどんな形で相談したの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="梅田さん">
+              <span class="name-tag">梅田さん</span>
+            </div>
+            <div class="bubble-text">
+              最初は「AIで何かできませんか」くらいのふんわりした相談でした。そこから向さんが、まず連絡基盤を整えましょうと。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              それでSlackの導入になったんだ。LINEからの移行は大変じゃなかった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="梅田さん">
+              <span class="name-tag">梅田さん</span>
+            </div>
+            <div class="bubble-text">
+              正直、最初は「LINEでいいじゃん」と思ってました。でもチャンネルで話題を分けられるのと、ログが検索できるのが全然違う。慣れたらもうLINEには戻れないですね。
+            </div>
+          </div>
+
+          <!-- ===== 録音→議事録の自動化 ===== -->
+          <div class="section-label">録音→議事録の自動化</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              SlackのAPI連携も進めたって聞いたけど、どんなことをしてるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="梅田さん">
+              <span class="name-tag">梅田さん</span>
+            </div>
+            <div class="bubble-text">
+              ミーティングの録音データを文字起こしして、自動で議事録にするフローですね。録音→文字起こし→要約→Slackに投稿、まで一気通貫で。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              それは便利だね。導入してみて、何が一番変わった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="梅田さん">
+              <span class="name-tag">梅田さん</span>
+            </div>
+            <div class="bubble-text">
+              「言った言わない」がなくなりました。あと、議事録を作る手間が消えたので、ミーティングの中身に集中できるようになった。
+            </div>
+          </div>
+
+          <!-- ===== 運営基盤を先に整える ===== -->
+          <div class="section-label">運営基盤を先に整える</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              制度より先にツールを整えるって、意外なアプローチだよね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="梅田さん">
+              <span class="name-tag">梅田さん</span>
+            </div>
+            <div class="bubble-text">
+              最初は制度設計から入ろうとしてたんです。でも向さんに「まず回せる状態を作りましょう」と言われて。結果的にそれが正解でした。ツールが整うと、制度の議論も効率的に進むんですよね。
+            </div>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>梅田さんが繰り返したのは「小さく始める」という言葉だった。パートナー基準、連絡体制、議事録の仕組み。どれも完璧を求めず、まず動かしてから調整していく。AI顧問との伴走が、その「小さく始める」を可能にしている。</p>
+          </div>
+
+          <!-- ===== プルクオート ===== -->
+          <blockquote class="pull-quote">
+            「制度を固める前にツールを整える。<br>それだけで組織の回り方が変わった」
+          </blockquote>
+
+          <!-- ===== これからの展望 ===== -->
+          <div class="section-label">これからの展望</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              これからOHARAとしてやっていきたいことは？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="梅田さん">
+              <span class="name-tag">梅田さん</span>
+            </div>
+            <div class="bubble-text">
+              まずはパートナーの行政書士を増やしていくこと。それと、運営のノウハウをテンプレート化して、他の地域でも横展開できるようにしたいですね。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              梅田さん、ありがとうございました！OHARAの成長、これからも楽しみにしてるね。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        OHARAさんの立ち上げは「制度より運営基盤」からスタートしました。Slackを入れて、録音→議事録のフローを作って、API連携で自動化して。制度設計はその後。ツールが整うと議論の質が上がるし、意思決定も速くなる。「小さく始めて、回しながら整える」を地で行くプロジェクトです。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>パートナー型AI顧問とは？</summary>
+          <p>単発のコンサルではなく、定期ミーティングを通じて組織の課題に継続的に伴走するスタイルです。OHARAの場合、立ち上げ初期からSlack導入や議事録自動化まで、運営基盤を一緒に整えています。</p>
+        </details>
+        <details class="faq-item">
+          <summary>会員組織立ち上げでAIは何に使える？</summary>
+          <p>会員管理の仕組み設計、連絡ツールの選定・導入、ミーティング議事録の自動化、パンフレットの原稿作成など、立ち上げ期に発生する多くの業務をAIで効率化できます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>Slack導入の効果は？</summary>
+          <p>LINEからSlackに移行したことで、チャンネルごとにテーマを分けて情報が整理され、API連携でログの自動保存や通知の自動化が可能になりました。組織の情報基盤が一段上がります。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/blog/ohara-interview-foreign-coexistence/" style="font-size:13px; color:var(--sea);">OHARA 外国人共生インタビュー →</a></li>
+          <li><a href="/clients/ohra/" style="font-size:13px; color:var(--sea);">OHARAの記事一覧 →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>組織の立ち上げをAIで加速する</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、あなたの組織に合わせたツール導入・運営基盤づくりを伴走します。<br>
+          まずは小さく試して、その効果を体感してみませんか？
+        </p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>パートナー型AI顧問サービス</strong>です。定期ミーティングで、組織運営を一緒に磨いていきます。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    /* Hero */
+    .hero {
+        padding: 160px 0 32px;
+        text-align: center;
+        background: transparent;
+    }
+    .intro-section {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h1-sub {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 600;
+        display: block;
+        margin-top: 8px;
+        color: var(--text-light);
+    }
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text-light);
+    }
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .character-card {
+        text-align: center;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+    .character-card img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        margin: 0 auto 8px;
+        display: block;
+    }
+    .character-role {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f7f3;
+        border: 1px solid #d6e8df;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #124034;
+        margin-bottom: 6px;
+    }
+    .character-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    @media(min-width:900px) {
+        .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Dialogue Section */
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue {
+        display: grid;
+        gap: 26px;
+        margin: 16px auto 18px;
+        max-width: 640px;
+    }
+    .bubble {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 12px;
+        padding: 10px 12px;
+        line-height: 1.7;
+        color: #12382c;
+        flex: 1;
+        position: relative;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border: 1px solid #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+    .voice-note {
+        margin: 22px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #f2ddbf;
+        background: #fff7ea;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+        color: #3a2c15;
+        line-height: 1.7;
+        max-width: 640px;
+    }
+    .note-name {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #fbe9cc;
+        color: #6a4618;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
+    }
+
+    /* ナラティブ（冒頭の地の文） */
+    .narrative {
+        max-width: 640px;
+        margin: 0 auto 32px;
+        line-height: 2;
+        font-size: 15px;
+        color: var(--text);
+    }
+    .narrative p {
+        margin-bottom: 20px;
+    }
+
+    /* ナラティブ（会話間の地の文） */
+    .narrative-inline {
+        max-width: 640px;
+        margin: 10px auto;
+        padding: 20px 24px;
+        background: #faf8f5;
+        border-radius: 12px;
+        line-height: 1.9;
+        font-size: 14.5px;
+        color: #555;
+    }
+    .narrative-inline p {
+        margin: 0 0 14px;
+    }
+    .narrative-inline p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* セクション見出し */
+    .section-label {
+        margin: 32px -32px 16px;
+        padding: 14px 32px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--sea, #16614e);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        border-left: none;
+    }
+
+    /* プルクオート */
+    .pull-quote {
+        margin: 36px -32px;
+        padding: 2.5rem 32px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-top: 3px solid var(--accent, #d4a574);
+        border-bottom: 3px solid var(--accent, #d4a574);
+        background: #faf8f5;
+        color: var(--heading, #2c1810);
+        line-height: 1.9;
+        quotes: none;
+    }
+
+    /* FAQ */
+    .faq-heading {
+        font-size: 18px;
+        margin-bottom: 16px;
+        padding-left: 14px;
+        border-left: 3px solid var(--sea);
+    }
+    .faq-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    .faq-item summary {
+        padding: 16px 20px;
+        font-weight: 600;
+        font-size: 14.5px;
+        cursor: pointer;
+        list-style: none;
+    }
+    .faq-item summary::before {
+        content: "Q. ";
+        color: var(--sea);
+        font-weight: 700;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p {
+        padding: 0 20px 16px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #555;
+    }
+
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 20px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+        .section-label {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+        .pull-quote {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 2rem 24px;
+            font-size: 1rem;
+        }
+        .narrative-inline p { margin-bottom: 12px; }
+        .narrative-inline p:last-child { margin-bottom: 0; }
+    }
+</style>

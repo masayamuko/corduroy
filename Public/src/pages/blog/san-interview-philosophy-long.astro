@@ -1,0 +1,487 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "佐野さんの仕事哲学 —— 「人が前向きになる設計」のすべて（長編インタビュー）｜株式会社コールテン";
+const description = "AIは効率化ツールじゃなくて、人が前向きになる設計に使える。佐野さんの仕事哲学の全体像を、第二の自分・共創・マインドマッチ・伝え方の設計まで包括的に聞きました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/san-interview-philosophy-long/"
+  ogUrl="https://www.corduroy.co.jp/blog/san-interview-philosophy-long/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/san-interview-philosophy-long/#article",
+    "url": "https://www.corduroy.co.jp/blog/san-interview-philosophy-long/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/san-interview-philosophy-long/"
+    },
+    "headline": "佐野さんの仕事哲学 —— 「人が前向きになる設計」のすべて",
+    "datePublished": "2026-03-08",
+    "dateModified": "2026-03-08",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "佐野",
+      "jobTitle": "代表"
+    },
+    "description": "AIは効率化ツールじゃなくて、人が前向きになる設計に使える。佐野さんの仕事哲学の全体像を、第二の自分・共創・マインドマッチ・伝え方の設計まで包括的に聞きました。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "佐野さんの仕事哲学（長編インタビュー）" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "佐野さんの「人が前向きになる設計」とは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "佐野さんの仕事観の根底にある考え方で、AIも含めたすべてのツールや仕組みは「人が前向きになる設計」でなければ意味がないというものです。効率化だけでなく、使う人の気持ちや行動が前向きに変わることを重視しています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "この記事は他の佐野さんインタビューとどう違う？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "個別テーマの記事が「スナップショット」だとすれば、この長編は「ドキュメンタリー」。第二の自分、共創、議事録の思考資産化、マインドマッチ、伝え方の設計まで、佐野さんの仕事哲学の全体像を一本で把握できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AIは効率化以外にどう活用できる？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "佐野さんの体験では、AIは効率化だけでなく「新しい発想を引き出す」「マインドの相性を可視化する」「伝え方を最適化する」など、人の可能性を広げるツールとして活用できます。大事なのは「何を効率化するか」ではなく「何を可能にするか」という視点です。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png"
+              alt="佐野さん"
+              onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';"></div>
+        </div>
+        <h1>佐野さんの仕事哲学<br><span class="h1-sub">「人が前向きになる設計」のすべて</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">ロングインタビュー</span>
+          <span class="result-badge">仕事哲学</span>
+          <span class="result-badge">全テーマ統合版</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">哲学 / 企画 / AI活用</span>
+        </div>
+        <p>
+          「AIは効率化ツールじゃなくて、人が前向きになる設計に使える」。佐野さんの仕事哲学を、第二の自分・共創・マインドマッチ・伝え方の設計まで、ロングインタビューで一気に聞きました。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>今回は佐野さんの仕事哲学を、たっぷり聞いていくね。長編だよ！
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png"
+                alt="佐野さん"
+                onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+            <h3 style="margin:2px 0 4px;">佐野さん</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              株式会社スデニアル代表。マーケティング・企画のプロフェッショナル。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">AI顧問として毎週のミーティングで伴走サポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <div class="narrative">
+          <p>
+            佐野さんの話を聞いていると、一つひとつのテーマが根っこでつながっていることに気づく。
+          </p>
+          <p>
+            「第二の自分」を作るためにAIに向き合い始め、議事録を思考資産に変え、発注型から共創型へ仕事のやり方を変えた。マインドマッチ構想が生まれ、伝え方の設計を磨いてきた。すべての根底にあるのは「人が前向きになる設計」という仕事観だ。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== 第一章: 第二の自分 ===== -->
+          <div class="section-label">第一章: 「第二の自分」との出会い</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              AIとの最初の出会いって、どんな印象だった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              正直、最初は懐疑的でした。便利なツールだなとは思ったけど、自分の仕事を変えるほどのものだとは思ってなかった。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              何がきっかけで変わったの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              「第二の自分を作る」という発想に出会ったとき。AIに自分の考え方や価値観を覚えさせて、壁打ち相手にする。それって、自分の分身を育てるようなもので、一気にのめり込んだ。
+            </div>
+          </div>
+
+          <!-- ===== 第二章: 専門性と価値観 ===== -->
+          <div class="section-label">第二章: 一般論の壁を超える</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              AIの回答って、最初は一般的な内容が多くなかった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              そう。必要なのは、専門性と価値観なんですよ。一般論じゃなくて、自分の業界・自分の考え方に合った回答。そこを育てるのに時間がかかった。
+            </div>
+          </div>
+
+          <!-- ===== 第三章: 発注から共創へ ===== -->
+          <div class="section-label">第三章: 発注から共創へ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              仕事の進め方はどう変わった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              発注じゃなくて、共創できるようになった。AIと一緒に企画を練って、検証して、形にする。「できない」と諦めていたことが「やってみよう」に変わった。
+            </div>
+          </div>
+
+          <!-- ===== 第四章: 議事録を資産にする ===== -->
+          <div class="section-label">第四章: 議事録を資産にする</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              議事録の捉え方も変わったんだよね？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              議事録って、単なる記録じゃなくて、思考の資産になる。第二の自分を育てるには結局データが必要で、議事録にはそれが一番詰まってる。
+            </div>
+          </div>
+
+          <div class="narrative-inline">
+            <p>佐野さんの話を聞いていると、すべてのテーマが「人が前向きになる設計」という一本の線で貫かれていることに気づく。AIを使うのも、共創するのも、議事録を資産にするのも、根底にあるのは「人の可能性を広げたい」という思いだ。</p>
+          </div>
+
+          <!-- ===== 第五章: マインドマッチ ===== -->
+          <div class="section-label">第五章: マインドマッチの先へ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              マインドマッチっていう構想も生まれたんだよね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              スキルマッチは簡単だけど、マインドが合うかどうかは見えにくい。衝突の原因は"合わなさ"。AIでマインドの相性を可視化できたら、もっと人と人のつながりが良くなる。
+            </div>
+          </div>
+
+          <!-- ===== 第六章: 伝え方を設計する ===== -->
+          <div class="section-label">第六章: 伝え方を設計する</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              コンサルでは「伝え方の設計」が大きいテーマだよね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              正しいことを言ってても、伝わる形になってなければ意味がない。実績の見せ方を変えるだけで、全然違う反応が返ってくる。
+            </div>
+          </div>
+
+          <blockquote class="pull-quote">
+            「AIは効率化ツールじゃなくて、<br>人が前向きになる設計に使える。<br>それが僕の仕事観の核心です」
+          </blockquote>
+
+          <!-- ===== エピローグ ===== -->
+          <div class="section-label">エピローグ: 佐野さんにとって「いい仕事」とは</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              最後に聞きたいんだけど、佐野さんにとって「いい仕事」ってどういうもの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudenial.png" alt="佐野さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">佐野さん</span>
+            </div>
+            <div class="bubble-text">
+              関わった人が前向きになる仕事。効率が上がるとか、売上が伸びるとか、それも大事だけど、一番は「この仕事をやって良かった」って思ってもらえること。AIもそのための道具だと思ってます。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              佐野さん、長い時間ありがとうございました！全部つながってるんだなって、すごく感じたよ。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        佐野さんの仕事哲学を一本にまとめてみて改めて感じたのは、すべてが「人が前向きになる設計」でつながっているということ。AIを使うのも、共創するのも、マインドマッチを構想するのも、根底にあるのは「人の可能性を広げたい」という思い。僕たちコールテンが大切にしている「らしさを引き出す」という哲学と、深いところで共鳴しています。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>佐野さんの「人が前向きになる設計」とは？</summary>
+          <p>佐野さんの仕事観の根底にある考え方で、AIも含めたすべてのツールや仕組みは「人が前向きになる設計」でなければ意味がないというものです。効率化だけでなく、使う人の気持ちや行動が前向きに変わることを重視しています。</p>
+        </details>
+        <details class="faq-item">
+          <summary>この記事は他の佐野さんインタビューとどう違う？</summary>
+          <p>個別テーマの記事が「スナップショット」だとすれば、この長編は「ドキュメンタリー」。第二の自分、共創、議事録の思考資産化、マインドマッチ、伝え方の設計まで、佐野さんの仕事哲学の全体像を一本で把握できます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>AIは効率化以外にどう活用できる？</summary>
+          <p>佐野さんの体験では、AIは効率化だけでなく「新しい発想を引き出す」「マインドの相性を可視化する」「伝え方を最適化する」など、人の可能性を広げるツールとして活用できます。大事なのは「何を効率化するか」ではなく「何を可能にするか」という視点です。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/blog/san-interview-simulation/" style="font-size:13px; color:var(--sea);">「議事録の先」を見つけた日 —— AIシミュレーション活用術 →</a></li>
+          <li><a href="/blog/san-interview-project-options/" style="font-size:13px; color:var(--sea);">「発注ありき」から「共創前提」へ →</a></li>
+          <li><a href="/blog/san-interview-mindmatch/" style="font-size:13px; color:var(--sea);">スキルマッチの先にある「マインドマッチ」構想 →</a></li>
+          <li><a href="/clients/san/" style="font-size:13px; color:var(--sea);">佐野さんの記事一覧 →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>「人が前向きになる設計」を一緒に</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、AIを活用してあなたの仕事の可能性を広げる伴走をしています。<br>
+          まずは毎週のミーティングから、小さく始めてみませんか？
+        </p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>AI顧問サービス</strong>です。毎週の定期ミーティングで、AIの使い方を一緒に磨いていきます。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    .hero { padding: 160px 0 32px; text-align: center; background: transparent; }
+    .intro-section { padding-top: 0; margin-top: 0; }
+    .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 800px; margin: 0 auto; }
+    .h1-sub { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; display: block; margin-top: 8px; color: var(--text-light); }
+    .meta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin-top: 24px; }
+    .tag { display: inline-block; padding: 8px 16px; border-radius: 100px; background: var(--mint); color: var(--sea); font-weight: 700; font-size: 13px; border: 1px solid var(--line); }
+    .pill { display: inline-block; padding: 8px 16px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-weight: 700; font-size: 13px; color: var(--text-light); }
+    .avatar-frame { width: 160px; height: 160px; margin: 0 auto; display: flex; align-items: center; justify-content: center; background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat; }
+    .avatar-lg { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow-md); background: #fff; }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-md); }
+    .card.cta-card { transform: none !important; box-shadow: var(--shadow-md) !important; }
+    .character-card { text-align: center; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
+    .character-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .character-card img { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 18px rgba(0,0,0,.08); margin: 0 auto 8px; display: block; }
+    .character-role { display: inline-block; padding: 6px 10px; background: #f1f7f3; border: 1px solid #d6e8df; border-radius: 10px; font-size: 12px; font-weight: 700; color: #124034; margin-bottom: 6px; }
+    .character-grid { display: grid; gap: 18px; grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
+    @media(min-width:900px) { .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); } }
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue { display: grid; gap: 26px; margin: 16px auto 18px; max-width: 640px; }
+    .bubble { display: flex; gap: 12px; align-items: flex-start; width: 100%; position: relative; }
+    .bubble-avatar { position: relative; width: 82px; height: 82px; flex-shrink: 0; }
+    .bubble-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; box-shadow: 0 6px 14px rgba(0,0,0,.08); }
+    .bubble-text { background: #e7f4ef; border: 1px solid #cde5db; border-radius: 12px; padding: 10px 12px; line-height: 1.7; color: #12382c; flex: 1; position: relative; }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text { background: #f4f1ff; border: 1px solid #e2dcfa; color: #1f2440; }
+    .name-tag { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); padding: 2px 8px; border-radius: 8px; background: rgba(255,255,255,0.9); box-shadow: 0 4px 10px rgba(0,0,0,.08); font-weight: 700; font-size: 10px; color: #0f3d2e; white-space: nowrap; }
+    .voice-note { margin: 22px auto 0; padding: 14px 16px; border-radius: 14px; border: 1px solid #f2ddbf; background: #fff7ea; box-shadow: 0 10px 22px rgba(0,0,0,.05); color: #3a2c15; line-height: 1.7; max-width: 640px; }
+    .note-name { display: inline-block; padding: 6px 12px; border-radius: 10px; background: #fbe9cc; color: #6a4618; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
+    .mini { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge { font-size: 13px; padding: 4px 12px; border-radius: 20px; background: var(--mint, #eef7f3); color: var(--sea, #16614e); font-weight: 600; }
+    .narrative { max-width: 640px; margin: 0 auto 32px; line-height: 2; font-size: 15px; color: var(--text); }
+    .narrative p { margin-bottom: 20px; }
+    .narrative-inline { max-width: 640px; margin: 10px auto; padding: 20px 24px; background: #faf8f5; border-radius: 12px; line-height: 1.9; font-size: 14.5px; color: #555; }
+    .narrative-inline p { margin: 0 0 14px; }
+    .narrative-inline p:last-child { margin-bottom: 0; }
+    .section-label { margin: 32px -32px 16px; padding: 14px 32px; font-size: 15px; font-weight: 700; color: #fff; background: var(--sea, #16614e); letter-spacing: 0.05em; line-height: 1.5; border-left: none; }
+    .pull-quote { margin: 36px -32px; padding: 2.5rem 32px; font-size: 1.2rem; font-weight: 600; text-align: center; border-top: 3px solid var(--accent, #d4a574); border-bottom: 3px solid var(--accent, #d4a574); background: #faf8f5; color: var(--heading, #2c1810); line-height: 1.9; quotes: none; }
+    .faq-heading { font-size: 18px; margin-bottom: 16px; padding-left: 14px; border-left: 3px solid var(--sea); }
+    .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+    .faq-item summary { padding: 16px 20px; font-weight: 600; font-size: 14.5px; cursor: pointer; list-style: none; }
+    .faq-item summary::before { content: "Q. "; color: var(--sea); font-weight: 700; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p { padding: 0 20px 16px; font-size: 14px; line-height: 1.9; color: #555; }
+    @media(max-width:768px) { .hero { padding: 100px 20px 20px; } .bubble-avatar { width: 64px; height: 64px; } .name-tag { font-size: 9px; } .section-label { margin-left: -32px; margin-right: -32px; padding: 12px 24px; font-size: 14px; } .pull-quote { margin-left: -32px; margin-right: -32px; padding: 2rem 24px; font-size: 1rem; } .narrative-inline p { margin-bottom: 12px; } .narrative-inline p:last-child { margin-bottom: 0; } }
+</style>

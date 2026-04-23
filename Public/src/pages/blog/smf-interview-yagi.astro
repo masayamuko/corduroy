@@ -1,0 +1,773 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "留学事業をAIで効率化 —— スマイリーフラワーズ八木さんの挑戦｜株式会社コールテン";
+const description = "NPO法人スマイリーフラワーズの八木さんに、留学業務へのAI導入についてインタビュー。見積もり自動化やメール返信支援など、少人数チームでの効率化の実践を聞きました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/smf-interview-yagi/"
+  ogUrl="https://www.corduroy.co.jp/blog/smf-interview-yagi/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/smf-interview-yagi/#article",
+    "url": "https://www.corduroy.co.jp/blog/smf-interview-yagi/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/smf-interview-yagi/"
+    },
+    "headline": "留学事業をAIで効率化 —— スマイリーフラワーズ八木さんの挑戦",
+    "datePublished": "2026-03-10",
+    "dateModified": "2026-03-10",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "八木さん",
+      "jobTitle": "スタッフ",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "NPO法人国際教育支援機構スマイリーフラワーズ"
+      }
+    },
+    "description": "NPO法人スマイリーフラワーズの八木さんに、留学業務へのAI導入についてインタビュー。見積もり自動化やメール返信支援など、少人数チームでの効率化の実践を聞きました。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "八木さんインタビュー" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "NPOでもAI導入はできる？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "できます。スマイリーフラワーズでは、まずGemini講座でチーム全体のリテラシーを揃えた上で、Claude法人プランの試行に進みました。少人数チームだからこそ、一人ひとりの業務効率が上がる効果は大きいです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "見積もり自動化とは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "留学プランごとに異なる学費・滞在費・保険料などの項目をAIが整理し、見積もり書の下書きを自動生成する仕組みです。人が最終確認して送付するため、正確さを保ちながら作業時間を大幅に削減できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AIのセキュリティは大丈夫？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Claude法人プランでは、入力データがモデルの学習に使われない設定が可能です。個人情報を含む業務では、どの情報をAIに渡すかのガイドラインを事前に決めておくことが重要です。スマイリーフラワーズでは「下書きまでAI、送信は人間」のルールを徹底しています。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png"
+              alt="スマイリーフラワーズ"
+              onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';"></div>
+        </div>
+        <h1>留学事業をAIで効率化<br><span class="h1-sub">スマイリーフラワーズ八木さんの挑戦</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">NPO×AI</span>
+          <span class="result-badge">留学業務</span>
+          <span class="result-badge">見積もり自動化</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">NPO / 留学事業</span>
+        </div>
+        <p>
+          NPO法人スマイリーフラワーズで留学支援に携わる八木さん。「AIって怖い」から始まった導入の道のりと、見積もり作成やメール返信にAIを活かすまでの変化を聞きました。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>ここからはボクが、八木さんに話を聞いていくね。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png"
+                alt="スマイリーフラワーズ"
+                onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+            <h3 style="margin:2px 0 4px;">八木さん</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              NPO法人国際教育支援機構スマイリーフラワーズ スタッフ。留学支援の最前線で業務を担う。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">AI顧問として伴走サポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <!-- ナラティブ導入 -->
+        <div class="narrative">
+          <p>
+            「AIは優秀だけど指示が必要な新人」——八木さんはそう表現した。
+          </p>
+          <p>
+            NPO法人スマイリーフラワーズは「支えられる側から支え合う人に」を軸に、留学支援・若者育成・国際交流に取り組む団体だ。少人数で回す業務の中で、AIをどう味方にしていったのか。その実践を聞いた。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== AI導入への不安 ===== -->
+          <div class="section-label">AI導入への不安</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              AIを業務に使い始める前、率直にどう感じてた？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="八木さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">八木さん</span>
+            </div>
+            <div class="bubble-text">
+              正直、怖かったです。間違った情報を出されたらどうしよう、個人情報が漏れたらどうしよう、って。NPOは信頼が命なので。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              その怖さは、どうやって乗り越えたの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="八木さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">八木さん</span>
+            </div>
+            <div class="bubble-text">
+              向さんに言われたんです。「AIは優秀だけど指示が必要な新人だと思ってください」って。それで腑に落ちた。新人なら、ちゃんと確認してから出すのは当たり前じゃないですか。
+            </div>
+          </div>
+
+          <!-- ===== 見積もり作成の手間 ===== -->
+          <div class="section-label">見積もり作成の手間</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              具体的に、どの業務でAIを使い始めたの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="八木さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">八木さん</span>
+            </div>
+            <div class="bubble-text">
+              見積もりです。留学って、学校・期間・滞在先・保険・ビザ……組み合わせが膨大で。1件作るのに30分以上かかることもあって。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              それをAIでどうしようとしてるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="八木さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">八木さん</span>
+            </div>
+            <div class="bubble-text">
+              過去の見積もりパターンをAIに学ばせて、条件を入れたら下書きが出てくる仕組みを検討しています。最終チェックは必ず人がやる前提で。
+            </div>
+          </div>
+
+          <!-- ===== メール返信支援 ===== -->
+          <div class="section-label">メール返信支援</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              見積もり以外にも使ってる場面はある？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="八木さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">八木さん</span>
+            </div>
+            <div class="bubble-text">
+              メールの返信文です。留学希望者からの問い合わせって、内容は似ていても一人ひとりに丁寧に返したい。AIに下書きを作らせて、自分の言葉で調整してから送るようにしています。
+            </div>
+          </div>
+
+          <!-- ===== 少人数チームだからこそ ===== -->
+          <div class="section-label">少人数チームだからこそ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              NPOって少人数で回してることが多いよね。AIの効果は感じてる？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="八木さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">八木さん</span>
+            </div>
+            <div class="bubble-text">
+              めちゃくちゃ感じます。うちは本当に少人数なので、一人が抱える業務の幅が広い。事務作業にかかる時間を減らせると、その分だけ留学生のサポートに使える時間が増えるんです。
+            </div>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>八木さんが繰り返し強調したのは「AIに丸投げしない」ということだった。下書きはAI、送信は人間。このルールが、チームの安心感をつくっている。NPOだからこそ、信頼を守りながら効率化する。その両立が、ここでは自然に実現されていた。</p>
+          </div>
+
+          <!-- ===== プルクオート ===== -->
+          <blockquote class="pull-quote">
+            「AIは優秀だけど指示が必要な新人。<br>そう考えたら怖くなくなった」
+          </blockquote>
+
+          <!-- ===== Claude法人プランの試行 ===== -->
+          <div class="section-label">Claude法人プランの試行</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              Gemini講座の後、Claudeも試し始めたって聞いたけど？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="八木さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">八木さん</span>
+            </div>
+            <div class="bubble-text">
+              はい。法人プランだとデータが学習に使われない設定ができるので、業務データを扱いやすくなりました。セキュリティ面の不安が減ったのは大きいですね。
+            </div>
+          </div>
+
+          <!-- ===== これからの展望 ===== -->
+          <div class="section-label">これからの展望</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              これから、AIをどう活かしていきたい？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="八木さん"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">八木さん</span>
+            </div>
+            <div class="bubble-text">
+              見積もりの自動化をもっと進めたいのと、留学先の情報整理にも使いたいです。国ごとの制度やビザ要件って頻繁に変わるので、AIが下調べしてくれると助かります。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              八木さん、ありがとうございました！NPOでのAI活用、すごく参考になったよ。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        八木さんの「怖い」は、多くのNPOスタッフが感じている不安と同じだと思います。でも「優秀な新人」と捉え直すだけで、使い方がガラッと変わった。下書きまでAI、送信は人間。このシンプルなルールが、信頼を守りながら業務を効率化する鍵になっています。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>NPOでもAI導入はできる？</summary>
+          <p>できます。スマイリーフラワーズでは、まずGemini講座でチーム全体のリテラシーを揃えた上で、Claude法人プランの試行に進みました。少人数チームだからこそ、一人ひとりの業務効率が上がる効果は大きいです。</p>
+        </details>
+        <details class="faq-item">
+          <summary>見積もり自動化とは？</summary>
+          <p>留学プランごとに異なる学費・滞在費・保険料などの項目をAIが整理し、見積もり書の下書きを自動生成する仕組みです。人が最終確認して送付するため、正確さを保ちながら作業時間を大幅に削減できます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>AIのセキュリティは大丈夫？</summary>
+          <p>Claude法人プランでは、入力データがモデルの学習に使われない設定が可能です。個人情報を含む業務では、どの情報をAIに渡すかのガイドラインを事前に決めておくことが重要です。スマイリーフラワーズでは「下書きまでAI、送信は人間」のルールを徹底しています。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/clients/smf/" style="font-size:13px; color:var(--sea);">スマイリーフラワーズの記事一覧 →</a></li>
+          <li><a href="/blog/smf-interview-gemini-lecture/" style="font-size:13px; color:var(--sea);">NPO法人でAI基礎講座をやってみた →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>NPOの業務も、AIで変わる</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、少人数チームでも無理なく始められるAI活用を伴走サポートします。<br>
+          まずは小さく試して、その効果を体感してみませんか？
+        </p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>AI顧問サービス</strong>です。毎週の定期ミーティングで、AIの使い方を一緒に磨いていきます。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    /* Hero */
+    .hero {
+        padding: 160px 0 32px;
+        text-align: center;
+        background: transparent;
+    }
+    .intro-section {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h1-sub {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 600;
+        display: block;
+        margin-top: 8px;
+        color: var(--text-light);
+    }
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text-light);
+    }
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .character-card {
+        text-align: center;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+    .character-card img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        margin: 0 auto 8px;
+        display: block;
+    }
+    .character-role {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f7f3;
+        border: 1px solid #d6e8df;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #124034;
+        margin-bottom: 6px;
+    }
+    .character-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    @media(min-width:900px) {
+        .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Dialogue Section */
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue {
+        display: grid;
+        gap: 26px;
+        margin: 16px auto 18px;
+        max-width: 640px;
+    }
+    .bubble {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 12px;
+        padding: 10px 12px;
+        line-height: 1.7;
+        color: #12382c;
+        flex: 1;
+        position: relative;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border: 1px solid #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+    .voice-note {
+        margin: 22px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #f2ddbf;
+        background: #fff7ea;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+        color: #3a2c15;
+        line-height: 1.7;
+        max-width: 640px;
+    }
+    .note-name {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #fbe9cc;
+        color: #6a4618;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
+    }
+
+    /* ナラティブ（冒頭の地の文） */
+    .narrative {
+        max-width: 640px;
+        margin: 0 auto 32px;
+        line-height: 2;
+        font-size: 15px;
+        color: var(--text);
+    }
+    .narrative p {
+        margin-bottom: 20px;
+    }
+
+    /* ナラティブ（会話間の地の文） */
+    .narrative-inline {
+        max-width: 640px;
+        margin: 10px auto;
+        padding: 20px 24px;
+        background: #faf8f5;
+        border-radius: 12px;
+        line-height: 1.9;
+        font-size: 14.5px;
+        color: #555;
+    }
+    .narrative-inline p {
+        margin: 0 0 14px;
+    }
+    .narrative-inline p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* セクション見出し（会話内・帯デザイン） */
+    .section-label {
+        margin: 32px -32px 16px;
+        padding: 14px 32px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--sea, #16614e);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        border-left: none;
+    }
+
+    /* プルクオート */
+    .pull-quote {
+        margin: 36px -32px;
+        padding: 2.5rem 32px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-top: 3px solid var(--accent, #d4a574);
+        border-bottom: 3px solid var(--accent, #d4a574);
+        background: #faf8f5;
+        color: var(--heading, #2c1810);
+        line-height: 1.9;
+        quotes: none;
+    }
+
+    /* FAQ */
+    .faq-heading {
+        font-size: 18px;
+        margin-bottom: 16px;
+        padding-left: 14px;
+        border-left: 3px solid var(--sea);
+    }
+    .faq-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    .faq-item summary {
+        padding: 16px 20px;
+        font-weight: 600;
+        font-size: 14.5px;
+        cursor: pointer;
+        list-style: none;
+    }
+    .faq-item summary::before {
+        content: "Q. ";
+        color: var(--sea);
+        font-weight: 700;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p {
+        padding: 0 20px 16px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #555;
+    }
+
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 20px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+        .section-label {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+        .pull-quote {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 2rem 24px;
+            font-size: 1rem;
+        }
+        .narrative-inline p { margin-bottom: 12px; }
+        .narrative-inline p:last-child { margin-bottom: 0; }
+    }
+</style>

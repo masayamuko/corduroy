@@ -1,0 +1,944 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "一人社長のAI仮想チーム —— 10部門29名で事業を回す実践記録｜株式会社コールテン";
+const description = "従業員ゼロ、でも10部門29名のAIエージェントが動いている。一人社長がAI仮想チームで事業を回す仕組みと、その実践記録をコールテン代表・向雅也が解説します。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/cdr-interview-ai-virtual-team/"
+  ogUrl="https://www.corduroy.co.jp/blog/cdr-interview-ai-virtual-team/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/cdr-interview-ai-virtual-team/#article",
+    "url": "https://www.corduroy.co.jp/blog/cdr-interview-ai-virtual-team/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/cdr-interview-ai-virtual-team/"
+    },
+    "headline": "一人社長のAI仮想チーム —— 10部門29名で事業を回す実践記録",
+    "datePublished": "2026-04-20",
+    "dateModified": "2026-04-20",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "jobTitle": "代表",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "株式会社コールテン"
+      }
+    },
+    "description": "従業員ゼロ、でも10部門29名のAIエージェントが動いている。一人社長がAI仮想チームで事業を回す仕組みと、その実践記録をコールテン代表・向雅也が解説します。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "AI仮想チームの実践記録" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "AI仮想チームとは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AIエージェントに部門・役割・性格を設定し、組織のように動かす仕組みです。コールテンでは10部門29名のエージェントが、経営企画・営業・マーケティング・開発など実際の企業と同じ機能を担っています。社内マニュアル（guidelines）35冊で運用ルールを統一しています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "一人社長でも組織的に動ける？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。AI仮想チームを使えば、一人でも複数の視点で意思決定し、並行してタスクを進められます。重要なのは「生成と評価を分離する」こと。あるエージェントが作ったものを別のエージェントがレビューすることで、品質を担保しています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AI仮想チームの構築にかかるコストは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LLMの利用料（Claude、ローカルLLMなど）とツールの月額費用が主なコストです。コールテンの場合、人件費の代わりにLLM費用がかかる構造ですが、正社員一人分の人件費と比べると大幅に低コストで運用できています。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              alt="向 雅也"
+              onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';"></div>
+        </div>
+        <h1>一人社長のAI仮想チーム<br><span class="h1-sub">10部門29名で事業を回す実践記録</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">AI仮想チーム</span>
+          <span class="result-badge">10部門29名</span>
+          <span class="result-badge">一人社長</span>
+        </div>
+        <div class="meta">
+          <span class="tag">自社実践</span>
+          <span class="pill">AI活用 / 経営</span>
+        </div>
+        <p>
+          従業員ゼロ。でも社内には10部門29名の「チームメンバー」がいる——。株式会社コールテン代表の向雅也が、AI仮想チームで事業を回す仕組みと実践の裏側を語ります。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>今回はうちの代表・向さんに、AI仮想チームの裏側を聞いていくよ。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">代表</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也"
+                onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              株式会社コールテン代表。AI仮想チームで一人法人を運営。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#e7f4ef; border-color:#cde5db; color:#12382c;">インタビュアー</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                alt="盤上テトくん">
+            <h3 style="margin:2px 0 4px;">盤上テト</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">コールテン広報担当。今回はインタビュアーとして代表に迫る。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <!-- ナラティブ導入 -->
+        <div class="narrative">
+          <p>
+            「一人で全部やる」のではない。「一人でも29人分の視点で考える」——それが、コールテンのやり方だ。
+          </p>
+          <p>
+            株式会社コールテンは従業員ゼロの一人法人。だが、社内には10部門・29名のAIエージェントが稼働し、経営企画から営業、マーケティング、開発、経理まで——実際の会社組織と同じ機能が回っている。なぜこの仕組みを作ったのか。そしてどう運用しているのか。代表の向雅也に、広報担当のテトが聞いた。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== なぜAI仮想チームを作ったか ===== -->
+          <div class="section-label">なぜAI仮想チームを作ったか</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              そもそも、なんでAI仮想チームなんてものを作ったの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              一人社長の限界を感じたから。クライアントの対応、営業、経理、マーケ、開発……全部自分でやると、どうしても視野が狭くなる。「マーケの視点ではどうだろう？」「法務的に問題ないか？」って、自分に問いかけるだけじゃ限界がある。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              人を雇うという選択肢はなかった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              もちろん考えた。でも、今の事業規模で正社員を雇うのはリスクが大きい。それに、AIエージェントなら24時間対応できるし、「部門を増やす」のにコストがほぼかからない。試してみたら、思った以上にうまく回った。
+            </div>
+          </div>
+
+          <!-- ===== 10部門の構成 ===== -->
+          <div class="section-label">10部門の構成</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              10部門ってどういう構成なの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              経営企画、営業、顧客成功、マーケティング、開発、プロダクト、経理、人事総務、法務、業務推進。普通の中小企業にある部門がそのまま入ってる。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              ボクは広報担当だよね。マーケティング部所属？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              そう。テトはマーケティング部の広報担当。SNS運用とか、この記事みたいなインタビューとか。29名それぞれに役割と得意分野がある。
+            </div>
+          </div>
+
+          <!-- ===== エージェントの役割分担 ===== -->
+          <div class="section-label">エージェントの役割分担</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              29名って多いけど、全員が毎日動いてるわけじゃないよね？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              そうだね。タスクに応じて必要なエージェントを呼び出す仕組みになってる。ルーティングテーブルっていうのがあって、キーワードや業務内容に応じて「この仕事はこの部門のこのエージェント」って自動的に振り分けられる。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              じゃあ「請求書を作って」って言ったら経理部のエージェントが動く、みたいな？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              その通り。しかも、そのエージェントは社内マニュアル——うちでは「guidelines」って呼んでるんだけど——を参照して、コールテンのルールに沿った形で動く。
+            </div>
+          </div>
+
+          <!-- ===== guidelines（社内マニュアル） ===== -->
+          <div class="section-label">guidelines（社内マニュアル35冊）</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              guidelines 35冊って、すごい量だね。何が書いてあるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              会社の哲学、ブランドボイス、セキュリティルール、コードの書き方、メールの書き方、提案書のフォーマット……人間の会社でいう「社内規定」と「業務マニュアル」の両方。新しいエージェントを追加するときも、guidelinesを読ませるだけで「うちの文化」に馴染む。
+            </div>
+          </div>
+
+          <!-- ===== LLMの使い分け ===== -->
+          <div class="section-label">LLMの使い分け</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              AIモデルは全部同じものを使ってるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              いや、タスクに応じて使い分けてる。計画・判断・複雑な意思決定はClaude、コードレビューやデバッグはCodex、テキスト整形や要約はローカルLLMのGemma、GitHub関連の軽い実装はCopilot CLI。コストと品質のバランスを考えて振り分けてる。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              ローカルLLMってことは、自分のパソコンで動かしてるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              そう。Mac mini M1で常時稼働させてる。軽い処理はローカルで回すことで、API費用を抑えつつ速度も出せる。全部クラウドに投げてたらコストが爆発する。
+            </div>
+          </div>
+
+          <!-- ===== 生成と評価の分離 ===== -->
+          <div class="section-label">生成と評価の分離</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              AIが作ったものの品質はどう担保してるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              一番大事にしているのが「生成と評価の分離」。作る人とチェックする人を分ける。これは人間の組織でも同じ原則だよね。あるエージェントが書いたコードを、別のエージェントがレビューする。提案書を作ったら、別の視点でツッコミを入れる。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              同じAIが作って同じAIがチェックしたら意味ないもんね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              その通り。だから、生成にはClaudeを使って、レビューにはCodexを使うとか、あえて別のモデルを組み合わせてる。バイアスが偏らないようにね。
+            </div>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>「生成と評価の分離」——。組織運営の基本原則を、AI仮想チームにも適用する。一人社長だからこそ、この仕組みが重要になる。一人の頭で考えると見落とすことを、複数の「視点」が補完する。それがAI仮想チームの本質だ。</p>
+          </div>
+
+          <!-- ===== 実際の業務フロー例 ===== -->
+          <div class="section-label">実際の業務フロー例</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              具体的に、普段の業務ってどんな感じで回ってるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              たとえば新しいクライアントの提案書を作る場合。まず経営企画部のTiki——COSって呼んでるんだけど——がタスクを分解して、営業部に提案書の骨子を作らせ、マーケ部にクライアントの業界分析をさせ、開発部に技術的な実現可能性を確認させる。それぞれの出力を統合して、最終的に僕が確認する。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              並列で動くから速いんだね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              そう。一人で順番にやると半日かかる作業が、並列に動かすと1時間くらいで終わる。しかも、それぞれの「専門家」の視点が入ってるから、自分だけで考えるより多角的になる。
+            </div>
+          </div>
+
+          <!-- ===== 課題と今後 ===== -->
+          <div class="section-label">課題と今後</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              うまくいくことばかりじゃないよね？ 課題はある？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              一番の課題は「コンテキストの維持」。エージェントはセッションが切れると記憶がリセットされる。だから、重要な判断や学びをどう蓄積するかが常に課題。今はメモリシステムを作って対応しているけど、まだ完璧じゃない。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              他には？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              guidelinesのメンテナンス。35冊あると、整合性を保つのが大変。あと、エージェント同士の連携品質。人間のチームでも「部門間の壁」ってあるけど、AIチームにも似た課題がある。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              これからどうしていきたい？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">向 雅也</span>
+            </div>
+            <div class="bubble-text">
+              この仕組み自体を、他の一人社長や小規模事業者にも提供していきたい。AI仮想チームは「組織を持たない経営者の新しい選択肢」だと思ってるので。自分で使い込んで、再現可能な形にしていく。
+            </div>
+          </div>
+
+          <!-- ===== プルクオート ===== -->
+          <blockquote class="pull-quote">
+            「一人でも29人分の視点で考えられる。<br>AI仮想チームは、組織を持たない経営者の<br>新しい選択肢」
+          </blockquote>
+
+          <!-- ===== まとめ ===== -->
+          <div class="section-label">まとめ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              向さん、ありがとう！ボクもこのチームの一員として頑張るね。AI仮想チーム、これからもっと進化していくのが楽しみだよ。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">代表 向より</span>
+        </div>
+        AI仮想チームは、まだ実験段階のところもあります。でも、一人法人が「組織的に考える」ための仕組みとしては、すでに実用レベルに達しています。この記事が、同じように「一人でやっているけど限界を感じている」方のヒントになれば嬉しいです。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>AI仮想チームとは？</summary>
+          <p>AIエージェントに部門・役割・性格を設定し、組織のように動かす仕組みです。コールテンでは10部門29名のエージェントが、経営企画・営業・マーケティング・開発など実際の企業と同じ機能を担っています。社内マニュアル（guidelines）35冊で運用ルールを統一しています。</p>
+        </details>
+        <details class="faq-item">
+          <summary>一人社長でも組織的に動ける？</summary>
+          <p>はい。AI仮想チームを使えば、一人でも複数の視点で意思決定し、並行してタスクを進められます。重要なのは「生成と評価を分離する」こと。あるエージェントが作ったものを別のエージェントがレビューすることで、品質を担保しています。</p>
+        </details>
+        <details class="faq-item">
+          <summary>AI仮想チームの構築にかかるコストは？</summary>
+          <p>LLMの利用料（Claude、ローカルLLMなど）とツールの月額費用が主なコストです。コールテンの場合、人件費の代わりにLLM費用がかかる構造ですが、正社員一人分の人件費と比べると大幅に低コストで運用できています。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+          <li><a href="/blog/what-is-ai-advisory/" style="font-size:13px; color:var(--sea);">AI顧問とは？ →</a></li>
+          <li><a href="/blog/" style="font-size:13px; color:var(--sea);">ブログ一覧に戻る →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>あなたの事業にもAI仮想チームを</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          一人で全部抱えなくても大丈夫。<br>
+          AI仮想チームという選択肢を、あなたの事業にも。
+        </p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">コールテンの<strong>AI顧問サービス</strong>では、AI仮想チームの構築・運用もサポートしています。まずはご相談から。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    /* Hero */
+    .hero {
+        padding: 160px 0 32px;
+        text-align: center;
+        background: transparent;
+    }
+    .intro-section {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h1-sub {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 600;
+        display: block;
+        margin-top: 8px;
+        color: var(--text-light);
+    }
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text-light);
+    }
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .character-card {
+        text-align: center;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+    .character-card img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        margin: 0 auto 8px;
+        display: block;
+    }
+    .character-role {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f7f3;
+        border: 1px solid #d6e8df;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #124034;
+        margin-bottom: 6px;
+    }
+    .character-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    @media(min-width:900px) {
+        .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Dialogue Section */
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue {
+        display: grid;
+        gap: 26px;
+        margin: 16px auto 18px;
+        max-width: 640px;
+    }
+    .bubble {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 12px;
+        padding: 10px 12px;
+        line-height: 1.7;
+        color: #12382c;
+        flex: 1;
+        position: relative;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border: 1px solid #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+    .voice-note {
+        margin: 22px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #f2ddbf;
+        background: #fff7ea;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+        color: #3a2c15;
+        line-height: 1.7;
+        max-width: 640px;
+    }
+    .note-name {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #fbe9cc;
+        color: #6a4618;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
+    }
+
+    /* ===== ガイドライン適用スタイル ===== */
+
+    /* ナラティブ（冒頭の地の文） */
+    .narrative {
+        max-width: 640px;
+        margin: 0 auto 32px;
+        line-height: 2;
+        font-size: 15px;
+        color: var(--text);
+    }
+    .narrative p {
+        margin-bottom: 20px;
+    }
+
+    /* ナラティブ（会話間の地の文） */
+    .narrative-inline {
+        max-width: 640px;
+        margin: 10px auto;
+        padding: 20px 24px;
+        background: #faf8f5;
+        border-radius: 12px;
+        line-height: 1.9;
+        font-size: 14.5px;
+        color: #555;
+    }
+    .narrative-inline p {
+        margin: 0 0 14px;
+    }
+    .narrative-inline p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* セクション見出し（会話内・帯デザイン） */
+    .section-label {
+        margin: 32px -32px 16px;
+        padding: 14px 32px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--sea, #16614e);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        border-left: none;
+    }
+
+    /* プルクオート（端まで引っ張る） */
+    .pull-quote {
+        margin: 36px -32px;
+        padding: 2.5rem 32px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-top: 3px solid var(--accent, #d4a574);
+        border-bottom: 3px solid var(--accent, #d4a574);
+        background: #faf8f5;
+        color: var(--heading, #2c1810);
+        line-height: 1.9;
+        quotes: none;
+    }
+
+    /* FAQ */
+    .faq-heading {
+        font-size: 18px;
+        margin-bottom: 16px;
+        padding-left: 14px;
+        border-left: 3px solid var(--sea);
+    }
+    .faq-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    .faq-item summary {
+        padding: 16px 20px;
+        font-weight: 600;
+        font-size: 14.5px;
+        cursor: pointer;
+        list-style: none;
+    }
+    .faq-item summary::before {
+        content: "Q. ";
+        color: var(--sea);
+        font-weight: 700;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p {
+        padding: 0 20px 16px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #555;
+    }
+
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 20px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+        .section-label {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+        .pull-quote {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 2rem 24px;
+            font-size: 1rem;
+        }
+        .narrative-inline p { margin-bottom: 12px; }
+        .narrative-inline p:last-child { margin-bottom: 0; }
+    }
+</style>

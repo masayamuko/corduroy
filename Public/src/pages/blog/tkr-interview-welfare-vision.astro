@@ -1,0 +1,741 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "「求められるから」と「思いが乗る」—— たかろーさんが目指す子ども支援の形｜株式会社コールテン";
+const description = "写真・動画・Webは「求められるからできる」。でも子ども支援には「思いが乗る」。フリーランスのたかろーさんが見据えるB型事業所の現実と、AIを活用した子ども支援の未来を聞きました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/tkr-interview-welfare-vision/"
+  ogUrl="https://www.corduroy.co.jp/blog/tkr-interview-welfare-vision/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/tkr-interview-welfare-vision/#article",
+    "url": "https://www.corduroy.co.jp/blog/tkr-interview-welfare-vision/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/tkr-interview-welfare-vision/"
+    },
+    "headline": "「求められるから」と「思いが乗る」—— たかろーさんが目指す子ども支援の形",
+    "datePublished": "2026-02-20",
+    "dateModified": "2026-02-20",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "たかろーさん（中野貴洋）",
+      "jobTitle": "フリーランス"
+    },
+    "description": "写真・動画・Webは「求められるからできる」。でも子ども支援には「思いが乗る」。フリーランスのたかろーさんが見据えるB型事業所の現実と、AIを活用した子ども支援の未来を聞きました。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "たかろーさん 子ども支援インタビュー" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "B型事業所とは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "障がいや難病のある方が、雇用契約を結ばずに自分のペースで働ける福祉サービスです。一般企業への就職が難しい方に、生産活動の機会と工賃を提供します。ただし工賃は月額平均1万6千円程度と低く、仕事の獲得と収入向上が課題です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "フリーランスが福祉に関わるには？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "たかろーさんのように、自分のスキル（写真・動画・Web）を活かして福祉施設の広報や教育支援に関わる方法があります。直接支援だけでなく、テクノロジーやクリエイティブの力で福祉の課題を解決するアプローチも広がっています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AIで子ども支援ができること",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "学習のつまずきを早期に発見したり、一人ひとりのペースに合わせた教材を生成したり、支援者の事務作業を効率化したりと、AIは子ども支援の多くの場面で活用できます。人の温かさとテクノロジーの力を組み合わせることで、支援の質と量を両立できます。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png"
+              alt="たかろーさん"></div>
+        </div>
+        <h1>「求められるから」と「思いが乗る」<br><span class="h1-sub">たかろーさんが目指す子ども支援の形</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">子ども支援</span>
+          <span class="result-badge">B型事業所</span>
+          <span class="result-badge">ビジョン</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">福祉 / キャリア</span>
+        </div>
+        <p>
+          写真・動画・Webは「求められるからできる」。でも子ども支援には「思いが乗る」——フリーランスのたかろーさんが持つ、二つの異なるモチベーション。B型事業所の現実と、AIを活用した子ども支援の未来について聞きました。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>今日はたかろーさんの「思いが乗る」領域——子ども支援について、じっくり聞いていくよ。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png"
+                alt="たかろーさん">
+            <h3 style="margin:2px 0 4px;">たかろーさん</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              フリーランス。写真・動画・Web制作、世界の教育チャンネル運営。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">コールテン代表。たかろーさんのビジョンをサポート。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <!-- ナラティブ導入 -->
+        <div class="narrative">
+          <p>
+            「"できること"と"やりたいこと"は違う」——たかろーさんはそう語る。
+          </p>
+          <p>
+            写真も動画もWebも、プロとして依頼をこなせる。でも、それは「求められるからできる」こと。子ども支援は違う。そこには「思い」が乗る。たかろーさんが見つめるビジョンの先には、B型事業所の現実と、AIを使った新しい支援の形があった。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== 「できること」と「やりたいこと」 ===== -->
+          <div class="section-label">「求められるからできる」仕事</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              たかろーさんって、写真も動画もWebもできるよね。それって全部「やりたいこと」？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              うーん、正直に言うと「求められるからできる」って感じが近い。嫌いじゃないし、やりがいもある。でも、魂が震えるかって言われると......ちょっと違うかな。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              じゃあ「思いが乗る」のは？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              子ども支援。特に、困難を抱えた子どもたちの居場所を作ること。ここにはお金じゃない「思い」がある。
+            </div>
+          </div>
+
+          <!-- ===== B型事業所の現実 ===== -->
+          <div class="section-label">B型事業所の現実</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              B型事業所のことも考えてるんだよね？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              B型事業所って、仕事の獲得がものすごく大変なんですよ。工賃も月1万6千円くらい。利用者さんが「ここで働いてよかった」って思える仕事を作るのが一番の課題。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              そこにたかろーさんのスキルが活きる？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              写真や動画の編集って、工程を分けたら誰でもできる部分があるんです。たとえば「この写真を10枚切り抜いて」とか。そういう仕事をB型事業所に渡せたら、工賃も上がるし、自分のキャパも広がる。
+            </div>
+          </div>
+
+          <!-- ===== 小中学生世代への支援 ===== -->
+          <div class="section-label">小中学生世代への支援</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              小中学生の支援にも興味があるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              一番力を入れたいのはここですね。学校に馴染めない子、家庭環境が厳しい子。そういう子たちに「ここに来たら大丈夫」って思える場所を作りたい。
+            </div>
+          </div>
+
+          <!-- ===== AIを使った教育支援 ===== -->
+          <div class="section-label">AIを使った教育支援の可能性</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              AI講座で学んだことは、子ども支援にも活かせそう？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              めちゃくちゃ。一人ひとりに合わせた教材をAIで作れたら、支援の質が全然変わる。先生一人で30人見るのは限界があるけど、AIがサポートに入れば、一人ひとりに寄り添える部分が増える。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              もちろん、AIが人の温かさの代わりになるとは思ってない。でも、事務作業とか教材作りの部分をAIが肩代わりしてくれたら、人は「人にしかできないこと」——寄り添うこと、話を聴くこと——に集中できる。
+            </div>
+          </div>
+
+          <!-- ===== コールテンとの関わりで見えたこと ===== -->
+          <div class="section-label">コールテンとの関わりで見えたこと</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              コールテンと関わる中で、見え方が変わったことはある？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              向さんと話していて「できることとやりたいことを分けて考えていいんだ」って気づけた。全部を一つにまとめなくていい。「求められるからできること」で稼いで、「思いが乗ること」に投資する。そういうキャリアの作り方もありだなって。
+            </div>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>たかろーさんの話を聞いていて感じたのは、「できること」と「やりたいこと」の間にある葛藤が、実は多くのフリーランスに共通するものだということだ。スキルがあるからこそ仕事が来る。でも、本当にエネルギーが注がれる場所は別にある。その二つを対立させず、共存させる道を見つけたたかろーさんの姿勢に、新しいキャリアの形が見えた。</p>
+          </div>
+
+          <!-- ===== プルクオート ===== -->
+          <blockquote class="pull-quote">
+            「"できること"と"やりたいこと"は違う。<br>子ども支援は、思いが乗る領域なんです」
+          </blockquote>
+
+          <!-- ===== まとめ ===== -->
+          <div class="section-label">まとめ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              たかろーさん、ありがとうございました！「思いが乗る」って言葉、すごく胸に響いたよ。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              ありがとう、テトくん。まだ道の途中だけど、一歩ずつ形にしていきたいと思ってるよ。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        たかろーさんとは友人でもあり、クライアントでもある関係。だからこそ、彼が「子ども支援」について語る時の熱量の違いを肌で感じています。スキルで稼ぎ、思いに投資する——そのキャリアの作り方を、コールテンとしてもAI活用の面からサポートしていきたいと考えています。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>B型事業所とは？</summary>
+          <p>障がいや難病のある方が、雇用契約を結ばずに自分のペースで働ける福祉サービスです。一般企業への就職が難しい方に、生産活動の機会と工賃を提供します。ただし工賃は月額平均1万6千円程度と低く、仕事の獲得と収入向上が課題です。</p>
+        </details>
+        <details class="faq-item">
+          <summary>フリーランスが福祉に関わるには？</summary>
+          <p>たかろーさんのように、自分のスキル（写真・動画・Web）を活かして福祉施設の広報や教育支援に関わる方法があります。直接支援だけでなく、テクノロジーやクリエイティブの力で福祉の課題を解決するアプローチも広がっています。</p>
+        </details>
+        <details class="faq-item">
+          <summary>AIで子ども支援ができること</summary>
+          <p>学習のつまずきを早期に発見したり、一人ひとりのペースに合わせた教材を生成したり、支援者の事務作業を効率化したりと、AIは子ども支援の多くの場面で活用できます。人の温かさとテクノロジーの力を組み合わせることで、支援の質と量を両立できます。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/blog/tkr-interview-ai-lecture/" style="font-size:13px; color:var(--sea);">たかろーさんのAI講座インタビュー →</a></li>
+          <li><a href="/clients/takaro/" style="font-size:13px; color:var(--sea);">たかろーさんの記事一覧 →</a></li>
+          <li><a href="/blog/" style="font-size:13px; color:var(--sea);">ブログ一覧 →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>あなたの「思いが乗る」場所を見つけませんか？</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、AI活用を通じて「やりたいこと」に集中できる環境づくりをサポートします。<br>
+          福祉や教育のフィールドでAIを活用したい方も、お気軽にご相談ください。
+        </p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    .hero {
+        padding: 160px 0 32px;
+        text-align: center;
+        background: transparent;
+    }
+    .intro-section {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h1-sub {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 600;
+        display: block;
+        margin-top: 8px;
+        color: var(--text-light);
+    }
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text-light);
+    }
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .character-card {
+        text-align: center;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+    .character-card img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        margin: 0 auto 8px;
+        display: block;
+    }
+    .character-role {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f7f3;
+        border: 1px solid #d6e8df;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #124034;
+        margin-bottom: 6px;
+    }
+    .character-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    @media(min-width:900px) {
+        .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue {
+        display: grid;
+        gap: 26px;
+        margin: 16px auto 18px;
+        max-width: 640px;
+    }
+    .bubble {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 12px;
+        padding: 10px 12px;
+        line-height: 1.7;
+        color: #12382c;
+        flex: 1;
+        position: relative;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border: 1px solid #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+    .voice-note {
+        margin: 22px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #f2ddbf;
+        background: #fff7ea;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+        color: #3a2c15;
+        line-height: 1.7;
+        max-width: 640px;
+    }
+    .note-name {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #fbe9cc;
+        color: #6a4618;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
+    }
+
+    .narrative {
+        max-width: 640px;
+        margin: 0 auto 32px;
+        line-height: 2;
+        font-size: 15px;
+        color: var(--text);
+    }
+    .narrative p { margin-bottom: 20px; }
+    .narrative-inline {
+        max-width: 640px;
+        margin: 10px auto;
+        padding: 20px 24px;
+        background: #faf8f5;
+        border-radius: 12px;
+        line-height: 1.9;
+        font-size: 14.5px;
+        color: #555;
+    }
+    .narrative-inline p { margin: 0 0 14px; }
+    .narrative-inline p:last-child { margin-bottom: 0; }
+    .section-label {
+        margin: 32px -32px 16px;
+        padding: 14px 32px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--sea, #16614e);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        border-left: none;
+    }
+    .pull-quote {
+        margin: 36px -32px;
+        padding: 2.5rem 32px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-top: 3px solid var(--accent, #d4a574);
+        border-bottom: 3px solid var(--accent, #d4a574);
+        background: #faf8f5;
+        color: var(--heading, #2c1810);
+        line-height: 1.9;
+        quotes: none;
+    }
+
+    .faq-heading {
+        font-size: 18px;
+        margin-bottom: 16px;
+        padding-left: 14px;
+        border-left: 3px solid var(--sea);
+    }
+    .faq-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    .faq-item summary {
+        padding: 16px 20px;
+        font-weight: 600;
+        font-size: 14.5px;
+        cursor: pointer;
+        list-style: none;
+    }
+    .faq-item summary::before {
+        content: "Q. ";
+        color: var(--sea);
+        font-weight: 700;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p {
+        padding: 0 20px 16px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #555;
+    }
+
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 20px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+        .section-label {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+        .pull-quote {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 2rem 24px;
+            font-size: 1rem;
+        }
+        .narrative-inline p { margin-bottom: 12px; }
+        .narrative-inline p:last-child { margin-bottom: 0; }
+    }
+</style>

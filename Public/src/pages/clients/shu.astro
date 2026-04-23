@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+  {
+    slug: '/blog/shu-interview-ai-partner/',
+    date: '2026-04-15',
+    category: 'インタビュー',
+    title: '「調べるだけ」から「相棒」へ —— 行政書士しゅうへいさんが見つけた、AIとの新しい関係',
+    excerpt: 'AIを「検索の代わり」から「対話型の相棒」に変えた行政書士のしゅうへいさん。第二の自分ワークをきっかけに、DX推進委員会の副委員長、そしてAI開発会社への転身まで果たした変化の裏側を聞きました。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png',
+  },
+  {
+    slug: '/blog/shu-ai-advisory/',
+    date: '2026-04-01',
+    category: '活動報告',
+    title: '行政書士のしゅうへいさんにAI顧問契約をいただきました',
+    excerpt: 'しゅう行政書士事務所のしゅうへいさんに、3ヶ月のお試しAI顧問契約をいただきました。一人で仕事をしている方がAIエージェントでチーム化していく第一歩をサポートしています。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+  },
+  {
+    slug: '/voices/numazawa/',
+    date: '2026-04-01',
+    category: 'クライアントの声',
+    title: 'AIを「調べるだけ」から「対話型の相棒」へ —— しゅうへいさんのAI活用事例',
+    excerpt: 'AIを「調べるだけ」から、仕事でも使える「対話型の相棒」へ。コールテンの勉強会を起点に、内省の回転数が上がり、DX推進や仕事にも波及。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+  },
+];
+---
+
+<Layout
+    title="しゅうへいさんの記事一覧｜株式会社コールテン"
+    description="しゅう行政書士事務所のしゅうへいさんに関する活動報告・クライアントの声をまとめたページです。"
+    canonicalUrl="https://www.corduroy.co.jp/clients/shu/"
+    ogUrl="https://www.corduroy.co.jp/clients/shu/"
+    ogType="website"
+>
+    <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "しゅうへいさん" }
+      ]
+    }
+    </script>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner fade-up">
+                    <div class="hero-avatar">
+                        <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png"
+                            alt="しゅうへいさん">
+                    </div>
+                    <div class="hero-text">
+                        <span class="eyebrow">CLIENT</span>
+                        <h1>しゅうへいさん</h1>
+                        <p class="hero-sub">行政書士 / しゅう行政書士事務所</p>
+                        <div class="hero-tags">
+                            <span class="hero-tag">AI顧問（お試し）</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding-top:0; padding-bottom:20px;">
+            <div class="oshi-banner fade-up">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                    alt="向 雅也" class="oshi-avatar">
+                <div class="oshi-body">
+                    <p class="oshi-label">代表 向より</p>
+                    <p class="oshi-text">しゅうへいさんは一人で行政書士事務所を切り盛りしている方。「一人だからこそAIでチームを作れる」という可能性を一緒に試しています。まずは3ヶ月のお試しから。焦らず、しゅうへいさんのペースで進めていく関係性を大事にしています。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding-top:20px; padding-bottom:120px;">
+            <div class="posts-list fade-up">
+                {posts.map((post) => (
+                    <a href={post.slug} class="post-card">
+                        <div class="post-thumb">
+                            <img src={post.thumbnail} alt="" width="120" height="120" loading="lazy" />
+                        </div>
+                        <div class="post-body">
+                            <div class="post-meta">
+                                <time class="post-date">{post.date}</time>
+                                <span class="post-cat">{post.category}</span>
+                            </div>
+                            <h2 class="post-title">{post.title}</h2>
+                            <p class="post-excerpt">{post.excerpt}</p>
+                            <span class="post-link">続きを読む →</span>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .hero { padding: 60px 0 40px; background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%); }
+    .hero-inner { display: flex; align-items: center; gap: 28px; max-width: 820px; margin: 0 auto; }
+    .hero-avatar { flex-shrink: 0; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow-md); border: 3px solid #fff; }
+    .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-text { flex: 1; }
+    .eyebrow { display: inline-block; color: var(--accent); font-weight: 700; letter-spacing: 0.2em; font-size: 11px; font-family: "Space Grotesk", sans-serif; margin-bottom: 8px; }
+    .hero h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 4px; }
+    .hero-sub { font-size: 14px; color: var(--text-light); margin-bottom: 12px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .hero-tag { display: inline-block; padding: 4px 12px; border-radius: 99px; background: rgba(22,97,78,0.08); color: var(--sea); font-size: 12px; font-weight: 700; }
+    .oshi-banner { max-width: 820px; margin: 0 auto; display: flex; align-items: flex-start; gap: 16px; padding: 20px 24px; background: #fff7ea; border: 1px solid #f2ddbf; border-radius: 16px; }
+    .oshi-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; margin-top: 2px; }
+    .oshi-body { flex: 1; }
+    .oshi-label { font-weight: 700; font-size: 12px; color: #6a4618; margin: 0 0 6px; }
+    .oshi-text { font-size: 13.5px; line-height: 1.8; color: #3a2c15; margin: 0; }
+    .posts-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+    .post-card { display: flex; align-items: flex-start; gap: 24px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 28px 32px; text-decoration: none; color: inherit; box-shadow: 0 2px 10px rgba(5,32,24,0.04); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); }
+    .post-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(5,32,24,0.08); border-color: rgba(22,97,78,0.18); }
+    .post-thumb { flex-shrink: 0; width: 100px; height: 100px; border-radius: 14px; overflow: hidden; background: var(--cream); border: 1px solid var(--line); }
+    .post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-body { flex: 1; min-width: 0; }
+    .post-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .post-date { font-family: "Space Grotesk", sans-serif; font-size: 13px; color: var(--text-light); letter-spacing: 0.05em; }
+    .post-cat { display: inline-block; background: rgba(22,97,78,0.08); color: var(--sea); border-radius: 99px; padding: 3px 11px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.05em; }
+    .post-title { font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.5; margin: 0 0 10px; }
+    .post-excerpt { font-size: 14px; color: var(--text-light); line-height: 1.85; margin: 0 0 14px; }
+    .post-link { display: inline-block; font-size: 13px; font-weight: 700; color: var(--sea); font-family: "Space Grotesk", sans-serif; }
+    @media (max-width: 640px) {
+        .hero { padding: 40px 16px 28px; }
+        .hero-inner { flex-direction: column; text-align: center; align-items: center; }
+        .hero-tags { justify-content: center; }
+        .oshi-banner { flex-direction: column; align-items: center; text-align: center; }
+        .post-card { padding: 20px; gap: 16px; }
+        .post-thumb { width: 72px; height: 72px; border-radius: 10px; }
+        .post-title { font-size: 17px; }
+    }
+</style>

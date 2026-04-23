@@ -1,0 +1,771 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "NPO法人でAI基礎講座をやってみた —— スマイリーフラワーズの共通言語づくり｜株式会社コールテン";
+const description = "NPO法人スマイリーフラワーズでGeminiを使ったAI基礎講座を実施。チーム全員が同じ言葉でAIを語れるようになるまでの過程と、NPOでのAI導入の第一歩を紹介します。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/smf-interview-gemini-lecture/"
+  ogUrl="https://www.corduroy.co.jp/blog/smf-interview-gemini-lecture/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/smf-interview-gemini-lecture/#article",
+    "url": "https://www.corduroy.co.jp/blog/smf-interview-gemini-lecture/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/smf-interview-gemini-lecture/"
+    },
+    "headline": "NPO法人でAI基礎講座をやってみた —— スマイリーフラワーズの共通言語づくり",
+    "datePublished": "2026-03-05",
+    "dateModified": "2026-03-05",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Organization",
+      "name": "NPO法人国際教育支援機構スマイリーフラワーズ"
+    },
+    "description": "NPO法人スマイリーフラワーズでGeminiを使ったAI基礎講座を実施。チーム全員が同じ言葉でAIを語れるようになるまでの過程と、NPOでのAI導入の第一歩を紹介します。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "AI基礎講座インタビュー" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "AI基礎講座の内容は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ChatGPT・Claude・Geminiなど主要AIツールの違いと使い分けを学んだ上で、Geminiを使って実際に業務に近いタスクを体験します。叩き台を作ってブラッシュアップする流れを全員で実践し、AIとの対話の基本を身につけます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "NPOでのAI導入の第一歩は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "まずチーム全員のリテラシーを揃えることが第一歩です。スマイリーフラワーズでは基礎講座を通じて「AIに何ができて何ができないか」を全員が理解することで、導入への不安を解消し、共通の言葉で議論できるようになりました。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "何人から講座は実施できる？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "少人数でも実施可能です。スマイリーフラワーズでも少人数のチームで実施しました。むしろ少人数の方が、一人ひとりの理解度に合わせた進行ができるため効果的です。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png"
+              alt="スマイリーフラワーズ"
+              onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';"></div>
+        </div>
+        <h1>NPO法人でAI基礎講座をやってみた<br><span class="h1-sub">スマイリーフラワーズの共通言語づくり</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">AI基礎講座</span>
+          <span class="result-badge">共通言語</span>
+          <span class="result-badge">NPO研修</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">研修 / AI導入</span>
+        </div>
+        <p>
+          NPO法人スマイリーフラワーズで、チーム全員を対象にAI基礎講座を実施しました。「AIって結局なんなの？」を解消し、全員が同じ言葉でAIを語れるようになるまでの過程を紹介します。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>今回はスマイリーフラワーズのみなさんに、AI講座のことを聞いていくよ。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png"
+                alt="スマイリーフラワーズ"
+                onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+            <h3 style="margin:2px 0 4px;">スマイリーフラワーズチーム</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              NPO法人国際教育支援機構スマイリーフラワーズのスタッフのみなさん。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">講座担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">AI基礎講座の企画・講師を担当。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <!-- ナラティブ導入 -->
+        <div class="narrative">
+          <p>
+            「全員が同じ言葉でAIを語れるようになったのが一番大きい」——講座を終えたスタッフの言葉だった。
+          </p>
+          <p>
+            NPO法人スマイリーフラワーズでは、留学支援・若者育成・国際交流の現場でAIを活用するため、まずチーム全体のリテラシーを揃えることから始めた。Geminiを使ったハンズオン形式の基礎講座。その狙いと成果を聞いた。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== なぜAI講座をやることにしたか ===== -->
+          <div class="section-label">なぜAI講座をやることにしたか</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              AI講座をやろうと思ったきっかけは？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="スマイリーフラワーズ"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">SMFスタッフ</span>
+            </div>
+            <div class="bubble-text">
+              一部のスタッフはAIを使い始めていたんですが、「何ができるか」の認識がバラバラで。ある人は「万能ツール」だと思っていて、ある人は「怖いもの」だと感じていて。その温度差を埋めたかったんです。
+            </div>
+          </div>
+
+          <!-- ===== リテラシーを揃える ===== -->
+          <div class="section-label">チーム全員のリテラシーを揃える</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              講座では最初に何をしたの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="スマイリーフラワーズ"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">SMFスタッフ</span>
+            </div>
+            <div class="bubble-text">
+              まず「AIとは何か」の基本から。ChatGPT、Claude、Geminiの違いや、それぞれの得意分野を教えてもらいました。名前だけ聞いたことがあるけど違いがわからなかった人が多かったので、これだけでも発見がありました。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              なるほど。どのAIを使うかで結果も変わるもんね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="スマイリーフラワーズ"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">SMFスタッフ</span>
+            </div>
+            <div class="bubble-text">
+              そうなんです。「全部同じでしょ？」と思っていたので、使い分けの基準がわかったのは大きかった。
+            </div>
+          </div>
+
+          <!-- ===== Geminiで実際にやってみた ===== -->
+          <div class="section-label">Geminiで実際にやってみた</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              実際のハンズオンではどんなことをしたの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="スマイリーフラワーズ"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">SMFスタッフ</span>
+            </div>
+            <div class="bubble-text">
+              Geminiを使って、実際の業務に近いお題をやってみました。たとえばイベントの案内文を作るとか。まずAIに叩き台を出してもらって、それをブラッシュアップしていく流れを体験しました。
+            </div>
+          </div>
+
+          <!-- ===== 叩き台をブラッシュアップ ===== -->
+          <div class="section-label">叩き台を作ってブラッシュアップ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              AIの出力をそのまま使うんじゃなくて、叩き台として使う感じ？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="スマイリーフラワーズ"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">SMFスタッフ</span>
+            </div>
+            <div class="bubble-text">
+              そうです。最初の出力は70点くらい。でもそこから「もっとカジュアルに」「この情報を追加して」と指示を重ねると、どんどん良くなる。その過程が面白かったし、「指示の出し方が大事」ということが体感できました。
+            </div>
+          </div>
+
+          <!-- ===== 怖さの解消 ===== -->
+          <div class="section-label">怖さの解消</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              講座を受ける前に「怖い」と感じていた人は、どう変わった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="スマイリーフラワーズ"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">SMFスタッフ</span>
+            </div>
+            <div class="bubble-text">
+              「思ったより普通のツールだった」という声が多かったです。実際に触ってみると、間違えることもあるし、指示が曖昧だとちゃんと迷う。人間っぽいところがあるとわかると、怖さが和らぐんですね。
+            </div>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>講座で最も大きかった変化は、チーム内に「共通言語」ができたことだった。「プロンプト」「ハルシネーション」「叩き台」——こうした言葉を全員が同じ意味で使えるようになった。これは、この先AIを業務に組み込んでいく上での土台になる。</p>
+          </div>
+
+          <!-- ===== プルクオート ===== -->
+          <blockquote class="pull-quote">
+            「全員が同じ言葉でAIを語れるようになったのが<br>一番大きい」
+          </blockquote>
+
+          <!-- ===== 情報をMarkdownで整理する意味 ===== -->
+          <div class="section-label">情報をMarkdownで整理する意味</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              講座の中で「Markdown」という形式の話も出たって聞いたけど？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="スマイリーフラワーズ"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">SMFスタッフ</span>
+            </div>
+            <div class="bubble-text">
+              はい。情報を箇条書きや見出しで整理してからAIに渡すと、出力の精度が上がるという話でした。普段の業務メモにも使えるので、AI関係なく役立っています。
+            </div>
+          </div>
+
+          <!-- ===== これからの展望 ===== -->
+          <div class="section-label">これからの展望</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              講座を終えて、これからチームでどうAIを使っていきたい？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1776929848/smileyflowers_logo.png" alt="スマイリーフラワーズ"
+                  onerror="this.onerror=null;this.src='https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png';">
+              <span class="name-tag">SMFスタッフ</span>
+            </div>
+            <div class="bubble-text">
+              まずは一人ひとりが日常業務で試してみること。メールの下書きとか、会議の議題整理とか、小さいところから。全員が基礎を知っている状態になったので、「こう使ったらうまくいった」を共有しやすくなりました。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              みなさん、ありがとうございました！チームで一緒に学ぶって、やっぱり大事だね。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        AIの講座で一番大事なのは「全員で同じスタートラインに立つ」こと。ツールの使い方を教えるだけでなく、「AIに何ができて何ができないか」をチームで共有することで、その後の導入がスムーズになります。スマイリーフラワーズのみなさんは、講座後すぐに日常業務で試し始めてくれました。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>AI基礎講座の内容は？</summary>
+          <p>ChatGPT・Claude・Geminiなど主要AIツールの違いと使い分けを学んだ上で、Geminiを使って実際に業務に近いタスクを体験します。叩き台を作ってブラッシュアップする流れを全員で実践し、AIとの対話の基本を身につけます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>NPOでのAI導入の第一歩は？</summary>
+          <p>まずチーム全員のリテラシーを揃えることが第一歩です。スマイリーフラワーズでは基礎講座を通じて「AIに何ができて何ができないか」を全員が理解することで、導入への不安を解消し、共通の言葉で議論できるようになりました。</p>
+        </details>
+        <details class="faq-item">
+          <summary>何人から講座は実施できる？</summary>
+          <p>少人数でも実施可能です。スマイリーフラワーズでも少人数のチームで実施しました。むしろ少人数の方が、一人ひとりの理解度に合わせた進行ができるため効果的です。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/clients/smf/" style="font-size:13px; color:var(--sea);">スマイリーフラワーズの記事一覧 →</a></li>
+          <li><a href="/blog/smf-interview-yagi/" style="font-size:13px; color:var(--sea);">留学事業をAIで効率化 — 八木さんの挑戦 →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>チームでAIを学ぶ、はじめの一歩</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、チームの規模や業種に合わせたAI基礎講座を提供しています。<br>
+          まずは全員で同じスタートラインに立つことから始めてみませんか？
+        </p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>AI顧問サービス</strong>の一環としての研修です。講座だけでなく、その後の実践もサポートします。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory/">AI顧問サービスの詳細</a>
+          <a class="btn secondary" href="/blog/">ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    /* Hero */
+    .hero {
+        padding: 160px 0 32px;
+        text-align: center;
+        background: transparent;
+    }
+    .intro-section {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h1-sub {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 600;
+        display: block;
+        margin-top: 8px;
+        color: var(--text-light);
+    }
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text-light);
+    }
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .character-card {
+        text-align: center;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+    .character-card img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        margin: 0 auto 8px;
+        display: block;
+    }
+    .character-role {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f7f3;
+        border: 1px solid #d6e8df;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #124034;
+        margin-bottom: 6px;
+    }
+    .character-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    @media(min-width:900px) {
+        .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Dialogue Section */
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue {
+        display: grid;
+        gap: 26px;
+        margin: 16px auto 18px;
+        max-width: 640px;
+    }
+    .bubble {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 12px;
+        padding: 10px 12px;
+        line-height: 1.7;
+        color: #12382c;
+        flex: 1;
+        position: relative;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border: 1px solid #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+    .voice-note {
+        margin: 22px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #f2ddbf;
+        background: #fff7ea;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+        color: #3a2c15;
+        line-height: 1.7;
+        max-width: 640px;
+    }
+    .note-name {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #fbe9cc;
+        color: #6a4618;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
+    }
+
+    /* ナラティブ（冒頭の地の文） */
+    .narrative {
+        max-width: 640px;
+        margin: 0 auto 32px;
+        line-height: 2;
+        font-size: 15px;
+        color: var(--text);
+    }
+    .narrative p {
+        margin-bottom: 20px;
+    }
+
+    /* ナラティブ（会話間の地の文） */
+    .narrative-inline {
+        max-width: 640px;
+        margin: 10px auto;
+        padding: 20px 24px;
+        background: #faf8f5;
+        border-radius: 12px;
+        line-height: 1.9;
+        font-size: 14.5px;
+        color: #555;
+    }
+    .narrative-inline p {
+        margin: 0 0 14px;
+    }
+    .narrative-inline p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* セクション見出し（会話内・帯デザイン） */
+    .section-label {
+        margin: 32px -32px 16px;
+        padding: 14px 32px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--sea, #16614e);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        border-left: none;
+    }
+
+    /* プルクオート */
+    .pull-quote {
+        margin: 36px -32px;
+        padding: 2.5rem 32px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-top: 3px solid var(--accent, #d4a574);
+        border-bottom: 3px solid var(--accent, #d4a574);
+        background: #faf8f5;
+        color: var(--heading, #2c1810);
+        line-height: 1.9;
+        quotes: none;
+    }
+
+    /* FAQ */
+    .faq-heading {
+        font-size: 18px;
+        margin-bottom: 16px;
+        padding-left: 14px;
+        border-left: 3px solid var(--sea);
+    }
+    .faq-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    .faq-item summary {
+        padding: 16px 20px;
+        font-weight: 600;
+        font-size: 14.5px;
+        cursor: pointer;
+        list-style: none;
+    }
+    .faq-item summary::before {
+        content: "Q. ";
+        color: var(--sea);
+        font-weight: 700;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p {
+        padding: 0 20px 16px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #555;
+    }
+
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 20px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+        .section-label {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+        .pull-quote {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 2rem 24px;
+            font-size: 1rem;
+        }
+        .narrative-inline p { margin-bottom: 12px; }
+        .narrative-inline p:last-child { margin-bottom: 0; }
+    }
+</style>
