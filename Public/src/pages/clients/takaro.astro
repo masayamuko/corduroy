@@ -1,59 +1,49 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const interviews = [
+const posts = [
   {
-    href: '/blog/tkr-interview-education/',
-    type: 'Interview',
-    title: '「できること」と「やりたいこと」が重なった日',
-    excerpt: '動画制作のプロが、子ども教育への思いをAIの力で形にし始めた。世界の教育チャンネルの裏側を聞きました。',
+    slug: '/blog/tkr-interview-education/',
     date: '2026-03-25',
+    category: 'インタビュー',
+    title: '「できること」と「やりたいこと」が重なった日 —— たかろーさんと世界の教育チャンネルの裏側',
+    excerpt: '動画制作のプロが、子ども教育への思いをAIの力で形にし始めた。フィンランドの教育哲学をショート動画にするプロジェクトの裏側を聞きました。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png',
   },
   {
-    href: '/blog/tkr-interview-second-me/',
-    type: 'Interview',
-    title: '「忖度せず答えて」—— AIとの付き合い方',
-    excerpt: 'ChatGPTを検索代わりに使うだけだった状態から、価値観やクセまで教え込んだ「第二の自分」を育てるまでの変化。',
+    slug: '/blog/tkr-interview-second-me/',
     date: '2026-01-10',
+    category: 'インタビュー',
+    title: '「忖度せず答えて」—— フリーランスたかろーさんが見つけた、AIとの付き合い方',
+    excerpt: 'ChatGPTを検索ツールとして使うだけだった状態から、価値観やクセまで教え込んだ「第二の自分」を育てるまでの変化を聞きました。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png',
   },
   {
-    href: '/voices/takaro/',
-    type: 'Voice',
-    title: '「検索ツール」から「第二の自分」へ',
-    excerpt: 'ChatGPTを単なる検索ツールとして使っていた状態から「第二の自分」として活用するまでのストーリー。',
+    slug: '/blog/tkr-ai-advisory/',
     date: '2025-12-24',
+    category: '活動報告',
+    title: 'フリーランスたかろーさんにAI顧問契約をいただきました',
+    excerpt: '動画編集者としてフリーランスで活動するたかろーさんに、AI顧問契約をいただきました。Claude Codeを用いた動画編集やAI活用で、フリーランスとしての業務を便利にするサポートをしています。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
   },
-];
-
-const relatedPosts = [
   {
-    href: '/blog/tkr-ai-advisory/',
-    type: 'Report',
-    title: 'AI顧問契約のお知らせ',
-    excerpt: 'フリーランスたかろーさんにAI顧問契約をいただきました。',
+    slug: '/voices/takaro/',
     date: '2025-12-24',
+    category: 'クライアントの声',
+    title: '「検索ツール」から「第二の自分」へ —— 中野たかろーさんのAI活用ストーリー',
+    excerpt: 'ChatGPTを単なる検索ツールとして使っていた状態から、価値観やクセまで学習させた「第二の自分」として活用するまでの変革ストーリー。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png',
   },
 ];
 ---
 
 <Layout
-    title="たかろーさん｜クライアント紹介｜株式会社コールテン"
-    description="フリーランスの動画クリエイター・たかろーさんとコールテンの取り組みまとめ。AI講座、AI顧問、世界の教育チャンネルなどの活動を紹介します。"
+    title="たかろーさんの記事一覧｜株式会社コールテン"
+    description="フリーランスの動画クリエイター・たかろーさんに関するインタビュー記事・活動報告をまとめたページです。"
     canonicalUrl="https://www.corduroy.co.jp/clients/takaro/"
     ogUrl="https://www.corduroy.co.jp/clients/takaro/"
-    ogType="article"
+    ogType="website"
 >
-    <script slot="head" type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfilePage",
-      "mainEntity": {
-        "@type": "Person",
-        "name": "中野たかろー",
-        "jobTitle": "フリーランス (動画編集/WEB制作/カメラマン)"
-      }
-    }
-    </script>
     <script slot="head" type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -69,457 +59,248 @@ const relatedPosts = [
     <main>
         <!-- ===== ヒーロー ===== -->
         <section class="hero">
-            <div class="container hero-inner fade-up">
-                <div class="avatar-frame">
-                    <div class="avatar-lg"><img
-                            src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png"
-                            alt="たかろーさん"></div>
-                </div>
-                <h1>たかろーさん</h1>
-                <p class="hero-sub">フリーランス / 動画編集 / WEB制作 / カメラマン</p>
-                <div class="meta">
-                    <span class="tag">AI顧問</span>
-                    <span class="tag">AI講座</span>
-                    <span class="tag">世界の教育チャンネル</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== プロフィール + 推しの一言 ===== -->
-        <section class="container">
-            <div class="two-col fade-up">
-                <!-- 基本情報 -->
-                <div class="profile-card">
-                    <h2 class="card-heading">基本情報</h2>
-                    <table class="profile-table">
-                        <tr><th>お名前</th><td>中野たかろーさん</td></tr>
-                        <tr><th>活動内容</th><td>動画編集 / Web制作 / カメラマン</td></tr>
-                        <tr><th>利用サービス</th><td>ChatGPT基礎講座<br>第二の自分ワーク<br>AI顧問</td></tr>
-                        <tr><th>共同プロジェクト</th><td>世界の教育チャンネル<br>（教育ショート動画）</td></tr>
-                        <tr><th>関心領域</th><td>子ども支援 / コーチング / 教育コンテンツ / B型事業所</td></tr>
-                    </table>
-                </div>
-
-                <!-- 推しの一言 -->
-                <div class="oshi-card">
-                    <div class="oshi-header">
-                        <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
-                            alt="向 雅也" class="oshi-avatar">
-                        <p class="oshi-label">代表 向の推しポイント</p>
+            <div class="container">
+                <div class="hero-inner fade-up">
+                    <div class="hero-avatar">
+                        <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png"
+                            alt="たかろーさん">
                     </div>
-                    <p class="oshi-text">
-                        たかろーさんとは友人として先に出会い、今はクライアントとしても一緒に動いています。
-                    </p>
-                    <p class="oshi-text">
-                        写真・動画・Webの制作スキルが高い一方で、本人のなかには「仕事としてできること」と「本当にやりたいこと」に明確な線引きがある。その「やりたいこと」——子どもに関わる活動——にAIをどう活かすか。
-                    </p>
-                    <p class="oshi-text">
-                        制作で生計を立てながら、教育への思いを形にする。そのあいだをつなぐのがコールテンの役割だと思っています。AI講座からAI顧問に移行し、今は「世界の教育チャンネル」を一緒に作っています。
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== コールテンとの歩み ===== -->
-        <section class="container">
-            <div class="section-head fade-up">
-                <small>Journey</small>
-                <h2>コールテンとの歩み</h2>
-            </div>
-            <div class="timeline fade-up">
-                <div class="timeline-item">
-                    <div class="timeline-date">2025年10月</div>
-                    <div class="timeline-content">
-                        <strong>ChatGPT基礎講座 受講</strong>
-                        <p>ChatGPTを検索ツールとして使っていた状態から、AIの仕組みを理解する基礎を学ぶ。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2025年11月</div>
-                    <div class="timeline-content">
-                        <strong>第二の自分ワーク 受講</strong>
-                        <p>価値観やクセまでAIに教え込み、「第二の自分」を育てるワークに取り組む。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2025年12月</div>
-                    <div class="timeline-content">
-                        <strong>AI顧問契約 開始</strong>
-                        <p>より実務的なAI活用へ移行。動画編集ワークフローの改善やAI活用設計を伴走。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2026年1月</div>
-                    <div class="timeline-content">
-                        <strong>AI講座の設計・B型事業所の理解</strong>
-                        <p>フロント講座→上位講座の導線設計を一緒に検討。B型事業所の制度と仕事仲介の構造理解も深まる。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2026年3月</div>
-                    <div class="timeline-content">
-                        <strong>世界の教育チャンネル 1本目完成</strong>
-                        <p>フィンランド教育をテーマにしたショート動画が完成。AIで台本生成・音声作成し、量産に向けた設計図づくりを開始。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== インタビュー記事 ===== -->
-        <section class="container">
-            <div class="section-head fade-up">
-                <small>Interviews</small>
-                <h2>インタビュー記事</h2>
-                <p>テトくんがたかろーさんに直接話を聞きました。</p>
-            </div>
-            <div class="article-grid">
-                {interviews.map((item) => (
-                    <a href={item.href} class="article-card fade-up">
-                        <div class="article-thumbnail">
-                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png"
-                                alt={item.title}>
+                    <div class="hero-text">
+                        <span class="eyebrow">CLIENT</span>
+                        <h1>たかろーさん</h1>
+                        <p class="hero-sub">フリーランス / 動画編集 / WEB制作 / カメラマン</p>
+                        <div class="hero-tags">
+                            <span class="hero-tag">AI顧問</span>
+                            <span class="hero-tag">AI講座</span>
+                            <span class="hero-tag">世界の教育チャンネル</span>
                         </div>
-                        <div class="article-content">
-                            <span class="article-type">{item.type}</span>
-                            <h3 class="article-title">{item.title}</h3>
-                            <p class="article-excerpt mini">{item.excerpt}</p>
-                            <time class="article-date">{item.date}</time>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 推しの一言 ===== -->
+        <section class="container" style="padding-top:0; padding-bottom:20px;">
+            <div class="oshi-banner fade-up">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                    alt="向 雅也" class="oshi-avatar">
+                <div class="oshi-body">
+                    <p class="oshi-label">代表 向より</p>
+                    <p class="oshi-text">たかろーさんとは友人として先に出会い、今はクライアントとしても一緒に動いています。写真・動画・Webの制作スキルが高い一方で、本当にやりたいのは子ども支援や教育。その「やりたいこと」にAIをどう活かすか——制作で生計を立てながら教育への思いを形にする、そのあいだをつなぐのがコールテンの役割だと思っています。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 記事一覧 ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:120px;">
+            <div class="posts-list fade-up">
+                {posts.map((post) => (
+                    <a href={post.slug} class="post-card">
+                        <div class="post-thumb">
+                            <img src={post.thumbnail} alt="" width="120" height="120" loading="lazy" />
+                        </div>
+                        <div class="post-body">
+                            <div class="post-meta">
+                                <time class="post-date">{post.date}</time>
+                                <span class="post-cat">{post.category}</span>
+                            </div>
+                            <h2 class="post-title">{post.title}</h2>
+                            <p class="post-excerpt">{post.excerpt}</p>
+                            <span class="post-link">続きを読む →</span>
                         </div>
                     </a>
                 ))}
-            </div>
-        </section>
-
-        <!-- ===== 関連記事 ===== -->
-        <section class="container">
-            <div class="section-head fade-up">
-                <small>Related</small>
-                <h2>関連記事</h2>
-            </div>
-            <div class="article-grid">
-                {relatedPosts.map((item) => (
-                    <a href={item.href} class="article-card fade-up">
-                        <div class="article-thumbnail" style="background:var(--mint);">
-                            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png"
-                                alt={item.title}>
-                        </div>
-                        <div class="article-content">
-                            <span class="article-type">{item.type}</span>
-                            <h3 class="article-title">{item.title}</h3>
-                            <p class="article-excerpt mini">{item.excerpt}</p>
-                            <time class="article-date">{item.date}</time>
-                        </div>
-                    </a>
-                ))}
-            </div>
-        </section>
-
-        <!-- ===== CTA ===== -->
-        <section id="contact" class="container" style="padding-bottom:100px">
-            <div class="card cta-card fade-up">
-                <h3>同じように伴走してほしい方へ</h3>
-                <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
-                    コールテンは、AI講座・AI顧問を通じて「やりたいこと」を形にする伴走をしています。<br>
-                    まずは小さく試して、合うかどうかを一緒に確認しましょう。
-                </p>
-                <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-                    <a class="btn" href="/contact">相談する</a>
-                    <a class="btn secondary" href="/services/advisory">AI顧問サービス</a>
-                    <a class="btn secondary" href="/services/study">AI講座の一覧</a>
-                </div>
             </div>
         </section>
     </main>
 </Layout>
 
 <style>
+    /* Hero */
     .hero {
-        padding: 160px 0 40px;
-        text-align: center;
-        background: transparent;
+        padding: 60px 0 40px;
+        background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
     }
     .hero-inner {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 16px;
-        max-width: 800px;
+        gap: 28px;
+        max-width: 820px;
         margin: 0 auto;
+    }
+    .hero-avatar {
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        border: 3px solid #fff;
+    }
+    .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-text { flex: 1; }
+    .eyebrow {
+        display: inline-block;
+        color: var(--accent);
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        font-size: 11px;
+        font-family: "Space Grotesk", sans-serif;
+        margin-bottom: 8px;
+    }
+    .hero h1 {
+        font-size: clamp(28px, 4vw, 40px);
+        margin-bottom: 4px;
     }
     .hero-sub {
         font-size: 14px;
         color: var(--text-light);
-        letter-spacing: 0.05em;
+        margin-bottom: 12px;
     }
-    .meta {
+    .hero-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-        justify-content: center;
-        margin-top: 8px;
+        gap: 6px;
     }
-    .tag {
+    .hero-tag {
         display: inline-block;
-        padding: 6px 14px;
-        border-radius: 100px;
-        background: var(--mint);
+        padding: 4px 12px;
+        border-radius: 99px;
+        background: rgba(22,97,78,0.08);
         color: var(--sea);
-        font-weight: 700;
-        font-size: 12px;
-        border: 1px solid var(--line);
-    }
-    .avatar-frame {
-        width: 160px;
-        height: 160px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
-    }
-    .avatar-lg {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        overflow: hidden;
-        box-shadow: var(--shadow-md);
-        background: #fff;
-    }
-    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* 2カラム: プロフィール + 推し */
-    .two-col {
-        display: grid;
-        gap: 24px;
-        max-width: 960px;
-        margin: 0 auto;
-        grid-template-columns: 1fr;
-    }
-    @media(min-width: 768px) {
-        .two-col { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* プロフィールカード */
-    .profile-card {
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        padding: 28px 28px 20px;
-        box-shadow: var(--shadow-md);
-    }
-    .card-heading {
-        font-size: 16px;
-        margin-bottom: 16px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid var(--sea);
-        color: var(--sea);
-    }
-    .profile-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    .profile-table th {
-        text-align: left;
-        padding: 8px 12px 8px 0;
         font-size: 12px;
         font-weight: 700;
-        color: var(--sea);
-        white-space: nowrap;
-        vertical-align: top;
-        width: 110px;
-        border-bottom: 1px solid var(--line);
-    }
-    .profile-table td {
-        padding: 8px 0;
-        font-size: 13.5px;
-        line-height: 1.7;
-        color: var(--text);
-        border-bottom: 1px solid var(--line);
     }
 
     /* 推しの一言 */
-    .oshi-card {
+    .oshi-banner {
+        max-width: 820px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px 24px;
         background: #fff7ea;
         border: 1px solid #f2ddbf;
-        border-radius: 20px;
-        padding: 28px;
-        box-shadow: var(--shadow-sm);
-        display: flex;
-        flex-direction: column;
-    }
-    .oshi-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 16px;
+        border-radius: 16px;
     }
     .oshi-avatar {
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         object-fit: cover;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        flex-shrink: 0;
+        margin-top: 2px;
     }
+    .oshi-body { flex: 1; }
     .oshi-label {
         font-weight: 700;
-        font-size: 14px;
+        font-size: 12px;
         color: #6a4618;
-        margin: 0;
+        margin: 0 0 6px;
     }
     .oshi-text {
-        font-size: 14px;
-        line-height: 1.9;
-        color: #3a2c15;
-        margin: 0 0 12px;
-    }
-    .oshi-text:last-child { margin-bottom: 0; }
-
-    /* タイムライン */
-    .timeline {
-        max-width: 720px;
-        margin: 0 auto;
-        position: relative;
-        padding-left: 24px;
-    }
-    .timeline::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 8px;
-        bottom: 8px;
-        width: 3px;
-        background: var(--line);
-        border-radius: 2px;
-    }
-    .timeline-item {
-        position: relative;
-        padding: 0 0 28px 24px;
-    }
-    .timeline-item:last-child { padding-bottom: 0; }
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -28.5px;
-        top: 6px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--sea);
-        border: 3px solid #fff;
-        box-shadow: 0 0 0 2px var(--line);
-    }
-    .timeline-date {
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--sea);
-        margin-bottom: 4px;
-    }
-    .timeline-content strong {
-        display: block;
-        font-size: 15px;
-        margin-bottom: 4px;
-        color: var(--ink);
-    }
-    .timeline-content p {
         font-size: 13.5px;
-        line-height: 1.7;
-        color: var(--text-light);
+        line-height: 1.8;
+        color: #3a2c15;
         margin: 0;
     }
 
-    /* セクション */
-    .section-head {
-        text-align: center;
-        margin-bottom: 40px;
-    }
-    .section-head small {
-        display: block;
-        color: var(--sea);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 12px;
-        font-size: 12px;
-    }
-    .section-head p {
-        color: var(--text-light);
-        font-size: 14px;
-    }
-
-    /* 記事グリッド */
-    .article-grid {
-        display: grid;
-        gap: 24px;
-        max-width: 960px;
+    /* 記事一覧（blog/indexと同じスタイル） */
+    .posts-list {
+        max-width: 820px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
     }
-    @media(min-width: 768px) {
-        .article-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-    }
-    .article-card {
-        display: block;
+    .post-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
         background: #fff;
         border: 1px solid var(--line);
         border-radius: 20px;
+        padding: 28px 32px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+        transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .post-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(5,32,24,0.08);
+        border-color: rgba(22,97,78,0.18);
+    }
+    .post-thumb {
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 14px;
         overflow: hidden;
-        transition: transform .3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .3s ease;
-        box-shadow: var(--shadow-md);
+        background: var(--cream);
+        border: 1px solid var(--line);
     }
-    .article-card:hover {
-        transform: translateY(-6px);
-        box-shadow: var(--shadow-lg);
-    }
-    .article-thumbnail {
-        width: 100%;
-        height: 180px;
-        background: var(--mint);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-    .article-thumbnail img {
+    .post-thumb img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
     }
-    .article-content { padding: 20px 24px 24px; }
-    .article-type {
-        display: inline-block;
-        padding: 3px 10px;
-        border-radius: 8px;
-        background: var(--mint);
-        color: var(--sea);
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
+    .post-body {
+        flex: 1;
+        min-width: 0;
+    }
+    .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 12px;
+    }
+    .post-date {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 13px;
+        color: var(--text-light);
         letter-spacing: 0.05em;
-        margin-bottom: 10px;
     }
-    .article-title {
-        font-size: 17px;
+    .post-cat {
+        display: inline-block;
+        background: rgba(22,97,78,0.08);
+        color: var(--sea);
+        border-radius: 99px;
+        padding: 3px 11px;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+    .post-title {
+        font-size: 20px;
         font-weight: 700;
         color: var(--ink);
-        margin-bottom: 8px;
-        line-height: 1.4;
+        line-height: 1.5;
+        margin: 0 0 10px;
     }
-    .article-date {
-        display: block;
-        font-size: 12px;
+    .post-excerpt {
+        font-size: 14px;
         color: var(--text-light);
-        margin-top: 8px;
+        line-height: 1.85;
+        margin: 0 0 14px;
+    }
+    .post-link {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--sea);
+        font-family: "Space Grotesk", sans-serif;
     }
 
-    /* CTA */
-    .card { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 32px; box-shadow: var(--shadow-md); }
-    .cta-card { max-width: 720px; margin: 0 auto; text-align: center; }
-    .mini { font-size: 14px; color: var(--text-light); line-height: 1.8; }
-
-    @media(max-width:768px) {
-        .hero { padding: 100px 20px 30px; }
-        .profile-table th { width: auto; }
-        .timeline { padding-left: 20px; }
-        .timeline-item { padding-left: 20px; }
+    @media (max-width: 640px) {
+        .hero { padding: 40px 16px 28px; }
+        .hero-inner { flex-direction: column; text-align: center; align-items: center; }
+        .hero-tags { justify-content: center; }
+        .oshi-banner { flex-direction: column; align-items: center; text-align: center; }
+        .post-card { padding: 20px; gap: 16px; }
+        .post-thumb { width: 72px; height: 72px; border-radius: 10px; }
+        .post-title { font-size: 17px; }
     }
 </style>
