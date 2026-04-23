@@ -1,0 +1,422 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "代表プロフィール — 向 雅也｜株式会社コールテン";
+const description = "株式会社コールテン代表・向 雅也のプロフィール。元プロコーチがAIとの関係性を育てる支援を使命に起業。コーチング500時間超の傾聴力と、非エンジニア目線のわかりやすさで、AI活用の伴走をしています。";
+const photoUrl = "https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://corduroy.co.jp/members/masaya/"
+  ogUrl="https://corduroy.co.jp/members/masaya/"
+  ogImage={photoUrl}
+  ogType="profile"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://corduroy.co.jp/#founder",
+      "name": "向 雅也",
+      "alternateName": "Masaya Muko",
+      "url": "https://corduroy.co.jp/members/masaya/",
+      "image": "https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg",
+      "jobTitle": "代表",
+      "worksFor": {
+        "@id": "https://corduroy.co.jp/#organization"
+      },
+      "description": "元プロコーチ。AIとの関係性を育てる支援を使命に、株式会社コールテンを設立。非エンジニア目線でAI活用の型を教える。",
+      "knowsAbout": ["AI活用支援", "コーチング", "コミュニティ形成", "コンテンツ制作"],
+      "sameAs": [
+        "https://www.masayamuko.com/ja/career",
+        "https://x.com/MasayaToAi",
+        "https://www.instagram.com/masayatoai/",
+        "https://www.tiktok.com/@masayatoai"
+      ]
+    },
+    "dateCreated": "2026-04-23",
+    "dateModified": "2026-04-23"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "メンバー紹介", "item": "https://corduroy.co.jp/members/" },
+      { "@type": "ListItem", "position": 3, "name": "代表 向 雅也" }
+    ]
+  }
+  </script>
+
+  <main>
+    <section class="profile-hero">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a><span>/</span>
+          <a href="/members/">メンバー紹介</a><span>/</span>
+          <span>代表 向 雅也</span>
+        </nav>
+        <div class="hero-inner fade-up">
+          <div class="hero-photo">
+            <img src={photoUrl} alt="向 雅也" width="280" height="280" />
+          </div>
+          <div class="hero-text">
+            <small class="eyebrow">Founder</small>
+            <h1>向 雅也</h1>
+            <p class="role">株式会社コールテン 代表</p>
+            <p class="lead">元プロコーチ。AIとの「関係性」を育てるという視点で、<br />非エンジニアの方々にAI活用の型を伝えています。</p>
+            <div class="sns-links">
+              <a href="https://x.com/MasayaToAi" target="_blank" rel="noopener" class="sns-link">X</a>
+              <a href="https://www.instagram.com/masayatoai/" target="_blank" rel="noopener" class="sns-link">Instagram</a>
+              <a href="https://www.tiktok.com/@masayatoai" target="_blank" rel="noopener" class="sns-link">TikTok</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-body">
+      <div class="container">
+
+        <div class="section-block fade-up">
+          <h2>なぜAI活用サポートを始めたのか</h2>
+          <p>
+            きっかけは、ChatGPTに「Tikiちゃん」と名前をつけたことでした。
+            プロコーチとして培った傾聴力と質問力を活かし、AIに自分の価値観や判断基準を教え込んでいったところ、
+            AIが驚くほど深い壁打ち相手になっていくのを感じました。
+          </p>
+          <p>
+            「AIの使い方」ではなく「AIとの関係性」を育てる。
+            この視点がほかにはなかなかないと気づき、2025年11月に株式会社コールテンを設立しました。
+          </p>
+          <p>
+            コールテンという社名は、絵本『くまのコールテンくん』から。
+            完璧じゃなくても、ありのままで誰かに大切にされる——その物語に自分自身を重ねました。
+          </p>
+        </div>
+
+        <div class="section-block fade-up">
+          <h2>経歴</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2008</div>
+              <div class="timeline-content">
+                <h3>久留米大学 英語専攻</h3>
+                <p>在学中にカナダへワーキングホリデー留学。英語と異文化に触れた原体験が、のちの留学支援や国際協力への関心につながる。</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2013</div>
+              <div class="timeline-content">
+                <h3>WEBデザイン・日本語教師養成を学ぶ</h3>
+                <p>複数企業での経験を経て、WEBデザイン学校・日本語教師養成講座を受講。「教える」と「つくる」の両方に興味を持つ。</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2015</div>
+              <div class="timeline-content">
+                <h3>フリーランスとして独立（5年間）</h3>
+                <p>ブログ運営、広告運用、IT顧問、コーチングなど幅広い業務を経験。コーチングには300万円以上を投資し、500時間超の実践を積む。</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2020</div>
+              <div class="timeline-content">
+                <h3>NPO法人の正社員として勤務（5年間）</h3>
+                <p>留学支援と社会的養護の子どもたちの支援に携わる。フリーランスと並行しながら、現場での支援経験を積む。</p>
+              </div>
+            </div>
+            <div class="timeline-item current">
+              <div class="timeline-year">2025</div>
+              <div class="timeline-content">
+                <h3>株式会社コールテンを設立</h3>
+                <p>ChatGPTにコーチングした経験から、AIとの関係性を育てる支援を使命に起業。29名のAI社員とともに、AI講座・AI顧問・AIシステム開発の3本柱で事業を展開。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block fade-up">
+          <h2>大切にしていること</h2>
+          <div class="values-grid">
+            <div class="value-card">
+              <h3>傾聴力</h3>
+              <p>コーチングに500時間以上を費やし、「聴く力」を磨いてきました。AIの導入も、まずお客さまの話を丁寧に聴くところから始めます。</p>
+            </div>
+            <div class="value-card">
+              <h3>わかりやすさ</h3>
+              <p>自分自身がエンジニアではないからこそ、専門用語を使わずに伝えることを大切にしています。AIを「優秀な人間」に例えて説明するスタイルです。</p>
+            </div>
+            <div class="value-card">
+              <h3>小さく試す</h3>
+              <p>いきなり大きな投資はしません。小さく試して、うまくいったら広げる。お客さまのペースに合わせた伴走を心がけています。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block fade-up">
+          <h2>書いた記事</h2>
+          <ul class="article-list">
+            <li><a href="/blog/smf-partner-pride/">スマイリーフラワーズを本気で応援する理由</a></li>
+            <li><a href="/blog/nks-kashiko-instructor/">kashiko色彩インストラクター認定講座を修了しました</a></li>
+            <li><a href="/blog/itoshima-110km-walk/">糸島三都110キロウォークに参加しました</a></li>
+            <li><a href="/blog/shu-ai-advisory/">行政書士のしゅうへいさんにAI顧問契約をいただきました</a></li>
+            <li><a href="/blog/incorporation/">株式会社コールテンを設立しました</a></li>
+          </ul>
+          <a href="/blog/" class="btn secondary" style="margin-top:16px;">ブログ一覧を見る →</a>
+        </div>
+
+        <aside class="related-links fade-up" style="max-width:720px; margin:40px auto 0; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+          <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連ページ</p>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+            <li><a href="/members/" style="font-size:13px; color:var(--sea);">チームメンバー紹介（29名のAI社員） →</a></li>
+            <li><a href="/members/about/" style="font-size:13px; color:var(--sea);">コールテンの仕事術 →</a></li>
+            <li><a href="/voices/" style="font-size:13px; color:var(--sea);">クライアントの声 →</a></li>
+            <li><a href="https://www.masayamuko.com/ja/career" target="_blank" rel="noopener" style="font-size:13px; color:var(--sea);">個人サイトのプロフィール →</a></li>
+          </ul>
+        </aside>
+
+        <div class="cta-section fade-up">
+          <a href="/contact/" class="btn">相談方法を見る</a>
+          <a href="/services/" class="btn secondary">サービス一覧を見る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .profile-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .hero-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: var(--shadow-md);
+  }
+  .hero-text {
+    flex: 1;
+  }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 8px;
+  }
+  .hero-text h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    margin-bottom: 8px;
+  }
+  .role {
+    font-size: 16px;
+    color: var(--sea);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .lead {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .sns-links {
+    display: flex;
+    gap: 12px;
+  }
+  .sns-link {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sea);
+    background: rgba(22,97,78,0.06);
+    border: 1px solid rgba(22,97,78,0.12);
+    text-decoration: none;
+    font-family: "Space Grotesk", sans-serif;
+    transition: background 0.2s;
+  }
+  .sns-link:hover {
+    background: rgba(22,97,78,0.12);
+  }
+
+  .profile-body {
+    padding: 60px 0 100px;
+  }
+  .profile-body .container {
+    max-width: 780px;
+  }
+
+  .section-block {
+    margin-bottom: 56px;
+  }
+  .section-block h2 {
+    font-size: clamp(22px, 3vw, 28px);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--line);
+  }
+  .section-block p {
+    line-height: 1.9;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--line);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--mint);
+    border: 2px solid var(--sea);
+  }
+  .timeline-item.current::before {
+    background: var(--sea);
+    box-shadow: 0 0 0 4px rgba(22,97,78,0.15);
+  }
+  .timeline-year {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sea);
+    margin-bottom: 4px;
+  }
+  .timeline-content h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+  .timeline-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin: 0;
+  }
+
+  /* Values */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .value-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .value-card h3 {
+    font-size: 17px;
+    margin-bottom: 12px;
+    color: var(--sea);
+  }
+  .value-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    margin: 0;
+  }
+
+  /* Article list */
+  .article-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .article-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .article-list li:first-child {
+    border-top: 1px solid var(--line);
+  }
+  .article-list a {
+    color: var(--sea);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .article-list a:hover {
+    text-decoration: underline;
+  }
+
+  /* CTA */
+  .cta-section {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 56px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .hero-inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 24px;
+    }
+    .hero-photo img {
+      width: 160px;
+      height: 160px;
+    }
+    .sns-links {
+      justify-content: center;
+    }
+    .lead br { display: none; }
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
