@@ -25,7 +25,8 @@ const siteBase = Astro.site?.href ?? "https://corduroy.co.jp";
 const rawPath = Astro.url?.pathname ?? "/";
 const normalizedPath = rawPath
   .replace(/\/index\.html$/i, "/")
-  .replace(/\.html$/i, "");
+  .replace(/\.html$/i, "")
+  .replace(/\/?$/, "/");
 const pageUrl = new URL(normalizedPath, siteBase).href;
 const resolvedCanonicalUrl = canonicalUrl ?? pageUrl;
 const resolvedOgUrl = ogUrl ?? pageUrl;
@@ -44,8 +45,9 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
             gtag('config', 'G-GTLHM3EM7C');
         </script>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/x-icon" href="/assets/images/faviconC.ico" />
+		<meta name="robots" content="max-image-preview:large" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description || "AIとの関係性を育てる、本質的な学びと伴走。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"} />
@@ -82,12 +84,25 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
                     "url": "https://corduroy.co.jp/",
                     "logo": "https://corduroy.co.jp/assets/images/logo.png",
                     "description": "AIとの関係性を育てる、本質的な学びと伴走。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。",
+                    "legalName": "株式会社コールテン",
+                    "foundingDate": "2025-11-21",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "福岡市",
+                        "addressRegion": "福岡県",
+                        "addressCountry": "JP"
+                    },
                     "founder": {
                         "@type": "Person",
                         "name": "向 雅也",
-                        "alternateName": "Masaya Muko"
+                        "alternateName": "Masaya Muko",
+                        "url": "https://corduroy.co.jp/members/"
                     },
-                    "sameAs": [],
+                    "sameAs": [
+                        "https://x.com/MasayaToAi",
+                        "https://www.instagram.com/masayatoai/",
+                        "https://www.tiktok.com/@masayatoai"
+                    ],
                     "contactPoint": {
                         "@type": "ContactPoint",
                         "contactType": "customer support",
