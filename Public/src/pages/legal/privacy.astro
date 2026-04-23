@@ -5,7 +5,20 @@ const title = "プライバシーポリシー｜株式会社コールテン";
 const description = "株式会社コールテンのプライバシーポリシーです。取得する情報、利用目的、第三者提供、管理、開示請求、Cookieの取扱い、お問い合わせ窓口などを記載しています。";
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalUrl="https://www.corduroy.co.jp/legal/privacy/" ogUrl="https://www.corduroy.co.jp/legal/privacy/">
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/"},
+          {"@type": "ListItem", "position": 2, "name": "プライバシーポリシー"}
+        ]
+      }
+    </script>
+  </Fragment>
+
   <main>
     <section class="container">
       <div class="section-head">

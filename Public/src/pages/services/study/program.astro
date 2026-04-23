@@ -12,7 +12,7 @@ const startDates = [
 ];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalUrl="https://www.corduroy.co.jp/services/study/program/" ogUrl="https://www.corduroy.co.jp/services/study/program/">
   <Fragment slot="head">
     <script type="application/ld+json">
       {
@@ -30,6 +30,18 @@ const startDates = [
           "price": "108000",
           "priceCurrency": "JPY"
         }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/"},
+          {"@type": "ListItem", "position": 2, "name": "サービス", "item": "https://www.corduroy.co.jp/services/"},
+          {"@type": "ListItem", "position": 3, "name": "AI講座", "item": "https://www.corduroy.co.jp/services/study/"},
+          {"@type": "ListItem", "position": 4, "name": "3ヶ月プログラム"}
+        ]
       }
     </script>
   </Fragment>

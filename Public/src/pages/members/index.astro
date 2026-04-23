@@ -127,7 +127,20 @@ const totalMembers = departments.reduce((acc, d) => acc + d.members.length, 0) -
 const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png';
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalUrl="https://www.corduroy.co.jp/members/" ogUrl="https://www.corduroy.co.jp/members/">
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/"},
+          {"@type": "ListItem", "position": 2, "name": "メンバー紹介"}
+        ]
+      }
+    </script>
+  </Fragment>
+
   <main id="top">
 
     <!-- Hero -->

@@ -110,6 +110,17 @@ const description = "コールテンの活動報告やAI活用に関する気づ
   ogUrl="https://www.corduroy.co.jp/blog/"
   ogType="website"
 >
+  <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/"},
+        {"@type": "ListItem", "position": 2, "name": "ブログ"}
+      ]
+    }
+  </script>
+
   <main>
     <section class="hero">
       <div class="container">

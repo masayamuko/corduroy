@@ -20,6 +20,22 @@ import Layout from '../../layouts/Layout.astro';
       ]
     }
     </script>
+    <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "Organization",
+        "name": "株式会社コールテン"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "中野たかろー",
+        "jobTitle": "フリーランス ウェブクリエイター"
+      },
+      "reviewBody": "「第二の自分」は誰とも被らない資産になるし、新しいAIが出てもブレない軸になります。いきなり独学で走るより、コールテンさんみたいにたくさん実践して裏側を知っている人と一緒に、相談できる状態で走るのが一番効率よかったと思います。"
+    }
+    </script>
 
     <main>
         <section class="hero">
