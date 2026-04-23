@@ -304,6 +304,204 @@ function blogOgpLayout(title) {
   };
 }
 
+// 握手アイコン（AI顧問用）— 2つの手が重なるシンボル
+function handshakeIcon() {
+  return {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '80px',
+        height: '80px',
+        marginBottom: '20px',
+      },
+      children: [
+        // 左の手（丸）
+        {
+          type: 'div',
+          props: {
+            style: {
+              width: '50px',
+              height: '50px',
+              borderRadius: '50%',
+              border: '3px solid rgba(255,255,255,0.9)',
+              marginRight: '-18px',
+              background: 'rgba(255,255,255,0.15)',
+            },
+          },
+        },
+        // 右の手（丸）
+        {
+          type: 'div',
+          props: {
+            style: {
+              width: '50px',
+              height: '50px',
+              borderRadius: '50%',
+              border: '3px solid rgba(255,255,255,0.9)',
+              background: 'rgba(255,255,255,0.15)',
+            },
+          },
+        },
+      ],
+    },
+  };
+}
+
+// 学帽アイコン（AI講座用）— ダイヤモンド + ライン
+function graduationIcon() {
+  return {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '80px',
+        height: '80px',
+        marginBottom: '20px',
+      },
+      children: [
+        // ダイヤモンド形状（45度回転の正方形）
+        {
+          type: 'div',
+          props: {
+            style: {
+              width: '40px',
+              height: '40px',
+              background: 'rgba(255,255,255,0.2)',
+              border: '3px solid rgba(255,255,255,0.9)',
+              transform: 'rotate(45deg)',
+            },
+          },
+        },
+        // 下の台座ライン
+        {
+          type: 'div',
+          props: {
+            style: {
+              width: '60px',
+              height: '3px',
+              background: 'rgba(255,255,255,0.9)',
+              marginTop: '8px',
+              borderRadius: '2px',
+            },
+          },
+        },
+      ],
+    },
+  };
+}
+
+// ブログ記事用 正方形サムネイル（ブログ一覧で使用）
+function thumbLayout(title, iconElement, gradientFrom, gradientTo) {
+  const THUMB = 400;
+  return {
+    type: 'div',
+    props: {
+      style: {
+        width: `${THUMB}px`,
+        height: `${THUMB}px`,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: `linear-gradient(145deg, ${gradientFrom} 0%, ${gradientTo} 100%)`,
+        fontFamily: '"Noto Sans JP"',
+        position: 'relative',
+        padding: '40px',
+      },
+      children: [
+        // 装飾: 背景の大きな円
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              top: '-30px',
+              right: '-30px',
+              width: '180px',
+              height: '180px',
+              borderRadius: '50%',
+              background: 'rgba(255,255,255,0.08)',
+            },
+          },
+        },
+        // 装飾: 左下の小さな円
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              bottom: '20px',
+              left: '-20px',
+              width: '100px',
+              height: '100px',
+              borderRadius: '50%',
+              background: 'rgba(255,255,255,0.05)',
+            },
+          },
+        },
+        // アイコン（satori divで構成）
+        iconElement,
+        // タイトル（短縮版）
+        {
+          type: 'div',
+          props: {
+            style: {
+              fontSize: title.length > 12 ? '24px' : '28px',
+              fontWeight: 700,
+              color: '#ffffff',
+              textAlign: 'center',
+              lineHeight: 1.4,
+              letterSpacing: '0.02em',
+            },
+            children: title,
+          },
+        },
+        // カテゴリバッジ
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              top: '20px',
+              left: '20px',
+              background: 'rgba(255,255,255,0.2)',
+              padding: '4px 12px',
+              borderRadius: '12px',
+              fontSize: '12px',
+              fontWeight: 700,
+              color: '#ffffff',
+              letterSpacing: '0.05em',
+            },
+            children: 'AI活用',
+          },
+        },
+        // コールテンロゴ
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              bottom: '16px',
+              right: '20px',
+              fontSize: '11px',
+              fontWeight: 400,
+              color: 'rgba(255,255,255,0.6)',
+              letterSpacing: '0.08em',
+            },
+            children: 'コールテン',
+          },
+        },
+      ],
+    },
+  };
+}
+
 async function generate() {
   console.log('フォントを読み込み中...');
   const fonts = await loadFont();
@@ -362,6 +560,43 @@ async function generate() {
   }
 
   console.log(`\n全 ${blogArticles.length} 件のブログ用 OGP 画像を生成しました。`);
+
+  // 正方形サムネイル生成（写真がない記事用）
+  const thumbArticles = [
+    {
+      slug: 'what-is-ai-advisory',
+      title: 'AI顧問とは？',
+      iconFn: handshakeIcon,
+      from: '#16614e',
+      to: '#1a8a6e',
+    },
+    {
+      slug: 'how-to-choose-ai-course',
+      title: 'AI講座の選び方ガイド',
+      iconFn: graduationIcon,
+      from: '#2c5282',
+      to: '#3182ce',
+    },
+  ];
+
+  console.log(`\nサムネイル画像を ${thumbArticles.length} 件生成中...`);
+
+  for (const { slug, title, iconFn, from, to } of thumbArticles) {
+    const thumbSvg = await satori(thumbLayout(title, iconFn(), from, to), {
+      width: 400,
+      height: 400,
+      fonts,
+    });
+
+    const thumbResvg = new Resvg(thumbSvg, { fitTo: { mode: 'width', value: 400 } });
+    const thumbPng = thumbResvg.render().asPng();
+
+    const thumbPath = join(__dirname, '..', 'public', 'assets', 'images', `thumb-${slug}.png`);
+    writeFileSync(thumbPath, thumbPng);
+    console.log(`✓ thumb-${slug}.png (${(thumbPng.length / 1024).toFixed(0)}KB)`);
+  }
+
+  console.log('\n全画像の生成が完了しました。');
 }
 
 generate().catch(console.error);
