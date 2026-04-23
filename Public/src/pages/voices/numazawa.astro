@@ -89,7 +89,7 @@ import Layout from '../../layouts/Layout.astro';
               alt="Shuheiさん"
             />
             <h3 style="margin:2px 0 4px;">Shuheiさん</h3>
-            <p class="mini" style="margin:0; color:#335649;">SHU行政書士事務所。行政書士として活動し、DX推進にも関与。</p>
+            <p class="mini" style="margin:0; color:var(--text-light);">SHU行政書士事務所。行政書士として活動し、DX推進にも関与。</p>
           </div>
 
           <div class="character-card">
@@ -99,14 +99,14 @@ import Layout from '../../layouts/Layout.astro';
               alt="向 雅也"
             />
             <h3 style="margin:2px 0 4px;">向 雅也</h3>
-            <p class="mini" style="margin:0; color:#335649;">AI講座（第二の自分ワーク）で講師・伴走を担当しました。</p>
+            <p class="mini" style="margin:0; color:var(--text-light);">AI講座（第二の自分ワーク）で講師・伴走を担当しました。</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="container">
-      <div class="card dialogue-flow">
+      <div class="card dialogue-flow fade-up">
         <div class="dialogue">
 
           <div class="bubble teto">
@@ -269,11 +269,21 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </section>
 
-    <section id="contact" class="container" style="padding-bottom:100px">
-      <div class="card" style="max-width:720px;margin:0 auto;text-align:center">
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/blog/shu-ai-advisory/" style="font-size:13px; color:var(--sea);">しゅうへいさんにAI顧問契約をいただきました →</a></li>
+          <li><a href="/services/study/" style="font-size:13px; color:var(--sea);">AI講座サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
         <h3>同じように伴走してほしい方へ</h3>
-        <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">コールテンの勉強会・伴走は紹介限定・長期前提です。まずは小さく試し、安心して進められる形を一緒に作ります。</p>
-        <p class="mini" style="line-height:1.8;margin-top:14px;color:#335649;">このケースで中心になっているのは<strong>AI講座</strong>の「第二の自分ワーク」です。対話型の相棒を育てながらDXを進めます。</p>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">コールテンの勉強会・伴走は紹介限定・長期前提です。まずは小さく試し、安心して進められる形を一緒に作ります。</p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>AI講座</strong>の「第二の自分ワーク」です。対話型の相棒を育てながらDXを進めます。</p>
         <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
           <a class="btn" href="/services/study/SecondME">第二の自分ワークを見る</a>
           <a class="btn secondary" href="/services/study">AI講座の一覧</a>
@@ -290,6 +300,15 @@ import Layout from '../../layouts/Layout.astro';
         padding: 160px 0 100px;
         text-align: center;
         background: transparent;
+    }
+
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
     }
 
     .meta {
@@ -351,9 +370,14 @@ import Layout from '../../layouts/Layout.astro';
     .card {
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: 24px;
+        border-radius: 16px;
         padding: 32px;
         box-shadow: var(--shadow-md);
+    }
+
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
     }
 
     .grid {
@@ -371,7 +395,7 @@ import Layout from '../../layouts/Layout.astro';
         text-align: center;
         padding: 24px;
         border: 1px solid var(--line);
-        border-radius: 24px;
+        border-radius: 16px;
         background: #fff;
         box-shadow: var(--shadow-sm);
         transition: transform 0.3s ease;

@@ -55,7 +55,7 @@ import Layout from '../../layouts/Layout.astro';
         </section>
     
         <section class="container">
-          <div class="grid cols-2">
+          <div class="grid cols-2 fade-up">
             <div class="card">
               <h3>Before</h3>
               <ul class="mini">
@@ -73,21 +73,32 @@ import Layout from '../../layouts/Layout.astro';
             </div>
           </div>
         </section>
-    
+
         <section class="container">
-          <div class="card" style="border-left: 4px solid var(--sea);">
+          <div class="card fade-up" style="border-left: 4px solid var(--sea);">
             <h3>印象的な一言</h3>
-            <p style="line-height:1.8;margin-top:8px;color:#234638;">
+            <p style="line-height:1.8;margin-top:8px;color:var(--text);">
               「業務を理解したうえでピッタリなツールを適切なタイミングで提案してくれるので、置いていかれずに済んでいます。導入のズレや無駄が減り、手間も大きく削減できました。」</p>
           </div>
         </section>
-    
-        <section id="contact" class="container" style="padding-bottom:100px">
-          <div class="card" style="max-width:720px;margin:0 auto;text-align:center">
+
+        <section class="container" style="padding-top:0; padding-bottom:40px;">
+          <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+            <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+            <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+              <li><a href="/blog/smf-partner-pride/" style="font-size:13px; color:var(--sea);">スマイリーフラワーズを本気で応援する理由 →</a></li>
+              <li><a href="/blog/smf-partnership/" style="font-size:13px; color:var(--sea);">スマイリーフラワーズにAI顧問契約をいただきました →</a></li>
+              <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+            </ul>
+          </aside>
+        </section>
+
+        <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+          <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
             <h3>同じように伴走してほしい方へ</h3>
-            <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">
+            <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
               コールテンは紹介限定・長期前提でAI伴走を行います。小さく試し、合うかどうかを一緒に確かめましょう。</p>
-            <p class="mini" style="line-height:1.8;margin-top:14px;color:#335649;">このケースで提供しているのは<strong>AI顧問</strong>です。業務理解をベースにした継続的なツール選定・導入サポートが中心です。</p>
+            <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで提供しているのは<strong>AI顧問</strong>です。業務理解をベースにした継続的なツール選定・導入サポートが中心です。</p>
             <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
               <a class="btn" href="/services/advisory">AI顧問の詳細</a>
               <a class="btn secondary" href="/contact">相談方法を見る</a>
@@ -142,7 +153,7 @@ import Layout from '../../layouts/Layout.astro';
         background: #fff;
         border: 1px solid var(--line);
         font-weight: 700;
-        font-size: 12px;
+        font-size: 13px;
         color: var(--text-light);
     }
 
@@ -174,9 +185,14 @@ import Layout from '../../layouts/Layout.astro';
     .card {
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: 24px;
+        border-radius: 16px;
         padding: 32px;
         box-shadow: var(--shadow-md);
+    }
+
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
     }
 
     .grid {

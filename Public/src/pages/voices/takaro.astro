@@ -63,7 +63,7 @@ import Layout from '../../layouts/Layout.astro';
                         <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png"
                             alt="中野さん">
                         <h3 style="margin:2px 0 4px;">中野たかろーさん</h3>
-                        <p class="mini" style="margin:0; color:#335649;">
+                        <p class="mini" style="margin:0; color:var(--text-light);">
                             動画編集・Web制作・カメラマンとして活躍するフリーランス。ChatGPT基礎講座&第二の自分作り講座に参加。</p>
                     </div>
                     <div class="character-card">
@@ -72,7 +72,7 @@ import Layout from '../../layouts/Layout.astro';
                         <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
                             alt="向 雅也">
                         <h3 style="margin:2px 0 4px;">向 雅也</h3>
-                        <p class="mini" style="margin:0; color:#335649;">ChatGPT基礎講座&第二の自分作り講座で講師を担当しました。
+                        <p class="mini" style="margin:0; color:var(--text-light);">ChatGPT基礎講座&第二の自分作り講座で講師を担当しました。
                         </p>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ import Layout from '../../layouts/Layout.astro';
         </section>
 
         <section class="container">
-            <div class="card dialogue-flow">
+            <div class="card dialogue-flow fade-up">
                 <div class="dialogue">
                     <div class="bubble teto">
                         <div class="bubble-avatar">
@@ -147,10 +147,10 @@ import Layout from '../../layouts/Layout.astro';
 
                     <!-- Feature Highlight: Context Awareness -->
                     <div class="card"
-                        style="background:#222; border:none; color:#eee; padding:20px; font-family:monospace; margin:10px 0;">
-                        <div style="color:#888; margin-bottom:10px; font-size:12px;">// 実際の応答イメージ</div>
-                        <p style="margin:0 0 10px 0;">たかろー：「なんか今日調子出ないわ…これやるべき？」</p>
-                        <p style="color:#a8d5c4; margin:0;">
+                        style="background:var(--green); border:none; color:#eee; padding:20px; font-family:monospace; margin:10px 0;">
+                        <div style="color:var(--line-strong); margin-bottom:10px; font-size:12px;">// 実際の応答イメージ</div>
+                        <p style="margin:0 0 10px 0; color:#eee;">たかろー：「なんか今日調子出ないわ…これやるべき？」</p>
+                        <p style="color:var(--mint); margin:0;">
                             AI：「たかろーさん、今の気圧配置だと偏頭痛が出やすい傾向がありますよね（※過去ログ参照）。無理に作業せず、まずは情報の整理だけに留めませんか？」</p>
                     </div>
 
@@ -187,8 +187,8 @@ import Layout from '../../layouts/Layout.astro';
 
                     <div class="prompt-box">
                         <span class="prompt-label">たかろーさんの鉄板プロンプト</span>
-                        <p style="margin:0; font-weight:700; color:#2c3e50;">「忖度せずに話して」</p>
-                        <p style="margin:8px 0 0; font-size:13px; color:#555;">※本当のことを知りたい時、相談相手として甘えをなくしたい時に必ず添える一言。
+                        <p style="margin:0; font-weight:700; color:var(--ink);">「忖度せずに話して」</p>
+                        <p style="margin:8px 0 0; font-size:13px; color:var(--text-light);">※本当のことを知りたい時、相談相手として甘えをなくしたい時に必ず添える一言。
                         </p>
                     </div>
 
@@ -269,7 +269,7 @@ import Layout from '../../layouts/Layout.astro';
         </section>
 
         <section class="container" style="padding-top:40px; padding-bottom:40px;">
-            <div class="voice-note" style="max-width:800px; margin:0 auto;">
+            <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
                 <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
                     <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
                         style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
@@ -280,14 +280,24 @@ import Layout from '../../layouts/Layout.astro';
             </div>
         </section>
 
-        <section id="contact" class="container" style="padding-bottom:100px">
-          <div class="card" style="max-width:720px;margin:0 auto;text-align:center">
+        <section class="container" style="padding-top:0; padding-bottom:40px;">
+          <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+            <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+            <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+              <li><a href="/blog/tkr-ai-advisory/" style="font-size:13px; color:var(--sea);">たかろーさんにAI顧問契約をいただきました →</a></li>
+              <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+            </ul>
+          </aside>
+        </section>
+
+        <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+          <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
             <h3>クリエイターの「時間」と「単価」を作る</h3>
-            <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">
+            <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
                 コールテンは、あなたの価値観を理解した「第二の自分」づくりを伴走します。<br>
                 まずは小さく試して、その効果を体感してみませんか？
             </p>
-            <p class="mini" style="line-height:1.8;margin-top:14px;color:#335649;">このケースで中心になっているのは<strong>AI講座</strong>の「第二の自分ワーク」です。フリーランス・一人法人の業務に馴染む個別設計が強みです。</p>
+            <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>AI講座</strong>の「第二の自分ワーク」です。フリーランス・一人法人の業務に馴染む個別設計が強みです。</p>
             <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
               <a class="btn" href="/services/study/SecondME">第二の自分ワークを見る</a>
               <a class="btn secondary" href="/services/study">AI講座の一覧</a>
@@ -304,6 +314,15 @@ import Layout from '../../layouts/Layout.astro';
         padding: 160px 0 100px;
         text-align: center;
         background: transparent;
+    }
+
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
     }
 
     .meta {
@@ -365,9 +384,14 @@ import Layout from '../../layouts/Layout.astro';
     .card {
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: 24px;
+        border-radius: 16px;
         padding: 32px;
         box-shadow: var(--shadow-md);
+    }
+
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
     }
 
     .grid {
@@ -385,7 +409,7 @@ import Layout from '../../layouts/Layout.astro';
         text-align: center;
         padding: 24px;
         border: 1px solid var(--line);
-        border-radius: 24px;
+        border-radius: 16px;
         background: #fff;
         box-shadow: var(--shadow-sm);
         transition: transform 0.3s ease;
@@ -556,9 +580,9 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     .prompt-box {
-        background: #f0f7ff;
-        border: 1px dashed #4a90e2;
-        border-radius: 8px;
+        background: var(--mint);
+        border: 1px dashed var(--sea);
+        border-radius: 12px;
         padding: 16px;
         margin: 16px 0;
         position: relative;
@@ -568,7 +592,7 @@ import Layout from '../../layouts/Layout.astro';
         position: absolute;
         top: -12px;
         left: 12px;
-        background: #4a90e2;
+        background: var(--sea);
         color: #fff;
         padding: 2px 8px;
         font-size: 11px;
@@ -586,13 +610,13 @@ import Layout from '../../layouts/Layout.astro';
 
     .cycle-step {
         background: #fff;
-        border: 2px solid #eef2f0;
+        border: 2px solid var(--line);
         border-radius: 12px;
         padding: 15px;
         width: 140px;
         text-align: center;
         font-weight: bold;
-        color: #124034;
+        color: var(--green);
         position: relative;
     }
 
@@ -602,7 +626,7 @@ import Layout from '../../layouts/Layout.astro';
         right: -20px;
         top: 50%;
         transform: translateY(-50%);
-        color: #cbd5d0;
+        color: var(--line-strong);
         font-weight: bold;
     }
 

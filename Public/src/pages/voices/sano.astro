@@ -89,7 +89,7 @@ import Layout from '../../layouts/Layout.astro';
               alt="佐野さん"
             />
             <h3 style="margin:2px 0 4px;">佐野さん</h3>
-            <p class="mini" style="margin:0; color:#335649;">株式会社スデニアル代表。マーケティング/企画の提案・施策設計に携わる。</p>
+            <p class="mini" style="margin:0; color:var(--text-light);">株式会社スデニアル代表。マーケティング/企画の提案・施策設計に携わる。</p>
           </div>
 
           <div class="character-card">
@@ -99,14 +99,14 @@ import Layout from '../../layouts/Layout.astro';
               alt="向 雅也"
             />
             <h3 style="margin:2px 0 4px;">向 雅也</h3>
-            <p class="mini" style="margin:0; color:#335649;">AI顧問として伴走し、仮説→検証→提案が回る形を一緒に整えました。</p>
+            <p class="mini" style="margin:0; color:var(--text-light);">AI顧問として伴走し、仮説→検証→提案が回る形を一緒に整えました。</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="container">
-      <div class="card dialogue-flow">
+      <div class="card dialogue-flow fade-up">
         <div class="dialogue">
 
           <div class="bubble teto">
@@ -260,13 +260,21 @@ import Layout from '../../layouts/Layout.astro';
       </div>
     </section>
 
-<!-- removed duplicate note -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/blog/san-partnership/" style="font-size:13px; color:var(--sea);">佐野さんと定期ミーティングを開始しました →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
 
-    <section id="contact" class="container" style="padding-bottom:100px">
-      <div class="card" style="max-width:720px;margin:0 auto;text-align:center">
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
         <h3>同じように伴走してほしい方へ</h3>
-        <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">コールテンでは、紹介限定・長期前提でAI伴走を行っています。まずは小さく試して、合うかどうかを一緒に確認しましょう。</p>
-        <p class="mini" style="line-height:1.8;margin-top:14px;color:#335649;">このケースで提供しているのは<strong>AI顧問</strong>です。月額での伴走・仮説検証のシミュレーションサポートが中心です。</p>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">コールテンでは、紹介限定・長期前提でAI伴走を行っています。まずは小さく試して、合うかどうかを一緒に確認しましょう。</p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで提供しているのは<strong>AI顧問</strong>です。月額での伴走・仮説検証のシミュレーションサポートが中心です。</p>
         <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
           <a class="btn" href="/services/advisory">AI顧問の詳細</a>
           <a class="btn secondary" href="/contact">相談方法を見る</a>
@@ -280,6 +288,7 @@ import Layout from '../../layouts/Layout.astro';
 <style>
   /* Hero */
   .hero { padding: 160px 0 100px; text-align: center; background: transparent; }
+  .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 800px; margin: 0 auto; }
   .meta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin-top: 24px; }
   .tag { display: inline-block; padding: 8px 16px; border-radius: 100px; background: var(--mint); color: var(--sea); font-weight: 700; font-size: 13px; border: 1px solid var(--line); }
   .pill { display: inline-block; padding: 8px 16px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-weight: 700; font-size: 13px; color: var(--text-light); }
@@ -287,10 +296,11 @@ import Layout from '../../layouts/Layout.astro';
   .avatar-lg { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow-md); background: #fff; }
   .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
 
-  .card { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 32px; box-shadow: var(--shadow-md); }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-md); }
+  .card.cta-card { transform: none !important; box-shadow: var(--shadow-md) !important; }
   .mini { font-size: 14px; color: var(--text-light); line-height: 1.8; }
 
-  .character-card { text-align: center; padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: #fff; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
+  .character-card { text-align: center; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
   .character-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
   .character-card img { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 18px rgba(0,0,0,.08); margin: 0 auto 8px; display: block; }
   .character-role { display: inline-block; padding: 6px 10px; background: #f1f7f3; border: 1px solid #d6e8df; border-radius: 10px; font-size: 12px; font-weight: 700; color: #124034; margin-bottom: 6px; }
