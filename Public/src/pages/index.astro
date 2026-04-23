@@ -150,25 +150,21 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
           <h2><span class="jp-kanji">提供</span><span class="jp-hiragana">サービス</span></h2>
           <p>あなたに合った形で、AIとの付き合い方を育みます。</p>
         </div>
-        <div class="service-grid-new">
-          <!-- AI講座（メイン） -->
-          <div class="card service-card-main fade-up">
+        <div class="service-two-col">
+          <!-- AI講座（メイン・緑背景） -->
+          <div class="card service-card-main service-card-highlight fade-up">
             <div class="icon-lg">🎓</div>
             <h3>AI講座</h3>
             <p class="mini">AIを「優秀な人間」に例え、専門用語を使わずにAIの基礎と可能性をお伝えすることにはじまり、さまざまな事例に触れつつ多様な仕事での導入や活用を追求します。</p>
-            <a class="btn btn-outline" href="/services/" style="margin-top:16px;">まずは無料AI講座から</a>
+            <a class="btn" href="/services/" style="margin-top:16px; background:#fff; color:var(--sea);">まずは無料AI講座から</a>
           </div>
 
           <!-- AIコミュニティ -->
-          <div class="card service-card-sub fade-up">
-            <div class="service-card-sub-inner">
-              <div class="icon-lg">🏠</div>
-              <div>
-                <h3>AIコミュニティ</h3>
-                <p class="mini">月2回の作業会（糸口会）とDiscordで、AIを学んだあとも使い続ける仲間とつながる場所。学んで終わりにしない環境がここにあります。</p>
-              </div>
-            </div>
-            <a class="btn secondary" href="/services/study/community" style="margin-top:16px; align-self:flex-start;">コミュニティを見る →</a>
+          <div class="card service-card-main fade-up">
+            <div class="icon-lg">🏠</div>
+            <h3>AIコミュニティ</h3>
+            <p class="mini">月2回の作業会（糸口会）とDiscordで、AIを学んだあとも使い続ける仲間とつながる場所。学んで終わりにしない環境がここにあります。</p>
+            <a class="btn secondary" href="/services/study/community" style="margin-top:16px;">コミュニティを見る →</a>
           </div>
         </div>
 
@@ -668,6 +664,12 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
     }
 
     /* Service Cards */
+    .service-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
     .service-card-main {
       text-align: center;
       padding: 40px 32px;
@@ -681,25 +683,26 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
       margin-bottom: 12px;
     }
 
-    .service-card-sub {
-      padding: 28px 32px;
-      display: flex;
-      flex-direction: column;
+    .service-card-highlight {
+      background: linear-gradient(145deg, #16614e, #1a7a5e);
+      border-color: transparent;
     }
 
-    .service-card-sub-inner {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
+    .service-card-highlight h3,
+    .service-card-highlight .mini {
+      color: #fff;
     }
 
-    .service-card-sub h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
+    .service-card-highlight .icon-lg {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: none;
     }
 
-    .service-card-sub .icon-lg {
-      flex-shrink: 0;
+    @media (max-width: 640px) {
+      .service-two-col {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Advisory (inline) */
@@ -784,14 +787,6 @@ const title = "株式会社コールテン｜想いを大切にするAI活用サ
       }
       .advisory-lead br {
         display: none;
-      }
-      .service-card-sub-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .service-card-sub .btn {
-        align-self: center;
       }
     }
 
