@@ -1,0 +1,940 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "「できること」と「やりたいこと」が重なった日 —— たかろーさんと世界の教育チャンネルの裏側｜株式会社コールテン";
+const description = "動画制作のプロが、子ども教育への思いをAIの力で形にし始めた。フィンランドの教育哲学をショート動画にするプロジェクト「世界の教育チャンネル」の裏側を、たかろーさんに聞きました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/tkr-interview-education/"
+  ogUrl="https://www.corduroy.co.jp/blog/tkr-interview-education/"
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/tkr-interview-education/#article",
+    "url": "https://www.corduroy.co.jp/blog/tkr-interview-education/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/tkr-interview-education/"
+    },
+    "headline": "「できること」と「やりたいこと」が重なった日 —— たかろーさんと世界の教育チャンネルの裏側",
+    "datePublished": "2026-03-25",
+    "dateModified": "2026-03-25",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "about": {
+      "@type": "Person",
+      "name": "中野たかろー",
+      "jobTitle": "フリーランス ウェブクリエイター"
+    },
+    "description": "動画制作のプロが、子ども教育への思いをAIの力で形にし始めた。フィンランドの教育哲学をショート動画にするプロジェクト「世界の教育チャンネル」の裏側を、たかろーさんに聞きました。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "たかろーさん×世界の教育チャンネル" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "AIで教育コンテンツを作れますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "台本の作成、キャラクターの音声生成、動画の構成設計までAIで支援できます。ただし、AI任せにするのではなく、テーマの選定や表現のトーンなど「人の判断」が入る設計が品質の鍵になります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AIで動画を量産するにはどうすればいいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1本作れることと、量産できることは別です。キャラ設定、素材セット、構成ルール、テロップ仕様などの「設計図」を先に定義し、AIが参照できる形にしておくことが重要です。たかろーさんのプロジェクトでもこの設計図づくりが転機になりました。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "動画制作とAI活用を組み合わせるメリットは？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "動画制作では品質調整、分析、改善の反復が多く、AI活用の余地が大きい領域です。たかろーさんの場合、制作で生計を立てながら、AIで時間を捻出し、本当にやりたい子ども教育の発信に充てるという循環を目指しています。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <!-- ===== ヒーロー ===== -->
+    <section class="hero">
+      <div class="container hero-inner fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-lg"><img
+              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png"
+              alt="たかろーさん"></div>
+        </div>
+        <h1>「できること」と「やりたいこと」が<br>重なった日<br><span class="h1-sub">たかろーさんと世界の教育チャンネルの裏側</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">世界の教育を動画に</span>
+          <span class="result-badge">AI×動画で量産設計</span>
+          <span class="result-badge">子ども支援への接続</span>
+        </div>
+        <div class="meta">
+          <span class="tag">インタビュー</span>
+          <span class="pill">動画編集 / AI活用 / 教育コンテンツ</span>
+        </div>
+        <p>
+          フリーランスで動画やWeb制作を手がけるたかろーさん。「仕事としてできること」と「本当にやりたいこと」の間にはいつも距離があった。世界各国の教育を紹介するショート動画プロジェクトが、その距離を縮め始めている。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== 登場人物紹介 ===== -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="card big-bubble" style="margin-bottom:16px;">
+          <div class="dialogue">
+            <div class="bubble teto">
+              <div class="bubble-avatar">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
+                    alt="盤上テトくん">
+                <span class="name-tag">盤上テト</span>
+              </div>
+              <div class="bubble-text">
+                広報担当のテトです！<br>今回は、たかろーさんと一緒に進めている「世界の教育チャンネル」について聞いていくよ。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="character-grid cols-2">
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png"
+                alt="たかろーさん">
+            <h3 style="margin:2px 0 4px;">たかろーさん</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">
+              動画編集・Web制作・カメラマンとして活躍するフリーランス。子どもとの関わりに強い思いがあり、「世界の教育チャンネル」の企画・制作を担当。</p>
+          </div>
+          <div class="character-card">
+            <span class="character-role"
+                style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                alt="向 雅也">
+            <h3 style="margin:2px 0 4px;">向 雅也</h3>
+            <p class="mini" style="margin:0; color:var(--text-light);">AI顧問としてプロジェクトの設計・制作フロー構築を支援しています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 本編 ===== -->
+    <section class="container">
+      <div class="card dialogue-flow fade-up">
+
+        <!-- ナラティブ導入: in medias res -->
+        <div class="narrative">
+          <p>
+            フィンランドには「ラスナオロ」という言葉がある。<br>
+            直訳すると「そばにいること」。子どものそばに大人がいて、見守り、必要な時だけ手を差し伸べる。教え込むのではなく、子ども自身の力を信じるという考え方だ。
+          </p>
+          <p>
+            その言葉を45秒のショート動画にする。文字で読めば簡単そうだが、これを「見て理解できる」動画にするには、構成、テロップ、音声、間——すべての設計が問われる。
+          </p>
+          <p>
+            たかろーさんが手がける「世界の教育チャンネル」は、世界各国の教育哲学をAIの力を借りてショート動画にするプロジェクト。第1話のフィンランド編が完成し、量産に向けた設計図づくりの真っ最中だ。
+          </p>
+          <p>
+            動画制作のプロが、なぜ教育コンテンツに向かうのか。AIはそこでどう使われているのか。テトくんが聞いた。
+          </p>
+        </div>
+
+        <div class="dialogue">
+
+          <!-- ===== 「教育」に向かう理由 ===== -->
+          <div class="section-label">動画制作のプロが「教育」に向かう理由</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              たかろーさんは動画もWebも写真もできるじゃん。いろんなことできるのに、なんで「教育」なの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              制作の仕事は「求められるからできる」領域なんですよ。でも子どもと関わるとか、コーチング的な関わりって「思いが乗る」領域で。将来的には小中学生に低負担で関われる支援をやりたいんです。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              なるほど。でも「教育に関わりたい」だけだと、具体的に何をすればいいか悩みそうだよね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              そうなんです。そこでコールテンさんと話していく中で出てきたのが「世界の教育チャンネル」の企画で。世界中の教育の考え方をショート動画で紹介するっていう。自分の動画スキルと、教育への興味が初めて重なったなと。
+            </div>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>写真・動画・Webは「求められるからできる」領域。子ども支援やコーチングは「思いが乗る」領域——たかろーさんの中には、明確な線引きがある。制作で生計を立てながら、そこへ向かうための時間をどうつくるか。この問いに、AIとの出会いが一つの答えを出し始めていた。</p>
+            <p>そして世界の教育チャンネルは、その二つの領域がようやく重なったプロジェクトだ。</p>
+          </div>
+
+          <!-- ===== AIで動画を作るということ ===== -->
+          <div class="section-label">AIで教育動画を作るということ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              実際にAIを使って動画をどうやって作ってるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              まずAIで台本を作って、そこからキャラクターのセリフを生成して、音声をつけて、尺に合わせて調整する。テーマごとにリサーチもAIに手伝ってもらってます。フィンランドの「ラスナオロ」ってどういう概念？みたいなところから。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              おお！台本もリサーチも音声もAI？ほぼ全工程じゃん。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              そう見えるかもしれないけど、AIに全部任せるとうまくいかないんですよ。テロップの切り替わりタイミングとか、音声の印象とか、最後は人間が調整しないと見られるものにならない。冒頭3秒のフックとかは特に。
+            </div>
+          </div>
+
+          <!-- Feature Highlight: 制作フロー -->
+          <div class="cycle-diagram">
+            <div class="cycle-step">AIでリサーチ</div>
+            <div class="cycle-step">台本生成</div>
+            <div class="cycle-step">音声・素材生成</div>
+            <div class="cycle-step">人の手で仕上げ</div>
+          </div>
+
+          <div class="voice-note">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                  style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+                  alt="向">
+              <span class="note-name" style="margin:0">担当 向より</span>
+            </div>
+            動画制作には「品質調整、分析、改善の反復」が多く、AIとの相性が良い領域です。ただしAI任せにすると後から修正不能になりやすい。仕組みを理解しながら、人の判断を残す設計が大切です。
+          </div>
+
+          <!-- ===== 「1本作れる」と「量産できる」は違う ===== -->
+          <div class="section-label">「1本作れる」と「量産できる」は全然違う</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              1本目のフィンランド編はできたんだよね？そこからどうだった？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              1本作れたのは嬉しかったんですけど、同じ品質で2本目以降を作ろうとすると、手順がわからなくなるんですよ。1本目で感覚的にやった部分が多くて。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              あ〜、それって制作あるあるかも。1回できた≠毎回できる、みたいな。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              まさにそれです。キャラの設定、使う素材、音声の選び方、テロップのルール——こういう「設計図」を先に決めておかないと、毎回ゼロから考え直すことになる。そこがコールテンさんと一緒に整理している部分ですね。
+            </div>
+          </div>
+
+          <!-- プロンプトボックス: 設計図の要素 -->
+          <div class="prompt-box">
+            <span class="prompt-label">量産に必要な「設計図」</span>
+            <p style="margin:0; font-weight:700; color:var(--ink);">キャラ設定 / 素材セット / 音声選定 / 構成ルール / テロップ仕様 / 画面切り替え</p>
+            <p style="margin:8px 0 0; font-size:13px; color:var(--text-light);">※これらをAIが参照できる形で先に定義しておくことで、2本目以降の再現性が上がる。</p>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>Web制作の世界では「デザインシステム」と呼ばれる考え方がある。色、フォント、ボタンのサイズ——ルールを決めておけば、誰が作っても一定の品質が保たれる。</p>
+            <p>たかろーさんがぶつかった壁は、まさにこれと同じだ。1本の動画を気合いで作ることはできる。でも10本、20本と続けるには、「設計図」が先にないと破綻する。AIを使う場合はなおさらだ。AIが何を参照して出力しているかを把握していないと、品質がブレる。</p>
+            <p>「AIに丸投げすると後で修正不能になりやすい」——コールテンとの対話の中で、たかろーさんはこの原則を体感していった。</p>
+          </div>
+
+          <!-- ===== プルクオート ===== -->
+          <blockquote class="pull-quote">
+            1本作れることと、量産できることは別。<br>先に「設計図」を作るのが遠回りに見えて一番の近道だった。
+          </blockquote>
+
+          <!-- ===== AIの「中身」を理解するということ ===== -->
+          <div class="section-label">AIの「中身」を理解するということ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              制作だけじゃなくて、AIの仕組み自体にも興味あるの？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              使い始めた頃はChatGPTを検索代わりに使うだけだったんですけど、講座を受けてからは「AIがどう認識して、何を参照して出力しているか」を気にするようになりました。それがわかると、的外れな回答が返ってきた時に「あ、これは参照先が違うんだな」って原因がわかるんです。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              なるほど〜。使い方だけじゃなくて、裏側がわかると扱い方が変わるんだね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              動画の制作フローも同じで、どのファイルが何を担ってるか、プロジェクトの構造を理解しないと、AIにうまく指示が出せない。「わからないことは都度AIに仕組みを聞いて、理解した内容をファイルにまとめる」っていうやり方が今は一番しっくりきてます。
+            </div>
+          </div>
+
+          <!-- Feature Highlight: 学習スタイル -->
+          <div class="card" style="background:var(--green); border:none; color:#eee; padding:20px; font-family:monospace; margin:10px 0;">
+            <div style="color:var(--line-strong); margin-bottom:10px; font-size:12px;">// たかろーさんの学習スタイル</div>
+            <p style="margin:0 0 10px 0; color:#eee;">たかろー：「このフォルダ構成ってどういう仕組みで動いてるの？」</p>
+            <p style="color:var(--mint); margin:0;">
+              AI：「srcフォルダの中にエピソードごとのディレクトリがあり、各シーンの台本・音声・素材を格納しています。buildコマンドを実行すると、この構成から自動で動画が生成されます。」</p>
+          </div>
+
+          <!-- ===== これからのこと ===== -->
+          <div class="section-label">「できること」から「やりたいこと」へ</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              このチャンネル、これからどうなっていくのかな？
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              まずはフィンランド、ニュージーランド、イタリアとか、10話分くらいの台本はもう準備できてるんです。設計図が整ったら、そこに沿って順に動画にしていく。ゆくゆくは、子どもに関わる現場の人にも見てもらえるチャンネルにしたいですね。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              教育チャンネルが、たかろーさんの「やりたいこと」への入口になってるんだね。
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              そうですね。制作の仕事でスキルを磨きながら、そのスキルを教育に向ける。AIで時間を圧縮して、教育に充てる時間をつくる。全部がつながってきた感覚があります。
+            </div>
+          </div>
+
+          <!-- ナラティブ挿入 -->
+          <div class="narrative-inline">
+            <p>たかろーさんはB型事業所の運用実態にも詳しく、福祉の現場で子どもや利用者とどう関わるかを真剣に考えている人だ。仲介団体がマニュアル作成まで伴走し、事業所側が利用者の特性を見ながら配置する——そういう構造を理解した上で、自分がどう関われるかを考えている。</p>
+            <p>世界の教育チャンネルは、その「関わり方」の一つのかたちだ。直接子どもの前に立つだけが支援じゃない。「いい考え方を届ける」ことも、立派な関わりになる。</p>
+          </div>
+
+          <!-- ===== まとめ ===== -->
+          <div class="section-label">動画×AI×教育のこれから</div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              最後に、このプロジェクトを通して感じたことを一言！
+            </div>
+          </div>
+          <div class="bubble right">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+              <span class="name-tag">たかろーさん</span>
+            </div>
+            <div class="bubble-text">
+              AIを使えば何でもできそうに見えるけど、本当に大事なのは「何のために使うか」。自分の場合は、子どもに関わりたいっていう思いがあったから、ツールが活きた。目的が先、ツールは後です。
+            </div>
+          </div>
+
+          <div class="bubble teto">
+            <div class="bubble-avatar">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テトくん">
+              <span class="name-tag">盤上テト</span>
+            </div>
+            <div class="bubble-text">
+              たかろーさん、ありがとうございました！チャンネルの公開楽しみにしてるね！
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 担当コメント -->
+    <section class="container" style="padding-top:40px; padding-bottom:40px;">
+      <div class="voice-note fade-up" style="max-width:800px; margin:0 auto;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+              style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
+              alt="向">
+          <span class="note-name" style="margin:0">担当 向より</span>
+        </div>
+        たかろーさんとは友人として先に出会い、今はクライアントとしても一緒に動いています。このプロジェクトが面白いのは、たかろーさんの動画制作スキルと、教育への思いが初めてかみ合った点です。AIは便利なツールですが、それだけでは方向は決まらない。「何のために使うか」が先にある人は、ツールを使いこなせるようになるのが早いと実感しています。
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <div class="faq-section fade-up" style="max-width:760px; margin:0 auto;">
+        <h2 class="faq-heading">よくある質問</h2>
+        <details class="faq-item">
+          <summary>AIで教育コンテンツを作れますか？</summary>
+          <p>台本の作成、キャラクターの音声生成、動画の構成設計までAIで支援できます。ただし、AI任せにするのではなく、テーマの選定や表現のトーンなど「人の判断」が入る設計が品質の鍵になります。</p>
+        </details>
+        <details class="faq-item">
+          <summary>AIで動画を量産するにはどうすればいいですか？</summary>
+          <p>1本作れることと、量産できることは別です。キャラ設定、素材セット、構成ルール、テロップ仕様などの「設計図」を先に定義し、AIが参照できる形にしておくことが重要です。たかろーさんのプロジェクトでもこの設計図づくりが転機になりました。</p>
+        </details>
+        <details class="faq-item">
+          <summary>動画制作とAI活用を組み合わせるメリットは？</summary>
+          <p>動画制作では品質調整、分析、改善の反復が多く、AI活用の余地が大きい領域です。たかろーさんの場合、制作で生計を立てながら、AIで時間を捻出し、本当にやりたい子ども教育の発信に充てるという循環を目指しています。</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 関連リンク -->
+    <section class="container" style="padding-top:0; padding-bottom:40px;">
+      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+          <li><a href="/clients/takaro/" style="font-size:13px; color:var(--sea);">たかろーさんの記事まとめ →</a></li>
+          <li><a href="/blog/tkr-interview-second-me/" style="font-size:13px; color:var(--sea);">「忖度せず答えて」AIとの付き合い方（インタビュー） →</a></li>
+          <li><a href="/blog/tkr-ai-advisory/" style="font-size:13px; color:var(--sea);">AI顧問契約のお知らせ →</a></li>
+          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
+      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+        <h3>AIで「やりたいこと」を形にする</h3>
+        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">
+          コールテンは、AIの活用設計から制作フローの構築まで一緒に伴走します。<br>
+          「やりたいことはあるけど、どう始めたらいいかわからない」——そんな方こそ、まずご相談ください。
+        </p>
+        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで活用されているのは<strong>AI顧問</strong>サービスです。動画制作・コンテンツ企画・AI活用設計をまとめてサポートします。</p>
+        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
+          <a class="btn" href="/services/advisory">AI顧問サービスを見る</a>
+          <a class="btn secondary" href="/services/study">AI講座の一覧</a>
+          <a class="btn secondary" href="/contact">相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    /* Hero */
+    .hero {
+        padding: 160px 0 32px;
+        text-align: center;
+        background: transparent;
+    }
+    .intro-section {
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .h1-sub {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 600;
+        display: block;
+        margin-top: 8px;
+        color: var(--text-light);
+    }
+    .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+    }
+    .tag {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: var(--mint);
+        color: var(--sea);
+        font-weight: 700;
+        font-size: 13px;
+        border: 1px solid var(--line);
+    }
+    .pill {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid var(--line);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--text-light);
+    }
+    .avatar-frame {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
+    }
+    .avatar-lg {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        background: #fff;
+    }
+    .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+    .card.cta-card {
+        transform: none !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    .character-card {
+        text-align: center;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.3s ease;
+    }
+    .character-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+    }
+    .character-card img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        margin: 0 auto 8px;
+        display: block;
+    }
+    .character-role {
+        display: inline-block;
+        padding: 6px 10px;
+        background: #f1f7f3;
+        border: 1px solid #d6e8df;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #124034;
+        margin-bottom: 6px;
+    }
+    .character-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: 1fr;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+    @media(min-width:900px) {
+        .character-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Dialogue Section */
+    .dialogue-flow { max-width: 760px; margin: 0 auto; }
+    .dialogue {
+        display: grid;
+        gap: 26px;
+        margin: 16px auto 18px;
+        max-width: 640px;
+    }
+    .bubble {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 12px;
+        padding: 10px 12px;
+        line-height: 1.7;
+        color: #12382c;
+        flex: 1;
+        position: relative;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border: 1px solid #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+    .voice-note {
+        margin: 22px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid #f2ddbf;
+        background: #fff7ea;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
+        color: #3a2c15;
+        line-height: 1.7;
+        max-width: 640px;
+    }
+    .note-name {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: #fbe9cc;
+        color: #6a4618;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+    .big-bubble .bubble img { width: 64px; height: 64px; }
+    .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    .big-bubble { max-width: 720px; margin: 0 auto; }
+    .prompt-box {
+        background: var(--mint);
+        border: 1px dashed var(--sea);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 16px 0;
+        position: relative;
+    }
+    .prompt-label {
+        position: absolute;
+        top: -12px;
+        left: 12px;
+        background: var(--sea);
+        color: #fff;
+        padding: 2px 8px;
+        font-size: 11px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    .cycle-diagram {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+    .cycle-step {
+        background: #fff;
+        border: 2px solid var(--line);
+        border-radius: 12px;
+        padding: 15px;
+        width: 140px;
+        text-align: center;
+        font-weight: bold;
+        color: var(--green);
+        position: relative;
+    }
+    .cycle-step::after {
+        content: "\2192";
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--line-strong);
+        font-weight: bold;
+    }
+    .cycle-step:last-child::after {
+        content: "\21BB";
+        right: auto;
+        left: 50%;
+        bottom: -30px;
+        top: auto;
+        transform: translateX(-50%) rotate(90deg);
+    }
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
+    }
+
+    /* ===== ガイドライン適用スタイル ===== */
+
+    /* ナラティブ（冒頭の地の文） */
+    .narrative {
+        max-width: 640px;
+        margin: 0 auto 32px;
+        line-height: 2;
+        font-size: 15px;
+        color: var(--text);
+    }
+    .narrative p {
+        margin-bottom: 20px;
+    }
+
+    /* ナラティブ（会話間の地の文） */
+    .narrative-inline {
+        max-width: 640px;
+        margin: 10px auto;
+        padding: 20px 24px;
+        background: #faf8f5;
+        border-radius: 12px;
+        line-height: 1.9;
+        font-size: 14.5px;
+        color: #555;
+    }
+    .narrative-inline p {
+        margin: 0 0 14px;
+    }
+    .narrative-inline p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* セクション見出し（会話内・帯デザイン） */
+    .section-label {
+        margin: 32px -32px 16px;
+        padding: 14px 32px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--sea, #16614e);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        border-left: none;
+    }
+
+    /* プルクオート（端まで引っ張る） */
+    .pull-quote {
+        margin: 36px -32px;
+        padding: 2.5rem 32px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        border-top: 3px solid var(--accent, #d4a574);
+        border-bottom: 3px solid var(--accent, #d4a574);
+        background: #faf8f5;
+        color: var(--heading, #2c1810);
+        line-height: 1.9;
+        quotes: none;
+    }
+
+    /* FAQ */
+    .faq-heading {
+        font-size: 18px;
+        margin-bottom: 16px;
+        padding-left: 14px;
+        border-left: 3px solid var(--sea);
+    }
+    .faq-item {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin-bottom: 12px;
+        overflow: hidden;
+    }
+    .faq-item summary {
+        padding: 16px 20px;
+        font-weight: 600;
+        font-size: 14.5px;
+        cursor: pointer;
+        list-style: none;
+    }
+    .faq-item summary::before {
+        content: "Q. ";
+        color: var(--sea);
+        font-weight: 700;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p {
+        padding: 0 20px 16px;
+        font-size: 14px;
+        line-height: 1.9;
+        color: #555;
+    }
+
+    @media(max-width: 600px) {
+        .cycle-step::after {
+            content: "\2193";
+            right: 50%;
+            top: 100%;
+            transform: translateX(50%);
+        }
+        .cycle-diagram {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    @media(max-width:768px) {
+        .hero { padding: 100px 20px 20px; }
+        .bubble-avatar { width: 64px; height: 64px; }
+        .name-tag { font-size: 9px; }
+        .section-label {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+        .pull-quote {
+            margin-left: -32px;
+            margin-right: -32px;
+            padding: 2rem 24px;
+            font-size: 1rem;
+        }
+        .narrative-inline p { margin-bottom: 12px; }
+        .narrative-inline p:last-child { margin-bottom: 0; }
+    }
+</style>

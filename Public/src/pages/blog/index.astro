@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 // ブログ記事リスト（新しい順）
 // 新しい記事を追加するときは、このリストの先頭に追加し、
 // 対応する個別ページ（src/pages/blog/<slug>.astro）も必要なら作成する。
-const categories = ['すべて', 'お知らせ', '活動報告', 'パートナー自慢', '子ども支援', 'AI活用', '会社情報', 'その他'];
+const categories = ['すべて', 'お知らせ', '活動報告', 'パートナー自慢', 'インタビュー', '子ども支援', 'AI活用', '会社情報', 'その他'];
 
 const posts = [
   {
@@ -62,6 +62,15 @@ const posts = [
     external: false,
   },
   {
+    slug: 'tkr-interview-education',
+    date: '2026-03-25',
+    category: 'インタビュー',
+    title: '「できること」と「やりたいこと」が重なった日 —— たかろーさんと世界の教育チャンネルの裏側',
+    excerpt: '動画制作のプロが、子ども教育への思いをAIの力で形にし始めた。フィンランドの教育哲学をショート動画にするプロジェクトの裏側を聞きました。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png',
+    external: false,
+  },
+  {
     slug: 'asiz-partnership',
     date: '2026-03-16',
     category: '活動報告',
@@ -104,6 +113,15 @@ const posts = [
     title: '株式会社スデニアルの佐野さんと定期ミーティングを開始しました',
     excerpt: '2025年12月から株式会社スデニアルの佐野さんと毎週ミーティング。プロマーケター×AI活用で、本当に価値あるものを届けるための協業を模索しています。',
     thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+    external: false,
+  },
+  {
+    slug: 'tkr-interview-second-me',
+    date: '2026-01-10',
+    category: 'インタビュー',
+    title: '「忖度せず答えて」—— フリーランスたかろーさんが見つけた、AIとの付き合い方',
+    excerpt: 'ChatGPTを検索ツールとして使うだけだった状態から、価値観やクセまで教え込んだ「第二の自分」を育てるまでの変化を聞きました。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png',
     external: false,
   },
   {
@@ -180,7 +198,7 @@ const description = "コールテンの活動報告やAI活用に関する気づ
         ) : (
           posts.map((post) => (
             <a
-              href={post.external ? post.slug : `/blog/${post.slug}`}
+              href={post.external ? post.slug : `/blog/${post.slug}/`}
               class="post-card"
               data-categories={Array.isArray(post.category) ? post.category.join(',') : post.category}
               data-date={post.date}
