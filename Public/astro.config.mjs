@@ -9,7 +9,7 @@ import preact from '@astrojs/preact';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://corduroy.co.jp',
+  site: 'https://www.corduroy.co.jp',
   trailingSlash: 'always',
   redirects: {
     '/clients/takaro': '/voices/takaro/',

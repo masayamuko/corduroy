@@ -17,11 +17,11 @@ const {
     description, 
     canonicalUrl, 
     ogUrl, 
-    ogImage = "https://corduroy.co.jp/assets/images/ogp.png",
+    ogImage = "https://www.corduroy.co.jp/assets/images/ogp.png",
     ogType = "website"
 } = Astro.props;
 
-const siteBase = Astro.site?.href ?? "https://corduroy.co.jp";
+const siteBase = Astro.site?.href ?? "https://www.corduroy.co.jp";
 const rawPath = Astro.url?.pathname ?? "/";
 const normalizedPath = rawPath
   .replace(/\/index\.html$/i, "/")
@@ -78,11 +78,11 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
             "@graph": [
                 {
                     "@type": "Organization",
-                    "@id": "https://corduroy.co.jp/#organization",
+                    "@id": "https://www.corduroy.co.jp/#organization",
                     "name": "株式会社コールテン",
                     "alternateName": "Corduroy Inc.",
-                    "url": "https://corduroy.co.jp/",
-                    "logo": "https://corduroy.co.jp/assets/images/logo.png",
+                    "url": "https://www.corduroy.co.jp/",
+                    "logo": "https://www.corduroy.co.jp/assets/images/logo.png",
                     "description": "AIとの関係性を育てる、本質的な学びと伴走。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。",
                     "legalName": "株式会社コールテン",
                     "foundingDate": "2025-11-21",
@@ -96,7 +96,7 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
                         "@type": "Person",
                         "name": "向 雅也",
                         "alternateName": "Masaya Muko",
-                        "url": "https://corduroy.co.jp/members/masaya/"
+                        "url": "https://www.corduroy.co.jp/members/masaya/"
                     },
                     "sameAs": [
                         "https://x.com/MasayaToAi",
@@ -112,10 +112,10 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
                 },
                 {
                     "@type": "WebSite",
-                    "@id": "https://corduroy.co.jp/#website",
-                    "url": "https://corduroy.co.jp/",
+                    "@id": "https://www.corduroy.co.jp/#website",
+                    "url": "https://www.corduroy.co.jp/",
                     "name": "株式会社コールテン",
-                    "publisher": { "@id": "https://corduroy.co.jp/#organization" },
+                    "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
                     "inLanguage": "ja-JP"
                 }
             ]
