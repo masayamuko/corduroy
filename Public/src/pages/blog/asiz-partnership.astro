@@ -1,0 +1,207 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "一般社団法人As iZさんの青少年プログラムにサポートスタッフとして参加しています｜株式会社コールテン";
+const description = "感情知能（EQ）教育に取り組む一般社団法人As iZさんの青少年支援プログラムに、サポートスタッフとして参加しています。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://corduroy.co.jp/blog/asiz-partnership/"
+  ogUrl="https://corduroy.co.jp/blog/asiz-partnership/"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://corduroy.co.jp/blog/asiz-partnership/#article",
+    "url": "https://corduroy.co.jp/blog/asiz-partnership/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://corduroy.co.jp/blog/asiz-partnership/"
+    },
+    "headline": "一般社団法人As iZさんの青少年プログラムにサポートスタッフとして参加しています",
+    "datePublished": "2026-03-16",
+    "dateModified": "2026-03-16",
+    "image": "https://corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Organization",
+      "@id": "https://corduroy.co.jp/#organization",
+      "name": "株式会社コールテン"
+    },
+    "publisher": {
+      "@id": "https://corduroy.co.jp/#organization"
+    },
+    "description": "感情知能（EQ）教育に取り組む一般社団法人As iZさんの青少年支援プログラムに、サポートスタッフとして参加しています。"
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>asiz-partnership</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-03-16</time>
+            <span class="cat">活動報告</span>
+          </div>
+          <h1>一般社団法人As iZさんの青少年プログラムにサポートスタッフとして参加しています</h1>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <p>
+              2026年3月、<a href="https://asiz.jp/" target="_blank" rel="noopener noreferrer">一般社団法人As iZ（アズイズ）</a>さんに、
+              1年間の業務委託契約をいただきました。
+              青少年支援プログラムのサポートスタッフとして活動を開始しています。
+            </p>
+
+            <h2>As iZさんについて</h2>
+            <p>
+              As iZさんは、感情知能（EQ）に関する教育・普及啓発に取り組む一般社団法人です。
+              「ありのままの自分を受け入れ、幸せに生きる力を育む」をミッションに掲げ、
+              青少年向けのメディアアーツプログラム（MAP）を提供されています。
+            </p>
+            <p>
+              写真撮影やクリエイティブライティングなどのアートを通じた自己表現の機会を、
+              10〜20週間のコースで提供。
+              自分らしく生きることが難しいと感じている若者たちに、
+              自己決定力を育む場をつくっています。
+            </p>
+
+            <h2>サポートスタッフとしての役割</h2>
+            <p>
+              代表の向は、As iZさんが福岡県内の高校の授業の一環として実施するプログラムに、
+              サポートスタッフとして同行しています。
+              プログラムの現場運営を補助し、スムーズな進行をサポートする役割です。
+            </p>
+            <p>
+              AI顧問としてではなく、青少年支援の現場に直接関わる仕事です。
+              コールテンはAI支援の会社ですが、
+              「人の可能性を広げる」という点では、AIもアートも同じ方向を向いていると感じています。
+            </p>
+            <p>
+              As iZさんの活動を通じて、若者たちの自己表現や自己理解の場づくりに少しでも貢献できればと思っています。
+            </p>
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+          <a href="/contact" class="btn">お問い合わせ</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-left: 14px;
+    border-left: 4px solid var(--sea);
+  }
+  .article-body p { margin-bottom: 24px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover {
+    text-decoration-color: var(--sea);
+  }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-foot { justify-content: center; }
+  }
+</style>

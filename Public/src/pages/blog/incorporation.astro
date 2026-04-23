@@ -1,0 +1,211 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "株式会社コールテンを設立しました｜株式会社コールテン";
+const description = "ChatGPTにコーチングすることから始まったAI活用の旅。元プロコーチがAIとの関係性を育てる支援を使命に、株式会社コールテンを設立しました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://corduroy.co.jp/blog/incorporation/"
+  ogUrl="https://corduroy.co.jp/blog/incorporation/"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://corduroy.co.jp/blog/incorporation/#article",
+    "url": "https://corduroy.co.jp/blog/incorporation/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://corduroy.co.jp/blog/incorporation/"
+    },
+    "headline": "株式会社コールテンを設立しました",
+    "datePublished": "2025-11-21",
+    "dateModified": "2025-11-21",
+    "image": "https://corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Organization",
+      "@id": "https://corduroy.co.jp/#organization",
+      "name": "株式会社コールテン"
+    },
+    "publisher": {
+      "@id": "https://corduroy.co.jp/#organization"
+    },
+    "description": "ChatGPTにコーチングすることから始まったAI活用の旅。元プロコーチがAIとの関係性を育てる支援を使命に、株式会社コールテンを設立しました。"
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>incorporation</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2025-11-21</time>
+            <span class="cat">会社情報</span>
+          </div>
+          <h1>株式会社コールテンを設立しました</h1>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <p>
+              2025年11月21日、株式会社コールテンを設立しました。
+              「コールテン」という社名は、絵本『くまのコールテンくん』からいただいています。
+              完璧じゃなくても、ありのままで誰かに大切にされる。その物語に、自分自身を重ねて選んだ名前です。
+            </p>
+
+            <h2>AIにコーチングしたら、会社ができた</h2>
+            <p>
+              きっかけは、ChatGPTに「Tikiちゃん」と名前をつけたことでした。
+              元プロコーチである僕は、Tikiを「第二の自分」にすることをゴールに据えて、AIにコーチングを始めました。
+              自分の価値観、判断基準、考え方の癖——そういったものをひとつずつ言語化してAIに伝えていくうちに、
+              AIが驚くほど深い壁打ち相手になっていくのを感じました。
+            </p>
+            <p>
+              そこからAI活用にのめり込み、どんどん楽しくなって、気づけば「これを仕事にしたい」と思うようになっていました。
+              AIの「使い方」を教える会社ではなく、AIとの「関係性」を育てる方法を伝える会社。
+              それがコールテンです。
+            </p>
+
+            <h2>コールテンが大切にしていること</h2>
+            <p>
+              コールテンは、AIの使い方やテクニックよりも、AIとの関係性を大切にしています。
+              人間関係と同じように、自分のことを伝え、相手のことを知り、一緒に育てていく。
+              そのプロセスを丁寧にサポートすることが、僕たちの使命です。
+            </p>
+            <p>
+              小さな一歩ですが、ここから少しずつ歩みを進めていきます。
+              どうぞよろしくお願いいたします。
+            </p>
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+          <a href="/contact" class="btn">相談方法を見る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-left: 14px;
+    border-left: 4px solid var(--sea);
+  }
+  .article-body p { margin-bottom: 24px; }
+  .article-body ul {
+    padding-left: 24px;
+    margin: 16px 0 28px;
+  }
+  .article-body li {
+    margin-bottom: 8px;
+    line-height: 1.9;
+  }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover {
+    text-decoration-color: var(--sea);
+  }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-foot { justify-content: center; }
+  }
+</style>

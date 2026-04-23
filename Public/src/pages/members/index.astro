@@ -168,24 +168,41 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
         <div class="intro-grid fade-up">
           <div class="intro-text">
             <small class="eyebrow">About the team</small>
-            <h2>AIだから、<br />小さく試して広く届ける。</h2>
-            <p>コールテンは紹介限定・長期前提でクライアントさんと伴走するAIパートナー企業です。一人ひとりの現場に深く入り込むため、業務領域ごとに専門化したAI社員を設計・運用しています。</p>
+            <h2>自立・改善する<br />AI社員の組織。</h2>
+            <p>コールテンでは業務ごとにAIエージェント（AI社員）を設計し、メインのエージェント（COS: Tiki）が仕事を割り振って進めています。この仕組みを見ていただくだけでも、AI活用の具体的なイメージが掴めるはずです。</p>
             <p>朝のブリーフィング、議事録の構造化、請求書の発行、コードのレビュー、SNS投稿のドラフト——それぞれの仕事に「一番向いた性格と得意分野」を持つAI社員が、代表・人間スタッフと連携して動いています。</p>
             <a href="/members/about/" class="btn secondary">AI社員の仕組みを詳しく →</a>
           </div>
           <div class="intro-points">
             <div class="point">
-              <div class="point-num">01</div>
+              <div class="point-icon-row">
+                <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                <div class="point-num">01</div>
+              </div>
               <h3>専門特化</h3>
-              <p>10部門・{totalMembers}名。それぞれが業務領域・性格・判断基準を明確に持つ。</p>
+              <p>業務領域・性格・判断基準を明確に持つ。10部門・{totalMembers}名がそれぞれの専門で動く。</p>
             </div>
             <div class="point">
-              <div class="point-num">02</div>
-              <h3>人間と協働</h3>
-              <p>最終判断は代表・人間が行う。AI社員は情報整理・ドラフト・監視を担う。</p>
+              <div class="point-icon-row">
+                <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.5-1.3 4.8-3.5 6v1.5a1.5 1.5 0 0 1-1.5 1.5h-4a1.5 1.5 0 0 1-1.5-1.5V15c-2.2-1.2-3.5-3.5-3.5-6a7 7 0 0 1 7-7z"/><path d="M9.5 19h5"/><path d="M10 21h4"/><path d="M12 2v3"/><path d="M4.2 5.2l2.1 2.1"/><path d="M19.8 5.2l-2.1 2.1"/></svg>
+                <div class="point-num">02</div>
+              </div>
+              <h3>記憶を持つ</h3>
+              <p>過去のやりとり・判断履歴をメモリとして蓄積。使うほど精度が上がる。</p>
             </div>
             <div class="point">
-              <div class="point-num">03</div>
+              <div class="point-icon-row">
+                <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-3-3.87"/><path d="M7 21v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="7" r="4"/><path d="M5.7 17.3a9 9 0 0 1 0-10.6"/><path d="M18.3 6.7a9 9 0 0 1 0 10.6"/></svg>
+                <div class="point-num">03</div>
+              </div>
+              <h3>人間と協業</h3>
+              <p>最終判断は代表・人間が行い、AI社員は情報整理・ドラフト・監視を担う。</p>
+            </div>
+            <div class="point">
+              <div class="point-icon-row">
+                <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6"/><path d="M2.5 16A10 10 0 0 1 5.6 5.6"/><path d="M21.5 8A10 10 0 0 1 18.4 18.4"/></svg>
+                <div class="point-num">04</div>
+              </div>
               <h3>常に改善</h3>
               <p>フィードバックを蓄積し、毎週の振り返りで少しずつ賢くなる仕組み。</p>
             </div>
@@ -200,29 +217,41 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
         <div class="harness-grid fade-up">
           <div class="harness-left">
             <small class="eyebrow">Why characters?</small>
-            <h2>キャラクター化は、<br /><span class="hl">出力精度</span>と<br /><span class="hl">人の認知</span>、<br />両方のための設計。</h2>
+            <h2>キャラクター化は、<span class="hl">出力精度</span>と<span class="hl">人の認知</span>、両方のための設計。</h2>
             <p>AI社員に名前・性格・価値観を与えるのは、<strong>出力精度を安定させる</strong>ためと、<strong>人間が扱いやすくする</strong>ための両方を兼ねた設計です。役割・判断基準・口調を明確にすることで生成AIの出力がブレにくくなり、同時に擬人化することで愛着と使いやすさが生まれ、人と例えて考えるほうが判断も自然になります（このアプローチは認知科学の論文でも効果が示されています）。</p>
             <p>そして重要なのは、<strong>「ハーネスエンジニアリング（Harness Engineering）」</strong> の本質は<strong>フィードバックループを回せること</strong>です。同じ業務を繰り返しても品質がブレにくい理由の一つがここにあり、このループがあるからこそ、人間が都度手を入れなくてもAI側で精度の高いアウトプットに近づいていきます。</p>
           </div>
           <div class="harness-right">
             <div class="harness-card">
               <div class="harness-step">
-                <div class="harness-step-num">01</div>
+                <div class="harness-step-head">
+                  <svg class="harness-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18"/><path d="M3 9h6"/><path d="M3 15h6"/></svg>
+                  <div class="harness-step-num">01</div>
+                </div>
                 <h3>役割の明確化</h3>
                 <p>「何を判断し、何を判断しないか」を明文化。曖昧さを削る。</p>
               </div>
               <div class="harness-step">
-                <div class="harness-step-num">02</div>
+                <div class="harness-step-head">
+                  <svg class="harness-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <div class="harness-step-num">02</div>
+                </div>
                 <h3>性格による一貫性</h3>
                 <p>語り口・優先順位・好みを固定し、毎回の出力にブレを出さない。</p>
               </div>
               <div class="harness-step">
-                <div class="harness-step-num">03</div>
+                <div class="harness-step-head">
+                  <svg class="harness-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6"/><path d="M2.5 16A10 10 0 0 1 5.6 5.6"/><path d="M21.5 8A10 10 0 0 1 18.4 18.4"/></svg>
+                  <div class="harness-step-num">03</div>
+                </div>
                 <h3>ループで自動改善</h3>
                 <p>出力 → 評価 → 反映 のループが回るから、人手を介さなくても品質が育つ。</p>
               </div>
               <div class="harness-step">
-                <div class="harness-step-num">04</div>
+                <div class="harness-step-head">
+                  <svg class="harness-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M21 3l-8.5 8.5"/><path d="M3 3l8.5 8.5"/><path d="M3 21l8.5-8.5"/><path d="M21 21l-8.5-8.5"/><path d="M16 21h5v-5"/><path d="M8 21H3v-5"/></svg>
+                  <div class="harness-step-num">04</div>
+                </div>
                 <h3>生成と評価の分離</h3>
                 <p>作る人と見る人を別AIに分ける。ダブルチェックで見落としを防ぐ。</p>
               </div>
@@ -457,6 +486,40 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="container faq">
+      <div class="section-head fade-up">
+        <small>FAQ</small>
+        <h2>よくあるご質問</h2>
+      </div>
+      <div class="faq-items fade-up">
+        <details open>
+          <summary>AI社員は本当に仕事をしているのですか？</summary>
+          <p>はい。朝のブリーフィング、議事録の構造化、請求書の発行、コードレビュー、SNS投稿の下書きなど、実際の業務をAI社員が日々こなしています。社内ダッシュボードでリアルタイムに稼働状況を確認でき、すべてのアウトプットは代表または人間のスタッフが最終チェックしています。</p>
+        </details>
+        <details>
+          <summary>AI社員のキャラクターには意味があるのですか？</summary>
+          <p>名前・性格・価値観を与えることで出力の一貫性が高まり、人間側も「誰に何を頼むか」が直感的になります。認知科学的にも擬人化は人の理解を助けることが知られています。詳しくは<a href="/members/about/">AI社員の仕組みページ</a>をご覧ください。</p>
+        </details>
+        <details>
+          <summary>クライアントの仕事もAI社員が担当するのですか？</summary>
+          <p>はい、クライアントさんの業務にもAI社員が関わります。ただし、最終的な提案・納品物は必ず代表または人間のスタッフが確認した上でお渡ししています。AI社員が直接クライアントさんとやりとりすることはありません。</p>
+        </details>
+        <details>
+          <summary>AI社員は増えていくのですか？</summary>
+          <p>事業の成長や新しい業務ニーズに応じて、新たなAI社員を設計・追加しています。現在もカスタマーサポート担当やデータサイエンティストなどを募集中（設計中）です。</p>
+        </details>
+        <details>
+          <summary>自分の会社でも同じような仕組みを作れますか？</summary>
+          <p>はい。コールテンでは、AI社員の設計ノウハウを活かした<a href="/services/advisory/">AI顧問サービス</a>や、自社でAI活用を始めるための<a href="/services/study/">AI講座</a>をご提供しています。お気軽にご相談ください。</p>
+        </details>
+        <details>
+          <summary>人間のスタッフは何人いますか？</summary>
+          <p>現在、人間のスタッフは代表の向 雅也（むこう まさや）1名です。AI社員{totalMembers}名とチームを組み、必要に応じて外部の協力者と連携しています。</p>
+        </details>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="members-cta bg-contact">
       <div class="container">
@@ -629,9 +692,23 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
   .point {
     background: #fff;
     border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
     border-radius: 16px;
     padding: 24px 28px;
     box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+  .point-icon-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .point-icon {
+    width: 22px;
+    height: 22px;
+    color: var(--accent);
+    flex-shrink: 0;
   }
   .point-num {
     font-family: 'Space Grotesk', sans-serif;
@@ -639,7 +716,6 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
     font-weight: 600;
     color: var(--accent);
     letter-spacing: 0.1em;
-    margin-bottom: 8px;
   }
   .point h3 {
     margin: 0 0 6px;
@@ -658,14 +734,8 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
   }
   .harness-grid {
     display: grid;
-    gap: 48px;
+    gap: 40px;
     align-items: start;
-  }
-  @media (min-width: 960px) {
-    .harness-grid {
-      grid-template-columns: 1fr 1.15fr;
-      gap: 64px;
-    }
   }
   .harness-left h2 {
     margin: 0 0 24px;
@@ -682,13 +752,18 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
   }
   .harness-card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     padding: 28px;
     background: #fff;
     border: 1px solid var(--line);
     border-radius: 22px;
     box-shadow: var(--shadow-md);
+  }
+  @media (max-width: 860px) {
+    .harness-card {
+      grid-template-columns: 1fr 1fr;
+    }
   }
   @media (max-width: 600px) {
     .harness-card {
@@ -701,13 +776,24 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
     border-radius: 14px;
     padding: 18px 20px;
   }
+  .harness-step-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .harness-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
   .harness-step-num {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 12px;
     font-weight: 700;
     color: var(--accent);
     letter-spacing: 0.1em;
-    margin-bottom: 6px;
   }
   .harness-step h3 {
     margin: 0 0 6px;

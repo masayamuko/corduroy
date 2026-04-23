@@ -48,13 +48,13 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
 		<link rel="icon" type="image/x-icon" href="/assets/images/faviconC.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<meta name="description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"} />
+		<meta name="description" content={description || "AIとの関係性を育てる、本質的な学びと伴走。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"} />
 		<link rel="canonical" href={resolvedCanonicalUrl} />
         
         <meta property="og:type" content={ogType}>
         <meta property="og:url" content={resolvedOgUrl}>
         <meta property="og:title" content={title}>
-        <meta property="og:description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"}>
+        <meta property="og:description" content={description || "AIとの関係性を育てる、本質的な学びと伴走。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"}>
         <meta property="og:image" content={ogImage}>
         <meta property="og:locale" content="ja_JP">
         <meta property="og:site_name" content="株式会社コールテン">
@@ -63,12 +63,12 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:url" content={resolvedOgUrl}>
         <meta name="twitter:title" content={title}>
-        <meta name="twitter:description" content={description || "紹介限定・長期前提で伴走するAIパートナー。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"}>
+        <meta name="twitter:description" content={description || "AIとの関係性を育てる、本質的な学びと伴走。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"}>
         <meta name="twitter:image" content={ogImage}>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
         <!-- Organization & WebSite Schema.org -->
         <script type="application/ld+json" is:inline set:html={JSON.stringify({
@@ -81,7 +81,7 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
                     "alternateName": "Corduroy Inc.",
                     "url": "https://corduroy.co.jp/",
                     "logo": "https://corduroy.co.jp/assets/images/logo.png",
-                    "description": "紹介限定・長期前提で伴走するAIパートナー。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。",
+                    "description": "AIとの関係性を育てる、本質的な学びと伴走。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。",
                     "founder": {
                         "@type": "Person",
                         "name": "向 雅也",
@@ -467,6 +467,112 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
         transform: translateY(30px);
     }
     
+    /* ============================================
+       FAQ — Corduroy Standard
+       ============================================ */
+    .faq .faq-items {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq details {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 24px;
+      background: #fff;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 17px;
+      padding-right: 60px;
+      position: relative;
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+
+    /* Closed: Animated arrow hint */
+    .faq summary::before {
+      content: '\2192';
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent, #d4a04d);
+      opacity: 0.75;
+      animation: faq-arrow-nudge 1.6s ease-in-out infinite;
+      transition: opacity 0.3s ease;
+    }
+
+    @keyframes faq-arrow-nudge {
+      0%, 100% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(-50%) translateX(5px); }
+    }
+
+    /* Closed: 2-hole outline button */
+    .faq summary::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 2px solid var(--sea);
+      background-image:
+        radial-gradient(circle at 38% 50%, var(--sea) 2px, transparent 2.5px),
+        radial-gradient(circle at 62% 50%, var(--sea) 2px, transparent 2.5px);
+      background-repeat: no-repeat;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Open: Hide arrow */
+    .faq details[open] summary::before {
+      opacity: 0;
+      animation: none;
+    }
+
+    /* Open: Green filled circle + white X */
+    .faq details[open] summary::after {
+      background-color: var(--sea);
+      border-color: var(--sea);
+      background-image:
+        linear-gradient(45deg, transparent 42%, #fff 42%, #fff 58%, transparent 58%),
+        linear-gradient(-45deg, transparent 42%, #fff 42%, #fff 58%, transparent 58%);
+      background-position: center;
+      background-size: 50% 50%;
+      background-repeat: no-repeat;
+      transform: translateY(-50%) rotate(180deg);
+      box-shadow: 0 2px 8px rgba(22, 97, 78, 0.3);
+    }
+
+    .faq details p,
+    .faq details .faq-a {
+      margin-top: 16px;
+      margin-bottom: 0;
+      line-height: 1.8;
+      color: var(--text-light);
+      font-size: 15px;
+    }
+
+    .faq details a {
+      color: #1a6bb5;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.2s ease;
+    }
+    .faq details a:hover {
+      color: #124a7e;
+    }
+
     /* ============================================
        MOBILE RESPONSIVE STYLES
        ============================================ */

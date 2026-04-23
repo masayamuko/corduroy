@@ -358,14 +358,14 @@ const startDates = [
         <small>FAQ</small>
         <h2>よくあるご質問</h2>
       </div>
-      <div class="fade-up" style="max-width:800px; margin:0 auto;">
+      <div class="faq-items fade-up">
         <details open>
           <summary>AI初心者でも参加できますか？</summary>
-          <p class="mini">はい、大丈夫です。基礎講座はブラウザでの対話から始めます。初めての方も安心して受講できます。</p>
+          <p class="mini">はい、大丈夫です。<a href="/services/study/basicAI">基礎講座</a>はブラウザでの対話から始めます。初めての方も安心して受講できます。まずは<a href="/services/study/">無料動画講座</a>で雰囲気を知るのもおすすめです。</p>
         </details>
         <details>
           <summary>3ヶ月の途中から参加できますか？</summary>
-          <p class="mini">プログラムは「第二の自分作り」からスタートする設計のため、途中参加はお受けしていません。次のスタート時期（年4回）にご参加ください。</p>
+          <p class="mini">プログラムは「<a href="/services/study/SecondME">第二の自分作り</a>」からスタートする設計のため、途中参加はお受けしていません。次のスタート時期（年4回）にご参加ください。</p>
         </details>
         <details>
           <summary>オンライン参加はできますか？</summary>
@@ -377,7 +377,27 @@ const startDates = [
         </details>
         <details>
           <summary>無料体験会だけ参加できますか？</summary>
-          <p class="mini">もちろん参加できます。「まず雰囲気を見たい」「自分に合うか確かめたい」という方のための体験会です。体験会後の申し込みは任意です。</p>
+          <p class="mini">もちろん参加できます。「まず雰囲気を見たい」「自分に合うか確かめたい」という方のための<a href="/services/study/trial">体験会</a>です。体験会後の申し込みは任意です。</p>
+        </details>
+        <details>
+          <summary>3ヶ月プログラムの費用はいくらですか？</summary>
+          <p class="mini">108,000円（税込）です。月1講座×3回・作業会・Discordサポートがすべて含まれます。詳しい内容は<a href="/services/study/trial">無料体験会</a>でもご案内していますので、お気軽にご参加ください。</p>
+        </details>
+        <details>
+          <summary>3つの講座を個別に受けることもできますか？</summary>
+          <p class="mini">はい、<a href="/services/study/basicAI">AI基礎講座</a>・<a href="/services/study/SecondME">第二の自分作り</a>・<a href="/services/study/AIdeWEB">AIでWEB作り</a>はそれぞれ単体でも受講できます。ただし、3つをセットで学ぶ方が理解が深まるため、プログラムでの受講をおすすめしています。</p>
+        </details>
+        <details>
+          <summary>途中で辞めることはできますか？</summary>
+          <p class="mini">原則として3ヶ月を通して受講いただく前提のプログラムです。やむを得ない事情がある場合はLINEにてご相談ください。</p>
+        </details>
+        <details>
+          <summary>受講後のサポートはありますか？</summary>
+          <p class="mini">はい、プログラム修了後は<a href="/services/study/community">AIコミュニティ「糸口会」</a>に参加して、仲間と一緒に学び続けることができます。さらに深い活用を目指す方には<a href="/services/advisory">AI顧問</a>による個別伴走もご用意しています。</p>
+        </details>
+        <details>
+          <summary>同じ講座を再受講できますか？</summary>
+          <p class="mini">はい、受講済みの講座に再参加することも可能です。復習として参加される方もいらっしゃいます。詳しくはLINEにてお問い合わせください。</p>
         </details>
       </div>
     </section>
@@ -1020,24 +1040,6 @@ section {
   background: #eee;
 }
 
-/* ===== FAQ ===== */
-.faq details {
-  border-bottom: 1px solid rgba(22, 97, 78, 0.1);
-  padding: 20px 0;
-}
-.faq summary {
-  font-weight: 700;
-  font-size: 16px;
-  cursor: pointer;
-  color: var(--ink);
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.faq summary::after { content: '+'; color: var(--sea); font-size: 20px; }
-.faq details[open] summary::after { content: '−'; }
-.faq details p.mini { margin-top: 12px; font-size: 15px; color: var(--text-light); line-height: 1.8; }
 
 /* ===== Responsive ===== */
 @media (max-width: 640px) {

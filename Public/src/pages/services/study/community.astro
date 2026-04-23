@@ -432,6 +432,51 @@ import Layout from '../../../layouts/Layout.astro';
     </section>
 
     <!-- ============================================================
+         FAQ
+    ============================================================ -->
+    <section class="faq-section faq">
+      <div class="container">
+        <div class="section-label fade-up">FAQ</div>
+        <h2 class="section-title fade-up">よくあるご質問</h2>
+
+        <div class="faq-items fade-up">
+          <details open>
+            <summary>糸口会とは何ですか？</summary>
+            <p>コールテンのAI講座受講者向けの月額制コミュニティです。月1回の対面作業会（福岡・赤坂エリア）とDiscordのオンラインコミュニティで、AIを「学んで終わり」にせず「使い続ける」ための環境を提供しています。</p>
+          </details>
+          <details>
+            <summary>誰でも参加できますか？</summary>
+            <p>糸口会はコールテンのAI講座（有料）を受講された方が対象です。講座に申し込むと、糸口会の参加権がセットでついてきます。まずは<a href="/services/study/trial">体験講座</a>で雰囲気を確かめてみてください。</p>
+          </details>
+          <details>
+            <summary>月額料金はいくらですか？</summary>
+            <p>糸口会の月額費用は講座の受講プランに含まれています。詳しくは<a href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener">LINE</a>からお問い合わせいただくか、<a href="/services/study/trial">体験講座</a>でご確認ください。</p>
+          </details>
+          <details>
+            <summary>作業会では何をしますか？</summary>
+            <p>月1回（水曜夜 or 土曜朝の選択制）、福岡・赤坂エリアで対面開催しています。冒頭10分で近況共有、前半50分はもくもく作業（実際にAIを使う時間）、後半50分は交流しながら作業、最後10分でクロージング。コールテンの講師もその場にいるので、詰まったところをすぐ質問できます。</p>
+          </details>
+          <details>
+            <summary>オンラインだけの参加はできますか？</summary>
+            <p>Discordコミュニティは常時利用可能です。ただし、対面の作業会は福岡での現地開催のみとなっており、オンライン配信は行っていません。糸口会の醍醐味は「同じ空間でAIを使う仲間とつながる」ことにあります。</p>
+          </details>
+          <details>
+            <summary>講座を受けていなくても入れますか？</summary>
+            <p>原則として、コールテンのAI講座受講者が対象です。まずは<a href="/services/study/">AI講座の一覧</a>をご覧いただくか、<a href="/services/study/trial">体験講座</a>にお越しください。講座と糸口会はセットで「学ぶ → 実践し続ける」の流れを作っています。</p>
+          </details>
+          <details>
+            <summary>途中で退会できますか？</summary>
+            <p>はい、いつでも退会可能です。無理な引き留めは一切ありません。「また戻りたくなったら戻る」くらいの気軽さで大丈夫です。</p>
+          </details>
+          <details>
+            <summary>AI講座との違いは何ですか？</summary>
+            <p>講座は「学ぶ場」、糸口会は「使い続ける場」です。講座でAIの基本や活用法を身につけ、糸口会で実践を積み重ねる。「わかった」と「できる」の間にある溝を、仲間と一緒に埋めていく場所が糸口会です。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          CTA
     ============================================================ -->
     <section class="cta-section">
@@ -1311,6 +1356,21 @@ import Layout from '../../../layouts/Layout.astro';
     background: #05b04b;
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(6,199,85,0.4);
+  }
+
+  /* ============================================================
+     FAQ SECTION
+  ============================================================ */
+  .faq-section {
+    padding: 5rem 0;
+    text-align: center;
+    background: var(--cream, #faf9f7);
+  }
+
+  .faq-section a {
+    color: var(--sea, #16614e);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   /* ============================================================

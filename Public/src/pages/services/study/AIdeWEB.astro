@@ -1,4 +1,6 @@
 ---
+import Layout from '../../../layouts/Layout.astro';
+
 const schedule = [
   { date: '2026.03.11', day: '水', time: '19:00-22:00', place: '草原さんオフィス（赤坂）' },
   { date: '2026.04.04', day: '土', time: '10:00-13:00', place: '草原さんオフィス（赤坂）' },
@@ -6,37 +8,13 @@ const schedule = [
   { date: '2026.07.04', day: '土', time: '10:00-13:00', place: '草原さんオフィス（赤坂）' },
 ];
 ---
-<!DOCTYPE html>
-
-<html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIに相談しながら作る、はじめてのホームページ制作 | 株式会社コールテン</title>
-    <meta name="description" content="AI（Gemini）と対話しながら、プログラミング知識ゼロで自分だけのホームページを作るワークショップ。AIを「魔法」ではなく「相棒」にするための実践的講座。">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="author" content="株式会社コールテン">
-    <link rel="canonical" href="https://corduroy.co.jp/services/study/AIdeWEB.html">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://corduroy.co.jp/services/study/AIdeWEB.html">
-    <meta property="og:title" content="AIに相談しながら作る、はじめてのホームページ制作 | 株式会社コールテン">
-    <meta property="og:description"
-        content="AI（Gemini）と対話しながら、プログラミング知識ゼロで自分だけのホームページを作るワークショップ。AIを「魔法」ではなく「相棒」にするための実践的講座。">
-    <meta property="og:image" content="https://res.cloudinary.com/dg3mdcuju/image/upload/v1767709551/Gemini_Generated_Image_17_cd9o5q.png">
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:site_name" content="株式会社コールテン">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AIに相談しながら作る、はじめてのホームページ制作">
-    <meta name="twitter:description"
-        content="AI（Gemini）と対話しながら、プログラミング知識ゼロで自分だけのホームページを作るワークショップ。AIを「魔法」ではなく「相棒」にするための実践的講座。">
-    <meta name="twitter:image" content="https://res.cloudinary.com/dg3mdcuju/image/upload/v1767709551/Gemini_Generated_Image_17_cd9o5q.png">
-
-    <!-- Structured Data -->
+<Layout
+  title="AIでWEB作り｜株式会社コールテン"
+  description="AI（Gemini）と対話しながら、プログラミング知識ゼロで自分だけのホームページを作るワークショップ。AIを「魔法」ではなく「相棒」にするための実践的講座。"
+  canonicalUrl="https://corduroy.co.jp/services/study/AIdeWEB/"
+  ogUrl="https://corduroy.co.jp/services/study/AIdeWEB/"
+>
+  <Fragment slot="head">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -77,312 +55,15 @@ const schedule = [
           "@type": "ListItem",
           "position": 4,
           "name": "AIワークショップ",
-          "item": "https://corduroy.co.jp/services/study/AIdeWEB.html"
+          "item": "https://corduroy.co.jp/services/study/AIdeWEB/"
         }
       ]
     }
     </script>
-
     <script is:inline src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script is:inline src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        /* Canva風デザイン設定 
-           コールテン様のブランドカラー + クラフト感
-        */
-        :root {
-            --color-bg: #F9F5F0;
-            --color-primary: #2F5D50;
-            /* 深い緑 */
-            --color-brown: #8C6A4B;
-            /* 温かい茶色 */
-            --color-accent: #E68C3A;
-            /* アクセントオレンジ */
-            --color-text: #4A4238;
-            --color-line: #06C755;
-            /* LINE Green */
-        }
-
-        body {
-            font-family: 'Zen Maru Gothic', sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.8;
-            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' opacity='0.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-        }
-
-        h1,
-        h2,
-        h3,
-        .font-serif {
-            font-family: 'Shippori Mincho', serif;
-        }
-
-        /* --- Canva風の装飾クラス --- */
-
-        /* マスキングテープ風 */
-        .masking-tape {
-            background-color: rgba(230, 140, 58, 0.2);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            transform: rotate(-1deg);
-            display: inline-block;
-            padding: 0 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .masking-tape-center {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%) rotate(1deg);
-            width: 100px;
-            height: 24px;
-            background-color: rgba(230, 140, 58, 0.3);
-            opacity: 0.8;
-            z-index: 10;
-        }
-
-        /* 手書き風の囲み線 */
-        .hand-drawn-border {
-            border: 2px solid var(--color-brown);
-            border-radius: 2px 255px 2px 25px / 255px 5px 225px 5px;
-            box-shadow: 2px 3px 0 rgba(140, 106, 75, 0.1);
-            background: white;
-        }
-
-        /* メモ風ボックス */
-        .memo-box {
-            background: #FFFBF0;
-            padding: 24px;
-            box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .memo-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* 切り抜き写真風 */
-        .photo-card {
-            background: white;
-            padding: 10px 10px 40px 10px;
-            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-            transform: rotate(2deg);
-            transition: transform 0.3s ease;
-        }
-
-        .photo-card:hover {
-            transform: rotate(0deg) scale(1.02);
-            z-index: 10;
-        }
-
-        /* Webサイトプレビュー風フレーム */
-        .browser-frame {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background: #fff;
-        }
-
-        .browser-header {
-            background: #f1f5f9;
-            padding: 6px 12px;
-            display: flex;
-            gap: 6px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-        }
-
-        /* コーデュロイテクスチャ（CSSのみで表現） */
-        .bg-corduroy {
-            background-color: var(--color-primary);
-            background-image: repeating-linear-gradient(90deg,
-                    transparent,
-                    transparent 4px,
-                    rgba(255, 255, 255, 0.05) 4px,
-                    rgba(255, 255, 255, 0.05) 8px);
-            color: white;
-        }
-
-        /* ボタン */
-        .btn-primary {
-            background-color: var(--color-accent);
-            color: white;
-            font-weight: bold;
-            border-radius: 9999px;
-            padding: 1rem 2.5rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 0 #c0702b;
-            display: inline-block;
-        }
-
-        .btn-primary:active {
-            transform: translateY(4px);
-            box-shadow: 0 0 0 #c0702b;
-        }
-
-        .btn-line {
-            background-color: var(--color-line);
-            color: white;
-            font-weight: bold;
-            border-radius: 9999px;
-            padding: 1rem 2.5rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 0 #048C3A;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-line:hover {
-            background-color: #05B34C;
-        }
-
-        .btn-line:active {
-            transform: translateY(4px);
-            box-shadow: 0 0 0 #048C3A;
-        }
-
-        /* フローティングアニメーション */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        /* 数字の装飾 */
-        .step-number {
-            font-family: 'Shippori Mincho', serif;
-            font-size: 4rem;
-            line-height: 1;
-            color: rgba(47, 93, 80, 0.1);
-            position: absolute;
-            top: -20px;
-            left: 10px;
-            z-index: 0;
-            font-weight: 700;
-        }
-
-        /* 吹き出し（参加者の声） */
-        .speech-bubble {
-            position: relative;
-            background: #fff;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(140, 106, 75, 0.1);
-        }
-
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 2rem;
-            border-width: 0 10px 10px;
-            border-style: solid;
-            border-color: transparent transparent #fff;
-            display: block;
-            width: 0;
-        }
-
-        /* FAQ Styling */
-        .faq details {
-            border: 1px solid rgba(140, 106, 75, 0.2);
-            border-radius: 20px;
-            padding: 24px 32px;
-            background: #fff;
-            margin-bottom: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        .faq details[open] {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .faq summary {
-            cursor: pointer;
-            font-weight: 700;
-            color: var(--color-text);
-            font-size: 18px;
-            padding: 4px 0;
-            list-style: none;
-            position: relative;
-            padding-right: 48px;
-        }
-
-        .faq summary::-webkit-details-marker {
-            display: none;
-        }
-
-        /* Button Design: 2-hole Outline Button */
-        .faq summary::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: #fff; /* White background */
-            border: 2px solid var(--color-primary); /* Green Outline */
-            
-            /* 2 holes (Green dots) */
-            background-image: 
-              radial-gradient(circle at 38% 50%, var(--color-primary) 2px, transparent 2.5px),
-              radial-gradient(circle at 62% 50%, var(--color-primary) 2px, transparent 2.5px);
-            background-repeat: no-repeat;
-            
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        /* Open State: Change to Green X */
-        .faq details[open] summary::after {
-            border-color: var(--color-primary);
-            background-color: #fff;
-            
-            /* Draw Diagonal X using green linear gradients */
-            background-image: 
-              linear-gradient(45deg, transparent 44%, var(--color-primary) 44%, var(--color-primary) 56%, transparent 56%),
-              linear-gradient(-45deg, transparent 44%, var(--color-primary) 44%, var(--color-primary) 56%, transparent 56%);
-            
-            background-position: center;
-            background-size: 50% 50%;
-            transform: translateY(-50%) rotate(180deg);
-        }
-
-        .faq details[open] summary {
-            margin-bottom: 16px;
-        }
-    </style>
-</head>
-
-<body class="antialiased overflow-x-hidden">
+  </Fragment>
 
     <!-- ナビゲーション -->
     <nav class="fixed w-full z-50 bg-[#F9F5F0]/90 backdrop-blur-sm py-4 border-b border-[#8C6A4B]/10">
@@ -391,9 +72,9 @@ const schedule = [
                 <i data-lucide="book-heart" class="w-6 h-6 text-[#2F5D50]"></i>
                 <span class="font-bold text-[#2F5D50] text-lg font-serif tracking-wide">AI講座「AIで作るワークショップ」</span>
             </div>
-            <a href="#contact"
+            <a href="/services/study/program"
                 class="hidden md:block bg-[#2F5D50] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-[#1a3d33] transition">
-                お問い合わせ
+                3ヶ月プログラム
             </a>
         </div>
     </nav>
@@ -433,8 +114,8 @@ const schedule = [
                         「最高の相棒」にするためのワークショップです。
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#contact" class="btn-primary text-lg" data-ga-event="contact_click" data-ga-label="study_aideweb_hero">
-                            ワークショップに参加する
+                        <a href="/services/study/program" class="btn-primary text-lg" data-ga-event="program_click" data-ga-label="study_aideweb_hero">
+                            3ヶ月プログラムを見る
                         </a>
                         <a href="#story"
                             class="bg-white border-2 border-[#8C6A4B] text-[#8C6A4B] px-8 py-4 rounded-full text-lg font-bold hover:bg-[#F9F5F0] transition flex items-center justify-center gap-2">
@@ -485,6 +166,18 @@ const schedule = [
             </svg>
         </div>
     </header>
+
+    <!-- プログラム案内ノート -->
+    <section class="py-6 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="program-note max-w-2xl mx-auto">
+                <p class="text-sm text-[#4A4238]">
+                    <i data-lucide="info" class="inline w-4 h-4 text-[#2F5D50] mr-1 align-text-bottom"></i>
+                    この講座は<a href="/services/study/program" class="text-[#2F5D50] font-bold underline decoration-[#2F5D50]/30 hover:decoration-[#2F5D50] transition">3ヶ月プログラム</a>に含まれる講座です。単体での販売は行っておりません。
+                </p>
+            </div>
+        </div>
+    </section>
 
     <!-- 2. こんなお悩み (AI活用編) -->
     <section class="py-20 relative bg-white">
@@ -1001,8 +694,7 @@ const schedule = [
         </div>
     </section>
 
-    <!-- 9. プラン紹介 -->
-    <!-- Schedule Section (Added) -->
+    <!-- Schedule Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
@@ -1035,101 +727,20 @@ const schedule = [
         </div>
     </section>
 
-    <!-- 9. プラン紹介 -->
+    <!-- 9. プログラムへの誘導 -->
     <section id="plan" class="py-24 bg-[#2F5D50] text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-corduroy opacity-30 pointer-events-none"></div>
         <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-3xl font-bold text-center mb-12 font-serif">料金プラン</h2>
+            <h2 class="text-3xl font-bold text-center mb-6 font-serif">この講座は3ヶ月プログラムに<br>含まれています</h2>
+            <p class="text-center text-white/80 mb-12 max-w-2xl mx-auto">
+                AIでWEB作りは、3つの講座と継続サポートがセットになった「3ヶ月プログラム」の一部として受講いただけます。
+            </p>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Standard Plan -->
-                <div
-                    class="bg-white text-[#4A4238] rounded-[2.5rem] p-8 md:p-10 shadow-xl relative flex flex-col border-2 border-[#8C6A4B]/10">
-
-                    <h3 class="text-2xl font-bold text-[#2F5D50] mb-2 text-center font-serif">
-                        スタンダードプラン
-                    </h3>
-                    <p class="text-center text-gray-500 mb-8 text-sm">Web制作を通じてAIの基礎・応用をマスター</p>
-
-                    <div class="text-center mb-8">
-                        <span class="text-4xl font-bold text-[#4A4238] font-serif">¥30,000</span>
-                        <span class="text-gray-500 text-xs">/ 3時間</span>
-                    </div>
-
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex items-start gap-3 text-sm">
-                            <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50] shrink-0"><i data-lucide="check"
-                                    class="w-4 h-4"></i></div>
-                            <span>AIへの「作り方の聞き方」を習得</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50] shrink-0"><i data-lucide="check"
-                                    class="w-4 h-4"></i></div>
-                            <span>Webサイト（LP）1ページの制作・公開</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50] shrink-0"><i data-lucide="check"
-                                    class="w-4 h-4"></i></div>
-                            <span>Discordコミュニティ参加権</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <div class="bg-[#2F5D50]/10 p-1 rounded-full text-[#2F5D50] shrink-0"><i data-lucide="check"
-                                    class="w-4 h-4"></i></div>
-                            <span>復習用アーカイブ動画プレゼント</span>
-                        </li>
-                    </ul>
-
-                    <a href="#contact"
-                        class="block w-full text-center py-4 bg-[#E68C3A] text-white font-bold rounded-full shadow-lg hover:bg-[#d67e30] transition transform hover:-translate-y-1">
-                        このプランで申し込む
-                    </a>
-                </div>
-
-                <!-- Bundle Plan -->
-                <div
-                    class="bg-[#2F5D50] text-white rounded-[2.5rem] p-8 md:p-10 shadow-2xl relative border-4 border-[#E68C3A] flex flex-col transform md:-translate-y-4">
-                    <div
-                        class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-[#E68C3A] text-white px-6 py-1 rounded-full text-sm font-bold shadow-md whitespace-nowrap">
-                        おすすめバンドル
-                    </div>
-
-                    <h3 class="text-2xl font-bold text-white mb-2 text-center font-serif">
-                        AIマスターバンドル
-                    </h3>
-                    <p class="text-center text-white/80 mb-8 text-sm">基礎講座2つ + コミュニティ3ヶ月分のセット</p>
-
-                    <div class="text-center mb-8">
-                        <span class="text-4xl font-bold text-white font-serif">¥50,000</span>
-                    </div>
-
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex items-start gap-3 text-sm">
-                            <div class="bg-[#E68C3A] p-1 rounded-full text-white shrink-0"><i data-lucide="check"
-                                    class="w-4 h-4"></i></div>
-                            <span class="font-bold">ワークショップ参加権</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <div class="bg-white/20 p-1 rounded-full text-white shrink-0"><i data-lucide="plus"
-                                    class="w-4 h-4"></i></div>
-                            <span>第二の自分作り講座（2万円相当）<br><span class="text-xs opacity-80">※受講期限1年以内</span></span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <div class="bg-white/20 p-1 rounded-full text-white shrink-0"><i data-lucide="plus"
-                                    class="w-4 h-4"></i></div>
-                            <span>生成AI基礎講座（1万円相当）<br><span class="text-xs opacity-80">※受講期限1年以内</span></span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <div class="bg-white/20 p-1 rounded-full text-white shrink-0"><i data-lucide="plus"
-                                    class="w-4 h-4"></i></div>
-                            <span>AIコミュニティ参加権 3ヶ月分<br><span class="text-xs opacity-80">（1.5万円相当）</span></span>
-                        </li>
-                    </ul>
-
-                    <a href="#contact"
-                        class="block w-full text-center py-4 bg-white text-[#2F5D50] font-bold rounded-full shadow-lg hover:bg-gray-100 transition transform hover:-translate-y-1">
-                        まとめて申し込む
-                    </a>
-                </div>
+            <div class="max-w-lg mx-auto text-center">
+                <a href="/services/study/program"
+                    class="inline-block px-10 py-4 bg-[#E68C3A] text-white font-bold rounded-full shadow-lg hover:bg-[#d67e30] transition transform hover:-translate-y-1 text-lg">
+                    3ヶ月プログラムの詳細を見る
+                </a>
             </div>
         </div>
     </section>
@@ -1141,8 +752,8 @@ const schedule = [
                 <span class="text-[#2F5D50] font-bold tracking-widest text-sm uppercase">Q&A</span>
                 <h2 class="text-3xl font-bold text-[#4A4238] mt-2 font-serif">よくあるご質問</h2>
             </div>
-            <div class="max-w-3xl mx-auto space-y-4">
-                <details>
+            <div class="faq-items max-w-3xl mx-auto space-y-4">
+                <details open>
                     <summary>Gemini無料版では参加できませんか？</summary>
                     <p class="text-gray-600 leading-relaxed mt-4 text-sm">
                         より高度な推論能力を持つ有料版（Advanced）の使用を前提としています。無料版でも動くことはありますが、今回お伝えする「本質的な対話」を体験いただくため、無料トライアルを活用して有料版のご用意をお願いしています。キャンペーン等で無料期間がある場合も多いので、ぜひご確認ください。
@@ -1166,60 +777,292 @@ const schedule = [
                         まずは簡単な自己紹介ページやランディングページ（LP）から始めます。慣れてくれば、簡単なゲーム（スロットマシーンやクイズなど）や、業務効率化のための計算ツールなども作れるようになります。「こんなの欲しい」を形にする楽しさを味わってください。
                     </p>
                 </details>
+                <details>
+                    <summary>プログラミング言語を覚える必要はありますか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        いいえ、不要です。AIに「こういうサイトを作りたい」と日本語で伝えるだけでコードはAIが書いてくれます。HTMLやCSSといった基本的な仕組みは講座内でわかりやすく解説しますが、暗記する必要はありません。
+                    </p>
+                </details>
+                <details>
+                    <summary>作ったサイトの公開に費用はかかりますか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        VercelやGitHub Pagesなど、無料で公開できるサービスを使います。独自ドメイン（自分だけのURL）を取得しない限り、維持費はかかりません。公開方法も講座内でしっかりサポートします。
+                    </p>
+                </details>
+                <details>
+                    <summary>受講後もサポートはありますか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        はい、講座後1ヶ月間はDiscordで質問可能です。さらに<a href="/services/study/community" class="text-[#2F5D50] underline">糸口会（コミュニティ）</a>に参加すれば、仲間と一緒に作り続けられます。個別に深くサポートが必要な場合は<a href="/services/advisory" class="text-[#2F5D50] underline">AI顧問</a>もご利用いただけます。
+                    </p>
+                </details>
+                <details>
+                    <summary>他の講座との違いは何ですか？</summary>
+                    <p class="text-gray-600 leading-relaxed mt-4 text-sm">
+                        <a href="/services/study/basicAI" class="text-[#2F5D50] underline">AI基礎講座</a>は「AIとの対話力」、<a href="/services/study/SecondME" class="text-[#2F5D50] underline">第二の自分作り</a>は「自分の分身をAIで作る力」、そしてこのAIでWEB作りは「AIと一緒に形にする力」を身につける講座です。全部学びたい方には<a href="/services/study/program" class="text-[#2F5D50] underline">3ヶ月プログラム</a>がおすすめです。
+                    </p>
+                </details>
             </div>
         </div>
     </section>
 
     <!-- 11. フッター / CTA -->
-    <footer id="contact" class="bg-[#4A4238] text-[#F9F5F0] py-24 relative overflow-hidden">
+    <section id="contact" class="bg-[#4A4238] text-[#F9F5F0] py-24 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full opacity-10"
             style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #000 10px, #000 11px);">
         </div>
 
         <div class="container mx-auto px-6 text-center relative z-10">
             <h2 class="text-3xl lg:text-4xl font-bold mb-6 font-serif">Webサイト作りで、<br>AI活用の「応用力」を一生モノに。</h2>
-            <p class="mb-12 opacity-80">コールテンと一緒に、新しいボタンを見つけにいきませんか？</p>
+            <p class="mb-12 opacity-80">この講座は3ヶ月プログラムの一部として受講いただけます。</p>
 
             <div class="bg-[#F9F5F0] text-[#4A4238] max-w-lg mx-auto p-10 rounded-[2rem] hand-drawn-border">
-                <h3 class="text-xl font-bold mb-4 text-[#2F5D50] flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-6 h-6"></i>
-                    まずはLINEで相談・予約
+                <h3 class="text-xl font-bold mb-6 text-[#2F5D50] flex items-center justify-center gap-2">
+                    <i data-lucide="package" class="w-6 h-6"></i>
+                    3ヶ月プログラムで受講する
                 </h3>
-                <p class="text-sm text-gray-600 mb-8 leading-relaxed">
-                    日程の確認や、ご質問もLINEでお気軽に。<br>
-                    「<strong>Webサイト作りに興味があって</strong>」と一言送信してください。
-                </p>
-
+                <a href="/services/study/program"
+                    class="block w-full text-center py-4 bg-[#E68C3A] text-white font-bold rounded-full shadow-lg hover:bg-[#d67e30] transition transform hover:-translate-y-1 text-lg mb-6">
+                    3ヶ月プログラムの詳細を見る
+                </a>
+                <p class="text-sm text-gray-500 mb-4">ご質問・ご相談はLINEからお気軽にどうぞ。</p>
                 <a href="https://lin.ee/aQqPH7S" data-ga-event="line_click" data-ga-label="study_aideweb_footer"
-                    class="btn-line w-full justify-center text-lg py-4 shadow-lg transform transition hover:scale-105">
-                    <!-- LINE Icon SVG -->
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" class="mr-2">
+                    class="btn-line w-full justify-center text-base py-3 shadow-md transform transition hover:scale-105">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="mr-2">
                         <path
                             d="M20.2 10.5c0 4.4-4.5 8-10.2 8-1.1 0-2.1-.2-3.1-.5-.2-.1-.5 0-.7.2l-2.7 1.8c-.5.3-1.1-.2-.9-.8l.7-3c.1-.3 0-.6-.2-.8-1.8-1.4-2.9-3.3-2.9-5.3 0-4.4 4.5-8 10.2-8s10.2 3.6 10.2 8z" />
                     </svg>
-                    LINE公式アカウントに登録
+                    LINEで相談する
                 </a>
-
-                <p class="text-xs text-gray-400 mt-4">
-                    ※自動応答ではなく、スタッフが丁寧にお返しします。
-                </p>
             </div>
 
-            <div
-                class="mt-20 border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-center gap-4 text-sm opacity-60">
-                <p>&copy; 2024 Corduroy Inc.</p>
-                <div class="hidden md:block">|</div>
-                <div class="flex gap-4">
-                    <a href="/legal/privacy" class="hover:text-white">Privacy Policy</a>
-                    <a href="/contact" class="hover:text-white" data-ga-event="contact_click" data-ga-label="study_aideweb_footer_contact">Contact</a>
-                </div>
-            </div>
         </div>
-    </footer>
-
+    </section>
     <script is:inline>
         lucide.createIcons();
     </script>
-</body>
+</Layout>
+<style>
+    /* Canva風デザイン設定
+       コールテン様のブランドカラー + クラフト感
+    */
+    :root {
+        --color-bg: #F9F5F0;
+        --color-primary: #2F5D50;
+        /* 深い緑 */
+        --color-brown: #8C6A4B;
+        /* 温かい茶色 */
+        --color-accent: #E68C3A;
+        /* アクセントオレンジ */
+        --color-text: #4A4238;
+        --color-line: #06C755;
+        /* LINE Green */
+    }
 
-</html>
+    body {
+        font-family: 'Zen Maru Gothic', sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.8;
+        background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' opacity='0.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    }
+
+    h1,
+    h2,
+    h3,
+    .font-serif {
+        font-family: 'Shippori Mincho', serif;
+    }
+
+    /* --- Canva風の装飾クラス --- */
+
+    /* マスキングテープ風 */
+    .masking-tape {
+        background-color: rgba(230, 140, 58, 0.2);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        transform: rotate(-1deg);
+        display: inline-block;
+        padding: 0 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .masking-tape-center {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%) rotate(1deg);
+        width: 100px;
+        height: 24px;
+        background-color: rgba(230, 140, 58, 0.3);
+        opacity: 0.8;
+        z-index: 10;
+    }
+
+    /* 手書き風の囲み線 */
+    .hand-drawn-border {
+        border: 2px solid var(--color-brown);
+        border-radius: 2px 255px 2px 25px / 255px 5px 225px 5px;
+        box-shadow: 2px 3px 0 rgba(140, 106, 75, 0.1);
+        background: white;
+    }
+
+    /* メモ風ボックス */
+    .memo-box {
+        background: #FFFBF0;
+        padding: 24px;
+        box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+        position: relative;
+    }
+
+    .memo-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 切り抜き写真風 */
+    .photo-card {
+        background: white;
+        padding: 10px 10px 40px 10px;
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+        transform: rotate(2deg);
+        transition: transform 0.3s ease;
+    }
+
+    .photo-card:hover {
+        transform: rotate(0deg) scale(1.02);
+        z-index: 10;
+    }
+
+    /* Webサイトプレビュー風フレーム */
+    .browser-frame {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: #fff;
+    }
+
+    .browser-header {
+        background: #f1f5f9;
+        padding: 6px 12px;
+        display: flex;
+        gap: 6px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    /* コーデュロイテクスチャ（CSSのみで表現） */
+    .bg-corduroy {
+        background-color: var(--color-primary);
+        background-image: repeating-linear-gradient(90deg,
+                transparent,
+                transparent 4px,
+                rgba(255, 255, 255, 0.05) 4px,
+                rgba(255, 255, 255, 0.05) 8px);
+        color: white;
+    }
+
+    /* ボタン */
+    .btn-primary {
+        background-color: var(--color-accent);
+        color: white;
+        font-weight: bold;
+        border-radius: 9999px;
+        padding: 1rem 2.5rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 0 #c0702b;
+        display: inline-block;
+    }
+
+    .btn-primary:active {
+        transform: translateY(4px);
+        box-shadow: 0 0 0 #c0702b;
+    }
+
+    .btn-line {
+        background-color: var(--color-line);
+        color: white;
+        font-weight: bold;
+        border-radius: 9999px;
+        padding: 1rem 2.5rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 0 #048C3A;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-line:hover {
+        background-color: #05B34C;
+    }
+
+    .btn-line:active {
+        transform: translateY(4px);
+        box-shadow: 0 0 0 #048C3A;
+    }
+
+    /* フローティングアニメーション */
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .animate-float {
+        animation: float 4s ease-in-out infinite;
+    }
+
+    /* 数字の装飾 */
+    .step-number {
+        font-family: 'Shippori Mincho', serif;
+        font-size: 4rem;
+        line-height: 1;
+        color: rgba(47, 93, 80, 0.1);
+        position: absolute;
+        top: -20px;
+        left: 10px;
+        z-index: 0;
+        font-weight: 700;
+    }
+
+    .program-note {
+        background-color: #F0F7F4;
+        border-left: 4px solid var(--color-primary);
+        padding: 1rem 1.5rem;
+        border-radius: 0 0.5rem 0.5rem 0;
+        text-align: center;
+    }
+
+    /* 吹き出し（参加者の声） */
+    .speech-bubble {
+        position: relative;
+        background: #fff;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(140, 106, 75, 0.1);
+    }
+
+    .speech-bubble::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 2rem;
+        border-width: 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent #fff;
+        display: block;
+        width: 0;
+    }
+</style>

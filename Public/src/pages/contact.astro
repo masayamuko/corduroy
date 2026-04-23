@@ -136,17 +136,14 @@ import Layout from '../layouts/Layout.astro';
                   現在、お問合せはLINE公式アカウントでお受けしています。<br>営業日２日以内を目安にご返信します。</p>
     
                 <div style="display:flex; flex-direction:column; gap:16px;">
-                  <a class="card" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer"
-                    data-ga-event="line_click" data-ga-label="contact_page_line"
-                    style="padding:20px; display:flex; align-items:center; gap:16px; transition:.2s; border:none; background:#06C755; box-shadow:0 8px 20px rgba(6, 199, 85, 0.25);">
-                    <div
-                      style="width:48px; height:48px; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#06C755; font-size:20px; flex-shrink:0; font-weight:700;">
-                      LINE</div>
+                  <a class="btn-line-contact" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer"
+                    data-ga-event="line_click" data-ga-label="contact_page_line">
+                    <div class="btn-line-icon">LINE</div>
                     <div>
-                      <div style="font-weight:700; color:#fff;">LINE公式アカウント</div>
-                      <div style="font-size:13px; color:rgba(255,255,255,0.9);">お気軽にお問い合わせください</div>
+                      <div style="font-weight:700;">LINE公式アカウント</div>
+                      <div style="font-size:13px; opacity:.9;">お気軽にお問い合わせください</div>
                     </div>
-                    <div style="margin-left:auto; color:#fff;">→</div>
+                    <div style="margin-left:auto;">→</div>
                   </a>
                 </div>
     
@@ -176,6 +173,43 @@ import Layout from '../layouts/Layout.astro';
               </div>
     
             </div>
+          </div>
+        </section>
+
+        <section class="container faq" style="padding-top:80px; padding-bottom:80px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくあるご質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            <details open>
+              <summary>相談したら必ず契約しないといけませんか？</summary>
+              <p>いいえ、まったくその必要はありません。「まずは話を聞いてみたい」だけでも大歓迎です。無理な営業は一切いたしません。お気軽にご連絡ください。</p>
+            </details>
+            <details>
+              <summary>相談前に準備しておくことはありますか？</summary>
+              <p>特別な準備は不要です。ただ、「困っていること」「叶えたいこと」「ご予算感」をざっくりでも共有いただけると、より実りのある時間になります。</p>
+            </details>
+            <details>
+              <summary>オンラインでの相談はできますか？</summary>
+              <p>はい、オンライン（Zoom等）で対応可能です。福岡県外の方もお気軽にご相談ください。<a href="/services/advisory">AI顧問</a>も完全オンライン対応しています。</p>
+            </details>
+            <details>
+              <summary>個人でも相談できますか？</summary>
+              <p>もちろんです。法人・個人問わずご利用いただけます。創作活動、フリーランス、副業でAIを活かしたい方など、個人の方も多くご相談いただいています。</p>
+            </details>
+            <details>
+              <summary>無料で始められるものはありますか？</summary>
+              <p>はい。LINEで受け取れる<a href="/services/">無料動画講座</a>と、対面の<a href="/services/study/trial">体験会</a>（3,000円）をご用意しています。まずは気軽にAIに触れてみてください。</p>
+            </details>
+            <details>
+              <summary>相談後、どのようなサポートがありますか？</summary>
+              <p>ご相談内容に応じて、最適なサービスをご案内します。継続的な伴走なら<a href="/services/advisory">AI顧問</a>、体系的に学びたいなら<a href="/services/study/program">3ヶ月プログラム</a>、仲間と一緒に実践するなら<a href="/services/study/community">糸口会</a>など、段階に合った形をご用意しています。</p>
+            </details>
+            <details>
+              <summary>返信までどのくらいかかりますか？</summary>
+              <p>営業日2日以内を目安にご返信しています。お急ぎの場合はその旨をLINEメッセージに添えていただけると助かります。</p>
+            </details>
           </div>
         </section>
       </main>
@@ -323,6 +357,38 @@ import Layout from '../layouts/Layout.astro';
 
     .jp-kanji { font-size: 1em; }
     .jp-hiragana { font-size: 0.7em; }
+
+    /* LINE Button */
+    .btn-line-contact {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: #06C755;
+      color: #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(6, 199, 85, 0.25);
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+    .btn-line-contact:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(6, 199, 85, 0.4);
+      background: #05b84e;
+    }
+    .btn-line-icon {
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #06C755;
+      font-size: 20px;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
 
     @media(max-width:768px) {
       .hero { padding: 80px 24px 60px; }

@@ -1,0 +1,262 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// ブログ記事リスト（新しい順）
+// 新しい記事を追加するときは、このリストの先頭に追加し、
+// 対応する個別ページ（src/pages/blog/<slug>.astro）も必要なら作成する。
+const categories = ['すべて', 'お知らせ', '活動報告', 'パートナー自慢', '子ども支援', '会社情報', 'その他'];
+
+const posts = [
+  {
+    slug: 'nks-kashiko-instructor',
+    date: '2026-04-21',
+    category: '子ども支援',
+    title: '日本こども色彩協会のkashiko色彩インストラクター認定講座を修了しました',
+    excerpt: '5年ぶりの連続講座。色彩を通じて「じぶん色」を引き出すkashikoプログラムを学び、学び続けることの大切さを再確認しました。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+    external: false,
+  },
+  {
+    slug: 'itoshima-110km-walk',
+    date: '2026-04-19',
+    category: 'その他',
+    title: '糸島三都110キロウォークに参加しました',
+    excerpt: 'スマイリーフラワーズさんのチームで糸島三都110キロウォークに挑戦。代表の向はリタイアしたものの、SMFのお二人は見事完歩。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_fill,w_400,h_400,g_auto/v1776922851/corduroy/news/itoshima-110k-walking.jpg',
+    external: false,
+  },
+  {
+    slug: 'asiz-partnership',
+    date: '2026-03-16',
+    category: '活動報告',
+    title: '一般社団法人As iZさんの青少年プログラムにサポートスタッフとして参加しています',
+    excerpt: '感情知能（EQ）教育に取り組む一般社団法人As iZさんの青少年支援プログラムに、サポートスタッフとして参加しています。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+    external: false,
+  },
+  {
+    slug: 'smf-partnership',
+    date: '2025-12-22',
+    category: '活動報告',
+    title: 'NPO法人スマイリーフラワーズさんにAI顧問契約をいただきました',
+    excerpt: '留学支援と社会的養護に取り組むNPO法人スマイリーフラワーズさんへ、AI顧問としてのサポートを開始しました。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+    external: false,
+  },
+  {
+    slug: 'incorporation',
+    date: '2025-11-21',
+    category: '会社情報',
+    title: '株式会社コールテンを設立しました',
+    excerpt: 'ChatGPTにコーチングすることから始まったAI活用の旅。その先に会社をつくりました。AIとの関係性を育てる支援を使命に、歩み始めます。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+    external: false,
+  },
+];
+
+const title = "ブログ｜株式会社コールテン";
+const description = "コールテンの活動報告やAI活用に関する気づきを発信しています。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://corduroy.co.jp/blog/"
+  ogUrl="https://corduroy.co.jp/blog/"
+  ogType="website"
+>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="fade-up" style="text-align:center;">
+          <span class="eyebrow">BLOG</span>
+          <h1>ブログ</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:20px; padding-bottom:120px;">
+      <div class="category-chips fade-up">
+        {categories.map((cat) => (
+          <span class:list={['chip', { active: cat === 'すべて' }]}>{cat}</span>
+        ))}
+      </div>
+      <div class="posts-list fade-up">
+        {posts.length === 0 ? (
+          <div class="empty-state">
+            <p>まだ投稿はありません。</p>
+          </div>
+        ) : (
+          posts.map((post) => (
+            <a
+              href={post.external ? post.slug : `/blog/${post.slug}`}
+              class="post-card"
+              target={post.external ? '_blank' : '_self'}
+              rel={post.external ? 'noopener noreferrer' : undefined}
+            >
+              <div class="post-thumb">
+                <img src={post.thumbnail} alt="" width="120" height="120" loading="lazy" />
+              </div>
+              <div class="post-body">
+                <div class="post-meta">
+                  <time class="post-date">{post.date}</time>
+                  <span class="post-cat">{post.category}</span>
+                </div>
+                <h2 class="post-title">{post.title}</h2>
+                <p class="post-excerpt">{post.excerpt}</p>
+                <span class="post-link">続きを読む →</span>
+              </div>
+            </a>
+          ))
+        )}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    padding: 130px 0 40px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+    text-align: center;
+  }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 54px);
+    margin-bottom: 0;
+  }
+
+  .category-chips {
+    max-width: 820px;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+    background: rgba(22,97,78,0.06);
+    border: 1px solid transparent;
+    cursor: default;
+    transition: all 0.2s ease;
+    letter-spacing: 0.03em;
+  }
+  .chip.active {
+    background: var(--sea);
+    color: #fff;
+    border-color: var(--sea);
+  }
+
+  .posts-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .post-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px 32px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  .post-thumb {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--cream);
+    border: 1px solid var(--line);
+  }
+  .post-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .post-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(5,32,24,0.08);
+    border-color: rgba(22,97,78,0.18);
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .post-date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .post-cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .post-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.5;
+    margin: 0 0 10px;
+  }
+  .post-excerpt {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.85;
+    margin: 0 0 14px;
+  }
+  .post-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sea);
+    font-family: "Space Grotesk", sans-serif;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 88px 16px 28px; }
+    .post-card { padding: 20px; gap: 16px; }
+    .post-thumb { width: 72px; height: 72px; border-radius: 10px; }
+    .post-title { font-size: 17px; }
+  }
+</style>

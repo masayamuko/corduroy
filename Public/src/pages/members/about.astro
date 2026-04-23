@@ -372,29 +372,43 @@ const tetoAvatar = 'https://res.cloudinary.com/dg3mdcuju/image/upload/q_auto/f_a
           </ul>
         </section>
 
-        <section id="faq" class="article-section fade-up">
+        <section id="faq" class="article-section faq fade-up">
           <small class="section-num">10</small>
           <h2>よくあるご質問</h2>
-          <details class="faq-item">
-            <summary>AI社員とやり取りする機会はありますか？</summary>
-            <p class="mini">基本的に、クライアントさんとの対外的なやり取りはすべて人間のスタッフが行います。AI社員は社内の業務支援に特化しており、クライアントさんの前面に出ることは原則ありません。</p>
-          </details>
-          <details class="faq-item">
-            <summary>AIに機密情報を渡しても大丈夫ですか？</summary>
-            <p class="mini">事前に取り扱い範囲をご説明の上、ご同意をいただいた情報のみ、必要最小限で扱います。ご希望があればAI利用を一切行わない運用にも対応可能です。</p>
-          </details>
-          <details class="faq-item">
-            <summary>AIが間違えることはないですか？</summary>
-            <p class="mini">もちろんあります。そのため、外部へのアウトプット（契約書、請求書、提案書、SNS投稿など）はすべて人間のスタッフが最終確認してから世に出します。AIの判断をそのまま確定させることはありません。</p>
-          </details>
-          <details class="faq-item">
-            <summary>AI社員は今後も増えますか？</summary>
-            <p class="mini">はい。業務の広がりに合わせて、新しいAI社員（カスタマーサポート・データサイエンティスト・PR担当など）の設計を準備中です。採用（設計・構築）のプロセスも、人間の採用と同じくらい丁寧に行っています。</p>
-          </details>
-          <details class="faq-item">
-            <summary>クライアントの会社でも同じような仕組みを導入できますか？</summary>
-            <p class="mini">はい、まさにコールテンが提供するAI顧問・AI講座・AIコミュニティは、そうした「自社のAIチームを育てる」ことを目指したサービスです。規模感やご予算に合わせた形をご相談いただけます。</p>
-          </details>
+          <div class="faq-items">
+            <details open>
+              <summary>AI社員とやり取りする機会はありますか？</summary>
+              <p class="mini">基本的に、クライアントさんとの対外的なやり取りはすべて人間のスタッフが行います。AI社員は社内の業務支援に特化しており、クライアントさんの前面に出ることは原則ありません。</p>
+            </details>
+            <details>
+              <summary>AIに機密情報を渡しても大丈夫ですか？</summary>
+              <p class="mini">事前に取り扱い範囲をご説明の上、ご同意をいただいた情報のみ、必要最小限で扱います。ご希望があればAI利用を一切行わない運用にも対応可能です。</p>
+            </details>
+            <details>
+              <summary>AIが間違えることはないですか？</summary>
+              <p class="mini">もちろんあります。そのため、外部へのアウトプット（契約書、請求書、提案書、SNS投稿など）はすべて人間のスタッフが最終確認してから世に出します。AIの判断をそのまま確定させることはありません。</p>
+            </details>
+            <details>
+              <summary>AI社員は今後も増えますか？</summary>
+              <p class="mini">はい。業務の広がりに合わせて、新しいAI社員（カスタマーサポート・データサイエンティスト・PR担当など）の設計を準備中です。採用（設計・構築）のプロセスも、人間の採用と同じくらい丁寧に行っています。</p>
+            </details>
+            <details>
+              <summary>クライアントの会社でも同じような仕組みを導入できますか？</summary>
+              <p class="mini">はい、まさにコールテンが提供するAI顧問・AI講座・AIコミュニティは、そうした「自社のAIチームを育てる」ことを目指したサービスです。規模感やご予算に合わせた形をご相談いただけます。</p>
+            </details>
+            <details>
+              <summary>コールテンに仕事を依頼するにはどうすればいい？</summary>
+              <p class="mini">コールテンは紹介制を基本としています。まずは<a href="/contact">お問い合わせフォーム</a>からご連絡いただくか、<a href="/services/study/">LINE無料動画講座</a>にご登録ください。講座やコミュニティを通じてお互いを知った上で、ご相談に進むケースが多いです。</p>
+            </details>
+            <details>
+              <summary>代表のMasayaさんに直接相談できますか？</summary>
+              <p class="mini">はい。<a href="/services/advisory">AI顧問</a>や<a href="/services/study/program">3ヶ月プログラム</a>では代表のMasayaが直接対応しています。まずは<a href="/services/study/trial">無料体験会</a>にお越しいただき、雰囲気を確かめてみてください。</p>
+            </details>
+            <details>
+              <summary>AI社員の技術は他の企業にも導入できますか？</summary>
+              <p class="mini">はい。<a href="/services/advisory">AI顧問サービス</a>では、貴社の業務に合ったAI活用の設計・導入を支援しています。また、<a href="/services/study/corporate">法人向けAI研修</a>を通じて社内チームのAIリテラシーを育てることも可能です。</p>
+            </details>
+          </div>
         </section>
 
       </div>
@@ -1115,51 +1129,6 @@ const tetoAvatar = 'https://res.cloudinary.com/dg3mdcuju/image/upload/q_auto/f_a
     color: var(--text);
   }
 
-  /* FAQ (reuse style from index) */
-  .article-section details.faq-item {
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 20px 24px;
-    margin-bottom: 12px;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-  }
-  .article-section details.faq-item:hover {
-    box-shadow: var(--shadow-md);
-  }
-  .article-section details.faq-item summary {
-    font-weight: 700;
-    color: var(--ink);
-    font-size: 15px;
-    cursor: pointer;
-    list-style: none;
-    position: relative;
-    padding-right: 30px;
-  }
-  .article-section details.faq-item summary::-webkit-details-marker {
-    display: none;
-  }
-  .article-section details.faq-item summary::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1;
-    color: var(--sea);
-    transition: transform 0.2s;
-  }
-  .article-section details.faq-item[open] summary::after {
-    transform: rotate(45deg);
-  }
-  .article-section details.faq-item p.mini {
-    margin-top: 12px;
-    margin-bottom: 0;
-    line-height: 1.9;
-    color: var(--text-light);
-  }
 
   /* CTA */
   .about-cta {

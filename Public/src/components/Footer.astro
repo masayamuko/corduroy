@@ -5,8 +5,8 @@
       <div>© 株式会社コールテン</div>
       <div class="footer-links">
         <a href="/">TOP</a>
-        <a href="/news/">お知らせ</a>
-        <a href="/contact">お問い合わせ</a>
+        <a href="/blog/">ブログ</a>
+        <a href="/contact">お問合せ</a>
         <a href="/legal/privacy">プライバシーポリシー</a>
         <a href="/legal/tokushoho">特定商取引法に基づく表記</a>
       </div>
@@ -15,10 +15,10 @@
 
 <style>
     footer {
-        background: #f5f7f6;
-        border-top: 1px solid var(--line);
-        margin-top: 40px;
-        color: #335649;
+        background: var(--sea, #16614e);
+        border-top: none;
+        margin-top: 0;
+        color: rgba(255,255,255,.85);
     }
 
     .footer-inner {
@@ -41,8 +41,13 @@
     }
 
     .footer-links a {
-        color: #124034;
+        color: #fff;
         font-weight: 700;
         text-decoration: none;
+        transition: opacity .2s ease;
+    }
+
+    .footer-links a:hover {
+        opacity: .75;
     }
 </style>
