@@ -49,8 +49,8 @@ import Layout from '../../../layouts/Layout.astro';
           </div>
           <div class="feature-strip-divider"></div>
           <div class="feature-strip-item">
-            <span class="feature-strip-num">24/7</span>
-            <span class="feature-strip-label">Discordアクセス</span>
+            <span class="feature-strip-num">Discord</span>
+            <span class="feature-strip-label">オンラインコミュニティ</span>
           </div>
           <div class="feature-strip-divider"></div>
           <div class="feature-strip-item">
@@ -114,15 +114,16 @@ import Layout from '../../../layouts/Layout.astro';
               <div class="content-tags">
                 <span class="tag">毎月第3土曜 10:00-12:00</span>
                 <span class="tag">毎月第4水曜 19:00-21:00</span>
-                <span class="tag">どちらか参加OK</span>
+                <span class="tag">福岡市中心地・赤坂駅すぐ</span>
               </div>
-              <p>福岡市・赤坂駅から徒歩すぐの場所で開催。各自がAIを使った作業を持ち込み、質問しながら手を動かす実践の場。コールテンの講師がそばにいるので、詰まったところをその場で聞ける。</p>
+              <p>コールテンの講師も参加するので、詰まったところをその場で聞ける。他の参加者さんのAI活用事例も聞けて、刺激をもらえる環境です。</p>
               <ul class="content-list">
-                <li>冒頭10分：近況と今日やること共有</li>
-                <li>60分：もくもく作業（AIを実際に使う）</li>
-                <li>クロージング10分：今日できたこと・詰まったこと共有</li>
-                <li>会場の定員が許す場合、人数が少ないうちは水曜・土曜の両方に参加もOK</li>
+                <li>冒頭10分：軽い近況と今日やることを共有</li>
+                <li>前半50分：もくもく作業（AIを実際に使う）</li>
+                <li>後半50分：ゆるく交流しながら作業、適宜活用の事例共有</li>
+                <li>最後10分：クロージング</li>
               </ul>
+              <p class="content-note">※ 会場の定員が許す場合、水曜・土曜の両方に参加もOK<br>※ 作業会後にみんなで食事会に行くことも</p>
             </div>
           </div>
 
@@ -134,14 +135,7 @@ import Layout from '../../../layouts/Layout.astro';
                 <span class="tag">常時オープン</span>
                 <span class="tag">テキスト＋音声</span>
               </div>
-              <p>作業会以外の日も使えるオンラインの場所。</p>
-              <ul class="content-list">
-                <li>#質問 — AIの使い方・プロンプトなど何でも</li>
-                <li>#シェア — 便利なツール・記事・発見を投稿</li>
-                <li>#進捗 — 今日やったことを記録する日報チャンネル</li>
-                <li>#雑談 — 軽い会話や近況報告</li>
-                <li>コールテンの講師も毎日チェックして返信</li>
-              </ul>
+              <p>作業会以外の日も使えるオンラインの場所。気軽に質問したり、発見をシェアしたり。コールテンの講師も毎日チェックして返信しています。</p>
             </div>
           </div>
 
@@ -153,7 +147,7 @@ import Layout from '../../../layouts/Layout.astro';
                 <span class="tag">受講済み講座</span>
                 <span class="tag">復習OK</span>
               </div>
-              <p>受講済みの講座動画・資料はいつでも振り返り可能。「あのやり方、もう一回確認したい」というときに。</p>
+              <p>受講済みの講座動画・資料はいつでも振り返り可能。糸口会や勉強会で出た質問に対する回答やログもみんなで共有しています。</p>
             </div>
           </div>
 
@@ -897,6 +891,13 @@ import Layout from '../../../layouts/Layout.astro';
     color: #555;
   }
 
+  .content-note {
+    font-size: 0.82rem;
+    color: #888;
+    line-height: 1.7;
+    margin: 0.75rem 0 0;
+  }
+
   /* ============================================================
      SCHEDULE SECTION
   ============================================================ */
@@ -929,13 +930,23 @@ import Layout from '../../../layouts/Layout.astro';
     letter-spacing: 0.05em;
     text-align: left;
     border-bottom: none;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .schedule-table th:last-child {
+    border-right: none;
   }
 
   .schedule-table td {
     padding: 0.85rem 1.5rem;
     font-size: 0.9rem;
     border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-right: 1px solid rgba(0,0,0,0.06);
     color: #444;
+  }
+
+  .schedule-table td:last-child {
+    border-right: none;
   }
 
   .schedule-table tbody tr:last-child td {
