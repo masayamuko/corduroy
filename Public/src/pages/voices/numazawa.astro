@@ -49,6 +49,11 @@ import Layout from '../../layouts/Layout.astro';
           </div>
         </div>
         <h1>Shuheiさん<br /><span style="font-size:0.85em">SHU行政書士事務所</span></h1>
+        <div class="result-badges">
+          <span class="result-badge">AI開発会社へ転身</span>
+          <span class="result-badge">DX推進副委員長</span>
+          <span class="result-badge">内省スピード向上</span>
+        </div>
         <div class="meta">
           <span class="tag">AI講座</span>
           <span class="pill">行政書士 / DX推進</span>
@@ -556,6 +561,13 @@ import Layout from '../../layouts/Layout.astro';
     .big-bubble {
         max-width: 720px;
         margin: 0 auto;
+    }
+
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
     }
 
     @media(max-width:768px) {

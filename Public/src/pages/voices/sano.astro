@@ -49,6 +49,11 @@ import Layout from '../../layouts/Layout.astro';
           </div>
         </div>
         <h1>株式会社スデニアル 代表<br />佐野さん</h1>
+        <div class="result-badges">
+          <span class="result-badge">提案スピード向上</span>
+          <span class="result-badge">外注コスト削減</span>
+          <span class="result-badge">施策シミュレーション高速化</span>
+        </div>
         <div class="meta">
           <span class="tag">AI顧問</span>
           <span class="pill">マーケティング/企画</span>
@@ -326,6 +331,13 @@ import Layout from '../../layouts/Layout.astro';
   .big-bubble { max-width: 720px; margin: 0 auto; }
   .big-bubble .bubble img { width: 64px; height: 64px; }
   .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+
+  .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+  .result-badge {
+    font-size: 13px; padding: 4px 12px; border-radius: 20px;
+    background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+    font-weight: 600;
+  }
 
   @media(max-width:768px){
     .hero { padding: 100px 20px 60px; }

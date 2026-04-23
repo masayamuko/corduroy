@@ -46,6 +46,11 @@ import Layout from '../../layouts/Layout.astro';
                   alt="窪田さん"></div>
             </div>
             <h1>NPO法人スマイリーフラワーズ<br>代表 窪田さん</h1>
+            <div class="result-badges">
+              <span class="result-badge">導入のムダ削減</span>
+              <span class="result-badge">DX推進中</span>
+              <span class="result-badge">AI顧問継続</span>
+            </div>
             <div class="meta">
               <span class="tag">AI顧問</span>
               <span class="pill">留学支援/社会的養護</span>
@@ -210,6 +215,13 @@ import Layout from '../../layouts/Layout.astro';
         .grid.cols-2 {
             grid-template-columns: repeat(2, 1fr);
         }
+    }
+
+    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
+    .result-badge {
+        font-size: 13px; padding: 4px 12px; border-radius: 20px;
+        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
+        font-weight: 600;
     }
 
     @media(max-width:768px) {

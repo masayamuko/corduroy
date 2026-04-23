@@ -5,7 +5,19 @@ const title = "法人向けAI研修｜株式会社コールテン";
 const description = "チーム全体のAIリテラシー底上げから、業務に根ざした活用設計まで。現場に合わせたカスタム研修を提供します。福岡・全国対応。";
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalUrl="https://www.corduroy.co.jp/services/study/corporate/" ogUrl="https://www.corduroy.co.jp/services/study/corporate/">
+  <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/"},
+        {"@type": "ListItem", "position": 2, "name": "サービス", "item": "https://www.corduroy.co.jp/services/"},
+        {"@type": "ListItem", "position": 3, "name": "AI講座", "item": "https://www.corduroy.co.jp/services/study/"},
+        {"@type": "ListItem", "position": 4, "name": "法人研修"}
+      ]
+    }
+  </script>
   <main>
 
     <!-- ===== HERO ===== -->

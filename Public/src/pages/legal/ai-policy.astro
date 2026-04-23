@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "AI利用ポリシー｜株式会社コールテン";
+const description = "株式会社コールテンのAI利用ポリシーです。AIの基本方針、利用するサービス、データの取り扱い、品質管理、コンテンツ表記、継続的な改善について記載しています。";
+---
+
+<Layout title={title} description={description} canonicalUrl="https://www.corduroy.co.jp/legal/ai-policy/" ogUrl="https://www.corduroy.co.jp/legal/ai-policy/">
+  <Fragment slot="head">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/"},
+          {"@type": "ListItem", "position": 2, "name": "AI利用ポリシー"}
+        ]
+      }
+    </script>
+  </Fragment>
+
+  <main>
+    <section class="container">
+      <div class="section-head">
+        <small>AI Policy</small>
+        <h1>AI利用ポリシー</h1>
+        <p class="mini">株式会社コールテン（以下「当社」）は、AIを活用したサービス提供にあたり、以下の方針に基づき運用します。</p>
+      </div>
+      <div class="card">
+        <dl>
+          <dt>1. 基本方針</dt>
+          <dd>
+            当社はAIを「第二の自分」として育てる道具と位置づけています。AIはあくまで人間の判断を補助・拡張するものであり、最終的な意思決定や責任は常に人間が担います。クライアントの「らしさ」を引き出すために、AIの力を活かしながらも、人の感性と判断を大切にします。
+          </dd>
+
+          <dt>2. 利用するAIサービス</dt>
+          <dd>
+            当社ではClaude（Anthropic社）を中心に、業務やサービスの特性に応じて適切なAIサービスを選定・活用しています。利用するサービスは、安全性・信頼性・プライバシーへの取り組みを確認した上で導入しています。
+          </dd>
+
+          <dt>3. データの取り扱い</dt>
+          <dd>
+            <ul>
+              <li>クライアントの機密情報は、許可なくAIサービスに入力しません。</li>
+              <li>個人情報の取り扱いは、個人情報保護法および当社プライバシーポリシーに準拠します。</li>
+              <li>AIサービスへのデータ入力にあたっては、各サービスのデータ利用規約を確認し、適切な範囲で利用します。</li>
+              <li>クライアントデータをAIに入力する必要がある場合は、事前に許可を得たうえで行います。</li>
+            </ul>
+          </dd>
+
+          <dt>4. 品質管理</dt>
+          <dd>
+            AIが出力した内容は、必ず担当者が確認・編集したうえで公開・納品します。AIの出力をそのまま最終成果物とすることはありません。事実確認、表現の適切性、クライアントの意図との整合性を人間の目で検証します。
+          </dd>
+
+          <dt>5. コンテンツ表記</dt>
+          <dd>
+            AIを活用して作成したコンテンツについては、必要に応じてその旨を明記する場合があります。ただし、最終的な編集・監修は人間が行っており、品質に責任を持ちます。
+          </dd>
+
+          <dt>6. 継続的な改善</dt>
+          <dd>
+            AI技術は日々進化しています。当社はAI技術の動向を注視し、より安全で効果的な活用方法を追求します。本ポリシーもAI技術の進化や社会情勢の変化に合わせて随時更新します。
+          </dd>
+
+          <dt>7. お問い合わせ窓口</dt>
+          <dd>
+            本ポリシーに関するお問い合わせは、下記までご連絡ください。<br>
+            株式会社コールテン<br>
+            所在地：〒810-0001 福岡県福岡市中央区天神2丁目2番12号 T&amp;Jビルディング7F<br>
+            メール：<a href="mailto:info@corduroy.co.jp">info@corduroy.co.jp</a><br>
+            電話：070-5273-0383<br>
+            担当：向 雅也
+          </dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    section {
+      padding: 80px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-head small {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    dl {
+      margin: 0
+    }
+
+    dt {
+      font-weight: 800;
+      color: var(--ink);
+      margin-top: 32px;
+      font-size: 18px;
+    }
+
+    dt:first-child {
+      margin-top: 0;
+    }
+
+    dd {
+      margin: 12px 0 0 0;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0 0 0;
+    }
+
+    a {
+      color: var(--sea);
+      text-decoration: underline;
+    }
+
+    @media(max-width:768px) {
+      section {
+        padding: 60px 0;
+      }
+      .card {
+        padding: 24px;
+      }
+    }
+</style>

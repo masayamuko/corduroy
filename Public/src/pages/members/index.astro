@@ -343,7 +343,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
           <div class="dashboard-frame dashboard-main">
             <div class="dashboard-label">社内ダッシュボード：オフィス全景</div>
             <div class="dashboard-image-wrap">
-              <img src="/assets/images/members/office_overview.png" alt={`各部屋で${totalMembers}名のAI社員が稼働中のオフィス全景`} loading="lazy" />
+              <img src="/assets/images/members/office_overview.png" alt={`各部屋で${totalMembers}名のAI社員が稼働中のオフィス全景`} width="1371" height="738" loading="lazy" />
             </div>
             <div class="dashboard-caption">
               <span>経営企画室 / マーケ / 開発 / 営業 / CS / プロダクト / 業務推進 / 経理 / 人事総務 / 法務の10部門が同じフロアに。キャラクターがMTG・メール配信・チェック作業をリアルタイムで動き回ります。</span>
@@ -382,7 +382,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
                     <div class="meishi-front">
                       <span class="meishi-ai-badge">AI</span>
                       <div class="meishi-card-header">
-                        <img class="meishi-logo" src="/favicon.svg" alt="コールテンロゴマーク" loading="lazy" />
+                        <img class="meishi-logo" src="/favicon.svg" alt="コールテンロゴマーク" width="128" height="128" loading="lazy" />
                         <div class="meishi-company">
                           <div class="meishi-company-name">株式会社コールテン</div>
                           <div class="meishi-dept-label">{dept.name}</div>
@@ -391,7 +391,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
                       <div class="meishi-body">
                         <div class={`meishi-avatar ${member.avatar ? 'has-photo' : ''}`} style={member.avatar ? `background: linear-gradient(135deg, ${dept.color}22, ${dept.color}44);` : `background: linear-gradient(135deg, ${dept.color}33, ${dept.color}66);`}>
                           {member.avatar ? (
-                            <img src={member.avatar} alt={`${member.name}のアバター`} loading="lazy" />
+                            <img src={member.avatar} alt={`${member.name}のアバター`} width="80" height="80" loading="lazy" />
                           ) : (
                             <span class="meishi-emoji">{member.emoji}</span>
                           )}

@@ -5,7 +5,21 @@ import Layout from '../../../layouts/Layout.astro';
 <Layout
   title="糸口会 | AIコミュニティ | コールテン"
   description="AIを楽しむ仲間とつながる、コールテンのコミュニティ「糸口会」。月1回の作業会（水曜夜 or 土曜朝・選択制）＋Discordで、学んだことを実践し続ける環境を。福岡・赤坂駅徒歩すぐ開催。"
+  canonicalUrl="https://www.corduroy.co.jp/services/study/community/"
+  ogUrl="https://www.corduroy.co.jp/services/study/community/"
 >
+  <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/"},
+        {"@type": "ListItem", "position": 2, "name": "サービス", "item": "https://www.corduroy.co.jp/services/"},
+        {"@type": "ListItem", "position": 3, "name": "AI講座", "item": "https://www.corduroy.co.jp/services/study/"},
+        {"@type": "ListItem", "position": 4, "name": "コミュニティ"}
+      ]
+    }
+  </script>
   <main class="community-page">
 
     <!-- ============================================================

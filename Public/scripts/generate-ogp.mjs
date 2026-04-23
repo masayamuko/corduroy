@@ -330,6 +330,8 @@ async function generate() {
 
   // ブログ記事用 OGP 一括生成
   const blogArticles = [
+    { slug: 'what-is-ai-advisory', title: 'AI顧問とは？中小企業・個人事業主のためのAI活用伴走サービス' },
+    { slug: 'how-to-choose-ai-course', title: 'AI講座の選び方ガイド — 初心者が失敗しない5つのポイント' },
     { slug: 'smf-partner-pride', title: 'スマイリーフラワーズが語る、留学エージェントとしての誇り' },
     { slug: 'nks-kashiko-instructor', title: 'NKS日本語学校のかしこインストラクター導入レポート' },
     { slug: 'itoshima-110km-walk', title: '糸島110kmウォーク完歩レポート' },
