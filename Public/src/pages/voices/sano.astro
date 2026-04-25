@@ -1,347 +1,947 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+  {
+    slug: '/blog/san-partner-pride/',
+    date: '2026-04-25',
+    category: 'パートナー自慢',
+    title: '株式会社スデニアル 佐野さんを本気で応援する理由',
+    excerpt: '「AIは効率化ツールじゃなくて、人が前向きになる設計に使える」。佐野さんの仕事哲学に深く共鳴し、コールテンが一緒に歩み続ける理由を綴っています。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png',
+  },
+  {
+    slug: '/blog/san-interview-simulation/',
+    date: '2026-03-20',
+    category: 'インタビュー',
+    title: '「議事録の先」を見つけた日 —— マーケター佐野さんのAIシミュレーション活用術',
+    excerpt: '議事録要約止まりだったAI活用から、マーケ施策のシミュレーションを爆速で回せるように。コールテンとの協業で仕事のやり方が変わった裏側。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png',
+  },
+  {
+    slug: '/blog/san-interview-transcripts-asset/',
+    date: '2026-03-12',
+    category: 'インタビュー',
+    title: '議事録は「記録」じゃなくて「思考資産」—— 佐野さんが見つけた議事録の新しい価値',
+    excerpt: '「文字起こしにあんまり価値を感じてなかった」佐野さんが、議事録を『思考資産』として活用し始めた転換と、専門性・価値観でAIが本領発揮する話。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png',
+  },
+  {
+    slug: '/blog/san-interview-project-options/',
+    date: '2026-03-05',
+    category: 'インタビュー',
+    title: '「発注ありき」から「共創前提」へ —— AIで広がるプロジェクトの選択肢',
+    excerpt: '企画を実現するには「発注」しかなかった。AIで「共創」という選択肢が生まれ、心理的ハードルが下がった佐野さんの体験。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png',
+  },
+];
 ---
 
-<Layout 
-  title="クライアントの声｜株式会社スデニアル 佐野さん｜株式会社コールテン"
-  description="議事録要約止まりだったAI活用から、マーケ施策のシミュレーション（仮説→検証→提案）を高速に回せる状態へ。外注に頼らず提案の幅と検証スピードを一気に拡大。"
-  canonicalUrl="https://www.corduroy.co.jp/voices/sano/"
-  ogUrl="https://www.corduroy.co.jp/voices/sano/"
-  ogType="article"
+<Layout
+    title="佐野さん｜クライアントさまの声｜株式会社コールテン"
+    description="議事録要約止まりから、AIシミュレーション・共創・思考資産化へ。株式会社スデニアル代表 佐野さんがコールテンとの協業を通じて実現した変化と、現在進行形の取り組みをご紹介します。"
+    canonicalUrl="https://www.corduroy.co.jp/voices/sano/"
+    ogUrl="https://www.corduroy.co.jp/voices/sano/"
+    ogType="profile"
 >
-  <script slot="head" type="application/ld+json">
+    <script slot="head" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
-        { "@type": "ListItem", "position": 2, "name": "クライアントの声", "item": "https://www.corduroy.co.jp/voices/" },
+        { "@type": "ListItem", "position": 2, "name": "クライアントさまの声", "item": "https://www.corduroy.co.jp/voices/" },
         { "@type": "ListItem", "position": 3, "name": "佐野さん" }
       ]
     }
-  </script>
-  <script slot="head" type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Organization",
-        "name": "株式会社コールテン"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "佐野",
-        "jobTitle": "代表"
-      },
-      "reviewBody": "議事録要約しかできなかった頃とは別次元。シミュレーションを爆速で回せるようになり、提案の幅が一気に広がった。"
-    }
-  </script>
+    </script>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner fade-up">
-        <div class="avatar-frame">
-          <div class="avatar-lg">
-            <img
-              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png"
-              alt="佐野さん"
-            />
-          </div>
-        </div>
-        <h1>株式会社スデニアル 代表<br />佐野さん</h1>
-        <div class="result-badges">
-          <span class="result-badge">提案スピード向上</span>
-          <span class="result-badge">外注コスト削減</span>
-          <span class="result-badge">施策シミュレーション高速化</span>
-        </div>
-        <div class="meta">
-          <span class="tag">AI顧問</span>
-          <span class="pill">マーケティング/企画</span>
-        </div>
-        <p>
-          議事録要約止まりだったAI活用から、
-          <b>マーケティング施策のシミュレーション（仮説→検証→提案）</b>を高速に回せる状態へ。
-          外注に頼らず、提案の幅と検証スピードを一気に拡大しました。
-        </p>
-      </div>
-    </section>
-
-    <section class="intro-section">
-      <div class="container">
-        <div class="card big-bubble" style="margin-bottom:16px;">
-          <div class="dialogue">
-            <div class="bubble teto">
-              <div class="bubble-avatar">
-                <img
-                  src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
-                  alt="盤上テトくん"
-                />
-                <span class="name-tag">盤上テト</span>
-              </div>
-              <div class="bubble-text">
-                広報担当のテトです！<br />
-                ここからはボクが、佐野さんの変化をインタビューしていくね。
-              </div>
+    <main>
+        <!-- ===== ヒーロー ===== -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner fade-up">
+                    <div class="hero-avatar">
+                        <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png"
+                            alt="佐野さん">
+                    </div>
+                    <div class="hero-text">
+                        <span class="eyebrow">CLIENT VOICE</span>
+                        <h1>佐野さん</h1>
+                        <p class="hero-sub">株式会社スデニアル 代表 / マーケティング・企画プロフェッショナル</p>
+                        <div class="hero-tags">
+                            <span class="hero-tag">定期ミーティング</span>
+                            <span class="hero-tag">共同サービス開発</span>
+                            <span class="hero-tag">マインドマッチ構想</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-stats fade-up">
+                    <div class="stat-chip"><strong>爆速</strong><span>シミュレーション</span></div>
+                    <div class="stat-chip"><strong>転換</strong><span>発注 → 共創</span></div>
+                    <div class="stat-chip"><strong>資産化</strong><span>議事録を思考資産に</span></div>
+                </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <div class="character-grid cols-2">
-          <div class="character-card">
-            <span class="character-role" style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
-            <img
-              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png"
-              alt="佐野さん"
-            />
-            <h3 style="margin:2px 0 4px;">佐野さん</h3>
-            <p class="mini" style="margin:0; color:var(--text-light);">株式会社スデニアル代表。マーケティング/企画の提案・施策設計に携わる。</p>
-          </div>
+        <!-- ===== Before / After ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:40px;">
+            <div class="article-content">
+                <div class="section-head fade-up">
+                    <small>Before / After</small>
+                    <h2>コールテンとの協業による変化</h2>
+                    <p>定期的なミーティングと共同サービス開発を通じて起きた変化を一目で。</p>
+                </div>
 
-          <div class="character-card">
-            <span class="character-role" style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
-            <img
-              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
-              alt="向 雅也"
-            />
-            <h3 style="margin:2px 0 4px;">向 雅也</h3>
-            <p class="mini" style="margin:0; color:var(--text-light);">AI顧問として伴走し、仮説→検証→提案が回る形を一緒に整えました。</p>
-          </div>
-        </div>
-      </div>
-    </section>
+                <p class="ba-meta fade-up">※ 定期ミーティング・共同サービス開発を通じた個別事例です。再現を保証するものではありません。</p>
 
-    <section class="container">
-      <div class="card dialogue-flow fade-up">
-        <div class="dialogue">
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+                <div class="before-after fade-up">
+                    <div class="ba-card ba-before">
+                        <span class="ba-label">Before</span>
+                        <ul>
+                            <li>AI活用は議事録要約止まり</li>
+                            <li>仮説を立てても、検証に時間がかかり追いつかない</li>
+                            <li>企画を実現する手段は「発注」しかなかった</li>
+                            <li>AIの回答が「一般論」で面白くなく、距離があった</li>
+                        </ul>
+                    </div>
+                    <div class="ba-arrow" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="13 6 19 12 13 18"/>
+                        </svg>
+                    </div>
+                    <div class="ba-card ba-after">
+                        <span class="ba-label">After</span>
+                        <ul>
+                            <li>「第二の自分」を育て、専門性と価値観を持ったAIに</li>
+                            <li>マーケ施策のシミュレーションを爆速で回せる体制</li>
+                            <li>「発注」から「共創」へ、プロジェクト選択肢が拡張</li>
+                            <li>議事録を「思考資産」として運用、対話そのものをベータ化</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="bubble-text">まず、コールテンの伴走に入る前。AIはどんな使い方でした？</div>
-          </div>
+        </section>
 
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
-              <span class="name-tag">佐野さん</span>
+        <!-- ===== 本人証言（主役） ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:40px;">
+            <div class="testimonial fade-up">
+                <div class="testimonial-mark">“</div>
+                <p class="testimonial-quote">AIは効率化ツールじゃなくて、人が前向きになる設計に使えるんです。関わった人が「この仕事をやって良かった」と思ってもらえること——それが僕にとって、いい仕事の条件。AIもそのための道具だと思っています。</p>
+                <div class="testimonial-by">
+                    <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん">
+                    <div>
+                        <p class="testimonial-name">佐野さん</p>
+                        <p class="testimonial-role">株式会社スデニアル 代表</p>
+                    </div>
+                </div>
             </div>
-            <div class="bubble-text">はい、当時は正直、議事録要約くらいでした。実務の意思決定に使う発想は、あまり持てていなかったです。</div>
-          </div>
+        </section>
 
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+        <!-- ===== この事例から学べること ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:40px;">
+            <div class="learn-block fade-up">
+                <span class="learn-eyebrow">この事例が刺さる方</span>
+                <h2 class="learn-title">こんな悩みがある方の参考になります</h2>
+                <ul class="learn-list">
+                    <li><strong>マーケター・企画職</strong>として、AIを「議事録要約」止まりから一歩進めたい</li>
+                    <li>AIの回答が一般論で面白くない——<strong>「自分の業界・価値観」を反映したい</strong></li>
+                    <li>企画を実現する手段が「発注」しかなく、<strong>共創・内製で動ける手段を増やしたい</strong></li>
+                    <li>議事録や対話の蓄積を、<strong>思考資産として再利用</strong>したい</li>
+                </ul>
             </div>
-            <div class="bubble-text">その状態だと、どこが一番しんどかった？</div>
-          </div>
+        </section>
 
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
-              <span class="name-tag">佐野さん</span>
+        <!-- ===== ストーリー（吹き出し付き） ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:60px;">
+            <div class="article-content">
+                <div class="section-head fade-up">
+                    <small>Story</small>
+                    <h2>議事録止まりから共創へ、伴走の流れ</h2>
+                </div>
+
+                <!-- 議事録止まりだった頃 -->
+                <div class="fade-up">
+                    <h3>🎯 議事録止まりだった頃</h3>
+                    <p>
+                        株式会社スデニアルの佐野さんは、マーケティング・企画のプロフェッショナル。AIに対しては最初は懐疑的で、活用は議事録要約止まりでした。仮説を立てても検証が追いつかず、AIの回答も一般論で「自分ごと」になりにくかった時期があります。
+                    </p>
+                    <div class="dialog">
+                        <div class="bubble right">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん">
+                                <span class="name-tag">佐野</span>
+                            </div>
+                            <div class="bubble-text">正直、最初は懐疑的でした。便利なツールだなとは思ったけど、自分の仕事を変えるほどのものだとは思っていなかった。検証が追いつかないし、回答が一般論で面白くなかったんです。</div>
+                        </div>
+                        <div class="bubble">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+                                <span class="name-tag">代表 向</span>
+                            </div>
+                            <div class="bubble-text">マーケターとして、検証と仮説のサイクルを大事にされてきた佐野さんだからこそ、議事録要約止まりではしっくり来なかったんだと思います。だからこそ、もう一段深い使い方を一緒に探していきたいと思いました。</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二の自分との出会い -->
+                <div class="fade-up">
+                    <h3>💡 「第二の自分」との出会い</h3>
+                    <p>
+                        転換点は「第二の自分」という考え方に出会ったとき。AIに自分の考え方や価値観を覚えさせて、壁打ち相手にする。検索や効率化の延長ではなく、「自分の分身を育てる」感覚が、佐野さんを一気にAIに引き寄せました。
+                    </p>
+                    <div class="dialog">
+                        <div class="bubble right">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん">
+                                <span class="name-tag">佐野</span>
+                            </div>
+                            <div class="bubble-text">「第二の自分を作る」という発想に出会ったとき、一気にのめり込みました。専門性と価値観を入れていくと、回答の解像度が一段上がる感覚があったんです。「使い手の声」がAIに入って、はじめて本領発揮するんだなと。</div>
+                        </div>
+                        <div class="bubble">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+                                <span class="name-tag">代表 向</span>
+                            </div>
+                            <div class="bubble-text">「使い手の声」というキーワードはまさに佐野さんが見出された言葉ですよね。AIを「外から借りる頭脳」ではなく「自分の延長」として育てる発想は、コールテンが大切にしている考え方と深く重なります。</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 共創とシミュレーション -->
+                <div class="fade-up">
+                    <h3>🤝 共創とシミュレーションの実践</h3>
+                    <p>
+                        現在は、コールテンと佐野さんで定期的にミーティングを重ねながら、共同サービスの開発・マーケ施策のシミュレーション・コンテンツ設計の壁打ちを並行で進めています。発注ではなく共創、検証はAIで爆速、提案の幅は一気に広がりました。
+                    </p>
+                    <div class="dialog">
+                        <div class="bubble right">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん">
+                                <span class="name-tag">佐野</span>
+                            </div>
+                            <div class="bubble-text">企画を実現するには「発注」しかなかったのが、AIで「共創」という選択肢が生まれて。「できない」と諦めていたことが「やってみよう」に変わりました。シミュレーションも爆速で回せて、提案の幅が一気に広がっています。</div>
+                        </div>
+                        <div class="bubble">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+                                <span class="name-tag">代表 向</span>
+                            </div>
+                            <div class="bubble-text">毎週ホワイトボードを並べて一緒に考え、一緒に試して、一緒に振り返る——この「共創」のスタイルが、コールテンにとっても大きな学びになっています。佐野さんとは、AIの先にある「人が前向きになる設計」を一緒に作り続けたいです。</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- これから -->
+                <div class="fade-up">
+                    <h3>🚀 これから一緒に作っていくもの</h3>
+                    <p>
+                        共同サービスの開発・コンテンツの磨き込み・新しい伝え方の設計——「人が前向きになる設計」を軸に、コールテンと佐野さんは引き続き一緒に動いていきます。マーケターと AI 伴走者が共創することで、何が実現できるのか、その実例を作り続けるフェーズです。
+                    </p>
+                </div>
             </div>
-            <div class="bubble-text">施策の検証やアイデア出しを回すのに時間がかかってしまって、提案の幅がどうしても狭くなりやすかったですね。</div>
-          </div>
+        </section>
 
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+        <!-- ===== 佐野さんを知る ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:60px;">
+            <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 24px;">
+                <small>About Sano</small>
+                <h2>佐野さんをもっと知る</h2>
             </div>
-            <div class="bubble-text">マーケ施策の「シミュレーション」って、どんな場面？</div>
-          </div>
-
-          <!-- 返答を連続させて単調さを崩す -->
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
-              <span class="name-tag">佐野さん</span>
+            <div class="social-links fade-up">
+                <!-- TODO: 佐野さんの公式サイト・SNS届き次第差し替え -->
+                <div class="social-card coming-soon" aria-disabled="true">
+                    <span class="social-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </span>
+                    <div class="social-body">
+                        <p class="social-platform">株式会社スデニアル</p>
+                        <p class="social-handle">Coming Soon</p>
+                    </div>
+                </div>
             </div>
-            <div class="bubble-text">たとえば、どんなデータを持って、どのターゲットに、どんな投稿/打ち手を当てるか。パターンを組み替えて仮説を立てるところです。</div>
-          </div>
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
-              <span class="name-tag">佐野さん</span>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="container faq" style="padding-top:20px; padding-bottom:60px;">
+            <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 32px;">
+                <small>FAQ</small>
+                <h2>よくあるご質問</h2>
             </div>
-            <div class="bubble-text">過去の売上や反応データから「どこに仮説を置くか」を決めて、打ち手案をいくつか作って提案に繋げる…その回転が遅かったんだと思います。</div>
-          </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+            <div class="faq-items fade-up">
+                <details open>
+                    <summary>マーケターや企画職でも、AI伴走を受けられますか？</summary>
+                    <p>はい、佐野さんのようなマーケティング・企画のプロフェッショナルこそAI伴走の効果が出やすい領域です。仮説検証のスピード、提案の幅、共創の選択肢が一気に広がります。まずは現状の使い方をヒアリングするところから始めます。</p>
+                </details>
+                <details>
+                    <summary>議事録要約止まりからどう抜け出せばいいですか？</summary>
+                    <p>佐野さんも同じ場所からスタートしました。「第二の自分」を育てる発想——専門性と価値観をAIに教え込むワークが入口になります。議事録を「思考資産」として活用する型を一緒に作っていきます。</p>
+                </details>
+                <details>
+                    <summary>「発注」から「共創」に変えていくには何が必要？</summary>
+                    <p>マインドの切り替えと、共創を回せる対話のリズムです。佐野さんは定期ミーティングのなかで、AIと一緒に企画を練り、検証し、形にする流れを身につけました。コールテンでは、その対話のリズムを一緒に整える伴走を行っています。</p>
+                </details>
+                <details>
+                    <summary>佐野さんと違う業種でも応用できますか？</summary>
+                    <p>はい。型は業種を問いません。佐野さんの「使い手の声を入れる」「議事録を資産にする」「共創する」という考え方は、士業・教育・クリエイティブ・サービス業など幅広い領域でも再現されています。</p>
+                </details>
+                <details>
+                    <summary>「人が前向きになる設計」って具体的にどんなこと？</summary>
+                    <p>佐野さんの仕事観の核心です。AIや仕組みは、効率化のためだけではなく「使う人・関わる人が前向きになる」ことを目的に設計するべき、という考え方。コールテンの「らしさを引き出す」「小さく試して広げる」哲学とも深く重なります。</p>
+                </details>
             </div>
-            <div class="bubble-text">そこから一気に変わった分岐点って、何でした？</div>
-          </div>
+        </section>
 
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
-              <span class="name-tag">佐野さん</span>
+        <!-- ===== 関連記事 ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:60px;">
+            <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 32px;">
+                <small>Related Articles</small>
+                <h2>佐野さん関連の記事</h2>
             </div>
-            <div class="bubble-text">「AIでシミュレーションを回す」って感覚が掴めたのが大きかったです。自分の手で回せるようになると、景色が変わりました。</div>
-          </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+            <div class="posts-list fade-up">
+                {posts.map((post) => (
+                    <a href={post.slug} class="post-card">
+                        <div class="post-thumb">
+                            <img src={post.thumbnail} alt="" width="120" height="120" loading="lazy" />
+                        </div>
+                        <div class="post-body">
+                            <div class="post-meta">
+                                <time class="post-date" datetime={post.date}>{post.date}</time>
+                                <span class="post-cat">{post.category}</span>
+                            </div>
+                            <h2 class="post-title">{post.title}</h2>
+                            <p class="post-excerpt">{post.excerpt}</p>
+                            <span class="post-link">続きを読む →</span>
+                        </div>
+                    </a>
+                ))}
             </div>
-            <div class="bubble-text">たとえば、どんなふうに速くなる？</div>
-          </div>
+        </section>
 
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
-              <span class="name-tag">佐野さん</span>
+        <!-- ===== 代表 向より ===== -->
+        <section class="container" style="padding-top:0; padding-bottom:40px;">
+            <div class="oshi-banner fade-up">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                    alt="向 雅也" class="oshi-avatar">
+                <div class="oshi-body">
+                    <p class="oshi-label">代表 向より</p>
+                    <p class="oshi-text">佐野さんとは、定期ミーティングと共同サービス開発を通じて、毎週のように対話を重ねています。マーケターとしての視点と、人を前向きにする設計への眼差し——その両方が同居している方は本当に貴重で、コールテンの講座やコンテンツに対しても容赦なく深いフィードバックをくださる存在です。長く一緒に試し続けたい仲間です。</p>
+                </div>
             </div>
-            <div class="bubble-text">ターゲット別の訴求案を何パターンも出して、投稿パターンを組み替えて、施策の優先順位もつけて…と、検証回数が増えました。</div>
-          </div>
+        </section>
 
-          <!-- 追加：もう少し具体を増やして1.5倍へ -->
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+        <!-- ===== CTA ===== -->
+        <section id="contact" class="container" style="padding-bottom:100px">
+            <div class="card fade-up cta-card">
+                <h3>佐野さんと同じように、AIと伴走したい方へ</h3>
+                <p class="cta-lead">コールテンの伴走は紹介を優先していますが、ご紹介がない場合も状況に応じて個別に受け付けています。まずは最初の対話で、あなたの状況が佐野さんの事例に近いかを一緒に確認しましょう。</p>
+                <ul class="cta-points">
+                    <li>対象: マーケター・企画職・法人・個人事業主（業種不問）</li>
+                    <li>形式: 定期ミーティング伴走／AI講座（短期）／共同サービス開発／単発相談</li>
+                    <li>初回返信目安: 2〜3営業日</li>
+                </ul>
+                <div class="cta-actions">
+                    <a class="btn" href="/contact">自分も伴走を相談する</a>
+                    <a class="btn secondary" href="/voices/">他のクライアントの声を見る</a>
+                </div>
             </div>
-            <div class="bubble-text">検証回数が増えると、提案ってどう変わった？</div>
-          </div>
-
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
-              <span class="name-tag">佐野さん</span>
-            </div>
-            <div class="bubble-text">「この案しかない」じゃなくて、複数案を並べて、メリット/懸念点も添えて提案できるようになりました。結果的に、会話が前に進みやすくなった気がします。</div>
-          </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
-            </div>
-            <div class="bubble-text">外注との付き合い方も変わった？</div>
-          </div>
-
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
-              <span class="name-tag">佐野さん</span>
-            </div>
-            <div class="bubble-text">ゼロにはしていないのですが、外注コストは抑えられています。AIで叩き台を作って、必要なところだけプロに整えてもらうようなイメージです。</div>
-          </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
-            </div>
-            <div class="bubble-text">最後に、この先はどうなっていきたい？</div>
-          </div>
-
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" />
-              <span class="name-tag">佐野さん</span>
-            </div>
-            <div class="bubble-text">新規案件でも「AI前提の提案」を、自分で回していきたいです。検証して、提案して、改善するスピードを落としたくないですね。</div>
-          </div>
-
-          <div class="voice-note">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
-                style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
-                alt="向" />
-              <span class="note-name" style="margin:0">担当 向より</span>
-            </div>
-            AI顧問では、最新ツールの紹介だけで終わらせず、クライアントさんの「事業・状況・想い」に合わせて、仮説→検証→提案が回る形を一緒に作っていきます。
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="container" style="padding-top:0; padding-bottom:40px;">
-      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
-        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
-        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
-          <li><a href="/blog/san-partnership/" style="font-size:13px; color:var(--sea);">佐野さんと定期ミーティングを開始しました →</a></li>
-          <li><a href="/services/advisory/" style="font-size:13px; color:var(--sea);">AI顧問サービスについて →</a></li>
-        </ul>
-      </aside>
-    </section>
-
-    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
-      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
-        <h3>同じように伴走してほしい方へ</h3>
-        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">コールテンでは、紹介限定・長期前提でAI伴走を行っています。まずは小さく試して、合うかどうかを一緒に確認しましょう。</p>
-        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで提供しているのは<strong>AI顧問</strong>です。月額での伴走・仮説検証のシミュレーションサポートが中心です。</p>
-        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
-          <a class="btn" href="/services/advisory">AI顧問の詳細</a>
-          <a class="btn secondary" href="/contact">相談方法を見る</a>
-          <a class="btn secondary" href="/voices/">他のクライアントの声</a>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
+    </main>
 </Layout>
 
 <style>
-  /* Hero */
-  .hero { padding: 160px 0 100px; text-align: center; background: transparent; }
-  .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 800px; margin: 0 auto; }
-  .meta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: center; margin-top: 24px; }
-  .tag { display: inline-block; padding: 8px 16px; border-radius: 100px; background: var(--mint); color: var(--sea); font-weight: 700; font-size: 13px; border: 1px solid var(--line); }
-  .pill { display: inline-block; padding: 8px 16px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-weight: 700; font-size: 13px; color: var(--text-light); }
-  .avatar-frame { width: 160px; height: 160px; margin: 0 auto; display: flex; align-items: center; justify-content: center; background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat; }
-  .avatar-lg { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow-md); background: #fff; }
-  .avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+    /* ===== Hero ===== */
+    .hero {
+        padding: 60px 0 40px;
+        background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+    }
+    .hero-inner {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        max-width: 820px;
+        margin: 0 auto;
+    }
+    .hero-avatar {
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        border: 3px solid #fff;
+    }
+    .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-text { flex: 1; }
+    .eyebrow {
+        display: inline-block;
+        color: var(--accent);
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        font-size: 11px;
+        font-family: "Space Grotesk", sans-serif;
+        margin-bottom: 8px;
+    }
+    .hero h1 {
+        font-size: clamp(28px, 4vw, 40px);
+        margin-bottom: 4px;
+    }
+    .hero-sub {
+        font-size: 14px;
+        color: var(--text-light);
+        margin-bottom: 12px;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .hero-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 99px;
+        background: rgba(22,97,78,0.08);
+        color: var(--sea);
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        max-width: 820px;
+        margin: 28px auto 0;
+    }
+    .stat-chip {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        padding: 14px 12px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 4px 14px rgba(5,32,24,0.05);
+    }
+    .stat-chip strong {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--sea);
+        line-height: 1.1;
+    }
+    .stat-chip span {
+        font-size: 11.5px;
+        color: var(--text-light);
+        text-align: center;
+    }
 
-  .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-md); }
-  .card.cta-card { transform: none !important; box-shadow: var(--shadow-md) !important; }
-  .mini { font-size: 14px; color: var(--text-light); line-height: 1.8; }
+    /* ===== 共通 ===== */
+    .article-content { max-width: 820px; margin: 0 auto; }
+    .section-head { text-align: center; margin-bottom: 32px; }
+    .section-head small {
+        display: block;
+        color: var(--sea);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 12px;
+    }
+    .article-content h3 {
+        margin: 40px 0 18px;
+        color: var(--ink);
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 8px;
+    }
 
-  .character-card { text-align: center; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
-  .character-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-  .character-card img { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; box-shadow: 0 8px 18px rgba(0,0,0,.08); margin: 0 auto 8px; display: block; }
-  .character-role { display: inline-block; padding: 6px 10px; background: #f1f7f3; border: 1px solid #d6e8df; border-radius: 10px; font-size: 12px; font-weight: 700; color: #124034; margin-bottom: 6px; }
-  .character-grid { display: grid; gap: 18px; grid-template-columns: 1fr; max-width: 760px; margin: 0 auto; }
-  @media(min-width:900px){ .character-grid.cols-2{ grid-template-columns: repeat(2,1fr);} }
+    /* ===== Before / After ===== */
+    .ba-meta {
+        max-width: 820px;
+        margin: 0 auto 14px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-light);
+    }
+    .before-after {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: stretch;
+        gap: 0;
+        max-width: 820px;
+        margin: 0 auto 24px;
+    }
+    .ba-card {
+        position: relative;
+        border-radius: 18px;
+        padding: 24px 22px;
+        display: flex;
+        flex-direction: column;
+    }
+    .ba-before {
+        background: #faf8f3;
+        border: 1px solid #ebe5d6;
+        color: #6b6358;
+    }
+    .ba-after {
+        background: var(--sea);
+        color: #fff;
+        box-shadow: 0 8px 22px rgba(22,97,78,0.14);
+    }
+    .ba-label {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        margin-bottom: 14px;
+        padding: 4px 12px;
+        border-radius: 99px;
+        text-transform: uppercase;
+    }
+    .ba-before .ba-label {
+        background: #fff;
+        color: #9c8b62;
+        border: 1px solid #e6dcc1;
+    }
+    .ba-after .ba-label {
+        background: var(--accent);
+        color: #fff;
+    }
+    .ba-card ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 13.5px;
+        line-height: 1.85;
+    }
+    .ba-card li { margin-bottom: 6px; }
+    .ba-card li:last-child { margin-bottom: 0; }
+    .ba-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        color: var(--accent);
+    }
+    .ba-arrow svg {
+        width: 20px;
+        height: 20px;
+        animation: ba-arrow-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes ba-arrow-pulse {
+        0%, 100% { transform: translateX(0); opacity: 0.85; }
+        50% { transform: translateX(3px); opacity: 1; }
+    }
 
-  .dialogue-flow { max-width: 760px; margin: 0 auto; }
-  .dialogue { display: grid; gap: 26px; margin: 16px auto 18px; max-width: 640px; }
+    /* ===== Testimonial ===== */
+    .testimonial {
+        position: relative;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 40px 36px 32px;
+        background: linear-gradient(180deg, #fefcf6 0%, #fbf6e7 100%);
+        border: 1px solid #f0e5c2;
+        border-radius: 24px;
+        box-shadow: 0 12px 32px rgba(212,160,77,0.10);
+    }
+    .testimonial-mark {
+        position: absolute;
+        top: -8px;
+        left: 24px;
+        font-family: "Space Grotesk", serif;
+        font-size: 96px;
+        line-height: 1;
+        color: var(--accent);
+        opacity: 0.55;
+    }
+    .testimonial-quote {
+        position: relative;
+        font-size: 17px;
+        line-height: 2;
+        color: var(--ink);
+        margin: 0 0 24px;
+        font-weight: 500;
+    }
+    .testimonial-by {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border-top: 1px solid #ecdfb9;
+        padding-top: 18px;
+    }
+    .testimonial-by img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    .testimonial-name { margin: 0; font-weight: 700; color: var(--ink); }
+    .testimonial-role { margin: 2px 0 0; font-size: 12.5px; color: var(--text-light); }
 
-  .bubble { display: flex; gap: 12px; align-items: flex-start; width: 100%; position: relative; }
-  .bubble-avatar { position: relative; width: 82px; height: 82px; flex-shrink: 0; }
-  .bubble-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; box-shadow: 0 6px 14px rgba(0,0,0,.08); }
-  .bubble-text { background: #e7f4ef; border: 1px solid #cde5db; border-radius: 12px; padding: 10px 12px; line-height: 1.7; color: #12382c; flex: 1; position: relative; }
-  .bubble.right { flex-direction: row-reverse; }
-  .bubble.right .bubble-text { background: #f4f1ff; border: 1px solid #e2dcfa; color: #1f2440; }
+    /* ===== Dialog ===== */
+    .dialog {
+        max-width: 760px;
+        margin: 24px auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+    .bubble {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        background: #fff;
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 14px;
+        padding: 12px 14px;
+        line-height: 1.75;
+        color: #12382c;
+        font-size: 14.5px;
+        flex: 1;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border-color: #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
 
-  .name-tag { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); padding: 2px 8px; border-radius: 8px; background: rgba(255,255,255,.9); box-shadow: 0 4px 10px rgba(0,0,0,.08); font-weight: 700; font-size: 10px; color: #0f3d2e; white-space: nowrap; }
+    /* ===== 学べること ===== */
+    .learn-block {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 32px 32px 28px;
+        background: var(--mint);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+    }
+    .learn-eyebrow {
+        display: inline-block;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: var(--sea);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+    .learn-title {
+        font-size: clamp(20px, 2.4vw, 24px);
+        margin: 0 0 18px;
+        color: var(--ink);
+    }
+    .learn-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .learn-list li {
+        position: relative;
+        padding-left: 28px;
+        font-size: 14.5px;
+        line-height: 1.85;
+        color: var(--text);
+    }
+    .learn-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--sea);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .learn-list strong { color: var(--sea); }
 
-  .voice-note { margin: 22px auto 0; padding: 14px 16px; border-radius: 14px; border: 1px solid #f2ddbf; background: #fff7ea; box-shadow: 0 10px 22px rgba(0,0,0,.05); color: #3a2c15; line-height: 1.7; max-width: 640px; }
-  .note-name { display: inline-block; padding: 6px 12px; border-radius: 10px; background: #fbe9cc; color: #6a4618; font-weight: 700; font-size: 12px; margin-bottom: 12px; }
+    /* ===== Social ===== */
+    .social-links {
+        max-width: 820px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+    .social-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 20px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+    }
+    .social-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(5,32,24,0.08);
+        border-color: rgba(22,97,78,0.18);
+    }
+    .social-card.coming-soon {
+        opacity: 0.65;
+        background: #faf8f3;
+        cursor: default;
+    }
+    .social-card.coming-soon:hover {
+        transform: none;
+        box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+        border-color: var(--line);
+    }
+    .social-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: var(--mint);
+        color: var(--sea);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .social-icon svg { width: 22px; height: 22px; }
+    .social-body { flex: 1; min-width: 0; }
+    .social-platform {
+        margin: 0 0 2px;
+        font-size: 12px;
+        color: var(--text-light);
+        font-weight: 700;
+    }
+    .social-handle {
+        margin: 0;
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
-  /* Match takaro big bubble sizing */
-  .big-bubble { max-width: 720px; margin: 0 auto; }
-  .big-bubble .bubble img { width: 64px; height: 64px; }
-  .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+    /* ===== oshi ===== */
+    .oshi-banner {
+        max-width: 820px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px 24px;
+        background: #fff7ea;
+        border: 1px solid #f2ddbf;
+        border-radius: 16px;
+    }
+    .oshi-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    .oshi-body { flex: 1; }
+    .oshi-label {
+        font-weight: 700;
+        font-size: 12px;
+        color: #6a4618;
+        margin: 0 0 6px;
+    }
+    .oshi-text {
+        font-size: 13.5px;
+        line-height: 1.8;
+        color: #3a2c15;
+        margin: 0;
+    }
 
-  .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
-  .result-badge {
-    font-size: 13px; padding: 4px 12px; border-radius: 20px;
-    background: var(--mint, #eef7f3); color: var(--sea, #16614e);
-    font-weight: 600;
-  }
+    /* ===== 関連記事 ===== */
+    .posts-list {
+        max-width: 820px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+    .post-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 28px 32px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+        transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .post-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(5,32,24,0.08);
+        border-color: rgba(22,97,78,0.18);
+    }
+    .post-thumb {
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--cream);
+        border: 1px solid var(--line);
+    }
+    .post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-body { flex: 1; min-width: 0; }
+    .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 12px;
+    }
+    .post-date {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 13px;
+        color: var(--text-light);
+        letter-spacing: 0.05em;
+    }
+    .post-cat {
+        display: inline-block;
+        background: rgba(22,97,78,0.08);
+        color: var(--sea);
+        border-radius: 99px;
+        padding: 3px 11px;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+    .post-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.5;
+        margin: 0 0 10px;
+    }
+    .post-excerpt {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.85;
+        margin: 0 0 14px;
+    }
+    .post-link {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--sea);
+        font-family: "Space Grotesk", sans-serif;
+    }
 
-  @media(max-width:768px){
-    .hero { padding: 100px 20px 60px; }
-    .bubble-avatar { width: 64px; height: 64px; }
-    .name-tag { font-size: 9px; }
-  }
+    /* ===== CTA ===== */
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .cta-card h3 {
+        font-size: clamp(20px, 2.4vw, 24px);
+        margin: 0 0 14px;
+        color: var(--ink);
+    }
+    .cta-lead {
+        font-size: 14.5px;
+        line-height: 1.85;
+        color: var(--text-light);
+        margin: 0 auto 18px;
+        max-width: 560px;
+    }
+    .cta-points {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto 22px;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 4px;
+        text-align: left;
+        font-size: 13px;
+        color: var(--text);
+    }
+    .cta-points li::before {
+        content: '・';
+        color: var(--sea);
+        margin-right: 4px;
+    }
+    .cta-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+        .hero { padding: 40px 16px 28px; }
+        .hero-inner { flex-direction: column; text-align: center; align-items: center; }
+        .hero-tags { justify-content: center; }
+        .hero-stats { grid-template-columns: 1fr; gap: 8px; }
+        .stat-chip { flex-direction: row; justify-content: center; gap: 8px; padding: 10px 14px; }
+        .stat-chip strong { font-size: 18px; }
+        .before-after { grid-template-columns: 1fr; }
+        .ba-arrow { padding: 12px 0; }
+        .ba-arrow svg { transform: rotate(90deg); animation: none; }
+        .testimonial { padding: 36px 22px 24px; }
+        .testimonial-mark { font-size: 72px; left: 16px; top: -4px; }
+        .testimonial-quote { font-size: 15px; line-height: 1.9; }
+        .learn-block { padding: 24px 22px; }
+        .social-links { grid-template-columns: 1fr; }
+        .oshi-banner { flex-direction: column; align-items: center; text-align: center; }
+        .post-card { padding: 20px; gap: 16px; }
+        .post-thumb { width: 72px; height: 72px; border-radius: 10px; }
+        .post-title { font-size: 17px; }
+        .bubble-avatar { width: 52px; height: 52px; }
+        .bubble-text { font-size: 13.5px; padding: 10px 13px; }
+    }
 </style>
