@@ -31,10 +31,10 @@ const posts = [
 
 <Layout
     title="たかろーさん｜クライアントさまの声｜株式会社コールテン"
-    description="フリーランスとして動画編集・WEB制作・カメラを手がける中野たかろーさん。ChatGPTを「第二の自分」として育て、業務効率化と新規案件獲得を実現したAI活用の変化と成果、そして関連記事をまとめてご紹介します。"
+    description="動画分析時間50%削減・新規案件3件獲得・教育チャンネル始動。フリーランス たかろーさんがAI伴走で実現した変化と、現在進行形の取り組みをご紹介します。"
     canonicalUrl="https://www.corduroy.co.jp/voices/takaro/"
     ogUrl="https://www.corduroy.co.jp/voices/takaro/"
-    ogType="article"
+    ogType="profile"
 >
     <script slot="head" type="application/ld+json">
     {
@@ -68,96 +68,243 @@ const posts = [
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ===== 推しの一言 ===== -->
-        <section class="container" style="padding-top:0; padding-bottom:20px;">
-            <div class="oshi-banner fade-up">
-                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
-                    alt="向 雅也" class="oshi-avatar">
-                <div class="oshi-body">
-                    <p class="oshi-label">代表 向より</p>
-                    <p class="oshi-text">たかろーさんとは友人として先に出会い、今はクライアントとしても一緒に動いています。写真・動画・Webの制作スキルが高い一方で、本当にやりたいのは子ども支援や教育。その「やりたいこと」にAIをどう活かすか——制作で生計を立てながら教育への思いを形にする、そのあいだをつなぐのがコールテンの役割だと思っています。</p>
+                <!-- 成果チップ（H1直下の3秒で伝わるサマリー） -->
+                <div class="hero-stats fade-up">
+                    <div class="stat-chip"><strong>50%</strong><span>動画分析時間 削減</span></div>
+                    <div class="stat-chip"><strong>+3件</strong><span>新規案件 獲得</span></div>
+                    <div class="stat-chip"><strong>始動</strong><span>世界の教育チャンネル</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== AI活用の成果（旧 showcase の内容） ===== -->
-        <section class="container" style="padding-top:40px; padding-bottom:60px;">
+        <!-- ===== Before / After（結論先出し） ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:40px;">
             <div class="article-content">
                 <div class="section-head fade-up">
-                    <small>Client Showcase</small>
-                    <h2>AI活用による変化と成果</h2>
-                    <p>たかろーさんがAI講座を受講し、「第二の自分」を育てることで実現した具体的な成果をご紹介します。</p>
+                    <small>Before / After</small>
+                    <h2>コールテンでのAI学習による変化</h2>
+                    <p>AI講座とAI顧問の伴走を通じて起きた変化を一目で。</p>
                 </div>
 
+                <p class="ba-meta fade-up">※ AI講座受講・AI顧問伴走（約1年）での個別事例です。再現を保証するものではありません。</p>
+                <div class="before-after fade-up">
+                    <div class="ba-card ba-before">
+                        <span class="ba-label">Before</span>
+                        <ul>
+                            <li>ChatGPTを「検索ツール」としてしか使えていない</li>
+                            <li>AIの嘘（ハルシネーション）に振り回される</li>
+                            <li>業務効率化や新規案件獲得のAI活用法が不明</li>
+                            <li>制作スキルはあるが「やりたいこと」に時間を割けない</li>
+                        </ul>
+                    </div>
+                    <div class="ba-arrow" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="13 6 19 12 13 18"/>
+                        </svg>
+                    </div>
+                    <div class="ba-card ba-after">
+                        <span class="ba-label">After</span>
+                        <ul>
+                            <li>価値観・体調のクセまで教え込んだ「第二の自分」を育成</li>
+                            <li>動画分析時間を50%削減</li>
+                            <li>新規案件を3件獲得</li>
+                            <li>仕事のやり方をAIに教え込みルール化する段階へ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 本人証言（主役） ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:40px;">
+            <div class="testimonial fade-up">
+                <div class="testimonial-mark">“</div>
+                <p class="testimonial-quote">「第二の自分」は誰とも被らない資産になるし、新しいAIが出てもブレない軸になります。いきなり独学で走るより、コールテンさんみたいにたくさん実践して裏側（仕組み）を知っている人と一緒に、相談できる状態で走るのが一番効率よかったと思います。</p>
+                <div class="testimonial-by">
+                    <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+                    <div>
+                        <p class="testimonial-name">中野たかろーさん</p>
+                        <p class="testimonial-role">フリーランス / 動画編集・WEB制作・カメラマン</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== この事例から学べること（共感ブロック・ストーリー前） ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:40px;">
+            <div class="learn-block fade-up">
+                <span class="learn-eyebrow">この事例が刺さる方</span>
+                <h2 class="learn-title">こんな悩みがある方の参考になります</h2>
+                <ul class="learn-list">
+                    <li><strong>動画クリエイター・フリーランス</strong>として、AIで業務量と仕事の質を両立させたい</li>
+                    <li>ChatGPT を検索止まりで使っているが、本当は<strong>「相棒」レベルまで育てたい</strong></li>
+                    <li>「やりたいこと」が別領域（教育・支援など）にあり、<strong>本業と両立する道</strong>を探している</li>
+                    <li>独学で迷うより、<strong>仕組みを理解した伴走者と一緒に</strong>進めたい</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== ストーリー（吹き出し付き） ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:60px;">
+            <div class="article-content">
+                <div class="section-head fade-up">
+                    <small>Story</small>
+                    <h2>受講前から現在までの伴走</h2>
+                </div>
+
+                <!-- 受講前の課題 -->
                 <div class="fade-up">
                     <h3>🎯 受講前の課題</h3>
                     <p>
-                        たかろーさんは、フリーランスとして動画編集、WEB制作、カメラマンなど多岐にわたる業務を手がけていました。ChatGPTは使っていたものの、「検索ツール」としての利用に留まっており、本来の可能性を十分に引き出せていませんでした。
+                        フリーランスとして動画編集・WEB制作・カメラマンなど幅広く手がけていたものの、ChatGPTは「検索ツール」止まり。AIの嘘に振り回された経験から、距離を置いていた時期もありました。
                     </p>
-                    <div class="highlight-box">
-                        <h4>主な課題</h4>
-                        <p class="mini">
-                            ✓ ChatGPTを検索代替としてしか使えていない<br>
-                            ✓ AIの嘘（ハルシネーション）に振り回されることがある<br>
-                            ✓ 業務効率化の具体的な方法が分からない<br>
-                            ✓ 新規案件獲得のためのAI活用方法が不明
-                        </p>
+                    <div class="dialog">
+                        <div class="bubble right">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+                                <span class="name-tag">たかろー</span>
+                            </div>
+                            <div class="bubble-text">最初は ChatGPT を検索の代わりに使ってる感じで。聞いても適当な答えが返ってきて信用できなくて、一回離れちゃってた時期もあるんです。本当はもっと使いこなしたい気持ちはあったんですけど、入り口が見つからなくて。</div>
+                        </div>
+                        <div class="bubble">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+                                <span class="name-tag">代表 向</span>
+                            </div>
+                            <div class="bubble-text">そうでしたね。たかろーさんはAIの嘘に振り回されていた時期がありましたが、もっと使いこなしたい気持ちはずっと持っていらっしゃいました。だからこそ、その入り口を一緒に作りたいと思ったんです。</div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- AI講座での学び -->
                 <div class="fade-up">
                     <h3>💡 AI講座での学び</h3>
                     <p>
-                        コールテンのAI講座では、ChatGPTの基礎から「第二の自分」を育てる方法まで、実践的な内容を学びました。特に、自分自身の価値観や体調のクセまで深掘りして教え込むことで、言葉足らずでも「こういうことですよね？」と補完してくれる相談相手として活用できるようになりました。
+                        コールテンのAI講座で、生成AIの仕組み・嘘の見抜き方・価値観や体調のクセまで教え込む「第二の自分」ワークを学習。検索の道具ではなく、対話の相棒としてAIを使い始めるきっかけになりました。
                     </p>
-                    <div class="highlight-box">
-                        <h4>重要な学び</h4>
-                        <p class="mini">
-                            ✓ 生成AIが返答する時の仕組みを理解<br>
-                            ✓ AIの嘘を見抜くための確認方法<br>
-                            ✓ 「忖度せずに話して」プロンプトの活用<br>
-                            ✓ 自分の価値観やクセをAIに教え込む方法
-                        </p>
-                    </div>
-                </div>
-
-                <div class="fade-up">
-                    <h3>📈 実現した成果</h3>
-                    <p>
-                        AI講座を受講後、たかろーさんは「第二の自分」として育てたChatGPTを活用し、以下のような具体的な成果を実現しました。
-                    </p>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-number">50%</div>
-                            <div class="stat-label">動画分析時間の削減</div>
+                    <div class="dialog">
+                        <div class="bubble right">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+                                <span class="name-tag">たかろー</span>
+                            </div>
+                            <div class="bubble-text">「第二の自分」のワークで価値観や体調のクセまで教え込んでから、全然違いました。言葉足らずでも「こういうことですよね？」って補ってくれる感覚があって、AIが本当に相棒になった気がします。</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-number">3件</div>
-                            <div class="stat-label">新規案件の獲得</div>
+                        <div class="bubble">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+                                <span class="name-tag">代表 向</span>
+                            </div>
+                            <div class="bubble-text">あれを通ってからの変化は早かったですね。検索の道具ではなく、対話の相棒として使えるようになった瞬間は、ご本人もはっきり実感できるはずです。あの感覚に届けられたのが大きかったと思います。</div>
                         </div>
                     </div>
                 </div>
 
+                <!-- AI顧問での実践 -->
                 <div class="fade-up">
-                    <h3>🚀 今後の展開</h3>
+                    <h3>🤝 AI顧問での実践</h3>
                     <p>
-                        現在、たかろーさんはAI顧問契約を継続し、実際の仕事のやり方をAIに教え込んでルール化する段階に進んでいます。これにより、自分の代わりに同じ処理をし続けてもらえるシステムの構築を目指しています。
+                        現在は AI 顧問契約のなかで「世界の教育チャンネル」プロジェクトを共に進行中。Remotion と Claude Code を使った動画編集を学び、素材生成から編集までAIで量産できる体制をつくりつつあります。教育という、本当に興味のある領域で仕事を取りに行ける状態を目指しています。
                     </p>
-                    <div class="highlight-box">
-                        <h4>たかろーさんの言葉</h4>
-                        <p class="mini">
-                            「第二の自分」は誰とも被らない資産になるし、新しいAIが出てもブレない軸になります。いきなり独学で走るより、コールテンさんみたいにたくさん実践して裏側（仕組み）を知っている人と一緒に、相談できる状態で走るのが一番効率よかったと思います。
-                        </p>
+                    <div class="dialog">
+                        <div class="bubble right">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="たかろーさん">
+                                <span class="name-tag">たかろー</span>
+                            </div>
+                            <div class="bubble-text">今は「世界の教育チャンネル」を作っていて、Remotion と Claude Code で動画編集のスキル化を進めてます。素材から何まで全部AIで作るところまでチャレンジ中で、教育系の興味のある分野で仕事を取っていけるようになりたいです。</div>
+                        </div>
+                        <div class="bubble">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+                                <span class="name-tag">代表 向</span>
+                            </div>
+                            <div class="bubble-text">制作で生計を立てつつ、AIで量産化した動画コンテンツで「教育」というやりたい領域に踏み出すフェーズですね。コールテンとしては、その『あいだ』をつなぐサポートを続けていきたいと思っています。</div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- 今後の展望 -->
+                <div class="fade-up">
+                    <h3>🚀 今後の展望</h3>
+                    <p>
+                        制作で生計を立てつつ、AIで量産化した動画コンテンツで「教育」という本当にやりたい領域に踏み出す——その「あいだ」をつなぐのが現在のフェーズです。Remotion・Claude Code で得た動画制作スキルを軸に、教育系の仕事をAIと一緒に取りにいける状態を目指しています。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== たかろーさんを知る ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:60px;">
+            <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 24px;">
+                <small>About Takaro</small>
+                <h2>たかろーさんをもっと知る</h2>
+            </div>
+            <div class="social-links fade-up">
+                <a href="https://x.com/takaro_potter" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <span class="social-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.55 7.49L22 22h-6.78l-4.79-6.27L4.92 22H2.16l7.02-8.02L2 2h6.91l4.32 5.71L18.244 2zm-2.38 18h1.65L8.22 4H6.5l9.36 16z"/></svg>
+                    </span>
+                    <div class="social-body">
+                        <p class="social-platform">X（旧Twitter）</p>
+                        <p class="social-handle">@takaro_potter</p>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/takaro_potter/" target="_blank" rel="noopener noreferrer" class="social-card">
+                    <span class="social-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.012 4.85.07 1.17.054 1.81.249 2.23.413.56.218.96.479 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.81-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.81-.25-2.23-.41a3.71 3.71 0 0 1-1.38-.9 3.71 3.71 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.81.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.14 0-3.51.012-4.74.068-.95.044-1.46.205-1.8.34-.45.18-.78.39-1.12.73-.34.34-.55.67-.73 1.12-.13.34-.3.85-.34 1.8-.06 1.23-.07 1.6-.07 4.74s.01 3.51.07 4.74c.04.95.2 1.46.34 1.8.18.45.39.78.73 1.12.34.34.67.55 1.12.73.34.13.85.3 1.8.34 1.23.06 1.6.07 4.74.07s3.51-.01 4.74-.07c.95-.04 1.46-.2 1.8-.34.45-.18.78-.39 1.12-.73.34-.34.55-.67.73-1.12.13-.34.3-.85.34-1.8.06-1.23.07-1.6.07-4.74s-.01-3.51-.07-4.74c-.04-.95-.2-1.46-.34-1.8-.18-.45-.39-.78-.73-1.12a3.04 3.04 0 0 0-1.12-.73c-.34-.13-.85-.3-1.8-.34-1.23-.06-1.6-.07-4.74-.07zm0 2.76a5.46 5.46 0 1 1 0 10.92 5.46 5.46 0 0 1 0-10.92zm0 1.62a3.84 3.84 0 1 0 0 7.68 3.84 3.84 0 0 0 0-7.68zm5.65-1.81a1.27 1.27 0 1 1 0 2.55 1.27 1.27 0 0 1 0-2.55z"/></svg>
+                    </span>
+                    <div class="social-body">
+                        <p class="social-platform">Instagram</p>
+                        <p class="social-handle">@takaro_potter</p>
+                    </div>
+                </a>
+                <!-- TODO: 世界の教育チャンネル 1本目公開時にURLを設定 -->
+                <div class="social-card coming-soon" aria-disabled="true">
+                    <span class="social-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                    </span>
+                    <div class="social-body">
+                        <p class="social-platform">世界の教育チャンネル</p>
+                        <p class="social-handle">Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="container faq" style="padding-top:20px; padding-bottom:60px;">
+            <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 32px;">
+                <small>FAQ</small>
+                <h2>よくあるご質問</h2>
+            </div>
+            <div class="faq-items fade-up">
+                <details open>
+                    <summary>たかろーさんのようなフリーランスでも、AI伴走は受けられますか？</summary>
+                    <p>はい、フリーランスの方も多く伴走させていただいています。たかろーさんのケースでも、業務効率化と「やりたいこと」（教育チャンネル制作）の両軸でサポートしています。法人・個人問わず、まずは紹介から小さく始める形です。</p>
+                </details>
+                <details>
+                    <summary>動画編集や写真など、クリエイティブな仕事でもAIは活きますか？</summary>
+                    <p>むしろ相性が良い領域です。たかろーさんは動画分析時間を50%削減しつつ、撮影・編集の現場感は残す形でAIを使い分けています。「機械に任せる部分」と「人が向き合う部分」を一緒に切り分けるのがコールテンの伴走スタイルです。</p>
+                </details>
+                <details>
+                    <summary>「第二の自分」を育てるにはどれくらい時間がかかりますか？</summary>
+                    <p>使い始めて数週間で違いを感じる方が多いです。たかろーさんも、価値観や体調のクセまで教え込むワークを通じて、AIが「言葉足らずでも補完してくれる相棒」に変化していきました。一気に作るのではなく、毎日の対話で少しずつ育てます。</p>
+                </details>
+                <details>
+                    <summary>たかろーさんと違う業種・職種でも成果は出ますか？</summary>
+                    <p>はい。たかろーさんの成果（案件獲得・効率化・やりたいこと実現）は、価値観をAIに教える型を実践した結果です。型自体は業種を問わず使えるので、教育・士業・NPO・サービス業・個人クリエイターなど幅広い領域で再現されています。</p>
+                </details>
+                <details>
+                    <summary>「やりたいこと」と「できること」を分けて考える意味は？</summary>
+                    <p>多くの方は「できること」（売上を立てる仕事）に時間を取られて、「やりたいこと」が後回しになります。たかろーさんの場合、AIが制作業務の効率化と教育チャンネルの量産を両方支えることで、両者を行き来できるようになりました。AIは「やりたいこと」に時間を割くための装置でもあります。</p>
+                </details>
             </div>
         </section>
 
         <!-- ===== 関連記事 ===== -->
-        <section class="container" style="padding-top:20px; padding-bottom:80px;">
+        <section class="container" style="padding-top:20px; padding-bottom:60px;">
             <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 32px;">
                 <small>Related Articles</small>
                 <h2>たかろーさん関連の記事</h2>
@@ -170,7 +317,7 @@ const posts = [
                         </div>
                         <div class="post-body">
                             <div class="post-meta">
-                                <time class="post-date">{post.date}</time>
+                                <time class="post-date" datetime={post.date}>{post.date}</time>
                                 <span class="post-cat">{post.category}</span>
                             </div>
                             <h2 class="post-title">{post.title}</h2>
@@ -182,14 +329,30 @@ const posts = [
             </div>
         </section>
 
+        <!-- ===== 代表 向より ===== -->
+        <section class="container" style="padding-top:0; padding-bottom:40px;">
+            <div class="oshi-banner fade-up">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                    alt="向 雅也" class="oshi-avatar">
+                <div class="oshi-body">
+                    <p class="oshi-label">代表 向より</p>
+                    <p class="oshi-text">たかろーさんとは友人として先に出会い、今はクライアントとしても一緒に動いています。写真・動画・Webの制作スキルが高い一方で、本当にやりたいのは子ども支援や教育。その「やりたいこと」にAIをどう活かすか——制作で生計を立てながら教育への思いを形にする、そのあいだをつなぐのがコールテンの役割だと思っています。</p>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== CTA ===== -->
         <section id="contact" class="container" style="padding-bottom:100px">
-            <div class="card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
-                <h3>同じように伴走してほしい方へ</h3>
-                <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">
-                    コールテンでは、紹介限定・長期前提でAI伴走を行っています。まずは小さく試して、合うかどうかを一緒に確認しましょう。</p>
-                <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-                    <a class="btn" href="/contact">相談方法を見る</a>
+            <div class="card fade-up cta-card">
+                <h3>たかろーさんと同じように、AIと伴走したい方へ</h3>
+                <p class="cta-lead">コールテンの伴走は紹介を優先していますが、ご紹介がない場合も状況に応じて個別に受け付けています。まずは最初の対話で、あなたの状況がたかろーさんの事例に近いかを一緒に確認しましょう。</p>
+                <ul class="cta-points">
+                    <li>対象: 法人・個人事業主・フリーランス（業種不問）</li>
+                    <li>形式: AI顧問（月次伴走）／AI講座（短期）／単発相談</li>
+                    <li>初回返信目安: 2〜3営業日</li>
+                </ul>
+                <div class="cta-actions">
+                    <a class="btn" href="/contact">自分も伴走を相談する</a>
                     <a class="btn secondary" href="/voices/">他のクライアントの声を見る</a>
                 </div>
             </div>
@@ -198,7 +361,7 @@ const posts = [
 </Layout>
 
 <style>
-    /* Hero */
+    /* ===== Hero ===== */
     .hero {
         padding: 60px 0 40px;
         background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
@@ -254,7 +417,384 @@ const posts = [
         font-weight: 700;
     }
 
-    /* 推しの一言 */
+    /* 成果チップ（H1直下サマリー） */
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        max-width: 820px;
+        margin: 28px auto 0;
+    }
+    .stat-chip {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        padding: 14px 12px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 4px 14px rgba(5,32,24,0.05);
+    }
+    .stat-chip strong {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--sea);
+        line-height: 1.1;
+    }
+    .stat-chip span {
+        font-size: 11.5px;
+        color: var(--text-light);
+        text-align: center;
+    }
+
+    /* ===== 共通: section-head ===== */
+    .article-content {
+        max-width: 820px;
+        margin: 0 auto;
+    }
+    .section-head {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+    .section-head small {
+        display: block;
+        color: var(--sea);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 12px;
+    }
+    .article-content h3 {
+        margin: 40px 0 18px;
+        color: var(--ink);
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 8px;
+    }
+
+    /* ===== Before / After ===== */
+    .ba-meta {
+        max-width: 820px;
+        margin: 0 auto 14px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-light);
+    }
+    .before-after {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: stretch;
+        gap: 0;
+        max-width: 820px;
+        margin: 0 auto 24px;
+    }
+    .ba-card {
+        position: relative;
+        border-radius: 18px;
+        padding: 24px 22px;
+        display: flex;
+        flex-direction: column;
+    }
+    .ba-before {
+        background: #faf8f3;
+        border: 1px solid #ebe5d6;
+        color: #6b6358;
+    }
+    .ba-after {
+        background: var(--sea);
+        color: #fff;
+        box-shadow: 0 8px 22px rgba(22,97,78,0.14);
+    }
+    .ba-label {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        margin-bottom: 14px;
+        padding: 4px 12px;
+        border-radius: 99px;
+        text-transform: uppercase;
+    }
+    .ba-before .ba-label {
+        background: #fff;
+        color: #9c8b62;
+        border: 1px solid #e6dcc1;
+    }
+    .ba-after .ba-label {
+        background: var(--accent);
+        color: #fff;
+    }
+    .ba-card ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 13.5px;
+        line-height: 1.85;
+    }
+    .ba-card li { margin-bottom: 6px; }
+    .ba-card li:last-child { margin-bottom: 0; }
+    .ba-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        color: var(--accent);
+    }
+    .ba-arrow svg {
+        width: 20px;
+        height: 20px;
+        animation: ba-arrow-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes ba-arrow-pulse {
+        0%, 100% { transform: translateX(0); opacity: 0.85; }
+        50% { transform: translateX(3px); opacity: 1; }
+    }
+
+    /* ===== 本人証言（pull quote） ===== */
+    .testimonial {
+        position: relative;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 40px 36px 32px;
+        background: linear-gradient(180deg, #fefcf6 0%, #fbf6e7 100%);
+        border: 1px solid #f0e5c2;
+        border-radius: 24px;
+        box-shadow: 0 12px 32px rgba(212,160,77,0.10);
+    }
+    .testimonial-mark {
+        position: absolute;
+        top: -8px;
+        left: 24px;
+        font-family: "Space Grotesk", serif;
+        font-size: 96px;
+        line-height: 1;
+        color: var(--accent);
+        opacity: 0.55;
+    }
+    .testimonial-quote {
+        position: relative;
+        font-size: 17px;
+        line-height: 2;
+        color: var(--ink);
+        margin: 0 0 24px;
+        font-weight: 500;
+    }
+    .testimonial-by {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border-top: 1px solid #ecdfb9;
+        padding-top: 18px;
+    }
+    .testimonial-by img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    .testimonial-name {
+        margin: 0;
+        font-weight: 700;
+        color: var(--ink);
+    }
+    .testimonial-role {
+        margin: 2px 0 0;
+        font-size: 12.5px;
+        color: var(--text-light);
+    }
+
+    /* ===== Dialog（吹き出し） ===== */
+    .dialog {
+        max-width: 760px;
+        margin: 24px auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+    .bubble {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        width: 100%;
+        position: relative;
+    }
+    .bubble-avatar {
+        position: relative;
+        width: 82px;
+        height: 82px;
+        flex-shrink: 0;
+    }
+    .bubble-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        background: #fff;
+    }
+    .bubble-text {
+        background: #e7f4ef;
+        border: 1px solid #cde5db;
+        border-radius: 14px;
+        padding: 12px 14px;
+        line-height: 1.75;
+        color: #12382c;
+        font-size: 14.5px;
+        flex: 1;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble.right .bubble-text {
+        background: #f4f1ff;
+        border-color: #e2dcfa;
+        color: #1f2440;
+    }
+    .name-tag {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        font-weight: 700;
+        font-size: 10px;
+        color: #0f3d2e;
+        white-space: nowrap;
+    }
+
+    /* ===== この事例から学べること ===== */
+    .learn-block {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 32px 32px 28px;
+        background: var(--mint);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+    }
+    .learn-eyebrow {
+        display: inline-block;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: var(--sea);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+    .learn-title {
+        font-size: clamp(20px, 2.4vw, 24px);
+        margin: 0 0 18px;
+        color: var(--ink);
+    }
+    .learn-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .learn-list li {
+        position: relative;
+        padding-left: 28px;
+        font-size: 14.5px;
+        line-height: 1.85;
+        color: var(--text);
+    }
+    .learn-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--sea);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .learn-list strong {
+        color: var(--sea);
+    }
+
+    /* ===== Social links ===== */
+    .social-links {
+        max-width: 820px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+    .social-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 20px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+    }
+    .social-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(5,32,24,0.08);
+        border-color: rgba(22,97,78,0.18);
+    }
+    .social-card.coming-soon {
+        opacity: 0.65;
+        background: #faf8f3;
+        cursor: default;
+    }
+    .social-card.coming-soon:hover {
+        transform: none;
+        box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+        border-color: var(--line);
+    }
+    .social-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: var(--mint);
+        color: var(--sea);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .social-icon svg { width: 22px; height: 22px; }
+    .social-body { flex: 1; min-width: 0; }
+    .social-platform {
+        margin: 0 0 2px;
+        font-size: 12px;
+        color: var(--text-light);
+        font-weight: 700;
+    }
+    .social-handle {
+        margin: 0;
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* ===== 推しの一言 ===== */
     .oshi-banner {
         max-width: 820px;
         margin: 0 auto;
@@ -288,50 +828,14 @@ const posts = [
         margin: 0;
     }
 
-    /* Showcase article */
-    .article-content {
-        max-width: 820px;
-        margin: 0 auto;
-    }
-    .section-head {
-        text-align: center;
-        margin-bottom: 48px;
-    }
-    .section-head small {
-        display: block;
-        color: var(--sea);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 12px;
-    }
-    .article-content h3 {
-        margin: 48px 0 24px;
-        color: var(--ink);
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 8px;
-    }
-    .highlight-box {
-        background: var(--mint);
-        border-left: 4px solid var(--sea);
-        padding: 24px;
-        border-radius: 12px;
-        margin: 32px 0;
-    }
-    .highlight-box h4 {
-        margin: 0 0 12px;
-        color: var(--ink);
-        font-size: 18px;
-    }
+    /* ===== Stats ===== */
     .stats-grid {
         display: grid;
         gap: 24px;
-        margin: 32px 0;
+        margin: 24px 0;
     }
     @media(min-width: 768px) {
-        .stats-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
+        .stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .stat-card {
         background: #fff;
@@ -352,7 +856,7 @@ const posts = [
         color: var(--text-light);
     }
 
-    /* 関連記事 */
+    /* ===== 関連記事 ===== */
     .posts-list {
         max-width: 820px;
         margin: 0 auto;
@@ -387,16 +891,8 @@ const posts = [
         background: var(--cream);
         border: 1px solid var(--line);
     }
-    .post-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
-    .post-body {
-        flex: 1;
-        min-width: 0;
-    }
+    .post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-body { flex: 1; min-width: 0; }
     .post-meta {
         display: flex;
         align-items: center;
@@ -440,13 +936,50 @@ const posts = [
         font-family: "Space Grotesk", sans-serif;
     }
 
-    /* CTA */
+    /* ===== CTA ===== */
     .card {
         background: #fff;
         border: 1px solid var(--line);
         border-radius: 24px;
         padding: 32px;
         box-shadow: var(--shadow-md);
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .cta-card h3 {
+        font-size: clamp(20px, 2.4vw, 24px);
+        margin: 0 0 14px;
+        color: var(--ink);
+    }
+    .cta-lead {
+        font-size: 14.5px;
+        line-height: 1.85;
+        color: var(--text-light);
+        margin: 0 auto 18px;
+        max-width: 560px;
+    }
+    .cta-points {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto 22px;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 4px;
+        text-align: left;
+        font-size: 13px;
+        color: var(--text);
+    }
+    .cta-points li::before {
+        content: '・';
+        color: var(--sea);
+        margin-right: 4px;
+    }
+    .cta-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     .mini {
         font-size: 14px;
@@ -458,9 +991,22 @@ const posts = [
         .hero { padding: 40px 16px 28px; }
         .hero-inner { flex-direction: column; text-align: center; align-items: center; }
         .hero-tags { justify-content: center; }
+        .hero-stats { grid-template-columns: 1fr; gap: 8px; }
+        .stat-chip { flex-direction: row; justify-content: center; gap: 8px; padding: 10px 14px; }
+        .stat-chip strong { font-size: 20px; }
+        .before-after { grid-template-columns: 1fr; }
+        .ba-arrow { padding: 12px 0; }
+        .ba-arrow svg { transform: rotate(90deg); animation: none; }
+        .testimonial { padding: 36px 22px 24px; }
+        .testimonial-mark { font-size: 72px; left: 16px; top: -4px; }
+        .testimonial-quote { font-size: 15px; line-height: 1.9; }
+        .learn-block { padding: 24px 22px; }
+        .social-links { grid-template-columns: 1fr; }
         .oshi-banner { flex-direction: column; align-items: center; text-align: center; }
         .post-card { padding: 20px; gap: 16px; }
         .post-thumb { width: 72px; height: 72px; border-radius: 10px; }
         .post-title { font-size: 17px; }
+        .bubble-avatar { width: 52px; height: 52px; }
+        .bubble-text { font-size: 13.5px; padding: 10px 13px; }
     }
 </style>

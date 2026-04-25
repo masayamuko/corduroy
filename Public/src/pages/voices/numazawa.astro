@@ -1,509 +1,622 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+  {
+    slug: '/blog/shu-interview-dx-commissioner/',
+    date: '2026-03-12',
+    category: 'インタビュー',
+    title: '行政書士がDX推進副委員長に —— AI活用が仕事を変えた実話',
+    excerpt: '行政書士のしゅうへいさんが、AI活用をきっかけにDX推進副委員長に就任。士業の業界にAIを持ち込み、研修設計や組織改革を進める実話。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png',
+  },
+  {
+    slug: '/blog/shu-interview-coaching/',
+    date: '2026-03-05',
+    category: 'インタビュー',
+    title: '「3時間が一瞬で過ぎる」—— AIコーチングで内省の回転数が変わった',
+    excerpt: 'コーチングが好きだったけど手軽に回せなかった行政書士のしゅうへいさん。AIで客観視される経験を通じて、内省の回転数が劇的に変わった。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png',
+  },
+  {
+    slug: '/blog/shu-ai-advisory/',
+    date: '2026-04-01',
+    category: '活動報告',
+    title: '行政書士のしゅうへいさんにAI顧問契約をいただきました',
+    excerpt: 'しゅう行政書士事務所のしゅうへいさんに、3ヶ月のお試しAI顧問契約をいただきました。一人で仕事をしている士業の方がAIエージェントでチーム化していく第一歩をサポートしています。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+  },
+];
 ---
 
-<Layout 
-  title="クライアントの声｜Shuheiさん SHU行政書士事務所｜株式会社コールテン"
-  description="AIを『調べるだけ』から、仕事でも使える『対話型の相棒』へ。コールテンの勉強会（第二の自分ワーク）を起点に、内省の回転数が上がり、DX推進や仕事にも波及。"
-  canonicalUrl="https://www.corduroy.co.jp/voices/numazawa/"
-  ogUrl="https://www.corduroy.co.jp/voices/numazawa/"
-  ogType="article"
+<Layout
+    title="しゅうへいさん｜クライアントさまの声｜株式会社コールテン"
+    description="行政書士会のDX推進副委員長就任・AI開発会社への転身・内省の回転数アップ。SHU行政書士事務所のしゅうへいさんがAI伴走で実現した変化と、士業×AIの最前線をご紹介します。"
+    canonicalUrl="https://www.corduroy.co.jp/voices/numazawa/"
+    ogUrl="https://www.corduroy.co.jp/voices/numazawa/"
+    ogType="profile"
 >
-  <script slot="head" type="application/ld+json">
+    <script slot="head" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
-        { "@type": "ListItem", "position": 2, "name": "クライアントの声", "item": "https://www.corduroy.co.jp/voices/" },
-        { "@type": "ListItem", "position": 3, "name": "沼澤さん" }
+        { "@type": "ListItem", "position": 2, "name": "クライアントさまの声", "item": "https://www.corduroy.co.jp/voices/" },
+        { "@type": "ListItem", "position": 3, "name": "しゅうへいさん" }
       ]
     }
-  </script>
-  <script slot="head" type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Organization",
-        "name": "株式会社コールテン"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Shuhei",
-        "jobTitle": "代表"
-      },
-      "reviewBody": "AIの返答を“良い/悪い”で切って終わると伸びない。柔軟に捉えて自分の軸で使うと、どんどん面白くなる。"
-    }
-  </script>
+    </script>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner fade-up">
-        <div class="avatar-frame">
-          <div class="avatar-lg">
-            <img
-              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png"
-              alt="Shuheiさん"
-            />
-          </div>
-        </div>
-        <h1>Shuheiさん<br /><span style="font-size:0.85em">SHU行政書士事務所</span></h1>
-        <div class="result-badges">
-          <span class="result-badge">AI開発会社へ転身</span>
-          <span class="result-badge">DX推進副委員長</span>
-          <span class="result-badge">内省スピード向上</span>
-        </div>
-        <div class="meta">
-          <span class="tag">AI講座</span>
-          <span class="pill">行政書士 / DX推進</span>
-        </div>
-        <p>
-          AIを「調べるだけ」から、仕事でも使える“対話型の相棒”へ。
-          コールテンの勉強会（第二の自分ワーク）を起点に、内省の回転数が上がり、DX推進や仕事にも波及しました。
-        </p>
-      </div>
-    </section>
-
-    <section class="intro-section">
-      <div class="container">
-        <div class="card big-bubble" style="margin-bottom:16px;">
-          <div class="dialogue">
-            <div class="bubble teto">
-              <div class="bubble-avatar">
-                <img
-                  src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png"
-                  alt="盤上テトくん"
-                />
-                <span class="name-tag">盤上テト</span>
-              </div>
-              <div class="bubble-text">
-                広報担当のテトです！<br />
-                ここからはボクが、Shuheiさんの変化をインタビューしていくね。
-              </div>
+    <main>
+        <!-- ===== ヒーロー ===== -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner fade-up">
+                    <div class="hero-avatar">
+                        <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png"
+                            alt="しゅうへいさん">
+                    </div>
+                    <div class="hero-text">
+                        <span class="eyebrow">CLIENT VOICE</span>
+                        <h1>しゅうへいさん</h1>
+                        <p class="hero-sub">SHU行政書士事務所 / 行政書士 / DX推進副委員長</p>
+                        <div class="hero-tags">
+                            <span class="hero-tag">AI顧問</span>
+                            <span class="hero-tag">AI講座</span>
+                            <span class="hero-tag">士業DX推進</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-stats fade-up">
+                    <div class="stat-chip"><strong>就任</strong><span>DX推進副委員長</span></div>
+                    <div class="stat-chip"><strong>転身</strong><span>AI開発会社へ</span></div>
+                    <div class="stat-chip"><strong>UP</strong><span>内省の回転数</span></div>
+                </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <!-- takaro と同じフォーマット（2人紹介）に揃える -->
-        <div class="character-grid cols-2">
-          <div class="character-card">
-            <span class="character-role" style="background:#f4f1ff; border-color:#e2dcfa; color:#1f2440;">クライアントさん</span>
-            <img
-              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png"
-              alt="Shuheiさん"
-            />
-            <h3 style="margin:2px 0 4px;">Shuheiさん</h3>
-            <p class="mini" style="margin:0; color:var(--text-light);">SHU行政書士事務所。行政書士として活動し、DX推進にも関与。</p>
-          </div>
+        <!-- ===== Before / After ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:40px;">
+            <div class="article-content">
+                <div class="section-head fade-up">
+                    <small>Before / After</small>
+                    <h2>コールテンでのAI学習による変化</h2>
+                    <p>AI講座とAI顧問の伴走を通じて起きた変化を一目で。</p>
+                </div>
 
-          <div class="character-card">
-            <span class="character-role" style="background:#fff7ea; border-color:#f2ddbf; color:#3a2c15;">サポート担当</span>
-            <img
-              src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
-              alt="向 雅也"
-            />
-            <h3 style="margin:2px 0 4px;">向 雅也</h3>
-            <p class="mini" style="margin:0; color:var(--text-light);">AI講座（第二の自分ワーク）で講師・伴走を担当しました。</p>
-          </div>
-        </div>
-      </div>
-    </section>
+                <p class="ba-meta fade-up">※ AI講座受講・AI顧問伴走を通じた個別事例です。再現を保証するものではありません。</p>
 
-    <section class="container">
-      <div class="card dialogue-flow fade-up">
-        <div class="dialogue">
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+                <div class="before-after fade-up">
+                    <div class="ba-card ba-before">
+                        <span class="ba-label">Before</span>
+                        <ul>
+                            <li>ChatGPTを「検索の代わり」としてしか使えていない</li>
+                            <li>AIの嘘に振り回され、信頼しきれない</li>
+                            <li>コーチングは好きだが手軽に回せず、内省が深まらない</li>
+                            <li>士業・行政書士業界へのAI浸透方法が見えない</li>
+                        </ul>
+                    </div>
+                    <div class="ba-arrow" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="13 6 19 12 13 18"/>
+                        </svg>
+                    </div>
+                    <div class="ba-card ba-after">
+                        <span class="ba-label">After</span>
+                        <ul>
+                            <li>価値観・思考のクセを教え込んだ「第二の自分」が相棒に</li>
+                            <li>AIコーチングで「3時間が一瞬」の没入と内省の回転数が劇的UP</li>
+                            <li>行政書士会のDX推進副委員長に就任し、組織改革を主導</li>
+                            <li>AI開発会社へ転身、士業×AIの最前線で活動</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="bubble-text">始める前は、AIはどんな使い方でした？</div>
-          </div>
+        </section>
 
-          <!-- 回答を連続させて単調さを崩す -->
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
+        <!-- ===== 本人証言（主役） ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:40px;">
+            <div class="testimonial fade-up">
+                <div class="testimonial-mark">“</div>
+                <p class="testimonial-quote">上司に「AIと対話して進めて」と言われた時、第二の自分づくりで染み付いたやり方が、そのまま強みになりました。コールテンで学んだのは「ツールの使い方」ではなく、AIと向き合う姿勢そのもの。だから、新しい現場でも応用が利くんです。</p>
+                <div class="testimonial-by">
+                    <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん">
+                    <div>
+                        <p class="testimonial-name">しゅうへいさん</p>
+                        <p class="testimonial-role">SHU行政書士事務所 / 行政書士 / DX推進副委員長</p>
+                    </div>
+                </div>
             </div>
-            <div class="bubble-text">最初は正直「調べるだけ」でした。ここまでハマるとは思ってなかったですね。</div>
-          </div>
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
+        </section>
+
+        <!-- ===== この事例から学べること ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:40px;">
+            <div class="learn-block fade-up">
+                <span class="learn-eyebrow">この事例が刺さる方</span>
+                <h2 class="learn-title">こんな悩みがある方の参考になります</h2>
+                <ul class="learn-list">
+                    <li><strong>士業・専門家</strong>として、業務にAIをどう組み込めるかを真剣に検討している</li>
+                    <li>ChatGPTの嘘に懲りて距離を置いていたが、<strong>本当は使いこなしたい</strong></li>
+                    <li><strong>コーチング・内省習慣</strong>がある方で、AIで内省の回転数を上げたい</li>
+                    <li>個人の活用に留まらず、<strong>業界・組織のDX推進</strong>まで広げたい</li>
+                </ul>
             </div>
-            <div class="bubble-text">ただ、向さんが「第二の自分」って入口を作ってくれたのが大きくて。AIを“相棒”として扱う感覚が、すっと腹落ちしました。</div>
-          </div>
+        </section>
 
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+        <!-- ===== ストーリー（吹き出し付き） ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:60px;">
+            <div class="article-content">
+                <div class="section-head fade-up">
+                    <small>Story</small>
+                    <h2>受講前から現在までの伴走</h2>
+                </div>
+
+                <!-- 受講前の課題 -->
+                <div class="fade-up">
+                    <h3>🎯 受講前の課題</h3>
+                    <p>
+                        行政書士として一人で事務所を運営するなかで、ChatGPTは触っていたものの「検索の代わり」止まり。AIの嘘に振り回された経験から、信頼しきれず距離を置いていた時期もありました。
+                    </p>
+                    <div class="dialog">
+                        <div class="bubble right">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん">
+                                <span class="name-tag">しゅうへい</span>
+                            </div>
+                            <div class="bubble-text">最初は ChatGPT を検索の代わりに使っていた感じで。聞いても適当な答えが返ってくることがあって、信頼しきれなかったんです。コーチングは好きだったので、AIで何かできないかなとは思ってたんですけど、入り口が分からなくて。</div>
+                        </div>
+                        <div class="bubble">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+                                <span class="name-tag">代表 向</span>
+                            </div>
+                            <div class="bubble-text">そうでしたね。しゅうへいさんはもともと内省・コーチングへの関心が高い方ですから、AIを「もう一人の対話相手」として迎え入れる素地は十分にあったと思います。だからこそ、その入り口を一緒に作りたいと思いました。</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI講座での学び -->
+                <div class="fade-up">
+                    <h3>💡 AI講座での学び</h3>
+                    <p>
+                        コールテンのAI講座で、生成AIの仕組み・嘘の見抜き方・「第二の自分」を育てるワークを学習。価値観や思考のクセまで教え込むことで、AIが「対話の相棒」に変化していきました。
+                    </p>
+                    <div class="dialog">
+                        <div class="bubble right">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん">
+                                <span class="name-tag">しゅうへい</span>
+                            </div>
+                            <div class="bubble-text">「第二の自分」のワークが衝撃でした。価値観や思考のクセを教え込んだら、AIが客観視してくれるようになって。コーチングが好きだったのに手軽に回せなかったのが、AIで一気に回せるようになりました。3時間が一瞬で過ぎるんです。</div>
+                        </div>
+                        <div class="bubble">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+                                <span class="name-tag">代表 向</span>
+                            </div>
+                            <div class="bubble-text">あの没入感はすごいですよね。検索の道具ではなく、自分の思考をブーストしてくれる相棒として使えるようになった瞬間に、しゅうへいさんの世界が一気に広がっていったのを感じました。</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI顧問での実践と業界DX -->
+                <div class="fade-up">
+                    <h3>🤝 AI顧問での実践と業界DX</h3>
+                    <p>
+                        AI講座での学びをきっかけに、しゅうへいさんは行政書士会のDX推進副委員長に就任。さらにAI開発会社への転身も果たされました。コールテンとしては、AI講座から AI 顧問への伴走を通じて、学んだ「AIと向き合う姿勢」が組織や業界に広がっていく過程をサポートしています。
+                    </p>
+                    <div class="dialog">
+                        <div class="bubble right">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん">
+                                <span class="name-tag">しゅうへい</span>
+                            </div>
+                            <div class="bubble-text">行政書士会のDX推進副委員長になって、士業の業界にAIを持ち込もうと動いています。さらにAI開発会社にも入って、上司から「AIと対話して進めて」と言われる場面でも、コールテンで染み付いたやり方がそのまま強みになっています。</div>
+                        </div>
+                        <div class="bubble">
+                            <div class="bubble-avatar">
+                                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" alt="向 雅也">
+                                <span class="name-tag">代表 向</span>
+                            </div>
+                            <div class="bubble-text">個人の変化が、業界の変化に広がっていくプロセスを伴走させていただけるのは、こちらとしても本当にありがたい時間です。これからも士業×AIの最前線をしゅうへいさんと一緒に切り拓いていきたいと思います。</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 今後の展望 -->
+                <div class="fade-up">
+                    <h3>🚀 今後の展望</h3>
+                    <p>
+                        行政書士業界のDX推進、士業向けAI研修の設計、AI開発会社での実践——個人のAI活用が組織と業界へと広がっていくフェーズです。コールテンとしては、しゅうへいさんが士業×AIのロールモデルとして活躍されるよう、伴走を続けていきます。
+                    </p>
+                </div>
             </div>
-            <div class="bubble-text">1日目から初速がすごかった。なんでそんなにハマった？</div>
-          </div>
+        </section>
 
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
+        <!-- ===== しゅうへいさんを知る ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:60px;">
+            <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 24px;">
+                <small>About Shuhei</small>
+                <h2>しゅうへいさんをもっと知る</h2>
             </div>
-            <div class="bubble-text">ゲームみたいに没頭しちゃうんです。気づいたら3時間が一瞬で過ぎる。AIでコーチングが受けられる感覚がメリットでした。</div>
-          </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+            <div class="social-links fade-up">
+                <!-- TODO: しゅうへいさんのSNS / SHU行政書士事務所 URL届き次第差し替え -->
+                <div class="social-card coming-soon" aria-disabled="true">
+                    <span class="social-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </span>
+                    <div class="social-body">
+                        <p class="social-platform">SHU行政書士事務所</p>
+                        <p class="social-handle">Coming Soon</p>
+                    </div>
+                </div>
             </div>
-            <div class="bubble-text">ハマると、どんな“良い変化”が一番早く出た？</div>
-          </div>
+        </section>
 
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
+        <!-- ===== FAQ ===== -->
+        <section class="container faq" style="padding-top:20px; padding-bottom:60px;">
+            <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 32px;">
+                <small>FAQ</small>
+                <h2>よくあるご質問</h2>
             </div>
-            <div class="bubble-text">考えが言語化される速度が上がりました。モヤっとしたまま止まらずに、「何が詰まってるのか」を会話の中で見つけられる感じです。</div>
-          </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+            <div class="faq-items fade-up">
+                <details open>
+                    <summary>しゅうへいさんのように、士業の方でもAI伴走は受けられますか？</summary>
+                    <p>はい、士業・専門家の方も多く伴走させていただいています。しゅうへいさんのケースでは、個人の業務改善から組織のDX推進・業界への波及まで広がっていきました。一人事務所の方も、組織所属の方も、まずは個別にご相談ください。</p>
+                </details>
+                <details>
+                    <summary>AIの嘘に懲りて距離を置いていたのですが、もう一度向き合えますか？</summary>
+                    <p>むしろそういう方こそ伴走の効果が出ます。しゅうへいさんも当初は「信頼できない」と距離を置いていましたが、生成AIの仕組み・嘘の見抜き方を学び、価値観を教え込む型を実践することで、対話の相棒として使えるようになりました。</p>
+                </details>
+                <details>
+                    <summary>「第二の自分」を育てるのにどれくらいかかりますか？</summary>
+                    <p>使い始めて数週間で違いを感じる方が多いです。しゅうへいさんも、価値観や思考のクセを教え込むワークを通じて、内省の回転数が劇的に変わったと話されています。一気に作るのではなく、毎日の対話で育てていきます。</p>
+                </details>
+                <details>
+                    <summary>個人の活用から組織・業界に広げていくにはどうすればいいですか？</summary>
+                    <p>まず本人がAIを使いこなせるようになることが起点です。しゅうへいさんは、個人で身につけた「AIと向き合う姿勢」を行政書士会のDX推進・AI開発会社での実践に展開されました。コールテンでは、組織展開のフェーズでもご相談を受け付けています。</p>
+                </details>
+                <details>
+                    <summary>士業以外の業種でも、しゅうへいさんと同じ変化は起きますか？</summary>
+                    <p>はい。型は業種を問いません。しゅうへいさんの事例で起きた「検索→相棒」「内省の回転数UP」「組織への波及」は、教育・NPO・サービス業・クリエイティブなど幅広い領域でも再現されています。</p>
+                </details>
             </div>
-            <div class="bubble-text">AIが合う/合わないの分かれ目ってある？</div>
-          </div>
+        </section>
 
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
+        <!-- ===== 関連記事 ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:60px;">
+            <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 32px;">
+                <small>Related Articles</small>
+                <h2>しゅうへいさん関連の記事</h2>
             </div>
-            <div class="bubble-text">「ゼロイチで評価しない」こと。AIの返答を“良い/悪い”で切って終わると伸びない。柔軟に捉えて自分の軸で使うと、どんどん面白くなります。</div>
-          </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
+            <div class="posts-list fade-up">
+                {posts.map((post) => (
+                    <a href={post.slug} class="post-card">
+                        <div class="post-thumb">
+                            <img src={post.thumbnail} alt="" width="120" height="120" loading="lazy" />
+                        </div>
+                        <div class="post-body">
+                            <div class="post-meta">
+                                <time class="post-date" datetime={post.date}>{post.date}</time>
+                                <span class="post-cat">{post.category}</span>
+                            </div>
+                            <h2 class="post-title">{post.title}</h2>
+                            <p class="post-excerpt">{post.excerpt}</p>
+                            <span class="post-link">続きを読む →</span>
+                        </div>
+                    </a>
+                ))}
             </div>
-            <div class="bubble-text">今は仕事や活動にどう活きてますか？</div>
-          </div>
+        </section>
 
-          <!-- ここで「対話しながら進める」「AIの仕事に興味→AI開発会社へ」「LLM検証」も自然に入れる -->
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
+        <!-- ===== 代表 向より ===== -->
+        <section class="container" style="padding-top:0; padding-bottom:40px;">
+            <div class="oshi-banner fade-up">
+                <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+                    alt="向 雅也" class="oshi-avatar">
+                <div class="oshi-body">
+                    <p class="oshi-label">代表 向より</p>
+                    <p class="oshi-text">しゅうへいさんは、もともと内省とコーチングを大切にされてきた方です。だからこそ、AIを「もう一人の対話相手」として迎え入れたとき、その変化のスピードが早かった。個人の変化が業界全体のDX推進へと広がっていく姿を、伴走者として一緒に見られているのは、コールテンとしても本当に光栄です。</p>
+                </div>
             </div>
-            <div class="bubble-text">仕事でも「対話するように進める」やり方がハマりました。タスクを機械的に投げるより、会話しながら組み立てた方が結果が出るんですよね。</div>
-          </div>
+        </section>
 
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
+        <!-- ===== CTA ===== -->
+        <section id="contact" class="container" style="padding-bottom:100px">
+            <div class="card fade-up cta-card">
+                <h3>しゅうへいさんと同じように、AIと伴走したい方へ</h3>
+                <p class="cta-lead">コールテンの伴走は紹介を優先していますが、ご紹介がない場合も状況に応じて個別に受け付けています。まずは最初の対話で、あなたの状況がしゅうへいさんの事例に近いかを一緒に確認しましょう。</p>
+                <ul class="cta-points">
+                    <li>対象: 士業・専門家・法人・個人事業主（業種不問）</li>
+                    <li>形式: AI顧問（月次伴走）／AI講座（短期）／単発相談</li>
+                    <li>初回返信目安: 2〜3営業日</li>
+                </ul>
+                <div class="cta-actions">
+                    <a class="btn" href="/contact">自分も伴走を相談する</a>
+                    <a class="btn secondary" href="/voices/">他のクライアントの声を見る</a>
+                </div>
             </div>
-            <div class="bubble-text">それで、AIそのものの仕事にも興味が出てきて。今はAI開発系の会社で働きはじめました。作る側に回ると、見えるものが増えます。</div>
-          </div>
-
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
-            </div>
-            <div class="bubble-text">個人的にはLLMの検証も面白くて、モデルやプロンプトで出力がどう変わるか、試すのが日課になりました。</div>
-          </div>
-
-          <!-- DX推進（副委員長）は残す -->
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
-            </div>
-            <div class="bubble-text">行政書士会のDX推進委員会で副委員長もやっていて、AI導入やセキュリティ観点の整理にも関わっています。</div>
-          </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
-            </div>
-            <div class="bubble-text">DX推進の場だと、AIはどんな役割で使える？</div>
-          </div>
-
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
-            </div>
-            <div class="bubble-text">議論の前段で、論点を整理したり、反対意見も含めて仮説を出したり。関係者が多いほど「会話の土台」を早めに作れるのが助かります。</div>
-          </div>
-
-          <div class="voice-note">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
-                style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 2px 5px rgba(0,0,0,0.1);"
-                alt="向" />
-              <span class="note-name" style="margin:0">担当 向より</span>
-            </div>
-            AI講座は「専門用語で詰め込む」より、腹落ちする理解を優先します。まずは“対話型の相棒”として使い始め、そこから仕事に馴染ませていく設計です。
-          </div>
-
-          <div class="bubble teto">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" />
-              <span class="name-tag">盤上テト</span>
-            </div>
-            <div class="bubble-text">最後に、これからAIとどう付き合っていきたい？</div>
-          </div>
-
-          <div class="bubble right">
-            <div class="bubble-avatar">
-              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="Shuheiさん" />
-              <span class="name-tag">Shuheiさん</span>
-            </div>
-            <div class="bubble-text">業務を圧縮して時間を捻出して、その時間で新しい挑戦を増やしたいです。AIはその相棒ですね。</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="container" style="padding-top:0; padding-bottom:40px;">
-      <aside class="related-links fade-up" style="max-width:720px; margin:0 auto; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
-        <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
-        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
-          <li><a href="/blog/shu-ai-advisory/" style="font-size:13px; color:var(--sea);">しゅうへいさんにAI顧問契約をいただきました →</a></li>
-          <li><a href="/services/study/" style="font-size:13px; color:var(--sea);">AI講座サービスについて →</a></li>
-        </ul>
-      </aside>
-    </section>
-
-    <section id="contact" class="container" style="padding-top:0; padding-bottom:100px;">
-      <div class="card cta-card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
-        <h3>同じように伴走してほしい方へ</h3>
-        <p class="mini" style="line-height:1.8;margin-top:12px;color:var(--text-light);">コールテンの勉強会・伴走は紹介限定・長期前提です。まずは小さく試し、安心して進められる形を一緒に作ります。</p>
-        <p class="mini" style="line-height:1.8;margin-top:14px;color:var(--text-light);">このケースで中心になっているのは<strong>AI講座</strong>の「第二の自分ワーク」です。対話型の相棒を育てながらDXを進めます。</p>
-        <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap; align-items:center;">
-          <a class="btn" href="/services/study/SecondME">第二の自分ワークを見る</a>
-          <a class="btn secondary" href="/services/study">AI講座の一覧</a>
-          <a class="btn secondary" href="/contact">相談方法を見る</a>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
+    </main>
 </Layout>
 
 <style>
-    /* Hero */
+    /* ===== Hero ===== */
     .hero {
-        padding: 160px 0 100px;
-        text-align: center;
-        background: transparent;
+        padding: 60px 0 40px;
+        background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
     }
-
     .hero-inner {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 24px;
-        max-width: 800px;
+        gap: 28px;
+        max-width: 820px;
         margin: 0 auto;
     }
-
-    .meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        align-items: center;
-        justify-content: center;
-        margin-top: 24px;
-    }
-
-    .tag {
-        display: inline-block;
-        padding: 8px 16px;
-        border-radius: 100px;
-        background: var(--mint);
-        color: var(--sea);
-        font-weight: 700;
-        font-size: 13px;
-        border: 1px solid var(--line);
-    }
-
-    .pill {
-        display: inline-block;
-        padding: 8px 16px;
-        border-radius: 100px;
-        background: #fff;
-        border: 1px solid var(--line);
-        font-weight: 700;
-        font-size: 13px;
-        color: var(--text-light);
-    }
-
-    .avatar-frame {
-        width: 160px;
-        height: 160px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: url('https://res.cloudinary.com/dg3mdcuju/image/upload/v1764661828/%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0_kyyx9d.png') center/contain no-repeat;
-    }
-
-    .avatar-lg {
-        width: 80px;
-        height: 80px;
+    .hero-avatar {
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
         overflow: hidden;
         box-shadow: var(--shadow-md);
-        background: #fff;
+        border: 3px solid #fff;
     }
-
-    .avatar-lg img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .card {
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 32px;
-        box-shadow: var(--shadow-md);
-    }
-
-    .card.cta-card {
-        transform: none !important;
-        box-shadow: var(--shadow-md) !important;
-    }
-
-    .grid {
-        display: grid;
-        gap: 32px;
-    }
-
-    @media(min-width:768px) {
-        .grid.cols-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    .character-card {
-        text-align: center;
-        padding: 24px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: #fff;
-        box-shadow: var(--shadow-sm);
-        transition: transform 0.3s ease;
-    }
-
-    .character-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
-    }
-
-    .character-card img {
-        width: 72px;
-        height: 72px;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
-        margin: 0 auto 8px;
-        display: block;
-    }
-
-    .character-role {
+    .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-text { flex: 1; }
+    .eyebrow {
         display: inline-block;
-        padding: 6px 10px;
-        background: #f1f7f3;
-        border: 1px solid #d6e8df;
-        border-radius: 10px;
+        color: var(--accent);
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        font-size: 11px;
+        font-family: "Space Grotesk", sans-serif;
+        margin-bottom: 8px;
+    }
+    .hero h1 {
+        font-size: clamp(28px, 4vw, 40px);
+        margin-bottom: 4px;
+    }
+    .hero-sub {
+        font-size: 14px;
+        color: var(--text-light);
+        margin-bottom: 12px;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .hero-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 99px;
+        background: rgba(22,97,78,0.08);
+        color: var(--sea);
         font-size: 12px;
         font-weight: 700;
-        color: #124034;
-        margin-bottom: 6px;
     }
-
-    .character-grid {
+    .hero-stats {
         display: grid;
-        gap: 18px;
-        grid-template-columns: 1fr;
-        max-width: 760px;
-        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        max-width: 820px;
+        margin: 28px auto 0;
+    }
+    .stat-chip {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        padding: 14px 12px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 4px 14px rgba(5,32,24,0.05);
+    }
+    .stat-chip strong {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--sea);
+        line-height: 1.1;
+    }
+    .stat-chip span {
+        font-size: 11.5px;
+        color: var(--text-light);
+        text-align: center;
     }
 
-    @media(min-width:900px) {
-        .character-grid.cols-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    /* ===== 共通 ===== */
+    .article-content { max-width: 820px; margin: 0 auto; }
+    .section-head { text-align: center; margin-bottom: 32px; }
+    .section-head small {
+        display: block;
+        color: var(--sea);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 12px;
+    }
+    .article-content h3 {
+        margin: 40px 0 18px;
+        color: var(--ink);
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 8px;
     }
 
-    /* Dialogue Section */
-    .dialogue-flow {
-        max-width: 760px;
-        margin: 0 auto;
+    /* ===== Before / After ===== */
+    .ba-meta {
+        max-width: 820px;
+        margin: 0 auto 14px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-light);
     }
-
-    .dialogue {
+    .before-after {
         display: grid;
-        gap: 26px;
-        margin: 16px auto 18px;
-        max-width: 640px;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: stretch;
+        gap: 0;
+        max-width: 820px;
+        margin: 0 auto 24px;
+    }
+    .ba-card {
+        position: relative;
+        border-radius: 18px;
+        padding: 24px 22px;
+        display: flex;
+        flex-direction: column;
+    }
+    .ba-before {
+        background: #faf8f3;
+        border: 1px solid #ebe5d6;
+        color: #6b6358;
+    }
+    .ba-after {
+        background: var(--sea);
+        color: #fff;
+        box-shadow: 0 8px 22px rgba(22,97,78,0.14);
+    }
+    .ba-label {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        margin-bottom: 14px;
+        padding: 4px 12px;
+        border-radius: 99px;
+        text-transform: uppercase;
+    }
+    .ba-before .ba-label {
+        background: #fff;
+        color: #9c8b62;
+        border: 1px solid #e6dcc1;
+    }
+    .ba-after .ba-label {
+        background: var(--accent);
+        color: #fff;
+    }
+    .ba-card ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 13.5px;
+        line-height: 1.85;
+    }
+    .ba-card li { margin-bottom: 6px; }
+    .ba-card li:last-child { margin-bottom: 0; }
+    .ba-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        color: var(--accent);
+    }
+    .ba-arrow svg {
+        width: 20px;
+        height: 20px;
+        animation: ba-arrow-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes ba-arrow-pulse {
+        0%, 100% { transform: translateX(0); opacity: 0.85; }
+        50% { transform: translateX(3px); opacity: 1; }
     }
 
+    /* ===== Testimonial ===== */
+    .testimonial {
+        position: relative;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 40px 36px 32px;
+        background: linear-gradient(180deg, #fefcf6 0%, #fbf6e7 100%);
+        border: 1px solid #f0e5c2;
+        border-radius: 24px;
+        box-shadow: 0 12px 32px rgba(212,160,77,0.10);
+    }
+    .testimonial-mark {
+        position: absolute;
+        top: -8px;
+        left: 24px;
+        font-family: "Space Grotesk", serif;
+        font-size: 96px;
+        line-height: 1;
+        color: var(--accent);
+        opacity: 0.55;
+    }
+    .testimonial-quote {
+        position: relative;
+        font-size: 17px;
+        line-height: 2;
+        color: var(--ink);
+        margin: 0 0 24px;
+        font-weight: 500;
+    }
+    .testimonial-by {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border-top: 1px solid #ecdfb9;
+        padding-top: 18px;
+    }
+    .testimonial-by img {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    .testimonial-name { margin: 0; font-weight: 700; color: var(--ink); }
+    .testimonial-role { margin: 2px 0 0; font-size: 12.5px; color: var(--text-light); }
+
+    /* ===== Dialog（吹き出し） ===== */
+    .dialog {
+        max-width: 760px;
+        margin: 24px auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
     .bubble {
         display: flex;
-        gap: 12px;
+        gap: 14px;
         align-items: flex-start;
         width: 100%;
         position: relative;
     }
-
     .bubble-avatar {
         position: relative;
         width: 82px;
         height: 82px;
         flex-shrink: 0;
     }
-
     .bubble-avatar img {
         width: 100%;
         height: 100%;
         border-radius: 50%;
         object-fit: cover;
-        box-shadow: 0 6px 14px rgba(0,0,0,.08);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        background: #fff;
     }
-
     .bubble-text {
         background: #e7f4ef;
         border: 1px solid #cde5db;
-        border-radius: 12px;
-        padding: 10px 12px;
-        line-height: 1.7;
+        border-radius: 14px;
+        padding: 12px 14px;
+        line-height: 1.75;
         color: #12382c;
+        font-size: 14.5px;
         flex: 1;
-        position: relative;
     }
-
-    .bubble.right {
-        flex-direction: row-reverse;
-    }
-
+    .bubble.right { flex-direction: row-reverse; }
     .bubble.right .bubble-text {
         background: #f4f1ff;
-        border: 1px solid #e2dcfa;
+        border-color: #e2dcfa;
         color: #1f2440;
     }
-
     .name-tag {
         position: absolute;
         bottom: -10px;
@@ -511,69 +624,321 @@ import Layout from '../../layouts/Layout.astro';
         transform: translateX(-50%);
         padding: 2px 8px;
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
         font-weight: 700;
         font-size: 10px;
         color: #0f3d2e;
         white-space: nowrap;
     }
 
-    .voice-note {
-        margin: 22px auto 0;
-        padding: 14px 16px;
-        border-radius: 14px;
-        border: 1px solid #f2ddbf;
-        background: #fff7ea;
-        box-shadow: 0 10px 22px rgba(0, 0, 0, .05);
-        color: #3a2c15;
-        line-height: 1.7;
-        max-width: 640px;
+    /* ===== 学べること ===== */
+    .learn-block {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 32px 32px 28px;
+        background: var(--mint);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+    }
+    .learn-eyebrow {
+        display: inline-block;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        color: var(--sea);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+    .learn-title {
+        font-size: clamp(20px, 2.4vw, 24px);
+        margin: 0 0 18px;
+        color: var(--ink);
+    }
+    .learn-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .learn-list li {
+        position: relative;
+        padding-left: 28px;
+        font-size: 14.5px;
+        line-height: 1.85;
+        color: var(--text);
+    }
+    .learn-list li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--sea);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .learn-list strong { color: var(--sea); }
+
+    /* ===== Social ===== */
+    .social-links {
+        max-width: 820px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+    .social-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 20px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s ease;
+        box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+    }
+    .social-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(5,32,24,0.08);
+        border-color: rgba(22,97,78,0.18);
+    }
+    .social-card.coming-soon {
+        opacity: 0.65;
+        background: #faf8f3;
+        cursor: default;
+    }
+    .social-card.coming-soon:hover {
+        transform: none;
+        box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+        border-color: var(--line);
+    }
+    .social-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: var(--mint);
+        color: var(--sea);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .social-icon svg { width: 22px; height: 22px; }
+    .social-body { flex: 1; min-width: 0; }
+    .social-platform {
+        margin: 0 0 2px;
+        font-size: 12px;
+        color: var(--text-light);
+        font-weight: 700;
+    }
+    .social-handle {
+        margin: 0;
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
-    .note-name {
-        display: inline-block;
-        padding: 6px 12px;
-        border-radius: 10px;
-        background: #fbe9cc;
-        color: #6a4618;
+    /* ===== oshi ===== */
+    .oshi-banner {
+        max-width: 820px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px 24px;
+        background: #fff7ea;
+        border: 1px solid #f2ddbf;
+        border-radius: 16px;
+    }
+    .oshi-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    .oshi-body { flex: 1; }
+    .oshi-label {
         font-weight: 700;
         font-size: 12px;
-        margin-bottom: 12px;
+        color: #6a4618;
+        margin: 0 0 6px;
+    }
+    .oshi-text {
+        font-size: 13.5px;
+        line-height: 1.8;
+        color: #3a2c15;
+        margin: 0;
     }
 
+    /* ===== 関連記事 ===== */
+    .posts-list {
+        max-width: 820px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+    .post-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 28px 32px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+        transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .post-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(5,32,24,0.08);
+        border-color: rgba(22,97,78,0.18);
+    }
+    .post-thumb {
+        flex-shrink: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--cream);
+        border: 1px solid var(--line);
+    }
+    .post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-body { flex: 1; min-width: 0; }
+    .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 12px;
+    }
+    .post-date {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 13px;
+        color: var(--text-light);
+        letter-spacing: 0.05em;
+    }
+    .post-cat {
+        display: inline-block;
+        background: rgba(22,97,78,0.08);
+        color: var(--sea);
+        border-radius: 99px;
+        padding: 3px 11px;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+    .post-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.5;
+        margin: 0 0 10px;
+    }
+    .post-excerpt {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.85;
+        margin: 0 0 14px;
+    }
+    .post-link {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--sea);
+        font-family: "Space Grotesk", sans-serif;
+    }
+
+    /* ===== CTA ===== */
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .cta-card h3 {
+        font-size: clamp(20px, 2.4vw, 24px);
+        margin: 0 0 14px;
+        color: var(--ink);
+    }
+    .cta-lead {
+        font-size: 14.5px;
+        line-height: 1.85;
+        color: var(--text-light);
+        margin: 0 auto 18px;
+        max-width: 560px;
+    }
+    .cta-points {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto 22px;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 4px;
+        text-align: left;
+        font-size: 13px;
+        color: var(--text);
+    }
+    .cta-points li::before {
+        content: '・';
+        color: var(--sea);
+        margin-right: 4px;
+    }
+    .cta-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
     .mini {
         font-size: 14px;
         color: var(--text-light);
         line-height: 1.8;
     }
 
-    .big-bubble .bubble img {
-        width: 64px;
-        height: 64px;
+    @media (max-width: 640px) {
+        .hero { padding: 40px 16px 28px; }
+        .hero-inner { flex-direction: column; text-align: center; align-items: center; }
+        .hero-tags { justify-content: center; }
+        .hero-stats { grid-template-columns: 1fr; gap: 8px; }
+        .stat-chip { flex-direction: row; justify-content: center; gap: 8px; padding: 10px 14px; }
+        .stat-chip strong { font-size: 18px; }
+        .before-after { grid-template-columns: 1fr; }
+        .ba-arrow { padding: 12px 0; }
+        .ba-arrow svg { transform: rotate(90deg); animation: none; }
+        .testimonial { padding: 36px 22px 24px; }
+        .testimonial-mark { font-size: 72px; left: 16px; top: -4px; }
+        .testimonial-quote { font-size: 15px; line-height: 1.9; }
+        .learn-block { padding: 24px 22px; }
+        .social-links { grid-template-columns: 1fr; }
+        .oshi-banner { flex-direction: column; align-items: center; text-align: center; }
+        .post-card { padding: 20px; gap: 16px; }
+        .post-thumb { width: 72px; height: 72px; border-radius: 10px; }
+        .post-title { font-size: 17px; }
+        .bubble-avatar { width: 52px; height: 52px; }
+        .bubble-text { font-size: 13.5px; padding: 10px 13px; }
     }
-
-    .big-bubble .bubble-text {
-        font-size: 15px;
-        line-height: 1.8;
-    }
-
-    .big-bubble {
-        max-width: 720px;
-        margin: 0 auto;
-    }
-
-    .result-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 0; justify-content: center; }
-    .result-badge {
-        font-size: 13px; padding: 4px 12px; border-radius: 20px;
-        background: var(--mint, #eef7f3); color: var(--sea, #16614e);
-        font-weight: 600;
-    }
-
-    @media(max-width:768px) {
-        .hero { padding: 100px 20px 60px; }
-        .bubble-avatar { width: 64px; height: 64px; }
-        .name-tag { font-size: 9px; }
-    }
-
 </style>
