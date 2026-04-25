@@ -1,0 +1,797 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const SERVICE_NAME = 'AI時代のサイトリニューアルサービス';
+const SERVICE_SUB = 'AI検索（AIO・LLMO）対応 / ChatGPTで更新できる';
+const SERVICE_URL = 'https://www.corduroy.co.jp/services/ai-renewal/';
+const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LLMO）に強い構造へリニューアル。ChatGPTやCodexから自分で更新できるサイトに変えます。買い切り10万円から。';
+---
+
+<Layout
+    title={`${SERVICE_NAME}｜株式会社コールテン`}
+    description={SERVICE_DESC}
+    canonicalUrl={SERVICE_URL}
+    ogUrl={SERVICE_URL}
+>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "AIサイトリニューアル",
+      "provider": {
+        "@type": "Organization",
+        "name": "株式会社コールテン",
+        "url": "https://www.corduroy.co.jp/"
+      },
+      "name": SERVICE_NAME,
+      "description": SERVICE_DESC,
+      "url": SERVICE_URL,
+      "areaServed": { "@type": "Country", "name": "Japan" },
+      "offers": [
+        { "@type": "Offer", "name": "単発買い切り", "price": "100000", "priceCurrency": "JPY", "description": "サイト移管 + AI検索対応 + 動画講座" },
+        { "@type": "Offer", "name": "Easy管理費", "price": "10000", "priceCurrency": "JPY", "description": "月額・チャット質問対応" },
+        { "@type": "Offer", "name": "詰まり対応", "price": "20000", "priceCurrency": "JPY", "description": "月額・チャットで詰まり伴走" }
+      ]
+    })} />
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.corduroy.co.jp/" },
+        { "@type": "ListItem", "position": 2, "name": SERVICE_NAME, "item": SERVICE_URL }
+      ]
+    })} />
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "WordPress以外のサイトでも移管できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。WordPress、Wix、Jimdo、ペライチなど、ほとんどのCMSから移管できます。事前に既存サイトを拝見してご判断します。" } },
+        { "@type": "Question", "name": "本当に自分で更新できるようになりますか？", "acceptedAnswer": { "@type": "Answer", "text": "動画講座で操作の流れを覚えていただきます。文字を変える・画像を差し替える・新しい記事を追加するレベルなら、ほとんどの方が一週間で慣れます。詰まったときのために月額のサポートプランもご用意しています。" } },
+        { "@type": "Question", "name": "Windowsパソコンでも使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、Mac/Windows両方で使えます。Windowsの場合、初期セットアップを丁寧にお手伝いします。" } },
+        { "@type": "Question", "name": "AI検索で本当に上位に表示されるようになりますか？", "acceptedAnswer": { "@type": "Answer", "text": "AI検索（AIOやLLMO）は仕組み上、構造化された情報を持つサイトが引用されやすくなります。私たちが整える土台はその前提条件です。ただし内容・専門性・更新頻度も重要なので、上位表示を保証するものではありません。" } },
+        { "@type": "Question", "name": "月額プランに最低契約期間はありますか？", "acceptedAnswer": { "@type": "Answer", "text": "ありません。月単位でいつでも開始・停止できます。一度買い切りでお渡ししたサイトはお客様のものなので、サポートを止めても運用は続けられます。" } },
+        { "@type": "Question", "name": "既存のドメインのまま移管できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、現在お使いのドメインをそのまま新しいサイトに付け替えます。ドメインの設定変更もこちらでサポートします。" } },
+        { "@type": "Question", "name": "他社のホームページ制作と比べて、なぜこの価格でできるのですか？", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPTやCodexなどのAIツールをフル活用して制作工程を圧縮しているためです。同等の移管・AI検索対応サービスは国内相場で初期30万〜100万円が一般的です。" } },
+        { "@type": "Question", "name": "AI顧問プランとどう違いますか？", "acceptedAnswer": { "@type": "Answer", "text": "本サービスはサイトの『移管と更新基盤づくり』を一括でお渡しするものです。AI顧問はサイトに限らず事業全体のAI活用、SEO/AIO戦略、第二の自分づくりまで幅広く伴走します。サイト更新で詰まる程度の相談なら本サービスのサポートプランで十分です。" } },
+        { "@type": "Question", "name": "セキュリティは大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "Vercel・GitHubといった海外大手のインフラを使うため、WordPressより一般的にセキュリティ強度は高くなります。プラグインの脆弱性に悩むこともなくなります。" } },
+        { "@type": "Question", "name": "サポートを使わずに自分で運用したい場合はどうなりますか？", "acceptedAnswer": { "@type": "Answer", "text": "可能です。ご自身でVercel（月額3,000円程度のサーバー代）を契約していただければ、買い切りの10万円のみで運用できます。設定はこちらでお渡しします。" } }
+      ]
+    })} />
+
+    <main>
+        <!-- 1. Hero -->
+        <section class="hero">
+          <div class="container hero-inner">
+            <div class="fade-up">
+              <div class="icon-lg">🌱</div>
+              <div class="hero-tag">For WordPress Users</div>
+              <h1>AI時代のサイトに、リニューアル。</h1>
+              <p class="hero-sub">AI検索（AIO・LLMO）に強い構造へ。<br>ChatGPTから自分で更新できるサイトに変えます。</p>
+              <div class="hero-cta">
+                <a class="btn" href="#contact">無料の資料を受け取る</a>
+                <a class="btn btn-outline" href="/contact?service=ai-renewal">まず相談する</a>
+              </div>
+              <p class="hero-note mini">買い切り <strong>10万円〜</strong>／同等サービスの国内相場（初期30〜100万円）の<strong>1/10以下</strong></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Pain (共感) -->
+        <section class="container">
+          <div class="section-head fade-up">
+            <small>Pain</small>
+            <h2>こんなお悩み、ありませんか？</h2>
+            <p>WordPressなどで自社サイトを運営している方から、よく聞くお悩みです。</p>
+          </div>
+          <div class="grid cols-3">
+            <div class="card fade-up">
+              <h3>📉 サイトの更新が止まっている</h3>
+              <p class="mini">忙しくて記事が書けない／プラグインの更新が怖くて触れない／何ヶ月も放置している。</p>
+            </div>
+            <div class="card fade-up">
+              <h3>🐢 表示が遅い・重い</h3>
+              <p class="mini">スマホで開くとカクつく。プラグインを入れすぎて動作が重い。Googleの評価も気になる。</p>
+            </div>
+            <div class="card fade-up">
+              <h3>✍️ 記事を書く・貼るのが大変</h3>
+              <p class="mini">ChatGPTで原稿は書けても、WordPressに貼り付けて整える作業に時間が溶ける。</p>
+            </div>
+            <div class="card fade-up">
+              <h3>📞 外注先と連絡が取りづらい</h3>
+              <p class="mini">小さな修正で何日も待たされる。費用もかさむ。自分でできるところは自分でやりたい。</p>
+            </div>
+            <div class="card fade-up">
+              <h3>🤖 AI検索に対応できているか不安</h3>
+              <p class="mini">ChatGPTやGoogleのAI Overviewでウチの会社が出てこない。何か対策が要るらしいけど、何から始めれば？</p>
+            </div>
+            <div class="card fade-up">
+              <h3>💸 リニューアルは高そう</h3>
+              <p class="mini">本格的なホームページ制作は数十万〜100万円。そこまでお金はかけられないけど、放置もマズい。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. AI検索時代の前提 -->
+        <section class="bg-dark">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Why Now</small>
+              <h2>AI検索の時代が、もう始まっています。</h2>
+              <p>Google検索の景色が変わりつつあります。AIが要約して答えを出すようになり、「サイトをクリックしてもらう」前提が崩れました。</p>
+            </div>
+            <div class="grid cols-2">
+              <div class="card-dark fade-up">
+                <h3>🔎 検索1位でも、クリックは半分以下</h3>
+                <p class="mini">Google AI Overviews が表示される検索では、1位サイトのクリック率が58%下がったというデータも。「上位に出れば見られる」前提が崩れています。</p>
+              </div>
+              <div class="card-dark fade-up">
+                <h3>💬 ChatGPTが直接答える時代</h3>
+                <p class="mini">お客様候補が「いい〇〇会社ない？」と AI に聞く時代。AIに引用される側になれるかどうかで、これからの集客が大きく変わります。</p>
+              </div>
+              <div class="card-dark fade-up">
+                <h3>📐 AIに読まれるための「構造」</h3>
+                <p class="mini">人が読む文章とは別に、AIが情報を整理しやすいページ構造・データ・専用ファイルが必要になってきました。WordPressのままでは追いつけない部分です。</p>
+              </div>
+              <div class="card-dark fade-up">
+                <h3>🌱 でも、特別な技術は要らない</h3>
+                <p class="mini">必要なのは「AIが読みやすい土台」と「自分で続けられる仕組み」。コールテンが両方を一気にお渡しします。</p>
+              </div>
+            </div>
+            <p class="mini" style="text-align:center; margin-top:32px; color:#8bd3c1;">※ AIO・LLMO・GEO・AEO といった専門用語が使われていますが、本サービスでは「AIに引用されるための整理」と捉えていただければOKです。</p>
+          </div>
+        </section>
+
+        <!-- 4. 提供価値（3本柱） -->
+        <section class="container">
+          <div class="section-head fade-up">
+            <small>What We Offer</small>
+            <h2>このサービスでお渡しするもの</h2>
+            <p>「AI検索に強い」「自分で更新できる」「自走できる」の3つを、一つのパッケージにしました。</p>
+          </div>
+          <div class="grid cols-3">
+            <div class="card fade-up">
+              <div class="num-badge">01</div>
+              <h3>AIに読まれる構造へ移管</h3>
+              <p class="mini">WordPressなど既存サイトを、AI検索に強い構造（Astro + Vercel）へリニューアル。構造化データ・AI読み取り用ファイル・表示速度の最適化まで一括対応します。</p>
+            </div>
+            <div class="card fade-up">
+              <div class="num-badge">02</div>
+              <h3>ChatGPTから自分で更新</h3>
+              <p class="mini">記事更新・文字差し替え・画像変更が、ChatGPT/Codexアプリから直接できる仕組みをお渡し。WordPressの管理画面とにらめっこする日々が終わります。</p>
+            </div>
+            <div class="card fade-up">
+              <div class="num-badge">03</div>
+              <h3>動画講座で自走を支える</h3>
+              <p class="mini">買い切り料金に動画講座が付帯。「AIで記事を書く」「Codexで更新する」「AI検索の最低限」「第二の自分の触り」までを学べます。<span class="coming-soon-badge">Coming Soon</span></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. 更新フロー -->
+        <section class="bg-gradient-soft">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>How it Works</small>
+              <h2>更新は、たった3ステップ。</h2>
+              <p>WordPressの管理画面に入る必要はありません。ChatGPTで原稿を書いたら、ボタンひとつで公開まで届きます。</p>
+            </div>
+            <div class="flow-grid">
+              <div class="flow-step fade-up">
+                <div class="flow-num">1</div>
+                <div class="flow-icon">💬</div>
+                <h3>ChatGPTで記事を書く</h3>
+                <p class="mini">いつものChatGPTで原稿を作成。「第二の自分」のプロンプトで自社らしさも引き出せます。</p>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step fade-up">
+                <div class="flow-num">2</div>
+                <div class="flow-icon">📝</div>
+                <h3>Codexアプリで反映</h3>
+                <p class="mini">原稿をCodexアプリのフォルダに置いて、ボタンを押すだけ。技術用語は覚えなくて大丈夫です。</p>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step fade-up">
+                <div class="flow-num">3</div>
+                <div class="flow-icon">🌍</div>
+                <h3>サイトに自動で反映</h3>
+                <p class="mini">数分で公開完了。スマホでもPCでも、AI検索に強い形で表示されます。</p>
+              </div>
+            </div>
+            <p class="mini" style="text-align:center; margin-top:32px; color:var(--text-light);">※ Mac / Windows どちらでもOK。初期セットアップは弊社が行います。</p>
+          </div>
+        </section>
+
+        <!-- 6. 社会的証明 + Before/After（仮プレースホルダー） -->
+        <section class="container">
+          <div class="section-head fade-up">
+            <small>Case Studies</small>
+            <h2>実績・Before / After</h2>
+            <p>このサービスで実際にリニューアルしたサイトの事例を順次公開していきます。</p>
+          </div>
+          <div class="fade-up" style="max-width:960px; margin:0 auto;">
+            <div class="card" style="text-align:center; padding:60px 24px; background:#f9fafb; border:2px dashed #d7e6de; align-items:center; justify-content:center;">
+              <h3 style="color:#7a8f87; margin-bottom:8px;">📸 実績を準備中です</h3>
+              <p class="mini" style="color:#7a8f87;">
+                コールテン自社サイト・パートナークライアント様のリニューアル事例を、<br>
+                Before/After（表示速度・AI検索順位・運用工数）と合わせて順次掲載していきます。<br>
+                <small style="opacity:0.7;">先行で見たい方は資料請求からお問い合わせください。</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. 料金（4段比較） -->
+        <section class="bg-gradient-soft">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Pricing</small>
+              <h2>料金プラン</h2>
+              <p>買い切りで完結する単発プランと、安心して任せたい方向けの月額サポートをご用意しています。</p>
+            </div>
+
+            <!-- メインの買い切りプラン -->
+            <div class="pricing-hero fade-up">
+              <div class="pricing-hero-inner">
+                <div class="pricing-hero-badge">基準プラン</div>
+                <h3>単発買い切り</h3>
+                <div class="price-display-large">
+                  <span class="price-number">10</span><span class="price-unit">万円<span class="price-slash">（買い切り）</span></span>
+                </div>
+                <ul class="mini-list pricing-features">
+                  <li>WordPress等からの<strong>サイト移管</strong>（既存記事もすべて引き継ぎ）</li>
+                  <li><strong>AI検索（AIO・LLMO）対応</strong>の構造化・最適化</li>
+                  <li><strong>ChatGPT/Codexから更新できる</strong>仕組みの構築</li>
+                  <li><strong>動画講座</strong>付帯（自走できるよう操作を学べる）</li>
+                </ul>
+                <p class="mini pricing-note">※ ご自身でVercelを契約（月額3,000円程度）すれば、月額サポートなしでも運用可能です。</p>
+              </div>
+            </div>
+
+            <!-- 月額サポートプラン -->
+            <div class="section-head fade-up" style="margin-top:64px;">
+              <h3 style="font-size:24px;">月額サポート（任意）</h3>
+              <p class="mini">「動画だけだと不安」「詰まったら誰かに聞きたい」という方向け。いつでも開始・停止できます。</p>
+            </div>
+            <div class="grid cols-2">
+              <div class="card fade-up">
+                <h3>Easy 管理費</h3>
+                <p class="mini" style="color:var(--text-light);">動画でだいたいOK・たまに質問したい方向け。</p>
+                <ul class="mini-list">
+                  <li>チャットでの質問対応</li>
+                  <li>更新方法・操作のサポート</li>
+                  <li>サーバー（Vercel）管理込み</li>
+                </ul>
+                <div class="price-display" style="margin-top:auto;">
+                  <span class="price-number">1</span><span class="price-unit">万円<span class="price-slash">/月</span></span>
+                </div>
+              </div>
+              <div class="card fade-up card-recommended">
+                <div class="card-badge">推奨</div>
+                <h3>詰まり対応</h3>
+                <p class="mini" style="color:var(--text-light);">安心して任せたい・ちゃんと続けたい方向け。</p>
+                <ul class="mini-list">
+                  <li>チャットで詰まりに伴走</li>
+                  <li>軽微な修正・小さなデザイン変更</li>
+                  <li>サーバー管理 + 不具合対応</li>
+                </ul>
+                <div class="price-display" style="margin-top:auto;">
+                  <span class="price-number">2</span><span class="price-unit">万円<span class="price-slash">/月</span></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI顧問への接続 -->
+            <div class="upgrade-link fade-up">
+              <div>
+                <small style="color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; font-size:11px;">Upgrade</small>
+                <h4 style="margin:8px 0;">SEO・AIO戦略まで踏み込みたい方は <a href="/services/advisory/">AI顧問プランA（月5万円〜）</a> へ</h4>
+                <p class="mini" style="margin:0;">サイトの維持管理を超えて、マーケティング・SEO/AIO戦略・第二の自分づくりまで伴走します。</p>
+              </div>
+              <a class="btn btn-outline" href="/services/advisory/">AI顧問を見る →</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8. デザインリニューアル・新規制作（アップセル） -->
+        <section class="container">
+          <div class="section-head fade-up">
+            <small>Add-on Plans</small>
+            <h2>もっとガッツリやりたい方へ</h2>
+            <p>「移管だけじゃなくて、デザインも新しくしたい」「いっそゼロから作り直したい」という方向けの追加プランです。</p>
+          </div>
+          <div class="grid cols-2">
+            <div class="card upsell-card fade-up">
+              <div class="upsell-icon">🎨</div>
+              <h3>デザインリニューアル <span class="upsell-plus">+10万円</span></h3>
+              <p class="mini">既存サイトの構造・コンテンツを保ったまま、見た目を今風にリニューアル。スマホ対応・ブランドカラー整備・ヒーロー画像の刷新まで含みます。</p>
+              <div class="upsell-total">
+                <span>合計</span>
+                <strong>20<span class="yen">万円</span></strong>
+                <small>（買い切り10万 + デザイン10万）</small>
+              </div>
+            </div>
+            <div class="card upsell-card fade-up">
+              <div class="upsell-icon">🆕</div>
+              <h3>新規サイトをゼロから <span class="upsell-plus">+20万円</span></h3>
+              <p class="mini">既存サイトはなくてもOK、もしくは大幅に作り変えたい方向け。ヒアリングから情報設計・デザイン・原稿の下書きまで一気通貫でサポートします。</p>
+              <div class="upsell-total">
+                <span>合計</span>
+                <strong>30<span class="yen">万円</span></strong>
+                <small>（買い切り10万 + 新規制作20万）</small>
+              </div>
+            </div>
+          </div>
+          <p class="mini" style="text-align:center; margin-top:32px; color:var(--text-light);">※ ボリュームや専門性によっては別途お見積りになる場合があります。まずはご相談ください。</p>
+        </section>
+
+        <!-- 9. 横展開（オプション・匂わせ程度） -->
+        <section class="bg-gradient-soft">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Beyond the Renewal</small>
+              <h2>サイトを変えた、その先に</h2>
+              <p>サイトを移管するだけでは、AI検索で本当に選ばれるところまではいきません。「あなたらしさ」を引き出す次の一歩もご用意しています。</p>
+            </div>
+            <div class="grid cols-2">
+              <div class="card fade-up">
+                <h3>🪞 第二の自分パッケージ</h3>
+                <p class="mini">代表自身がヒアリングして、あなたの考え方・価値観・話し方を「第二の自分ファイル」として納品します。これをChatGPTに入れることで、記事の質が「ただの情報まとめ」から「あなたらしい一次情報」に変わります。<small style="display:block; margin-top:8px; opacity:0.7;">価格は内容により応相談</small></p>
+              </div>
+              <div class="card fade-up">
+                <h3>🤝 AI顧問</h3>
+                <p class="mini">サイトだけでなく、事業全体のAI活用、SEO/AIO戦略、社内のAI教育まで伴走するプラン。月5万円〜。サイトを変えた後、本格的にAIで集客を伸ばしたい方に。</p>
+                <a class="btn btn-outline" href="/services/advisory/" style="margin-top:16px;">詳しく見る →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. FAQ -->
+        <section class="container faq">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくあるご質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            <details open>
+              <summary>WordPress以外のサイトでも移管できますか？</summary>
+              <p class="mini">はい。WordPress、Wix、Jimdo、ペライチなど、ほとんどのCMSから移管できます。事前に既存サイトを拝見してご判断します。</p>
+            </details>
+            <details>
+              <summary>本当に自分で更新できるようになりますか？</summary>
+              <p class="mini">動画講座で操作の流れを覚えていただきます。文字を変える・画像を差し替える・新しい記事を追加するレベルなら、ほとんどの方が一週間で慣れます。詰まったときのために月額のサポートプランもご用意しています。</p>
+            </details>
+            <details>
+              <summary>Windowsパソコンでも使えますか？</summary>
+              <p class="mini">はい、Mac/Windows両方で使えます。Windowsの場合、初期セットアップを丁寧にお手伝いします。</p>
+            </details>
+            <details>
+              <summary>AI検索で本当に上位に表示されるようになりますか？</summary>
+              <p class="mini">AI検索（AIOやLLMO）は仕組み上、構造化された情報を持つサイトが引用されやすくなります。私たちが整える土台はその前提条件です。ただし内容・専門性・更新頻度も重要なので、上位表示を保証するものではありません。</p>
+            </details>
+            <details>
+              <summary>月額プランに最低契約期間はありますか？</summary>
+              <p class="mini">ありません。月単位でいつでも開始・停止できます。一度買い切りでお渡ししたサイトはお客様のものなので、サポートを止めても運用は続けられます。</p>
+            </details>
+            <details>
+              <summary>既存のドメインのまま移管できますか？</summary>
+              <p class="mini">はい、現在お使いのドメインをそのまま新しいサイトに付け替えます。ドメインの設定変更もこちらでサポートします。</p>
+            </details>
+            <details>
+              <summary>他社のホームページ制作と比べて、なぜこの価格でできるのですか？</summary>
+              <p class="mini">ChatGPTやCodexなどのAIツールをフル活用して制作工程を圧縮しているためです。同等の移管・AI検索対応サービスは国内相場で初期30万〜100万円が一般的です。</p>
+            </details>
+            <details>
+              <summary>AI顧問プランとどう違いますか？</summary>
+              <p class="mini">本サービスはサイトの「移管と更新基盤づくり」を一括でお渡しするものです。<a href="/services/advisory/">AI顧問</a>はサイトに限らず事業全体のAI活用、SEO/AIO戦略、第二の自分づくりまで幅広く伴走します。サイト更新で詰まる程度の相談なら本サービスのサポートプランで十分です。</p>
+            </details>
+            <details>
+              <summary>セキュリティは大丈夫ですか？</summary>
+              <p class="mini">Vercel・GitHubといった海外大手のインフラを使うため、WordPressより一般的にセキュリティ強度は高くなります。プラグインの脆弱性に悩むこともなくなります。</p>
+            </details>
+            <details>
+              <summary>サポートを使わずに自分で運用したい場合はどうなりますか？</summary>
+              <p class="mini">可能です。ご自身でVercel（月額3,000円程度のサーバー代）を契約していただければ、買い切りの10万円のみで運用できます。設定はこちらでお渡しします。</p>
+            </details>
+          </div>
+        </section>
+
+        <!-- 11. CTA -->
+        <section id="contact" class="bg-contact">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Contact</small>
+              <h2>まずは無料の資料から</h2>
+              <p>サービスの詳細・実績・料金の内訳をまとめた資料をLINEで送ります。<br>動画セミナーが完成次第、登録者の方には先行でご案内します。</p>
+            </div>
+            <div class="cta-grid fade-up">
+              <div class="cta-main">
+                <div class="cta-main-inner">
+                  <span class="cta-tag">推奨</span>
+                  <h3>📩 無料の資料を受け取る</h3>
+                  <p class="mini">LINEでお友だち追加 → 資料リンクを自動送信します。<br>営業の電話・メールはありません。</p>
+                  <a class="btn btn-line" href="#line-register-todo">LINEで資料を受け取る</a>
+                  <small style="opacity:0.6; display:block; margin-top:8px;">※ LINE登録URLは準備中です</small>
+                </div>
+              </div>
+              <div class="cta-secondary">
+                <div class="card cta-card">
+                  <h4>💬 まず相談したい</h4>
+                  <p class="mini">「ウチのサイトどうしたらいい？」をお気軽にどうぞ。</p>
+                  <a class="btn btn-outline" href="/contact?service=ai-renewal">相談ページへ</a>
+                </div>
+                <div class="card cta-card">
+                  <h4>🔍 サイトの無料ライト診断</h4>
+                  <p class="mini">URLを送ってもらえれば、表示速度・AI検索対応の簡易チェックを無料でお返しします。</p>
+                  <a class="btn btn-outline" href="/contact?service=ai-renewal-audit">診断を依頼する</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+</Layout>
+
+<style>
+    /* ============================================ */
+    /* Hero                                          */
+    /* ============================================ */
+    .hero {
+      padding: 140px 0 120px;
+      background: linear-gradient(135deg, #f0fdf9 0%, #e3f5ed 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 60%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(139, 211, 193, 0.4) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero h1 {
+      margin-bottom: 24px;
+      color: var(--ink);
+      font-size: 48px;
+      line-height: 1.3;
+    }
+    .hero-sub { font-size: 18px; line-height: 1.8; margin-bottom: 32px; }
+    .hero-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(212, 160, 77, 0.15);
+      color: var(--accent);
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+    .hero-note { color: var(--text-light); font-size: 13px; }
+
+    /* ============================================ */
+    /* Common (流用)                                 */
+    /* ============================================ */
+    section { padding: 100px 0; position: relative; }
+    .section-head { text-align: center; margin-bottom: 64px; }
+    .section-head small {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid rgba(22, 97, 78, 0.08);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .card h3 { font-size: 20px; margin-bottom: 12px; color: var(--ink); }
+    .grid { display: grid; gap: 32px; }
+    @media(min-width:768px) {
+      .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+    .mini-list { padding-left: 18px; color: var(--text-light); line-height: 1.8; font-size: 15px; }
+    .mini-list li + li { margin-top: 8px; }
+    .icon-lg {
+      font-size: 64px;
+      margin-bottom: 24px;
+      color: var(--sea);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 40px;
+      box-shadow: 0 16px 32px rgba(22, 97, 78, 0.08);
+    }
+    .bg-gradient-soft { background: linear-gradient(180deg, #fcfdfc 0%, #f1f7f5 100%); }
+
+    /* ============================================ */
+    /* Dark section                                  */
+    /* ============================================ */
+    .bg-dark { background-color: #35524a; color: #fff; }
+    .bg-dark .section-head small { color: #8bd3c1; }
+    .bg-dark h2 { color: #fff; }
+    .bg-dark p { color: #e1e9e5; }
+    .card-dark {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 32px;
+      backdrop-filter: blur(4px);
+    }
+    .card-dark h3 { color: #fff; display: flex; align-items: center; gap: 12px; }
+    .card-dark .mini { color: #d0ded9; }
+
+    /* ============================================ */
+    /* Numbered Badge (Value Section)               */
+    /* ============================================ */
+    .num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--mint);
+      color: var(--sea);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .coming-soon-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      background: rgba(212, 160, 77, 0.15);
+      color: var(--accent);
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-left: 6px;
+    }
+
+    /* ============================================ */
+    /* Flow (3-step)                                */
+    /* ============================================ */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+    @media(min-width:768px) {
+      .flow-grid { grid-template-columns: 1fr 32px 1fr 32px 1fr; align-items: stretch; }
+    }
+    .flow-step {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 24px;
+      border: 1px solid rgba(22, 97, 78, 0.08);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      position: relative;
+    }
+    .flow-num {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--sea);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(22, 97, 78, 0.2);
+    }
+    .flow-icon { font-size: 48px; margin: 16px 0; }
+    .flow-arrow {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: var(--sea);
+      opacity: 0.5;
+    }
+    @media(min-width:768px) { .flow-arrow { display: flex; } }
+
+    /* ============================================ */
+    /* Pricing                                       */
+    /* ============================================ */
+    .pricing-hero {
+      max-width: 720px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #fff 0%, #f4faf7 100%);
+      border-radius: 24px;
+      border: 2px solid var(--sea);
+      padding: 0;
+      box-shadow: 0 16px 40px rgba(22, 97, 78, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    .pricing-hero-inner { padding: 48px 40px; }
+    .pricing-hero-badge {
+      display: inline-block;
+      background: var(--sea);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .pricing-hero h3 { font-size: 28px; margin-bottom: 16px; color: var(--ink); }
+    .price-display-large {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+    .price-display-large .price-number {
+      font-size: 72px;
+      font-weight: 900;
+      color: var(--sea);
+      line-height: 1;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.03em;
+    }
+    .price-display-large .price-unit { font-size: 20px; font-weight: 700; color: var(--text-light); }
+    .pricing-features { font-size: 16px; line-height: 2; }
+    .pricing-note { color: var(--text-light); margin-top: 24px; font-size: 13px; padding-top: 16px; border-top: 1px dashed #cbd5d0; }
+
+    .price-display { display: flex; align-items: baseline; gap: 2px; margin-top: 16px; }
+    .price-number { font-size: 48px; font-weight: 900; color: var(--ink); line-height: 1; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.03em; }
+    .price-unit { font-size: 16px; font-weight: 700; color: var(--text-light); }
+    .price-slash { font-size: 14px; font-weight: 500; color: #999; }
+
+    .card-recommended { border-color: var(--sea); position: relative; }
+    .card-badge {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .upgrade-link {
+      max-width: 800px;
+      margin: 48px auto 0;
+      padding: 24px 32px;
+      background: rgba(212, 160, 77, 0.06);
+      border: 1px dashed var(--accent);
+      border-radius: 16px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .upgrade-link h4 { font-size: 16px; }
+    .upgrade-link a { color: var(--accent); text-decoration: underline; font-weight: 700; }
+
+    /* ============================================ */
+    /* Upsell Cards                                  */
+    /* ============================================ */
+    .upsell-card { position: relative; }
+    .upsell-icon { font-size: 48px; margin-bottom: 12px; }
+    .upsell-plus {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-left: 8px;
+    }
+    .upsell-total {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px dashed #cbd5d0;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .upsell-total span { font-size: 14px; color: var(--text-light); }
+    .upsell-total strong { font-size: 36px; color: var(--ink); font-family: 'Space Grotesk', sans-serif; }
+    .upsell-total .yen { font-size: 16px; margin-left: 2px; }
+    .upsell-total small { color: var(--text-light); font-size: 12px; flex: 1; }
+
+    /* ============================================ */
+    /* CTA Grid                                      */
+    /* ============================================ */
+    .bg-contact { background: linear-gradient(180deg, #fcfdfc 0%, #e3f5ed 100%); }
+    .cta-grid {
+      display: grid;
+      gap: 32px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    @media(min-width: 768px) { .cta-grid { grid-template-columns: 1.2fr 1fr; align-items: stretch; } }
+    .cta-main {
+      background: linear-gradient(135deg, #06c755 0%, #00a93f 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 48px 40px;
+      box-shadow: 0 20px 50px rgba(6, 199, 85, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-main h3 { color: #fff; font-size: 28px; margin-bottom: 16px; }
+    .cta-main p { color: rgba(255,255,255,0.92); margin-bottom: 24px; }
+    .cta-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .btn-line {
+      display: inline-block;
+      background: #fff;
+      color: #06c755;
+      padding: 16px 32px;
+      border-radius: 99px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-line:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+    .cta-secondary { display: flex; flex-direction: column; gap: 16px; }
+    .cta-card { padding: 24px; }
+    .cta-card h4 { font-size: 18px; margin-bottom: 8px; color: var(--ink); }
+    .cta-card .btn { margin-top: 16px; align-self: flex-start; }
+
+    /* ============================================ */
+    /* FAQ - Layout.astroのグローバルスタイルに依存   */
+    /* ============================================ */
+
+    /* ============================================ */
+    /* Mobile                                        */
+    /* ============================================ */
+    @media(max-width:768px) {
+      section { padding: 60px 0; }
+      .hero { padding: 100px 0 80px; }
+      .hero h1 { font-size: 32px; }
+      .hero-sub { font-size: 16px; }
+      .pricing-hero-inner { padding: 32px 24px; }
+      .price-display-large .price-number { font-size: 56px; }
+      .upgrade-link { flex-direction: column; align-items: flex-start; padding: 20px; }
+      .cta-main { padding: 32px 24px; }
+      .cta-main h3 { font-size: 22px; }
+    }
+</style>
