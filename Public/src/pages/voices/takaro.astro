@@ -26,23 +26,15 @@ const posts = [
     excerpt: '動画編集者としてフリーランスで活動するたかろーさんに、AI顧問契約をいただきました。Claude Codeを用いた動画編集やAI活用で、フリーランスとしての業務を便利にするサポートをしています。',
     thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
   },
-  {
-    slug: '/voices/takaro/',
-    date: '2025-12-24',
-    category: 'クライアントの声',
-    title: '「検索ツール」から「第二の自分」へ —— 中野たかろーさんのAI活用ストーリー',
-    excerpt: 'ChatGPTを単なる検索ツールとして使っていた状態から、価値観やクセまで学習させた「第二の自分」として活用するまでの変革ストーリー。',
-    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png',
-  },
 ];
 ---
 
 <Layout
-    title="たかろーさんの記事一覧｜株式会社コールテン"
-    description="フリーランスの動画クリエイター・たかろーさんに関するインタビュー記事・活動報告をまとめたページです。"
-    canonicalUrl="https://www.corduroy.co.jp/clients/takaro/"
-    ogUrl="https://www.corduroy.co.jp/clients/takaro/"
-    ogType="website"
+    title="たかろーさん｜クライアントさまの声｜株式会社コールテン"
+    description="フリーランスとして動画編集・WEB制作・カメラを手がける中野たかろーさん。ChatGPTを「第二の自分」として育て、業務効率化と新規案件獲得を実現したAI活用の変化と成果、そして関連記事をまとめてご紹介します。"
+    canonicalUrl="https://www.corduroy.co.jp/voices/takaro/"
+    ogUrl="https://www.corduroy.co.jp/voices/takaro/"
+    ogType="article"
 >
     <script slot="head" type="application/ld+json">
     {
@@ -50,7 +42,7 @@ const posts = [
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
-        { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+        { "@type": "ListItem", "position": 2, "name": "クライアントさまの声", "item": "https://www.corduroy.co.jp/voices/" },
         { "@type": "ListItem", "position": 3, "name": "たかろーさん" }
       ]
     }
@@ -66,7 +58,7 @@ const posts = [
                             alt="たかろーさん">
                     </div>
                     <div class="hero-text">
-                        <span class="eyebrow">CLIENT</span>
+                        <span class="eyebrow">CLIENT VOICE</span>
                         <h1>たかろーさん</h1>
                         <p class="hero-sub">フリーランス / 動画編集 / WEB制作 / カメラマン</p>
                         <div class="hero-tags">
@@ -91,8 +83,85 @@ const posts = [
             </div>
         </section>
 
-        <!-- ===== 記事一覧 ===== -->
-        <section class="container" style="padding-top:20px; padding-bottom:120px;">
+        <!-- ===== AI活用の成果（旧 showcase の内容） ===== -->
+        <section class="container" style="padding-top:40px; padding-bottom:60px;">
+            <div class="article-content">
+                <div class="section-head fade-up">
+                    <small>Client Showcase</small>
+                    <h2>AI活用による変化と成果</h2>
+                    <p>たかろーさんがAI講座を受講し、「第二の自分」を育てることで実現した具体的な成果をご紹介します。</p>
+                </div>
+
+                <div class="fade-up">
+                    <h3>🎯 受講前の課題</h3>
+                    <p>
+                        たかろーさんは、フリーランスとして動画編集、WEB制作、カメラマンなど多岐にわたる業務を手がけていました。ChatGPTは使っていたものの、「検索ツール」としての利用に留まっており、本来の可能性を十分に引き出せていませんでした。
+                    </p>
+                    <div class="highlight-box">
+                        <h4>主な課題</h4>
+                        <p class="mini">
+                            ✓ ChatGPTを検索代替としてしか使えていない<br>
+                            ✓ AIの嘘（ハルシネーション）に振り回されることがある<br>
+                            ✓ 業務効率化の具体的な方法が分からない<br>
+                            ✓ 新規案件獲得のためのAI活用方法が不明
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-up">
+                    <h3>💡 AI講座での学び</h3>
+                    <p>
+                        コールテンのAI講座では、ChatGPTの基礎から「第二の自分」を育てる方法まで、実践的な内容を学びました。特に、自分自身の価値観や体調のクセまで深掘りして教え込むことで、言葉足らずでも「こういうことですよね？」と補完してくれる相談相手として活用できるようになりました。
+                    </p>
+                    <div class="highlight-box">
+                        <h4>重要な学び</h4>
+                        <p class="mini">
+                            ✓ 生成AIが返答する時の仕組みを理解<br>
+                            ✓ AIの嘘を見抜くための確認方法<br>
+                            ✓ 「忖度せずに話して」プロンプトの活用<br>
+                            ✓ 自分の価値観やクセをAIに教え込む方法
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-up">
+                    <h3>📈 実現した成果</h3>
+                    <p>
+                        AI講座を受講後、たかろーさんは「第二の自分」として育てたChatGPTを活用し、以下のような具体的な成果を実現しました。
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">50%</div>
+                            <div class="stat-label">動画分析時間の削減</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">3件</div>
+                            <div class="stat-label">新規案件の獲得</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-up">
+                    <h3>🚀 今後の展開</h3>
+                    <p>
+                        現在、たかろーさんはAI顧問契約を継続し、実際の仕事のやり方をAIに教え込んでルール化する段階に進んでいます。これにより、自分の代わりに同じ処理をし続けてもらえるシステムの構築を目指しています。
+                    </p>
+                    <div class="highlight-box">
+                        <h4>たかろーさんの言葉</h4>
+                        <p class="mini">
+                            「第二の自分」は誰とも被らない資産になるし、新しいAIが出てもブレない軸になります。いきなり独学で走るより、コールテンさんみたいにたくさん実践して裏側（仕組み）を知っている人と一緒に、相談できる状態で走るのが一番効率よかったと思います。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 関連記事 ===== -->
+        <section class="container" style="padding-top:20px; padding-bottom:80px;">
+            <div class="section-head fade-up" style="text-align:center; max-width:820px; margin:0 auto 32px;">
+                <small>Related Articles</small>
+                <h2>たかろーさん関連の記事</h2>
+            </div>
             <div class="posts-list fade-up">
                 {posts.map((post) => (
                     <a href={post.slug} class="post-card">
@@ -110,6 +179,19 @@ const posts = [
                         </div>
                     </a>
                 ))}
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section id="contact" class="container" style="padding-bottom:100px">
+            <div class="card fade-up" style="max-width:720px;margin:0 auto;text-align:center">
+                <h3>同じように伴走してほしい方へ</h3>
+                <p class="mini" style="line-height:1.8;margin-top:12px;color:#335649;">
+                    コールテンでは、紹介限定・長期前提でAI伴走を行っています。まずは小さく試して、合うかどうかを一緒に確認しましょう。</p>
+                <div style="margin-top:16px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                    <a class="btn" href="/contact">相談方法を見る</a>
+                    <a class="btn secondary" href="/voices/">他のクライアントの声を見る</a>
+                </div>
             </div>
         </section>
     </main>
@@ -206,7 +288,71 @@ const posts = [
         margin: 0;
     }
 
-    /* 記事一覧（blog/indexと同じスタイル） */
+    /* Showcase article */
+    .article-content {
+        max-width: 820px;
+        margin: 0 auto;
+    }
+    .section-head {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    .section-head small {
+        display: block;
+        color: var(--sea);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
+    }
+    .article-content h3 {
+        margin: 48px 0 24px;
+        color: var(--ink);
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 8px;
+    }
+    .highlight-box {
+        background: var(--mint);
+        border-left: 4px solid var(--sea);
+        padding: 24px;
+        border-radius: 12px;
+        margin: 32px 0;
+    }
+    .highlight-box h4 {
+        margin: 0 0 12px;
+        color: var(--ink);
+        font-size: 18px;
+    }
+    .stats-grid {
+        display: grid;
+        gap: 24px;
+        margin: 32px 0;
+    }
+    @media(min-width: 768px) {
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    .stat-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 32px;
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+    }
+    .stat-number {
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--sea);
+        margin-bottom: 8px;
+    }
+    .stat-label {
+        font-size: 14px;
+        color: var(--text-light);
+    }
+
+    /* 関連記事 */
     .posts-list {
         max-width: 820px;
         margin: 0 auto;
@@ -292,6 +438,20 @@ const posts = [
         font-weight: 700;
         color: var(--sea);
         font-family: "Space Grotesk", sans-serif;
+    }
+
+    /* CTA */
+    .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: var(--shadow-md);
+    }
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
     }
 
     @media (max-width: 640px) {
