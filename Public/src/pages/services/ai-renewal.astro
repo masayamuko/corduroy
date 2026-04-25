@@ -65,10 +65,9 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
               <div class="icon-lg">🌱</div>
               <div class="hero-tag">For WordPress Users</div>
               <h1>AI時代のサイトに、リニューアル。</h1>
-              <p class="hero-sub">AI検索（AIO・LLMO）に強い構造へ。<br>ChatGPTから自分で更新できるサイトに変えます。</p>
+              <p class="hero-sub">AI検索（AIO・LLMO）に強い構造へ。<br>ChatGPT<sup class="ref">※</sup>から自分で更新できるサイトに変えます。</p>
               <div class="hero-cta">
                 <a class="btn" href="#contact">無料の資料を受け取る</a>
-                <a class="btn btn-outline" href="/contact?service=ai-renewal">まず相談する</a>
               </div>
             </div>
           </div>
@@ -147,6 +146,19 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
           </div>
         </section>
 
+        <!-- 2.7 Mid CTA（コンパクト版） -->
+        <section class="mid-cta-section">
+          <div class="container">
+            <div class="mid-cta-card fade-up">
+              <div class="mid-cta-content">
+                <h3>📩 もっと詳しく知りたい方へ</h3>
+                <p class="mini">サービス詳細・料金に加えて、AI検索時代の実装ポイント（E-E-A-T／llms.txt／構造化データなど）を解説した資料をLINEで無料配布中。</p>
+              </div>
+              <a class="btn-line-mid" href="#contact">資料をLINEで受け取る →</a>
+            </div>
+          </div>
+        </section>
+
         <!-- 3. AI検索時代の前提 -->
         <section class="bg-dark">
           <div class="container">
@@ -205,7 +217,7 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
             <div class="card fade-up">
               <div class="num-badge">02</div>
               <h3>ChatGPT<sup class="ref">※</sup>から自分で更新</h3>
-              <p class="mini">記事更新・文字差し替え・画像変更が、ChatGPT<sup class="ref">※</sup>（Codexアプリ）から直接できる仕組みをお渡し。WordPressの管理画面とにらめっこする日々が終わります。</p>
+              <p class="mini">記事更新・文字差し替え・画像変更が、ChatGPT<sup class="ref">※</sup>から直接できる仕組みをお渡し。WordPressの管理画面とにらめっこする日々が終わります。</p>
             </div>
             <div class="card fade-up">
               <div class="num-badge">03</div>
@@ -395,7 +407,39 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
           </div>
         </section>
 
-        <!-- 10. FAQ -->
+        <!-- 10. CTA -->
+        <section id="contact" class="bg-contact">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Free Document</small>
+              <h2>無料の資料を、LINEで。</h2>
+              <p>サービスの詳細・料金だけでなく、<br>AI検索時代に「具体的に何を実装すべきか」を解説した資料です。</p>
+            </div>
+            <div class="doc-preview fade-up">
+              <img src="/assets/images/ai-renewal/document-mockup.png" alt="配布資料イメージ — AI時代のサイトリニューアル ガイド" loading="lazy" width="720" height="540" />
+            </div>
+            <div class="cta-grid fade-up">
+              <div class="cta-main">
+                <div class="cta-main-inner">
+                  <span class="cta-tag">無料</span>
+                  <h3>📩 資料に書いてあること</h3>
+                  <ul class="cta-doc-list">
+                    <li><strong>E-E-A-T</strong>（経験・専門性・権威性・信頼性）の整え方</li>
+                    <li><strong>著者情報</strong>（author スキーマ）の書き方</li>
+                    <li><strong>llms.txt</strong> の作り方とサンプル</li>
+                    <li><strong>構造化データ</strong> 最低限の実装チェックリスト</li>
+                    <li>ChatGPT<sup class="ref">※</sup>から記事を更新する手順</li>
+                    <li>サービス詳細・プラン料金・よくある質問</li>
+                  </ul>
+                  <a class="btn-line" href="#line-register-todo">LINEで資料を受け取る</a>
+                  <small style="opacity:0.7; display:block; margin-top:8px;">※ LINE登録URLは準備中です／営業の電話・メールはありません</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 11. FAQ -->
         <section class="container faq">
           <div class="section-head fade-up">
             <small>FAQ</small>
@@ -442,50 +486,6 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
               <summary>サポートを使わずに自分で運用したい場合はどうなりますか？</summary>
               <p class="mini">可能です。ご自身でVercel（月額3,000円程度のサーバー代）を契約していただければ、買い切りの10万円のみで運用できます。設定はこちらでお渡しします。</p>
             </details>
-          </div>
-        </section>
-
-        <!-- 11. CTA -->
-        <section id="contact" class="bg-contact">
-          <div class="container">
-            <div class="section-head fade-up">
-              <small>Free Document</small>
-              <h2>無料の資料を、LINEで。</h2>
-              <p>サービスの詳細・料金だけでなく、<br>AI検索時代に「具体的に何を実装すべきか」を解説した資料です。</p>
-            </div>
-            <div class="doc-preview fade-up">
-              <img src="/assets/images/ai-renewal/document-mockup.png" alt="配布資料イメージ — AI時代のサイトリニューアル ガイド" loading="lazy" width="720" height="540" />
-            </div>
-            <div class="cta-grid fade-up">
-              <div class="cta-main">
-                <div class="cta-main-inner">
-                  <span class="cta-tag">無料</span>
-                  <h3>📩 資料に書いてあること</h3>
-                  <ul class="cta-doc-list">
-                    <li><strong>E-E-A-T</strong>（経験・専門性・権威性・信頼性）の整え方</li>
-                    <li><strong>著者情報</strong>（author スキーマ）の書き方</li>
-                    <li><strong>llms.txt</strong> の作り方とサンプル</li>
-                    <li><strong>構造化データ</strong> 最低限の実装チェックリスト</li>
-                    <li>ChatGPT<sup class="ref">※</sup>から記事を更新する手順</li>
-                    <li>サービス詳細・プラン料金・よくある質問</li>
-                  </ul>
-                  <a class="btn-line" href="#line-register-todo">LINEで資料を受け取る</a>
-                  <small style="opacity:0.7; display:block; margin-top:8px;">※ LINE登録URLは準備中です／営業の電話・メールはありません</small>
-                </div>
-              </div>
-              <div class="cta-secondary">
-                <div class="card cta-card">
-                  <h4>💬 まず相談したい</h4>
-                  <p class="mini">「ウチのサイトどうしたらいい？」をお気軽にどうぞ。</p>
-                  <a class="btn btn-outline" href="/contact?service=ai-renewal">相談ページへ</a>
-                </div>
-                <div class="card cta-card">
-                  <h4>🔍 サイトの無料ライト診断</h4>
-                  <p class="mini">URLを送ってもらえれば、表示速度・AI検索対応の簡易チェックを無料でお返しします。</p>
-                  <a class="btn btn-outline" href="/contact?service=ai-renewal-audit">診断を依頼する</a>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
       </main>
@@ -815,10 +815,10 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
     .cta-grid {
       display: grid;
       gap: 32px;
-      max-width: 1080px;
+      max-width: 720px;
       margin: 0 auto;
     }
-    @media(min-width: 768px) { .cta-grid { grid-template-columns: 1.2fr 1fr; align-items: stretch; } }
+    @media(min-width: 768px) { .cta-grid { grid-template-columns: 1fr; align-items: stretch; } }
     .cta-main {
       background: linear-gradient(135deg, #06c755 0%, #00a93f 100%);
       color: #fff;
@@ -856,6 +856,50 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
     .cta-card { padding: 24px; }
     .cta-card h4 { font-size: 18px; margin-bottom: 8px; color: var(--ink); }
     .cta-card .btn { margin-top: 16px; align-self: flex-start; }
+
+    /* ============================================ */
+    /* Mid CTA Section                                */
+    /* ============================================ */
+    .mid-cta-section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, #f4faf7 0%, #e8f5ed 100%);
+    }
+    .mid-cta-card {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 40px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+      border: 1px solid rgba(22, 97, 78, 0.1);
+      box-shadow: 0 12px 32px rgba(22, 97, 78, 0.08);
+    }
+    .mid-cta-content { flex: 1 1 320px; }
+    .mid-cta-content h3 { font-size: 20px; margin-bottom: 8px; color: var(--ink); }
+    .mid-cta-content p { margin: 0; color: var(--text-light); }
+    .btn-line-mid {
+      display: inline-block;
+      background: #06c755;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 99px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-line-mid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(6, 199, 85, 0.3);
+    }
+    @media(max-width:768px) {
+      .mid-cta-card { flex-direction: column; text-align: center; padding: 24px; }
+      .btn-line-mid { width: 100%; text-align: center; }
+    }
 
     /* ============================================ */
     /* Source Citations / Footnotes                  */
@@ -938,24 +982,24 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
       box-shadow: 0 8px 24px rgba(212, 160, 77, 0.08);
       border: 1px solid rgba(212, 160, 77, 0.15);
       display: flex;
-      gap: 20px;
-      align-items: flex-start;
+      flex-direction: column;
+      gap: 12px;
     }
     .after-icon {
-      flex: 0 0 56px;
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       background: rgba(212, 160, 77, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 26px;
     }
     .after-item h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
+      font-size: 19px;
+      margin: 0 0 4px;
       color: var(--ink);
+      line-height: 1.5;
     }
     .after-item p {
       margin: 0;
