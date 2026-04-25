@@ -73,6 +73,30 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
           </div>
         </section>
 
+        <!-- 1.5 Big Wins -->
+        <section class="big-wins">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Big Wins</small>
+              <h2>あなたのサイトに、<br class="sp-only">起こる2つのこと。</h2>
+            </div>
+            <div class="big-wins-grid">
+              <div class="big-win-card fade-up">
+                <div class="big-win-num">01</div>
+                <div class="big-win-emoji">📝</div>
+                <h3>記事を書く・更新する<br>手間が、激減する。</h3>
+                <p>あなたの<strong>「型」と「方針」</strong>をAIに覚えさせれば、AIエージェントが記事の下書きを仕上げてくれる。あなたは確認してボタンを押すだけ。<br><br><span class="big-win-tagline">「書く時間がない」が<br>「次は何を発信しよう」に変わります。</span></p>
+              </div>
+              <div class="big-win-card fade-up">
+                <div class="big-win-num">02</div>
+                <div class="big-win-emoji">🛠️</div>
+                <h3>サイトを、<br>自分の手元に取り戻す。</h3>
+                <p>「ちょっと文言を変えたい」「このページ追加したい」「デザインを少し変えたい」が、<strong>AIに聞きながら自分でできる</strong>ようになる。<br><br><span class="big-win-tagline">プログラマーじゃなくていい。<br>制作会社に預けなくていい。</span></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- 2. Pain (共感) -->
         <section class="container">
           <div class="section-head fade-up">
@@ -856,6 +880,113 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
     .cta-card { padding: 24px; }
     .cta-card h4 { font-size: 18px; margin-bottom: 8px; color: var(--ink); }
     .cta-card .btn { margin-top: 16px; align-self: flex-start; }
+
+    /* ============================================ */
+    /* Big Wins Section（Hero直下のベネフィット）       */
+    /* ============================================ */
+    .big-wins {
+      background:
+        radial-gradient(circle at 20% 30%, rgba(212, 160, 77, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(22, 97, 78, 0.05) 0%, transparent 50%),
+        linear-gradient(180deg, #ffffff 0%, #fdfcf6 100%);
+      padding: 100px 0;
+      position: relative;
+    }
+    .big-wins .section-head h2 {
+      font-size: 38px;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+    .big-wins-grid {
+      display: grid;
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media(min-width: 768px) {
+      .big-wins-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .big-win-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 56px 48px;
+      border: 1px solid rgba(212, 160, 77, 0.2);
+      box-shadow: 0 16px 48px rgba(22, 97, 78, 0.08);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .big-win-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(22, 97, 78, 0.12);
+    }
+    .big-win-card::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(212, 160, 77, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .big-win-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .big-win-emoji {
+      font-size: 64px;
+      margin-bottom: 20px;
+      line-height: 1;
+      position: relative;
+    }
+    .big-win-card h3 {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+    .big-win-card p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin: 0;
+      position: relative;
+    }
+    .big-win-card strong {
+      color: var(--sea);
+      background: linear-gradient(transparent 60%, rgba(212, 160, 77, 0.25) 60%);
+      padding: 0 2px;
+    }
+    .big-win-tagline {
+      display: block;
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(22, 97, 78, 0.04);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .sp-only { display: none; }
+    @media(max-width:768px) {
+      .big-wins { padding: 60px 0; }
+      .big-wins .section-head h2 { font-size: 26px; }
+      .big-win-card { padding: 40px 28px; }
+      .big-win-card h3 { font-size: 22px; margin-bottom: 16px; }
+      .big-win-emoji { font-size: 52px; }
+      .sp-only { display: inline; }
+    }
 
     /* ============================================ */
     /* Mid CTA Section                                */
