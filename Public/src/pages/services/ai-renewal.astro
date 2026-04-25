@@ -453,6 +453,9 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
               <h2>無料の資料を、LINEで。</h2>
               <p>サービスの詳細・料金だけでなく、<br>AI検索時代に「具体的に何を実装すべきか」を解説した資料です。</p>
             </div>
+            <div class="doc-preview fade-up">
+              <img src="/assets/images/ai-renewal/document-mockup.png" alt="配布資料イメージ — AI時代のサイトリニューアル ガイド" loading="lazy" width="720" height="540" />
+            </div>
             <div class="cta-grid fade-up">
               <div class="cta-main">
                 <div class="cta-main-inner">
@@ -494,22 +497,26 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
     /* ============================================ */
     .hero {
       padding: 140px 0 120px;
-      background: linear-gradient(135deg, #f0fdf9 0%, #e3f5ed 100%);
-      text-align: center;
+      background:
+        linear-gradient(90deg, rgba(240, 253, 249, 0.96) 0%, rgba(240, 253, 249, 0.7) 40%, rgba(240, 253, 249, 0.25) 70%, rgba(227, 245, 237, 0.15) 100%),
+        url('/assets/images/ai-renewal/hero-bg.png') no-repeat center right / cover,
+        linear-gradient(135deg, #f0fdf9 0%, #e3f5ed 100%);
+      text-align: left;
       position: relative;
       overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute;
-      top: -50%;
+      top: -30%;
       right: -10%;
-      width: 60%;
+      width: 50%;
       height: 100%;
-      background: radial-gradient(circle, rgba(139, 211, 193, 0.4) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139, 211, 193, 0.25) 0%, transparent 70%);
       z-index: 0;
       pointer-events: none;
     }
+    .hero-inner { position: relative; z-index: 1; max-width: 720px; }
     .hero h1 {
       margin-bottom: 24px;
       color: var(--ink);
@@ -528,8 +535,14 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
       letter-spacing: 0.1em;
       margin-bottom: 24px;
     }
-    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+    .hero-cta { display: flex; gap: 16px; justify-content: flex-start; flex-wrap: wrap; margin-bottom: 24px; }
     .hero-note { color: var(--text-light); font-size: 13px; }
+    @media(max-width:768px) {
+      .hero { background-position: center bottom; padding-bottom: 200px; }
+      .hero { text-align: center; }
+      .hero-cta { justify-content: center; }
+      .hero-inner { max-width: 100%; }
+    }
 
     /* ============================================ */
     /* Common (流用)                                 */
@@ -788,6 +801,17 @@ const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LL
     /* CTA Grid                                      */
     /* ============================================ */
     .bg-contact { background: linear-gradient(180deg, #fcfdfc 0%, #e3f5ed 100%); }
+    .doc-preview {
+      max-width: 720px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .doc-preview img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 24px 60px rgba(22, 97, 78, 0.18);
+    }
     .cta-grid {
       display: grid;
       gap: 32px;
