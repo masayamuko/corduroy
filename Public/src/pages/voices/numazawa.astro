@@ -3,6 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 
 const posts = [
   {
+    slug: '/blog/shu-partner-pride/',
+    date: '2026-04-26',
+    category: 'パートナー自慢',
+    title: '行政書士しゅうへいさんを本気で応援する理由',
+    excerpt: 'AI懐疑派から「第二の自分」を相棒に変え、行政書士会DX推進副委員長・AI開発会社へと活躍を広げるしゅうへいさん。コールテンが本気で応援している理由を綴りました。',
+    thumbnail: 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png',
+  },
+  {
     slug: '/blog/shu-interview-dx-commissioner/',
     date: '2026-03-12',
     category: 'インタビュー',
@@ -241,17 +249,16 @@ const posts = [
                 <small>About Shuhei</small>
                 <h2>しゅうへいさんをもっと知る</h2>
             </div>
-            <div class="social-links fade-up">
-                <!-- TODO: しゅうへいさんのSNS / SHU行政書士事務所 URL届き次第差し替え -->
-                <div class="social-card coming-soon" aria-disabled="true">
+            <div class="social-links single fade-up">
+                <a href="https://shu-scrivener-office.com/" target="_blank" rel="noopener noreferrer" class="social-card">
                     <span class="social-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                     </span>
                     <div class="social-body">
                         <p class="social-platform">SHU行政書士事務所</p>
-                        <p class="social-handle">Coming Soon</p>
+                        <p class="social-handle">shu-scrivener-office.com</p>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
@@ -696,6 +703,10 @@ const posts = [
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 14px;
+    }
+    .social-links.single {
+        grid-template-columns: 1fr;
+        max-width: 360px;
     }
     .social-card {
         display: flex;
