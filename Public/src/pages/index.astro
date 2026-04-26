@@ -1509,14 +1509,14 @@ const description = "想いを大切にするAI活用サポート。AIとの関�
       .buddy.buddy-left  .buddy-img { max-height: 154px; }
       .buddy.buddy-right .buddy-img { max-height: 182px; }
       .buddy-bubble {
-        bottom: 86px;
-        min-width: 170px;
-        max-width: 240px;
-        padding: 11px 14px;
+        min-width: 150px;
+        max-width: 200px;
+        padding: 10px 13px;
       }
-      .buddy-left  .buddy-bubble { left: 110px; }
-      .buddy-right .buddy-bubble { right: 130px; }
-      .buddy-bubble p { font-size: 13px; line-height: 1.65; }
+      /* スマホ：被り回避のため縦ずらし（テト上/Tiki下） */
+      .buddy-left  .buddy-bubble { bottom: 145px; left: 90px; }
+      .buddy-right .buddy-bubble { bottom: 60px;  right: 110px; }
+      .buddy-bubble p { font-size: 12.5px; line-height: 1.6; }
     }
     @media (max-width: 420px) {
       .buddy.buddy-left  { width: 100px; height: 120px; }
@@ -1524,14 +1524,13 @@ const description = "想いを大切にするAI活用サポート。AIとの関�
       .buddy.buddy-left  .buddy-img { max-height: 120px; }
       .buddy.buddy-right .buddy-img { max-height: 144px; }
       .buddy-bubble {
-        bottom: 70px;
-        min-width: 140px;
-        max-width: 200px;
-        padding: 9px 12px;
+        min-width: 130px;
+        max-width: 170px;
+        padding: 8px 11px;
       }
-      .buddy-left  .buddy-bubble { left: 86px; }
-      .buddy-right .buddy-bubble { right: 104px; }
-      .buddy-bubble p { font-size: 12px; }
+      .buddy-left  .buddy-bubble { bottom: 120px; left: 76px; }
+      .buddy-right .buddy-bubble { bottom: 50px;  right: 92px; }
+      .buddy-bubble p { font-size: 11.5px; line-height: 1.55; }
     }
     @media (prefers-reduced-motion: reduce) {
       .buddy-img { animation: none; }
@@ -1708,20 +1707,23 @@ const description = "想いを大切にするAI活用サポート。AIとの関�
       targets.forEach((el) => observer.observe(el));
     }
 
-    // ===== カード hover override =====
-    document.querySelectorAll('[data-buddy-hover]').forEach((card) => {
-      const key = card.getAttribute('data-buddy-hover');
-      if (!key || !HOVER_MAP[key]) return;
-      const setHover = () => {
-        if (hoverKey !== key) { hoverKey = key; applyState(); }
-      };
-      const clearHover = () => {
-        if (hoverKey === key) { hoverKey = null; applyState(); }
-      };
-      card.addEventListener('mouseenter', setHover);
-      card.addEventListener('focusin', setHover);
-      card.addEventListener('mouseleave', clearHover);
-      card.addEventListener('focusout', clearHover);
-    });
+    // ===== カード hover override（hover対応デバイスのみ） =====
+    const supportsHover = window.matchMedia('(hover: hover)').matches;
+    if (supportsHover) {
+      document.querySelectorAll('[data-buddy-hover]').forEach((card) => {
+        const key = card.getAttribute('data-buddy-hover');
+        if (!key || !HOVER_MAP[key]) return;
+        const setHover = () => {
+          if (hoverKey !== key) { hoverKey = key; applyState(); }
+        };
+        const clearHover = () => {
+          if (hoverKey === key) { hoverKey = null; applyState(); }
+        };
+        card.addEventListener('mouseenter', setHover);
+        card.addEventListener('focusin', setHover);
+        card.addEventListener('mouseleave', clearHover);
+        card.addEventListener('focusout', clearHover);
+      });
+    }
   })();
 </script>
