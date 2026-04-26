@@ -308,6 +308,33 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
                 });
               }
             })();
+
+            // ===== Voicesカード フリップ（タッチデバイス：1タップでflip → 2タップで遷移） =====
+            (function () {
+              const flipCards = document.querySelectorAll('.voice-card.flip-card');
+              if (flipCards.length === 0) return;
+              const supportsHover = window.matchMedia('(hover: hover)').matches;
+              flipCards.forEach((card) => {
+                card.addEventListener('click', (e) => {
+                  if (supportsHover) return; // PC: そのままリンク遷移
+                  if (!card.classList.contains('is-flipped')) {
+                    e.preventDefault();
+                    // 他カードをリセット
+                    document.querySelectorAll('.voice-card.flip-card.is-flipped').forEach((c) => {
+                      if (c !== card) c.classList.remove('is-flipped');
+                    });
+                    card.classList.add('is-flipped');
+                  }
+                });
+              });
+              // フリップしたカード以外をタップしたらリセット
+              document.addEventListener('click', (e) => {
+                if (supportsHover) return;
+                if (!e.target.closest('.voice-card.flip-card')) {
+                  document.querySelectorAll('.voice-card.flip-card.is-flipped').forEach((c) => c.classList.remove('is-flipped'));
+                }
+              });
+            })();
         </script>
 	</body>
 </html>
