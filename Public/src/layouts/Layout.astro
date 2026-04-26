@@ -836,20 +836,21 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
       z-index: 5;
       max-width: 720px;
       margin: 0 auto 18px;
-      padding: 14px 16px 12px;
+      padding: 14px 18px 12px;
       text-align: center;
-      background: rgba(251, 249, 245, 0.92);
+      background: rgba(255, 254, 248, 0.96);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border-radius: 16px;
-      box-shadow: 0 2px 12px rgba(5, 32, 24, 0.06);
+      border: 2px solid var(--accent);
+      box-shadow: 0 6px 20px rgba(212, 160, 77, 0.22), 0 2px 6px rgba(5, 32, 24, 0.06);
     }
     .faq-progress-lead {
       font-size: 13.5px;
-      color: var(--text-light);
+      color: var(--ink);
       line-height: 1.6;
       margin: 0 0 10px;
-      font-weight: 600;
+      font-weight: 700;
     }
     .faq-collection {
       display: flex;
