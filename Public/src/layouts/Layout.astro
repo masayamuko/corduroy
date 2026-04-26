@@ -70,6 +70,8 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preload" href="/assets/fonts/craftmincho.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
 		<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
         <!-- Organization & WebSite Schema.org -->
@@ -264,6 +266,9 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
                   completedFired = true;
                   fireConfetti();
                   setTimeout(() => { if (popup) popup.hidden = false; }, 700);
+                  if (typeof gtag === 'function') {
+                    gtag('event', 'faq_complete', { event_category: 'faq', event_label: 'all_opened' });
+                  }
                 }
 
                 detailsList.forEach((d) => {
@@ -273,6 +278,9 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
                     collected.add(d.id);
                     if (collected.size > before) {
                       syncSlots();
+                      if (typeof gtag === 'function') {
+                        gtag('event', 'faq_open', { event_category: 'faq', event_label: d.id });
+                      }
                       if (collected.size === detailsList.length) fireComplete();
                     }
                   });
@@ -282,6 +290,9 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
                   slot.addEventListener('click', () => {
                     const target = document.getElementById(slot.dataset.target);
                     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    if (typeof gtag === 'function') {
+                      gtag('event', 'faq_slot_click', { event_category: 'faq', event_label: slot.dataset.target });
+                    }
                   });
                 });
               });
@@ -303,7 +314,8 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
 <style is:global>
     @font-face {
       font-family: 'CraftMincho';
-      src: url('/assets/fonts/craftmincho.otf') format('opentype');
+      src: url('/assets/fonts/craftmincho.woff2') format('woff2'),
+           url('/assets/fonts/craftmincho.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
       font-display: swap;
