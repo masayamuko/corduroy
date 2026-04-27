@@ -867,20 +867,23 @@ import Layout from '../../layouts/Layout.astro';
   /* 三角ダイアグラム */
   .skill-diagram { max-width: 720px; margin: 32px auto 48px; }
   @media (max-width: 768px) {
-    /* スマホでは container の padding を破って画面いっぱい */
+    /* スマホ: container の padding(0 32px) を破って viewport 端から端まで */
     .skill-diagram {
-      max-width: none;
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      max-width: none !important;
+      width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
       margin-top: 24px;
       margin-bottom: 32px;
+      padding: 0;
     }
     .skill-diagram .skill-img {
+      width: 100%;
+      max-width: none;
+      height: auto;
+      aspect-ratio: auto;
       border-radius: 0;
+      object-fit: contain;
     }
   }
   .skill-img {
