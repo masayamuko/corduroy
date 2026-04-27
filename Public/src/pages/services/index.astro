@@ -196,8 +196,8 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- 三角ダイアグラム -->
         <div class="skill-diagram fade-up">
-          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777257631/corduroy/services/triangle-diagram.jpg"
-               alt="AIコミュ力の3要素: 自己開示（AIに自分を伝える）、AI理解（AIの特性を知る）、環境づくり（働きやすい環境を整える）"
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777267952/corduroy/services/triangle-diagram.jpg"
+               alt="AIコミュ力の3要素: 自己開示（AIに自分を伝える）、AI理解（AIの特性を知る）、環境づくり（互いにとっていい環境を作る）"
                loading="lazy" width="1280" height="720" class="skill-img" />
         </div>
 
@@ -655,8 +655,14 @@ import Layout from '../../layouts/Layout.astro';
   .comm-section { background: var(--cream); }
 
   /* 三角ダイアグラム */
-  .skill-diagram { max-width: 640px; margin: 32px auto 48px; }
-  .skill-img { width: 100%; height: auto; display: block; }
+  .skill-diagram { max-width: 720px; margin: 32px auto 48px; }
+  .skill-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9; /* 縦長伸び防止 */
+    object-fit: contain;
+  }
 
   .comm-block {
     background: #fff; border: 1px solid var(--line);
