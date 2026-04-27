@@ -619,12 +619,23 @@ import Layout from '../../layouts/Layout.astro';
 
   .article-body { max-width: 760px; margin: 0 auto; font-size: 16.5px; line-height: 1.95; color: var(--text); }
   .article-body h2 {
-    font-size: 26px; margin: 56px 0 20px;
-    padding-bottom: 12px; border-bottom: 2px solid var(--mint);
-    color: var(--ink); line-height: 1.5;
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
   }
   .article-body h3 {
-    font-size: 19px; margin: 32px 0 14px; color: var(--ink);
+    font-size: 19px; margin: 36px 0 14px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
   }
   .article-body p { margin: 0 0 18px; }
   .article-body ul, .article-body ol { margin: 16px 0 24px; padding-left: 28px; }
@@ -770,7 +781,13 @@ import Layout from '../../layouts/Layout.astro';
     .article-head h1 { font-size: 24px; }
     .article-head h1 small { font-size: 15px; }
     .article-body { font-size: 15.5px; }
-    .article-body h2 { font-size: 22px; }
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
     .pullquote { font-size: 18px; }
     .callout-quote, .callout-quote.big { font-size: 16px; padding: 14px 18px; }
     .cta-section { padding: 24px 22px; }
