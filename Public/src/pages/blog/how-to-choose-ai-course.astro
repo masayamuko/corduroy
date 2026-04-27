@@ -74,6 +74,10 @@ const description = "AI講座が増えすぎてどれを選べばいいかわか
           <div class="article-card">
 
             <h2>AI講座が増えている背景</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777327964/corduroy/blog/seo/ch_hc1.png"
+                   alt="AI講座が急増している背景のグラレコ" width="1366" height="768" loading="lazy" />
+            </figure>
             <p>
               ChatGPTの登場以降、AIは急速に身近なものになりました。
               それに伴って「AI講座」や「AI活用セミナー」も一気に増えています。
@@ -91,6 +95,10 @@ const description = "AI講座が増えすぎてどれを選べばいいかわか
             </p>
 
             <h2>失敗しない5つの選び方ポイント</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777327966/corduroy/blog/seo/ch_hc2.png"
+                   alt="5つのチェック項目（目的/実績/サポート/価格/相性）のグラレコ" width="1366" height="768" loading="lazy" />
+            </figure>
 
             <h3>1. 目的を明確にする</h3>
             <p>
@@ -166,6 +174,10 @@ const description = "AI講座が増えすぎてどれを選べばいいかわか
             </p>
 
             <h2>こんな講座には注意</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777327969/corduroy/blog/seo/ch_hc3.png"
+                   alt="注意したい講座の兆候を警告サインで示すグラレコ" width="1366" height="768" loading="lazy" />
+            </figure>
             <p>
               AI講座が増える一方で、残念ながら質にばらつきがあるのも事実です。
               以下のような特徴がある講座は、慎重に検討した方がいいかもしれません。
@@ -180,6 +192,10 @@ const description = "AI講座が増えすぎてどれを選べばいいかわか
             </p>
 
             <h2>コールテンのAI講座の特徴</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777327971/corduroy/blog/seo/ch_hc4.png"
+                   alt="コールテンの強み（コーチング・実績・29名AI組織）のグラレコ" width="1366" height="768" loading="lazy" />
+            </figure>
             <p>
               僕たち<a href="/">株式会社コールテン</a>でも、福岡を拠点にAI講座を運営しています。
               上に挙げた5つのポイントを踏まえて、コールテンの講座の特徴を少しだけ紹介させてください。
@@ -221,6 +237,10 @@ const description = "AI講座が増えすぎてどれを選べばいいかわか
             </p>
 
             <h2>まとめ</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777327974/corduroy/blog/seo/ch_hc5.png"
+                   alt="自分に合うAI講座を選ぶための旅路のグラレコ" width="1366" height="768" loading="lazy" />
+            </figure>
             <p>
               AI講座を選ぶときに大切なのは、次の5つです。
             </p>
@@ -334,16 +354,43 @@ const description = "AI講座が増えすぎてどれを選べばいいかわか
   }
   .article-body h2 {
     font-size: 22px;
-    margin-top: 48px;
-    margin-bottom: 16px;
-    padding-left: 14px;
-    border-left: 4px solid var(--sea);
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
   }
   .article-body h3 {
     font-size: 18px;
-    margin-top: 36px;
-    margin-bottom: 12px;
-    color: var(--ink);
+    margin: 36px 0 14px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .chapter-illust {
+    max-width: 760px; margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%; height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
   }
   .article-body p { margin-bottom: 24px; }
   .article-body a {
