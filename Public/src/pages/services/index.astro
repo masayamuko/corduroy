@@ -214,6 +214,10 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- 1: 自己開示 -->
         <div class="comm-block fade-up">
+          <img class="comm-illustration"
+               src="https://res.cloudinary.com/dg3mdcuju/image/upload/e_make_transparent/f_webp,q_auto:good/v1777256057/corduroy/services/key1-self-disclosure.png"
+               alt="テト（人）が「僕はテト、ボードゲームが大好き！」と話し、Tiki（AI）が「へぇ、ボードゲームが好きなんだね？」と聞くイラスト"
+               loading="lazy" width="1280" height="720" />
           <div class="comm-header">
             <span class="comm-num">1</span>
             <h3>AIに自分を知ってもらう</h3>
@@ -234,6 +238,10 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- 2: AI理解 -->
         <div class="comm-block fade-up">
+          <img class="comm-illustration"
+               src="https://res.cloudinary.com/dg3mdcuju/image/upload/e_make_transparent/f_webp,q_auto:good/v1777256060/corduroy/services/key2-ai-understanding.png"
+               alt="テト（人）が「Tikiって、どんなことが得意なの？」と尋ね、Tiki（AI）が「短く具体的に伝えてくれると、得意なことが活きるよ」と答えるイラスト"
+               loading="lazy" width="1280" height="720" />
           <div class="comm-header">
             <span class="comm-num">2</span>
             <h3>AIのことを知る</h3>
@@ -254,6 +262,10 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- 3: 環境づくり -->
         <div class="comm-block fade-up">
+          <img class="comm-illustration"
+               src="https://res.cloudinary.com/dg3mdcuju/image/upload/e_make_transparent/f_webp,q_auto:good/v1777256062/corduroy/services/key3-environment.png"
+               alt="テト（人）が「気持ちよく働ける場、一緒に作ろう！」と話し、Tiki（AI）が「うん、一緒に育てたいな」と返すイラスト"
+               loading="lazy" width="1280" height="720" />
           <div class="comm-header">
             <span class="comm-num">3</span>
             <h3>お互いが心地よく働ける場をつくる</h3>
@@ -628,6 +640,18 @@ import Layout from '../../layouts/Layout.astro';
   .comm-block {
     background: #fff; border: 1px solid var(--line);
     border-radius: 24px; padding: 40px 36px; margin-bottom: 28px;
+  }
+  .comm-illustration {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    margin: -8px auto 20px;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+  @media (max-width: 640px) {
+    .comm-illustration { max-width: 100%; margin: -4px auto 16px; }
   }
   .comm-header {
     display: flex; align-items: center; gap: 16px;
