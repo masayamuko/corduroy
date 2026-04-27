@@ -28,8 +28,14 @@
   - [SHU行政書士事務所 沼澤さん (AI講座)](https://www.corduroy.co.jp/voices/numazawa)
   - [中野たかろーさん (AI講座)](https://www.corduroy.co.jp/voices/takaro)
   - [株式会社スデニアル 佐野さん (AI顧問)](https://www.corduroy.co.jp/voices/sano)
-- [お知らせ](https://www.corduroy.co.jp/news/): 会社からのお知らせ・活動報告
+- [ブログ](https://www.corduroy.co.jp/blog/): AI活用・お知らせ・パートナー自慢・インタビュー記事
 - [お問い合わせ](https://www.corduroy.co.jp/contact): 相談方法（紹介経由が中心）
+
+## 主なブログ記事
+
+- [ChatGPTで「第二の自分」を育てたら、29名のAI組織になった話](https://www.corduroy.co.jp/blog/tiki-teto-origin-story/): ChatGPTに「第二の自分」を育て始めて、1年で29名のAIエージェント組織になった代表のストーリー。AI活用の全体像を物語形式で。
+- [失敗しないAI講座の選び方](https://www.corduroy.co.jp/blog/how-to-choose-ai-course/): 5つのチェックポイントと、注意したい講座の兆候。
+- [AI顧問とは何か](https://www.corduroy.co.jp/blog/what-is-ai-advisory/): AI顧問の役割・解決する課題・向いている人。
 
 ## 連絡先
 
