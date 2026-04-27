@@ -196,20 +196,9 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- 三角ダイアグラム -->
         <div class="skill-diagram fade-up">
-          <svg viewBox="0 0 340 280" fill="none" class="skill-svg" role="img" aria-label="AIコミュ力の3要素: 自己開示、AI理解、環境づくり">
-            <line x1="170" y1="55" x2="70" y2="225" stroke="#16614e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.25"/>
-            <line x1="170" y1="55" x2="270" y2="225" stroke="#16614e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.25"/>
-            <line x1="70" y1="225" x2="270" y2="225" stroke="#16614e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.25"/>
-            <circle cx="170" cy="55" r="48" fill="#16614e"/>
-            <text x="170" y="48" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">自己</text>
-            <text x="170" y="68" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">開示</text>
-            <circle cx="70" cy="225" r="48" fill="#16614e"/>
-            <text x="70" y="218" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">AI</text>
-            <text x="70" y="238" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">理解</text>
-            <circle cx="270" cy="225" r="48" fill="#16614e"/>
-            <text x="270" y="218" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">環境</text>
-            <text x="270" y="238" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="'Noto Sans JP', sans-serif">づくり</text>
-          </svg>
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777257631/corduroy/services/triangle-diagram.jpg"
+               alt="AIコミュ力の3要素: 自己開示（AIに自分を伝える）、AI理解（AIの特性を知る）、環境づくり（働きやすい環境を整える）"
+               loading="lazy" width="1280" height="720" class="skill-img" />
         </div>
 
         <!-- 1: 自己開示 -->
@@ -449,6 +438,24 @@ import Layout from '../../layouts/Layout.astro';
 
 
     <!-- =====================================================
+      中間CTA（声 → FAQ の間）
+    ===================================================== -->
+    <section class="mid-cta-section">
+      <div class="container">
+        <div class="mid-cta fade-up">
+          <p>まずは無料の動画講座で、AIコミュ力の第一歩を。</p>
+          <a class="btn-line" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+             data-ga-event="cta_click" data-ga-label="services_after_voices_line">
+            <span class="line-icon-sm">LINE</span>
+            無料動画講座を受ける
+          </a>
+          <p class="mid-cta-sub">無料 · 無理な勧誘なし · いつでも解除OK</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
       08. よくある質問
     ===================================================== -->
     <section class="faq-section faq">
@@ -648,8 +655,8 @@ import Layout from '../../layouts/Layout.astro';
   .comm-section { background: var(--cream); }
 
   /* 三角ダイアグラム */
-  .skill-diagram { max-width: 340px; margin: 32px auto 48px; }
-  .skill-svg { width: 100%; height: auto; }
+  .skill-diagram { max-width: 640px; margin: 32px auto 48px; }
+  .skill-img { width: 100%; height: auto; display: block; }
 
   .comm-block {
     background: #fff; border: 1px solid var(--line);
@@ -850,9 +857,6 @@ import Layout from '../../layouts/Layout.astro';
     font-size: 12px; font-weight: 700; color: var(--accent);
     letter-spacing: 0.04em;
   }
-  @media (max-width: 1000px) {
-    .case-grid { grid-template-columns: 1fr; gap: 16px; }
-  }
 
   /* ============================================================
      FAQ
@@ -887,10 +891,12 @@ import Layout from '../../layouts/Layout.astro';
     .comm-two-col { grid-template-columns: 1fr; }
     .comm-eq { font-size: 1.5rem; padding: 4px 0; }
     .why-grid { grid-template-columns: 1fr; }
-    .case-grid { grid-template-columns: 1fr; }
     .comm-block { padding: 28px 20px; }
     .phase-content { flex-direction: column; gap: 4px; align-items: flex-start; }
     .phase-arrow { transform: rotate(90deg); }
+  }
+  @media (max-width: 760px) {
+    .case-grid { grid-template-columns: 1fr; gap: 16px; }
   }
 
   @media (max-width: 640px) {
