@@ -226,6 +226,10 @@ import Layout from '../../layouts/Layout.astro';
           <div class="growth-step">
             <div class="step-num">STEP 1</div>
             <div class="step-icon" aria-hidden="true">✨</div>
+            <img class="step-image"
+                 src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777287449/corduroy/services/growth-step1.jpg"
+                 alt="朝・昼・夜の3シーンに分かれたカフェ・デスク・ソファの机上イラスト。AI活用が日常に楽しく定着していく様子を時間帯のコントラストで表現"
+                 loading="lazy" width="1280" height="720" />
             <h3>まず、楽しくなる。<br>そして、自然と続く。</h3>
             <p>関係性に目を向けると、AIとの対話は「作業」から「楽しみ」へ変わります。<br>
             楽しいから、自然と毎日触りたくなる。<br>
@@ -234,6 +238,10 @@ import Layout from '../../layouts/Layout.astro';
           <div class="growth-step">
             <div class="step-num">STEP 2</div>
             <div class="step-icon" aria-hidden="true">🚀</div>
+            <img class="step-image"
+                 src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777287451/corduroy/services/growth-step2.jpg"
+                 alt="テトとTikiの周囲に思考・学習・挑戦・成長の4要素が放射状に広がるインフォグラフィック。AIとの関係性を育てるとできることが広がっていく様子"
+                 loading="lazy" width="1280" height="720" />
             <h3>そして、できることが<br>どんどん広がっていく。</h3>
             <ul class="step-list">
               <li><strong>思考が深まる</strong>：AIと考える前提で物事を見られるようになる。</li>
@@ -259,7 +267,7 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- 三角ダイアグラム -->
         <div class="skill-diagram fade-up">
-          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777269414/corduroy/services/triangle-diagram.jpg"
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777287454/corduroy/services/triangle-diagram-v4.jpg"
                alt="AIコミュ力の3つのポイント: 自己開示（AIに自分を伝える）、AI理解（AIの特性を知る）、環境づくり（互いにとって良い環境を追求）"
                loading="lazy" width="1280" height="720" class="skill-img" />
         </div>
@@ -766,6 +774,15 @@ import Layout from '../../layouts/Layout.astro';
     letter-spacing: 0.18em;
   }
   .step-icon { font-size: 36px; line-height: 1; }
+  .step-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    margin: 14px 0 18px;
+    display: block;
+    object-fit: cover;
+  }
   .growth-step h3 {
     font-size: 19px;
     line-height: 1.6;
