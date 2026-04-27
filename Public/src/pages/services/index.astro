@@ -236,7 +236,7 @@ import Layout from '../../layouts/Layout.astro';
           </div>
           <div class="growth-step">
             <div class="step-num">STEP 2</div>
-            <h3>思考が深まり、<br>できることが広がっていく。</h3>
+            <h3>互いに高め合い、<br>できることが広がっていく。</h3>
             <img class="step-image"
                  src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777289592/corduroy/services/growth-step2.jpg"
                  alt="中央に並ぶテトとTikiの周囲に思考・学習・挑戦・成長の4要素が放射状に広がるインフォグラフィック。関係性を育てるとできることが広がっていく様子"
@@ -694,8 +694,11 @@ import Layout from '../../layouts/Layout.astro';
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-size: 16px; font-weight: 700; margin-top: 2px;
   }
-  .empathy-myth { font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.5; margin-bottom: 8px; }
+  .empathy-myth { font-size: 18px; font-weight: 700; color: var(--ink); line-height: 1.55; margin-bottom: 10px; }
   .empathy-truth { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+  @media (max-width: 640px) {
+    .empathy-myth { font-size: 16px; }
+  }
 
   /* ============================================================
      SHIFT — 転換（色反転ストーリー）
@@ -783,10 +786,14 @@ import Layout from '../../layouts/Layout.astro';
     object-fit: cover;
   }
   .growth-step h3 {
-    font-size: 19px;
-    line-height: 1.6;
-    margin: 0;
+    font-size: 26px;
+    line-height: 1.5;
+    margin: 0 0 4px;
     color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 640px) {
+    .growth-step h3 { font-size: 22px; line-height: 1.45; }
   }
   .growth-step p {
     font-size: 14.5px;
@@ -939,9 +946,9 @@ import Layout from '../../layouts/Layout.astro';
     font-size: 15px; font-weight: 900; font-family: 'Space Grotesk', sans-serif;
   }
   .phase-content { display: flex; align-items: center; gap: 16px; flex: 1; }
-  .phase-before { flex: 1; font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
+  .phase-before { flex: 1; font-size: 16px; color: var(--text-light); line-height: 1.6; margin: 0; }
   .phase-arrow { color: var(--accent); font-size: 1.2rem; flex-shrink: 0; }
-  .phase-after { flex: 1; font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.6; margin: 0; }
+  .phase-after { flex: 1; font-size: 18px; font-weight: 700; color: var(--ink); line-height: 1.55; margin: 0; }
 
   /* ============================================================
      MID CTA
