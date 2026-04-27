@@ -225,22 +225,29 @@ import Layout from '../../layouts/Layout.astro';
         <div class="growth-steps fade-up">
           <div class="growth-step">
             <div class="step-num">STEP 1</div>
-            <div class="step-icon" aria-hidden="true">✨</div>
-            <h3>まず、楽しくなる。<br>そして、自然と続く。</h3>
+            <h3>楽しくなって、<br>あなた専用に育っていく。</h3>
+            <img class="step-image"
+                 src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777289588/corduroy/services/growth-step1.jpg"
+                 alt="カフェのテーブルで楽しそうに両手を広げて熱中して話すテトと、優しく聞き入るTiki。関係性を育てると対話が楽しみに変わる様子"
+                 loading="lazy" width="1280" height="720" />
             <p>関係性に目を向けると、AIとの対話は「作業」から「楽しみ」へ変わります。<br>
             楽しいから、自然と毎日触りたくなる。<br>
-            そうやって、AI活用が <strong>生活に定着</strong> していきます。</p>
+            AI活用が <strong>生活に定着</strong> するうちに、AIがどんどん <strong>あなた専用に育って</strong>、出力を見るのが楽しみで仕方なくなります。</p>
           </div>
           <div class="growth-step">
             <div class="step-num">STEP 2</div>
-            <div class="step-icon" aria-hidden="true">🚀</div>
-            <h3>そして、できることが<br>どんどん広がっていく。</h3>
-            <ul class="step-list">
-              <li><strong>思考が深まる</strong>：AIと考える前提で物事を見られるようになる。</li>
-              <li><strong>学習速度が上がる</strong>：AIと一緒に学ぶから、独学より圧倒的に速い。</li>
-              <li><strong>やれることが増える</strong>：AIと分担できるから、新しい挑戦に時間が使える。</li>
-              <li><strong>AIがあなた専用に育つ</strong>：使い続けるほど、AIがあなたを理解する相棒になる。</li>
-            </ul>
+            <h3>思考が深まり、<br>できることが広がっていく。</h3>
+            <img class="step-image"
+                 src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777289592/corduroy/services/growth-step2.jpg"
+                 alt="中央に並ぶテトとTikiの周囲に思考・学習・挑戦・成長の4要素が放射状に広がるインフォグラフィック。関係性を育てるとできることが広がっていく様子"
+                 loading="lazy" width="1280" height="720" />
+            <p>AIと考える前提で物事を見られるようになると、<strong>思考が深まります</strong>。<br>
+            AIと一緒に学ぶことで独学より圧倒的に速く、共に学び合う感覚が生まれてくる。<br>
+            AIと分担して進められるから、<strong>やれることが増えて</strong>新しい挑戦にも時間が使えるようになります。</p>
+            <p class="step-future">
+              その先には、<strong>AIたちのチーム＝AI組織</strong>として一緒に働く未来も。<br>
+              <a href="/members/">私たちはすでに29名のAI社員と一緒に働いています →</a>
+            </p>
           </div>
         </div>
       </div>
@@ -259,7 +266,7 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- 三角ダイアグラム -->
         <div class="skill-diagram fade-up">
-          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777269414/corduroy/services/triangle-diagram.jpg"
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777293398/corduroy/services/triangle-diagram-v4.png"
                alt="AIコミュ力の3つのポイント: 自己開示（AIに自分を伝える）、AI理解（AIの特性を知る）、環境づくり（互いにとって良い環境を追求）"
                loading="lazy" width="1280" height="720" class="skill-img" />
         </div>
@@ -766,6 +773,15 @@ import Layout from '../../layouts/Layout.astro';
     letter-spacing: 0.18em;
   }
   .step-icon { font-size: 36px; line-height: 1; }
+  .step-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    margin: 14px 0 18px;
+    display: block;
+    object-fit: cover;
+  }
   .growth-step h3 {
     font-size: 19px;
     line-height: 1.6;
@@ -808,6 +824,24 @@ import Layout from '../../layouts/Layout.astro';
     font-size: 12px;
     line-height: 1.85;
   }
+  .step-future {
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: var(--cream);
+    border-left: 3px solid var(--sea);
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .step-future a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid var(--sea);
+    transition: opacity 0.2s ease;
+  }
+  .step-future a:hover { opacity: 0.7; }
   @media (max-width: 860px) {
     .growth-steps { grid-template-columns: 1fr; gap: 18px; }
     .growth-step { padding: 28px 24px; }
