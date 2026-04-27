@@ -266,7 +266,7 @@ import Layout from '../../layouts/Layout.astro';
 
         <!-- 三角ダイアグラム -->
         <div class="skill-diagram fade-up">
-          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777293398/corduroy/services/triangle-diagram-v4.png"
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777298858/corduroy/services/triangle-diagram-v4.png"
                alt="AIコミュ力の3つのポイント: 自己開示（AIに自分を伝える）、AI理解（AIの特性を知る）、環境づくり（互いにとって良い環境を追求）"
                loading="lazy" width="1280" height="720" class="skill-img" />
         </div>
@@ -428,28 +428,11 @@ import Layout from '../../layouts/Layout.astro';
       <div class="container">
         <div class="section-head fade-up">
           <small>Why Corduroy</small>
-          <h2>なぜ、コールテンが<br>「AIとの関係性」を教えられるのか。</h2>
-        </div>
-        <div class="why-grid">
-          <div class="why-card fade-up">
-            <div class="why-num">01</div>
-            <h3>プロコーチの目で、<br>あなたの可能性を引き出す</h3>
-            <p>代表のMasayaはプロコーチ出身。コーチングとは、答えを教えることではありません。相手の中にある可能性に光を当て、本人も気づいていなかった強みや方向性を一緒に見つけていくこと。「あなたは本当は何がしたいの？」「その先に何がある？」——そんな問いかけの技術で、AIの可能性も、あなたの可能性も引き出します。</p>
-          </div>
-          <div class="why-card fade-up">
-            <div class="why-num">02</div>
-            <h3>毎日の実践から<br>生まれたメソッド</h3>
-            <p>ChatGPTに自分の価値観を教え込む実験から始まり、今ではClaude Codeで30名のAIエージェントと一緒に会社を経営。1対1のコミュニケーションから組織マネジメントまで、AIとの関係性を日々深めている実践の中から生まれたメソッドです。</p>
-          </div>
-          <div class="why-card fade-up">
-            <div class="why-num">03</div>
-            <h3>あなたが一人で<br>歩けるようになること</h3>
-            <p>本質的なAIとの付き合い方を身につけたら、あなたはそれぞれの分野で自分の力で前に進んでいける。コーチにとって最高の成果は、クライアントがコーチを必要としなくなること。本質を一緒に学び、旅立ちを一緒に目指す。それが私たちのゴールです。</p>
-          </div>
+          <h2>「AIとの関係性」を<br>コールテンが教えられる理由。</h2>
         </div>
 
-        <!-- Masaya プロフィール -->
-        <div class="masaya-profile fade-up">
+        <!-- Masaya プロフィール（見出し直下に移動・色反転） -->
+        <div class="masaya-profile masaya-profile-inverted fade-up">
           <img class="masaya-avatar"
                src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
                alt="向 雅也（株式会社コールテン代表）" loading="lazy" width="120" height="120" />
@@ -457,6 +440,24 @@ import Layout from '../../layouts/Layout.astro';
             <div class="masaya-tag">代表プロフィール</div>
             <div class="masaya-name">向 雅也<span class="masaya-name-en">（むこう・まさや）</span></div>
             <p>元プロコーチ／日本語教師経験あり。<br>相手の価値観や興味関心、その人が大切にしている思いにフォーカスして、分かりやすく伝えたり、届きやすく届けたりすることに努めています。</p>
+          </div>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card fade-up">
+            <div class="why-num">01</div>
+            <h3>プロコーチだから、<br>あなたを引き出せる</h3>
+            <p>代表のMasayaは元プロコーチ・元日本語教師。コーチングとは、答えを教えることではなく、相手の中にある可能性・特性・価値観に光を当てて引き出すこと。だからこそAIに「あなたを伝える」設計を一緒に作れる。<strong>AIの可能性とあなたの可能性、両方を引き出す</strong>のがコールテン流です。</p>
+          </div>
+          <div class="why-card fade-up">
+            <div class="why-num">02</div>
+            <h3>1年以上の実践経験、<br>30人以上に伝えてきた実績</h3>
+            <p>1年以上にわたって自分自身でメソッドを実践し続け、その間に <strong>30人以上の経営者・フリーランス・企業内チーム</strong> に本メソッドを伝えてきました。机上の空論ではなく、現場で磨かれ続けている型としてすでに確立されています。</p>
+          </div>
+          <div class="why-card fade-up">
+            <div class="why-num">03</div>
+            <h3>私たち自身が、<br>毎日AI組織で実践している</h3>
+            <p>ChatGPTから始まり、今では<strong>29名のAIエージェントによる「AI組織」</strong>で会社を経営。毎日の業務にAIが必要不可欠で、クライアント企業にも実装提供中。先の先まで実体験で見せられるから、机上ではなく <a href="/members/">私たちの組織のリアル</a> をそのままお伝えできます。</p>
           </div>
         </div>
       </div>
@@ -865,6 +866,26 @@ import Layout from '../../layouts/Layout.astro';
 
   /* 三角ダイアグラム */
   .skill-diagram { max-width: 720px; margin: 32px auto 48px; }
+  @media (max-width: 768px) {
+    /* スマホ: container の padding(0 32px) を破って viewport 端から端まで */
+    .skill-diagram {
+      max-width: none !important;
+      width: 100vw !important;
+      margin-left: calc(50% - 50vw) !important;
+      margin-right: calc(50% - 50vw) !important;
+      margin-top: 24px;
+      margin-bottom: 32px;
+      padding: 0;
+    }
+    .skill-diagram .skill-img {
+      width: 100%;
+      max-width: none;
+      height: auto;
+      aspect-ratio: auto;
+      border-radius: 0;
+      object-fit: contain;
+    }
+  }
   .skill-img {
     width: 100%;
     height: auto;
@@ -986,12 +1007,24 @@ import Layout from '../../layouts/Layout.astro';
     align-items: center;
     gap: 28px;
     max-width: 760px;
-    margin: 56px auto 0;
+    margin: 32px auto 48px;
     padding: 32px 36px;
     background: linear-gradient(135deg, #ffffff 0%, #f4fbf7 100%);
     border: 1px solid var(--line);
     border-radius: 20px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  }
+  .masaya-profile-inverted {
+    background: linear-gradient(135deg, #16614e 0%, #124034 100%);
+    border-color: rgba(212, 160, 77, 0.4);
+    box-shadow: 0 12px 36px rgba(22, 97, 78, 0.25);
+  }
+  .masaya-profile-inverted .masaya-name { color: #fff; }
+  .masaya-profile-inverted .masaya-name-en { color: rgba(255, 255, 255, 0.75); }
+  .masaya-profile-inverted .masaya-bio p { color: rgba(255, 255, 255, 0.92); }
+  .masaya-profile-inverted .masaya-avatar {
+    border-color: var(--accent);
+    box-shadow: 0 6px 22px rgba(212, 160, 77, 0.45);
   }
   .masaya-avatar {
     width: 110px;

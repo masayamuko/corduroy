@@ -45,49 +45,66 @@ import Layout from '../layouts/Layout.astro';
 
     <main>
         <section class="hero">
-          <div class="container hero-inner fade-up">
-            <small style="color:var(--sea); font-weight:700; letter-spacing:0.1em;">CONTACT</small>
-            <h1>ご相談・ご縁づくり</h1>
+          <div class="container hero-inner">
+            <div class="hero-text fade-up">
+              <small>CONTACT</small>
+              <h1>ご相談・ご縁づくり</h1>
+              <p class="hero-lead">数をこなすのではなく、<strong>ご縁を深く育てる</strong>関係性を大切にしています。<br>
+              まずはLINEでお気軽にお声がけください。<br>
+              お話できるのを楽しみにしています。</p>
+            </div>
+            <img class="hero-image fade-up"
+                 src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777296405/corduroy/services/contact-hero.jpg"
+                 alt="温かいカフェでテトとTikiが笑顔で歓迎するイラスト"
+                 loading="eager" width="1366" height="768" />
           </div>
         </section>
     
-        <section class="container" style="padding-top:0; margin-top:-40px; position:relative; z-index:2;">
-          <div class="card fade-up"
-            style="background:#fff; border:1px solid #eef2f0; max-width: 800px; margin: 0 auto 40px;">
-            <div class="price-card">
-              <div style="font-size:40px; margin-bottom:8px;">☕️</div>
-              <h3>個別相談</h3>
-              <div class="price-main">30,000<span style="font-size:16px; font-weight:normal;">円</span> <span
-                  style="font-size:14px; font-weight:normal;">(税込)</span></div>
-              <div class="price-sub">90分 / オンライン</div>
-              <p class="price-desc" style="text-align:center; max-width:600px; margin:0 auto;">
-                まずはここから。AI活用の方向性整理、業務改善の可能性、プロンプト設計の初期アドバイスなどを、必要な範囲でしっかりお手伝いします。</p>
+        <!-- 個別相談（単独セクション・白背景） -->
+        <section class="pricing-personal-section">
+          <div class="container">
+            <div class="pricing-personal-card fade-up">
+              <img class="pricing-icon"
+                   src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777296917/corduroy/services/icon-personal.jpg"
+                   alt="湯気と葉とハートのお茶のイラスト" loading="lazy" width="200" height="200" />
+              <div class="pricing-personal-text">
+                <h3>個別相談</h3>
+                <div class="price-main">30,000<span class="yen">円</span> <span class="tax">(税込)</span></div>
+                <div class="price-sub">90分 / オンライン</div>
+                <p class="price-desc">まずはここから。AI活用の方向性整理、業務改善の可能性、プロンプト設計の初期アドバイスなどを、必要な範囲でしっかりお手伝いします。</p>
+              </div>
             </div>
           </div>
-    
-          <div class="card fade-up"
-            style="border-color:#d6e8df; background:linear-gradient(135deg, #ffffff 0%, #fbfdfc 100%);">
-            <div class="section-head" style="margin-bottom:32px;">
-              <h2><span class="jp-kanji">大切</span><span class="jp-hiragana">にしていること</span></h2>
-              <p>数をこなすのではなく、ご縁を深く育てる関係性を大切にしています。<br>価値観が重なるご縁を特に大切にし、安心して話せる空気と、小さく試せる設計を一緒につくります。</p>
+        </section>
+
+        <!-- 大切にしていること（フルブリード #fbf9f5）— ご紹介+特定領域はこの中に -->
+        <section class="values-section">
+          <div class="container values-inner">
+            <div class="values-head fade-up">
+              <img class="value-mascot"
+                   src="https://res.cloudinary.com/dg3mdcuju/image/upload/e_background_removal/f_webp,q_auto:eco/corduroy/characters/tiki/tiki_bow.png"
+                   alt="Tikiがお辞儀で迎えるイラスト"
+                   loading="lazy" width="120" height="120" />
+              <small>Our Values</small>
+              <h2>大切にしていること</h2>
+              <p class="values-lead">数をこなすのではなく、<strong>ご縁を深く育てる</strong>関係性を大切にしています。<br>価値観が重なるご縁を特に大切にし、安心して話せる空気と、小さく試せる設計を一緒につくります。</p>
             </div>
-    
-            <div class="grid cols-2" style="align-items:stretch;">
-              <div class="card price-card"
-                style="background:linear-gradient(180deg, #f5fbff 0%, #fff 100%); border-color:#e3f2fd;">
-                <div style="font-size:40px; margin-bottom:8px;">🤝</div>
+
+            <div class="values-cards fade-up">
+              <div class="values-card">
+                <img class="pricing-icon"
+                     src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777297331/corduroy/services/icon-referral.png"
+                     alt="コーラルと緑の輪が繋がるイラスト" loading="lazy" width="180" height="180" />
                 <h3>ご紹介の方</h3>
-                <div class="price-main" style="color:#005c99;">無料</div>
-                <div class="price-sub" style="color:#007acc;">初回 60分</div>
+                <div class="price-main">無料<span class="tax-light">／初回 60分</span></div>
                 <p class="price-desc">既存のお客様やパートナー様からのご紹介の場合。紹介を通じて価値観が伝わっているご縁を何より大切にし、最初の60分で課題整理を行います。</p>
               </div>
-    
-              <div class="card price-card"
-                style="background:linear-gradient(180deg, #fcf5ff 0%, #fff 100%); border-color:#f3e5f5;">
-                <div style="font-size:40px; margin-bottom:8px;">💡</div>
+              <div class="values-card">
+                <img class="pricing-icon"
+                     src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777297333/corduroy/services/icon-specific.png"
+                     alt="ハート中心に多様な要素が広がるイラスト" loading="lazy" width="180" height="180" />
                 <h3>特定領域のご相談</h3>
-                <div class="price-main" style="color:#6a1b9a;">無料</div>
-                <div class="price-sub" style="color:#8e24aa;">初回 60分</div>
+                <div class="price-main">無料<span class="tax-light">／初回 60分</span></div>
                 <p class="price-desc">社会的養護、若者支援、教育、福祉、創作活動など。価値観の重なりから初回無料でお受けしています。まずはお気軽にご相談ください。</p>
               </div>
             </div>
@@ -218,10 +235,10 @@ import Layout from '../layouts/Layout.astro';
 <style>
     /* Hero */
     .hero {
-      padding: 120px 24px 80px;
-      text-align: center;
-      background: linear-gradient(180deg, #fbfaf8 0%, #f0f7f4 100%);
+      padding: 60px 24px 40px;
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--cream) 100%);
       position: relative;
+      overflow: hidden;
     }
 
     .hero::before {
@@ -229,9 +246,9 @@ import Layout from '../layouts/Layout.astro';
       position: absolute;
       top: -50px;
       right: -50px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(228, 242, 234, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(228, 242, 234, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
       z-index: 0;
       pointer-events: none;
     }
@@ -239,18 +256,222 @@ import Layout from '../layouts/Layout.astro';
     .hero-inner {
       position: relative;
       z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      align-items: center;
+      gap: 40px;
+      min-height: 360px;
+    }
+
+    .hero-text { display: flex; flex-direction: column; gap: 18px; }
+    .hero-text small {
+      color: var(--sea);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+    }
+    .hero-text h1 {
+      font-size: 34px;
+      line-height: 1.4;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .hero-lead {
+      font-size: 16px;
+      line-height: 1.95;
+      color: #335649;
+      margin: 0;
+    }
+    .hero-lead strong { color: var(--sea); }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      max-width: 640px;
+      justify-self: end;
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(22, 97, 78, 0.12);
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 40px 24px 20px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 24px; min-height: auto; }
+      .hero-image { order: -1; max-width: 100%; }
+      .hero-text h1 { font-size: 26px; }
+    }
+
+    /* ============================================================
+       個別相談 単独セクション（白背景）
+    ============================================================ */
+    .pricing-personal-section {
+      padding: 60px 24px 50px;
+      background: #fff;
+    }
+    .pricing-personal-card {
+      max-width: 880px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 36px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px 44px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
+    }
+    .pricing-personal-card .pricing-icon {
+      width: 100%;
+      max-width: 200px;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      justify-self: center;
+    }
+    .pricing-personal-text h3 {
+      font-size: 24px;
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+    .pricing-personal-text .price-main {
+      font-family: 'CraftMincho', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 4px 0 6px;
+    }
+    .pricing-personal-text .price-main .yen { font-size: 18px; font-weight: normal; margin-left: 2px; }
+    .pricing-personal-text .price-main .tax { font-size: 14px; font-weight: normal; margin-left: 4px; color: var(--text-light); }
+    .pricing-personal-text .price-sub {
+      font-size: 14px;
+      color: var(--sea);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .pricing-personal-text .price-desc {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #335649;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .pricing-personal-section { padding: 44px 24px 32px; }
+      .pricing-personal-card {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+        gap: 16px;
+        text-align: center;
+      }
+      .pricing-personal-text .price-desc { text-align: left; }
+    }
+
+    /* ============================================================
+       大切にしていること（フルブリード #fbf9f5 単色）
+       ご紹介の方+特定領域の方をこの中に内包
+    ============================================================ */
+    .values-section {
+      padding: 80px 24px;
+      background: #fbf9f5;
+      text-align: center;
+    }
+    .values-inner {
+      max-width: 1000px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
+      gap: 48px;
+    }
+    .values-head { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 720px; }
+    .values-section small {
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    .values-section h2 {
+      font-size: 30px;
+      margin: 0;
+      color: var(--ink);
+    }
+    .values-lead {
+      font-size: 16px;
+      line-height: 1.95;
+      color: #335649;
+      margin: 8px 0 0;
+    }
+    .values-lead strong { color: var(--sea); }
+    .value-mascot {
+      display: block;
+      width: 100px;
+      height: auto;
+      margin: 0 auto 4px;
     }
 
-    .hero p {
-      font-size: 16px;
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.9;
+    .values-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      width: 100%;
+    }
+    .values-card {
+      background: #fbf9f5;
+      border: 1px solid #e6dfd2;
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .values-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--sea);
+      box-shadow: 0 10px 28px rgba(22, 97, 78, 0.08);
+    }
+    .values-card .pricing-icon {
+      width: 100%;
+      max-width: 160px;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+    .values-card h3 {
+      font-size: 20px;
+      margin: 8px 0 10px;
+      color: var(--ink);
+    }
+    .values-card .price-main {
+      font-family: 'CraftMincho', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 4px 0 14px;
+    }
+    .values-card .price-main .tax-light {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--sea);
+      margin-left: 6px;
+    }
+    .values-card .price-desc {
+      font-size: 14px;
+      line-height: 1.85;
       color: #335649;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .value-mascot { width: 80px; }
+      .values-section { padding: 56px 24px; }
+      .values-section h2 { font-size: 24px; }
+      .values-cards { grid-template-columns: 1fr; gap: 18px; }
+      .values-inner { gap: 36px; }
     }
 
     /* Cards */
