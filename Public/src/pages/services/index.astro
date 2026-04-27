@@ -268,7 +268,7 @@ import Layout from '../../layouts/Layout.astro';
                loading="lazy" width="1280" height="720" />
           <div class="comm-header">
             <span class="comm-num">3</span>
-            <h3>お互いが心地よく働ける場をつくる</h3>
+            <h3>お互いが心地よく働ける環境をつくる</h3>
             <span class="comm-tag">#環境づくり</span>
           </div>
           <div class="comm-two-col">
@@ -387,6 +387,18 @@ import Layout from '../../layouts/Layout.astro';
             <p>本質的なAIとの付き合い方を身につけたら、あなたはそれぞれの分野で自分の力で前に進んでいける。コーチにとって最高の成果は、クライアントがコーチを必要としなくなること。本質を一緒に学び、旅立ちを一緒に目指す。それが私たちのゴールです。</p>
           </div>
         </div>
+
+        <!-- Masaya プロフィール -->
+        <div class="masaya-profile fade-up">
+          <img class="masaya-avatar"
+               src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg"
+               alt="向 雅也（株式会社コールテン代表）" loading="lazy" width="120" height="120" />
+          <div class="masaya-bio">
+            <div class="masaya-tag">代表プロフィール</div>
+            <div class="masaya-name">向 雅也<span class="masaya-name-en">（むこう・まさや）</span></div>
+            <p>元プロコーチ／日本語教師経験あり。<br>相手の価値観や興味関心、その人が大切にしている思いにフォーカスして、分かりやすく伝えたり、届きやすく届けたりすることに努めています。</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -400,35 +412,37 @@ import Layout from '../../layouts/Layout.astro';
           <small>Voices</small>
           <h2>みなさんの声</h2>
         </div>
-        <div class="case-grid">
-          <div class="case-card fade-up">
+        <div class="case-grid case-grid-3">
+          <a class="case-card fade-up" href="/voices/takaro/">
             <div class="case-content">
-              <div class="case-flow">
-                <span class="flow-tag">AI講座</span>
-                <span class="flow-arrow">→</span>
-                <span class="flow-tag">AI顧問</span>
-              </div>
               <div class="case-header-row">
-                <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="中野高郎さん" loading="lazy" width="64" height="64"></div>
-                <h3>フリーランス <span class="case-role">中野高郎さん</span></h3>
+                <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png" alt="中野たかろうさん" loading="lazy" width="64" height="64"></div>
+                <h3>フリーランス <span class="case-role">中野たかろうさん</span></h3>
               </div>
-              <p>最初は「第2の自分作りワークショップ」でAIに自分を覚えさせることからスタート。その後、ノーコードでWebサイトを制作し、基礎講座を一通り受講。現在はコミュニティの作業会に参加しつつ、AI顧問のサポートも受けながら、自身の様々な業務でAI活用を進めています。</p>
+              <p class="case-quote">「『第二の自分』のワークで価値観や体調のクセまで教え込んでから、全然違いました。AIが本当に相棒になった気がします。」</p>
+              <span class="case-link">記事を読む →</span>
             </div>
-          </div>
-          <div class="case-card fade-up">
+          </a>
+          <a class="case-card fade-up" href="/voices/sano/">
             <div class="case-content">
-              <div class="case-flow">
-                <span class="flow-tag">定期ミーティング</span>
-                <span class="flow-arrow">→</span>
-                <span class="flow-tag special">事業パートナー</span>
-              </div>
               <div class="case-header-row">
                 <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png" alt="佐野さん" loading="lazy" width="64" height="64"></div>
                 <h3>株式会社スデニアル <span class="case-role">代表 佐野さん</span></h3>
               </div>
-              <p class="preparing">現在公開準備中...</p>
+              <p class="case-quote">「『第二の自分を作る』という発想に出会ったとき、一気にのめり込みました。『使い手の声』がAIに入って、はじめて本領発揮するんだなと。」</p>
+              <span class="case-link">記事を読む →</span>
             </div>
-          </div>
+          </a>
+          <a class="case-card fade-up" href="/voices/numazawa/">
+            <div class="case-content">
+              <div class="case-header-row">
+                <div class="case-icon"><img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png" alt="しゅうへいさん" loading="lazy" width="64" height="64"></div>
+                <h3>SHU行政書士事務所 <span class="case-role">代表 しゅうへいさん</span></h3>
+              </div>
+              <p class="case-quote">「コールテンで学んだのは『ツールの使い方』ではなく、AIと向き合う姿勢そのもの。だから、新しい現場でも応用が利くんです。」</p>
+              <span class="case-link">記事を読む →</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -744,29 +758,101 @@ import Layout from '../../layouts/Layout.astro';
   .why-card h3 { font-size: 18px; margin-bottom: 12px; }
   .why-card p { font-size: 14px; line-height: 1.8; color: var(--text-light); }
 
+  /* Masaya プロフィール（Why Corduroy セクション内） */
+  .masaya-profile {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    max-width: 760px;
+    margin: 56px auto 0;
+    padding: 32px 36px;
+    background: linear-gradient(135deg, #ffffff 0%, #f4fbf7 100%);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  }
+  .masaya-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid var(--accent);
+    box-shadow: 0 6px 18px rgba(212, 160, 77, 0.25);
+  }
+  .masaya-bio { flex: 1; min-width: 0; }
+  .masaya-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 8px;
+  }
+  .masaya-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 12px;
+    font-family: 'CraftMincho', serif;
+  }
+  .masaya-name-en {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-left: 4px;
+    font-family: "Noto Sans JP", sans-serif;
+  }
+  .masaya-bio p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--text);
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .masaya-profile {
+      flex-direction: column;
+      text-align: center;
+      padding: 28px 22px;
+      gap: 18px;
+    }
+    .masaya-avatar { width: 96px; height: 96px; }
+  }
+
   /* ============================================================
      CASE STUDIES
   ============================================================ */
   .case-section { background: linear-gradient(180deg, var(--cream) 0%, #f5f9f7 100%); }
-  .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .case-card {
-    background: #2F5D50; color: #fff; padding: 32px 24px; border-radius: 20px;
+    background: #2F5D50; color: #fff; padding: 28px 22px; border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: flex; flex-direction: column; gap: 16px; transition: transform 0.3s ease;
+    display: flex; flex-direction: column; gap: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
   }
-  .case-card:hover { transform: translateY(-4px); }
-  .case-content { display: flex; flex-direction: column; height: 100%; }
-  .case-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  .flow-tag { font-size: 13px; font-weight: 700; color: #2F5D50; background: #fff; padding: 6px 12px; border-radius: 99px; }
-  .flow-tag.special { background: #E68C3A; color: #fff; }
-  .flow-arrow { font-size: 14px; color: rgba(255,255,255,0.4); }
-  .case-header-row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-  .case-icon { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; background: #fff; border: 3px solid rgba(255,255,255,0.2); flex-shrink: 0; }
+  .case-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.18); }
+  .case-content { display: flex; flex-direction: column; height: 100%; gap: 14px; }
+  .case-header-row { display: flex; align-items: center; gap: 14px; }
+  .case-icon { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; background: #fff; border: 3px solid rgba(255,255,255,0.2); flex-shrink: 0; }
   .case-icon img { width: 100%; height: 100%; object-fit: cover; }
-  .case-header-row h3 { font-size: 18px; margin: 0; display: flex; flex-direction: column; gap: 4px; line-height: 1.3; color: #fff; }
+  .case-header-row h3 { font-size: 15px; margin: 0; display: flex; flex-direction: column; gap: 4px; line-height: 1.35; color: #fff; }
   .case-role { font-size: 12px; color: rgba(255,255,255,0.7); font-weight: normal; }
-  .case-content p { font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.7; }
-  .preparing { opacity: 0.6; font-style: italic; }
+  .case-quote {
+    font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.85;
+    margin: 0; flex: 1; font-weight: 500;
+    position: relative; padding: 4px 0;
+  }
+  .case-link {
+    display: inline-block; margin-top: 6px;
+    font-size: 12px; font-weight: 700; color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 1000px) {
+    .case-grid { grid-template-columns: 1fr; gap: 16px; }
+  }
 
   /* ============================================================
      FAQ
