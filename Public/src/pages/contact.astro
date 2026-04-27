@@ -45,9 +45,18 @@ import Layout from '../layouts/Layout.astro';
 
     <main>
         <section class="hero">
-          <div class="container hero-inner fade-up">
-            <small style="color:var(--sea); font-weight:700; letter-spacing:0.1em;">CONTACT</small>
-            <h1>ご相談・ご縁づくり</h1>
+          <div class="container hero-inner">
+            <div class="hero-text fade-up">
+              <small>CONTACT</small>
+              <h1>ご相談・ご縁づくり</h1>
+              <p class="hero-lead">数をこなすのではなく、<strong>ご縁を深く育てる</strong>関係性を大切にしています。<br>
+              まずはLINEでお気軽にお声がけください。<br>
+              お話できるのを楽しみにしています。</p>
+            </div>
+            <img class="hero-image fade-up"
+                 src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777296405/corduroy/services/contact-hero.jpg"
+                 alt="温かいカフェでテトとTikiが笑顔で歓迎するイラスト"
+                 loading="eager" width="1366" height="768" />
           </div>
         </section>
     
@@ -67,9 +76,13 @@ import Layout from '../layouts/Layout.astro';
     
           <div class="card fade-up"
             style="border-color:#d6e8df; background:linear-gradient(135deg, #ffffff 0%, #fbfdfc 100%);">
+            <img class="value-mascot"
+                 src="https://res.cloudinary.com/dg3mdcuju/image/upload/e_background_removal/f_webp,q_auto:eco/corduroy/characters/tiki/tiki_bow.png"
+                 alt="Tikiがお辞儀で迎えるイラスト"
+                 loading="lazy" width="120" height="120" />
             <div class="section-head" style="margin-bottom:32px;">
               <h2><span class="jp-kanji">大切</span><span class="jp-hiragana">にしていること</span></h2>
-              <p>数をこなすのではなく、ご縁を深く育てる関係性を大切にしています。<br>価値観が重なるご縁を特に大切にし、安心して話せる空気と、小さく試せる設計を一緒につくります。</p>
+              <p>価値観が重なるご縁を特に大切にし、<br>安心して話せる空気と、小さく試せる設計を一緒につくります。</p>
             </div>
     
             <div class="grid cols-2" style="align-items:stretch;">
@@ -218,10 +231,10 @@ import Layout from '../layouts/Layout.astro';
 <style>
     /* Hero */
     .hero {
-      padding: 120px 24px 80px;
-      text-align: center;
-      background: linear-gradient(180deg, #fbfaf8 0%, #f0f7f4 100%);
+      padding: 60px 24px 40px;
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--cream) 100%);
       position: relative;
+      overflow: hidden;
     }
 
     .hero::before {
@@ -229,9 +242,9 @@ import Layout from '../layouts/Layout.astro';
       position: absolute;
       top: -50px;
       right: -50px;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(228, 242, 234, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(228, 242, 234, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
       z-index: 0;
       pointer-events: none;
     }
@@ -239,18 +252,61 @@ import Layout from '../layouts/Layout.astro';
     .hero-inner {
       position: relative;
       z-index: 1;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
       align-items: center;
-      gap: 24px;
+      gap: 40px;
+      min-height: 360px;
     }
 
-    .hero p {
+    .hero-text { display: flex; flex-direction: column; gap: 18px; }
+    .hero-text small {
+      color: var(--sea);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+    }
+    .hero-text h1 {
+      font-size: 34px;
+      line-height: 1.4;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .hero-lead {
       font-size: 16px;
-      max-width: 720px;
-      margin: 0 auto;
-      line-height: 1.9;
+      line-height: 1.95;
       color: #335649;
+      margin: 0;
+    }
+    .hero-lead strong { color: var(--sea); }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      max-width: 640px;
+      justify-self: end;
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(22, 97, 78, 0.12);
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 40px 24px 20px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 24px; min-height: auto; }
+      .hero-image { order: -1; max-width: 100%; }
+      .hero-text h1 { font-size: 26px; }
+    }
+
+    /* 大切にしていること マスコット */
+    .value-mascot {
+      display: block;
+      width: 100px;
+      height: auto;
+      margin: -8px auto 16px;
+    }
+    @media (max-width: 768px) {
+      .value-mascot { width: 80px; }
     }
 
     /* Cards */
