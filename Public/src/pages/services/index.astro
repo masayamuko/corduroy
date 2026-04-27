@@ -149,7 +149,7 @@ import Layout from '../../layouts/Layout.astro';
       <div class="container">
         <div class="section-head fade-up">
           <small>Does This Sound Familiar?</small>
-          <h2>こんな"思い込み"していませんか？</h2>
+          <h2><span class="empathy-h2-sub">こんな思い込み、</span><br>ありませんか？</h2>
         </div>
         <div class="empathy-list">
           <div class="empathy-item fade-up">
@@ -215,19 +215,54 @@ import Layout from '../../layouts/Layout.astro';
 
 
     <!-- =====================================================
+      03B. 関係性を育てると、こうなる（成長セクション）
+    ===================================================== -->
+    <section class="growth-section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <small>What Happens Next</small>
+          <h2>関係性を育てると、<br>こうなる。</h2>
+          <p>「使い方」より「関係性」にフォーカスすると、<br class="sp-hide-inline">こんな変化が訪れます。</p>
+        </div>
+        <div class="growth-steps fade-up">
+          <div class="growth-step">
+            <div class="step-num">STEP 1</div>
+            <div class="step-icon" aria-hidden="true">✨</div>
+            <h3>まず、楽しくなる。<br>そして、自然と続く。</h3>
+            <p>関係性に目を向けると、AIとの対話は「作業」から「楽しみ」へ変わります。<br>
+            楽しいから、自然と毎日触りたくなる。<br>
+            そうやって、AI活用が <strong>生活に定着</strong> していきます。</p>
+          </div>
+          <div class="growth-step">
+            <div class="step-num">STEP 2</div>
+            <div class="step-icon" aria-hidden="true">🚀</div>
+            <h3>そして、できることが<br>どんどん広がっていく。</h3>
+            <ul class="step-list">
+              <li><strong>思考が深まる</strong>：AIと考える前提で物事を見られるようになる。</li>
+              <li><strong>学習速度が上がる</strong>：AIと一緒に学ぶから、独学より圧倒的に速い。</li>
+              <li><strong>やれることが増える</strong>：AIと分担できるから、新しい挑戦に時間が使える。</li>
+              <li><strong>AIがあなた専用に育つ</strong>：使い続けるほど、AIがあなたを理解する相棒になる。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
       04. AIコミュ力 3つのカギ
     ===================================================== -->
     <section id="ai-comm" class="comm-section">
       <div class="container">
         <div class="section-head fade-up">
           <small>AI Communication Skills</small>
-          <h2>AIコミュ力を育てる、3つのカギ。</h2>
+          <h2>"AIコミュ力"を育む<br>3つのポイント</h2>
         </div>
 
         <!-- 三角ダイアグラム -->
         <div class="skill-diagram fade-up">
-          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777267952/corduroy/services/triangle-diagram.jpg"
-               alt="AIコミュ力の3要素: 自己開示（AIに自分を伝える）、AI理解（AIの特性を知る）、環境づくり（互いにとっていい環境を作る）"
+          <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777269414/corduroy/services/triangle-diagram.jpg"
+               alt="AIコミュ力の3つのポイント: 自己開示（AIに自分を伝える）、AI理解（AIの特性を知る）、環境づくり（互いにとって良い環境を追求）"
                loading="lazy" width="1280" height="720" class="skill-img" />
         </div>
 
@@ -399,7 +434,7 @@ import Layout from '../../layouts/Layout.astro';
           <div class="why-card fade-up">
             <div class="why-num">02</div>
             <h3>毎日の実践から<br>生まれたメソッド</h3>
-            <p>ChatGPTに自分の価値観を教え込む実験から始まり、今ではClaude Codeで29名のAIエージェントと一緒に会社を経営。1対1のコミュニケーションから組織マネジメントまで、AIとの関係性を日々深めている実践の中から生まれたメソッドです。</p>
+            <p>ChatGPTに自分の価値観を教え込む実験から始まり、今ではClaude Codeで30名のAIエージェントと一緒に会社を経営。1対1のコミュニケーションから組織マネジメントまで、AIとの関係性を日々深めている実践の中から生まれたメソッドです。</p>
           </div>
           <div class="why-card fade-up">
             <div class="why-num">03</div>
@@ -531,7 +566,7 @@ import Layout from '../../layouts/Layout.astro';
           </details>
           <details>
             <summary>「AIコミュ力」は本やYouTubeで学べますか？</summary>
-            <p>AIコミュ力はコールテンが日々の実践から磨いてきた独自の概念です。一般的なAI本やYouTubeとは異なり、「自己開示」「AI理解」「環境づくり」の3つを体系化しています。代表自身が<a href="/members/about">29名のAI社員と経営する中</a>で培ったメソッドです。</p>
+            <p>AIコミュ力はコールテンが日々の実践から磨いてきた独自の概念です。一般的なAI本やYouTubeとは異なり、「自己開示」「AI理解」「環境づくり」の3つを体系化しています。代表自身が<a href="/members/about">30名のAI社員と経営する中</a>で培ったメソッドです。</p>
           </details>
           <details>
             <summary>糸口会（コミュニティ）と講座の違いは？</summary>
@@ -630,6 +665,14 @@ import Layout from '../../layouts/Layout.astro';
      EMPATHY
   ============================================================ */
   .empathy-section { background: var(--cream); }
+  .empathy-section h2 { line-height: 1.4; }
+  .empathy-h2-sub {
+    display: inline-block;
+    font-size: 0.6em;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 0.04em;
+  }
   .empathy-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
   .empathy-item {
     display: flex; gap: 16px; align-items: flex-start;
@@ -681,6 +724,98 @@ import Layout from '../../layouts/Layout.astro';
   }
   .shift-body p:last-child { margin-bottom: 0; }
   .shift-body strong { color: #fff; font-weight: 700; }
+
+  /* ============================================================
+     GROWTH — 関係性を育てると、こうなる（成長セクション）
+  ============================================================ */
+  .growth-section {
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .growth-section h2 { line-height: 1.4; }
+  .growth-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1080px;
+    margin: 32px auto 0;
+  }
+  .growth-step {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 36px 32px;
+    box-shadow: 0 8px 24px rgba(5, 32, 24, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .growth-step::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--sea), var(--accent));
+  }
+  .step-num {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+  }
+  .step-icon { font-size: 36px; line-height: 1; }
+  .growth-step h3 {
+    font-size: 19px;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--ink);
+  }
+  .growth-step p {
+    font-size: 14.5px;
+    line-height: 1.95;
+    margin: 0;
+    color: var(--text);
+  }
+  .growth-step strong {
+    color: var(--ink);
+    font-weight: 700;
+    background: linear-gradient(transparent 65%, rgba(212,160,77,0.25) 65%);
+    padding: 0 1px;
+  }
+  .step-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .step-list li {
+    font-size: 14px;
+    line-height: 1.85;
+    padding-left: 22px;
+    position: relative;
+    color: var(--text);
+  }
+  .step-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-size: 12px;
+    line-height: 1.85;
+  }
+  @media (max-width: 860px) {
+    .growth-steps { grid-template-columns: 1fr; gap: 18px; }
+    .growth-step { padding: 28px 24px; }
+  }
+  .sp-hide-inline { display: inline; }
+  @media (max-width: 640px) {
+    .sp-hide-inline { display: none; }
+  }
 
   /* ============================================================
      COMM — AIコミュ力 3要素
