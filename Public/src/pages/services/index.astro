@@ -226,12 +226,12 @@ import Layout from '../../layouts/Layout.astro';
           <div class="comm-two-col">
             <div class="comm-col human">
               <div class="comm-label">人間関係では</div>
-              <p>自分のことを知らない相手は、あなたの好みや考え方を手探りで推測しながら接してくる。「この人はどんな人だろう？ 何を大切にしているんだろう？」——まず自分のことを伝えるから、相手はあなたに合った対応ができるようになる。</p>
+              <p>自分のことを知ってくれている旧友や家族は、あなたに合った対応を自然と知っている。でも初対面の人は、あなたの好みや考え方がわからないから、距離感をつかむのに時間がかかってスムーズにいきにくいよね。</p>
             </div>
             <div class="comm-eq" aria-hidden="true">≒</div>
             <div class="comm-col ai">
               <div class="comm-label">AIも似てる</div>
-              <p>一度きりのプロンプトで自己紹介するだけじゃない。継続的に自分の情報をインプットし続けて、AIに「あなた」を覚えてもらう。価値観、仕事のスタイル、好みの表現——伝えれば伝えるほど、AIの返答はあなただけに最適化されていきます。</p>
+              <p>AIも、毎回"初対面"にならないように、自分の情報を継続的にインプットして教え続けてあげる。価値観、仕事のスタイル、好みの表現——伝え続けるほど、AIの返答は"あなた専用"に育っていきます。</p>
             </div>
           </div>
         </div>
@@ -643,15 +643,17 @@ import Layout from '../../layouts/Layout.astro';
   }
   .comm-illustration {
     display: block;
-    width: 100%;
-    max-width: 520px;
-    height: auto;
+    width: 50%;
+    max-width: 460px;
+    height: auto; /* 画像本来の比率(16:9)を保持 */
     margin: -8px auto 20px;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
   }
   @media (max-width: 640px) {
-    .comm-illustration { max-width: 100%; margin: -4px auto 16px; }
+    .comm-illustration {
+      width: 90%;
+      max-width: 360px;
+      margin: -4px auto 16px;
+    }
   }
   .comm-header {
     display: flex; align-items: center; gap: 16px;
