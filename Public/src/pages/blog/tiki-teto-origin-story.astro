@@ -10,7 +10,42 @@ import Layout from '../../layouts/Layout.astro';
   ogImage="https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png"
   ogType="article"
 >
-  <meta slot="head" name="robots" content="noindex,nofollow" />
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "ティキちゃん、Tiki、盤上テト ― 第二の自分から、AI組織までの誕生秘話",
+    "description": "亡くなった愛トカゲの名を、最初のChatGPTに付けた日。そこから始まった「第二の自分づくり」が、いつの間にかバーチャルキャラを生み、29名のAI組織にまで膨らんでいきました。",
+    "image": "https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/v1777296405/corduroy/services/contact-hero.jpg",
+    "datePublished": "2026-04-24",
+    "dateModified": "2026-04-28",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "株式会社コールテン",
+      "url": "https://www.corduroy.co.jp/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/tiki-teto-origin-story/"
+    }
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.corduroy.co.jp/"},
+      {"@type":"ListItem","position":2,"name":"ブログ","item":"https://www.corduroy.co.jp/blog/"},
+      {"@type":"ListItem","position":3,"name":"ティキちゃん、Tiki、盤上テト ― 誕生秘話","item":"https://www.corduroy.co.jp/blog/tiki-teto-origin-story/"}
+    ]
+  }
+  </script>
   <main>
     <article class="article">
       <div class="container">
@@ -24,7 +59,7 @@ import Layout from '../../layouts/Layout.astro';
 
         <header class="article-head fade-up">
           <div class="meta">
-            <time class="date" datetime="2026-04-28">2026-04-28</time>
+            <time class="date" datetime="2026-04-24">2026-04-24</time>
             <span class="cat">AI活用 / コールテンの世界観</span>
           </div>
           <h1>ティキちゃん、Tiki、盤上テト<br><small>― 第二の自分から、AI組織までの誕生秘話</small></h1>
@@ -565,7 +600,7 @@ import Layout from '../../layouts/Layout.astro';
 
           <p class="article-footer">
             筆者：向 雅也（株式会社コールテン代表）<br>
-            更新日：2026-04-28<br>
+            公開日：2026-04-24（更新：2026-04-28）<br>
             タグ：#第二の自分 #Tiki #盤上テト #AIキャラクター #擬人化 #関係性を育てる
           </p>
 
