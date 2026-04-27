@@ -135,7 +135,6 @@ import Layout from '../../layouts/Layout.astro';
               <span class="line-icon-sm">LINE</span>
               無料動画講座を受ける
             </a>
-            <a class="btn secondary" href="/contact">お問い合わせ</a>
           </div>
         </div>
       </div>
@@ -149,7 +148,7 @@ import Layout from '../../layouts/Layout.astro';
       <div class="container">
         <div class="section-head fade-up">
           <small>Does This Sound Familiar?</small>
-          <h2><span class="empathy-h2-sub">こんな思い込み、</span><br>ありませんか？</h2>
+          <h2><span class="empathy-h2-sub">こんな</span><span class="empathy-h2-emph">「思い込み」</span><br><span class="empathy-h2-sub">ありませんか？</span></h2>
         </div>
         <div class="empathy-list">
           <div class="empathy-item fade-up">
@@ -222,7 +221,6 @@ import Layout from '../../layouts/Layout.astro';
         <div class="section-head fade-up">
           <small>What Happens Next</small>
           <h2>関係性を育てると、<br>こうなる。</h2>
-          <p>「使い方」より「関係性」にフォーカスすると、<br class="sp-hide-inline">こんな変化が訪れます。</p>
         </div>
         <div class="growth-steps fade-up">
           <div class="growth-step">
@@ -604,9 +602,6 @@ import Layout from '../../layouts/Layout.astro';
             LINE登録して動画講座の案内を受け取る
           </a>
           <p class="cta-sub">無料 · 無理な勧誘なし · いつでも解除OK</p>
-          <div class="cta-alt">
-            <a href="/contact" class="btn secondary">お問い合わせページへ →</a>
-          </div>
         </div>
       </div>
     </section>
@@ -668,10 +663,15 @@ import Layout from '../../layouts/Layout.astro';
   .empathy-section h2 { line-height: 1.4; }
   .empathy-h2-sub {
     display: inline-block;
-    font-size: 0.6em;
-    font-weight: 600;
+    font-size: 0.55em;
+    font-weight: 500;
     color: var(--text-light);
     letter-spacing: 0.04em;
+    margin: 0 0.2em;
+  }
+  .empathy-h2-emph {
+    color: var(--sea);
+    font-weight: 800;
   }
   .empathy-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
   .empathy-item {
