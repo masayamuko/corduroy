@@ -3,8 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout
-  title="無料AI講座｜株式会社コールテン"
-  description="AIの「使い方」より「付き合い方」。自己開示・AI理解・環境づくり——AIコミュ力を磨く、本質的な学びを提供します。まずは無料の動画講座から。"
+  title="AIサービス一覧｜無料動画講座・AI講座・AI顧問・法人研修｜株式会社コールテン"
+  description="無料動画講座、AI講座、AI顧問、法人研修、コミュニティまで。AIとの関係性を育てるサービスを株式会社コールテンが提供します。"
   canonicalUrl="https://www.corduroy.co.jp/services/"
   ogUrl="https://www.corduroy.co.jp/services/"
 >
@@ -14,7 +14,36 @@ import Layout from '../../layouts/Layout.astro';
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.corduroy.co.jp/" },
-      { "@type": "ListItem", "position": 2, "name": "無料AI講座", "item": "https://www.corduroy.co.jp/services" }
+      { "@type": "ListItem", "position": 2, "name": "サービス一覧", "item": "https://www.corduroy.co.jp/services/" }
+    ]
+  }
+  </script>
+
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "AIコミュ力サービス",
+        "serviceType": "AI講座・AI顧問・法人研修・コミュニティ",
+        "provider": { "@id": "https://www.corduroy.co.jp/#organization" },
+        "url": "https://www.corduroy.co.jp/services/",
+        "areaServed": "JP",
+        "description": "AIとの関係性を育てる、本質的な学びと伴走。無料動画講座・AI講座・AI顧問・法人研修・糸口会(コミュニティ)を提供。"
+      },
+      {
+        "@type": "ItemList",
+        "name": "コールテンが提供するAIサービス",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "無料動画講座", "url": "https://lin.ee/tDuJPjc" },
+          { "@type": "ListItem", "position": 2, "name": "AI講座（3ヶ月プログラム）", "url": "https://www.corduroy.co.jp/services/study/program/" },
+          { "@type": "ListItem", "position": 3, "name": "AI顧問", "url": "https://www.corduroy.co.jp/services/advisory/" },
+          { "@type": "ListItem", "position": 4, "name": "法人研修", "url": "https://www.corduroy.co.jp/services/study/corporate/" },
+          { "@type": "ListItem", "position": 5, "name": "糸口会（コミュニティ）", "url": "https://www.corduroy.co.jp/services/study/community/" },
+          { "@type": "ListItem", "position": 6, "name": "無料体験会", "url": "https://www.corduroy.co.jp/services/study/trial/" }
+        ]
+      }
     ]
   }
   </script>
@@ -88,7 +117,7 @@ import Layout from '../../layouts/Layout.astro';
   }
   </script>
 
-  <main>
+  <main id="main-content">
 
     <!-- =====================================================
       01. HERO
@@ -101,6 +130,7 @@ import Layout from '../../layouts/Layout.astro';
           <p class="hero-lead">AIコミュ力を磨く、本質的な学びを提供。</p>
           <div class="hero-cta">
             <a class="btn-line" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+             aria-label="無料動画講座を受ける（LINEが新しいタブで開きます）"
                data-ga-event="cta_click" data-ga-label="services_hero_line">
               <span class="line-icon-sm">LINE</span>
               無料動画講座を受ける
@@ -340,6 +370,7 @@ import Layout from '../../layouts/Layout.astro';
         <div class="mid-cta fade-up">
           <p>まずは無料の動画講座で、AIコミュ力の第一歩を。</p>
           <a class="btn-line" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+             aria-label="無料動画講座を受ける（LINEが新しいタブで開きます）"
              data-ga-event="cta_click" data-ga-label="services_mid_line">
             <span class="line-icon-sm">LINE</span>
             無料動画講座を受ける
@@ -445,6 +476,7 @@ import Layout from '../../layouts/Layout.astro';
         <div class="mid-cta fade-up">
           <p>まずは無料の動画講座で、AIコミュ力の第一歩を。</p>
           <a class="btn-line" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+             aria-label="無料動画講座を受ける（LINEが新しいタブで開きます）"
              data-ga-event="cta_click" data-ga-label="services_after_voices_line">
             <span class="line-icon-sm">LINE</span>
             無料動画講座を受ける
@@ -458,11 +490,11 @@ import Layout from '../../layouts/Layout.astro';
     <!-- =====================================================
       08. よくある質問
     ===================================================== -->
-    <section class="faq-section faq">
+    <section class="faq-section faq" aria-labelledby="faq-heading">
       <div class="container">
         <div class="section-head fade-up">
           <small>FAQ</small>
-          <h2>よくある質問</h2>
+          <h2 id="faq-heading">よくある質問</h2>
         </div>
         <div class="faq-items fade-up">
           <details open>
@@ -531,6 +563,7 @@ import Layout from '../../layouts/Layout.astro';
             LINE登録しておくと、講座の案内をお届けします。
           </p>
           <a class="btn-line-xl" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+             aria-label="無料動画講座を受ける（LINEが新しいタブで開きます）"
              data-ga-event="cta_click" data-ga-label="services_final_line">
             <span class="line-icon-sm">LINE</span>
             LINE登録して動画講座の案内を受け取る
@@ -885,7 +918,18 @@ import Layout from '../../layouts/Layout.astro';
   }
   .cta-box h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 16px; line-height: 1.5; font-weight: 700; color: #fff; }
   .cta-desc { font-size: 1.05rem; color: rgba(255,255,255,0.68); line-height: 1.85; margin-bottom: 36px; }
-  .cta-sub { font-size: 12px; color: rgba(255,255,255,0.38); margin-top: 14px; letter-spacing: 0.04em; }
+  .cta-sub { font-size: 12px; color: rgba(255,255,255,0.72); margin-top: 14px; letter-spacing: 0.04em; }
+
+  /* a11y: focus-visible 強化（キーボード操作の視覚化） */
+  .btn:focus-visible,
+  .btn-line:focus-visible,
+  .btn-line-xl:focus-visible,
+  a:focus-visible,
+  details summary:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
   .cta-alt { margin-top: 24px; }
   .cta-box .btn.secondary { background: transparent; border-color: rgba(255,255,255,0.3); color: white; }
   .cta-box .btn.secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.08); }
