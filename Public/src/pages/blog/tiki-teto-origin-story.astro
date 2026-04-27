@@ -761,14 +761,24 @@ import Layout from '../../layouts/Layout.astro';
   }
   .cta-section h3 { margin-top: 0; color: var(--ink); font-size: 22px; }
   .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
-  .btn-primary, .btn-outline {
-    padding: 14px 28px; border-radius: 100px; text-decoration: none;
+  .article-body .btn-primary, .article-body .btn-outline {
+    padding: 14px 28px; border-radius: 100px;
     font-weight: 700; transition: transform .2s, box-shadow .2s;
+    text-decoration: none !important;
+    display: inline-block;
   }
-  .btn-primary { background: var(--sea); color: #fff; box-shadow: 0 6px 20px rgba(22,97,78,.25); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(22,97,78,.4); }
-  .btn-outline { background: #fff; color: var(--sea); border: 2px solid var(--sea); }
-  .btn-outline:hover { background: var(--mint); }
+  .article-body .btn-primary {
+    background: var(--sea);
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+  }
+  .article-body .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(22,97,78,.4); }
+  .article-body .btn-outline {
+    background: #fff;
+    color: var(--sea) !important;
+    border: 2px solid var(--sea);
+  }
+  .article-body .btn-outline:hover { background: var(--mint); }
 
   .article-footer {
     font-size: 13px; color: var(--text-light);
