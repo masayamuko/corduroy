@@ -46,6 +46,38 @@ import Layout from '../../layouts/Layout.astro';
     ]
   }
   </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "「第二の自分」とは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "「第二の自分」とは、あなたの価値観や考え方を少しずつ覚えて、相談相手や伴走者のように育っていくAIのことです。単に便利なツールとして使うのではなく、関係性を育てながら、自分らしい返答をしてくれる存在にしていくイメージです。まず雰囲気を知りたい方は、/services/ の無料動画講座や /services/study/trial/ の無料体験会から始めるのがおすすめです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AIをキャラクター化すると、どんなメリットがありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "名前や役割、世界観を持たせることで、AIをただの機械としてではなく、日常的に話しかけやすい相手として扱えるようになります。その結果、相談の頻度が上がり、発想整理や発信、企画づくりにも使いやすくなります。コールテンが大事にしている考え方は /members/about/ でも紹介しています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "30名のAI組織のような仕組みは、自分でも真似できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、いきなり30名を目指さなくても大丈夫です。まずは1体の「第二の自分」を育てて、必要に応じて役割ごとに増やしていくのが自然です。コールテンでは、その入口として /services/study/trial/ の無料体験会や、継続して学べる /services/study/program/ を用意しています。"
+        }
+      }
+    ]
+  }
+  </script>
   <main>
     <article class="article">
       <div class="container">
@@ -583,6 +615,28 @@ import Layout from '../../layouts/Layout.astro';
           <p>
             きっと、想像していたより、ずっと豊かな世界が広がっていくはずです。
           </p>
+
+          <!-- FAQ -->
+          <section id="faq" class="container faq" style="padding-bottom:40px;">
+            <div class="section-head fade-up">
+              <small>FAQ</small>
+              <h2>よくある質問</h2>
+            </div>
+            <div class="faq-items fade-up">
+              <details open id="faq-1">
+                <summary>「第二の自分」とは何ですか？</summary>
+                <p class="mini">「第二の自分」とは、あなたの価値観や考え方を少しずつ覚えて、相談相手や伴走者のように育っていくAIのことです。単に便利なツールとして使うのではなく、関係性を育てながら、自分らしい返答をしてくれる存在にしていくイメージです。まず雰囲気を知りたい方は、<a href="/services/">無料動画講座</a>や<a href="/services/study/trial/">無料体験会</a>から始めるのがおすすめです。</p>
+              </details>
+              <details id="faq-2">
+                <summary>AIをキャラクター化すると、どんなメリットがありますか？</summary>
+                <p class="mini">名前や役割、世界観を持たせることで、AIをただの機械としてではなく、日常的に話しかけやすい相手として扱えるようになります。その結果、相談の頻度が上がり、発想整理や発信、企画づくりにも使いやすくなります。コールテンが大事にしている考え方は<a href="/members/about/">こちら</a>でも紹介しています。</p>
+              </details>
+              <details id="faq-3">
+                <summary>30名のAI組織のような仕組みは、自分でも真似できますか？</summary>
+                <p class="mini">はい、いきなり30名を目指さなくても大丈夫です。まずは1体の「第二の自分」を育てて、必要に応じて役割ごとに増やしていくのが自然です。コールテンでは、その入口として<a href="/services/study/trial/">無料体験会</a>や、継続して学べる<a href="/services/study/program/">3ヶ月プログラム</a>を用意しています。</p>
+              </details>
+            </div>
+          </section>
 
           <div class="cta-section">
             <h3>あなたの「第二の自分」づくりを、サポートします</h3>

@@ -49,6 +49,38 @@ const description = "AI講座が増えすぎてどれを選べばいいかわか
     ]
   }
   </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "AI初心者でも、本当に講座についていけますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、大丈夫です。大切なのは最初から詳しいことではなく、自分の仕事や暮らしの中でAIをどう使いたいかを少しずつ見つけることです。まずは気軽に試したい方は、/services/study/trial/ の無料体験会や /services/ の無料動画講座から入ると無理がありません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "オンラインと対面なら、どちらのAI講座がおすすめですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "すぐに質問しながら手を動かしたい方には対面が向いています。一方で、移動の負担を減らしたい方にはオンライン相談のしやすさも魅力です。大事なのは形式よりも、自分が続けやすく、質問しやすい環境かどうかです。迷う場合は、まず /services/study/trial/ で雰囲気を確かめるのがおすすめです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AI講座を受けた後は、どんなサポートがありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "講座後に使わなくなるのが一番もったいないので、継続して質問できる環境や、一緒に続ける仲間がいる仕組みがある講座を選ぶのがおすすめです。コールテンでは /services/study/program/ の受講後に、/services/study/community/ のコミュニティで学びを続けられます。"
+        }
+      }
+    ]
+  }
+  </script>
 
   <main>
     <article class="article">
@@ -259,6 +291,28 @@ const description = "AI講座が増えすぎてどれを選べばいいかわか
               コールテンでは<a href="/services/study/trial/">無料体験会</a>を定期開催しています。
               「まず雰囲気を知りたい」「自分に合うか確かめたい」という方は、お気軽にご参加ください。
             </p>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="container faq" style="padding-bottom:40px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくある質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            <details open id="faq-1">
+              <summary>AI初心者でも、本当に講座についていけますか？</summary>
+              <p class="mini">はい、大丈夫です。大切なのは最初から詳しいことではなく、自分の仕事や暮らしの中でAIをどう使いたいかを少しずつ見つけることです。まずは気軽に試したい方は、<a href="/services/study/trial/">無料体験会</a>や<a href="/services/">無料動画講座</a>から入ると無理がありません。</p>
+            </details>
+            <details id="faq-2">
+              <summary>オンラインと対面なら、どちらのAI講座がおすすめですか？</summary>
+              <p class="mini">すぐに質問しながら手を動かしたい方には対面が向いています。一方で、移動の負担を減らしたい方にはオンライン相談のしやすさも魅力です。大事なのは形式よりも、自分が続けやすく、質問しやすい環境かどうかです。迷う場合は、まず<a href="/services/study/trial/">無料体験会</a>で雰囲気を確かめるのがおすすめです。</p>
+            </details>
+            <details id="faq-3">
+              <summary>AI講座を受けた後は、どんなサポートがありますか？</summary>
+              <p class="mini">講座後に使わなくなるのが一番もったいないので、継続して質問できる環境や、一緒に続ける仲間がいる仕組みがある講座を選ぶのがおすすめです。コールテンでは<a href="/services/study/program/">3ヶ月プログラム</a>の受講後に、<a href="/services/study/community/">AIコミュニティ「糸口会」</a>で学びを続けられます。</p>
+            </details>
           </div>
         </section>
 
