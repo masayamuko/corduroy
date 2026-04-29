@@ -6,6 +6,7 @@ export const config = {
   matcher: [
     '/blog/aym-interview-self-built-site/:path*',
     '/blog/mek-interview-name-character/:path*',
+    '/preview/:path*',
   ],
 };
 
