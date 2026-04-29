@@ -1,10 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const SERVICE_NAME = 'AI時代のサイトリニューアルサービス';
-const SERVICE_SUB = 'AI検索（AIO・LLMO）対応 / ChatGPTで更新できる';
+const SERVICE_NAME = 'AI検索対応サイトリニューアルサービス';
+const SERVICE_SUB = 'AI検索対応 / 非エンジニア向け / 10万円から';
 const SERVICE_URL = 'https://www.corduroy.co.jp/services/ai-renewal/';
-const SERVICE_DESC = 'WordPressなどの既存サイトを、AI検索（AIO・LLMO）に強い構造へリニューアル。ChatGPTやCodexから自分で更新できるサイトに変えます。買い切り10万円から。';
+const SERVICE_DESC = 'AI検索対応を本気で進めたい非エンジニア向けに、既存サイトをAI時代の土台へリニューアル。著者情報・構造化データ・AI bot対応まで整え、記事更新の手間も減らします。10万円から。';
+const LINE_URL = 'https://lin.ee/tDuJPjc';
 const CLOUDINARY_ICON_BASE = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1/corduroy/services/ai-renewal/v2/icons';
 const CLOUDINARY_DIAGRAM_BASE = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1/corduroy/services/ai-renewal/v2/diagrams';
 const CLOUDINARY_HERO_BASE = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1/corduroy/services/ai-renewal/v2/hero';
@@ -43,25 +44,25 @@ const fallbackSvg = (name) => ({
     canonicalUrl={SERVICE_URL}
     ogUrl={SERVICE_URL}
 >
-    <script slot="head" type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "AIサイトリニューアル",
+	    <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+	      "@context": "https://schema.org",
+	      "@type": "Service",
+	      "serviceType": "AIサイトリニューアル",
       "provider": {
         "@type": "Organization",
         "name": "株式会社コールテン",
         "url": "https://www.corduroy.co.jp/"
       },
       "name": SERVICE_NAME,
-      "description": SERVICE_DESC,
-      "url": SERVICE_URL,
-      "areaServed": { "@type": "Country", "name": "Japan" },
-      "offers": [
-        { "@type": "Offer", "name": "単発買い切り", "price": "100000", "priceCurrency": "JPY", "description": "サイト移管 + AI検索対応 + 動画講座" },
-        { "@type": "Offer", "name": "Easy管理費", "price": "10000", "priceCurrency": "JPY", "description": "月額・チャット質問対応" },
-        { "@type": "Offer", "name": "詰まり対応", "price": "20000", "priceCurrency": "JPY", "description": "月額・チャットで詰まり伴走" }
-      ]
-    })} />
+	      "description": SERVICE_DESC,
+	      "url": SERVICE_URL,
+	      "areaServed": { "@type": "Country", "name": "Japan" },
+	      "offers": [
+	        { "@type": "Offer", "name": "単発買い切り", "price": "100000", "priceCurrency": "JPY", "description": "既存サイト移管 + AI検索対応の基盤整備 + Codex更新環境の初期構築" },
+	        { "@type": "Offer", "name": "Easy管理費", "price": "10000", "priceCurrency": "JPY", "description": "月額・LINEチャット質問対応と運用保守" },
+	        { "@type": "Offer", "name": "詰まり対応", "price": "20000", "priceCurrency": "JPY", "description": "月額・LINE伴走対応と軽微修正込み" }
+	      ]
+	    })} />
     <script slot="head" type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -70,556 +71,516 @@ const fallbackSvg = (name) => ({
         { "@type": "ListItem", "position": 2, "name": SERVICE_NAME, "item": SERVICE_URL }
       ]
     })} />
-    <script slot="head" type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "WordPress以外のサイトでも移管できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。WordPress、Wix、Jimdo、ペライチなど、ほとんどのCMSから移管できます。事前に既存サイトを拝見してご判断します。" } },
-        { "@type": "Question", "name": "本当に自分で更新できるようになりますか？", "acceptedAnswer": { "@type": "Answer", "text": "動画講座で操作の流れを覚えていただきます。文字を変える・画像を差し替える・新しい記事を追加するレベルなら、ほとんどの方が一週間で慣れます。詰まったときのために月額のサポートプランもご用意しています。" } },
-        { "@type": "Question", "name": "Windowsパソコンでも使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、Mac/Windows両方で使えます。Windowsの場合、初期セットアップを丁寧にお手伝いします。" } },
-        { "@type": "Question", "name": "AI検索で本当に上位に表示されるようになりますか？", "acceptedAnswer": { "@type": "Answer", "text": "AI検索（AIOやLLMO）は仕組み上、構造化された情報を持つサイトが引用されやすくなります。私たちが整える土台はその前提条件です。ただし内容・専門性・更新頻度も重要なので、上位表示を保証するものではありません。" } },
-        { "@type": "Question", "name": "月額プランに最低契約期間はありますか？", "acceptedAnswer": { "@type": "Answer", "text": "ありません。月単位でいつでも開始・停止できます。一度買い切りでお渡ししたサイトはお客様のものなので、サポートを止めても運用は続けられます。" } },
-        { "@type": "Question", "name": "既存のドメインのまま移管できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、現在お使いのドメインをそのまま新しいサイトに付け替えます。ドメインの設定変更もこちらでサポートします。" } },
-        { "@type": "Question", "name": "他社のホームページ制作と比べて、なぜこの価格でできるのですか？", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPTやCodexなどのAIツールをフル活用して制作工程を圧縮しているためです。同等の移管・AI検索対応サービスは国内相場で初期30万〜100万円が一般的です。" } },
-        { "@type": "Question", "name": "AI顧問プランとどう違いますか？", "acceptedAnswer": { "@type": "Answer", "text": "本サービスはサイトの『移管と更新基盤づくり』を一括でお渡しするものです。AI顧問はサイトに限らず事業全体のAI活用、SEO/AIO戦略、第二の自分づくりまで幅広く伴走します。サイト更新で詰まる程度の相談なら本サービスのサポートプランで十分です。" } },
-        { "@type": "Question", "name": "セキュリティは大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "Vercel・GitHubといった海外大手のインフラを使うため、WordPressより一般的にセキュリティ強度は高くなります。プラグインの脆弱性に悩むこともなくなります。" } },
-        { "@type": "Question", "name": "サポートを使わずに自分で運用したい場合はどうなりますか？", "acceptedAnswer": { "@type": "Answer", "text": "可能です。ご自身でVercel（月額3,000円程度のサーバー代）を契約していただければ、買い切りの10万円のみで運用できます。設定はこちらでお渡しします。" } }
-      ]
-    })} />
+	    <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+	      "@context": "https://schema.org",
+	      "@type": "FAQPage",
+	      "mainEntity": [
+	        { "@type": "Question", "name": "WordPress以外のサイトでも移管できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。WordPress、Wix、Jimdo、ペライチなど、ほとんどのCMSから移管できます。事前に既存サイトを拝見してご判断します。" } },
+	        { "@type": "Question", "name": "本当に自分で更新できるようになりますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。日々の更新はChatGPTで原稿を作り、反映はCodexやAIエージェント側で進める前提です。管理画面の複雑な操作を減らし、非エンジニアでも記事追加や軽微修正を続けやすい形に整えます。" } },
+	        { "@type": "Question", "name": "Windowsパソコンでも使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、Mac/Windows両方で使えます。Windowsの場合、初期セットアップを丁寧にお手伝いします。" } },
+	        { "@type": "Question", "name": "AI検索で本当に上位に表示されるようになりますか？", "acceptedAnswer": { "@type": "Answer", "text": "上位表示や引用を保証するものではありません。ただし、著者情報、PersonやProfilePage、ArticleやBreadcrumbListなどの構造化データ、AI bot許可、HTTPSやcanonical整理は、AI検索で候補に入りやすくする前提条件として整える価値があります。" } },
+	        { "@type": "Question", "name": "月額プランに最低契約期間はありますか？", "acceptedAnswer": { "@type": "Answer", "text": "ありません。月単位でいつでも開始・停止できます。一度買い切りでお渡ししたサイトはお客様のものなので、サポートを止めても運用は続けられます。" } },
+	        { "@type": "Question", "name": "既存のドメインのまま移管できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、現在お使いのドメインをそのまま新しいサイトに付け替えます。ドメインの設定変更もこちらでサポートします。" } },
+	        { "@type": "Question", "name": "他社のホームページ制作と比べて、なぜこの価格でできるのですか？", "acceptedAnswer": { "@type": "Answer", "text": "制作工程そのものをAIで効率化し、移行作業をCodexやChatGPTなどのAIと並走して進めるためです。人手だけで進める制作会社より工数を圧縮できるぶん、初期費用10万円から提供できます。" } },
+	        { "@type": "Question", "name": "AI顧問プランとどう違いますか？", "acceptedAnswer": { "@type": "Answer", "text": "本サービスはサイトの『移管と更新基盤づくり』を一括でお渡しするものです。AI顧問はサイトに限らず事業全体のAI活用、SEO/AIO戦略、第二の自分づくりまで幅広く伴走します。サイト更新で詰まる程度の相談なら本サービスのサポートプランで十分です。" } },
+	        { "@type": "Question", "name": "WordPressのままでもAI対応できますか？", "acceptedAnswer": { "@type": "Answer", "text": "できます。ただし、著者情報や構造化データ、AI bot制御、表示速度、権限管理まで継続的に整えるには、プラグイン更新やテーマ依存の運用負荷が大きくなりがちです。AI時代の小回りを重視するなら、土台ごと整理するほうが進めやすいケースが増えています。" } },
+	        { "@type": "Question", "name": "セキュリティは大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "プラグイン依存を減らし、GitHubとVercelを軸に権限管理と更新経路を整理するため、更新忘れや脆弱性リスクの管理がしやすくなります。WordPressを一律に否定するものではありませんが、運用負荷を下げやすい構成です。" } },
+	        { "@type": "Question", "name": "サポートを使わずに自分で運用したい場合はどうなりますか？", "acceptedAnswer": { "@type": "Answer", "text": "可能です。ご自身でVercel（月額3,000円程度のサーバー代）を契約していただければ、買い切りの10万円のみで運用できます。設定はこちらでお渡しします。" } }
+	      ]
+	    })} />
 
-    <main>
-        <!-- 1. Hero -->
-        <section class="hero">
-          <div class="container hero-inner">
-            <div class="fade-up">
-              <div class="icon-lg">
-                <span class="icon-media" aria-hidden="true">
-                  <span class="icon-fallback" set:html={fallbackSvg('sprout')} />
-                  <img class="icon-asset" src={iconUrl('sprout-renewal')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                </span>
-              </div>
-              <div class="hero-tag">For WordPress Users</div>
-              <h1>AI時代のサイトに、リニューアル。</h1>
-              <p class="hero-sub">AI検索（AIO・LLMO）に強い構造へ。<br>ChatGPT<sup class="ref">※</sup>から自分で更新できるサイトに変えます。</p>
-              <div class="hero-cta">
-                <a class="btn" href="#contact">無料の資料を受け取る</a>
-              </div>
-            </div>
-          </div>
-        </section>
+	    <main>
+	        <section class="hero">
+	          <div class="container hero-inner">
+	            <div class="fade-up">
+	              <div class="icon-lg">
+	                <span class="icon-media" aria-hidden="true">
+	                  <span class="icon-fallback" set:html={fallbackSvg('sprout')} />
+	                  <img class="icon-asset" src={iconUrl('sprout-renewal')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                </span>
+	              </div>
+	              <div class="hero-tag">AI検索対応 × 非エンジニア × 10万円〜</div>
+	              <h1>AI検索に「載る」サイトへ、リニューアル。</h1>
+	              <p class="hero-sub">著者情報・構造化データ・AI bot対応まで。<br>AI流入を本気で取りたい非エンジニアの方向けに、AI時代に通用する土台を10万円から整えます。</p>
+	              <div class="hero-cta">
+	                <a class="btn" href={LINE_URL} target="_blank" rel="noopener noreferrer">LINEで無料の資料を受け取る</a>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-        <!-- 1.5 Big Wins -->
-        <section class="big-wins">
-          <div class="container">
-            <div class="section-head fade-up">
-              <small>Big Wins</small>
-              <h2>あなたのサイトに、<br class="sp-only">起こる2つのこと。</h2>
-            </div>
-            <div class="big-wins-grid">
-              <div class="big-win-card fade-up">
-                <div class="big-win-num">01</div>
-                <div class="big-win-emoji">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('note')} />
-                    <img class="icon-asset" src={iconUrl('note-drafting')} alt="" width="64" height="64" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>記事を書く・更新する<br>手間が、激減する。</h3>
-                <p>あなたの<strong>「型」と「方針」</strong>をAIに覚えさせれば、AIエージェントが記事の下書きを仕上げてくれる。あなたは確認してボタンを押すだけ。<br><br><span class="big-win-tagline">「書く時間がない」が<br>「次は何を発信しよう」に変わります。</span></p>
-              </div>
-              <div class="big-win-card fade-up">
-                <div class="big-win-num">02</div>
-                <div class="big-win-emoji">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('tool')} />
-                    <img class="icon-asset" src={iconUrl('tool-self-edit')} alt="" width="64" height="64" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>サイトを、<br>自分の手元に取り戻す。</h3>
-                <p>「ちょっと文言を変えたい」「このページ追加したい」「デザインを少し変えたい」が、<strong>AIに聞きながら自分でできる</strong>ようになる。<br><br><span class="big-win-tagline">プログラマーじゃなくていい。<br>制作会社に預けなくていい。</span></p>
-              </div>
-            </div>
-          </div>
-        </section>
+	        <section class="container">
+	          <div class="section-head fade-up">
+	            <small>For Whom</small>
+	            <h2>こういう方に向けたLPです</h2>
+	            <p>自社サイトをただ持つだけではなく、AI検索経由の流入まで取りにいきたい事業主・代表の方向けに絞っています。</p>
+	          </div>
+	          <div class="grid cols-3">
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('robot')} /><img class="icon-asset" src={iconUrl('robot-search-anxiety')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">AI流入を本気で取りたい</span></h3>
+	              <p class="mini">ChatGPT、Perplexity、Gemini、Claude から自社がどう見えるかを、すでに気にし始めている方向けです。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('tool')} /><img class="icon-asset" src={iconUrl('tool-self-edit')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">自分でいじりたい非エンジニア</span></h3>
+	              <p class="mini">管理画面やコードは苦手でも、記事更新や軽微修正を外注待ちにしたくない方を想定しています。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('magnifier')} /><img class="icon-asset" src={iconUrl('magnifier-click-decline')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">すでにマーケの動きがある</span></h3>
+	              <p class="mini">記事、SNS、広告、紹介など何らかの集客を回していて、サイトを次の成長ボトルネックにしたくない方向けです。</p>
+	            </div>
+	          </div>
+	        </section>
 
-        <!-- 2. Pain (共感) -->
-        <section class="container">
-          <div class="section-head fade-up">
-            <small>Pain</small>
-            <h2>こんなお悩み、ありませんか？</h2>
-            <p>WordPressなどで自社サイトを運営している方から、よく聞くお悩みです。</p>
-          </div>
-          <figure class="section-diagram fade-up">
-            <img src={diagramUrl('pain-points-radial')} alt="更新停滞、表示速度、外注依存、AI検索不安などの悩みが広がる構図を示した図解" width="1200" height="675" loading="lazy" />
-          </figure>
-          <div class="grid cols-3">
-            <div class="card fade-up">
-              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('decline')} /><img class="icon-asset" src={iconUrl('decline-stale-site')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">サイトの更新が止まっている</span></h3>
-              <p class="mini">忙しくて記事が書けない／プラグインの更新が怖くて触れない／何ヶ月も放置している。</p>
-            </div>
-            <div class="card fade-up">
-              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('slow')} /><img class="icon-asset" src={iconUrl('slow-heavy-site')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">表示が遅い・重い</span></h3>
-              <p class="mini">スマホで開くとカクつく。プラグインを入れすぎて動作が重い。Googleの評価も気になる。</p>
-            </div>
-            <div class="card fade-up">
-              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('pen')} /><img class="icon-asset" src={iconUrl('pen-formatting-burden')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">記事を書く・貼るのが大変</span></h3>
-              <p class="mini">ChatGPTで原稿は書けても、WordPressに貼り付けて整える作業に時間が溶ける。</p>
-            </div>
-            <div class="card fade-up">
-              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('phone')} /><img class="icon-asset" src={iconUrl('phone-vendor-wait')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">外注先と連絡が取りづらい</span></h3>
-              <p class="mini">小さな修正で何日も待たされる。費用もかさむ。自分でできるところは自分でやりたい。</p>
-            </div>
-            <div class="card fade-up">
-              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('robot')} /><img class="icon-asset" src={iconUrl('robot-search-anxiety')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">AI検索に対応できているか不安</span></h3>
-              <p class="mini">ChatGPTやGoogleのAI Overviewでウチの会社が出てこない。何か対策が要るらしいけど、何から始めれば？</p>
-            </div>
-            <div class="card fade-up">
-              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('wallet')} /><img class="icon-asset" src={iconUrl('wallet-renewal-cost')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">リニューアルは高そう</span></h3>
-              <p class="mini">本格的なホームページ制作は数十万〜100万円。そこまでお金はかけられないけど、放置もマズい。</p>
-            </div>
-          </div>
-        </section>
+	        <section class="container">
+	          <div class="section-head fade-up">
+	            <small>Pain</small>
+	            <h2>こんな詰まり方をしていませんか？</h2>
+	            <p>マーケ意識があるほど、AI検索対応の論点が増えて「やることは分かるが、自社では手が回らない」状態になりがちです。</p>
+	          </div>
+	          <figure class="section-diagram fade-up">
+	            <img src={diagramUrl('pain-points-radial')} alt="更新停滞、表示速度、外注依存、AI検索不安などの悩みが広がる構図を示した図解" width="1200" height="675" loading="lazy" />
+	          </figure>
+	          <div class="grid cols-3">
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('robot')} /><img class="icon-asset" src={iconUrl('robot-search-anxiety')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">AI検索に何が必要か曖昧</span></h3>
+	              <p class="mini">著者情報、構造化データ、bot許可、llms.txt。用語は見るけれど、どこから手を付けるべきか整理しきれない。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('pen')} /><img class="icon-asset" src={iconUrl('pen-formatting-burden')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">記事は書けても整備が追いつかない</span></h3>
+	              <p class="mini">ChatGPTで原稿は作れても、著者署名、更新日、schema、内部リンク、公開作業まで含めると手数が多すぎる。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('decline')} /><img class="icon-asset" src={iconUrl('decline-stale-site')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">専門性の見せ方が弱い</span></h3>
+	              <p class="mini">誰が書いたか、何が専門か、どの実績とつながるかがページ上で見えず、E-E-A-Tが積み上がりにくい。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('slow')} /><img class="icon-asset" src={iconUrl('slow-heavy-site')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">WordPress運用が重い</span></h3>
+	              <p class="mini">WordPressでもAI対応はできます。ただ、プラグイン更新やテーマ依存が増えるほど、小回りが利きづらくなる場面があります。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('phone')} /><img class="icon-asset" src={iconUrl('phone-vendor-wait')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">外注待ちが機会損失になる</span></h3>
+	              <p class="mini">軽微修正ひとつでも数日待ち。AI検索の変化に合わせて素早く打ち手を出したいのに、実行が遅れる。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('wallet')} /><img class="icon-asset" src={iconUrl('wallet-renewal-cost')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">価値は感じるが制作費は重い</span></h3>
+	              <p class="mini">本格的に整えたい一方、初期30万〜100万円の提案では着手しにくい。だから後回しになってしまう。</p>
+	            </div>
+	          </div>
+	        </section>
 
-        <!-- 2.5 After — こうなります -->
-        <section class="bg-after">
-          <div class="container">
-            <div class="section-head fade-up">
-              <small>After</small>
-              <h2>サイトは、こう変わります。</h2>
-              <p>移管したあとに手に入るのは「新しい見た目」だけではありません。<br>「自分で更新を続けられる土台」と「AI時代に合った構造」、その両方です。</p>
-            </div>
-            <figure class="section-diagram fade-up">
-              <img src={diagramUrl('before-after-shift')} alt="リニューアル前後で運用負荷とサイト構造がどう変わるかを比較した図解" width="1200" height="675" loading="lazy" />
-            </figure>
-            <div class="after-grid">
-              <div class="after-item fade-up">
-                <div class="after-icon">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('note')} />
-                    <img class="icon-asset" src={iconUrl('note-drafting')} alt="" width="44" height="44" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>記事更新が、ぐっと軽くなる</h3>
-                <p class="mini">「書く → 貼る → 整える」の繰り返しが終わります。AIに音声メモや要点を渡すだけで、下書きが仕上がる。あとは確認してボタンひとつで公開できます。</p>
-              </div>
-              <div class="after-item fade-up">
-                <div class="after-icon">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('mirror')} />
-                    <img class="icon-asset" src={iconUrl('mirror-second-self')} alt="" width="44" height="44" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>AIがあなたの「型」で書く</h3>
-                <p class="mini">文体・トーン・大切にしているテーマをAIが学習。「情報まとめ」ではなく、あなたらしい一次情報のように仕上がります。AIが代筆しているのに、ちゃんとあなたの声がする。</p>
-              </div>
-              <div class="after-item fade-up">
-                <div class="after-icon">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('blueprint')} />
-                    <img class="icon-asset" src={iconUrl('blueprint-structure')} alt="" width="44" height="44" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>AI検索に強い土台が、最初から整っている</h3>
-                <p class="mini">構造化データ・著者情報・llms.txt — AI検索（AIO/LLMO）に必要な実装は納品時点で済ませてお渡し。「あとから対策」と追加費用がかかり続けることがありません。</p>
-              </div>
-              <div class="after-item fade-up">
-                <div class="after-icon">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('tool')} />
-                    <img class="icon-asset" src={iconUrl('tool-self-edit')} alt="" width="44" height="44" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>「ちょっと変えたい」が、業者待ちじゃなくなる</h3>
-                <p class="mini">時代が変わって新しい要素を足したくなっても、AIに依頼するだけで実装できる環境に。「リニューアル待ち」「業者が捕まらない」から卒業します。</p>
-              </div>
-              <div class="after-item fade-up">
-                <div class="after-icon">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('sprout')} />
-                    <img class="icon-asset" src={iconUrl('sprout-renewal')} alt="" width="44" height="44" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>更新が止まらないサイトに育つ</h3>
-                <p class="mini">重さや複雑さで諦めていた発信が、続けられるようになります。続けるほどAI検索でも引用されやすくなり、サイトが資産として育ちます。</p>
-              </div>
-            </div>
-          </div>
-        </section>
+	        <section class="bg-dark">
+	          <div class="container">
+	            <div class="section-head fade-up">
+	              <small>AI Search Setup</small>
+	              <h2>AI検索対応の中身を、最初から整えます。</h2>
+	              <p>必要なのは「AI向けに見栄えのいい雰囲気」ではなく、誰が何を書き、何のページかを機械にも伝わる形で積み上げることです。</p>
+	            </div>
+	            <figure class="section-diagram section-diagram-dark fade-up">
+	              <img src={diagramUrl('ai-search-shift')} alt="従来の検索流入からAI検索経由の引用へ重心が移る流れを示した図解" width="1200" height="675" loading="lazy" />
+	            </figure>
+	            <div class="grid cols-2">
+	              <div class="card-dark fade-up">
+	                <h3>構造化データ</h3>
+	                <p class="mini">`Service`、`Article`、`BreadcrumbList`、`Person + ProfilePage` 相当を整理。ページの役割、著者、導線を検索エンジンとAIの両方に伝えやすくします。</p>
+	              </div>
+	              <div class="card-dark fade-up">
+	                <h3>AI bot 許可</h3>
+	                <p class="mini">`OAI-SearchBot`、`ChatGPT-User`、`Claude-SearchBot`、`PerplexityBot` などを `robots.txt` で明示。引用候補から自ら外れにくい状態を作ります。</p>
+	              </div>
+	              <div class="card-dark fade-up">
+	                <h3>著者情報の sameAs ネットワーク</h3>
+	                <p class="mini">著者ページ、SNS、外部プロフィール、公的プロフィールのつながりを設計し、同一人物として理解されやすい基盤を作ります。</p>
+	              </div>
+	              <div class="card-dark fade-up">
+	                <h3>llms.txt と署名ブロック</h3>
+	                <p class="mini">llms.txt は過信しませんが、将来の導線として低工数で置けます。加えて可視の署名ブロックで、専門性・更新日・監修情報を人にも明示します。</p>
+	              </div>
+	              <div class="card-dark fade-up">
+	                <h3>canonical / HTTPS / URL整理</h3>
+	                <p class="mini">canonical の絶対URL化、HTTPS統一、重複や混在の整理まで含めて、AI以前の土台も詰めます。</p>
+	              </div>
+	              <div class="card-dark fade-up">
+	                <h3>非エンジニアでも回る運用設計</h3>
+	                <p class="mini">これを自社で全部やるのは大変です。だから初期実装だけでなく、運用時に壊しにくい形へ整えて渡します。</p>
+	              </div>
+	            </div>
+	            <div class="why-now-cta fade-up">
+	              <p class="mini" style="color:#fff; margin-bottom:8px;"><strong style="color:#fff;">専門用語が好きな方向けの補足</strong></p>
+	              <p class="mini" style="color:#d0ded9; margin-bottom:16px; font-size:13px;">E-E-A-T、sameAs、ProfilePage、llms.txt、AI bot許可の考え方は、資料でまとめてお渡しします。</p>
+	              <a class="btn-line" href={LINE_URL} target="_blank" rel="noopener noreferrer">LINEで資料を受け取る →</a>
+	            </div>
+	          </div>
+	        </section>
 
-        <!-- 2.7 Mid CTA（コンパクト版） -->
-        <section class="mid-cta-section">
-          <div class="container">
-            <div class="mid-cta-card fade-up">
-              <div class="mid-cta-content">
-                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('envelope')} /><img class="icon-asset" src={iconUrl('envelope-materials')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">もっと詳しく知りたい方へ</span></h3>
-                <p class="mini">サービス詳細・料金に加えて、AI検索時代の実装ポイント（E-E-A-T／llms.txt／構造化データなど）を解説した資料をLINEで無料配布中。</p>
-              </div>
-              <a class="btn-line-mid" href="#contact">資料をLINEで受け取る →</a>
-            </div>
-          </div>
-        </section>
+	        <section class="bg-after">
+	          <div class="container">
+	            <div class="section-head fade-up">
+	              <small>After</small>
+	              <h2>整えると、サイトはこう変わります。</h2>
+	              <p>見た目の刷新だけではなく、AIに拾われやすい構造と、更新が続く運用の両方が手元に残ります。</p>
+	            </div>
+	            <figure class="section-diagram fade-up">
+	              <img src={diagramUrl('before-after-shift')} alt="リニューアル前後で運用負荷とサイト構造がどう変わるかを比較した図解" width="1200" height="675" loading="lazy" />
+	            </figure>
+	            <div class="after-grid">
+	              <div class="after-item fade-up">
+	                <div class="after-icon">
+	                  <span class="icon-media" aria-hidden="true">
+	                    <span class="icon-fallback" set:html={fallbackSvg('blueprint')} />
+	                    <img class="icon-asset" src={iconUrl('blueprint-structure')} alt="" width="44" height="44" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                  </span>
+	                </div>
+	                <h3>引用候補に入りやすい土台になる</h3>
+	                <p class="mini">AI検索で急に勝てる魔法ではありません。ただ、著者・構造・更新情報が揃ったページとして、長期的な機会損失を減らせます。</p>
+	              </div>
+	              <div class="after-item fade-up">
+	                <div class="after-icon">
+	                  <span class="icon-media" aria-hidden="true">
+	                    <span class="icon-fallback" set:html={fallbackSvg('note')} />
+	                    <img class="icon-asset" src={iconUrl('note-drafting')} alt="" width="44" height="44" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                  </span>
+	                </div>
+	                <h3>記事更新の手間が激減する</h3>
+	                <p class="mini">AIに要点や音声メモを渡して下書きを作り、公開までの流れを短くします。記事を書くたびに構造が崩れる状態も避けやすくなります。</p>
+	              </div>
+	              <div class="after-item fade-up">
+	                <div class="after-icon">
+	                  <span class="icon-media" aria-hidden="true">
+	                    <span class="icon-fallback" set:html={fallbackSvg('tool')} />
+	                    <img class="icon-asset" src={iconUrl('tool-self-edit')} alt="" width="44" height="44" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                  </span>
+	                </div>
+	                <h3>業者待ちではなく、自分で動ける</h3>
+	                <p class="mini">軽微修正やページ追加を、毎回制作会社に依頼しなくて済む状態へ。非エンジニアでも、AIに相談しながら回せる運用に寄せます。</p>
+	              </div>
+	              <div class="after-item fade-up">
+	                <div class="after-icon">
+	                  <span class="icon-media" aria-hidden="true">
+	                    <span class="icon-fallback" set:html={fallbackSvg('mirror')} />
+	                    <img class="icon-asset" src={iconUrl('mirror-second-self')} alt="" width="44" height="44" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                  </span>
+	                </div>
+	                <h3>専門性の見せ方が揃う</h3>
+	                <p class="mini">著者ページ、署名ブロック、更新日、プロフィール導線まで含めて、サイト全体で「誰の知見か」を一貫して伝えられます。</p>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-        <!-- 3. AI検索時代の前提 -->
-        <section class="bg-dark">
-          <div class="container">
-            <div class="section-head fade-up">
-              <small>Why Now</small>
-              <h2>AI検索の時代が、もう始まっています。</h2>
-              <p>Google検索の景色が変わりつつあります。AIが要約して答えを出すようになり、「サイトをクリックしてもらう」前提が崩れました。</p>
-            </div>
-            <figure class="section-diagram section-diagram-dark fade-up">
-              <img src={diagramUrl('ai-search-shift')} alt="従来の検索流入からAI検索経由の引用へ重心が移る流れを示した図解" width="1200" height="675" loading="lazy" />
-            </figure>
-            <div class="grid cols-2">
-              <div class="card-dark fade-up">
-                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('magnifier')} /><img class="icon-asset" src={iconUrl('magnifier-click-decline')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">検索1位でも、クリックは半分以下</span></h3>
-                <p class="mini">Google AI Overviews が表示される検索では、1位サイトのクリック率が約58%下がったというデータがあります。「上位に出れば見られる」前提が崩れつつあります。</p>
-                <p class="source-cite">― Ahrefs「AI Overviews Reduce Clicks by 58%」（2024年調査）より</p>
-              </div>
-              <div class="card-dark fade-up">
-                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('chat')} /><img class="icon-asset" src={iconUrl('chat-search-shift')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">ChatGPTで「探す」時代</span></h3>
-                <p class="mini">「検索」手段としての生成AI利用率は<strong>37.0%</strong>に到達。20代では過半数を超え、10代ではChatGPT（42.9%）がYahoo! JAPAN（31.7%）を上回りました。AIに引用される側になれるかどうかで、これからの集客が大きく変わります。</p>
-                <p class="source-cite">― サイバーエージェント GEOラボ「生成AI ユーザー利用実態調査」（2026年2月）より</p>
-              </div>
-              <div class="card-dark fade-up">
-                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('blueprint')} /><img class="icon-asset" src={iconUrl('blueprint-structure')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">AIに読まれるための「構造」</span></h3>
-                <p class="mini">人が読む文章とは別に、AIが情報を整理しやすいページ構造・著者データ・AI読み取り用ファイル（llms.txt）が必要になってきました。WordPressのままでは追いつけない部分です。</p>
-                <p class="source-cite">― Anthropic 公式ドキュメント（llms.txt 採用）／Google「検索品質評価ガイドライン E-E-A-T」より</p>
-              </div>
-              <div class="card-dark fade-up">
-                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('sprout')} /><img class="icon-asset" src={iconUrl('sprout-renewal')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">でも、特別な技術は要らない</span></h3>
-                <p class="mini">必要なのは「AIが読みやすい土台」と「自分で続けられる仕組み」。コールテンが両方を一気にお渡しします。</p>
-              </div>
-            </div>
+	        <section class="mid-cta-section">
+	          <div class="container">
+	            <div class="mid-cta-card fade-up">
+	              <div class="mid-cta-content">
+	                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('envelope')} /><img class="icon-asset" src={iconUrl('envelope-materials')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">まずは資料から確認したい方へ</span></h3>
+	                <p class="mini">LINE登録後に、自動で資料をお送りします。そのままDMで相談もできます。</p>
+	              </div>
+	              <a class="btn-line-mid" href={LINE_URL} target="_blank" rel="noopener noreferrer">LINEで受け取る →</a>
+	            </div>
+	          </div>
+	        </section>
 
-            <div class="why-now-cta fade-up">
-              <p class="mini" style="color:#fff; margin-bottom:8px;">
-                <strong style="color:#fff;">「具体的に何をすればいい？」</strong>を、無料の資料にまとめています。
-              </p>
-              <p class="mini" style="color:#d0ded9; margin-bottom:16px; font-size:13px;">
-                E-E-A-T／著者データ／llms.txt／構造化データの実装ポイントを、コールテンの実践事例つきで解説。
-              </p>
-              <a class="btn-line" href="#contact">資料をLINEで受け取る →</a>
-            </div>
-          </div>
-        </section>
+	        <section class="container">
+	          <div class="section-head fade-up">
+	            <small>Why 100K</small>
+	            <h2>なぜ10万円からできるのか</h2>
+	            <p>安さを売りたいというより、AIで制作工程そのものを圧縮しているから、この価格帯が成立します。</p>
+	          </div>
+	          <div class="grid cols-3">
+	            <div class="card fade-up">
+	              <div class="num-badge">01</div>
+	              <h3>移行業務をAIで効率化</h3>
+	              <p class="mini">ページ移行、構造整理、更新フロー整備など、定型化できる工程をAIで圧縮しています。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <div class="num-badge">02</div>
+	              <h3>Codex / ChatGPT と並走</h3>
+	              <p class="mini">人手だけで抱え込まず、AIエージェントと分担して進めることで、工数を無駄に膨らませません。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <div class="num-badge">03</div>
+	              <h3>AIに強い側が、AIに強いサイトを作る</h3>
+	              <p class="mini">制作の現場でAIを使い倒しているからこそ、AI時代に必要な構成を低価格でも実装できます。</p>
+	            </div>
+	          </div>
+	        </section>
 
-        <!-- 4. 提供価値（3本柱） -->
-        <section class="container">
-          <div class="section-head fade-up">
-            <small>What We Offer</small>
-            <h2>このサービスでお渡しするもの</h2>
-            <p>「AI検索に強い」「自分で更新できる」「自走できる」の3つを、一つのパッケージにしました。</p>
-          </div>
-          <div class="grid cols-3">
-            <div class="card fade-up">
-              <div class="num-badge">01</div>
-              <h3>AIに読まれる構造へ移管</h3>
-              <p class="mini">WordPressなど既存サイトを、AI検索に強い構造（Astro + Vercel）へリニューアル。構造化データ・AI読み取り用ファイル・表示速度の最適化まで一括対応します。</p>
-            </div>
-            <div class="card fade-up">
-              <div class="num-badge">02</div>
-              <h3>ChatGPT<sup class="ref">※</sup>から自分で更新</h3>
-              <p class="mini">記事更新・文字差し替え・画像変更が、ChatGPT<sup class="ref">※</sup>から直接できる仕組みをお渡し。WordPressの管理画面とにらめっこする日々が終わります。</p>
-            </div>
-            <div class="card fade-up">
-              <div class="num-badge">03</div>
-              <h3>動画講座で自走を支える</h3>
-              <p class="mini">買い切り料金に動画講座が付帯。「AIで記事を書く」「Codexで更新する」「AI検索の最低限」「第二の自分の触り」までを学べます。<span class="coming-soon-badge">Coming Soon</span></p>
-            </div>
-          </div>
-          <p class="footnote-cite mini">※ 厳密には「Codexアプリ」のこと。ChatGPTのご契約（Plus等）があれば追加費用なしで使えます。</p>
-        </section>
+	        <section class="bg-gradient-soft">
+	          <div class="container">
+	            <div class="section-head fade-up">
+	              <small>Pricing</small>
+	              <h2>料金プラン</h2>
+	              <p>プランごとに、含むもの・含まないもの・想定範囲を先に明示します。</p>
+	            </div>
 
-        <!-- 5. 更新フロー -->
-        <section class="bg-gradient-soft">
-          <div class="container">
-            <div class="section-head fade-up">
-              <small>How You'll Update</small>
-              <h2>更新が、こう変わります。</h2>
-              <p>「記事を書いて、コピペして、整える」の繰り返しが、<br>AIにお願いするだけで終わるように。慣れるほど、人の手数が減っていきます。</p>
-            </div>
-            <figure class="section-diagram fade-up">
-              <img src={diagramUrl('flow-3steps')} alt="AIに型を覚えさせてから記事化し公開まで進む3ステップの流れを示した図解" width="1200" height="525" loading="lazy" />
-            </figure>
-            <div class="flow-grid">
-              <div class="flow-step fade-up">
-                <div class="flow-level">Level 1</div>
-                <div class="flow-icon">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('mirror')} />
-                    <img class="icon-asset" src={iconUrl('mirror-second-self')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>自分の「型」をAIに覚えさせる</h3>
-                <p class="mini">文体・トーン・大切にしている価値観・よく使う言い回しを、フォルダにファイルとして置いておくだけ。AIがそれを参照して、自分が書いたような記事を仕上げます。</p>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-step fade-up">
-                <div class="flow-level">Level 2</div>
-                <div class="flow-icon">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('mic')} />
-                    <img class="icon-asset" src={iconUrl('voice-memo-drafting')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>「これを記事にして」だけで仕上がる</h3>
-                <p class="mini">ミーティングの音声、雑談メモ、要点だけを渡して「こんな記事にして」と頼むだけ。執筆作業そのものをスキップできるようになります。</p>
-              </div>
-              <div class="flow-arrow">→</div>
-              <div class="flow-step fade-up">
-                <div class="flow-level">Level 3</div>
-                <div class="flow-icon">
-                  <span class="icon-media" aria-hidden="true">
-                    <span class="icon-fallback" set:html={fallbackSvg('rocket')} />
-                    <img class="icon-asset" src={iconUrl('rocket-publish')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                  </span>
-                </div>
-                <h3>公開もボタンひとつで</h3>
-                <p class="mini">AIが書いた記事を確認したら、Codexアプリで反映。数分で公開、AI検索に強い構造のまま整います。</p>
-              </div>
-            </div>
-            <p class="mini" style="text-align:center; margin-top:32px; color:var(--text-light);">※ Mac / Windows どちらでもOK。初期セットアップは弊社が行います。</p>
-          </div>
-        </section>
+	            <div class="pricing-hero fade-up">
+	              <div class="pricing-hero-inner">
+	                <div class="pricing-hero-badge">基準プラン</div>
+	                <h3>単発買い切り</h3>
+	                <div class="price-display-large">
+	                  <span class="price-number">10</span><span class="price-unit">万円<span class="price-slash">〜 / 買い切り</span></span>
+	                </div>
+	                <ul class="mini-list pricing-features">
+	                  <li><strong>含むもの:</strong> 既存サイト移管、AI検索対応の初期整備、Codex更新環境の初期セットアップ</li>
+	                  <li><strong>含まないもの:</strong> 大規模デザイン刷新、長文コピー全面再設計、継続運用代行</li>
+	                  <li><strong>想定範囲:</strong> 既存ページ移行、小規模〜中規模サイト、記事や固定ページの基礎整備</li>
+	                </ul>
+	                <p class="mini pricing-note">※ Vercel利用料は別途。内容量や特殊実装により個別見積りになる場合があります。</p>
+	              </div>
+	            </div>
 
-        <!-- 6. 社会的証明 + Before/After（仮プレースホルダー） -->
-        <section class="container">
-          <div class="section-head fade-up">
-            <small>Case Studies</small>
-            <h2>実績・Before / After</h2>
-            <p>このサービスで実際にリニューアルしたサイトの事例を順次公開していきます。</p>
-          </div>
-          <div class="fade-up" style="max-width:960px; margin:0 auto;">
-            <div class="card" style="text-align:center; padding:60px 24px; background:#f9fafb; border:2px dashed #d7e6de; align-items:center; justify-content:center;">
-              <h3 class="heading-with-icon heading-with-icon--center" style="color:#7a8f87; margin-bottom:8px;"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('camera')} /><img class="icon-asset" src={iconUrl('camera-case-studies')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">実績を準備中です</span></h3>
-              <p class="mini" style="color:#7a8f87;">
-                コールテン自社サイト・パートナークライアント様のリニューアル事例を、<br>
-                Before/After（表示速度・AI検索順位・運用工数）と合わせて順次掲載していきます。<br>
-                <small style="opacity:0.7;">先行で見たい方は資料請求からお問い合わせください。</small>
-              </p>
-            </div>
-          </div>
-        </section>
+	            <div class="section-head fade-up" style="margin-top:64px;">
+	              <h3 style="font-size:24px;">月額サポート（任意）</h3>
+	              <p class="mini">LINEで相談しながら回したい方に向けたプランです。最低契約期間はありません。</p>
+	            </div>
+	            <div class="grid cols-2">
+	              <div class="card fade-up">
+	                <h3>Easy 管理費</h3>
+	                <p class="mini" style="color:var(--text-light);">自走メインで、たまに確認したい方向け。</p>
+	                <ul class="mini-list">
+	                  <li><strong>含むもの:</strong> LINEでの質問対応、軽い運用相談、サーバー管理</li>
+	                  <li><strong>含まないもの:</strong> 継続的な改修代行、複数ページのまとまった実装</li>
+	                  <li><strong>想定範囲:</strong> 月数回の相談、設定確認、公開時の軽い補助</li>
+	                </ul>
+	                <div class="price-display" style="margin-top:auto;">
+	                  <span class="price-number">1</span><span class="price-unit">万円<span class="price-slash">/月</span></span>
+	                </div>
+	              </div>
+	              <div class="card fade-up card-recommended">
+	                <div class="card-badge">推奨</div>
+	                <h3>詰まり対応</h3>
+	                <p class="mini" style="color:var(--text-light);">更新を止めたくない方向け。</p>
+	                <ul class="mini-list">
+	                  <li><strong>含むもの:</strong> LINE伴走、軽微修正、小さなデザイン変更、不具合一次対応</li>
+	                  <li><strong>含まないもの:</strong> 大規模リニューアル、戦略コンサルの定例伴走</li>
+	                  <li><strong>想定範囲:</strong> 月次での運用詰まり解消、公開支援、微修正の継続対応</li>
+	                </ul>
+	                <div class="price-display" style="margin-top:auto;">
+	                  <span class="price-number">2</span><span class="price-unit">万円<span class="price-slash">/月</span></span>
+	                </div>
+	              </div>
+	            </div>
 
-        <!-- 7. 料金（4段比較） -->
-        <section class="bg-gradient-soft">
-          <div class="container">
-            <div class="section-head fade-up">
-              <small>Pricing</small>
-              <h2>料金プラン</h2>
-              <p>買い切りで完結する単発プランと、安心して任せたい方向けの月額サポートをご用意しています。</p>
-            </div>
+	            <div class="upgrade-link fade-up">
+	              <div>
+	                <small style="color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; font-size:11px;">Upgrade</small>
+	                <h4 style="margin:8px 0;">戦略まで一緒に考えたい方は <a href="/services/advisory/">AI顧問プランA（月5万円〜）</a> へ</h4>
+	                <p class="mini" style="margin:0;">記事テーマ、AI検索向けの導線設計、発信の型づくりまで含めて回したい場合は、AI顧問側が適しています。</p>
+	              </div>
+	              <a class="btn btn-outline" href="/services/advisory/">AI顧問を見る →</a>
+	            </div>
+	          </div>
+	        </section>
 
-            <!-- メインの買い切りプラン -->
-            <div class="pricing-hero fade-up">
-              <div class="pricing-hero-inner">
-                <div class="pricing-hero-badge">基準プラン</div>
-                <h3>単発買い切り</h3>
-                <div class="price-display-large">
-                  <span class="price-number">10</span><span class="price-unit">万円<span class="price-slash">（買い切り）</span></span>
-                </div>
-                <ul class="mini-list pricing-features">
-                  <li>WordPress等からの<strong>サイト移管</strong>（既存記事もすべて引き継ぎ）</li>
-                  <li><strong>AI検索（AIO・LLMO）対応</strong>の構造化・最適化</li>
-                  <li><strong>ChatGPT/Codexから更新できる</strong>仕組みの構築</li>
-                  <li><strong>動画講座</strong>付帯（自走できるよう操作を学べる）</li>
-                </ul>
-                <p class="mini pricing-note">※ ご自身でVercelを契約（月額3,000円程度）すれば、月額サポートなしでも運用可能です。</p>
-              </div>
-            </div>
+	        <section class="bg-gradient-soft">
+	          <div class="container">
+	            <div class="section-head fade-up">
+	              <small>How You'll Update</small>
+	              <h2>更新フローはこう変わります</h2>
+	              <p>主訴求はAI検索対応ですが、運用が続かなければ意味がありません。更新負荷も同時に落とします。</p>
+	            </div>
+	            <figure class="section-diagram fade-up">
+	              <img src={diagramUrl('flow-3steps')} alt="AIに型を覚えさせてから記事化し公開まで進む3ステップの流れを示した図解" width="1200" height="525" loading="lazy" />
+	            </figure>
+	            <div class="flow-grid">
+	              <div class="flow-step fade-up">
+	                <div class="flow-level">Step 1</div>
+	                <div class="flow-icon">
+	                  <span class="icon-media" aria-hidden="true">
+	                    <span class="icon-fallback" set:html={fallbackSvg('mirror')} />
+	                    <img class="icon-asset" src={iconUrl('mirror-second-self')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                  </span>
+	                </div>
+	                <h3>発信の型をAIに渡す</h3>
+	                <p class="mini">文体、語彙、強み、注意点を整理して、AIが参照しやすい形にしておきます。</p>
+	              </div>
+	              <div class="flow-arrow">→</div>
+	              <div class="flow-step fade-up">
+	                <div class="flow-level">Step 2</div>
+	                <div class="flow-icon">
+	                  <span class="icon-media" aria-hidden="true">
+	                    <span class="icon-fallback" set:html={fallbackSvg('mic')} />
+	                    <img class="icon-asset" src={iconUrl('voice-memo-drafting')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                  </span>
+	                </div>
+	                <h3>ChatGPTで下書きを作る</h3>
+	                <p class="mini">音声メモや要点だけでも記事の叩き台にできます。ゼロから書く時間を大きく減らせます。</p>
+	              </div>
+	              <div class="flow-arrow">→</div>
+	              <div class="flow-step fade-up">
+	                <div class="flow-level">Step 3</div>
+	                <div class="flow-icon">
+	                  <span class="icon-media" aria-hidden="true">
+	                    <span class="icon-fallback" set:html={fallbackSvg('rocket')} />
+	                    <img class="icon-asset" src={iconUrl('rocket-publish')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                  </span>
+	                </div>
+	                <h3>Codex / AIエージェントで反映する</h3>
+	                <p class="mini">公開時の構造を崩しにくい形で反映します。ChatGPTは原稿づくり、Codexは実装寄りの反映という役割分担です。</p>
+	              </div>
+	            </div>
+	            <p class="mini" style="text-align:center; margin-top:32px; color:var(--text-light);">※ Mac / Windows どちらでもOK。初期セットアップは弊社が行います。</p>
+	          </div>
+	        </section>
 
-            <!-- 月額サポートプラン -->
-            <div class="section-head fade-up" style="margin-top:64px;">
-              <h3 style="font-size:24px;">月額サポート（任意）</h3>
-              <p class="mini">「動画だけだと不安」「詰まったら誰かに聞きたい」という方向け。いつでも開始・停止できます。</p>
-            </div>
-            <div class="grid cols-2">
-              <div class="card fade-up">
-                <h3>Easy 管理費</h3>
-                <p class="mini" style="color:var(--text-light);">動画でだいたいOK・たまに質問したい方向け。</p>
-                <ul class="mini-list">
-                  <li>チャットでの質問対応</li>
-                  <li>更新方法・操作のサポート</li>
-                  <li>サーバー（Vercel）管理込み</li>
-                </ul>
-                <div class="price-display" style="margin-top:auto;">
-                  <span class="price-number">1</span><span class="price-unit">万円<span class="price-slash">/月</span></span>
-                </div>
-              </div>
-              <div class="card fade-up card-recommended">
-                <div class="card-badge">推奨</div>
-                <h3>詰まり対応</h3>
-                <p class="mini" style="color:var(--text-light);">安心して任せたい・ちゃんと続けたい方向け。</p>
-                <ul class="mini-list">
-                  <li>チャットで詰まりに伴走</li>
-                  <li>軽微な修正・小さなデザイン変更</li>
-                  <li>サーバー管理 + 不具合対応</li>
-                </ul>
-                <div class="price-display" style="margin-top:auto;">
-                  <span class="price-number">2</span><span class="price-unit">万円<span class="price-slash">/月</span></span>
-                </div>
-              </div>
-            </div>
+	        <section class="container">
+	          <div class="section-head fade-up">
+	            <small>Trust</small>
+	            <h2>準備中の実績の代わりに、いま見せられる信頼材料</h2>
+	            <p>事例一覧はまだ準備中ですが、机上の空論ではなく、自社改善ログとデモ画面ベースで進めます。</p>
+	          </div>
+	          <div class="grid cols-2">
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('camera')} /><img class="icon-asset" src={iconUrl('camera-case-studies')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">自社サイト改善ログで説明</span></h3>
+	              <p class="mini">どこをどう直したか、AI検索対応で何を優先したかを、LINE資料と面談時に具体的に共有します。</p>
+	            </div>
+	            <div class="card fade-up">
+	              <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('handshake')} /><img class="icon-asset" src={iconUrl('advisory-handshake')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">代表プロフィール</span></h3>
+	              <p class="mini">代表の向は元・企業マーケティング担当。技術だけでなく、集客導線と発信運用まで含めて設計します。</p>
+	            </div>
+	          </div>
+	        </section>
 
-            <!-- AI顧問への接続 -->
-            <div class="upgrade-link fade-up">
-              <div>
-                <small style="color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:0.1em; font-size:11px;">Upgrade</small>
-                <h4 style="margin:8px 0;">戦略まで一緒に考えたい方は <a href="/services/advisory/">AI顧問プランA（月5万円〜）</a> へ</h4>
-                <p class="mini" style="margin:0;">代表の向は元・企業マーケティング担当。サイトの維持管理を超えて、<strong>マーケ視点でのSEO/AIO戦略</strong>・コンテンツ設計・第二の自分づくりまで伴走できます。</p>
-              </div>
-              <a class="btn btn-outline" href="/services/advisory/">AI顧問を見る →</a>
-            </div>
-          </div>
-        </section>
+	        <section class="container">
+	          <div class="section-head fade-up">
+	            <small>Add-on Plans</small>
+	            <h2>もっと踏み込みたい方へ</h2>
+	            <p>まずはAI検索対応の土台を整え、その先で見た目や新規立ち上げまで拡張できます。</p>
+	          </div>
+	          <div class="grid cols-2">
+	            <div class="card upsell-card fade-up">
+	              <div class="upsell-icon">
+	                <span class="icon-media" aria-hidden="true">
+	                  <span class="icon-fallback" set:html={fallbackSvg('palette')} />
+	                  <img class="icon-asset" src={iconUrl('palette-design-renewal')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                </span>
+	              </div>
+	              <h3>デザインリニューアル <span class="upsell-plus">+10万円</span></h3>
+	              <p class="mini">AI検索対応の土台はそのままに、ヒーローや見た目も今の訴求に合わせて更新したい方向けです。</p>
+	              <div class="upsell-total">
+	                <span>合計</span>
+	                <strong>20<span class="yen">万円</span></strong>
+	                <small>（買い切り10万 + デザイン10万）</small>
+	              </div>
+	            </div>
+	            <div class="card upsell-card fade-up">
+	              <div class="upsell-icon">
+	                <span class="icon-media" aria-hidden="true">
+	                  <span class="icon-fallback" set:html={fallbackSvg('newsite')} />
+	                  <img class="icon-asset" src={iconUrl('new-site-build')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
+	                </span>
+	              </div>
+	              <h3>新規構築 <span class="upsell-plus">+20万円</span></h3>
+	              <p class="mini">既存サイトが使いづらい、またはゼロから設計したい方向け。情報設計からまとめて作り直します。</p>
+	              <div class="upsell-total">
+	                <span>合計</span>
+	                <strong>30<span class="yen">万円</span></strong>
+	                <small>（買い切り10万 + 新規制作20万）</small>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-        <!-- 8. デザインリニューアル・新規制作（アップセル） -->
-        <section class="container">
-          <div class="section-head fade-up">
-            <small>Add-on Plans</small>
-            <h2>もっとガッツリやりたい方へ</h2>
-            <p>「移管だけじゃなくて、デザインも新しくしたい」「いっそゼロから作り直したい」という方向けの追加プランです。</p>
-          </div>
-          <div class="grid cols-2">
-            <div class="card upsell-card fade-up">
-              <div class="upsell-icon">
-                <span class="icon-media" aria-hidden="true">
-                  <span class="icon-fallback" set:html={fallbackSvg('palette')} />
-                  <img class="icon-asset" src={iconUrl('palette-design-renewal')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                </span>
-              </div>
-              <h3>デザインリニューアル <span class="upsell-plus">+10万円</span></h3>
-              <p class="mini">既存サイトの構造・コンテンツを保ったまま、見た目を今風にリニューアル。スマホ対応・ブランドカラー整備・ヒーロー画像の刷新まで含みます。</p>
-              <div class="upsell-total">
-                <span>合計</span>
-                <strong>20<span class="yen">万円</span></strong>
-                <small>（買い切り10万 + デザイン10万）</small>
-              </div>
-            </div>
-            <div class="card upsell-card fade-up">
-              <div class="upsell-icon">
-                <span class="icon-media" aria-hidden="true">
-                  <span class="icon-fallback" set:html={fallbackSvg('newsite')} />
-                  <img class="icon-asset" src={iconUrl('new-site-build')} alt="" width="48" height="48" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} />
-                </span>
-              </div>
-              <h3>新規サイトをゼロから <span class="upsell-plus">+20万円</span></h3>
-              <p class="mini">既存サイトはなくてもOK、もしくは大幅に作り変えたい方向け。ヒアリングから情報設計・デザイン・原稿の下書きまで一気通貫でサポートします。</p>
-              <div class="upsell-total">
-                <span>合計</span>
-                <strong>30<span class="yen">万円</span></strong>
-                <small>（買い切り10万 + 新規制作20万）</small>
-              </div>
-            </div>
-          </div>
-          <p class="mini" style="text-align:center; margin-top:32px; color:var(--text-light);">※ ボリュームや専門性によっては別途お見積りになる場合があります。まずはご相談ください。</p>
-        </section>
+	        <section class="bg-gradient-soft">
+	          <div class="container">
+	            <div class="section-head fade-up">
+	              <small>Beyond the Renewal</small>
+	              <h2>サイトの先まで伴走できます</h2>
+	              <p>このLPの主役はサイト基盤ですが、必要であればその先の発信戦略まで拡張できます。</p>
+	            </div>
+	            <div class="grid cols-2">
+	              <div class="card fade-up">
+	                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('mirror')} /><img class="icon-asset" src={iconUrl('mirror-second-self')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">第二の自分パッケージ</span></h3>
+	                <p class="mini">あなたの考え方や判断軸を整理し、AIが参照する「自分の型」まで作りたい方向けの上位支援です。</p>
+	              </div>
+	              <div class="card fade-up">
+	                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('handshake')} /><img class="icon-asset" src={iconUrl('advisory-handshake')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">AI顧問</span></h3>
+	                <p class="mini">サイトだけでなく、事業全体のAI活用やSEO/AIO戦略まで定例で回したい場合は、AI顧問をご案内します。</p>
+	                <a class="btn btn-outline" href="/services/advisory/" style="margin-top:16px;">詳しく見る →</a>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-        <!-- 9. 横展開（オプション・匂わせ程度） -->
-        <section class="bg-gradient-soft">
-          <div class="container">
-            <div class="section-head fade-up">
-              <small>Beyond the Renewal</small>
-              <h2>サイトを変えた、その先に</h2>
-              <p>サイトを移管するだけでは、AI検索で本当に選ばれるところまではいきません。「あなたらしさ」を引き出す次の一歩もご用意しています。</p>
-            </div>
-            <div class="grid cols-2">
-              <div class="card fade-up">
-                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('mirror')} /><img class="icon-asset" src={iconUrl('mirror-second-self')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">第二の自分パッケージ</span></h3>
-                <p class="mini">代表自身がヒアリングして、あなたの考え方・価値観・話し方を「第二の自分ファイル」として納品します。これをChatGPTに入れることで、記事の質が「ただの情報まとめ」から「あなたらしい一次情報」に変わります。<small style="display:block; margin-top:8px; opacity:0.7;">価格は内容により応相談</small></p>
-              </div>
-              <div class="card fade-up">
-                <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('handshake')} /><img class="icon-asset" src={iconUrl('advisory-handshake')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">AI顧問</span></h3>
-                <p class="mini">サイトだけでなく、事業全体のAI活用、SEO/AIO戦略、社内のAI教育まで伴走するプラン。月5万円〜。サイトを変えた後、本格的にAIで集客を伸ばしたい方に。</p>
-                <a class="btn btn-outline" href="/services/advisory/" style="margin-top:16px;">詳しく見る →</a>
-              </div>
-            </div>
-          </div>
-        </section>
+	        <section id="contact" class="bg-contact">
+	          <div class="container">
+	            <div class="section-head fade-up">
+	              <small>Free Document</small>
+	              <h2>無料の資料を、LINEで受け取れます</h2>
+	              <p>登録後に自動で資料が届き、そのままDMで相談を始められます。問い合わせ導線はLINEに統一しています。</p>
+	            </div>
+	            <div class="doc-preview fade-up">
+	              <img src="/assets/images/ai-renewal/document-mockup.png" alt="配布資料イメージ — AI時代のサイトリニューアル ガイド" loading="lazy" width="720" height="540" />
+	            </div>
+	            <div class="cta-grid fade-up">
+	              <div class="cta-main">
+	                <div class="cta-main-inner">
+	                  <span class="cta-tag">無料</span>
+	                  <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('envelope')} /><img class="icon-asset" src={iconUrl('envelope-materials')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">資料に入っている内容</span></h3>
+	                  <ul class="cta-doc-list">
+	                    <li><strong>E-E-A-T</strong> と著者情報の考え方</li>
+	                    <li><strong>sameAs</strong> を含む著者プロフィール整備</li>
+	                    <li><strong>構造化データ</strong> の最低限チェックリスト</li>
+	                    <li><strong>AI bot 許可</strong> と llms.txt の整理ポイント</li>
+	                    <li>ChatGPTで原稿作成、Codexで反映する運用イメージ</li>
+	                    <li>サービス詳細・プラン料金・よくある質問</li>
+	                  </ul>
+	                  <a class="btn-line" href={LINE_URL} target="_blank" rel="noopener noreferrer">LINEで資料を受け取る</a>
+	                  <small style="opacity:0.7; display:block; margin-top:8px;">登録後に自動で資料を送付します。そのままLINEで相談できます。</small>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </section>
 
-        <!-- 10. CTA -->
-        <section id="contact" class="bg-contact">
-          <div class="container">
-            <div class="section-head fade-up">
-              <small>Free Document</small>
-              <h2>無料の資料を、LINEで。</h2>
-              <p>サービスの詳細・料金だけでなく、<br>AI検索時代に「具体的に何を実装すべきか」を解説した資料です。</p>
-            </div>
-            <div class="doc-preview fade-up">
-              <img src="/assets/images/ai-renewal/document-mockup.png" alt="配布資料イメージ — AI時代のサイトリニューアル ガイド" loading="lazy" width="720" height="540" />
-            </div>
-            <div class="cta-grid fade-up">
-              <div class="cta-main">
-                <div class="cta-main-inner">
-                  <span class="cta-tag">無料</span>
-                  <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('envelope')} /><img class="icon-asset" src={iconUrl('envelope-materials')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">資料に書いてあること</span></h3>
-                  <ul class="cta-doc-list">
-                    <li><strong>E-E-A-T</strong>（経験・専門性・権威性・信頼性）の整え方</li>
-                    <li><strong>著者情報</strong>（author スキーマ）の書き方</li>
-                    <li><strong>llms.txt</strong> の作り方とサンプル</li>
-                    <li><strong>構造化データ</strong> 最低限の実装チェックリスト</li>
-                    <li>ChatGPT<sup class="ref">※</sup>から記事を更新する手順</li>
-                    <li>サービス詳細・プラン料金・よくある質問</li>
-                  </ul>
-                  <a class="btn-line" href="#line-register-todo">LINEで資料を受け取る</a>
-                  <small style="opacity:0.7; display:block; margin-top:8px;">※ LINE登録URLは準備中です／営業の電話・メールはありません</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 11. FAQ -->
-        <section class="container faq">
-          <div class="section-head fade-up">
-            <small>FAQ</small>
-            <h2>よくあるご質問</h2>
-          </div>
-          <div class="faq-items fade-up">
-            <details open>
-              <summary>WordPress以外のサイトでも移管できますか？</summary>
-              <p class="mini">はい。WordPress、Wix、Jimdo、ペライチなど、ほとんどのCMSから移管できます。事前に既存サイトを拝見してご判断します。</p>
-            </details>
-            <details>
-              <summary>本当に自分で更新できるようになりますか？</summary>
-              <p class="mini">動画講座で操作の流れを覚えていただきます。文字を変える・画像を差し替える・新しい記事を追加するレベルなら、ほとんどの方が一週間で慣れます。詰まったときのために月額のサポートプランもご用意しています。</p>
-            </details>
-            <details>
-              <summary>Windowsパソコンでも使えますか？</summary>
-              <p class="mini">はい、Mac/Windows両方で使えます。Windowsの場合、初期セットアップを丁寧にお手伝いします。</p>
-            </details>
-            <details>
-              <summary>AI検索で本当に上位に表示されるようになりますか？</summary>
-              <p class="mini">AI検索（AIOやLLMO）は仕組み上、構造化された情報を持つサイトが引用されやすくなります。私たちが整える土台はその前提条件です。ただし内容・専門性・更新頻度も重要なので、上位表示を保証するものではありません。</p>
-            </details>
-            <details>
-              <summary>月額プランに最低契約期間はありますか？</summary>
-              <p class="mini">ありません。月単位でいつでも開始・停止できます。一度買い切りでお渡ししたサイトはお客様のものなので、サポートを止めても運用は続けられます。</p>
-            </details>
-            <details>
-              <summary>既存のドメインのまま移管できますか？</summary>
-              <p class="mini">はい、現在お使いのドメインをそのまま新しいサイトに付け替えます。ドメインの設定変更もこちらでサポートします。</p>
-            </details>
-            <details>
-              <summary>他社のホームページ制作と比べて、なぜこの価格でできるのですか？</summary>
-              <p class="mini">ChatGPTやCodexなどのAIツールをフル活用して制作工程を圧縮しているためです。同等の移管・AI検索対応サービスは国内相場で初期30万〜100万円が一般的です。</p>
-            </details>
-            <details>
-              <summary>AI顧問プランとどう違いますか？</summary>
-              <p class="mini">本サービスはサイトの「移管と更新基盤づくり」を一括でお渡しするものです。<a href="/services/advisory/">AI顧問</a>はサイトに限らず事業全体のAI活用、SEO/AIO戦略、第二の自分づくりまで幅広く伴走します。サイト更新で詰まる程度の相談なら本サービスのサポートプランで十分です。</p>
-            </details>
-            <details>
-              <summary>セキュリティは大丈夫ですか？</summary>
-              <p class="mini">Vercel・GitHubといった海外大手のインフラを使うため、WordPressより一般的にセキュリティ強度は高くなります。プラグインの脆弱性に悩むこともなくなります。</p>
-            </details>
-            <details>
-              <summary>サポートを使わずに自分で運用したい場合はどうなりますか？</summary>
-              <p class="mini">可能です。ご自身でVercel（月額3,000円程度のサーバー代）を契約していただければ、買い切りの10万円のみで運用できます。設定はこちらでお渡しします。</p>
-            </details>
-          </div>
-        </section>
-      </main>
+	        <section class="container faq">
+	          <div class="section-head fade-up">
+	            <small>FAQ</small>
+	            <h2>よくあるご質問</h2>
+	          </div>
+	          <div class="faq-items fade-up">
+	            <details open>
+	              <summary>WordPress以外のサイトでも移管できますか？</summary>
+	              <p class="mini">はい。WordPress、Wix、Jimdo、ペライチなど、ほとんどのCMSから移管できます。事前に既存サイトを拝見してご判断します。</p>
+	            </details>
+	            <details>
+	              <summary>本当に自分で更新できるようになりますか？</summary>
+	              <p class="mini">はい。原稿づくりはChatGPT、実装寄りの反映はCodexやAIエージェントという役割分担で、非エンジニアでも続けやすい形に寄せます。</p>
+	            </details>
+	            <details>
+	              <summary>AI検索で本当に上位に表示されるようになりますか？</summary>
+	              <p class="mini">保証はできません。ただし、著者情報、構造化データ、AI bot許可、canonicalやHTTPS整理など、引用候補に入りやすくする前提条件はまとめて整えます。</p>
+	            </details>
+	            <details>
+	              <summary>WordPressのままでもAI対応できますか？</summary>
+	              <p class="mini">できます。ただ、プラグイン更新やテーマ依存、権限管理まで含めると継続運用が重くなりやすいので、AI時代の小回りを優先するなら土台ごとの整理が向くケースがあります。</p>
+	            </details>
+	            <details>
+	              <summary>他社のホームページ制作と比べて、なぜこの価格でできるのですか？</summary>
+	              <p class="mini">移行や整備の工程をAIで効率化し、CodexやChatGPTと並走して進めるからです。人手だけの制作より工数を圧縮できるぶん、10万円から着手できます。</p>
+	            </details>
+	            <details>
+	              <summary>月額プランに最低契約期間はありますか？</summary>
+	              <p class="mini">ありません。月単位でいつでも開始・停止できます。買い切り後に、自走へ切り替えることも可能です。</p>
+	            </details>
+	            <details>
+	              <summary>既存のドメインのまま移管できますか？</summary>
+	              <p class="mini">はい、現在お使いのドメインをそのまま新しいサイトに付け替えます。ドメインの設定変更もサポートします。</p>
+	            </details>
+	            <details>
+	              <summary>AI顧問プランとどう違いますか？</summary>
+	              <p class="mini">このサービスはサイトの移管とAI検索対応の基盤づくりが中心です。より上流のマーケ戦略、発信テーマ、社内AI活用まで伴走するのが <a href="/services/advisory/">AI顧問</a> です。</p>
+	            </details>
+	            <details>
+	              <summary>セキュリティは大丈夫ですか？</summary>
+	              <p class="mini">プラグイン依存を減らし、GitHubとVercelを軸に更新経路を整理するため、脆弱性管理や権限管理をシンプルにしやすい構成です。</p>
+	            </details>
+	            <details>
+	              <summary>サポートを使わずに自分で運用したい場合はどうなりますか？</summary>
+	              <p class="mini">可能です。Vercel費用などの実費だけで運用を続けられるよう、買い切り時点で土台を整えてお渡しします。</p>
+	            </details>
+	          </div>
+	        </section>
+	      </main>
 </Layout>
 
 <style>
