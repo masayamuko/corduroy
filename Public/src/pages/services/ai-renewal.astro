@@ -149,6 +149,9 @@ const fallbackSvg = (name) => ({
             <h2>こんなお悩み、ありませんか？</h2>
             <p>WordPressなどで自社サイトを運営している方から、よく聞くお悩みです。</p>
           </div>
+          <figure class="section-diagram fade-up">
+            <img src={diagramUrl('pain-points-radial')} alt="更新停滞、表示速度、外注依存、AI検索不安などの悩みが広がる構図を示した図解" width="1200" height="675" loading="lazy" />
+          </figure>
           <div class="grid cols-3">
             <div class="card fade-up">
               <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('decline')} /><img class="icon-asset" src={iconUrl('decline-stale-site')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">サイトの更新が止まっている</span></h3>
@@ -185,6 +188,9 @@ const fallbackSvg = (name) => ({
               <h2>サイトは、こう変わります。</h2>
               <p>移管したあとに手に入るのは「新しい見た目」だけではありません。<br>「自分で更新を続けられる土台」と「AI時代に合った構造」、その両方です。</p>
             </div>
+            <figure class="section-diagram fade-up">
+              <img src={diagramUrl('before-after-shift')} alt="リニューアル前後で運用負荷とサイト構造がどう変わるかを比較した図解" width="1200" height="675" loading="lazy" />
+            </figure>
             <div class="after-grid">
               <div class="after-item fade-up">
                 <div class="after-icon">
@@ -261,6 +267,9 @@ const fallbackSvg = (name) => ({
               <h2>AI検索の時代が、もう始まっています。</h2>
               <p>Google検索の景色が変わりつつあります。AIが要約して答えを出すようになり、「サイトをクリックしてもらう」前提が崩れました。</p>
             </div>
+            <figure class="section-diagram section-diagram-dark fade-up">
+              <img src={diagramUrl('ai-search-shift')} alt="従来の検索流入からAI検索経由の引用へ重心が移る流れを示した図解" width="1200" height="675" loading="lazy" />
+            </figure>
             <div class="grid cols-2">
               <div class="card-dark fade-up">
                 <h3 class="heading-with-icon"><span class="heading-icon" aria-hidden="true"><span class="icon-fallback" set:html={fallbackSvg('magnifier')} /><img class="icon-asset" src={iconUrl('magnifier-click-decline')} alt="" width="28" height="28" loading="lazy" aria-hidden="true" onload={ICON_ONLOAD} onerror={ICON_ONERROR} /></span><span class="heading-text">検索1位でも、クリックは半分以下</span></h3>
@@ -330,6 +339,9 @@ const fallbackSvg = (name) => ({
               <h2>更新が、こう変わります。</h2>
               <p>「記事を書いて、コピペして、整える」の繰り返しが、<br>AIにお願いするだけで終わるように。慣れるほど、人の手数が減っていきます。</p>
             </div>
+            <figure class="section-diagram fade-up">
+              <img src={diagramUrl('flow-3steps')} alt="AIに型を覚えさせてから記事化し公開まで進む3ステップの流れを示した図解" width="1200" height="525" loading="lazy" />
+            </figure>
             <div class="flow-grid">
               <div class="flow-step fade-up">
                 <div class="flow-level">Level 1</div>
@@ -686,39 +698,69 @@ const fallbackSvg = (name) => ({
       height: 100%;
       display: flex;
       flex-direction: column;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+    .card:hover,
+    .card-dark:hover,
+    .after-item:hover,
+    .flow-step:hover,
+    .mid-cta-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 42px rgba(22, 97, 78, 0.12);
     }
     .card h3 { font-size: 20px; margin-bottom: 12px; color: var(--ink); }
     .heading-with-icon {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 12px;
+      line-height: 1.45;
     }
     .heading-with-icon--center {
       justify-content: center;
       text-align: center;
     }
     .heading-icon {
-      width: 28px;
-      height: 28px;
-      min-width: 28px;
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
       position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 10px;
+      border-radius: 12px;
       background: rgba(22, 97, 78, 0.08);
       color: var(--sea);
       flex: 0 0 auto;
       line-height: 0;
+      margin-top: 1px;
     }
     .heading-icon .icon-fallback,
     .heading-icon .icon-asset {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
     }
     .heading-text {
       flex: 1 1 auto;
       min-width: 0;
+    }
+    .section-diagram {
+      max-width: 1080px;
+      margin: 0 auto 40px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 18px 46px rgba(22, 97, 78, 0.1);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(22, 97, 78, 0.08);
+    }
+    .section-diagram img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .section-diagram-dark {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 22px 52px rgba(6, 14, 11, 0.24);
     }
     .grid { display: grid; gap: 32px; }
     @media(min-width:768px) {
@@ -728,16 +770,16 @@ const fallbackSvg = (name) => ({
     .mini-list { padding-left: 18px; color: var(--text-light); line-height: 1.8; font-size: 15px; }
     .mini-list li + li { margin-top: 8px; }
     .icon-lg {
-      margin-bottom: 24px;
+      margin-bottom: 26px;
       color: var(--sea);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 120px;
-      height: 120px;
+      width: 116px;
+      height: 116px;
       background: #fff;
-      border-radius: 40px;
-      box-shadow: 0 16px 32px rgba(22, 97, 78, 0.08);
+      border-radius: 36px;
+      box-shadow: 0 18px 38px rgba(22, 97, 78, 0.1);
     }
     .icon-media {
       position: relative;
@@ -768,8 +810,8 @@ const fallbackSvg = (name) => ({
       height: 100%;
     }
     .icon-lg .icon-media {
-      width: 48px;
-      height: 48px;
+      width: 72px;
+      height: 72px;
     }
     .bg-gradient-soft { background: linear-gradient(180deg, #fcfdfc 0%, #f1f7f5 100%); }
 
@@ -786,8 +828,9 @@ const fallbackSvg = (name) => ({
       border-radius: 24px;
       padding: 32px;
       backdrop-filter: blur(4px);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     }
-    .card-dark h3 { color: #fff; display: flex; align-items: center; gap: 12px; }
+    .card-dark h3 { color: #fff; display: flex; align-items: center; gap: 12px; letter-spacing: -0.01em; }
     .card-dark .heading-icon {
       background: rgba(139, 211, 193, 0.14);
       color: #8bd3c1;
@@ -845,6 +888,7 @@ const fallbackSvg = (name) => ({
       box-shadow: var(--shadow-sm);
       text-align: center;
       position: relative;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     }
     .flow-num {
       position: absolute;
@@ -865,17 +909,18 @@ const fallbackSvg = (name) => ({
       box-shadow: 0 4px 12px rgba(22, 97, 78, 0.2);
     }
     .flow-icon {
-      margin: 16px 0;
+      margin: 18px 0 14px;
       color: var(--sea);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      opacity: 0.92;
     }
     .flow-icon .icon-media,
     .flow-icon .icon-fallback,
     .flow-icon .icon-asset {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
     }
     .flow-arrow {
       display: none;
@@ -1130,19 +1175,22 @@ const fallbackSvg = (name) => ({
       position: relative;
     }
     .big-win-emoji {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       line-height: 0;
       position: relative;
       color: var(--sea);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      padding: 10px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(22, 97, 78, 0.05) 0%, rgba(212, 160, 77, 0.1) 100%);
     }
     .big-win-emoji .icon-media,
     .big-win-emoji .icon-fallback,
     .big-win-emoji .icon-asset {
-      width: 64px;
-      height: 64px;
+      width: 72px;
+      height: 72px;
     }
     .big-win-card h3 {
       font-size: 30px;
@@ -1211,6 +1259,7 @@ const fallbackSvg = (name) => ({
       flex-wrap: wrap;
       border: 1px solid rgba(22, 97, 78, 0.1);
       box-shadow: 0 12px 32px rgba(22, 97, 78, 0.08);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     }
     .mid-cta-content { flex: 1 1 320px; }
     .mid-cta-content h3 { font-size: 20px; margin-bottom: 8px; color: var(--ink); }
@@ -1323,29 +1372,31 @@ const fallbackSvg = (name) => ({
       display: flex;
       flex-direction: column;
       gap: 12px;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     }
     .after-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: rgba(212, 160, 77, 0.12);
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(86, 184, 147, 0.16);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent);
+      color: #21835f;
       line-height: 0;
     }
     .after-icon .icon-media,
     .after-icon .icon-fallback,
     .after-icon .icon-asset {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
     }
     .after-item h3 {
-      font-size: 19px;
+      font-size: 20px;
       margin: 0 0 4px;
       color: var(--ink);
-      line-height: 1.5;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
     }
     .after-item p {
       margin: 0;
@@ -1418,10 +1469,55 @@ const fallbackSvg = (name) => ({
       .hero { padding: 100px 0 80px; }
       .hero h1 { font-size: 32px; }
       .hero-sub { font-size: 16px; }
+      .heading-with-icon { gap: 10px; align-items: flex-start; }
+      .heading-icon {
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+        border-radius: 10px;
+      }
+      .heading-icon .icon-fallback,
+      .heading-icon .icon-asset {
+        width: 26px;
+        height: 26px;
+      }
+      .section-diagram {
+        margin-bottom: 28px;
+        border-radius: 14px;
+      }
+      .icon-lg {
+        width: 96px;
+        height: 96px;
+        border-radius: 30px;
+      }
+      .icon-lg .icon-media {
+        width: 58px;
+        height: 58px;
+      }
       .pricing-hero-inner { padding: 32px 24px; }
       .price-display-large .price-number { font-size: 56px; }
       .upgrade-link { flex-direction: column; align-items: flex-start; padding: 20px; }
       .cta-main { padding: 32px 24px; }
       .cta-main h3 { font-size: 22px; }
+      .after-item {
+        padding: 24px 22px;
+        gap: 10px;
+      }
+      .after-icon {
+        width: 50px;
+        height: 50px;
+      }
+      .after-icon .icon-media,
+      .after-icon .icon-fallback,
+      .after-icon .icon-asset {
+        width: 36px;
+        height: 36px;
+      }
+      .flow-icon .icon-media,
+      .flow-icon .icon-fallback,
+      .flow-icon .icon-asset {
+        width: 38px;
+        height: 38px;
+      }
     }
 </style>
