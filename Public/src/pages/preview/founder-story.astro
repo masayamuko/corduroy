@@ -1,0 +1,250 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const patterns = [
+  {
+    id: 'A-1',
+    name: '横長タイムライン（直線）',
+    url: 'https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/brand/founder-story-timeline-v2-1.png',
+    strength: '3秒で読める。順序が完璧に等間隔で並ぶ最もシンプルな水平直線。緑の太矢印1本が左→右へ貫通。',
+    target: '会社案内をパッと見せる相手・初対面のクライアント・忙しい意思決定者。',
+    push: 'マーニー一推し（タイムライン系）',
+  },
+  {
+    id: 'A-2',
+    name: '横長タイムライン（S字 + 背景文脈）',
+    url: 'https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/brand/founder-story-timeline-v2-2.png',
+    strength: 'ゆるやかなS字曲線、背景にCOACHING/コード/組織図シルエット。物語性最強・世界観の広がり。',
+    target: 'ブログ本文に深く読み込ませたい時・創業者noteアイキャッチ。',
+    push: '※ ⑥が2箇所に出る軽微なズレあり',
+  },
+  {
+    id: 'A-3',
+    name: 'ジャーニー（道 + 足跡 + 看板）',
+    url: 'https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/brand/founder-story-timeline-v2-3.png',
+    strength: '蛇行する道に足跡、木製signpost⑥にコールテンの大アーチ。「旅・物語」温度感最強・愛着が湧く。',
+    target: 'エモーショナルに伝えたい時・SNS拡散用・社内スライドの締め1枚。',
+    push: '※ 0が2回出る軽微な重複あり',
+  },
+  {
+    id: 'C-1',
+    name: '4×2グリッド + 締め1コマ',
+    url: 'https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/brand/founder-story-storybook-v2-1.png',
+    strength: '⓪〜⑥+「これがコールテンです」締めの8コマ完璧配置。番号・点線矢印・コマ割りすべてが揃った最高品質。',
+    target: 'プレゼン資料・提案書・会社案内PDF・A4縦向きスライド1枚。',
+    push: 'マーニー一推し（ストーリーブック系）',
+  },
+  {
+    id: 'C-2',
+    name: '縦スクロール + 表情progression',
+    url: 'https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/brand/founder-story-storybook-v2-2.png',
+    strength: '縦長7コマ + ⑥のクライマックスで全AIキャラ集合。テトの表情がpuzzled→proud→fulfilledと進化。',
+    target: 'スマホで読む人・SNS流入・noteアイキャッチ・Instagramストーリー。',
+    push: '',
+  },
+  {
+    id: 'C-3',
+    name: '絵本ページ + 小Tikiナレーター',
+    url: 'https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/brand/founder-story-storybook-v2-3.png',
+    strength: '「STEP 0」〜「STEP 6」のヘッダー付き、リボン状の緑矢印が連続して全コマを貫く。各セルにも小Tikiが顔を出す愛らしさ。',
+    target: '教育目的・社内オンボーディング資料・子供にも理解できる温度感が欲しい時。',
+    push: '',
+  },
+];
+---
+<Layout
+  title="Founder Story v2 プレビュー｜Corduroy"
+  description="Founder Story インフォグラフィック 6パターン比較プレビュー"
+  noindex={true}
+>
+  <main class="preview-page">
+    <header class="preview-head">
+      <p class="preview-tag">PREVIEW (内部用)</p>
+      <h1>Founder Story v2 — 6パターン比較</h1>
+      <p class="lead">
+        気に入ったパターンを教えてください（例: 「A-1 で行こう」「C-1 を本番に」など）。<br>
+        本番URL <code>/</code> のヒーロー直下にそのまま差し替えます。
+      </p>
+      <p class="lead-mini">マーニー推し: <strong>A-1</strong>（タイムライン系）／ <strong>C-1</strong>（ストーリーブック系）</p>
+    </header>
+
+    <div class="patterns-grid">
+      {patterns.map((p) => (
+        <figure class="pattern-card">
+          <div class="pattern-header">
+            <span class="pattern-id">{p.id}</span>
+            <h2>{p.name}</h2>
+            {p.push && <span class="pattern-push">{p.push}</span>}
+          </div>
+          <a href={p.url} target="_blank" rel="noopener" class="pattern-img-link">
+            <img src={p.url} alt={`Founder Story パターン ${p.id} - ${p.name}`} loading="lazy" />
+          </a>
+          <div class="pattern-detail">
+            <p><strong>強み</strong><br>{p.strength}</p>
+            <p><strong>想定読者</strong><br>{p.target}</p>
+            <p class="pattern-url"><a href={p.url} target="_blank" rel="noopener">画像を別タブで開く →</a></p>
+          </div>
+        </figure>
+      ))}
+    </div>
+
+    <footer class="preview-foot">
+      <p>このページは <code>/preview/founder-story/</code> に置かれた内部プレビューです（noindex,nofollow）。</p>
+    </footer>
+  </main>
+
+  <style>
+    .preview-page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+      color: #2c1810;
+    }
+    .preview-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px;
+    }
+    .preview-tag {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: #fef0ea;
+      color: #c44;
+      border: 1px solid #f3c8b8;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      margin-bottom: 18px;
+    }
+    .preview-head h1 {
+      font-size: 26px;
+      line-height: 1.55;
+      margin: 0 0 18px;
+      color: #16614e;
+    }
+    .lead {
+      font-size: 15px;
+      line-height: 1.95;
+      color: #555;
+      margin: 0 0 12px;
+    }
+    .lead code {
+      background: #f4efe6;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+    .lead-mini {
+      font-size: 13px;
+      color: #888;
+      margin: 0;
+    }
+    .patterns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 28px;
+    }
+    .pattern-card {
+      background: #fff;
+      border: 1px solid #e6e0d6;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.04);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .pattern-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.08);
+    }
+    .pattern-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pattern-id {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 6px 12px;
+      border-radius: 100px;
+      background: #16614e;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+    }
+    .pattern-header h2 {
+      font-size: 16px;
+      margin: 0;
+      color: #2c1810;
+      line-height: 1.5;
+    }
+    .pattern-push {
+      font-size: 12px;
+      color: #888;
+      font-style: italic;
+    }
+    .pattern-img-link {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #faf8f3;
+      border: 1px solid #e6e0d6;
+    }
+    .pattern-img-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .pattern-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.85;
+      color: #555;
+    }
+    .pattern-detail strong {
+      display: inline-block;
+      color: #16614e;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .pattern-detail p {
+      margin: 0;
+    }
+    .pattern-url {
+      margin-top: 4px !important;
+      font-size: 12px;
+    }
+    .pattern-url a {
+      color: #16614e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .pattern-url a:hover {
+      text-decoration: underline;
+    }
+    .preview-foot {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+    }
+    .preview-foot code {
+      background: #f4efe6;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    @media (max-width: 768px) {
+      .preview-page { padding: 80px 16px 60px; }
+      .preview-head h1 { font-size: 22px; }
+      .patterns-grid { grid-template-columns: 1fr; gap: 20px; }
+      .pattern-card { padding: 18px; }
+    }
+  </style>
+</Layout>
