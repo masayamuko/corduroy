@@ -1,0 +1,931 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "日本のNPO法人・一般社団法人向けAI/IT支援制度まとめ｜2026年版";
+const description = "NPO法人・一般社団法人向けAI/IT支援制度を、申請窓口と法人類型の違いから整理。Google、Microsoft、Slack、OpenAI、Claude、kintone、PR TIMESまで公式情報をもとにまとめます。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/npo-tools-2026/"
+  ogUrl="https://www.corduroy.co.jp/blog/npo-tools-2026/"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/npo-tools-2026/#article",
+    "url": "https://www.corduroy.co.jp/blog/npo-tools-2026/",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/npo-tools-2026/" },
+    "headline": "日本のNPO法人・一般社団法人が使えるAI/IT支援制度まとめ",
+    "datePublished": "2026-05-01T09:00:00+09:00",
+    "dateModified": "2026-05-01T09:00:00+09:00",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+    "description": "NPO法人・一般社団法人向けAI/IT支援制度を、申請窓口と法人類型の違いから整理。Google、Microsoft、Slack、OpenAI、Claude、kintone、PR TIMESまで公式情報をもとにまとめます。",
+    "keywords": ["NPO AI ツール", "一般社団法人 IT 割引", "NPO 非営利向け制度", "TechSoup Japan", "Goodstack 非営利", "Google for Nonprofits 一般社団法人"]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "日本のNPO法人・一般社団法人が使えるAI/IT支援制度まとめ" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "日本のNPO法人は Google for Nonprofits を使えますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "使えます。日本向け要件では、特定非営利活動法人が対象として明記されています。申請はGoogle for Nonprofitsの公式窓口から進み、検証はGoodstackです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "一般社団法人でも非営利向けAI/IT支援制度を使えますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "制度ごとに異なります。非営利型一般社団法人はGoogle for Nonprofitsやkintoneのチーム応援ライセンスのように公式要件が読みやすい制度があります。一方で普通型一般社団法人は、対象として明記されない制度が多く、GoodstackやTechSoup Japan、ベンダー審査で追加確認が起きやすい構成です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "TechSoup Japan と Goodstack はどう違いますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "どちらも認証の入口ですが、担当する制度が違います。Google、OpenAI、Claude、ZoomはGoodstack側の導線が中心で、Slackや一部Adobe系はTechSoup Japanが残っています。迷ったら、先にベンダー公式の申請ページを見て、そこから案内される認証先をたどるのが近道です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "一般社団法人の普通型と非営利型では、どこが違いますか。",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "非営利型一般社団法人は、制度によっては対象法人として明記されます。kintoneのチーム応援ライセンスは非営利型一般社団法人を明記しています。普通型一般社団法人は、対象として書かれていない制度が多く、kintoneでもチーム応援ライセンスの対象としては明記されていません。制度ページに対象類型が書かれていない場合は、対象外と決めつけず、まずは公式に明記なしとして読むのが良いです。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>日本のNPO法人・一般社団法人向けAI/IT支援制度まとめ</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date" datetime="2026-05-01">2026-05-01</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>日本のNPO法人・一般社団法人が使えるAI/IT支援制度まとめ｜通りやすさと実用性で選ぶ 2026年版</h1>
+          <p class="article-lead">結論から言うと、日本のNPO法人は Google、Microsoft、Slack、kintone から見ると入りやすいです。一般社団法人はそこまで単純ではなく、非営利型か普通型かで読み方が分かれます。この記事では、2026-04-30確認の公式情報をもとに、申請窓口と対象表記の違いがすぐ見える形でまとめました。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <h2>3秒で確認したい結論</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tools-2026/chaos-map/chaos-map-v2.png" alt="日本のNPO・一般社団法人が使えるAI/IT支援制度カオスマップ 2026年版（コミュニケーション、顧客管理、広報、AI、デザイン、開発の6カテゴリでベンダーを整理）" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>先に見るなら、Google for Nonprofits、Microsoft for Nonprofits、Slack for Nonprofits、kintoneのチーム応援ライセンスです。日本のNPO法人なら、入口の読みやすさはこのあたりが頭ひとつ抜けています。</p>
+            <p>一般社団法人は、ひとまとめでは見ない方が良さそうです。非営利型一般社団法人は Google for Nonprofits や kintone のように対象が読みやすい制度がありますが、普通型一般社団法人は制度ごとに扱いが分かれます。</p>
+            <p>OpenAI for Nonprofits と Claude for Nonprofits は日本から申請できます。ただ、日本法上の法人類型名を個別に並べた公式説明は見当たりませんでした。なので、この記事では「対象外」とは書かず、「公式に明記なし」で止めています。</p>
+            <ul>
+              <li>Google for Nonprofits は日本向け要件で特定非営利活動法人と一般社団法人が明記されています。</li>
+              <li>Slack for Nonprofits はTechSoup等で慈善性の証明が必要で、学校は別制度対象、病院は除外です。</li>
+              <li>kintone は非営利型一般社団法人をチーム応援ライセンスの対象として明記し、学校法人・社会福祉法人・公益法人は別制度へ切り分けています。</li>
+            </ul>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  使えるかどうかと、通るかどうかは別ですね。日本から使える製品でも、日本の法人類型をどう読むかで申請の通りやすさはけっこう変わります。
+                </div>
+              </div>
+            </div>
+
+            <h2>日本の法人類型ごとに見ると、まず確認すべき制度が変わります</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tools-2026/illust-02.webp" alt="NPO法人と一般社団法人で申請先が分かれる様子を示す図" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>じゃあ、最初にどこを見ればいいのか。制度名より先に見たいのは、「対象法人の書き方」と「どこで認証するか」です。ここが曖昧だと、あとで必要書類の見立てもぶれやすいと思います。</p>
+            <p>下の表では、公開条件を法人類型ごとに並べ替えました。主観的な言い回しは外して、対象の書かれ方と申請窓口の違いだけを見えるようにしています。</p>
+
+            <div class="table-scroll">
+              <table>
+                <caption>主要制度の法人類型別整理 ※確認日: 2026-04-30</caption>
+                <thead>
+                  <tr>
+                    <th>法人類型</th>
+                    <th>制度</th>
+                    <th>日本向け法人類型明記</th>
+                    <th>申請窓口</th>
+                    <th>公式に明記なし / 要審査 / 別制度</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>NPO法人</td>
+                    <td>Google for Nonprofits</td>
+                    <td>あり</td>
+                    <td>Google公式窓口 → Goodstack</td>
+                    <td>病院・学校・政府機関は原則対象外</td>
+                  </tr>
+                  <tr>
+                    <td>認定NPO法人</td>
+                    <td>kintone チーム応援ライセンス</td>
+                    <td>特定非営利活動法人の文言から読める</td>
+                    <td>サイボウズ直審査</td>
+                    <td>認定NPO法人の単独表記は確認できず</td>
+                  </tr>
+                  <tr>
+                    <td>一般社団法人（非営利型）</td>
+                    <td>Google for Nonprofits</td>
+                    <td>あり</td>
+                    <td>Google公式窓口 → Goodstack</td>
+                    <td>学校・病院・政府機関は原則対象外</td>
+                  </tr>
+                  <tr>
+                    <td>一般社団法人（非営利型）</td>
+                    <td>kintone チーム応援ライセンス</td>
+                    <td>あり</td>
+                    <td>サイボウズ直審査</td>
+                    <td>定款、会計書類、活動実績の追加提出があり得る</td>
+                  </tr>
+                  <tr>
+                    <td>一般社団法人（普通型）</td>
+                    <td>OpenAI for Nonprofits</td>
+                    <td>なし</td>
+                    <td>OpenAI公式窓口 → Goodstack</td>
+                    <td>日本法上の法人類型名は公式に明記なし</td>
+                  </tr>
+                  <tr>
+                    <td>一般社団法人（普通型）</td>
+                    <td>kintone チーム応援ライセンス</td>
+                    <td>なし</td>
+                    <td>サイボウズ直審査</td>
+                    <td>公開条件の組み合わせ上、対象として読み取りにくい</td>
+                  </tr>
+                  <tr>
+                    <td>公益社団法人</td>
+                    <td>PR TIMES 非営利団体サポートプロジェクト</td>
+                    <td>あり</td>
+                    <td>PR TIMES公式窓口</td>
+                    <td>一般社団法人とは別に公益法人として列挙</td>
+                  </tr>
+                  <tr>
+                    <td>社会福祉法人</td>
+                    <td>kintone アカデミック・ガバメントライセンス</td>
+                    <td>あり</td>
+                    <td>パートナー経由申請</td>
+                    <td>チーム応援ライセンスではなく別制度</td>
+                  </tr>
+                  <tr>
+                    <td>学校法人</td>
+                    <td>OpenAI / Claude / Slack</td>
+                    <td>なし</td>
+                    <td>制度ごとに異なる</td>
+                    <td>OpenAIはChatGPT Edu、ClaudeはK-12表記、Slackは学校別制度で読む必要あり</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの実務観察として</strong></p>
+              <p>制度名は並んでいても、申請の入口は一本の道ではありません。NPO法人か一般社団法人かを見る前に、日本向けの法人類型表記、申請窓口、公開情報の出し方をそろえておくと、あとで迷いにくいです。</p>
+            </aside>
+
+            <h3>非営利型一般社団法人と普通型一般社団法人は分けて確認します</h3>
+            <p>非営利型一般社団法人は、定款や会計の条件が制度側に伝わりやすい場面があります。逆に普通型一般社団法人は、目的が公益寄りでも、制度ページでは対象法人として書かれていないことがわりとあります。</p>
+            <p>ここは読み間違えやすいところです。普通型一般社団法人では、「公式に明記なし」と「対象外」を分けて読むのが分かれ目です。うちでは、公開要件に書かれていない制度はまず「公式に明記なし」と置いて、それでも別制度への案内や条件の組み合わせで読めるかを見ていきます。</p>
+
+            <h2>AI/ITレベル別に見ると、先に取る制度の順番も変わります</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tools-2026/illust-03.webp" alt="AIとITの習熟度別に導入順を整理した3レベル図" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>価格だけでは決まりません。今つまずいているのが連絡なのか、情報管理なのか、広報なのか。それだけでも、先に見る制度はかなり変わります。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>AI/ITレベル別の導入順整理</caption>
+                <thead>
+                  <tr>
+                    <th>レベル</th>
+                    <th>団体の状態</th>
+                    <th>先に揃えたい領域</th>
+                    <th>先に確認しやすい制度</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>初級</td>
+                    <td>個人利用が中心で、ファイルや連絡先が分散している</td>
+                    <td>メール、ストレージ、共同編集、チーム連絡</td>
+                    <td>Google for Nonprofits、Microsoft for Nonprofits、Slack for Nonprofits</td>
+                  </tr>
+                  <tr>
+                    <td>中級</td>
+                    <td>生成AIを日常業務で使い始め、窓口や案件管理を整理したい</td>
+                    <td>顧客管理、問い合わせ管理、広報制作</td>
+                    <td>kintone、Canva for Nonprofits、PR TIMES、OpenAI for Nonprofits</td>
+                  </tr>
+                  <tr>
+                    <td>上級</td>
+                    <td>複数ツールの運用が定着し、業務フローの再設計まで進めたい</td>
+                    <td>自動化、権限設計、開発基盤、AI運用</td>
+                    <td>Claude for Nonprofits、GitHub for Nonprofits、Microsoft、kintone</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん" width="82" height="82" loading="lazy">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  AIを何に使うかを決め切る前でも大丈夫です。まず情報の置き場と連絡経路が整っているかを見るほうが、導入の順番は決めやすいと思います。
+                </div>
+              </div>
+            </div>
+
+            <h2>主要制度の比較早見表</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tools-2026/illust-04.webp" alt="主要制度を申請窓口と対象条件で比較する表のイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>表で先に見たいのは、価格より入口の違いです。日本の法人類型が書かれているか、どこで認証するか、別制度があるか。この3つを並べると、かなり見通しが立ちます。</p>
+
+            <div class="table-scroll">
+              <table>
+                <caption>主要制度の比較早見表 ※確認日: 2026-04-30</caption>
+                <thead>
+                  <tr>
+                    <th>制度</th>
+                    <th>主な対象条件</th>
+                    <th>申請窓口</th>
+                    <th>日本向け法人類型明記</th>
+                    <th>価格公開</th>
+                    <th>API対象</th>
+                    <th>別制度あり</th>
+                    <th>公式URL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Google for Nonprofits</td>
+                    <td>日本向け要件に合う非営利法人</td>
+                    <td>Goodstack</td>
+                    <td>あり</td>
+                    <td>あり</td>
+                    <td>該当記載なし</td>
+                    <td>学校・病院は別整理</td>
+                    <td><a href="https://www.google.com/nonprofits/">申請</a> / <a href="https://support.google.com/nonprofits/answer/3215869?co=GENIE.CountryCode%3DJP&hl=en__">要件</a></td>
+                  </tr>
+                  <tr>
+                    <td>Microsoft for Nonprofits</td>
+                    <td>法的に認められた非営利・慈善団体</td>
+                    <td>Microsoft / 第三者検証</td>
+                    <td>日本語要件あり</td>
+                    <td>あり</td>
+                    <td>Azure等は別途</td>
+                    <td>教育向け制度あり</td>
+                    <td><a href="https://www.microsoft.com/ja-jp/nonprofits/eligibility">要件</a></td>
+                  </tr>
+                  <tr>
+                    <td>Slack for Nonprofits</td>
+                    <td>慈善性証明ができる非営利団体</td>
+                    <td>TechSoup等</td>
+                    <td>なし</td>
+                    <td>あり</td>
+                    <td>API割引の明記なし</td>
+                    <td>学校向け別制度</td>
+                    <td><a href="https://slack.com/help/articles/204368833-Apply-for-the-Slack-for-Nonprofits-discount">要件</a> / <a href="https://slack.com/pricing">価格</a></td>
+                  </tr>
+                  <tr>
+                    <td>Anthropic Claude for Nonprofits</td>
+                    <td>501(c)(3) または equivalent international designations 等</td>
+                    <td>Goodstack導線 / 営業</td>
+                    <td>なし</td>
+                    <td>あり</td>
+                    <td>API割引の公開記載なし</td>
+                    <td>K-12表記あり</td>
+                    <td><a href="https://support.claude.com/en/articles/12893767-getting-started-with-claude-for-nonprofits">要件</a> / <a href="https://www.anthropic.com/news/claude-for-nonprofits">告知</a></td>
+                  </tr>
+                  <tr>
+                    <td>OpenAI for Nonprofits</td>
+                    <td>nonprofit organizations</td>
+                    <td>Goodstack導線 / 営業</td>
+                    <td>なし</td>
+                    <td>あり</td>
+                    <td>対象外</td>
+                    <td>ChatGPT Eduあり</td>
+                    <td><a href="https://help.openai.com/ja-jp/articles/9359041-openai-for-nonprofits">要件</a> / <a href="https://openai.com/index/introducing-openai-for-nonprofits/">告知</a></td>
+                  </tr>
+                  <tr>
+                    <td>Canva for Nonprofits</td>
+                    <td>登録済み charitable nonprofit 等</td>
+                    <td>Canva審査</td>
+                    <td>なし</td>
+                    <td>あり</td>
+                    <td>該当記載なし</td>
+                    <td>追加席条件あり</td>
+                    <td><a href="https://www.canva.com/canva-for-nonprofits/">申請</a></td>
+                  </tr>
+                  <tr>
+                    <td>GitHub for Nonprofits</td>
+                    <td>501(c)(3) or equivalent、非政府・非学術等</td>
+                    <td>GitHub直審査</td>
+                    <td>なし</td>
+                    <td>あり</td>
+                    <td>該当記載なし</td>
+                    <td>教育向け別制度あり</td>
+                    <td><a href="https://github.com/solutions/industry/nonprofits">制度</a></td>
+                  </tr>
+                  <tr>
+                    <td>kintone チーム応援ライセンス</td>
+                    <td>NPO法人、非営利型一般社団・財団法人等</td>
+                    <td>サイボウズ直審査</td>
+                    <td>あり</td>
+                    <td>あり</td>
+                    <td>通常価格のオプションあり</td>
+                    <td>アカデミック・ガバメントあり</td>
+                    <td><a href="https://npo.cybozu.co.jp/team/">チーム応援</a> / <a href="https://npo.cybozu.co.jp/academic/">別制度</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの実務観察として</strong></p>
+              <p>比較表を作るときは、価格表みたいに並べないほうが良いです。対象条件、申請窓口、日本向け法人類型の明記、別制度の有無あたりを先に置くと、あとで再申請や代替制度の判断がしやすいです。</p>
+            </aside>
+
+            <h2>TechSoup Japan と Goodstack の違い</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tools-2026/illust-05.webp" alt="TechSoup Japan、Goodstack、直審査の3つの窓口フロー図" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>たとえば Google for Nonprofits は Google 公式から入って Goodstack で検証します。Slack は Slack 公式から入って、TechSoup 等で慈善性を見せる流れです。同じ「認証」でも、ここはかなり手触りが違います。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>申請窓口の違い ※確認日: 2026-04-30</caption>
+                <thead>
+                  <tr>
+                    <th>窓口</th>
+                    <th>主な制度</th>
+                    <th>読者が確認したい点</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Goodstack</td>
+                    <td>Google、OpenAI、Claude、Zoom</td>
+                    <td>制度ページに日本法人類型の個別明記があるか、poweredbypercent.com 表記が残っていないか</td>
+                  </tr>
+                  <tr>
+                    <td>TechSoup Japan</td>
+                    <td>Slack、一部Adobe系</td>
+                    <td>慈善性証明の方法、日本書類で追加確認が必要か</td>
+                  </tr>
+                  <tr>
+                    <td>ベンダー直審査</td>
+                    <td>Canva、GitHub、kintone、PR TIMES</td>
+                    <td>団体サイト、定款、活動報告、会計資料をどこまで出すか</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>TechSoup Japan では、一般社団法人だと決算書の準拠会計基準に関する注記が論点になりやすいです。制度名より先に、どの認証先へどの書類を出すかを見ておくほうが、手戻りは減ります。</p>
+
+            <h2>主要8制度の申請窓口と注意点</h2>
+            <p>では、個別に見るとどうか。ここからは、本文でよく参照する制度だけを8本に絞って見ていきます。申請の流れはどれも「公式窓口 → 認証 → 承認」に寄りますが、つまずく場所はそれぞれ違います。</p>
+
+            <h3>Google for Nonprofits</h3>
+            <p>日本でいちばん入口が読みやすいのは、まずこれです。日本向け要件に特定非営利活動法人と一般社団法人が明記されています。</p>
+            <ul>
+              <li>申請の流れ: Google公式窓口 → Goodstack検証 → Google側承認</li>
+              <li>何が使えるか: Google Workspace for Nonprofits、Ad Grants、対象機能としてGemini系の提供案内</li>
+              <li>注意点: 病院、学校、政府機関は原則対象外です。</li>
+              <li>公式URL: <a href="https://www.google.com/nonprofits/">申請窓口</a> / <a href="https://support.google.com/nonprofits/answer/3215869?co=GENIE.CountryCode%3DJP&hl=en__">日本向け要件</a></li>
+            </ul>
+
+            <h3>Microsoft for Nonprofits</h3>
+            <p>Microsoft は、日本語の適格性ページから入れるのが助かるところです。法的に認められた非営利・慈善団体を前提に読む制度、と見ておくとぶれにくいです。</p>
+            <ul>
+              <li>申請の流れ: Microsoft公式窓口 → 第三者検証 → ライセンス提供</li>
+              <li>何が使えるか: Microsoft 365、Azureクレジット、Copilot割引</li>
+              <li>注意点: 一般社団法人は、非営利性や公益性を追加で説明したほうが良いです。</li>
+              <li>公式URL: <a href="https://www.microsoft.com/ja-jp/nonprofits/eligibility">適格性</a></li>
+            </ul>
+
+            <h3>Slack for Nonprofits</h3>
+            <p>Slack は、製品より先に慈善性の見せ方を見る制度という感じです。TechSoup 等でどう証明するかが分かれ目です。</p>
+            <ul>
+              <li>申請の流れ: Slack公式窓口 → TechSoup等の慈善性確認 → 割引反映</li>
+              <li>何が使えるか: Pro無料または85%オフ、Business+ 85%オフ</li>
+              <li>注意点: 学校は別制度対象、病院は除外です。一般社団法人は慈善性の証明方法で差が出ます。</li>
+              <li>公式URL: <a href="https://slack.com/help/articles/204368833-Apply-for-the-Slack-for-Nonprofits-discount">要件と申請</a> / <a href="https://slack.com/pricing">価格</a></li>
+            </ul>
+
+            <h3>Anthropic Claude for Nonprofits</h3>
+            <p>Claude は、ここで少し読み方が分かれます。Goodstack 導線と営業導線があり、日本法上の法人類型名は個別に並んでいません。</p>
+            <ul>
+              <li>申請の流れ: Claude Help導線 → Goodstack検証または営業確認 → Anthropic承認</li>
+              <li>何が使えるか: Claude Team / Enterprise の非営利価格</li>
+              <li>注意点: 公式発表の「最大75%」と現行ヘルプの公開価格表記に差があります。申請前にヘルプを見直したほうが良いです。</li>
+              <li>公式URL: <a href="https://support.claude.com/en/articles/12893767-getting-started-with-claude-for-nonprofits">申請と要件</a> / <a href="https://www.anthropic.com/news/claude-for-nonprofits">制度告知</a></li>
+            </ul>
+
+            <h3>OpenAI for Nonprofits</h3>
+            <p>ChatGPT を非営利価格で使いたいなら、OpenAI は Business と Enterprise の制度として見ることになります。API は対象外です。</p>
+            <ul>
+              <li>申請の流れ: OpenAI Help導線 → Goodstack検証 → Business自動適用またはEnterprise営業対応</li>
+              <li>何が使えるか: ChatGPT Business 非営利価格、ChatGPT Enterprise 最大75%割引</li>
+              <li>注意点: 日本は提供対象国ですが、日本法上の法人類型名は個別明記されていません。学校法人は ChatGPT Edu で見たほうが早いです。</li>
+              <li>公式URL: <a href="https://help.openai.com/ja-jp/articles/9359041-openai-for-nonprofits">要件と申請</a> / <a href="https://openai.com/index/introducing-openai-for-nonprofits/">制度告知</a></li>
+            </ul>
+
+            <h3>Canva for Nonprofits</h3>
+            <p>広報チームが最初に気になるのは Canva かもしれません。資料づくりやSNS運用の入口としてはかなり使いやすい制度です。</p>
+            <ul>
+              <li>申請の流れ: Canva公式窓口 → Canva審査 → チーム適用</li>
+              <li>何が使えるか: Canva Pro相当の利用、追加席条件の案内</li>
+              <li>注意点: 日本法上の法人類型名を個別に列挙した公開要件は確認できませんでした。</li>
+              <li>公式URL: <a href="https://www.canva.com/canva-for-nonprofits/">申請窓口</a></li>
+            </ul>
+
+            <h3>GitHub for Nonprofits</h3>
+            <p>開発や自動化まで進んでいる団体なら、GitHub が候補に入ります。広報向けの制度とは違って、所有者権限や開発体制まで見られやすい印象です。</p>
+            <ul>
+              <li>申請の流れ: GitHub公式窓口 → GitHub直審査 → Team無料または割引適用</li>
+              <li>何が使えるか: GitHub Team無料、Enterprise Cloud割引</li>
+              <li>注意点: 所有者権限、法人書類、非学術・非政府要件の読み分けが必要です。</li>
+              <li>公式URL: <a href="https://github.com/solutions/industry/nonprofits">制度ページ</a></li>
+            </ul>
+
+            <h3>kintone チーム応援ライセンス</h3>
+            <p>日本の法人類型まで含めて読みやすいのは、kintone の強みです。特に非営利型一般社団法人まで明記されているのは大きいと思います。</p>
+            <ul>
+              <li>申請の流れ: 無料お試し環境 → サイボウズ審査申込み → 適用後購入</li>
+              <li>何が使えるか: kintoneスタンダード等を年額固定で利用</li>
+              <li>注意点: 普通型一般社団法人はチーム応援ライセンスの対象として明記されていません。公開条件の組み合わせを見ても、かなり読みづらいです。</li>
+              <li>注意点: 学校法人・社会福祉法人・公益法人は、チーム応援ライセンスではなくアカデミック・ガバメントライセンスで分かれます。</li>
+              <li>公式URL: <a href="https://npo.cybozu.co.jp/team/">チーム応援ライセンス</a> / <a href="https://npo.cybozu.co.jp/academic/">アカデミック・ガバメントライセンス</a></li>
+            </ul>
+
+            <h2>PR TIMESでは公開情報の整備状況が審査条件として明示されています</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tools-2026/illust-06.webp" alt="PR TIMESの審査要件として公開情報が確認される様子を示す図" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>PR TIMES は、公開情報の出し方がそのまま審査に効きやすい制度です。募集要項でも、活動の公開状況や経営情報の開示状況がかなり具体的に書かれています。ここは他制度の一般論というより、PR TIMES 固有の見方として読むのが良いです。</p>
+            <ul>
+              <li>HPやSNS等から活動および情報発信が長期間確認できない団体は対象外条件に含まれます。</li>
+              <li>活動報告書、決算書等、財務情報や経営体制が一般公開されていない団体も対象外条件に含まれます。</li>
+              <li>一般社団法人、一般財団法人は「非営利徹底型に限る」と明記されています。</li>
+              <li>審査期間は、プロジェクトページでは通常10営業日ほど、募集要項PDFでは1週間程度と表記差があります。</li>
+            </ul>
+            <p>公開情報を整えるのは PR TIMES と相性がいいです。ただ、そのまま他制度すべての審査基準だと思わないほうが良いです。</p>
+
+            <h2>申請でつまずきやすいポイントと再申請前の確認</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tools-2026/illust-07.webp" alt="申請時に見落としやすい書類と公開情報のチェックポイント図" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>どこで止まりやすいのか。制度側が厳しいからだけではなくて、団体情報の見せ方、英語表記の揺れ、認証先ごとの書類準備でつまずくことが多いです。</p>
+            <ul>
+              <li>団体名、定款上の正式名称、英語名の表記が申請フォームとサイトで一致しているか確認します。</li>
+              <li>活動目的、受益者、法人類型、代表者情報がサイトで追えるか確認します。</li>
+              <li>活動報告、決算書、役員情報、問い合わせ窓口が公開されているか確認します。</li>
+              <li>Goodstack と TechSoup Japan では求められる証明方法が違います。同じ書類一式で済むと思わないほうが良いです。</li>
+            </ul>
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん" width="82" height="82" loading="lazy">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  制度を変える前に、サイトと書類の整合を見直すだけで進むことがあります。再申請の前は、ここを一回整えるのがいいです。
+                </div>
+              </div>
+            </div>
+
+            <h2>FAQ</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tools-2026/illust-08.webp" alt="NPO法人と一般社団法人のよくある質問を整理した図" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>本文でよく検索される4つだけ、短く置いておきます。</p>
+
+            <section id="faq" class="faq">
+              <div class="faq-items fade-up">
+                <details open id="faq-1">
+                  <summary>日本のNPO法人は Google for Nonprofits を使えますか</summary>
+                  <p class="mini">使えます。日本向け要件では、特定非営利活動法人が対象として明記されています。申請は <a href="https://www.google.com/nonprofits/">Google for Nonprofits の公式窓口</a> から進み、検証は Goodstack です。</p>
+                </details>
+                <details id="faq-2">
+                  <summary>一般社団法人でも非営利向けAI/IT支援制度を使えますか</summary>
+                  <p class="mini">使える制度はあります。ただ、非営利型一般社団法人と普通型一般社団法人は分けて見たほうがいいです。非営利型は Google for Nonprofits や kintone のように読みやすい制度がありますが、普通型は追加審査や説明が前提になりやすいです。</p>
+                </details>
+                <details id="faq-3">
+                  <summary>TechSoup Japan と Goodstack はどう違いますか</summary>
+                  <p class="mini">制度ごとに認証先が違います。Google、OpenAI、Claude、Zoom は Goodstack 側の導線が中心で、Slack や一部Adobe系は TechSoup Japan が残っています。迷ったら、ベンダー公式の申請ページから逆算するのが早いです。</p>
+                </details>
+                <details id="faq-4">
+                  <summary>一般社団法人の普通型と非営利型では、どこが違いますか</summary>
+                  <p class="mini">非営利型一般社団法人は、制度によっては対象として明記されます。普通型一般社団法人は、制度ページに対象として書かれていないことが多いです。なので、「公式に明記なし」と「対象外」を分けて読む必要があります。</p>
+                </details>
+              </div>
+            </section>
+
+            <h2>更新ポリシー</h2>
+            <p>本文の制度条件、申請窓口、価格表記は 2026-04-30 時点で確認しました。公開日は 2026-05-01 です。条件が動いた制度から順に見直していきます。</p>
+
+            <h2>無料相談を受け付けています</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tools-2026/illust-09.webp" alt="制度選びから運用設計まで相談する導線" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>制度の選び方で迷う、申請が通るか不安、導入後の運用まで見てほしい。そういうときは、コールテンの公式LINEアカウントから無料で相談できます。教育機関、NPO法人、一般社団法人の現場でAI活用を伴走してきた立場から、申請可否だけでなく運用の組み方まで一緒に見ていきます。</p>
+
+            <aside class="related-links">
+              <p><strong>関連リンク</strong></p>
+              <ul>
+                <li><a href="/voices/kubota/">NPO法人の支援事例を見る</a></li>
+                <li><a href="/services/advisory/">AI顧問サービスを見る</a></li>
+              </ul>
+            </aside>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">記事で扱った制度の選び方や申請の進め方、運用設計まで、お気軽にご相談ください。</p>
+              <a class="btn-contact-xl" href="/contact/">
+                相談する
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 36px 0 14px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  .article-body p { margin-bottom: 24px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 14px;
+    line-height: 1.9;
+  }
+  .check-date {
+    margin: -8px 0 18px;
+    color: var(--text-light);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 0 0 28px;
+    padding-bottom: 8px;
+  }
+  table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.7;
+    background: #fff;
+  }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: 700;
+    color: var(--sea);
+    margin-bottom: 10px;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    vertical-align: top;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  th {
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    font-weight: 700;
+  }
+  .observation-box,
+  .related-links {
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin: 28px 0;
+  }
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 12px 14px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.right { flex-direction: row-reverse; }
+  .bubble.right .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .observation-box {
+    background: #f6f7f8;
+    border-top: 1px solid #d7dde3;
+    border-bottom: 1px solid #d7dde3;
+  }
+  .related-links {
+    background: rgba(22,97,78,0.04);
+    border: 1px solid rgba(22,97,78,0.12);
+  }
+  .related-links ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 32px 0 8px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sea, #16614e);
+    margin-bottom: 20px;
+  }
+  .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea, #16614e);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 44px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(22,97,78,0.28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(22,97,78,0.38);
+  }
+  .faq {
+    padding: 8px 0 0;
+  }
+  .faq .section-head small {
+    color: var(--sea);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .faq .section-head h2 {
+    margin: 8px 0 18px;
+    background: none;
+    color: var(--sea);
+    padding: 0;
+    box-shadow: none;
+  }
+  .faq-items details {
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .faq-items details:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-items summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--sea);
+    list-style: none;
+  }
+  .faq-items summary::-webkit-details-marker { display: none; }
+  .faq-items .mini {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+  }
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+    table { min-width: 640px; font-size: 13px; }
+    th, td { padding: 10px 12px; }
+  }
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .cta-grid { grid-template-columns: 1fr; }
+    .article-foot { justify-content: center; }
+  }
+</style>
+
+<!-- v2 final revision: 2026-05-01 -->

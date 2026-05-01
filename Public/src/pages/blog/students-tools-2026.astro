@@ -1,0 +1,873 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "日本の学生が使えるAI/IT学割・無料制度まとめ｜個人で申請しやすい制度を中心に整理 2026年版｜株式会社コールテン";
+const description = "日本の学生向けAI/IT学割・無料制度を、個人申請しやすい制度を中心に整理。GitHub Student、Notion、Figma、Adobe、JetBrains、Perplexity、Cursorの料金区分、対象条件、認証方式、日本での注意点、卒業後の扱いを確認日2026-04-30時点でまとめます。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/students-tools-2026/"
+  ogUrl="https://www.corduroy.co.jp/blog/students-tools-2026/"
+  ogType="article"
+>
+  <meta slot="head" name="robots" content="noindex,nofollow" />
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/students-tools-2026/#article",
+    "url": "https://www.corduroy.co.jp/blog/students-tools-2026/",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/students-tools-2026/" },
+    "headline": "日本の学生が使えるAI/IT学割・無料制度まとめ",
+    "datePublished": "2026-05-01",
+    "dateModified": "2026-05-01",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+    "description": "日本の学生向けAI/IT学割・無料制度を、個人申請しやすい制度を中心に整理。制度の種類、認証方式、日本での注意点、卒業後の扱いを確認日2026-04-30時点でまとめます。",
+    "keywords": ["学生 AI 無料", "GitHub Student 申請", "Notion Education", "Figma Education", "Cursor 学生 日本", "SheerID 通らない", "Adobe 学生割引", "放送大学 学割"]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "日本の学生が使えるAI/IT学割・無料制度まとめ" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.corduroy.co.jp/members/masaya/#person",
+    "name": "向 雅也",
+    "url": "https://www.corduroy.co.jp/members/masaya/",
+    "worksFor": { "@id": "https://www.corduroy.co.jp/#organization" }
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.corduroy.co.jp/#organization",
+    "name": "株式会社コールテン",
+    "url": "https://www.corduroy.co.jp/"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "日本の高校生は GitHub Student Developer Pack を使えますか",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "使える可能性があります。確認日2026-04-30時点でGitHubの学生要件には高校とホームスクールが含まれ、学位またはdiploma課程への在籍と学校発行メールまたは在学証明が条件です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "放送大学・通信制大学でも申請しやすい制度はありますか",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "あります。確認日2026-04-30時点では、学校メール必須の制度よりも、GitHub、Adobe、Figmaのように在学証明やSheerIDを含む別経路がある制度から見るほうが進めやすいです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "SheerIDで学校が見つからないときはどうすればいいですか",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "学校追加依頼と書類審査可否を確認します。確認日2026-04-30時点でSheerID系制度には学校追加依頼や在学証明を使う手動審査があり、制度によっては代替できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "卒業後に無料プランは自動課金になりますか",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "制度ごとに異なります。GitHub Studentのように特典停止型もあれば、CursorやAdobeのように通常価格または継続価格へ自動更新される制度もあります。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>students-tools-2026</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-01</time>
+            <span class="cat">学習・AI活用</span>
+          </div>
+          <h1>日本の学生が使えるAI/IT学割・無料制度まとめ｜個人で申請しやすい制度を中心に整理 2026年版</h1>
+          <p class="article-lead">日本の学生向けAI/IT制度は、個人で申請しやすいものと、学校契約で使うものが混ざっています。この記事では確認日2026-04-30時点の公式情報を軸に、普通の大学生、放送大学生、通信制大学生、社会人学生まで含めて、制度の違いと認証の詰まりやすさを整理します。教育支援の現場で学生・学校から受ける相談をもとに、公式要件と実務上の詰まりやすさを分けて整理します。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <h2>3秒で確認したい結論</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/students-tools-2026/chaos-map/chaos-map-v1.png" alt="日本の学生が使えるAI/IT学割・無料制度カオスマップ 2026年版（個人申請 / 学校契約型 / 団体・学校寄りの3分類）" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>日本の学生が個人で見始めやすい制度は、確認日2026-04-30時点では GitHub Student、Notion Education Plus、Figma for Education、Adobe学生・教職員版、JetBrains Student Pack、Perplexity Education Pro、Cursor for Students です。</p>
+            <p>ただし中身は揃っておらず、無料、無料期間あり、割引、学校提供型が混在します。ChatGPT Edu、Claude for Education、Microsoft 365 Education、Google Workspace for Education は学生個人の学割ではなく、学校契約や学校アカウントで見る制度です。</p>
+            <p>検索時点で迷いやすいのは「日本で使えるサービス」と「日本の学生が学割認証を通せる制度」を同じ意味で読んでしまうことです。前者は使えるが後者は条件が厳しい制度もあるため、最初は料金区分と認証方式だけ先に見ます。</p>
+            <ul>
+              <li>無料: GitHub Student、Notion Education Plus、Figma for Education、JetBrains Student Pack</li>
+              <li>無料期間あり: Cursor for Students</li>
+              <li>割引: Adobe学生・教職員版、Perplexity Education Pro</li>
+              <li>学校提供型: ChatGPT Edu、Claude for Education、Microsoft 365 Education、Google Workspace for Education</li>
+            </ul>
+
+            <div class="card big-bubble" style="margin-bottom:16px;">
+              <div class="dialogue">
+                <div class="bubble right">
+                  <div class="bubble-avatar">
+                    <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                    <span class="name-tag">Tiki</span>
+                  </div>
+                  <div class="bubble-text">
+                    個人学割と学校契約型は混ぜないほうが早いです。今すぐ自分で申し込める制度だけ先に分けると、比較がかなり軽くなります。
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h2>主要制度を3分類で分ける</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/students-tools-2026/illust-02.webp" alt="個人で申請しやすい制度・学校契約型・団体・学校寄りの3分類イメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>学生向けAI/IT制度は、確認日2026-04-30時点では「個人申請可能」「学校契約型」「団体・学校寄り」の3分類で読むと判断しやすいです。</p>
+            <p>この切り分けを先にしておくと、学生本人だけで完結する申請と、教職員や情報システム部門に相談すべき制度が分かれます。AIを学習のパートナーとして早く使い始めたい学生ほど、この順番が有効です。</p>
+            <p>特に検索で見つかりやすい ChatGPT や Claude は個人向け一般プランと教育機関向け提供形態が分かれているため、学校が導入していない限りは個人学割として期待しすぎないほうが整理しやすくなります。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>主要制度の3分類 ※確認日: 2026-04-30</caption>
+                <thead>
+                  <tr>
+                    <th>分類</th>
+                    <th>制度</th>
+                    <th>料金区分</th>
+                    <th>認証方式</th>
+                    <th>読み方</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>個人申請可能</td>
+                    <td>GitHub、Notion、Figma、Adobe、JetBrains、Perplexity、Cursor</td>
+                    <td>無料 / 無料期間あり / 割引</td>
+                    <td>学校メール、GitHub Education、SheerID、書類審査</td>
+                    <td>学生本人が申請の主役</td>
+                  </tr>
+                  <tr>
+                    <td>学校契約型</td>
+                    <td>ChatGPT Edu、Claude for Education、Microsoft 365 Education、Google Workspace for Education</td>
+                    <td>学校提供型</td>
+                    <td>学校契約、学校アカウント</td>
+                    <td>個人学割とは分けて見る</td>
+                  </tr>
+                  <tr>
+                    <td>団体・学校寄り</td>
+                    <td>Slack Education、Descript Education、Zoom Education</td>
+                    <td>団体割引または学校提供型</td>
+                    <td>教育機関審査、組織申請</td>
+                    <td>研究室や授業向けに近い</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの教育支援現場で見える傾向として</strong></p>
+              <p>個人学割と学校契約型を同じ温度感で探し続けると、比較対象が増えすぎて判断が遅れやすいです。学生本人がすぐ動ける制度を先に確保し、その後に学校提供型を確認する順番のほうが進めやすくなります。</p>
+            </aside>
+
+            <h2>学校種別ごとに対象は変わる</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/students-tools-2026/illust-03.webp" alt="高校生・大学生・大学院生・放送大学・通信制大学・社会人学生・専門学校生・留学生など多様な学生像" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>学校種別で最初に見る制度は、確認日2026-04-30時点でも一律ではありません。</p>
+            <p>高校生では対象外が混ざりやすく、普通の大学生・大学院生では比較対象が増え、放送大学・通信制大学・社会人学生では認証経路の違いが強く出ます。専門学校やブートキャンプでは、学校種別より diploma 課程かどうかと学校メールの有無が効きます。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>学校種別ごとの見方 ※確認日: 2026-04-30</caption>
+                <thead>
+                  <tr>
+                    <th>学校種別</th>
+                    <th>最初に見る制度</th>
+                    <th>詰まりやすい点</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>普通の大学生・大学院生</td>
+                    <td>GitHub、Notion、Figma、Adobe</td>
+                    <td>学校ドメイン未登録、再認証</td>
+                  </tr>
+                  <tr>
+                    <td>高校生</td>
+                    <td>GitHub、Figma、Adobe</td>
+                    <td>NotionはK-12対象外、Perplexityは大学レベル以上</td>
+                  </tr>
+                  <tr>
+                    <td>放送大学・通信制大学・社会人学生</td>
+                    <td>GitHub、Adobe、Figma</td>
+                    <td>学校メール、学位課程、在学証明の出し方</td>
+                  </tr>
+                  <tr>
+                    <td>専門学校・ブートキャンプ</td>
+                    <td>GitHub、Adobe、Figma</td>
+                    <td>diploma課程か、代替書類が使えるか</td>
+                  </tr>
+                  <tr>
+                    <td>留学生・ホームスクール</td>
+                    <td>GitHubを起点に制度別確認</td>
+                    <td>姓名不一致、学校DB未登録、対象明記の薄さ</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>放送大学・通信制大学で詰まりやすいのは、通信制そのものより、学位課程か、学校メールがあるか、在学証明を出せるかです。full-time 明示はベンダー差が大きいため、制度ごとの要件確認を優先します。</p>
+            <p>放送大学では全科履修生が学位課程として最も説明しやすく、選科履修生や科目履修生は制度ごとの個別判定になりやすいです。通信制大学でも事情は近く、学校発行メールを公開確認しやすい大学とそうでない大学で進めやすさが分かれます。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  放送大学や通信制大学で見たいのは、通信制という属性より、学校メール・学位課程・在学証明の3点です。社会人学生ほど、ここを先に確認しておくと申請の順番を決めやすくなります。
+                </div>
+              </div>
+            </div>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの教育支援現場で見える傾向として</strong></p>
+              <p>学割目的で学び直しを考える社会人学生では、NotionやCursorのような学校メール依存型より、GitHubやAdobeのように在学証明や別認証経路がある制度から確認するほうが実務に乗りやすいです。</p>
+            </aside>
+
+            <h2>主要7制度を比較する</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/students-tools-2026/chaos-map/chaos-map-v2.png" alt="主要7制度 × 学校種別5列の対応マトリクス（対象明記/明記なし/要審査/対象外）" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>日本の学生が個人で比較しやすい制度は、確認日2026-04-30時点では次の7つです。</p>
+            <p>表では制度の強さより、申請前に必要な確認項目が見えることを優先しています。無料制度でも認証が重いものがあり、割引制度でも日本の対象校定義が読みやすいものがあります。</p>
+            <p>最初の申請順としては、学校メールなしでも進めやすい GitHub、価格と書類例が読みやすい Adobe、学校メールがあるなら Notion と Figma、開発専攻なら JetBrains、追加候補として Perplexity と Cursor、という並びで見ると整理しやすいです。</p>
+            <div class="table-scroll">
+              <table class="wide-table">
+                <caption>主要7制度の比較 ※確認日: 2026-04-30</caption>
+                <thead>
+                  <tr>
+                    <th>制度</th>
+                    <th>料金区分</th>
+                    <th>対象条件</th>
+                    <th>認証方式</th>
+                    <th>日本での注意点</th>
+                    <th>卒業後</th>
+                    <th>公式URL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>GitHub Student</td>
+                    <td>無料</td>
+                    <td>学位またはdiploma課程、13歳以上</td>
+                    <td>GitHub Education、学校メールまたは在学証明</td>
+                    <td>.ac.jpでも自動承認保証はなく、書類準備が安全</td>
+                    <td>学生認証失効で特典停止</td>
+                    <td><a href="https://education.github.com/pack" target="_blank" rel="noopener noreferrer">公式</a></td>
+                  </tr>
+                  <tr>
+                    <td>Notion Education Plus</td>
+                    <td>無料</td>
+                    <td>WHED掲載の高等教育機関、K-12対象外</td>
+                    <td>学校メールのみ</td>
+                    <td>学校メールがないと進めにくい</td>
+                    <td>教育プラン終了、データは残しやすい</td>
+                    <td><a href="https://www.notion.com/help/notion-for-education" target="_blank" rel="noopener noreferrer">公式</a></td>
+                  </tr>
+                  <tr>
+                    <td>Figma for Education</td>
+                    <td>無料</td>
+                    <td>高校、大学、ブートキャンプなど</td>
+                    <td>学校メール、高等教育はSheerID</td>
+                    <td>高校可。ただしK-12ではAI機能制限あり</td>
+                    <td>再認証切れで教育資格失効</td>
+                    <td><a href="https://help.figma.com/hc/en-us/articles/360041061214-Verify-education-status" target="_blank" rel="noopener noreferrer">公式</a></td>
+                  </tr>
+                  <tr>
+                    <td>Adobe学生・教職員版</td>
+                    <td>割引</td>
+                    <td>13歳以上、対象校在籍</td>
+                    <td>学校メールまたは追加書類、更新時SheerID</td>
+                    <td>価格と必要書類が比較的読みやすい</td>
+                    <td>継続価格へ自動更新</td>
+                    <td><a href="https://www.adobe.com/creativecloud/buy/students.html" target="_blank" rel="noopener noreferrer">公式</a></td>
+                  </tr>
+                  <tr>
+                    <td>JetBrains Student Pack</td>
+                    <td>無料</td>
+                    <td>認定教育機関の学生</td>
+                    <td>学校メール、ISIC/ITIC、GitHub Student Pack</td>
+                    <td>学校書類だけの申請は現行FAQで不可</td>
+                    <td>1年ごと更新、失効後は卒業割引</td>
+                    <td><a href="https://sales.jetbrains.com/hc/en-gb/articles/207241195-Do-you-offer-free-educational-licenses-for-students-and-teachers" target="_blank" rel="noopener noreferrer">公式</a></td>
+                  </tr>
+                  <tr>
+                    <td>Perplexity Education Pro</td>
+                    <td>割引</td>
+                    <td>大学レベル以上</td>
+                    <td>SheerID</td>
+                    <td>高校生向け制度としては読みづらい</td>
+                    <td>割引終了後は通常料金へ戻る</td>
+                    <td><a href="https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you" target="_blank" rel="noopener noreferrer">公式</a></td>
+                  </tr>
+                  <tr>
+                    <td>Cursor for Students</td>
+                    <td>無料期間あり</td>
+                    <td>対象大学の学生</td>
+                    <td>SheerIDと学生メール一致</td>
+                    <td>公開公式情報では米国の.edu中心運用</td>
+                    <td>1年後に通常価格で自動更新</td>
+                    <td><a href="https://cursor.com/en/students" target="_blank" rel="noopener noreferrer">公式</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>GitHub</h3>
+            <p>GitHub Student は、日本の学生が最初に狙いやすい無料制度です。学校メールが弱くても在学証明や時間割で補える余地があり、高校やホームスクールも公式要件に含まれます。GitHub Docs では2026-04-20以降のstudent plan新規signup一時停止注記も出ているため、Copilot Studentは申請時点で現行状況を再確認します。</p>
+            <p>開発系のAIパートナーを探す学生にとっては、Copilotの可否だけでなく、Pack全体で何が使えるかを見るほうが価値を判断しやすいです。学校メールで即通過しなくても、書類で戻せる余地がある点は他制度より読みやすい部分です。</p>
+            <p><a href="/blog/github-student-pack-guide/">GitHub Student Developer Pack 申請手順ガイド</a> で申請導線を分けて確認できます。</p>
+
+            <h3>Notion / Figma / Adobe</h3>
+            <p>Notion Education Plus は無料ですが、WHED掲載の高等教育機関で学校メール必須です。書類代替を受けないため、放送大学・通信制大学では学校メールの有無が先に効きます。</p>
+            <p>Notion は資料整理や研究メモの基盤として強い一方、認証の柔軟性は高くありません。学校メールが出せる大学生には候補ですが、社会人学生や通信制学生では最初の比較対象から外す判断もありえます。</p>
+            <p>Figma for Education は高校生も対象に入りますが、K-12ではAI機能制限があります。Adobe学生・教職員版は無料ではなく割引制度で、2026-04-30時点の日本価格は初年度2,180円/月、2年目以降4,180円/月です。Adobeは対象校定義と書類例が比較的読みやすく、学校メールだけに依存しない点も確認しやすい制度です。</p>
+
+            <h3>JetBrains / Perplexity / Cursor</h3>
+            <p>JetBrains Student Pack は無料ですが、2024年7月以降は学校書類だけでの申請を現行FAQで受け付けていません。GitHub Student Pack や学校メールが使えるかが分岐になります。</p>
+            <p>JetBrains はGitHubを先に通せる学生ほど見やすくなります。単独で見るより、開発環境全体の一部として組み合わせる制度です。</p>
+            <p>Perplexity Education Pro は大学レベル以上向けの割引制度で、大学メールが弱い学校ではSheerIDの書類審査が焦点になります。Cursor は確認できた公開公式情報では、現在は米国の.eduメール中心運用です。日本の.ac.jpは公式上の対象明記がなく、現時点では通りにくい候補として見ます。</p>
+            <p>そのため、日本の学生がAIパートナーを早く確保したい場合は、Cursorを最初の本命に置くより、先にGitHubや既存の一般プラン候補を押さえたうえで追加検討するほうが安全です。</p>
+
+            <h2>SheerIDとGitHub Educationの認証で詰まりやすい理由</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/students-tools-2026/illust-04.webp" alt="SheerID申請フォームと「学校が見つからない」「学校メールがない」「在学証明が不足」のチェックポイント" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>日本の学生が制度選びで詰まりやすいのは、確認日2026-04-30時点では機能比較より認証方式の差です。</p>
+            <p>同じ学生向けでも、GitHub Education、SheerID、学校メール即時認証では失敗パターンが違います。特に日本では、学校が海外サービスのDBに載っているか、学校メールが一般的な形式か、現在学期の日付が読める書類を出せるかで結果が変わります。</p>
+            <p>先に決めたいのは、学校メールで押すか、在学証明を出すか、学校追加依頼を試すかの順番です。ここを曖昧にすると、制度ごとに別の失敗を繰り返しやすくなります。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>認証で詰まりやすいポイント ※確認日: 2026-04-30</caption>
+                <thead>
+                  <tr>
+                    <th>認証方式</th>
+                    <th>主な制度</th>
+                    <th>詰まりやすい理由</th>
+                    <th>代替手段</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>GitHub Education</td>
+                    <td>GitHub Student、Copilot Student</td>
+                    <td>unverified domain、日付不足、不鮮明な書類</td>
+                    <td>在学証明、時間割、成績証明で再申請</td>
+                  </tr>
+                  <tr>
+                    <td>SheerID</td>
+                    <td>Figma、Perplexity、Adobe更新時、Cursor</td>
+                    <td>学校DB未登録、現在学期の日付不足、姓名不一致</td>
+                    <td>学校追加依頼、書類審査</td>
+                  </tr>
+                  <tr>
+                    <td>学校メール即時認証</td>
+                    <td>Adobe初回、JetBrains、Notion</td>
+                    <td>学校メールがない、学校ドメインが未登録</td>
+                    <td>制度ごとの別経路確認</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>詰まりやすい理由は、学校がDBにない、学校メール必須かどうかが制度ごとに違う、手動審査に入る条件が見えにくい、在学証明で代替できる制度とできない制度が混在する、無料でも支払い方法登録が必要な制度がある、の5点です。</p>
+            <p>GitHubはSheerIDではありませんが、考え方は近く、現在有効な在学を機械または人が確認できるかに集約されます。SheerIDで書類を出すときは、未成年なら学校や保護者と確認し、不要な個人情報を含めない形で提出します。詳しい分岐は <a href="/blog/sheerid-verification-troubleshooting/">SheerIDで認証が通らないときの対処法</a> に分けます。</p>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  学校がDBにないときも、そこで終わりとは限りません。SheerID系は学校追加依頼や書類審査、GitHubは在学証明の再提出で戻せることがあります。
+                </div>
+              </div>
+            </div>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの教育支援現場で見える傾向として</strong></p>
+              <p>「日本の学校は通りにくい」と一括りにするより、認証方式ごとに代替手段があるかを見るほうが早いです。Notionのように代替が薄い制度と、GitHubやAdobeのように書類余地がある制度は分けて考えます。</p>
+            </aside>
+
+            <h2>卒業後にどうなるか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/students-tools-2026/illust-05.webp" alt="卒業後の4類型（失効・自動更新・値上がり・データ保持）の4分割マトリクス" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>卒業後の扱いは、確認日2026-04-30時点では「失効」「自動更新」「値上がり」「データ保持」の4類型で見ると整理しやすいです。</p>
+            <p>学生期間中は無料かどうかに目が向きやすいですが、卒業後もAIパートナーや開発環境を使い続けるなら、請求開始日と一般プランへの移行条件を先に見ておくほうが実務では重要です。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>卒業後の4類型 ※確認日: 2026-04-30</caption>
+                <thead>
+                  <tr>
+                    <th>類型</th>
+                    <th>主な制度</th>
+                    <th>意味</th>
+                    <th>確認したい点</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>失効</td>
+                    <td>GitHub Student、Figma Education</td>
+                    <td>学生資格が切れると特典も止まる</td>
+                    <td>一般プラン移行、データ移行</td>
+                  </tr>
+                  <tr>
+                    <td>自動更新</td>
+                    <td>Cursor、Adobe</td>
+                    <td>期限後に有料へ切り替わる</td>
+                    <td>請求開始日、キャンセル期限</td>
+                  </tr>
+                  <tr>
+                    <td>値上がり</td>
+                    <td>Perplexity Education Pro</td>
+                    <td>割引終了後に通常料金へ戻る</td>
+                    <td>次回更新額</td>
+                  </tr>
+                  <tr>
+                    <td>データ保持</td>
+                    <td>Notion、JetBrainsの一部継続</td>
+                    <td>アカウントは残るが価格や機能が変わる</td>
+                    <td>編集可否、書き出し、卒業割引</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>GitHub Student や Figma は資格切れで止まる側、Adobe と Cursor は請求が始まりうる側、Notion と JetBrains はアカウント自体は残りやすい側として分けておくと把握しやすいです。卒業前に確認したい制度別の止め方は、下の関連記事に分けます。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  無料終了より見落としやすいのは自動更新です。卒業や進級の前に、学校や保護者とも請求開始日を確認しておくと安全です。
+                </div>
+              </div>
+            </div>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの教育支援現場で見える傾向として</strong></p>
+              <p>卒業後も使い続けたいAIパートナーと、卒業時に止める制度を分けて管理しておくと、更新漏れや乗り換えの負担を減らしやすいです。</p>
+            </aside>
+
+            <h2>FAQ</h2>
+            <p>よく検索される4問への答えは、確認日2026-04-30時点では次の整理です。</p>
+            <p>本文の比較表では拾いにくい、学校種別ごとの申請順と認証の詰まりどころを中心にまとめています。</p>
+            <section class="faq">
+              <div class="faq-items">
+                <details>
+                  <summary>日本の高校生は GitHub Student Developer Pack を使えますか</summary>
+                  <p class="mini">使える可能性があります。GitHubの学生要件には高校が含まれ、学校発行メールまたは在学証明で申請できます。自動承認を前提にせず、日付入り書類を先に用意しておくと進めやすいです。</p>
+                </details>
+                <details>
+                  <summary>放送大学・通信制大学でも申請しやすい制度はありますか</summary>
+                  <p class="mini">あります。学校メール必須の制度より、GitHub、Adobe、Figmaのように在学証明やSheerIDを含む別経路がある制度から見るほうが進めやすいです。確認点は通信制かどうかより、学校メール、学位課程、在学証明です。</p>
+                </details>
+                <details>
+                  <summary>SheerIDで学校が見つからないときはどうすればいいですか</summary>
+                  <p class="mini">学校追加依頼と書類審査可否を確認します。制度によっては在学証明、時間割、成績証明、学費請求書などで手動審査へ進めますが、Notionのように学校メール必須で代替しにくい制度もあります。</p>
+                </details>
+                <details>
+                  <summary>卒業後に無料プランは自動課金になりますか</summary>
+                  <p class="mini">制度によります。GitHub Studentのように特典停止型もあれば、CursorやAdobeのように有料へ自動更新される制度もあります。申請時に請求開始日と解約締切を確認します。</p>
+                </details>
+              </div>
+            </section>
+
+            <h2>無料相談を受け付けています</h2>
+            <p>学生向けAI/IT制度は価格より認証方式の差で迷いやすい分野です。学校メールがあるか、在学証明を出せるか、無料か割引かを切り分けるだけで判断の初速が出ます。</p>
+            <p>自分の学校で何から確認すればいいかわからない、放送大学・通信制大学・社会人学生で対象になるか読めない場合は、コールテンの公式LINEアカウントから無料で相談を受け付けています。教育・NPO・士業の現場でAI活用の伴走をしてきた立場から、申請時の詰まりやすさまで一緒に整理できます。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">学生本人・社会人学生・学校関係者、どなたでもお気軽にご相談ください。</p>
+              <a class="btn-contact-xl" href="/contact/">
+                相談する
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 34px 0 12px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 12px;
+    line-height: 1.85;
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 0 0 28px;
+    padding-bottom: 8px;
+  }
+  table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.7;
+    background: #fff;
+  }
+  .wide-table { min-width: 980px; }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: 700;
+    color: var(--sea);
+    margin-bottom: 10px;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    vertical-align: top;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  th {
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    font-weight: 700;
+  }
+  .observation-box,
+  .related-links {
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin: 28px 0;
+  }
+  .observation-box {
+    background: #f6f7f8;
+    border-top: 1px solid #d7dde3;
+    border-bottom: 1px solid #d7dde3;
+  }
+  .related-links {
+    background: rgba(22,97,78,0.04);
+    border: 1px solid rgba(22,97,78,0.12);
+  }
+  .related-links ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .faq {
+    padding: 0;
+  }
+  .faq-items details {
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .faq-items details:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-items summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--sea);
+    list-style: none;
+  }
+  .faq-items summary::-webkit-details-marker { display: none; }
+  .mini {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 32px 0 8px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sea, #16614e);
+    margin-bottom: 20px;
+  }
+  .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea, #16614e);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 44px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(22,97,78,0.28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(22,97,78,0.38);
+  }
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dialogue-flow { max-width: 760px; margin: 0 auto; }
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.right { flex-direction: row-reverse; }
+  .bubble.right .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .big-bubble .bubble img { width: 64px; height: 64px; }
+  .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+  .big-bubble { max-width: 720px; margin: 0 auto; }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+  }
+
+  @media (max-width: 768px) {
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+    table { min-width: 640px; font-size: 13px; }
+    th, td { padding: 10px 12px; }
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+  }
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .cta-grid { grid-template-columns: 1fr; }
+    .article-foot { justify-content: center; }
+  }
+</style>
+
+<!-- v2 draft created: 2026-05-01 -->
