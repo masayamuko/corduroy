@@ -14,6 +14,7 @@ export default defineConfig({
   redirects: {
     '/clients/takaro/': '/voices/takaro/',
     '/voices/takaro-showcase/': '/voices/takaro/',
+    '/blog/npo-tools-2026/': '/blog/npo-tools/',
   },
   integrations: [sitemap(), preact()]
 });
