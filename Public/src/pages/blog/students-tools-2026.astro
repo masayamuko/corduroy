@@ -523,14 +523,14 @@ const description = "日本の学生向けAI/IT学割・無料制度を、個人
               </div>
             </section>
 
-            <h2>制度選びの相談はLINEから無料でできます</h2>
-            <p>学生向けAI/IT制度は、確認日2026-04-30時点でも価格より認証方式の差で迷いやすい分野です。学校メールがあるか、在学証明を出せるか、無料か割引かを切り分けるだけで判断の初速が出ます。</p>
-            <p>自分の学校で何から確認すればいいかわからない、放送大学・通信制大学・社会人学生で対象になるかが読めない場合は、コールテン代表 武小弥が無料で相談を受けています。教育・NPO・士業の現場でAI活用の伴走をしてきた立場から、申請時の詰まりやすさまで一緒に整理できます。価格・対象条件・認証方式は2026-04-30時点で確認しました。</p>
+            <h2>無料相談を受け付けています</h2>
+            <p>学生向けAI/IT制度は価格より認証方式の差で迷いやすい分野です。学校メールがあるか、在学証明を出せるか、無料か割引かを切り分けるだけで判断の初速が出ます。</p>
+            <p>自分の学校で何から確認すればいいかわからない、放送大学・通信制大学・社会人学生で対象になるか読めない場合は、コールテンの公式LINEアカウントから無料で相談を受け付けています。教育・NPO・士業の現場でAI活用の伴走をしてきた立場から、申請時の詰まりやすさまで一緒に整理できます。</p>
 
-            <div class="line-cta-box fade-up">
-              <p class="line-cta-lead">LINEから無料で相談できます。学生本人・社会人学生・学校関係者、どなたでも気軽にメッセージしてください。</p>
-              <a class="btn-line-xl" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
-                LINE登録して無料相談する
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">学生本人・社会人学生・学校関係者、どなたでもお気軽にご相談ください。</p>
+              <a class="btn-contact-xl" href="/contact/">
+                相談する
               </a>
             </div>
           </div>
@@ -633,6 +633,21 @@ const description = "日本の学生向けAI/IT学割・無料制度を、個人
     background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
     line-height: 1.5;
   }
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+  }
   .article-body p { margin-bottom: 20px; }
   .article-body a {
     color: var(--sea);
@@ -725,35 +740,35 @@ const description = "日本の学生向けAI/IT学割・無料制度を、個人
     font-size: 14px;
     color: #555;
   }
-  .line-cta-box {
-    background: linear-gradient(135deg, #f0faf2 0%, #e7f5ec 100%);
-    border: 1px solid #b8e0c4;
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22,97,78,0.18);
     border-radius: 16px;
     padding: 28px 24px;
     margin: 32px 0 8px;
     text-align: center;
   }
-  .line-cta-lead {
+  .contact-cta-lead {
     font-size: 15px;
     line-height: 1.7;
-    color: #1f4630;
+    color: var(--sea, #16614e);
     margin-bottom: 20px;
   }
-  .btn-line-xl {
+  .btn-contact-xl {
     display: inline-block;
-    background: #06c755;
+    background: var(--sea, #16614e);
     color: #fff !important;
     font-weight: 700;
     font-size: 16px;
-    padding: 16px 36px;
+    padding: 16px 44px;
     border-radius: 999px;
     text-decoration: none;
-    box-shadow: 0 6px 18px rgba(6,199,85,0.32);
+    box-shadow: 0 6px 18px rgba(22,97,78,0.28);
     transition: transform .15s, box-shadow .15s;
   }
-  .btn-line-xl:hover {
+  .btn-contact-xl:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 22px rgba(6,199,85,0.38);
+    box-shadow: 0 10px 22px rgba(22,97,78,0.38);
   }
   .article-foot {
     max-width: 720px;
