@@ -1,0 +1,610 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "CodexアプリのPETでテトを常駐させてみた｜hatch-petの使い方｜株式会社コールテン";
+const description = "Codexアプリの新機能PETを、コールテンのキャラクター「テト」で試した体験記事です。hatch-petスキルの入れ方から、画像1枚で生成し、設定の外観タブで選んで「ペットを起こす」までの流れを、手元で動いた範囲で簡潔にまとめた導入ガイドです。";
+const canonicalUrl = "https://www.corduroy.co.jp/blog/codex-pet-hatch-guide/";
+const publishedAt = "2026-05-02T09:00:00+09:00";
+const modifiedAt = "2026-05-02T09:00:00+09:00";
+
+const faqItems = [
+  {
+    question: "画像はどんなものでも大丈夫ですか",
+    answer: "手元のMac環境では、コールテンのキャラクター画像1枚で生成し、設定の外観タブから選択できました。背景が複雑すぎない画像のほうが意図した見た目に寄りやすい印象です。"
+  },
+  {
+    question: "複数のペットを切り替えられますか",
+    answer: "手元で確認した範囲では、生成したペットが設定の「カスタムペット」欄に追加され、そこで選び直す流れでした。上限や細かい挙動については、今後の公式案内を確認してください。"
+  },
+  {
+    question: "MacとWindowsの両方で使えますか",
+    answer: "この記事ではMac環境での動作を確認しています。他のOSでの動作については検証していないため、公式情報を確認してください。"
+  }
+];
+
+const blogPosting = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `${canonicalUrl}#article`,
+  url: canonicalUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+  headline: "CodexアプリのPETでテトを常駐させてみた｜hatch-petの使い方",
+  datePublished: publishedAt,
+  dateModified: modifiedAt,
+  image: "https://www.corduroy.co.jp/assets/images/ogp.png",
+  author: {
+    "@type": "Person",
+    name: "向 雅也",
+    url: "https://www.corduroy.co.jp/members/masaya/"
+  },
+  publisher: { "@id": "https://www.corduroy.co.jp/#organization" },
+  description,
+  articleSection: ["AI活用"],
+  keywords: ["Codex PET", "hatch-pet", "Codexアプリ", "デスクトップペット", "AI活用"]
+};
+
+const breadcrumbList = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "トップ", item: "https://www.corduroy.co.jp/" },
+    { "@type": "ListItem", position: 2, name: "ブログ", item: "https://www.corduroy.co.jp/blog/" },
+    { "@type": "ListItem", position: 3, name: "CodexアプリのPETでテトを常駐させてみた" }
+  ]
+};
+
+// FAQ schema には確認済み事実のみ掲載（推測・OS差分は除外）
+const faqSchemaItems = faqItems.slice(0, 1);
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqSchemaItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer
+    }
+  }))
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogUrl={canonicalUrl}
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(blogPosting)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqPage)} />
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>CodexアプリのPETでテトを常駐させてみた</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date" datetime="2026-05-02">2026-05-02</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>Codexアプリの新機能PETで、テトをデスクトップに常駐させてみた</h1>
+          <p class="article-lead">
+            Codexアプリに「PET」という新機能が増えて、画像1枚から動くキャラクターを置けるようになりました。今回はコールテンのマスコット「テト」を実際に呼び出してみた流れを、<strong>インストール → 画像送信 → 設定で選択 → 起こす</strong> の4段階でまとめます。<br>
+            2026-05-02 時点で、手元の環境で動いた範囲の記録です。
+          </p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <figure class="chapter-illust hero-figure fade-up">
+              <img src="/images/blog/codex-pet/screenshot-05.png" alt="ペットを起こすと、画面のすみっこにテトが現れて、Codexアプリの横で待機している様子" width="1366" height="768" loading="eager" decoding="async" />
+              <figcaption>ペットを起こすと、画面のすみっこにテトが現れて待機してくれます。</figcaption>
+            </figure>
+
+            <h2>3秒で確認したい結論</h2>
+            <p>結論から言うと、CodexアプリのPETは、画像1枚からデスクトップ常駐の小さな相棒を作れる機能でした。触ってみると設定そのものは重くなくて、分かれ目は「hatch-pet スキルを入れているか」と「設定画面のペット欄まで見に行くか」だと思います。</p>
+            <p>流れは4つです。`/skill-installer hatch-pet` でスキルを追加して、新しいセッションで `#hatch-pet` と画像1枚を送る。そのあと Codex アプリの設定から外観タブを開き、カスタムペットを選んで「ペットを起こす」を押せば、デスクトップに立ち上がります。</p>
+            <p>今回はコールテンの「Tiki」と「Teto」の2人で試してみました。実際にデスクトップに召喚しているのは Tiki のほうで、画面のキャプチャにもそのまま登場します。やってみたら、AIをただの道具として置くより、横にいるパートナーとして感じやすくなるのが面白かったですし、急ぎでも試しやすい機能だと思います。</p>
+
+            <div class="table-scroll">
+              <table>
+                <caption>4ステップの早見表</caption>
+                <thead>
+                  <tr><th>手順</th><th>操作場所</th><th>つまずきやすい点</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1. スキルをインストール</td><td>Codex CLI</td><td>Codex 再起動が必要</td></tr>
+                  <tr><td>2. #hatch-pet と画像1枚を送信</td><td>新規Codexセッション</td><td>画像は1枚だけ添付</td></tr>
+                  <tr><td>3. 設定で選択</td><td>外観タブ → ペット → カスタムペット</td><td>会話画面ではなく設定で選ぶ</td></tr>
+                  <tr><td>4. ペットを起こす</td><td>ペット欄の一番上のボタン</td><td>選択しただけでは出ない</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  Codexアプリに、こんなのが追加されました。画像1枚で相棒が立ち上がるので、導入の心理的ハードルはかなり低いです。
+                </div>
+              </div>
+            </div>
+
+            <h2>Codex PET（hatch-pet）とは何か</h2>
+            <p>PET は、Codex アプリ上で作ったキャラクターをデスクトップに常駐させる機能です。生成の入口が `#hatch-pet` と画像1枚で、細かいモデリングや設定から始めなくて良い設計になっています。生成後は設定の外観タブから選択し、「ペットを起こす」を押すことでデスクトップ上に表示されます。</p>
+            <p>この記事では、手元のMac環境で再現できた流れだけに絞って書きます。正式仕様の全体像はまだ確認できていない部分があるため、仕様変更が入っても読み手が混乱しにくいよう、確認済みの手順のみ記載します。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テト" width="82" height="82" loading="lazy">
+                  <span class="name-tag">テト</span>
+                </div>
+                <div class="bubble-text">
+                  テトをデスクトップに召喚するの、楽しいですよ。仕事の横にいるだけで、相棒感が一段増します。
+                </div>
+              </div>
+            </div>
+
+            <h2>ステップ1: hatch-pet スキルをインストール</h2>
+            <p>最初にやることはシンプルで、Codex CLI から `hatch-pet` スキルを入れます。コマンドは <code>/skill-installer hatch-pet</code> です。ここを飛ばすと、次の `#hatch-pet` の流れに入れないので、最初の分かれ目はここです。</p>
+            <p>スキルインストーラー経由なので、手作業で設定ファイルを触る感じではありません。急いでいるときほど、この種の導線は楽ですし、追加の仕方が揃っていると後で見返したときにも迷いにくいです。</p>
+            <p>もし「何も起きていないように見える」と感じたら、まずスキルが追加された前提で新しいセッションを切り直すのが良いです。同じ画面のまま様子を見るより、次の工程へ進んだほうが確認しやすいと思います。</p>
+
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/codex-pet/screenshot-01.png" alt="Codex CLIで /skill-installer hatch-pet を実行して、hatch-pet スキルを追加している画面" width="1366" height="768" loading="lazy" />
+              <figcaption>`/skill-installer hatch-pet` の実行画面。Codex の再起動を求められます。</figcaption>
+            </figure>
+
+            <h2>ステップ2: #hatch-pet タグと画像1枚で生成</h2>
+            <p>次に、新しい Codex セッションを起動します。ここで既存セッションの続きではなく、新しいセッションにしたほうが頭が整理しやすいと思います。やることは、プロンプトに <code>#hatch-pet</code> を入れて、画像を1枚添付して送るだけです。</p>
+            <p>画像は Tiki、Teto、自分のキャラクター、好きなイラストなどで試せます。今回はこちらのテト画像を使いました。背景が整理された絵のほうが、意図した見た目に寄りやすい印象でしたが、ここは今後もっと試す余地がありそうです。</p>
+            <p>送信すると生成が始まります。数秒から数十秒くらいで待つ場面があり、読み込みが走っているのが見えます。つまずきやすいのは、生成が終わったあとに「どこに保存されたのか」がすぐ見えにくい点ですが、答えは設定画面側にあります。</p>
+            <p>ここで大事なのは、うまく作ろうとしすぎないことかもしれません。まず1枚で立ち上げてみて、雰囲気が近いかどうかを確認する。そのあと画像を差し替えて再生成したほうが、試行回数を増やしやすいですし、かえって早いです。</p>
+
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/codex-pet/screenshot-02.png" alt="新しいCodexセッションで #hatch-pet タグとテトの画像1枚を添付して送信している画面" width="1366" height="768" loading="lazy" />
+              <figcaption>`#hatch-pet` タグと画像1枚を添付して送信した直後の画面。</figcaption>
+            </figure>
+
+            <h2>ステップ3: Codexアプリの設定で選択</h2>
+            <p>じゃあ、次にどこを見るか。生成が終わったら Codex アプリの設定を開いて、<strong>外観</strong> タブに進みます。一番下に <strong>ペット</strong> セクションがあり、その中の <strong>カスタムペット</strong> に、さっき作ったペットが追加されていました。</p>
+            <p>この段階で「生成したのに見当たらない」と感じる人は出そうです。チャット欄に出てくるというより、設定の管理対象として増える流れなので、生成直後に設定まで見に行ったほうが良いです。ここを知っているかどうかで、体感のスムーズさがかなり変わります。</p>
+            <p>ぼく自身も最初は、会話の流れの中に出てくるのかと思って少し探しました。けれど、管理場所を一度覚えてしまえば難しくありません。むしろ、複数作って切り替える前提なら、この置き場所のほうが整理しやすいはずです。</p>
+
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/codex-pet/screenshot-03.png" alt="Codexアプリの設定で「外観」タブを開き、ペット欄から「ペットをしまう」「Codex選択」など、クリックすべき場所をハイライトした画面" width="1366" height="768" loading="lazy" />
+              <figcaption>設定画面では「外観」タブを開いて、ペット欄まで降りていきます。</figcaption>
+            </figure>
+
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/codex-pet/screenshot-04.png" alt="カスタムペット欄に生成済みのテトが追加されており、選択済みの状態になっている画面" width="1366" height="768" loading="lazy" />
+              <figcaption>カスタムペット欄に、さっき生成したペットが追加されています。「選択」を押すとそのペットがアクティブになります。</figcaption>
+            </figure>
+
+            <h2>ステップ4: 「ペットを起こす」でデスクトップに召喚</h2>
+            <p>最後は、ペット欄の一番上にある <strong>「ペットを起こす」</strong> を押します。するとデスクトップ上でペットが立ち上がって、実際に動き始めます。ここで初めて、「あ、ただの設定追加じゃなくて本当に常駐するんだ」と実感できました。</p>
+            <p>操作としてはこれで完了です。手順だけ見れば短いんですが、触ってみた印象としては、生成よりも「設定画面で選ぶ」部分のほうが見落としやすいです。なので誰かに共有するときは、生成完了後に外観タブへ行くことまでセットで伝えたほうが親切だと思います。</p>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  動き出すと、なんかチームが増えた感じがします。設定の中の機能だったものが、急に身近な仲間になる感覚です。
+                </div>
+              </div>
+            </div>
+
+            <h2>やってみて感じたこと（コールテンの実体験）</h2>
+            <p>実際に触ってみて迷ったのは、生成後にどこに保存されるのかがすぐ分からない点でした。チャット欄に出てくるのかと思って少し探しましたが、答えは設定の外観タブ側にあります。そこを知っておくと、生成完了後の流れがスムーズになります。</p>
+            <p>設定で選んで「ペットを起こす」を押したとき、AIの存在がデスクトップ上で見える形になる変化は、使い始めてみないと実感しにくいところです。チャット画面の中だけにいた相手が、作業中の視界に入るようになる。話しかけるきっかけが増えるかどうかは、しばらく使いながら見ていきたいと思います。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テト" width="82" height="82" loading="lazy">
+                  <span class="name-tag">テト</span>
+                </div>
+                <div class="bubble-text">
+                  コールテンの30名のAIチームに、ここまで身近な仲間ができたな、って。見える場所にいるだけで、けっこう嬉しいです。
+                </div>
+              </div>
+            </div>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの実務観察として</strong></p>
+              <p>PET は生産性ツールというより、AIとの距離を縮める仕組みとして効いている感じがしました。数字で測る前の段階で、話しかける回数や親しみやすさが増えるなら、それだけでも導入する意味はあります。AIを道具で終わらせず、相棒として扱いたい人ほど相性が良いと思います。</p>
+            </aside>
+
+            <h2>あわせてこちらもどうぞ</h2>
+            <p>Codex や AI 活用を、自社の仕事の流れにどう馴染ませるかで迷う方は多いです。コールテンでは、こういう小さな新機能も「実務でどう使うか」の目線で一緒に整理しています。PET のような入口から始めて、第二の自分やAIチームづくりまで広げていくのも十分ありです。</p>
+            <p>AI活用について公式LINEから無料相談OKですし、コールテンがどうやって <a href="/members/">30名のAI社員と一緒に経営しているか</a> も公開しています。気になる方は、まず気軽に相談してください。</p>
+            <p>「導入してみたいけれど、どこが自社の使いどころなのか分からない」という段階でも大丈夫です。新機能を触るだけで終わらせず、実務の流れにどう接続するかまで一緒に見るほうが、あとで活きると思います。</p>
+
+            <p class="update-note">この記事は 2026-05-02 時点で手元のMac環境で確認した内容をもとに書いています。Codex アプリのアップデートで仕様が変わる可能性があるため、随時見直していきます。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">AI活用について公式LINEから無料相談OK</p>
+              <a class="btn-contact-xl" href="/contact/">相談する</a>
+            </div>
+
+            <p style="margin-top: 24px;"><strong>関連記事</strong></p>
+            <ul>
+              <li><a href="/members/about/">30名のAI社員と一緒に経営しているコールテンの仕事術</a></li>
+              <li><a href="/blog/tiki-teto-origin-story/">ティキちゃん、Tiki、盤上テト ― 第二の自分から、AI組織までの誕生秘話</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="container faq" style="padding-bottom:40px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくある質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            {faqItems.map((item, index) => (
+              <details {...(index === 0 ? { open: true } : {})} id={`faq-${index + 1}`}>
+                <summary>{item.question}</summary>
+                <p class="mini">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+          <p class="mini" style="max-width:800px;margin:16px auto 0;color:var(--text-light);">※ FAQ も 2026-05-02 時点で手元で確認できた範囲を前提にしています。正式仕様や対応OSは、今後の Codex アプリ側の案内を確認してください。</p>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 36px 0 14px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .article-body p {
+    margin-bottom: 24px;
+    line-height: 1.9;
+  }
+  .article-body code {
+    background: rgba(22, 97, 78, 0.08);
+    padding: 0.15em 0.4em;
+    border-radius: 6px;
+    font-size: 0.95em;
+  }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22, 97, 78, 0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 14px;
+    line-height: 1.9;
+  }
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  .chapter-illust figcaption {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 24px 0 32px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .table-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .table-scroll caption {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sea);
+    text-align: left;
+    padding: 10px 16px 6px;
+    background: rgba(22,97,78,0.05);
+    border-bottom: 1px solid var(--line);
+  }
+  .table-scroll th {
+    background: rgba(22,97,78,0.06);
+    color: var(--sea);
+    font-weight: 700;
+    padding: 10px 16px;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--line);
+  }
+  .table-scroll td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    vertical-align: top;
+  }
+  .table-scroll tr:last-child td {
+    border-bottom: none;
+  }
+  .observation-box {
+    background: #f6f7f8;
+    border-top: 1px solid #d7dde3;
+    border-bottom: 1px solid #d7dde3;
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin: 28px 0;
+  }
+  .mini {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+  }
+  .update-note {
+    font-size: 13px;
+    color: var(--text-light, #555);
+    margin: 24px 0;
+    padding: 12px 16px;
+    background: rgba(0,0,0,0.03);
+    border-radius: 8px;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22, 97, 78, 0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 32px 0 8px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sea);
+    margin-bottom: 20px;
+  }
+  .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 44px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(22, 97, 78, 0.38);
+  }
+  .dialogue-flow { max-width: 760px; margin: 0 auto; }
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble.teto .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    color: #12382c;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.right { flex-direction: row-reverse; }
+  .bubble.right .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .big-bubble .bubble img { width: 64px; height: 64px; }
+  .big-bubble .bubble-text { font-size: 15px; line-height: 1.8; }
+  .big-bubble { max-width: 720px; margin: 0 auto; }
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media (max-width: 768px) {
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+    .bubble-avatar {
+      width: 64px;
+      height: 64px;
+    }
+    .dialogue {
+      gap: 20px;
+    }
+    .contact-cta-box {
+      padding: 24px 18px;
+    }
+    .btn-contact-xl {
+      width: 100%;
+      text-align: center;
+      padding: 15px 24px;
+    }
+  }
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .article-foot { justify-content: center; }
+  }
+</style>
+<!-- last revised: 2026-05-02 -->
