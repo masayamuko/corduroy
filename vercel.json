@@ -42,6 +42,26 @@
       "source": "/voice-nakano.html",
       "destination": "/voices/takaro",
       "permanent": true
+    },
+    {
+      "source": "/service-study.html",
+      "destination": "/services/study/",
+      "permanent": true
+    },
+    {
+      "source": "/service-system.html",
+      "destination": "/services/system/",
+      "permanent": true
+    },
+    {
+      "source": "/service-study",
+      "destination": "/services/study/",
+      "permanent": true
+    },
+    {
+      "source": "/service-advisory.html",
+      "destination": "/services/advisory/",
+      "permanent": true
     }
   ]
 }
