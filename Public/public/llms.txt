@@ -36,6 +36,8 @@
 - [ChatGPTで「第二の自分」を育てたら、29名のAI組織になった話](https://www.corduroy.co.jp/blog/tiki-teto-origin-story/): ChatGPTに「第二の自分」を育て始めて、1年で29名のAIエージェント組織になった代表のストーリー。AI活用の全体像を物語形式で。
 - [失敗しないAI講座の選び方](https://www.corduroy.co.jp/blog/how-to-choose-ai-course/): 5つのチェックポイントと、注意したい講座の兆候。
 - [AI顧問とは何か](https://www.corduroy.co.jp/blog/what-is-ai-advisory/): AI顧問の役割・解決する課題・向いている人。
+- [日本の学生が使えるAI/IT学割・無料制度まとめ](https://www.corduroy.co.jp/blog/students-tools/): GitHub Student / Notion / Figma / Adobe / JetBrains / Perplexity / Cursor / SheerID の対象条件・認証方式・卒業後の扱いを整理。年次更新運用。
+- [日本のNPO法人・一般社団法人が使えるAI/IT支援制度まとめ](https://www.corduroy.co.jp/blog/npo-tools/): Google for Nonprofits / Microsoft / Slack / kintone / Anthropic / OpenAI のチーム応援ライセンスを整理。年次更新運用。
 
 ## 連絡先
 

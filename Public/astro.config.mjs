@@ -15,6 +15,7 @@ export default defineConfig({
     '/clients/takaro/': '/voices/takaro/',
     '/voices/takaro-showcase/': '/voices/takaro/',
     '/blog/npo-tools-2026/': '/blog/npo-tools/',
+    '/blog/students-tools-2026/': '/blog/students-tools/',
   },
   integrations: [sitemap(), preact()]
 });
