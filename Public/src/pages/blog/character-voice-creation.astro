@@ -389,9 +389,30 @@ const description = "コールテンのマスコット2体、盤上テトとTiki
             </div>
             <p>聴き比べると、<strong>キャラの「らしさ」が乗っているかどうか</strong>がわりとはっきり分かります。Beforeは「品質はいいが、誰の声でもない」感じ。Afterは「うちのキャラの声」になっていて、ちょっとアクセントが揺れたり抑揚が単調になったりしても、それが逆にキャラっぽさとして馴染んでいる。完璧さより、らしさのほうが効くんだな、という実感がありました。</p>
 
-            <aside class="observation-box">
-              <p><strong>ここはいずれ、テト・Tikiの声サンプルを置きたい場所です</strong></p>
-              <p>本当は、ここに短い音声を置いて「これがテトの声、これがTikiの声」と耳で聞いてもらえるのが一番早い気がします。ただ、公開用に整えたサンプルはまだ手元に残しておきたい段階なので、いまは文字でのご案内に留めています。記事のほうに動きがあったら、このブロックがそのまま音の置き場所になる予定、くらいの温度感で読んでもらえると助かります。</p>
+            <aside class="audio-compare">
+              <h3>実音声サンプル：Tiki / テト Before/After の聴き比べ</h3>
+              <p>同じ台本を、jvnv 既製モデルと自作の最新モデルで読み上げさせた音声サンプルです。Before は「品質はいいけど誰の声でもない」感じ、After は「うちのキャラの声」になってる感覚を、耳で確認してみてください。</p>
+              <div class="audio-row">
+                <div class="audio-block">
+                  <p class="audio-label">🎙 Tiki Before（jvnv-F1 既製）</p>
+                  <audio controls preload="none" src="/audio/voice-compare/tiki_before_jvnv-F1-jp.wav">お使いのブラウザはaudioに対応していません</audio>
+                </div>
+                <div class="audio-block">
+                  <p class="audio-label">🎙 Tiki After（tiki-v1 自作）</p>
+                  <audio controls preload="none" src="/audio/voice-compare/tiki_after_tiki-v1.wav">お使いのブラウザはaudioに対応していません</audio>
+                </div>
+              </div>
+              <div class="audio-row">
+                <div class="audio-block">
+                  <p class="audio-label">🎙 テト Before（jvnv-M1 既製）</p>
+                  <audio controls preload="none" src="/audio/voice-compare/teto_before_jvnv-M1-jp.wav">お使いのブラウザはaudioに対応していません</audio>
+                </div>
+                <div class="audio-block">
+                  <p class="audio-label">🎙 テト After（teto-v1 自作）</p>
+                  <audio controls preload="none" src="/audio/voice-compare/teto_after_teto-v1.wav">お使いのブラウザはaudioに対応していません</audio>
+                </div>
+              </div>
+              <p class="mini">※ 既製モデル（jvnv）はオープンソースで公開されている音声合成モデル、自作モデル（tiki-v1 / teto-v1）はStyle-Bert-VITS2でMasayaの声を学習させたものです。</p>
             </aside>
 
             <h2>9. 動画・SNS・社内利用 ― キャラ音声で何が変わったか</h2>
@@ -917,5 +938,40 @@ const description = "コールテンのマスコット2体、盤上テトとTiki
     .article-body h2 { font-size: 19px; margin-top: 36px; }
     .article-body h3 { font-size: 16px; margin-top: 28px; }
     .article-foot { justify-content: center; }
+  }
+  .audio-compare {
+    background: #faf8f3;
+    border-left: 4px solid var(--sea);
+    padding: 24px 28px;
+    margin: 32px 0;
+    border-radius: 8px;
+  }
+  .audio-compare h3 {
+    margin-top: 0;
+    color: var(--sea);
+    font-size: 17px;
+  }
+  .audio-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .audio-block {
+    background: #fff;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+  }
+  .audio-label {
+    font-weight: 700;
+    color: var(--sea);
+    margin: 0 0 8px 0;
+    font-size: 14px;
+  }
+  .audio-block audio { width: 100%; height: 36px; }
+  @media (max-width: 640px) {
+    .audio-row { grid-template-columns: 1fr; }
+    .audio-compare { padding: 20px 18px; }
   }
 </style>
