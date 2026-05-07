@@ -39,11 +39,7 @@ const blogPosting = {
   datePublished: publishedAt,
   dateModified: modifiedAt,
   image: "https://www.corduroy.co.jp/assets/images/ogp.png",
-  author: {
-    "@type": "Person",
-    name: "向 雅也",
-    url: "https://www.corduroy.co.jp/members/masaya/"
-  },
+  author: { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
   publisher: { "@id": "https://www.corduroy.co.jp/#organization" },
   description,
   articleSection: ["AI活用"],
@@ -58,15 +54,6 @@ const breadcrumbList = {
     { "@type": "ListItem", position: 2, name: "ブログ", item: "https://www.corduroy.co.jp/blog/" },
     { "@type": "ListItem", position: 3, name: "盤上テトが、自分で学んで成長を始めた話" }
   ]
-};
-
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://www.corduroy.co.jp/members/masaya/#person",
-  name: "向 雅也",
-  url: "https://www.corduroy.co.jp/members/masaya/",
-  worksFor: { "@id": "https://www.corduroy.co.jp/#organization" }
 };
 
 const faqPage = {
@@ -93,7 +80,6 @@ const faqPage = {
   <meta slot="head" name="robots" content="noindex,nofollow" />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(blogPosting)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} />
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqPage)} />
 
   <main>

@@ -1,0 +1,137 @@
+---
+// FaqGamification.astro — FAQ進捗・コンプリートポップアップ
+// `section.faq` または `.container.faq` を含むページのみで意味がある
+// 全ページに読み込まれても DOM が無ければ何もしない安全設計
+---
+<script is:inline>
+  (function () {
+    const faqSections = document.querySelectorAll('section.faq, .container.faq');
+    const popup = document.getElementById('faqCompletePopup');
+    let popupBound = false;
+
+    faqSections.forEach((section, sectionIdx) => {
+      const itemsWrap = section.querySelector('.faq-items');
+      if (!itemsWrap) return;
+      const detailsList = itemsWrap.querySelectorAll(':scope > details');
+      if (detailsList.length === 0) return;
+      if (section.querySelector('.faq-progress')) return; // 既に存在ならスキップ
+
+      // details に id を自動付与（重複しないように section index を含める）
+      const idPrefix = 'faq-s' + sectionIdx + '-';
+      detailsList.forEach((d, i) => {
+        if (!d.id) d.id = idPrefix + (i + 1);
+      });
+
+      // 進捗ブロック生成
+      const progress = document.createElement('div');
+      progress.className = 'faq-progress fade-up';
+      const lead = document.createElement('p');
+      lead.className = 'faq-progress-lead';
+      lead.textContent = '緑のボタンを押して、答えを集めてみよう。';
+      const collection = document.createElement('div');
+      collection.className = 'faq-collection';
+      collection.setAttribute('role', 'list');
+      collection.setAttribute('aria-label', 'FAQ進捗');
+      detailsList.forEach((d, i) => {
+        const slot = document.createElement('button');
+        slot.type = 'button';
+        slot.className = 'faq-slot' + (d.open ? ' is-collected' : '');
+        slot.dataset.target = d.id;
+        slot.setAttribute('aria-label', '質問' + (i + 1) + 'へスクロール');
+        const inner = document.createElement('span');
+        inner.className = 'faq-slot-button';
+        inner.setAttribute('aria-hidden', 'true');
+        slot.appendChild(inner);
+        collection.appendChild(slot);
+      });
+      progress.appendChild(lead);
+      progress.appendChild(collection);
+
+      // 挿入位置: section-head の直後 or faq-items の前
+      const head = section.querySelector('.section-head');
+      if (head && head.nextSibling) {
+        head.parentNode.insertBefore(progress, head.nextSibling);
+      } else {
+        itemsWrap.parentNode.insertBefore(progress, itemsWrap);
+      }
+
+      // 状態管理
+      const slots = collection.querySelectorAll('.faq-slot');
+      const collected = new Set();
+      detailsList.forEach((d) => { if (d.open) collected.add(d.id); });
+      let completedFired = false;
+
+      function syncSlots() {
+        slots.forEach((slot) => {
+          const id = slot.dataset.target;
+          slot.classList.toggle('is-collected', collected.has(id));
+        });
+      }
+
+      function fireConfetti() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const colors = ['#16614e', '#d4a04d', '#f2bd78', '#ffffff', '#0b3326'];
+        const container = document.createElement('div');
+        container.className = 'confetti-container';
+        document.body.appendChild(container);
+        for (let i = 0; i < 90; i++) {
+          const piece = document.createElement('div');
+          piece.className = 'confetti-piece';
+          piece.style.left = (Math.random() * 100) + '%';
+          piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+          piece.style.animationDelay = (Math.random() * 0.6) + 's';
+          piece.style.animationDuration = (2 + Math.random() * 2.4) + 's';
+          piece.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+          container.appendChild(piece);
+        }
+        setTimeout(() => container.remove(), 6000);
+      }
+
+      function fireComplete() {
+        if (completedFired) return;
+        completedFired = true;
+        fireConfetti();
+        setTimeout(() => { if (popup) popup.hidden = false; }, 700);
+        if (typeof gtag === 'function') {
+          gtag('event', 'faq_complete', { event_category: 'faq', event_label: 'all_opened' });
+        }
+      }
+
+      detailsList.forEach((d) => {
+        d.addEventListener('toggle', () => {
+          if (!d.open) return;
+          const before = collected.size;
+          collected.add(d.id);
+          if (collected.size > before) {
+            syncSlots();
+            if (typeof gtag === 'function') {
+              gtag('event', 'faq_open', { event_category: 'faq', event_label: d.id });
+            }
+            if (collected.size === detailsList.length) fireComplete();
+          }
+        });
+      });
+
+      slots.forEach((slot) => {
+        slot.addEventListener('click', () => {
+          const target = document.getElementById(slot.dataset.target);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (typeof gtag === 'function') {
+            gtag('event', 'faq_slot_click', { event_category: 'faq', event_label: slot.dataset.target });
+          }
+        });
+      });
+    });
+
+    // ポップアップ閉じる（1度だけバインド）
+    if (popup && !popupBound) {
+      popupBound = true;
+      popup.querySelectorAll('[data-popup-close]').forEach((el) => {
+        el.addEventListener('click', () => { popup.hidden = true; });
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !popup.hidden) popup.hidden = true;
+      });
+    }
+  })();
+</script>

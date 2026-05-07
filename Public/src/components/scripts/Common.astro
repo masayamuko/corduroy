@@ -1,0 +1,43 @@
+---
+// Common.astro — 全ページ共通の最小限スクリプト
+// - .fade-up の IntersectionObserver アニメーション
+// - data-ga-event 属性の GA イベントトラッキング
+---
+<script is:inline>
+  // --- Scroll Fade-in Animation ---
+  (function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('pending');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px'
+    });
+    document.querySelectorAll('.fade-up').forEach(el => {
+      el.classList.add('pending');
+      observer.observe(el);
+      // Fallback to ensure visibility
+      setTimeout(() => {
+        if (el.classList.contains('pending')) {
+          el.classList.remove('pending');
+        }
+      }, 3000);
+    });
+  })();
+
+  // --- GA CTA Tracking ---
+  document.addEventListener('click', (event) => {
+    const target = event.target.closest('[data-ga-event]');
+    if (!target || typeof gtag !== 'function') return;
+    const eventName = target.getAttribute('data-ga-event');
+    if (!eventName) return;
+    gtag('event', eventName, {
+      event_label: target.getAttribute('data-ga-label') || undefined,
+      event_category: target.getAttribute('data-ga-category') || undefined,
+    });
+  });
+</script>
