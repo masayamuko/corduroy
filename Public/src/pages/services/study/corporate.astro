@@ -18,6 +18,48 @@ const description = "チーム全体のAIリテラシー底上げから、業務
       ]
     }
   </script>
+  <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://www.corduroy.co.jp/services/study/corporate/#service",
+      "name": "AI法人研修",
+      "provider": { "@id": "https://www.corduroy.co.jp/#organization" },
+      "serviceType": "AI法人研修",
+      "areaServed": { "@type": "Country", "name": "日本" },
+      "description": "チーム全体のAIリテラシー底上げから、業務に根ざした活用設計まで。現場に合わせたカスタム研修を提供します。福岡発・全国対応。「研修を受けたけど使えない」を防ぐため、現場の業務と温度感に合わせて使い続けられる形に設計します。",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI法人研修プログラム",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI基礎理解ワークショップ",
+              "description": "AIとは何か・得意不得意・リスクの取り方を正しく理解する入門プログラム。半日〜1日、〜20名規模。"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "業務活用 実践研修",
+              "description": "実際の業務フローにAIを組み込む設計を行う実践プログラム。月1〜2回、5〜15名規模。"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI推進人材 育成プログラム",
+              "description": "社内でAI活用を牽引できる人材を育成。3〜6ヶ月、2〜5名のキーパーソン向け。"
+            }
+          }
+        ]
+      }
+    }
+  </script>
   <main>
 
     <!-- ===== HERO ===== -->

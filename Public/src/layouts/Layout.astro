@@ -10,15 +10,17 @@ interface Props {
     ogUrl?: string;
     ogImage?: string;
     ogType?: string;
+    noindex?: boolean;
 }
 
-const { 
-    title, 
-    description, 
-    canonicalUrl, 
-    ogUrl, 
+const {
+    title,
+    description,
+    canonicalUrl,
+    ogUrl,
     ogImage = "https://www.corduroy.co.jp/assets/images/ogp.png",
-    ogType = "website"
+    ogType = "website",
+    noindex = false
 } = Astro.props;
 
 const siteBase = Astro.site?.href ?? "https://www.corduroy.co.jp";
@@ -47,7 +49,10 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/x-icon" href="/assets/images/faviconC.ico" />
-		<meta name="robots" content="max-image-preview:large" />
+		{noindex
+		  ? <meta name="robots" content="noindex,nofollow" />
+		  : <meta name="robots" content="max-image-preview:large" />
+		}
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description || "AIとの関係性を育てる、本質的な学びと伴走。AI顧問・AI講座・AIコミュニティで、想いに寄り添いながら小さく試して広げます。"} />

@@ -62,5 +62,9 @@ Allow: /
 User-agent: Amzn-User
 Allow: /
 
+# preview/draftフォルダはクロール拒否（多層防御）
+User-agent: *
+Disallow: /preview/
+
 # サイトマップ
 Sitemap: https://www.corduroy.co.jp/sitemap-index.xml

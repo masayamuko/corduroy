@@ -59,6 +59,46 @@ const description = "MacBook Airを開けたまま持ち歩く生活と、積み
   <script slot="head" type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "そもそもローカルLLMって何ですか?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "かんたんに言うと、ChatGPTのようなAIモデルを、自分のパソコンの中にインストールして動かすやり方です。クラウドに毎回問い合わせるのではなく、手元で返事を作ってくれる。ネットがなくても動く・サブスク不要・入力が外に出ない、という特徴があります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mac miniはどのモデルを買ったんですか?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "記事執筆時点で使っているのは、Apple Silicon搭載のMac miniです。具体的なスペックや構成は、別途まとめる予定の技術記事で触れます。一般論として、ローカルLLMはメモリ容量がけっこう効くので、可能な範囲で多めにしておくと安心、という肌感覚はあります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "結局、AIサブスクは解約できたんですか?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ぜんぶは解約していません。今のところ、クラウドのAIにしかできない仕事もあるので、用途を分けて両方使っています。ただ、「ぜんぶに依存している」という感覚はかなり薄まりました。手元に軸が一本通っただけで、サブスクとの距離感が変わった、という言い方が近いかもしれません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "非エンジニアでも、こういう環境は作れますか?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ぼく自身、ゴリゴリのエンジニアではありません。手順が整理されていれば、思っていたよりはずっと簡単に始められると思います。とはいえ、最初の一歩を一人で踏み出すのは、たしかに少しハードルがあります。気になる方は、コールテンの個別相談で一緒に整理することもできます。"
+        }
+      }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Organization",
     "@id": "https://www.corduroy.co.jp/#organization",
     "name": "株式会社コールテン",

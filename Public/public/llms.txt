@@ -13,23 +13,36 @@
 
 ## サービス
 
+- [サービス一覧](https://www.corduroy.co.jp/services/): AI講座・AI顧問・AIサイトリニューアルの3本柱
 - [AI講座](https://www.corduroy.co.jp/services/study/): 無料動画講座・3ヶ月プログラム・法人研修・体験会・コミュニティ「糸口会」。「第二の自分ワーク」で自分の価値観をAIに教え込む。
-- [AI顧問](https://www.corduroy.co.jp/services/advisory): 業務理解にもとづくツール選定・導入サポート。継続伴走型。
-- [AIシステム開発](https://www.corduroy.co.jp/services/system): 業務に合わせたAIシステム設計・実装・運用。
+  - [体験会・無料相談](https://www.corduroy.co.jp/services/study/trial/): 初めての方向け
+  - [基礎AI講座](https://www.corduroy.co.jp/services/study/basicAI/): AI入門
+  - [3ヶ月プログラム](https://www.corduroy.co.jp/services/study/program/): 「第二の自分」を育てるプログラム
+  - [Second Me 講座](https://www.corduroy.co.jp/services/study/SecondME/): 第二の自分づくりに特化
+  - [AIでサイトづくり講座](https://www.corduroy.co.jp/services/study/AIdeWEB/): 自分でサイトを作る
+  - [糸口会コミュニティ](https://www.corduroy.co.jp/services/study/community/): AI活用仲間
+  - [法人研修](https://www.corduroy.co.jp/services/study/corporate/): 企業向けAI研修
+- [AI顧問](https://www.corduroy.co.jp/services/advisory/): 業務理解にもとづくツール選定・導入サポート。継続伴走型。
+- [AI時代のサイトリニューアル](https://www.corduroy.co.jp/services/ai-renewal/): 既存サイトをAI検索時代に対応した形にリニューアル。10万円買い切り+月額維持+デザインリニューアル+10万。
 
 ## 主なページ
 
 - [トップ](https://www.corduroy.co.jp/): 会社概要・3サービス・想い
 - [会社の想い](https://www.corduroy.co.jp/#brand-story): ブランドストーリー
-- [メンバー紹介](https://www.corduroy.co.jp/members/): 代表+29名のAIチーム
-- [コールテンの仕事術](https://www.corduroy.co.jp/members/about): 29名のAI社員と共に働く方法論・AI活用の3世代史・Claude公式機能の解説
+- [メンバー紹介](https://www.corduroy.co.jp/members/): 代表+30名のAIチーム
+- [代表 向 雅也](https://www.corduroy.co.jp/members/masaya/): 創業者・代表のプロフィール
+- [コールテンの仕事術](https://www.corduroy.co.jp/members/about/): 30名のAI社員と共に働く方法論・AI活用の3世代史・Claude公式機能の解説
 - [クライアントの声](https://www.corduroy.co.jp/voices/): 導入事例集
-  - [スマイリーフラワーズ 窪田さん (AI顧問)](https://www.corduroy.co.jp/voices/kubota)
-  - [SHU行政書士事務所 沼澤さん (AI講座)](https://www.corduroy.co.jp/voices/numazawa)
-  - [中野たかろーさん (AI講座)](https://www.corduroy.co.jp/voices/takaro)
-  - [株式会社スデニアル 佐野さん (AI顧問)](https://www.corduroy.co.jp/voices/sano)
+  - [スマイリーフラワーズ 窪田さん (AI顧問)](https://www.corduroy.co.jp/voices/kubota/)
+  - [SHU行政書士事務所 沼澤さん (AI講座)](https://www.corduroy.co.jp/voices/numazawa/)
+  - [中野たかろーさん (AI講座)](https://www.corduroy.co.jp/voices/takaro/)
+  - [株式会社スデニアル 佐野さん (AI顧問)](https://www.corduroy.co.jp/voices/sano/)
 - [ブログ](https://www.corduroy.co.jp/blog/): AI活用・お知らせ・パートナー自慢・インタビュー記事
-- [お問い合わせ](https://www.corduroy.co.jp/contact): 相談方法（紹介経由が中心）
+- [お問い合わせ](https://www.corduroy.co.jp/contact/): 相談方法（紹介経由が中心）
+- [プライバシーポリシー](https://www.corduroy.co.jp/legal/privacy/)
+- [AI利用ポリシー](https://www.corduroy.co.jp/legal/ai-policy/): AIの取り扱い方針
+- [特定商取引法に基づく表記](https://www.corduroy.co.jp/legal/tokushoho/)
+- [ボードゲームカフェ構想](https://www.corduroy.co.jp/dream/boardgame-cafe/): 福岡での構想プロジェクト
 
 ## 主なブログ記事
 

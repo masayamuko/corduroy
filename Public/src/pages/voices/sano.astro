@@ -55,6 +55,26 @@ const posts = [
       ]
     }
     </script>
+    <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "Organization",
+        "name": "株式会社コールテン"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "佐野",
+        "jobTitle": "代表",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "株式会社スデニアル"
+        }
+      },
+      "reviewBody": "AIは効率化ツールじゃなくて、人が前向きになる設計に使えるんです。関わった人が「この仕事をやって良かった」と思ってもらえること——それが僕にとって、いい仕事の条件。AIもそのための相棒だと思っています。"
+    }
+    </script>
 
     <main>
         <!-- ===== ヒーロー ===== -->

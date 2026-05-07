@@ -1,0 +1,28 @@
+---
+interface Props {
+  date: string;        // 例: "2026-05" "2026-05-07" "2026年5月"
+  detail?: string;     // 任意の補足
+  className?: string;  // CSS class override
+}
+
+const {
+  date,
+  detail = "情報は変更される可能性があるため、最新は各公式サイトをご確認ください。",
+  className = "article-updated-note"
+} = Astro.props;
+---
+<p class={className}>
+  ※本記事は{date}時点の内容です。{detail}
+</p>
+
+<style>
+  .article-updated-note {
+    margin-top: 40px;
+    padding: 14px 18px;
+    background: #f6f6f4;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+</style>
