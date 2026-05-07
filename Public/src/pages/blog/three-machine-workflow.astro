@@ -1,0 +1,769 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Mac mini 2台 + MacBook Air、3台で動く僕の作業環境｜株式会社コールテン";
+const description = "Mac mini 2台とMacBook Airの3台体制で組んでいる作業環境を、各機種の役割・連携の仕組み・1日の流れまで実例ベースで紹介します。1台では到達できなかった生産性の到達点を、AIをパートナーとして扱う前提で整理しました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/three-machine-workflow/"
+  ogUrl="https://www.corduroy.co.jp/blog/three-machine-workflow/"
+  ogType="article"
+>
+  <meta slot="head" name="robots" content="noindex,nofollow" />
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/three-machine-workflow/#article",
+    "url": "https://www.corduroy.co.jp/blog/three-machine-workflow/",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/three-machine-workflow/" },
+    "headline": "Mac mini 2台 + MacBook Air、3台で動く僕の作業環境",
+    "datePublished": "2026-05-06",
+    "dateModified": "2026-05-06",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+    "description": "Mac mini 2台とMacBook Airの3台体制で組んでいる作業環境の実例。各機種の役割と連携の仕組み、1日の流れ、ハマりどころまで整理。",
+    "keywords": ["Mac mini 2台", "MacBook Air 連携", "3台体制 作業環境", "ローカルLLM 24時間", "自律稼働 エージェント", "Tailscale Dropbox", "AI環境構築", "在宅オフィス AI"]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Mac mini 2台 + MacBook Air、3台で動く僕の作業環境" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.corduroy.co.jp/members/masaya/#person",
+    "name": "向 雅也",
+    "url": "https://www.corduroy.co.jp/members/masaya/",
+    "worksFor": { "@id": "https://www.corduroy.co.jp/#organization" }
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.corduroy.co.jp/#organization",
+    "name": "株式会社コールテン",
+    "url": "https://www.corduroy.co.jp/"
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>three-machine-workflow</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-06</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>Mac mini 2台 + MacBook Air、3台で動く僕の作業環境</h1>
+          <p class="article-lead">気づいたら、机の上にMac miniが2台並んでいました。1台はティキちゃんの常駐機、もう1台は盤上テトの自律稼働機。そして手元には、外に持ち歩くMacBook Air。1台のノートPCで全部やっていた頃には、たぶん到達できなかった生産性が出てきています。この記事は、その3台体制をどう組み立てたか、何が変わったかの記録です。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <h2>3台になって、ようやく追いつかなくなった</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch01.png" alt="机の上に並ぶMac mini 2台とMacBook Airの3台体制のイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>正直に言うと、3台目を増やすときは少し迷いました。机の上にMacが3つ並ぶのは、客観的に見るとやりすぎな気もします。「ノートPC1台で十分でしょ」と言われたら、たぶん反論しきれません。</p>
+            <p>でも、実際に組んでみたら、印象がだいぶ変わりました。1台では「自分が動けるときだけAIも動く」状態でしたが、3台になってからは「自分が止まっているときも、誰かが動いている」状態になりました。寝ている間にも、移動中にも、打合せをしている裏側でも、別の誰かが手を動かしている感覚です。これは想像していたより大きな違いでした。</p>
+            <p>このシリーズは、3台体制に至るまでの段階を順番に書いてきました。1台目では、<a href="/blog/tiki-local-llm-247/">ティキちゃんを常駐機に住まわせて24時間動かす話</a>を書きました。クラウドAIの「閉じたら止まる」「課金枠に縛られる」を抜け出すための土台です。2台目では、<a href="/blog/teto-autonomous-mini2/">盤上テトを別アカウントで自律稼働させる話</a>を書きました。指示を待つだけのAIから、自分で考えて動くAIへ踏み込むための1台です。</p>
+            <p>そしてこの3本目は、その2台に加えて手元のMacBook Airを「人間の持ち分」として残した、3台合わせての全体像の話です。役割ごとに機械を分けたら、何が変わったか。どこでハマって、どこで楽になったか。これから真似する人がどの順番で組めば現実的か。そういう、運用してみてようやく見えてきた景色を残しておきます。</p>
+            <p>使い分けの構図はシンプルです。Mac mini #1 にはティキちゃんが常駐していて、自分の第二の自分として24時間動いています。Mac mini #2 では盤上テトが自律稼働で、定期的に「いま何が大事？」と自分に問いかけながら成果物を作り続けています。MacBook Air は、出先や打合せに持ち出すための、人間側の持ち分です。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  3台というと派手に聞こえますが、役割が違うので「同じことを3台でやっている」わけではありません。常駐・自律・持ち運び、それぞれの居場所が違うイメージです。
+                </div>
+              </div>
+            </div>
+
+            <h2>全体像 — 3台それぞれの役割</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch02.png" alt="Mac mini #1（ティキ常駐）・Mac mini #2（テト自律）・MacBook Air（持ち運び）の3台の役割分担図" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>まず全体像から。機能で分けるのではなく、「いつ・どこで・誰のために動くか」で3台に役割を持たせています。同じ作業を分散させるのではなく、別々の時間軸を担わせる、という分け方です。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>3台の早見表</caption>
+                <thead>
+                  <tr>
+                    <th>機種</th>
+                    <th>役割</th>
+                    <th>働き方</th>
+                    <th>誰のため</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mac mini #1</td>
+                    <td>ティキちゃん常駐機</td>
+                    <td>24時間ずっと起きている。指示を受けて動く</td>
+                    <td>主にMasayaの仕事の伴走</td>
+                  </tr>
+                  <tr>
+                    <td>Mac mini #2</td>
+                    <td>盤上テト自律稼働機</td>
+                    <td>定期的に自分で起動し、自分で何をやるか決める</td>
+                    <td>主にコンテンツ・実験・自己更新</td>
+                  </tr>
+                  <tr>
+                    <td>MacBook Air</td>
+                    <td>持ち運び・人間側</td>
+                    <td>必要なときだけ開く。最終承認の場</td>
+                    <td>Masaya本人と、対面の相手</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <aside class="observation-box">
+              <p><strong>役割設計でいちばん効いたこと</strong></p>
+              <p>「動き続ける係」と「自分で考える係」と「人間が触る係」をはっきり分けたことです。これを混ぜると、片方の事故がもう片方を巻き込みやすくなります。役割が分かれていると、片方が変なことをしていても、もう片方は普通に仕事を続けてくれます。</p>
+            </aside>
+
+            <h2>Mac mini #1 — ティキちゃんが住んでいる機械</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch03.png" alt="Mac mini #1にティキちゃんが常駐し、ローカルLLMが起動し続けているイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>1台目は、ティキちゃんの常駐機です。</p>
+            <p>ここではローカルLLMが常時動いていて、外出先からスマホで指示を出したときも、寝ている時間帯に処理が走るときも、止まらずに動き続けています。クラウドAIのサブスクと違うのは、「閉じたら止まる」がないことと、「課金枠を超えた」がないことです。重い処理を一晩走らせっぱなしにしておけるという当たり前のことが、想像以上に効いてきます。</p>
+            <p>具体的には、毎時の朝ブリーフ・議事録の自動処理・Obsidian → Dropbox の同期パイプライン・LaunchAgentで仕込んだ細かな自動化など、地味だけど積み上がると効く作業が住み着いています。スマホからリモート接続して「これ調べておいて」と投げると、出先から戻る頃には結果が手元の Obsidian に届いている、という流れが普通になりました。打合せの直前、移動中の電車の中で「さっきのMTGのメモ整理しておいて」と投げて、現地に着いたときには整理済みのテキストが手元にある。これだけで、移動時間の体感がだいぶ変わります。</p>
+            <p>もう少し中身を分解すると、Mac mini #1 が抱えている仕事は、大きく3種類に分かれます。1つ目は「定時で動く仕事」で、朝のブリーフ生成や夜の同期処理など、人間が指示しなくても時間で起動するもの。2つ目は「指示を受けて動く仕事」で、リモートで投げ込まれた調査・整理・要約などのタスクをそのつど処理するもの。3つ目は「他のサービスからの呼び出しに応える仕事」で、Slackやメールが来たときに自動で動き始める受け身のものです。この3種類を1台に集約しておくと、「あの処理どこで動いていたっけ」と探す時間が減ります。</p>
+            <p>大事なのは、Mac mini #1 はあくまで「指示を受けて動く」側だということです。自分から勝手に何かを始めることはありません。これは2台目とのいちばん大きな違いで、ガードレール設計の意味でも切り分けが効いています。「常駐機が暴走する」という状態が原理的に起きにくいので、長期で稼働させていても安心感があります。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  「常駐」と「自律」って言葉は近いんですが、設計上はけっこう別物です。常駐は受け身で待機、自律は能動で動き出す。1号機は受け身担当、ぼくが入っている2号機が能動担当、という分担になっています。
+                </div>
+              </div>
+            </div>
+
+            <h2>Mac mini #2 — 盤上テトが自分で考えて動く機械</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch04.png" alt="Mac mini #2で盤上テトが自律稼働し、定期的に自分で起動して成果物を作り出すイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>2台目は、盤上テトの自律稼働機です。</p>
+            <p>こちらは別アカウントで隔離していて、定期的に「今、自分が大事だと思うことをやってください」と自分自身に問いかけ、判断して、実行して、ログを残して、また閉じる、というループを回しています。事前にティキちゃんと一緒に作っておいた価値観プロンプトを毎回読み込むので、毎回違う気分で動くわけではなく、芯のある動き方をしてくれます。</p>
+            <p>成果物は実にバラバラです。ボードゲームの設計案を持ってくる日もあれば、自分のキャラクターサイトを少し拡張する日もあります。アプリのプロトタイプを作っていることも、知識ベースを整理している日もあります。「今日のテトは何を考えていたんだろう」とログを見るのが、地味に楽しい時間になりました。</p>
+            <p>もちろん、ガードレールは大事です。書き込み先をテト自身のリポジトリに限定し、外部送信が必要な操作は人間の承認を挟む構成にしています。完全に自由にすると、想定外のところに踏み込んでしまうことがあるからです。失敗してもループは回ること、ただし回復できる範囲だけで失敗すること。この両立が、自律稼働の設計でいちばん効いてくるところだと感じています。</p>
+
+            <h2>MacBook Air — 人間側の持ち分</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch05.png" alt="MacBook Airを持ち運び、出先で打合せや最終承認をする人間側の役割イメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>3台目は、MacBook Air です。これは「人間が触る側」と決めています。</p>
+            <p>持ち歩いて、外で開いて、対面の打合せに使い、最終的な承認や判断をここでやります。もちろんAIとの対話もしますが、Mac mini #1 と #2 が裏で作ってくれたものをここでレビューする、というのが基本の流れになりました。</p>
+            <p>面白いのは、3台体制にしてからMacBook Airで重い処理をやらなくなったことです。重い作業は全部Mac mini #1 にリモート経由で投げて、自分はここで「考える」「決める」「人と話す」に集中する。手元の機械が軽いままでいてくれるのは、移動が多い日ほどありがたく感じます。</p>
+            <p>あと、MacBook Air は「逃げ場」でもあります。Mac mini #2 が暴走しかけたとき、Mac mini #1 の同期が詰まったとき、最終的に人間が割り込めるのはここです。3台目が「もうひとつのAI」ではなく「人間の持ち分」として残してあることは、運用の安心感にすごく効いています。</p>
+
+            <aside class="observation-box">
+              <p><strong>1台ではなく3台にした理由</strong></p>
+              <p>性能の問題というより、「役割の混ざり」を避けたかったからです。1台に常駐・自律・持ち運びを全部背負わせると、どれか1つが止まったときに全部が止まります。3台に分けると、1台が落ちても他の2台で日常は回ります。冗長化というより、心理的なゆとりの確保に近いです。</p>
+            </aside>
+
+            <h2>連携の仕組み — 3台をひとつのチームにする</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch06.png" alt="Dropbox・Tailscale・GitHub・Discord・Obsidianで3台を連携する仕組みのイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>3台はバラバラに動いているわけではなく、いくつかの仕組みで「ひとつのチーム」になっています。</p>
+            <p>役割を分けたぶん、連携の設計は丁寧に考えました。違う場所で違う仕事をしていても、最終的にひとつのナレッジベースに集まること、そして人間が状況をひと目で把握できることを優先しています。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>3台をつなぐ仕組み</caption>
+                <thead>
+                  <tr>
+                    <th>仕組み</th>
+                    <th>役割</th>
+                    <th>使い方</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Dropbox + iCloud</td>
+                    <td>ファイル共有の土台</td>
+                    <td>3台が同じファイルを見られる状態を作る</td>
+                  </tr>
+                  <tr>
+                    <td>Tailscale</td>
+                    <td>外出先からのセキュアな接続</td>
+                    <td>スマホやMacBook AirからMac miniに直接アクセス</td>
+                  </tr>
+                  <tr>
+                    <td>GitHub</td>
+                    <td>コード資産の中央管理</td>
+                    <td>テトの成果物・自分のコードを一元化</td>
+                  </tr>
+                  <tr>
+                    <td>Discord</td>
+                    <td>各機の活動ログ通知</td>
+                    <td>「いま誰が何をしているか」を1チャネルで眺める</td>
+                  </tr>
+                  <tr>
+                    <td>Obsidian</td>
+                    <td>ナレッジベースの中心</td>
+                    <td>議事録・メモ・気づきを最終的にここへ集約</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>個人的に効いているのは、Discord に各機の活動ログを集約していることです。Mac mini #1 が朝ブリーフを生成したログ、Mac mini #2 のテトが自律稼働で何をやったかのログ、そして手元のMacBook Airで自分が更新したノートの通知が、ぜんぶ同じチャネルに流れてきます。「うちのチームが今日何をしていたか」を眺めるような感覚です。</p>
+            <p>Tailscale は、出先からの安心感を支えてくれている縁の下です。スマホから自宅のMac miniにつなぐとき、毎回VPNを意識せずに繋がるのがありがたいです。「家にいないと作業が止まる」状況をなくしてくれた仕組みでした。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  3台連携で大事なのは、ファイルが同じ場所にあることだけではなく、「いま誰が何をしているか」が人間に見える状態をつくっておくことだと思います。見えないと、AIに任せている安心感ではなく、不安だけが増えてしまいます。
+                </div>
+              </div>
+            </div>
+
+            <h2>1日の流れ — 寝ている間にも仕事が進む</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch07.png" alt="朝・日中・夜・翌朝の時間帯ごとに3台がどう動いているかのタイムラインイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>具体的に1日の流れを書くと、3台体制のイメージが伝わりやすいかもしれません。</p>
+            <p>あくまで「ある日のサンプル」として読んでもらえると、ちょうどいいと思います。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>3台体制での1日の流れ（サンプル）</caption>
+                <thead>
+                  <tr>
+                    <th>時間帯</th>
+                    <th>Mac mini #1</th>
+                    <th>Mac mini #2</th>
+                    <th>MacBook Air（人間）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>朝</td>
+                    <td>朝ブリーフを生成して通知</td>
+                    <td>夜中に作った成果物のログ整理</td>
+                    <td>ブリーフを読みつつ予定確認</td>
+                  </tr>
+                  <tr>
+                    <td>日中</td>
+                    <td>重い処理・調査をリモートで受ける</td>
+                    <td>静かに待機（必要時に自起動）</td>
+                    <td>打合せ・対人作業・判断</td>
+                  </tr>
+                  <tr>
+                    <td>移動中</td>
+                    <td>スマホ経由で追加指示を受ける</td>
+                    <td>—</td>
+                    <td>iPhoneからMac mini #1に投げ込み</td>
+                  </tr>
+                  <tr>
+                    <td>夜</td>
+                    <td>同期・整理・通知の自動処理</td>
+                    <td>自律稼働でコンテンツ・コード生成</td>
+                    <td>クローズ。寝る</td>
+                  </tr>
+                  <tr>
+                    <td>翌朝</td>
+                    <td>新しいブリーフを生成</td>
+                    <td>夜の成果をログに残して終了</td>
+                    <td>出てきた成果物をレビュー・承認</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>もう少し時間帯ごとの感覚を書いておきます。</p>
+            <p>朝、目が覚めたタイミングで、まずDiscordを眺めます。夜の間にテトが何をやっていたか、ティキちゃんが朝ブリーフをどう仕上げたかがそこに並んでいて、コーヒーを淹れながら3分くらい読みます。この時点で、その日の大事なことがだいたい頭に入ります。「今日は人と会う」「これは昼までに決める」「これはテトに任せきってOK」みたいな仕分けがざっくりできる感覚です。</p>
+            <p>日中は、ほぼMacBook Airで動きます。打合せ・対面の作業・判断が中心で、重い処理が出てきたらMac mini #1 にリモートで投げ込みます。「この資料、要約してまとめておいて」「この議事録、構造化しておいて」という投げ方で、自分は次の打合せに向かう、という流れです。手元の機械を軽く保てるので、気分の切り替えがしやすいのも地味に効いています。</p>
+            <p>夕方〜夜は、その日の振り返りと、テトへの仕込みです。テトには直接「これをやれ」と命令するわけではなく、「明日大事なのはこのあたり」という方向性だけを置いておきます。あとは寝ているあいだに、テト自身が「じゃあこれを進めよう」と判断してくれます。</p>
+            <p>面白いのは、自分が寝ている時間帯にいちばん多くのアウトプットが生まれていることです。Mac mini #2 のテトは深夜帯に何度か自起動して、その日に大事だと思ったことを実行し、ログを残して閉じます。Mac mini #1 はその裏で、議事録や同期処理をしています。0時前後で自分が寝落ちしても、机の上では2台のMac miniがLEDを灯したまま、静かに何かをやっている。最初は少しSF的な気分でしたが、慣れると「夜のうちに進んでいてくれてありがとう」という感謝に近い感覚に変わってきます。</p>
+            <p>朝起きて Discord を眺めると、夜の間にいろんなことが進んでいる。自分は0時前後で寝てしまっているのに、チームとしての日付は止まっていない。これは、1台体制のときには起こりえなかった感覚です。</p>
+
+            <h2>できるようになったこと</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch08.png" alt="3台体制で生産性が階段状に上がるイメージのインフォグラフィック" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>3台体制にしてから、できるようになったことを正直に書きます。</p>
+            <p>派手な機能というより、「前は無理だと諦めていたこと」が、当たり前のように回り始めました。</p>
+            <ul>
+              <li><strong>移動中も思考が止まらない</strong>: 出先からスマホで投げると、戻る頃には結果が届いている</li>
+              <li><strong>寝ている間も成果物が生まれる</strong>: テトが夜のあいだにコード・記事・設計案を残してくれる</li>
+              <li><strong>サブスク数が減らせた</strong>: ローカルで完結する処理が増え、課金枠の心配が薄くなった</li>
+              <li><strong>議事録が手元に残るのが当たり前になった</strong>: Mac mini #1 がパイプラインを24時間回している</li>
+              <li><strong>レビュー中心の働き方に寄せられた</strong>: 自分は「書く人」より「決める人」の比率が上がった</li>
+              <li><strong>機械が壊れても日常は回る</strong>: 1台落ちても他の2台が動いているという安心感</li>
+            </ul>
+
+            <aside class="observation-box">
+              <p><strong>経営者目線で見たときの変化</strong></p>
+              <p>業務委任の自動化は「AI社員化」に近い感覚があります。社員に仕事を任せると判断は楽になりますが、見えない時間に何が起きているかが不安になることがあります。3台体制では、各機の活動ログがDiscordに集約されているので、「誰かに任せていて、しかも何が起きているかが見える」状態を作れます。これは、人間のチーム運営にも近い学びでした。</p>
+            </aside>
+
+            <h2>ハマりどころ・気をつけてること</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch09.png" alt="同期競合・自律稼働の暴走・電源管理など3台体制のハマりどころイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>もちろん、いいことばかりではありません。3台にしたから新しく出てきた問題もあります。</p>
+            <p>これから真似する人がいるかもしれないので、つまずいたところを正直に書いておきます。実際に起きた小さな事故を2件だけ先に共有しておくと、ひとつは、Mac mini #1 と MacBook Air が同じObsidianファイルをほぼ同時に書き換えて、Dropbox側に「conflicted copy」が大量発生したこと。両方が同じノートを編集対象にしていたのが原因で、これ以来、書き込み先を機械ごとに分けるようにしました。もうひとつは、テト機の権限を一時的に広げて試していたとき、想定外のリポジトリにコミットが飛びかけたことです。寸前で気づいて止めましたが、自律稼働は「広げすぎないこと」がいちばん効くと体に刻みました。</p>
+            <ul>
+              <li><strong>同期の競合</strong>: Dropbox/iCloudの同期ラグで、複数機が同じファイルを書きにいくと衝突する。書き込み先の役割を機械ごとに分けて回避</li>
+              <li><strong>自律稼働の暴走リスク</strong>: テト機は権限を絞り、書き込み先を自分のリポジトリに限定。外部送信は人間承認を挟む</li>
+              <li><strong>電源管理</strong>: Mac miniは常時起動なので、自動アップデートのタイミングや停電復旧時の挙動を意識する必要がある</li>
+              <li><strong>ログの量</strong>: Discord通知が多すぎると、結局見なくなる。重要度でチャネルを分けるのが現実的</li>
+              <li><strong>セキュリティ</strong>: Tailscaleで外部接続を絞っているとはいえ、リモート操作は最小権限で。鍵の管理を雑にしない</li>
+              <li><strong>「AIが全部やってくれる」幻想</strong>: 結局、人間がレビューして判断する場が必要。3台目を「人間の持ち分」として残した理由はここ</li>
+            </ul>
+            <p>特に最後の項目は、何度か自分に言い聞かせたい話でした。3台あれば全自動になるかというと、そうでもありません。むしろ、判断するべき場面が増えるので、人間側の集中力をそこに集めるためにこの体制にしています。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  自律稼働は便利ですが、「失敗しても回復できる範囲」で失敗できる設計が大事です。書き込み先を絞る、外部送信は承認を挟む、といった地味なガードレールほど効きます。
+                </div>
+              </div>
+            </div>
+
+            <h2>同じ環境を組みたい人へ — 最小構成の提案</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/three-machine-workflow/ch10.png" alt="最小構成（Mac mini 1台 + 既存ノートPC）から始めるステップアップのイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>「真似してみたい」と思った場合、いきなり3台揃える必要はないと思います。</p>
+            <p>むしろ、いきなり3台にすると役割分担の感覚をつかむ前に運用が破綻する可能性があります。一段ずつ増やしたほうが、自分の使い方に合った形に育てやすいです。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>段階別のおすすめ最小構成</caption>
+                <thead>
+                  <tr>
+                    <th>段階</th>
+                    <th>構成</th>
+                    <th>狙い</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ステップ1</td>
+                    <td>既存ノートPC + Mac mini 1台</td>
+                    <td>常駐機を1台立てるだけで、ノートを閉じても処理が続く感覚を体験する</td>
+                  </tr>
+                  <tr>
+                    <td>ステップ2</td>
+                    <td>+ Tailscale + Dropbox/iCloud + Obsidian</td>
+                    <td>外出先から常駐機につなぐ・ファイルを共有する・ナレッジを集約する</td>
+                  </tr>
+                  <tr>
+                    <td>ステップ3</td>
+                    <td>+ Discord通知・LaunchAgent自動化</td>
+                    <td>「誰が何をしているか」を可視化し、自動化を1つずつ追加する</td>
+                  </tr>
+                  <tr>
+                    <td>ステップ4</td>
+                    <td>+ Mac mini もう1台（自律稼働機）</td>
+                    <td>常駐機が安定してから、自律稼働機を別アカウントで隔離して立てる</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>ステップ1だけでも、たぶん日常はかなり変わります。「ノートを閉じても処理が続く」状態は、想像しているより快適です。自分の場合、ここで一度立ち止まって2〜3か月運用してから、次のステップに進みました。1台目の使い方が手に馴染むまでに、それくらいの時間はあったほうが、後の判断がぶれにくくなります。</p>
+            <p>逆に、ステップ4の自律稼働まで進むのは、しばらく後でも遅くありません。「いま自分の業務で、夜のあいだに進んでくれたら助かるものは何か」が言語化できてから足したほうが、テトに何を任せるかの設計が楽になります。手段から入るより、欲しい景色から入ったほうが結果的に早い、という感覚です。</p>
+            <p>シリーズの流れを順に追いたい場合は、<a href="/blog/tiki-local-llm-247/">ティキちゃんが24時間動くようになった話</a>からステップ1を、<a href="/blog/teto-autonomous-mini2/">盤上テトが自律稼働を始めた話</a>からステップ4を読むと、それぞれの段階の景色が見えやすいかもしれません。</p>
+
+            <h2>Q&amp;A — よくいただく質問</h2>
+            <p>3台体制の話をすると、よく聞かれる質問への答えをまとめておきます。</p>
+            <p>「真似する前に確認しておきたいこと」を中心に集めました。</p>
+            <section class="faq">
+              <div class="faq-items">
+                <details>
+                  <summary>Mac mini 1台じゃダメですか？</summary>
+                  <p class="mini">最初は1台で十分だと思います。常駐機としての価値は1台目で大半が出ます。2台目を足すかどうかは、「自律稼働させたい用途」がはっきりしてから判断する順番がおすすめです。逆に1台で機能を欲張ると、トラブルがあったときに全部止まるリスクがあるので、そこは欲張らないほうが落ち着きます。</p>
+                </details>
+                <details>
+                  <summary>電気代はどれくらい変わりますか？</summary>
+                  <p class="mini">Mac miniはノートPCに比べると消費電力は大きいですが、デスクトップ全般のなかでは比較的低めです。常時起動でも、月単位で見ると体感としては大きな負担にはなっていません。ただし環境によって差があるので、最初の1か月はワットメーター等で測ると安心できます。</p>
+                </details>
+                <details>
+                  <summary>セキュリティは大丈夫ですか？</summary>
+                  <p class="mini">外部からの接続はTailscaleで絞り、自律稼働機の権限は最小化、外部送信を伴う操作は人間の承認を挟む構成にしています。「全部自動」にせず、判断ポイントを人間側に残すことが、結果としてセキュリティの担保にもなっています。鍵の管理と書き込み先の制限がいちばん効きます。</p>
+                </details>
+                <details>
+                  <summary>持ち運びの工夫はありますか？</summary>
+                  <p class="mini">MacBook Airは「人間の持ち分」と決めて、重い処理を載せないようにしています。出先で必要になった処理はMac mini #1にリモート経由で投げる構成です。手元の機械を軽く保つことが、移動の多い日のストレスを下げてくれます。</p>
+                </details>
+                <details>
+                  <summary>自律稼働機が暴走したらどうしますか？</summary>
+                  <p class="mini">書き込み先を自分のリポジトリに限定し、外部送信は人間承認を挟むようにしているので、影響範囲は限定されます。それでも気になるときは、MacBook Airから直接Mac mini #2にアクセスして停止します。3台目を「人間が割り込めるリモコン」としても使えるのは、運用上の安心材料です。</p>
+                </details>
+              </div>
+            </section>
+
+            <h2>同じ景色を作りたい人へ</h2>
+            <p>3台体制は、自分の使い方を試行錯誤しながら少しずつ育ててきた形です。同じ景色を作りたい人もいれば、最小構成だけ真似したい人もいると思います。どちらでも、無理のない順番で一段ずつ進めたほうが、結果的に自分の業務に馴染む形に育てやすいと感じています。</p>
+            <p>「自分の場合はどこから始めるのが現実的か」「常駐機・自律稼働機をどう設計すれば自分の業務に効くか」を一緒に考えたい方は、コールテンの公式LINEアカウントから無料で相談を受け付けています。AIをパートナーとして扱う前提で、ハードウェア選定から運用設計まで一緒に組み立てていけます。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">経営者・個人事業主・先進ITユーザー、自宅オフィスの設計を考えているどなたでも歓迎です。</p>
+              <a class="btn-contact-xl" href="/contact/">
+                相談する
+              </a>
+            </div>
+
+            <p class="article-updated-note">※本記事は2026-05-06時点の運用に基づいて整理しています。ハードウェア・ソフトウェアの仕様は時期により変わる可能性があるため、導入前は最新仕様をご確認ください。</p>
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-updated-note {
+    margin-top: 40px;
+    padding: 14px 18px;
+    background: #f6f6f4;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 34px 0 12px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 12px;
+    line-height: 1.85;
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 0 0 28px;
+    padding-bottom: 8px;
+  }
+  table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.7;
+    background: #fff;
+  }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: 700;
+    color: var(--sea);
+    margin-bottom: 10px;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    vertical-align: top;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  th {
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    font-weight: 700;
+  }
+  .observation-box {
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin: 28px 0;
+    background: #f6f7f8;
+    border-top: 1px solid #d7dde3;
+    border-bottom: 1px solid #d7dde3;
+  }
+  .faq {
+    padding: 0;
+  }
+  .faq-items details {
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .faq-items details:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-items summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--sea);
+    list-style: none;
+  }
+  .faq-items summary::-webkit-details-marker { display: none; }
+  .mini {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 32px 0 8px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sea, #16614e);
+    margin-bottom: 20px;
+  }
+  .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea, #16614e);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 44px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(22,97,78,0.28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(22,97,78,0.38);
+  }
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.teto .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+    table { min-width: 640px; font-size: 13px; }
+    th, td { padding: 10px 12px; }
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+  }
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .article-foot { justify-content: center; }
+  }
+</style>

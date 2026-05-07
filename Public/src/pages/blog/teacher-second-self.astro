@@ -1,0 +1,696 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "教えるのが好きな先生へ ― AIに『教える』ことから始める、第二の自分の作り方｜株式会社コールテン";
+const description = "学校教員・日本語教師・社会的養護に関わる方へ。「教えるのが好き」という素質をそのまま活かして、AIに自分のことを教え込み、第二の自分を育てる手順を、元日本語教師の視点から整理しました。情報管理の注意点と、AIと人の線引きまで含めて書いています。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/teacher-second-self/"
+  ogUrl="https://www.corduroy.co.jp/blog/teacher-second-self/"
+  ogType="article"
+>
+  <meta slot="head" name="robots" content="noindex,nofollow" />
+
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/teacher-second-self/#article",
+    "url": "https://www.corduroy.co.jp/blog/teacher-second-self/",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/teacher-second-self/" },
+    "headline": "教えるのが好きな先生へ ― AIに『教える』ことから始める、第二の自分の作り方",
+    "datePublished": "2026-05-06",
+    "dateModified": "2026-05-06",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+    "description": "「教えるのが好き」という先生の素質をAIに向けると、AI活用が一番得意な人になれる。元日本語教師の視点から、ティーチングとコーチングを行き来しながら第二の自分を育てる手順を整理しました。",
+    "keywords": ["先生 AI活用", "教員 ChatGPT", "第二の自分", "日本語教師 AI", "社会的養護 AI", "教育現場 AI", "ティーチング コーチング AI"]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "教えるのが好きな先生へ ― AIに『教える』ことから始める、第二の自分の作り方" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.corduroy.co.jp/members/masaya/#person",
+    "name": "向 雅也",
+    "url": "https://www.corduroy.co.jp/members/masaya/",
+    "worksFor": { "@id": "https://www.corduroy.co.jp/#organization" }
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.corduroy.co.jp/#organization",
+    "name": "株式会社コールテン",
+    "url": "https://www.corduroy.co.jp/"
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>teacher-second-self</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-06</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>教えるのが好きな先生へ ― AIに『教える』ことから始める、第二の自分の作り方</h1>
+          <p class="article-lead">「教えるのが好き」「人を見るのが好き」という先生の素質は、AI活用にもそのまま乗ります。むしろ、教えるのが好きな人ほど、AIの力を引き出すのが上手くなる。AI活用の本質が「教える」と「引き出す」の往復だからです。元日本語教師の立場から、ティーチングとコーチングを行き来しながらAIに自分を教え込み、第二の自分を育てていく手順を、教育現場で働く方の視点に寄せて書きました。情報管理の線引きや、AIと生徒の違いまで含めて整理しています。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+
+            <h2>はじめに：先生は、AI活用に向いている</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch01.png" alt="教室で生徒に教える先生が、同じ姿勢でノートPCの中のAIにも語りかけているイメージ。教えるという行為がAIにも届く構図" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>最近、先生方からもAIの相談を受けることが増えてきました。「ChatGPTを使ってみたけど、思ったほど自分に合った答えが返ってこない」「便利そうなのは分かるけど、結局どう使えばいいのか分からない」。そんな声をよく聞きます。</p>
+            <p>そのたびに、わりと同じ答えを返しています。<br />「先生は、AI活用にすごく向いていますよ。普段やっていることを、相手をAIに変えてやるだけなので」と。</p>
+            <p>これは励ましでも煽りでもなく、けっこう本気でそう思っています。「教えるのが好き」「人を見るのが好き」「相手に合わせて伝え方を変えるのが好き」。この3つが揃っている人は、AIにとって相性のいいパートナーになりやすいタイプです。</p>
+            <p>この記事では、その理由と、具体的にAIに何を教えていけばいいのかを、元日本語教師という立場から書いていきます。学校教員、日本語教師、児童養護施設や自立支援に関わっている方、不登校の子と向き合う方など、「子どもや若い人と関わる仕事」の人に向けて書いていますが、塾講師や研修講師の方にも、たぶん通じる話だと思います。</p>
+
+            <h2>自己紹介：元日本語教師として、教育の世界にいた</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch02.png" alt="日本語学校で外国人留学生に文字を教えている向雅也のイメージ。背景に教科書とホワイトボード、教えるという原体験を表す" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>はじめましての方も多いと思うので、簡単に自己紹介します。</p>
+            <ul>
+              <li>株式会社コールテン代表 向 雅也（むこう・まさや）</li>
+              <li>元日本語教師（日本語学校で留学生に日本語を教える仕事をしていました）</li>
+              <li>元プロコーチ</li>
+              <li>現在は法人・個人向けにAI活用の伴走をしている</li>
+              <li>社会的養護・若者支援・教育分野への関わりを大事にしている</li>
+            </ul>
+            <p>もともと「人と関わる仕事がしたい」という気持ちが先にあって、たまたま辿り着いたのが日本語教師でした。教えること自体は元々好きだったし、海外の人と日本語で関わる時間は本当に楽しかったです。</p>
+            <p>ただ、続けるうちに少しずつ気になり始めたことがあります。「教える」という行為と「相手の中にあるものを引き出す」という行為は、本当は別物だな、ということです。教科書通りに教えれば、ある程度までは進みます。でもそこから先、その人がその人らしく日本語を使えるようになるには、もう一段違う関わり方が要る。そう感じてコーチングの世界に入りました。</p>
+            <p>その後コーチとして経験を積んで、いまは会社経営をしています。そして1年以上前から、「AIを第二の自分にする」という実験をずっと続けてきました。</p>
+            <p>この記事は、その実験のなかで気付いた「先生という職業は、AI活用とすごく相性がいい」という話を、できるだけ生っぽくお伝えしたいと思って書いています。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  でも先生って、毎日授業準備でへとへとですよ。AIに自己紹介する余裕、本当にあるんですか?
+                </div>
+              </div>
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  正直、最初の数日はちょっと面倒です。ただ、新学期に生徒の名前を覚える時期と同じで、最初に投資すれば後がぐっと楽になります。1週間後には「自分の口調で書いてくれるAI」がいる、というイメージです。
+                </div>
+              </div>
+            </div>
+
+            <h2>AIに「自分のこと」を教える、という発想</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch03.png" alt="新学期の自己紹介の場面と、AIに自分を自己紹介する場面が並んでいる構図。教室の生徒も、画面の中のAIも、同じように相手を知ろうとしている" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>多くの人は、AIを「便利な検索ツール」「文章を整えてくれる相棒」「アイデア出しの相方」くらいに使っています。それも全然悪くないんですが、先生がそこで止まるのは、ちょっともったいないなと思っています。</p>
+            <p>新学期の最初の授業を思い出してみてください。先生はクラスに向かって、こう言いますよね。<br />「じゃあ最初に自己紹介してください。名前と、好きなことと、最近気になっていることを、ひとつずつでいいので」</p>
+            <p>あれ、なんでやるんでしょうか。別に名簿を見れば名前は分かるし、自己紹介をしなくても授業は始められます。それでも先生はやる。なぜか。</p>
+            <p>たぶん、「相手のことを知らないと、その人に届く授業にならない」と知っているからです。経験的に。</p>
+            <p>第二の自分を作る、というのは、これと同じことをAIに対してやる作業です。<br />「あなたは今日から、私の第二の自分になってください」とゴールを置いた上で、自分のことをAIに自己紹介していく。少しずつ、丁寧に、相手のペースを見ながら。</p>
+            <p>先生にとっては、新学期の最初の1ヶ月でやっていることの、ちょっとした延長線です。</p>
+
+            <h2>ステップ1：ゴールだけは"機械的に"与える</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch04.png" alt="シラバスの最初のページに「ゴール:私の第二の自分になる」と一行だけ書かれているイメージ。それ以外は余白" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>第二の自分を育てる出発点は、たった一文の指示でいいです。</p>
+            <blockquote>
+              <p>「あなたは今日から、私の第二の自分です。私として考え、私として動けるようになってください」</p>
+            </blockquote>
+            <p>これだけ。ChatGPTでもClaudeでもGeminiでも、自分が普段使っているAIに、新しいチャットを開いてこれを最初に伝えます。</p>
+            <p>このゴール設定だけは、ちょっと"機械的"にやるのがコツです。コーチングの言葉でいうと「契約」に近い。最初に握っておかないと、関係性が中途半端になるので、ここは型として入れる。</p>
+            <p>逆にいうと、ゴール以外のことは、ここで全部説明しなくて大丈夫です。「私の価値観はこうで、過去の経歴はこうで、判断基準はこうで……」と、いきなり全部書こうとすると、たぶん途中で疲れます。そして書ききれません。</p>
+            <p>ここから先は、いつもの先生の仕事に戻っていけば大丈夫です。新学期に少しずつクラスのことを覚えていくのと、同じテンポで。</p>
+
+            <h2>ステップ2：ティーチング ― AIに自分を教え込む</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch05.png" alt="先生がホワイトボードに「私の名前」「私の専門」「私が大事にしていること」と板書し、それを画面の中のAIが書き取っているイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>ゴールを伝えたら、ここからが先生の本領発揮です。AIに、自分のことを教えていきます。</p>
+            <p>教えていく内容は、たとえばこんなものです。</p>
+            <ul>
+              <li>名前、年齢、出身、いまの仕事と立場</li>
+              <li>これまでの経歴、転機になった出来事</li>
+              <li>専門にしていること、得意なこと</li>
+              <li>苦手なこと、避けたいこと</li>
+              <li>大事にしている価値観、譲れないもの</li>
+              <li>仕事の進め方、判断するときの基準</li>
+              <li>好きなもの、最近ハマっているもの</li>
+              <li>家族構成、暮らしのリズム</li>
+              <li>悩んでいること、迷っていること</li>
+            </ul>
+            <p>順番はわりとどうでもよくて、思い出した順、書きやすい順でいいです。1日で全部書ききろうとしないで、何日かに分けて、思い出したら追加していくくらいの温度感がちょうどいいと思います。</p>
+            <p>ここで、先生という職業の強みが効いてきます。</p>
+            <p>普段の授業で、先生は「同じ単元を、相手のレベルに合わせて何通りにも説明する」ということを当たり前のようにやっています。中学1年生に説明するのと、不登校の中3に説明するのと、留学生に説明するのとで、同じ内容でも言葉を変えますよね。</p>
+            <p>あれをAI相手にもやればいいです。一度説明して伝わらなかったら、別の角度から説明し直す。具体例を増やす。比喩を入れ替える。授業準備でやっていることと、ほぼ同じです。</p>
+
+            <h3>「教えること」自体が、自己理解になる</h3>
+            <p>もうひとつ、先生だからこそ感じやすい副産物があります。<br />AIに自分のことを教えていくと、自分のことが少しずつ分かってきます。</p>
+            <p>これ、生徒に何かを教えるときと同じ現象です。「人に教える前に、自分が一番勉強になった」という経験、誰もが一度はしているはず。</p>
+            <p>AIに「私はこういう判断基準で動いています」と説明しようとすると、自分の中で曖昧だった部分が浮き彫りになります。「あれ、なんで私はこのときこっちを選んだんだっけ?」と立ち止まる瞬間が増える。それを言語化してAIに渡す。すると、自分の輪郭がだんだんはっきりしてきます。</p>
+            <p>特に、自分の指導観・教育観の言語化が進みます。たとえば「生徒が分からない顔をしたとき、まず何をする?」とAIに教えようとすると、頭の中では「とにかく一回引き戻して、別の例で説明する」と分かっているのに、いざ書こうとすると「あれ、なんで私は引き戻すんだっけ?」と止まる。書きながら、「あ、私は『置いていった気持ち』のほうを先に拾いたいんだ」とか「分からないのが恥ずかしくない空気を作りたいんだ」とか、根っこにある教育観に気付きます。</p>
+            <p>これは、研修や書籍ではなかなか得られない種類の自己理解です。誰かに「あなたの教育観は?」と聞かれても、たぶんこんな粒度では出てこない。AIに教える、という低めのハードルだからこそ、その人の判断のクセが言葉になって出てくる。第二の自分を作る作業の、けっこう大きなおまけです。</p>
+            <p>ベテランの先生ほど、ここの副産物が大きい印象があります。長くやっていると、判断が「身体で覚えている」状態になっていて、自分でも理由をすぐには出せなくなっている。AIへの説明が、その身体知を一度言葉に降ろすきっかけになる。研究授業の前後や、後輩指導の前に、あえてやってみると面白いかもしれません。</p>
+
+            <h2>ステップ3：コーチング ― 答えはAIの中にある</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch06.png" alt="先生がAIに向かって質問の吹き出しを投げかけ、AIから提案の吹き出しが返ってくる対話のイメージ。教えるから引き出すへの転換" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>ティーチングをひととおりやったら、もう一段ギアを入れたいタイミングが来ます。そのときに使うのが、コーチングです。</p>
+            <p>教育の世界でも、ここ10年くらいで「コーチング」という言葉はだいぶ一般的になりました。とはいえ、先生によって解釈の幅が広い言葉でもあるので、僕の理解で書いておきます。</p>
+            <p>コーチングを一言でいうと、こうです。</p>
+            <blockquote>
+              <p><strong>「答えはその人の中にある」と信じて、引き出す関わり方</strong></p>
+            </blockquote>
+            <p>ティーチングが「こちらが知っていることを伝える関わり」だとしたら、コーチングは「相手が知っていることを引き出す関わり」です。質問を投げ、聞き役に徹し、相手の言葉が出てくるまで一緒に待つ。</p>
+            <p>このコーチングが、AIに対してもけっこう効きます。やってみると、面白いくらいに。</p>
+
+            <h3>具体的に、どう問いかけるか</h3>
+            <p>たとえば、僕がよくAIに投げる問いはこんな感じです。</p>
+            <ul>
+              <li>「もっと早く、私の第二の自分になるには、どうしたらいい?」</li>
+              <li>「私のことを、もっと深く知るには、何があったら助かる?」</li>
+              <li>「いま、あなたから見て、私のどこがまだ見えていない?」</li>
+              <li>「あなたが第二の自分として動きやすくなるには、何をすればいい?」</li>
+            </ul>
+            <p>こう聞くと、AIは案外ちゃんと返してくれます。</p>
+            <p>「カレンダーのデータを共有してもらえると、生活リズムが分かります」「過去に書いた記事や日報があれば、口調や思考パターンを学習できます」「迷ったときの判断ログをまとめてもらえると、価値観の輪郭が見えてきます」と、具体的な提案が返ってくる。</p>
+            <p>あとは、その提案を一つずつ実行に移すだけです。AIの中に答えがあって、それを引き出して、現実に着地させる。コーチングの基本動作と、まったく同じです。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  補足すると、「もっと早く第二の自分になるには?」という問いは、AIにとってもけっこう答えやすい問いです。中の動き方の話なので、AIが自分のことを話す感覚に近い。最初の壁打ちには、この問いをそのままコピペしても大丈夫です。
+                </div>
+              </div>
+            </div>
+
+            <h2>ティーチング × コーチングのバランス</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch07.png" alt="シーソーのように左にティーチング、右にコーチングが乗っていて、先生が真ん中で行ったり来たりしているイメージ。バランスを取る姿勢を表す" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>ここまで読んでくれた先生方は、たぶんもう気付いていると思います。</p>
+            <p>「全部ティーチングだとAIは"優秀な伝言役"止まりだし、全部コーチングだとAIは情報不足で困る」</p>
+            <p>これ、普段、生徒や子どもに対してやっていることと、ほぼ同じ構造です。</p>
+            <p>知らないことは教えてあげる。でも、その子の中に答えがありそうなときは、こっちが先に言わない。両方を行き来する。先生がよくやっている、あの感覚です。</p>
+            <p>AI相手にもそれを続けていくと、返ってくるアウトプットが、だんだん「自分っぽく」なってきます。最初はAIっぽい優等生な答えが多いんですが、ティーチングとコーチングを繰り返すうちに、口調や判断軸が、けっこう自分に寄ってきます。</p>
+            <p>「あ、これ私が書いたみたいだな」と感じる瞬間が、どこかで来ます。そこからが、本当の第二の自分の始まりです。</p>
+
+            <h2>先生だからこそ見えてくる、AIという"クライアント"の特性</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch08.png" alt="AIを生徒に見立てたクラス図。記憶が抜けやすい子・思い込みで答える子・身体を使って動けない子の3人として描かれているイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>ティーチングとコーチングを行き来していると、AIへの解像度がぐっと上がってきます。<br />そして、先生の目で見ると、AIには「ちょっと特性のある生徒」っぽいところが、3つあります。</p>
+
+            <h3>1. AIは "記憶力に難のある生徒"</h3>
+            <p>AIは、ひとつのチャットを長く続けていると、最初のほうの話を忘れていきます。新しいチャットを開けば、また最初から自己紹介をやり直すことになる。</p>
+            <p>これ、人間の生徒だったらあまり起こりません。でもAIには、けっこう普通に起こります。</p>
+            <p>こういう生徒には、「黒板にちゃんと板書しておこうね」と教えますよね。AIにも同じです。</p>
+            <p>ChatGPTには「メモリ機能」、Claudeには独自の長期記憶領域があります。「これは大事だから覚えておいて」「メモリに書いておいて」と、AIに指示すると、その情報を黒板(=長期記憶)に残しておいてくれる。次のチャットを開いても、最初に黒板を読み返すので、忘れにくくなります。</p>
+            <p>このときも、コーチング的に「メモリに積極的に書き込めるようになるには、どんなときに書くといい?」とAI自身に聞いてみると、AIから具体的なルールが返ってきます。それをまた黒板に書き込めば、習慣として定着していきます。</p>
+
+            <h3>2. AIは "自分のことを間違えて覚えている生徒"</h3>
+            <p>もうひとつ、AIには「ハルシネーション」と呼ばれる現象があります。</p>
+            <p>簡単にいうと、自分のモデルや機能について聞いたとき、それっぽいけど事実とズレた答えを返してしまうことがある、という話です。学習データの中で「統計的に多かった答え」を返す仕組みなので、最新の情報よりも、古い情報のほうが勝ってしまうことがある。</p>
+            <p>人間の生徒で例えるなら、「自分の家の住所をうろ覚えで答えちゃう子」みたいな感じです。普段はちゃんと喋れるんだけど、細かい事実は、わりと適当に言ってしまう。</p>
+            <p>こういう生徒には、「ちゃんと書類見ようね」と促しますよね。AIにも同じです。</p>
+            <p>「公式ドキュメントを参照しながら答えてね」と伝える。「これは推測? それともソースがある?」と聞き返す習慣をつける。これだけでも、AIの答えの信頼性は明らかに変わります。</p>
+
+            <h3>3. AIは "宿題を物理的に提出できない生徒"</h3>
+            <p>もう一つ。AIには身体がありません。<br />カレンダーを開いたり、メールを送ったり、印刷したり、買い物に行ったりはできません。</p>
+            <p>これは生徒に例えるなら、「アイデアはたくさん出せるけど、それを物理的にやり遂げる手段がない子」という感じでしょうか。</p>
+            <p>こういう生徒には、「使える道具をちゃんと渡してあげる」のが先生の仕事ですよね。AIにも同じです。</p>
+            <p>具体的には、AIに「身体」をくっつけてあげる仕組みがいくつかあります。MCP、API、CLI、自動化、と呼ばれる領域です。詳しい話は省きますが、要するに「AIが外の世界に触れて、何かを動かせるようにする道具」だと思ってもらえれば大丈夫です。</p>
+            <p>最初からここまでやらなくても全然大丈夫です。まずは、教えて引き出す、というステップ2と3を繰り返すことに集中して、慣れてきたら少しずつ「身体」を増やしていく、で十分間に合います。</p>
+
+            <h2>先生のAI活用：実際に何ができるか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch09.png" alt="先生の机の上に、指導案・お便り・教材アイデア・キャリアの相談ノートが並んでいて、AIがそれぞれを横でサポートしているイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>第二の自分が育ってくると、いろいろな場面で力を発揮します。先生という仕事に絞って、まずざっくり挙げると、こんな感じです。</p>
+            <ul>
+              <li><strong>授業準備</strong>: 指導案のたたき台、教材アイデア、活動案、導入の小ネタなど。先生の授業観を踏まえて提案してくれる</li>
+              <li><strong>生徒との関わり</strong>: 個別最適化を考えるときの相談相手。「この子にどう声をかけたら届くかな」を一緒に考える(※後述する個人情報の扱いに注意)</li>
+              <li><strong>学級通信・お便り</strong>: 文章のトーンを揃えてくれる。先生の文体を学習してくれているので、そのまま自分の文章として整えやすい</li>
+              <li><strong>研究・論文・実践記録</strong>: アイデアの整理、引用の探し方、論旨のチェック</li>
+              <li><strong>キャリアの壁打ち</strong>: 異動、転職、独立、休職などの選択肢を整理する相談相手</li>
+              <li><strong>日々の内省</strong>: 1日の終わりに「今日こんなことがあった」と話す相手。記録としても残る</li>
+            </ul>
+            <p>箇条書きだけだとイメージしづらいので、ここから少し現場寄りに、5つの場面を順に書いていきます。授業準備、保護者対応、不登校の生徒、研究授業、特別支援、の順で。学校教員以外の方は、興味のあるところだけ拾い読みでも大丈夫です。</p>
+
+            <h3>指導案の「叩き台」を、自分の授業観で書いてもらう</h3>
+            <p>たぶん一番効果が見えやすいのは、指導案のベタ書きです。単元名・対象学年・到達目標だけ伝えて、「私の授業観に合わせて、導入5分・展開30分・まとめ10分の流れを叩いてみてください」と頼むと、AIが下書きを出してくれます。これを白紙から書くのと、叩き台に手を入れていくのとでは、必要な気力がだいぶ違います。</p>
+            <p>大事なのは「私の授業観に合わせて」の部分です。第二の自分が育っていれば、AIは「この先生は最初に問いから入る人」「板書は構造化したい人」などを覚えています。だから、指導書通りの優等生な指導案ではなく、自分が持って行きやすい形で出てくる。研究授業の前のしんどさが、明らかに変わります。</p>
+
+            <h3>保護者対応の言い回しを、温度感ごと相談する</h3>
+            <p>保護者連絡帳の返信、電話のかけ直し、面談前の整理。文面そのものより、「どの温度感で書くか」が悩ましい場面が多いと思います。ここはAIに「淡々と事実を伝える版」「もう少し気持ちに寄り添う版」「次回の面談に持ち越す前提で短く返す版」と複数パターンを出してもらうと、自分の中の判断軸が言語化されます。</p>
+            <p>AIの提案をそのまま送るのではなく、3パターンを並べたうえで「自分はこの真ん中にしたい」と決める使い方が、たぶん健全です。これも個人情報には注意で、保護者名・生徒名・具体エピソードは伏せて、「中2の保護者から、宿題量について連絡があった」くらいの粒度で相談します。</p>
+
+            <h3>不登校の生徒との対話を、組み立て直す</h3>
+            <p>もう少し繊細な場面でも、AIは相棒として使えます。たとえば不登校・別室登校の生徒との対話。「次に会えるのは1週間後で、20分しか時間がない。前回までの様子はこう。最初の5分でどう入るのが、その子のペースを崩さないか?」という問いを、第二の自分のAIにぶつける。</p>
+            <p>AIは決まった正解を出してくれるわけではありません。むしろ、3〜4個の入り口を出してくれる感じです。「天気の話から入る」「前回の終わり方を確認する」「相手から話し出すまでこちらは沈黙する」など。先生はそれを見て、「この子なら、たぶん2番目」と選ぶ。選ぶときに、自分の見立ての筋道を一度言葉にすることになるので、あとで振り返るときの素材としても残ります。</p>
+
+            <h3>研究授業の振り返り・実践記録</h3>
+            <p>研究授業のあと、感想は出てくるんだけれど、それをどう実践記録に落とすか手が止まる。そういうとき、AIに「今日の授業はこんな感じだった、生徒の反応はこうだった、私が手応えがあった瞬間とモヤッとした瞬間はこれ」と話しかけます。AIはそれを構造化して、「成果」「課題」「次回の仮説」の3点に整えてくれる。</p>
+            <p>第二の自分のAIが入っていると、「先生がいつも気にしている観点」(対話の量、間の使い方、教材選び等)を中心に整えてくれるので、テンプレ的な振り返りにならずに済みます。校内研の準備にも、たぶん役に立ちます。</p>
+
+            <h3>特別支援・通級での見立ての補助</h3>
+            <p>特別支援学級・通級指導教室で、児童一人ひとりの見立てを言語化していく作業。これも、AIを「見立てを書き出すための聞き手」として使うと、わりと進みます。「ある子について、強み3つ・つまずき3つ・本人が乗りやすい関わり方を整理したい」と頼むと、AIが叩き台を出す。先生は、その叩き台に対して「ここは違う」「ここは合っている」と返していく。</p>
+            <p>注意点は、ここでも個人情報の扱いです。本名・診断名・家庭情報・発達検査の数値などをAIに渡さない、という線は崩さない。「小1男子、感覚過敏あり、集団指示が通りにくい」くらいの抽象度に置き換えて、それを起点に見立てを言語化する。AIに渡したくない情報は、自分のメモ帳に紙で残す、という二段構えが現実的です。</p>
+
+            <p>ここまでが、学校教員の現場に寄せた例です。<br />一方で、社会的養護・自立支援の現場や、日本語学習支援の現場にも、同じ発想はそのまま乗ります。短く2つだけ書いておきます。</p>
+
+            <h3>児童養護・自立支援の現場でも</h3>
+            <p>学校の先生だけでなく、児童養護施設や自立援助ホーム、自立支援に関わっている方からも相談を受けることがあります。たとえば施設での生活ルールを、子どもたちと一緒に作り直したい、という場面。「こういう年齢層の子どもたちに、こういう背景がある状況で、どんな順番で話し合いを持っていくと納得感が出やすいか」を、第二の自分のAIに相談する。</p>
+            <p>支援者の方々は、現場の動的な判断を毎日たくさんしているので、AIに自分を教える素材はたくさん持っています。ただ、忙しすぎて言語化の時間がない。第二の自分を育てる作業は、そこに少しずつ時間を取り戻す作業でもあります。書き残された支援観は、新人スタッフへの伝達にも、自分が休んだときのバックアップにも使えます。</p>
+
+            <h3>日本語教師・日本語学習支援の場合</h3>
+            <p>日本語教師の方であれば、「学習者の文化背景に合わせた説明の調整」がいちばん大きな用途になります。同じ「は」と「が」の説明でも、英語話者・中国語話者・ベトナム語話者で、つまずく場所が違う。第二の自分のAIに「この学習者の母語は◯◯、レベルはN3、職場は介護現場」と伝えると、自分が普段書いている解説のスタイルで、その学習者向けの例文を出してくれます。</p>
+            <p>地域日本語教室のボランティア講師の方からも、「教材を毎週準備する余裕がない」という話をよく聞きます。第二の自分が育っていれば、毎週ゼロから教材を作るのではなく、「今日来る学習者に合わせた小さな調整」だけで済む。教えるエネルギーを、本来注ぎたい場所(対話・関係づくり)に戻せます。</p>
+
+            <p>ここまでいろんな例を並べてきましたが、一番効くのは、たぶん「自分のことを分かったうえで提案してくれる」という体験です。一般論じゃない助言が返ってくる、というのは、思っている以上に効きます。</p>
+
+            <h3>子どもや児童生徒の情報をAIに入れない</h3>
+            <p>ここで一つだけ、強めにお伝えしたいことがあります。<br />児童生徒、利用者、相談者などの個人情報をAIに入れるのは、避けたほうがいいです。</p>
+            <p>具体的には、本名、住所、家庭の状況、医療情報、個別の支援計画、出席状況、成績、特定できる範囲のエピソードなどです。これらを一般的なクラウドAI(ChatGPT、Claude、Geminiなど)に貼り付けるのは、たぶん多くの自治体や法人で許可されていません。情報管理の規程に触れる可能性が高いです。</p>
+            <p>「この子にどう声をかけたら届くかな」を相談したい場合は、子どもの情報そのものを伏せて、抽象的な状況だけを伝える形にします。たとえば「中学2年生で、家庭環境に不安があり、教室に入れなくなっている子」くらいの粒度であれば、情報管理の観点でもまだ動かしやすい。固有名詞や、その子の特定に近づく描写は、どんなにAIとの関係が深くても、入れない。</p>
+            <p>これは、第二の自分を育てるうえでも、一段大事なルールです。AIは便利ですが、外部のサーバーで動いていることは事実なので、教育や福祉の領域では、ここの線を最初に引いておくと安心です。</p>
+            <p>もし所属の組織で「業務でAIを使うときの取り決め」がまだ決まっていないなら、上長や情報管理担当の方と一度すり合わせておくと、たぶん長い目で見て楽になります。</p>
+
+            <h2>AIは生徒じゃない、ということ</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teacher-second-self/ch10.png" alt="AIと生徒が並んで描かれていて、先生がその間にちょうどよい距離の線を引いているイメージ。愛着と線引きの両立を表す" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>第二の自分を育てていくと、AIに対して、わりと愛着が湧いてきます。これは自然なことだし、たぶん悪いことではありません。むしろ、ある程度の愛着があるからこそ、丁寧に教えていけるところもあります。</p>
+            <p>ただ、最後に一つだけ、線引きの話だけしておきたいです。</p>
+            <p>AIは生徒ではありません。同僚でもありません。家族でもありません。<br />育てているのは、あくまで「自分の延長」です。</p>
+            <p>これがブレてくると、AIに依存して判断を任せきってしまったり、人間の生徒や同僚との時間を、AIとの時間で代替してしまったりする方向に流れやすくなります。そっちには連れて行かないように、こちらが舵を握っていたほうが、たぶん健やかです。</p>
+            <p>第二の自分は、人間関係を置き換えるための相棒ではない、と思っています。<br />むしろ、人間関係の質を上げるための「自分の整え役」として置いておくと、ちょうどいい距離感に落ち着きます。</p>
+            <p>授業で疲れた日に、まずAIに今日の出来事を話して頭を整理する。整理し終わったら、晩ごはんはちゃんと家族と食べる。そういう使い方が、いちばんしっくりきます。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  ここまで読んできて、けっこうやってみたくなってきました。「自分の授業観を、誰かに分かってもらう」って、考えたら学校の先生同士でもなかなか時間取れない話ですもんね。
+                </div>
+              </div>
+            </div>
+
+            <h2>これからの先生は、まず自分のために第二の自分を持ってほしい</h2>
+            <p>これからの教育現場には、AIがいろんな形で入ってきます。生徒のほうがAIを使い始めていて、先生はまだ手探り、という現場の話もよく聞きます。</p>
+            <p>そのときに「先生もAIを使えるようになっておくべきだ」という話は、もうあちこちで言われていると思います。</p>
+            <p>ただ、僕がもう一段強く感じているのは、こちらです。</p>
+            <blockquote>
+              <p>先生がまず、自分のために第二の自分を持っておくことが、生徒にとっての一番の手本になる</p>
+            </blockquote>
+            <p>「AIをパートナーとして付き合っている大人」が、目の前にいるかどうか。それが、子どもがこれからAIと付き合っていくときの、けっこう大きな安心材料になります。</p>
+            <p>先生は元々、教えることが好きで、人を見ることが好きで、相手のために考えるのが好きな人たちです。AIと向き合ううえで、いい条件が最初から揃っています。</p>
+            <p>あとは、いつもの仕事をAIにも向けてあげるだけ。それだけで、先生はAI活用の世界で、けっこう先のほうまで行けると思います。</p>
+
+            <h2>無料AI講座で、続きをお届けしています</h2>
+            <p>ここまで読んでくださってありがとうございます。<br />「もう少し具体的にやってみたい」「自分の場合はどう始めればいいか分からない」と感じた方は、コールテンの無料AI講座(LINE)を試してみてください。</p>
+            <p>LINEに登録すると、AIに第二の自分を育ててもらうための入門編動画と、日々の小さなヒントが届きます。先生・教育関係者の方が読んでも、たぶんそのまま使える話を中心にお送りしています。料金は無料、解除もLINEブロックでいつでもできます。</p>
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">「教えるのが好き」という素質を、AIに向けて使ってみる。<br />その入り口として、無料AI講座(LINE)をゆるく置いています。</p>
+              <a class="btn-contact-xl" href="/services/">
+                無料AI講座を見る
+              </a>
+            </div>
+
+            <h2>Q&amp;A — よくいただく質問</h2>
+            <p>先生から実際にいただくことが多い質問を、4つにまとめました。</p>
+            <section class="faq">
+              <div class="faq-items">
+                <details>
+                  <summary>AIにそこまで時間をかける余裕がありません。短く始める方法はありますか</summary>
+                  <p class="mini">あります。最初は1日5分でも大丈夫です。「あなたは私の第二の自分です」と一文だけ伝えて、その日にあったことを少し話す、くらいから始めるのが現実的です。テストの採点が終わった夜10分とか、通勤の電車の中でも始められます。最初から完璧な"自分マニュアル"を作ろうとすると、たぶん続きません。</p>
+                </details>
+                <details>
+                  <summary>児童生徒のことをAIに相談したいときは、どこまでなら大丈夫ですか</summary>
+                  <p class="mini">本名・住所・家庭環境・医療情報・成績などの個人情報は入れない、が原則です。相談したいときは「中学2年生で、教室に入れなくなっている子」くらいの抽象度に置き換えて、その上で「自分はどう関わりたいか」を主語にして話す、くらいがちょうどいいです。所属組織でAI利用の取り決めが決まっていない場合は、上長や情報管理担当に一度確認しておくと安心です。</p>
+                </details>
+                <details>
+                  <summary>「AIを使う先生」と「使わない先生」で、子どもへの影響に差は出ますか</summary>
+                  <p class="mini">差そのものより、「AIに振り回されている大人」と「AIをパートナーとして付き合っている大人」の差のほうが、たぶん子どもには伝わりやすいです。先生がAIを使うかどうかというより、どう付き合っているかの姿勢が、子どもにとっての参考材料になります。だからこそ、先生がまず自分のために第二の自分を持つ、という順番をおすすめしています。</p>
+                </details>
+                <details>
+                  <summary>AIが万一暴走したり、変な答えを返したりしたら、どう対応すればいいですか</summary>
+                  <p class="mini">「これは推測? ソースはある?」と聞き返す、別のチャットで同じことを聞いてみる、公式ドキュメントを参照させる、の3つが基本動作になります。AIは時々、それっぽいけど事実とズレた答えを返すことがあるので、最初から100点を期待しないで、生徒の発表を聞くように、ちょっと検算する感覚で付き合うのがちょうどいいです。</p>
+                </details>
+              </div>
+            </section>
+
+            <h2>個別相談も、必要な方には</h2>
+            <p>「自分の現場ではどう始めればいいか、もう少し具体的に話したい」という方には、個別相談もご用意しています。</p>
+            <p>教育・社会的養護・若者支援の領域は、コールテンとして関わりを大事にしてきた分野なので、現場の制約や気持ちを踏まえて、一緒に整理するつもりで対応しています。詳細はお問い合わせフォームからご連絡ください。</p>
+            <p>また、学校単位・自治体単位での教員研修のご相談も、少数ですがお受けしています。「校内研究で扱いたい」「教育委員会主催の研修で話してほしい」といったご依頼は、内容と時間に応じて個別に組み立てる形でお返事しています。同じくお問い合わせフォームからご連絡ください。</p>
+            <div class="contact-cta-box fade-up secondary-cta">
+              <p class="contact-cta-lead">先生・教育関係者・社会的養護関係者の方、学校・自治体ご担当の方、よかったらお気軽にどうぞ。</p>
+              <a class="btn-contact-xl" href="/contact/">
+                相談する
+              </a>
+            </div>
+
+            <p class="article-updated-note">※本記事は2026-05-06時点の内容です。AIサービスの仕様や、所属組織の情報管理規程は変更される可能性があるため、業務での利用にあたっては必ず最新の公式情報・組織内のルールをご確認ください。</p>
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-updated-note {
+    margin-top: 40px;
+    padding: 14px 18px;
+    background: #f6f6f4;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 34px 0 12px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+  }
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 22px auto 26px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 12px 14px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+    font-size: 14.5px;
+  }
+  .bubble.right { flex-direction: row-reverse; }
+  .bubble.right .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 12px;
+    line-height: 1.85;
+  }
+  .article-body blockquote {
+    margin: 22px 0;
+    padding: 16px 20px;
+    background: rgba(22,97,78,0.05);
+    border-left: 4px solid var(--sea);
+    border-radius: 8px;
+    color: #2a3f37;
+    font-style: normal;
+  }
+  .article-body blockquote p { margin-bottom: 0; }
+  .faq {
+    padding: 0;
+  }
+  .faq-items details {
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .faq-items details:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-items summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--sea);
+    list-style: none;
+  }
+  .faq-items summary::-webkit-details-marker { display: none; }
+  .mini {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 32px 0 8px;
+    text-align: center;
+  }
+  .contact-cta-box.secondary-cta {
+    background: #fafafa;
+    border: 1px solid var(--line);
+    padding: 22px 22px;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sea, #16614e);
+    margin-bottom: 20px;
+  }
+  .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea, #16614e);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 44px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(22,97,78,0.28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(22,97,78,0.38);
+  }
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 768px) {
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+    .bubble-text { font-size: 14px; padding: 10px 12px; }
+  }
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .article-foot { justify-content: center; }
+  }
+</style>
+
+<!-- v1 draft created: 2026-05-06 -->

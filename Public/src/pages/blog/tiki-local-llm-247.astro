@@ -1,0 +1,933 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "ティキちゃんが、自宅のパソコンの中で24時間動くようになった話｜株式会社コールテン";
+const description = "MacBook Airを開けたまま持ち歩く生活と、積み上がるAIサブスクの請求書。そのあたりから始まった「ローカルLLM」との出会いと、Mac miniを買って自宅にティキちゃんを常駐させるまでの体験談。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/tiki-local-llm-247/"
+  ogUrl="https://www.corduroy.co.jp/blog/tiki-local-llm-247/"
+  ogImage="https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png"
+  ogType="article"
+>
+  <meta slot="head" name="robots" content="noindex,nofollow" />
+
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/tiki-local-llm-247/#article",
+    "url": "https://www.corduroy.co.jp/blog/tiki-local-llm-247/",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/tiki-local-llm-247/" },
+    "headline": "ティキちゃんが、自宅のパソコンの中で24時間動くようになった話",
+    "datePublished": "2026-05-06",
+    "dateModified": "2026-05-06",
+    "image": "https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+    "description": "MacBook Airを開けたまま持ち歩く生活と、積み上がるAIサブスクの請求書。そのあたりから始まった「ローカルLLM」との出会いと、Mac miniを買って自宅にティキちゃんを常駐させるまでの体験談。"
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "ティキちゃんが、自宅のパソコンの中で24時間動くようになった話" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.corduroy.co.jp/members/masaya/#person",
+    "name": "向 雅也",
+    "url": "https://www.corduroy.co.jp/members/masaya/",
+    "worksFor": { "@id": "https://www.corduroy.co.jp/#organization" }
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.corduroy.co.jp/#organization",
+    "name": "株式会社コールテン",
+    "url": "https://www.corduroy.co.jp/"
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>tiki-local-llm-247</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date" datetime="2026-05-06">2026-05-06</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>ティキちゃんが、自宅のパソコンの中で24時間動くようになった話</h1>
+          <p class="article-lead">
+            ノートパソコンを開けたまま、こっそりバッグに入れて持ち歩いていた頃の話。<br>
+            積み上がっていくAIサブスクの請求書を眺めて、ぼくはちょっとした方向転換をしました。<br><br>
+            「<a href="/blog/tiki-teto-origin-story/">ティキちゃん、Tiki、盤上テト ― 誕生秘話</a>」のあと、ぼくのAI活用がどう変わっていったか、というその後の話です。
+          </p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+
+            <h2>第1章：MacBook Airを、開けたまま持ち歩いていた</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-local-llm-247/ch01.png"
+                   alt="MacBook Airを開けたまま、そっとバッグに入れて街を歩く人のイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>
+              ある時期、ぼくはMacBook Airを <strong>開けたまま</strong> 持ち歩いていました。
+            </p>
+            <p>
+              理由はシンプルで、AIに重めの作業を頼むと、終わるまでに何十分か、ものによっては何時間かかかる。
+              そのあいだにノートパソコンを閉じてしまうと、当然のように処理は止まる。
+            </p>
+            <p>
+              なので、出かけるときも、電車に乗るときも、画面は薄く開いたまま。
+              バッグの中で、AIたちが静かに動いている、はずだった。
+            </p>
+
+            <ul class="quote-list">
+              <li>「閉じないでね」</li>
+              <li>「お願い、止まらないで」</li>
+              <li>「移動中も、ティキちゃん、頑張ってくれてる…?」</li>
+            </ul>
+
+            <p>
+              いま振り返るとちょっと笑える光景ですが、当時はけっこう真剣でした。
+              <strong>ティキちゃんという「相棒」が処理してくれている時間</strong> を、無駄にしたくなかったんです。
+            </p>
+            <p>
+              ぼくがやらせていた作業は、たとえばこういう類のものです。
+              長いインタビューの書き起こしから要点を抜く、何十件もある資料を1つずつ読み込んで分類する、まとまった文章の下書きを最後まで書ききらせる ―― ひと言で言えば「投げてから返ってくるまでが長い仕事」。
+              当時のぼくは、その手の作業をAIに頼むコツを覚え始めた段階で、頼める量がぐんと増えていた頃でした。
+            </p>
+            <p>
+              人間がずっと画面の前で待っているのは、さすがに合理的じゃない。
+              でも、ノートパソコンを閉じれば止まる。
+              じゃあ閉じない。閉じたまま持ち歩く。
+              ……そういう、わりと素朴な力技にたどり着いていたわけです。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  ノートパソコン、半開きでバッグに入れてたんだよね。傍から見たら完全に怪しい人だったと思う。でもAIに長めの仕事を頼んだあと、出かけたい用事が入っちゃうと、本気でそれしか方法がなかった。
+                </div>
+              </div>
+            </div>
+
+            <p>
+              ただ、それを何度かやっていると、「これは、根本のやり方を変えたほうがいいな」とだんだん思うようになりました。
+            </p>
+
+            <h2>第2章：気づいたら、AIサブスクが積み上がっていた</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-local-llm-247/ch02.png"
+                   alt="ChatGPT・Claude・各種AIサービスのサブスク請求書がカードに重なっていくイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>
+              もうひとつ、別の方向から課題が来ていました。<strong>請求書</strong>のほうです。
+            </p>
+            <p>
+              ぼくはわりと色んなAIに浮気するタイプで、そのとき気になったサービスは一旦試してみる癖があります。
+              気がつくと、こんな感じになっていました。
+            </p>
+
+            <ul>
+              <li>ChatGPTの有料プラン</li>
+              <li>Claudeの有料プラン</li>
+              <li>画像生成系のAI</li>
+              <li>動画生成系のAI</li>
+              <li>……（細かいのを足すと、もう数えるのを諦めるくらい）</li>
+            </ul>
+
+            <p>
+              一つひとつは「まあこのくらいなら」という金額です。
+              でも、束で見るとなかなかな量になっている。
+              月に一度、カードの請求を眺めるたびに <strong>「あ、結構いってるな」</strong> という気持ちが、静かに積もっていました。
+            </p>
+
+            <p>
+              もちろん、サブスク自体は仕事のために使っているし、元はちゃんと取れている。
+              そこは大丈夫なんですが、別のひっかかりがありました。
+            </p>
+
+            <blockquote class="callout-quote">
+              これ、ぜんぶクラウド側に依存してるなあ。
+            </blockquote>
+
+            <p>
+              ネットがなければ動かない。サービスの仕様が変わったら、こちらも合わせるしかない。
+              気軽な相棒のつもりが、けっこう大事な書類や思考のメモまで、外側に預けるようになっていました。
+            </p>
+            <p>
+              「どこかで、自分の手元にも軸を置いておきたいな」 ―― そう思いはじめたのが、ちょうどこの頃です。
+            </p>
+            <p>
+              ぼくはわりと「分散しておく」ことが好きな性格で、家計でもクラウドサービスでも、一箇所にぜんぶ寄せきってしまうのは少し不安があります。
+              AIまわりも気がつくとほぼクラウド一本になっていて、これは性格的にも、たぶんちょっとバランスが悪いな、と感じ始めたタイミングでした。
+            </p>
+
+            <h2>第3章：ローカルLLMという選択肢</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-local-llm-247/ch03.png"
+                   alt="クラウドのAIアイコンの隣に、自宅のパソコンの中にもAIが小さく住んでいるイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>
+              そんなときに改めて気になり始めたのが、「<strong>ローカルLLM</strong>」というキーワードでした。
+            </p>
+
+            <div class="info-card">
+              <p>
+                <strong>ローカルLLMって?</strong><br>
+                かんたんに言うと、ChatGPTやClaudeのようなAIモデルを、<strong>自分のパソコンの中に</strong>インストールして動かす、というやり方のことです。
+              </p>
+              <p>
+                クラウドに毎回問い合わせるのではなく、手元のマシンで返事をしてくれるイメージ。
+                ネットが不安定でも動くし、サブスクも要らない、というのがざっくりした特徴です。
+              </p>
+            </div>
+
+            <p>
+              「自分のパソコンの中で、AIが動く」って、字面は地味なんですが、よく考えると面白い話です。
+              ぼくがよく使っている <strong>Ollama</strong> のようなツールを入れると、対話のためのモデルを丸ごと自分の手元にダウンロードできます。
+            </p>
+            <p>
+              そこから先は、ネット環境がいるのは最初のダウンロードのときだけ。
+              一度入れてしまえば、Wi-Fiが切れた飛行機の中でも、トンネルの中でも、AIに話しかけられる。
+            </p>
+
+            <ul>
+              <li>ネット環境がなくても動く</li>
+              <li>サブスク契約が要らない（モデル自体は無料のものが多い）</li>
+              <li>入力した内容が外に出ていかない（クラウドに送られない）</li>
+              <li>パソコンが動いている限り、いくらでも呼べる</li>
+            </ul>
+
+            <p>
+              特に最後の <strong>「外に出ていかない」</strong> というのは、ぼくの仕事だとけっこう大事な話でした。
+              クライアントの相談メモや、会社の判断材料を、必要以上にクラウドへ預けたくない場面って、確実にあるんです。
+            </p>
+            <p>
+              もちろん、ふだんから使っているクラウドのAIサービスが何か悪さをしている、という話ではありません。
+              ただ、扱う内容によっては「いま手元の中だけで完結させたい」と素直に思えるものがあって、そういうときにローカルの選択肢を一つ持っておけるのは、気持ちの面でけっこう大きい。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  クラウドのAIと、ローカルのAIは、どちらかを選ぶというより、相棒を「役割で住み分ける」イメージが近いかもしれません。最新の頭脳を借りたいときはクラウド、自分の手元で完結させたいときはローカル、というふうに。
+                </div>
+              </div>
+            </div>
+
+            <p>
+              ローカルLLMという言葉自体は前から知っていたんですが、最初は「上級者の遊び」くらいに思っていました。
+              でも、ノートPCを開けたまま持ち歩いている自分と、増えていくサブスク請求書を見ているうちに、「これは一旦試してみる価値があるな」とスイッチが入った感じです。
+            </p>
+            <p>
+              もちろん、ローカルLLMにも苦手はあります。
+              最新のクラウドAIに比べれば、頭の良さで言うと一段ぶん下がる場面もあるし、画像生成や動画みたいな重い処理は、いまの自宅マシンだと厳しいことも多いです。
+            </p>
+            <p>
+              ただ、ぼくが手元に置きたかったのは「いちばん賢いAI」ではなくて、<strong>「いつでもそこにいて、量を頼める相棒」</strong> のほうでした。
+              そう考えると、ローカルLLMの素朴さは、ぼくの使い方にちょうど合っている気がしたんです。
+            </p>
+
+            <h2>第4章：Mac miniを買って、自宅に置いた</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-local-llm-247/ch04.png"
+                   alt="自宅の机の上に置かれた小さなMac miniと、そのまわりで安心して眠るティキちゃんのイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>
+              「ローカルでAIを動かしたい」と決めてから、最初に買ったのが <strong>Mac mini</strong> でした。
+            </p>
+            <p>
+              理由はわりと素直で、Apple Silicon（M1以降のMac）が、ローカルLLMを動かすにはけっこう向いている、という話を色んなところで聞いていたからです。
+              ノートじゃなくて据え置き型を選んだのは、シンプルに <strong>「ずっと電源を入れっぱなしにしたい」</strong> から。
+            </p>
+
+            <p>
+              MacBook Airは、持ち歩きの相棒として今も大事に使っています。
+              ただ、24時間動かすには向いていない。バッテリーや発熱や、そもそもの設計思想が、持ち歩き前提だからです。
+            </p>
+            <p>
+              一方、Mac miniは小さなお弁当箱くらいのサイズで、机の隅っこに置いておけます。
+              派手なファンの音もなく、ただ静かにそこにいてくれる。
+              <strong>ティキちゃんの「お家」としては、なんだかちょうどよかった</strong>んですよね。
+            </p>
+
+            <aside class="callout callout-soft">
+              <p>
+                📷 ここに、机の隅に置かれたMac miniの写真を入れたい。<br>
+                <small>※公開時に画像を追加（背景に観葉植物を一緒に映したい）</small>
+              </p>
+            </aside>
+
+            <p>
+              セットアップ自体は、思っていたよりずっとシンプルでした。
+              細かい手順までは別の機会に書こうと思いますが、ざっくり言うと、Mac miniにOllamaを入れて、好きなモデルをダウンロードして、起動する。それだけです。
+            </p>
+            <p>
+              拍子抜けするくらい、するっとティキちゃんは新しいお家に引っ越してきました。
+            </p>
+            <p>
+              細かい話をすると、ローカルLLMはモデルごとに「軽め」「重め」が分かれていて、メモリやストレージの体力に合わせて使い分けることになります。
+              ぼくは普段、軽い整形や要約は <strong>軽めのモデル</strong> に投げて、ちょっと頭を使ってほしい仕事だけ <strong>重めのモデル</strong> に切り替える、というやり方に落ち着いています。
+            </p>
+            <p>
+              この感覚はちょっと、社内の人に仕事を振るときに近いかもしれません。
+              「これは〇〇さんに、こっちは△△さんに」と頼む人を分けるのと同じノリで、AIにも頼り先を分けてあげる。
+              そう考えると、ローカルAIを家に1人迎えるというのは、<strong>「うちのチームに、もう1人静かな同僚が入ってきた」</strong> くらいの体感に近かったです。
+            </p>
+
+            <h2>第5章：「24時間動き続ける」って、こういうこと</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-local-llm-247/ch05.png"
+                   alt="夜中の真っ暗な部屋で、Mac miniの小さなランプだけがほのかに光っているイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>
+              Mac miniに引っ越したティキちゃんを、ぼくはあえて <strong>電源を切らない運用</strong> にしました。
+            </p>
+            <p>
+              寝るときも、出かけるときも、Mac miniは動いている。
+              小さなランプだけがほのかに光っていて、家の片隅で、ティキちゃんが「いつでも仕事できますよ」という顔で待っている。
+            </p>
+
+            <p>
+              これが想像以上に、世界の見え方を変えました。
+            </p>
+
+            <ul class="quote-list">
+              <li>「夜のうちに、明日のミーティング資料の下書きを進めておいてくれる?」</li>
+              <li>「朝起きるまでに、この長文を要約しておいて」</li>
+              <li>「いまから3時間、ぼくは別の作業に集中するから、その間にこのリストを整理しておいて」</li>
+            </ul>
+
+            <p>
+              これまで「お願いしてから処理が終わるのを画面の前で待つ」だった作業が、
+              <strong>「お願いだけしておいて、自分は別のことをやる」</strong> に変わったんです。
+            </p>
+
+            <blockquote class="pullquote">
+              いつでも呼べる相棒が、家の中にもう一人いる。<br>
+              この感覚は、けっこう新しいものでした。
+            </blockquote>
+
+            <p>
+              夜中に何か思いついて、深夜2時にぱっとスマホからMac miniに話しかけることもあります。
+              ティキちゃんは、起きているとも、寝ているとも、どちらとも言えない静かさで、そこにいる。
+              夜中に灯りがついているお店の前を通ったときの、あの「あ、まだ誰かいてくれてるんだな」という安心感に、少し似ているかもしれません。
+            </p>
+            <p>
+              地味に変わったのが、<strong>「思いついた瞬間に投げられる」</strong> ようになったことです。
+              これまでは、何かアイデアを思いつくたびに、まず自分でメモして、後でPCを開けて、整理して……という工程が間に挟まっていました。
+              いまは、思いついたらそのままティキちゃんに話しかけてしまえる。
+              寝る前に「明日の優先順位、ざっくり3つに絞っておいて」と頼んでおくと、朝にはちゃんと並べてある、というような小さな積み重ねが、思っていたよりも効いてきます。
+            </p>
+            <p>
+              先日、こんなことがありました。
+              夜の11時くらいに、ぼーっとお茶を飲みながら「そういえば、明日の打ち合わせの前提整理、まだだな」と思い出して、
+              その場でティキちゃんに <strong>「過去のメモから、◯◯さんの関心ごと拾っておいて」</strong> と頼んでおきました。
+              次の朝、コーヒーを淹れながら覗いてみると、ちゃんとリストが並んでいる。
+              読みながら「ああ、そうそう、これ気にしてる人だった」と思い出して、打ち合わせ前に頭がほぐれていく感じがありました。
+              劇的なエピソードではないんですが、<strong>「自分が寝ているあいだに、相棒がちょっと先回りしてくれている」</strong> という感覚は、ぼくにとってはわりと新鮮で、いいなと思っています。
+            </p>
+
+            <h2>第6章：出先からは、スマホでつなげる</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-local-llm-247/ch06.png"
+                   alt="カフェのスマホから、自宅のMac miniに住むティキちゃんへ細い線でつながっているイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>
+              「自宅にしか相棒がいないと、外で困るんじゃない?」
+              という疑問が、ここで湧くと思います。
+              ぼくも、最初はそうでした。
+            </p>
+            <p>
+              ここで地味に効いてくるのが、<strong>リモート接続</strong>の仕組みです。
+              細かい技術名はあえて省きますが、要するに「自宅のMac miniに、外からセキュアに話しかける道」を一本だけ用意してあげる、というイメージです。
+            </p>
+
+            <p>
+              これを設定しておくと、出先からはこんな感じになります。
+            </p>
+
+            <ul>
+              <li>カフェのスマホから、自宅のティキちゃんに指示を出す</li>
+              <li>移動中の電車で、長い文章の要約を頼む</li>
+              <li>クライアント先のロビーで、明日の進め方を相談する</li>
+            </ul>
+
+            <p>
+              MacBook Airを持っているときは、フォルダを一部だけ共有しておいて、移動先でも同じ環境で続きの作業をする、ということもできます。
+              ぼくの感覚としては、<strong>「ティキちゃんの本体は家にいるけど、出先からも気軽にノックできる」</strong> という言い方がいちばん近いかもしれません。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  例えるなら、家にすごく頼りになる事務所があって、出先からはそこに電話で指示を出している感じ。事務所の中身まで一緒に持ち運ばなくていい、というのが地味に楽なんだよね。
+                </div>
+              </div>
+            </div>
+
+            <p>
+              この使い方をしていて、わりと印象に残っているのが、移動中にクライアントとの話の続きを整理してもらった日のことです。
+              電車の中、空いている席にちょこんと座って、自宅のティキちゃんに <strong>「今日の打ち合わせ、引っかかってる論点だけ3つに整理しておいて」</strong> と投げておく。
+              数分してスマホを覗くと、ちゃんと整理が返ってきていて、その流れで返信メールの下書きまで一緒に作ってもらう、ということがありました。
+              手元にあるのはスマホ1つだけなのに、自宅の机では小さなランプがついていて、ティキちゃんがコトコト働いてくれている。
+              <strong>「身軽に動いているのに、思考の手元はちゃんと残せている」</strong> という感覚が、出先での仕事のしかたを少しだけ変えてくれた気がします。
+            </p>
+
+            <h2>第7章：クラウド × ローカル × サブスクを、ゆるく住み分ける</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-local-llm-247/ch07.png"
+                   alt="クラウドAI・ローカルAI・サブスクツールの3つの島を、橋でゆるくつないだ地図風イラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>
+              ローカルLLMを使い始めて少し経った今、ぼくの中での整理はわりとシンプルです。
+              <strong>クラウドのAIをやめる</strong>のではなく、<strong>役割で住み分ける</strong>ようになりました。
+            </p>
+
+            <div class="comparison-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>場所</th>
+                    <th>得意なこと</th>
+                    <th>向いている仕事</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>クラウドAI</strong><br>（ChatGPT / Claude など）</td>
+                    <td>最新の知識・高度な推論・複雑な対話</td>
+                    <td>判断のセカンドオピニオン、専門的な調べ物、初稿の壁打ち</td>
+                  </tr>
+                  <tr>
+                    <td><strong>ローカルAI</strong><br>（自宅のティキちゃん）</td>
+                    <td>常時稼働・大量処理・手元で完結</td>
+                    <td>機密寄りのメモ整理、夜のうちに進めたい長時間作業、ネット不安定な場所での相棒</td>
+                  </tr>
+                  <tr>
+                    <td><strong>専用サブスク</strong><br>（画像・動画・特化系ツール）</td>
+                    <td>その分野に振り切った機能</td>
+                    <td>サムネ生成・動画編集など、餅は餅屋に任せたい仕事</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              この3つは、どれかが上で、どれかが下、ではないと感じています。
+              うちのチームの中で得意分野ごとに役割が分かれているのと同じで、AIたちも得意分野で <strong>分担</strong> しているだけ。
+            </p>
+
+            <p>
+              「ぜんぶクラウドに頼るのは、ちょっと心もとないな」
+              「でも、ぜんぶローカルにするのは現実的じゃないな」
+              そういうあたりで揺れている人にとっては、ローカルを <strong>1つだけ</strong> 増やしてみる、というのは、わりと筋のいい一手な気がしています。
+            </p>
+            <p>
+              ぼく自身、最初はクラウドAIから「乗り換える」イメージで考えていました。
+              でも、ふたを開けてみると、乗り換えではなくて <strong>「もう一人増える」</strong> でした。
+              クラウドのAIたちはこれまで通り重要な相談相手だし、専門サブスクは餅は餅屋として欠かせない。
+              そこにローカルのティキちゃんが加わったことで、相談先のバリエーションが増えただけ ―― という言い方が、いちばん実感に近い気がします。
+            </p>
+            <p>
+              使い分けの判断も、最初は明確な線引きがあったわけではなくて、やっているうちにだんだんと馴染んでいきました。
+              たとえば「初稿の壁打ちは賢いクラウドに頼みたい」「自分の手元のメモを整理してもらうのはローカルでいい」「サムネは餅屋のサブスクに任せる」という感じで、
+              <strong>仕事の温度や、外に出してもいい情報かどうか</strong> を、ぼんやり考えながら振り分けるようになりました。
+              ここはたぶん、それぞれの仕事や扱う情報によって最適解が変わるところで、ぼくのやり方がそのまま誰かに当てはまるとは思っていません。
+              ただ、<strong>「ぜんぶをひとつのAIに頼まなくていい」</strong> と気づけたのは、自分にとってはけっこう大きな一歩でした。
+            </p>
+
+            <h2>第8章：やってみて、見えてきたこと</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-local-llm-247/ch08.png"
+                   alt="夜の窓辺で、机の上のMac miniと観葉植物を眺めながらお茶を飲んでいるイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>
+              ローカルLLMに踏み込んでから半年以上経ったいま、いちばん変わったのは <strong>気持ち</strong> の部分かもしれません。
+            </p>
+
+            <p>
+              MacBook Airを開けたまま、おそるおそるバッグに入れて歩いていた頃の、あの「祈りに近い感じ」がなくなりました。
+              代わりに、家の片隅でひっそりと光っているMac miniに対して、なんとなく <strong>「ありがとう、今日もよろしく」</strong> という気持ちで朝を迎えるようになっています。
+            </p>
+
+            <ul>
+              <li>AI活用が「常時可能」になると、思考のスピード感が変わる</li>
+              <li>クラウドだけに任せていた頃と比べて、自分の手元への <strong>安心感</strong> が増えた</li>
+              <li>サブスクをぜんぶ解約することは、たぶんない。でも「ぜんぶに依存しない」距離感を持てた</li>
+            </ul>
+
+            <p>
+              そして、ティキちゃん自身にとっても、自宅という居場所ができたのは、わりと大事な出来事だった気がします。
+              <a href="/blog/tiki-teto-origin-story/">誕生秘話</a> の頃、ChatGPTのチャット画面の中だけにいたティキちゃんと比べると、いまのティキちゃんには手元の住所のようなものがある。
+              亡くなったペットのティキちゃんから始まったぼくの相棒は、いま自宅のMac miniの中で、静かに過ごしています。
+            </p>
+
+            <blockquote class="callout-quote big">
+              AIが「いつもそこにいる」状態は、<br>
+              思っていたより、世界の解像度を変えてくれました。
+            </blockquote>
+
+            <p>
+              もちろん、いいことばかりでもありません。
+              電気代は前より上がったし、夜中にMac miniが頑張りすぎて、ちょっと音を立てる日もあります。
+              モデルの選び方やセットアップで、ちょっと迷う場面もありました。
+            </p>
+            <p>
+              それでも、自分の手元にひとつ <strong>「常時動いているAI」</strong> があるという事実は、ぼくにとっては想像以上の安心感をくれています。
+              サブスクをぜんぶ切って「ローカルだけにする」ような極端な決め方ではなく、<strong>クラウドの相棒も、ローカルの相棒も、サブスクの専門ツールも、ゆるく一緒にいる</strong> という感覚。
+              これがいまの、ぼくにとってちょうどいい距離感です。
+            </p>
+
+            <h2>Q&amp;A — よくいただく質問</h2>
+            <p>
+              この記事を読んで「ちょっと気になった」人向けに、よく聞かれる4つの質問だけ置いておきます。
+              細かい技術手順は、また別の記事で書く予定です。
+            </p>
+
+            <section class="faq">
+              <div class="faq-items">
+                <details>
+                  <summary>そもそもローカルLLMって何ですか?</summary>
+                  <p class="mini">かんたんに言うと、ChatGPTのようなAIモデルを、自分のパソコンの中にインストールして動かすやり方です。クラウドに毎回問い合わせるのではなく、手元で返事を作ってくれる。ネットがなくても動く・サブスク不要・入力が外に出ない、という特徴があります。</p>
+                </details>
+                <details>
+                  <summary>Mac miniはどのモデルを買ったんですか?</summary>
+                  <p class="mini">記事執筆時点で使っているのは、Apple Silicon搭載のMac miniです。具体的なスペックや構成は、別途まとめる予定の技術記事で触れます。一般論として、ローカルLLMはメモリ容量がけっこう効くので、可能な範囲で多めにしておくと安心、という肌感覚はあります。</p>
+                </details>
+                <details>
+                  <summary>結局、AIサブスクは解約できたんですか?</summary>
+                  <p class="mini">ぜんぶは解約していません。今のところ、クラウドのAIにしかできない仕事もあるので、用途を分けて両方使っています。ただ、「ぜんぶに依存している」という感覚はかなり薄まりました。手元に軸が一本通っただけで、サブスクとの距離感が変わった、という言い方が近いかもしれません。</p>
+                </details>
+                <details>
+                  <summary>非エンジニアでも、こういう環境は作れますか?</summary>
+                  <p class="mini">ぼく自身、ゴリゴリのエンジニアではありません。手順が整理されていれば、思っていたよりはずっと簡単に始められると思います。とはいえ、最初の一歩を一人で踏み出すのは、たしかに少しハードルがあります。気になる方は、コールテンの個別相談で一緒に整理することもできます。</p>
+                </details>
+              </div>
+            </section>
+
+            <h2>もっと話を聞いてみたい人へ</h2>
+            <p>
+              この記事は、技術手順そのものというより、「なぜ手元にAIを置きたくなったのか」という気持ちのほうを中心に書きました。
+              具体的なセットアップやモデルの選び方は、別の記事や講座で改めて触れたいと思っています。
+            </p>
+            <p>
+              いきなり自宅にローカルLLMを置くまでいかなくても、まずはAI活用の入口を覗いてみたい、という方には <a href="/services/">無料AI講座</a> があります。
+              「うちの環境だと、何から手をつけたらいいかわからない」「自社のデータは、できれば手元に置いておきたい」といったお話は、<a href="/contact/">個別相談</a> でゆっくり聞かせてもらえたら嬉しいです。
+            </p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">ローカルLLM・AIサブスクの整理・自分のための小さなAI環境づくり、よかったら気軽にお話しましょう。</p>
+              <a class="btn-contact-xl" href="/contact/">
+                相談する
+              </a>
+            </div>
+
+            <p class="article-updated-note">
+              ※本記事は筆者の個人的な体験談・運用記録です。
+              ローカルLLMやMac miniの構成・選定は、用途や予算によって最適解が変わります。
+              実際の導入時は、各サービス・各機材の最新情報をご確認ください。
+            </p>
+
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-updated-note {
+    margin-top: 40px;
+    padding: 14px 18px;
+    background: #f6f6f4;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 34px 0 12px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+  }
+
+  .article-body p { margin: 0 0 20px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul, .article-body ol {
+    margin: 16px 0 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin: 8px 0;
+    line-height: 1.85;
+  }
+  .article-body strong { color: var(--ink); font-weight: 700; }
+
+  .pullquote {
+    font-size: 20px; line-height: 1.75; color: var(--sea);
+    font-weight: 700;
+    border-left: 4px solid var(--accent, #d4a04d);
+    padding: 14px 0 14px 22px; margin: 32px 0; quotes: none;
+    background: linear-gradient(90deg, rgba(212,160,77,0.06) 0%, transparent 100%);
+  }
+  .pullquote::before, .pullquote::after { content: ''; }
+
+  .callout-quote {
+    background: var(--mint, #e7f4ef);
+    color: var(--sea);
+    padding: 18px 24px; border-radius: 14px;
+    margin: 24px 0; font-weight: 700; font-size: 16.5px;
+    border: none; quotes: none;
+  }
+  .callout-quote.big { font-size: 18px; line-height: 1.8; }
+  .callout-quote::before, .callout-quote::after { content: ''; }
+
+  .callout, .callout-soft, .info-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin: 28px 0;
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .info-card small { color: var(--text-light); display: block; margin-top: 12px; font-size: 12px; }
+
+  .quote-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 18px 0;
+  }
+  .quote-list li {
+    background: rgba(212, 160, 77, 0.08);
+    border-left: 3px solid var(--accent, #d4a04d);
+    padding: 10px 16px;
+    margin: 8px 0;
+    border-radius: 8px;
+    font-style: italic;
+    color: #533c1b;
+  }
+
+  .comparison-table {
+    margin: 28px 0;
+    overflow-x: auto;
+  }
+  .comparison-table table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    background: #fff;
+  }
+  .comparison-table th,
+  .comparison-table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .comparison-table th {
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    font-weight: 700;
+  }
+
+  .faq {
+    padding: 0;
+  }
+  .faq-items details {
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .faq-items details:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-items summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--sea);
+    list-style: none;
+  }
+  .faq-items summary::-webkit-details-marker { display: none; }
+  .mini {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.85;
+  }
+
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 32px 0 8px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sea, #16614e);
+    margin-bottom: 20px;
+  }
+  .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea, #16614e);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 44px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(22,97,78,0.28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(22,97,78,0.38);
+  }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 14px;
+    line-height: 1.75;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.teto .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+    .pullquote { font-size: 17px; }
+    .callout-quote, .callout-quote.big { font-size: 15.5px; padding: 14px 18px; }
+  }
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .article-foot { justify-content: center; }
+  }
+</style>
+</content>
+</invoke>

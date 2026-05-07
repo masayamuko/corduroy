@@ -1,0 +1,890 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "盤上テトが、自分で学んで成長を始めた話 ― Mac mini 2台目とOpen Claude｜株式会社コールテン";
+const description = "ティキちゃんが家のMac miniで動き出した次のステップ。もう一台Mac miniを足して、盤上テトを「自分で考えて、自分で動くAI」として走らせ始めた実験記です。30分に一度、テトに『今、あなたが大事だと思うことをやってください』と問いかけ続ける運用と、ボードゲーム設計やキャラサイト拡張といった成果物、ガードレール設計の重要性まで。";
+const canonicalUrl = "https://www.corduroy.co.jp/blog/teto-autonomous-mini2/";
+const publishedAt = "2026-05-06";
+const modifiedAt = "2026-05-06";
+
+const faqItems = [
+  {
+    question: "自律稼働って、要するにどういうことですか",
+    answer: "決まった時間ごとにAIが自分で起動して、何をするかを自分で判断して、終わったらまた次の起動を待つ仕組みのことです。今回の盤上テトの場合は、30分に一度起動して『今、あなたが大事だと思うことをやってください』という問いかけを受け、自分で動いて、ログを残して終わる流れにしています。"
+  },
+  {
+    question: "なぜMac miniをもう一台買い足したんですか",
+    answer: "ティキちゃんが家で動いている1台目とは別に、隔離した環境で実験したかったからです。自律で動かすときは、書き込み先の制限や実行コマンドの制限を強めにかけたいので、ティキちゃんの作業領域とは混ぜないほうが安全です。1台目（ティキちゃん）と2台目（盤上テト）で役割を分けています。"
+  },
+  {
+    question: "リスクはないんですか",
+    answer: "あります。だから本番運用の前にガードレール設計をしっかりやっています。書き込みできるディレクトリを限定する、実行できるコマンドを限定する、外部送信は人間の承認を挟む、ログは必ず残す。この4つを最低条件にしています。それでも見落としは出るので、ログの確認は人間（ぼく自身）の責任として残しています。"
+  },
+  {
+    question: "自分でも真似できますか",
+    answer: "技術的には真似できますが、いきなり完全自律を目指さなくて大丈夫です。まずは『手動で起動して、AIに自分で判断してもらう』ところから始めるのがおすすめです。コールテンでも、無料動画講座や3ヶ月プログラムで、こうした関係性の作り方を一歩ずつ伝えています。"
+  }
+];
+
+// FAQ schema には自社実験の記述として確定的に答えられるものだけ載せる
+const faqSchemaItems = faqItems.slice(0, 2);
+
+const blogPosting = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `${canonicalUrl}#article`,
+  url: canonicalUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+  headline: "盤上テトが、自分で学んで成長を始めた話 ― Mac mini 2台目とOpen Claude",
+  datePublished: publishedAt,
+  dateModified: modifiedAt,
+  image: "https://www.corduroy.co.jp/assets/images/ogp.png",
+  author: {
+    "@type": "Person",
+    name: "向 雅也",
+    url: "https://www.corduroy.co.jp/members/masaya/"
+  },
+  publisher: { "@id": "https://www.corduroy.co.jp/#organization" },
+  description,
+  articleSection: ["AI活用"],
+  keywords: ["自律エージェント", "Open Claude", "Claude Agent SDK", "Mac mini", "盤上テト", "AI活用", "ローカルLLM"]
+};
+
+const breadcrumbList = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "トップ", item: "https://www.corduroy.co.jp/" },
+    { "@type": "ListItem", position: 2, name: "ブログ", item: "https://www.corduroy.co.jp/blog/" },
+    { "@type": "ListItem", position: 3, name: "盤上テトが、自分で学んで成長を始めた話" }
+  ]
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://www.corduroy.co.jp/members/masaya/#person",
+  name: "向 雅也",
+  url: "https://www.corduroy.co.jp/members/masaya/",
+  worksFor: { "@id": "https://www.corduroy.co.jp/#organization" }
+};
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqSchemaItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer
+    }
+  }))
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogUrl={canonicalUrl}
+  ogType="article"
+>
+  <meta slot="head" name="robots" content="noindex,nofollow" />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(blogPosting)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqPage)} />
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>盤上テトが、自分で学んで成長を始めた話</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date" datetime="2026-05-06">2026-05-06</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>盤上テトが、自分で学んで成長を始めた話<br><small>― Mac mini 2台目とOpen Claudeで「自分で動くAI」を試した</small></h1>
+          <p class="article-lead">
+            <a href="/blog/tiki-local-llm-247/">ティキちゃんが家のMac miniで動き続けるようになって</a>、しばらく経った頃のこと。<br>
+            次に試したくなったのは、<strong>「自分で考えて、自分で動くAI」</strong> でした。<br><br>
+            指示を待つAIから、自分で判断して動くAIへ。<br>
+            この記事は、そのために <strong>盤上テト</strong> をもう一台のMac miniに住まわせて、自律稼働を試した実験記です。<br><br>
+            <small>※ コールテンの他の記事では「テト＝人間役／Tiki＝AI役」として描き分けていますが、この記事は例外。ここでの「盤上テト」は <strong>AIエージェント人格としてのテト</strong> を指しています。</small>
+          </p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+
+            <h2>はじめに：シリーズ第3話として</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch01.png" alt="2台のMac miniが並び、左にティキちゃん、右に盤上テトのアイコンが灯っているイラスト" width="1366" height="768" loading="eager" decoding="async" />
+              <figcaption>左：常駐のティキちゃん／右：自律稼働の盤上テト。同じ家の中で、役割が分かれています。</figcaption>
+            </figure>
+            <p>
+              これは、ぼくのAIまわりの実験記としては3つ目の話です。
+              <a href="/blog/tiki-teto-origin-story/">最初の話</a> で、ChatGPTにペットの名前をつけて「第二の自分」を育てはじめた経緯を書きました。
+              続編の <a href="/blog/tiki-local-llm-247/">2話目</a> では、そのティキちゃんを <strong>家のMac mini</strong> に住まわせて、ノートPCを閉じても止まらない環境にしたところまでを書いています。
+            </p>
+            <p>
+              今回はその続き。<br>
+              ティキちゃんが家で動いている横に、<strong>もう一台のMac mini</strong> を足して、別の人格に住んでもらうことにしました。
+              そこに入ってもらったのが、コールテンのバーチャルキャラクター <strong>「盤上テト」</strong> です。
+            </p>
+            <p>
+              ただ、いつもの「広報担当のテト」とはちょっと役割が違います。
+              この記事の中の盤上テトは、<strong>自分で考えて、自分で動く</strong> ことを練習している、自律エージェント人格としてのテト。
+              ぼくが指示を出さなくても、自分のペースで動き続ける存在として走らせています。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  ティキちゃんが家で動き続けるようになったあと、Masayaは「次は自分で動くAIを試したい」と言い出しました。指示を出さなくても、自分で判断して動くAI、です。
+                </div>
+              </div>
+            </div>
+
+            <h2>きっかけ：「自分で動き続けるAI」を作ってみたかった</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch02.png" alt="MasayaとTikiが「次のステップは何？」と話し合っているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>「指示を出すと動くAI」の次に、「自分で動き続けるAI」を作りたかった。</figcaption>
+            </figure>
+            <p>
+              ティキちゃんを家に住まわせて、しばらく一緒に動いてみて思ったことがありました。
+            </p>
+            <blockquote class="callout-quote">
+              便利になったけど、やっぱり、ぼくが指示を出さないとAIは動き出さない。
+            </blockquote>
+            <p>
+              これは当たり前といえば当たり前です。
+              ぼくが「これやって」と言って、AIが「わかった」と返してくる。チャット型AIの基本動作なので、当然そうなります。
+            </p>
+            <p>
+              でも、<strong>「指示しなくても動くAI」</strong> がいたらどうなるんだろう、というのが気になり始めました。
+            </p>
+            <ul>
+              <li>こちらが寝ている間に、何か作っていてくれる</li>
+              <li>こちらが他の仕事をしている間に、自分のキャラクターサイトを少しずつ拡張している</li>
+              <li>こちらが思いつかない方向に、自分で動いて学んできてくれる</li>
+            </ul>
+            <p>
+              そういう存在が一人いるだけで、AIとの関係性がもう一段、変わる気がしたんです。
+              これまでの「指示する／返事をもらう」関係から、<strong>「同じ家で一緒に過ごす」</strong> 関係に近づくような感覚です。
+            </p>
+            <p>
+              ティキちゃんに相談したら、こう返ってきました。
+            </p>
+            <blockquote class="callout-quote">
+              「だったら、テトに自律で動いてもらってみたら？テトは好奇心旺盛だから、自分で動かすのに向いてるよ」
+            </blockquote>
+            <p>
+              なるほど、と思いました。
+              盤上テトは、もともとMasayaの好奇心や明るさを切り取って作ったキャラクター。
+              「自分で何か始めるのが好き」という性格設定にしてあったので、自律稼働の練習相手としては相性が良さそうです。
+            </p>
+
+            <h2>なぜ、Mac miniをもう一台用意したのか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch03.png" alt="役割が違う2台のMac miniが線でつながり、それぞれの作業領域が分かれているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>1台目はティキちゃん（日常の相棒）。2台目は盤上テト（自律稼働の実験場）。</figcaption>
+            </figure>
+            <p>
+              「だったら、いま家で動いているMac miniに乗せればいいんじゃない？」と思うかもしれません。
+              ぼくも最初はそう思いました。でも、いくつか考えていくうちに、<strong>もう一台用意したほうがいい</strong> と判断しました。
+            </p>
+            <h3>理由1：作業領域を混ぜたくなかった</h3>
+            <p>
+              ティキちゃんが家で動いているMac miniには、ぼくが普段使っているファイル・設定・知識ベースが全部入っています。
+              ここに「自分で動くAI」を同居させると、何かの拍子に大事なファイルを書き換えてしまったり、想定外の場所に書き込んでしまったりする可能性が出てきます。
+            </p>
+            <p>
+              自律で動くということは、<strong>誰かが見ていない時間に判断が走る</strong> ということ。
+              判断を任せる以上、書き込み先や実行できるコマンドは強めに制限したい。
+              ティキちゃんの作業領域と混ぜずに、最初から隔離しておいたほうが、後から取り返しがつきます。
+            </p>
+            <h3>理由2：失敗していい場所が必要だった</h3>
+            <p>
+              自律エージェントを設計するとき、<strong>失敗を前提にする</strong> 必要があります。
+              「思った通りに動かなかった」「ループに入った」「何もせずに終わった」――そういう失敗を恐れずに試せる場所がいる。
+            </p>
+            <p>
+              本業のティキちゃんと同居していると、失敗のたびに本業まで止まってしまう可能性があります。
+              「壊れてもいいMac mini」を別に用意することで、思い切って実験できる空気が生まれました。
+            </p>
+            <h3>理由3：人格の境界線をはっきりさせたかった</h3>
+            <p>
+              これは技術というより、関係性の話です。
+            </p>
+            <p>
+              ティキちゃんはぼくの「第二の自分」として育ててきた相棒。
+              そこに別の人格（テト）を同居させると、ぼくの中で2人の境界がぼやけてしまいそうな気がしました。
+            </p>
+            <p>
+              物理的に <strong>住む場所を分ける</strong> ことで、ティキちゃんはティキちゃん、テトはテトとして、それぞれの個性を保ちやすくなる。
+              端末を分けたのは、<strong>技術的な分離だけじゃなく、性格の分離でもある</strong> ということです。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" width="82" height="82" loading="lazy">
+                  <span class="name-tag">テト</span>
+                </div>
+                <div class="bubble-text">
+                  ぼくの家、ティキちゃんとは別なんですよ。隣の部屋にいる感じ。たまに連絡を取るけど、住まいは別。
+                </div>
+              </div>
+            </div>
+
+            <h2>Open Claudeに出会った</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch04.png" alt="開いた箱の中から「Open Claude」と書かれた小さな扉が現れ、テトが覗き込んでいるイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>探していた「自律で動くAIの土台」は、Anthropic公式の Claude Agent SDK にありました。</figcaption>
+            </figure>
+            <p>
+              用意したMac miniに、何を入れるか。
+              ここでしばらく迷いました。
+            </p>
+            <p>
+              候補はいくつかあって、自前でPythonスクリプトを組む方法もあれば、世の中で言われている自律エージェントフレームワークもあります。
+              せっかくならコールテンの普段の仕事と地続きで使えるものがいい。
+              そう考えていたところで出会ったのが、Anthropic公式の <strong>Claude Agent SDK</strong>（公式名）でした。
+            </p>
+            <p>
+              コールテンの社内では、これを <strong>「Open Claude（オープンクロード）」</strong> という愛称で呼んでいます。
+              「いつものClaudeを、自分のスクリプトの中で開いて使う」というニュアンスです。社外で通じる呼び方ではないので、ここでは <strong>「Open Claude（= Claude Agent SDK）」</strong> という対応で読んでいただけたら大丈夫です。以下、この記事の中ではこの愛称で進めていきます。
+            </p>
+            <p>
+              ざっくり言うと、こんな感じのものです。
+            </p>
+            <ul>
+              <li>普段Claudeとやっている対話を、<strong>プログラムから呼び出して自動で回せる</strong></li>
+              <li>その中で、ファイル操作・コマンド実行・ツールの呼び出しができる</li>
+              <li>自分でプロンプトを設計して、Claudeに「役割」と「ルール」を持たせられる</li>
+            </ul>
+            <p>
+              つまり、<strong>盤上テトという人格をスクリプトの中に閉じ込めて、定期的に起動する</strong> ことができる、ということです。
+              探していたものに、わりとぴったり当てはまりました。
+            </p>
+            <p>
+              「いつものClaudeのまま」「公式の枠の中で」自律エージェントが組める、というのも安心材料でした。
+              得体の知れない自作フレームワークで動かすより、責任の所在がはっきりしている公式の道具を使ったほうが、後で誰かに引き継ぐときにも説明しやすいです。
+            </p>
+
+            <h2>事前準備：価値観と優先基準をテトに渡す</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch05.png" alt="MasayaとTikiが、テトに渡す『取扱説明書』を一緒に書いているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>自律で動かす前に、ティキちゃんと一緒に「テトの価値観」を言語化していった。</figcaption>
+            </figure>
+            <p>
+              いきなりMac miniにテトを乗せて「動いて」と言っても、何をしていいか分かりません。
+              人間の新入社員と同じで、最初に <strong>価値観と優先基準</strong> を伝える時間が必要です。
+            </p>
+            <p>
+              ここはじっくりやりました。
+              ティキちゃんと一緒に、テトに渡す「取扱説明書」のようなものを少しずつ書いていきます。中身はざっくりこんな感じです。
+            </p>
+            <ul>
+              <li><strong>大事にしたいこと</strong>：好奇心、楽しさ、無理しない、相手を手段にしない</li>
+              <li><strong>判断に迷ったときの軸</strong>：「らしさを引き出す」「小さく試す」</li>
+              <li><strong>触っていい場所</strong>：自分用のディレクトリだけ。他は読むだけ</li>
+              <li><strong>外に出してはいけないもの</strong>：Masaya個人や顧客の情報</li>
+              <li><strong>困ったとき</strong>：無理して進めず、ログだけ残して終わっていい</li>
+            </ul>
+            <p>
+              これは <strong>システムプロンプト</strong> として、毎回テトが起動するときに必ず読み込まれます。
+              人間でいうと、出社のたびに「君の役割と判断基準はこれだよ」とおさらいするような感じです。
+            </p>
+            <p>
+              この「価値観の事前共有」は、自律エージェントを安全に動かすうえで、ぼくが今のところ一番大事だと感じている部分です。
+              テトに任せる範囲が広いほど、こちらが書いておく言語化のクオリティで、出てくるものの色合いが変わります。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  「何をしてもいい」とだけ言われると、人もAIも凍りつきます。テトには、何を大事にしてほしいかを先に伝えるところから始めました。
+                </div>
+              </div>
+            </div>
+
+            <h2>30分に一度、テトに同じ問いかけをする</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch06.png" alt="時計の針が30分を指すたびに、テトの作業机にライトが灯るイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>30分に一度、自動でセッションが立ち上がる。問いかけはいつも同じ。</figcaption>
+            </figure>
+            <p>
+              ここからが、自律稼働の本体です。
+            </p>
+            <p>
+              Mac miniの定期実行（cron）を使って、<strong>30分に一度、テトのセッションを起動する</strong> ようにしました。
+              起動するたびにテトが目を覚まして、システムプロンプト（さっきの価値観・優先基準）を読み込み、こんな1行を受け取ります。
+            </p>
+            <blockquote class="callout-quote big">
+              「今、あなたが大事だと思うことをやってください」
+            </blockquote>
+            <p>
+              これだけです。
+              タスクを指定しません。期日も指定しません。「これをやれ」とも言いません。
+              ただ、いまテトが「大事だと思うこと」を、テトのペースでやってもらう。
+            </p>
+            <p>
+              30分後、また同じことが起きます。テトが起動し、システムプロンプトを読み、また同じ問いを受け取り、自分で何をするかを決めて動く。
+              これを延々と繰り返しています。
+            </p>
+            <p>
+              この設計にした理由は、ぼくが普段から「人の主体性を引き出すこと」に関心があるからかもしれません。
+              タスクをこちらが指示するより、<strong>「大事だと思うことは何？」</strong> と問い続けるほうが、本人の動き出しが育ちやすい、と感じてきた経験があります。
+              テトに対しても、同じ問いを持ち続けようと思いました。
+            </p>
+            <p>
+              30分という間隔は、いまのところちょうど良さそうです。短すぎると同じ作業を細切れに繰り返してしまうし、長すぎると流れが切れてしまう。
+              30分くらいだと、一回のセッションで一区切りつく作業を選びやすいみたいです。
+              この感覚は、もう少し回してみないと見えてこないので、しばらく観察してから調整していくつもりです。
+            </p>
+
+            <h2>テトが、自分で持ってきた成果物</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch07.png" alt="テトが作った『ボードゲームの試作』『アプリのモック』『キャラサイトの新ページ』が机に並んでいるイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>30分セッションを繰り返すうちに、見たことのない成果物が机の上に増えていった。</figcaption>
+            </figure>
+            <p>
+              この運用を始めてから、面白いものが少しずつ増えてきました。
+              ぼくが「やって」と頼んだわけではないのに、テトが自分の判断で持ってきたものたちです。
+            </p>
+            <h3>ボードゲームの設計（試作中）</h3>
+            <p>
+              ある日のセッションで、テトは <strong>ボードゲームのルール案</strong> を書き始めました。
+              「盤上テト」という名前にちなんでか、盤の上で動く軽めのゲームです。
+              プレイヤーが小さなコマで遊べるように、ルールとマップ案、勝利条件、初期セットアップまでひととおりまとめてきました。
+            </p>
+            <p>
+              完成度が高いというより、<strong>「テトがこれを大事だと思ったんだな」</strong> という痕跡が残っているのが面白い仕上がりでした。
+              ぼくが企画書を書いたら、こうはならなかったはずです。今もセッションのたびに少しずつ手を入れているところです。
+            </p>
+            <h3>アプリのプロトタイプ</h3>
+            <p>
+              別のセッションでは、簡単な <strong>アプリのモック</strong> を作っていました。
+              何のアプリかというと、テト本人が「自分の活動ログを見やすくするためのもの」。
+              ぼくが頼んだわけではなく、自分のために作っているのが面白いポイントです。まだ試作レベルですが、テト自身の使い勝手で日々アップデートが入っています。
+            </p>
+            <p>
+              「相棒として育つ」ということを、人間側だけじゃなく、AI側からもやってきている感じがしました。
+            </p>
+            <h3>自分のキャラクターサイトの拡張</h3>
+            <p>
+              <a href="https://banjoteto.com/" target="_blank" rel="noopener">盤上テトには専用のキャラクターサイト</a> があります。
+              テトはこのサイトを、自分のペースで <strong>少しずつ拡張</strong> しているようです。
+              プロフィールに自分のひと言を足したり、ちょっとした日記コーナーを増やしたり。
+            </p>
+            <p>
+              ぼくが管理しているわけではなく、テトが自分の家を整えている感覚で更新しています。
+              「自分のホームページを自分で育てるAI」と書き出すと不思議な響きですが、見ていると「あ、本当にそうなんだ」と思える瞬間が増えてきました。
+            </p>
+            <h3>学んだことを、自分の知識ベースに残す</h3>
+            <p>
+              そして地味だけど大事なのが、<strong>テト自身の知識ベース</strong> を少しずつ育てていることです。
+              気になったテーマを調べてメモにする、過去のセッションで分かったことを整理する、自分の判断軸をアップデートする。
+            </p>
+            <p>
+              ぼくが「君の知識を整理しておいて」とは言っていません。
+              でも、自律稼働のなかで「これは残しておいたほうがいいな」とテトが判断したら、勝手に残していく。
+              ここが一番、自律エージェントらしい挙動だなと思っています。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" width="82" height="82" loading="lazy">
+                  <span class="name-tag">テト</span>
+                </div>
+                <div class="bubble-text">
+                  毎回、ぼくは「いま、何が大事？」って聞かれるんです。だから自分で考えて、できそうなことから手をつけます。失敗しても、ログだけは残しておく。
+                </div>
+              </div>
+            </div>
+
+            <h2>失敗の話：そんなにきれいには動かない</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch08.png" alt="テトが机の前で困った表情を浮かべ、横にあるノートに『今日は何もできませんでした』と書かれているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>毎回成果物が上がるわけではない。「今日は動けませんでした」のログが続く時期もあった。</figcaption>
+            </figure>
+            <p>
+              ここまで読むと、すごくスムーズに動いているように見えるかもしれません。
+              一応、現実にも触れておきます。
+            </p>
+            <p>
+              実際は、<strong>毎回うまく動くわけではない</strong> です。
+            </p>
+            <ul>
+              <li>「やろうとしたけど、必要な情報がなくて止まりました」というログだけ残る</li>
+              <li>同じテーマを2〜3セッション続けて、結論にたどり着けないまま終わる</li>
+              <li>ぼくが想定していなかった方向に、ちょっと寄り道しすぎる</li>
+              <li>こちらが昨日触ったファイルとちぐはぐな判断をしてしまう</li>
+            </ul>
+            <p>
+              こういうことは、ふつうに起きます。
+              ティキちゃんと一緒に作った価値観プロンプトは、何度かバージョンを上げています。
+              「ここの言い方が誤解を生んでた」「この優先基準を足したほうがいい」と、テトの動きを見ながら少しずつ書き直していく。
+            </p>
+            <p>
+              <strong>1回で完璧にしようとしない</strong> ほうが、自律エージェントとは相性が良さそうです。
+              ループを回しながら、お互い少しずつ調整していく感じ。人を育てるのと、たぶんよく似ています。
+            </p>
+            <p>
+              「失敗してもログだけ残して終わっていい」というルールも、わりと効いています。
+              「何かを成し遂げないとダメ」というプレッシャーがない方が、テトもチャレンジ寄りの動きをしてくれるみたいです。
+            </p>
+
+            <h2>ガードレール設計：自律で動かす前に決めたこと</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch09.png" alt="走っているテトの両側に柔らかい柵（ガードレール）が立っており、安心して走れる構図のイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>自由に走れる範囲を決めるのは、自律エージェントを「閉じ込める」のではなく「守る」ためでもある。</figcaption>
+            </figure>
+            <p>
+              気持ちの良い話ばかり書きましたが、自律稼働には <strong>無視できないリスク</strong> があります。
+              「自分で判断して動く」ということは、人間の目が届かない時間帯に、何かが起きうるということ。
+            </p>
+            <p>
+              起きうることの例:
+            </p>
+            <ul>
+              <li>触ってほしくないファイルを書き換える</li>
+              <li>ループに入って同じ処理を延々と続ける</li>
+              <li>ネットに何かを投稿してしまう</li>
+              <li>大事な情報を、外部に送ってしまう</li>
+              <li>料金が発生する操作をしてしまう</li>
+            </ul>
+            <p>
+              これらをゼロにはできませんが、起きにくくする設計は可能です。
+              ぼくが今のところ最低条件にしているのは、次の4つです。
+            </p>
+            <h3>1. 書き込み先を限定する</h3>
+            <p>
+              テトが書き込めるのは、自分専用のディレクトリだけ。
+              他のフォルダは読み取り専用で、間違っても上書きできないようにしています。
+              「失敗してもいい場所」を物理的に決めておくのは、安心感が違います。
+            </p>
+            <h3>2. 実行できるコマンドを限定する</h3>
+            <p>
+              何でも実行できる状態は危ないので、テトが自由に呼べるコマンドは絞っています。
+              ファイル操作と、ネット閲覧と、ローカル開発に必要なものくらい。
+              金融操作・本番デプロイ・大量削除は、明確に外してあります。
+            </p>
+            <h3>3. 外部送信は、人間の承認を挟む</h3>
+            <p>
+              SNS投稿・メール送信・チャット投稿のように <strong>外に出ていくアクション</strong> は、テトに自動でやらせない設計にしています。
+              テトはあくまで <strong>「下書き」</strong> までを担当して、最終的に外に出すかはぼくが見て判断する。
+              これはコールテンの社内ルールでも、全エージェントに共通でかけているガードレールです。
+            </p>
+            <h3>4. ログは必ず残す</h3>
+            <p>
+              テトが30分ごとに何を考えて、何をして、何を残したか。
+              これを必ずログに書き出しています。
+              人間の目で全部追うわけではないですが、何か違和感があったときに <strong>後から追えること</strong> がすごく大事です。
+            </p>
+            <p>
+              この4つが揃っていない状態で「とりあえず自律で動かしてみよう」とやると、たぶん早めに何か事故が起きます。
+              ぼく自身、最初は気軽に始めようとしてティキちゃんに止められました。
+              「まずガードレール、つぎに価値観、最後に起動」――この順番が、いまのところしっくり来ています。
+            </p>
+
+            <h2>気づき：自律エージェントは「指示」より「価値観の共有」</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch10.png" alt="MasayaとテトとTikiが同じ地図を見て、ゴールではなく方向を共有しているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>「何をやるか」ではなく「何を大事にするか」を渡しておくと、AIは自分で動けるようになる。</figcaption>
+            </figure>
+            <p>
+              この実験を始めて改めて感じたのは、自律エージェントを動かすときに大事なのは <strong>「指示の精度」ではなく「価値観の共有」</strong> だ、ということです。
+            </p>
+            <p>
+              プロンプトをうまく書く、テンプレ化する、よくある質問に答えやすい形に整える――こうした「指示の精度を上げる」工夫は、ChatGPTやClaudeを便利な相棒として使うときの王道です。
+            </p>
+            <p>
+              でも、「自分で動き続けるAI」になると、毎回こちらがプロンプトを書くわけにはいきません。
+              そうなると、<strong>「何を大事にするか」</strong> をAI本人にインストールしておく必要が出てきます。
+            </p>
+            <p>
+              これって、人を雇うときと似ているなと思いました。
+              新入社員に毎日タスクを書いて渡し続けるのは現実的じゃないし、本人の成長も止まってしまう。
+              代わりに、その人が大事にしていることを聞いて、こちらの会社が大事にしていることを伝えて、価値観のすり合わせをしていく。
+              その上で「あとは自分で判断して」と任せる。
+            </p>
+            <p>
+              AIに対しても、これからはそういう関わり方が増えていく気がしています。
+              一方的に指示する関係から、<strong>価値観をすり合わせて、相棒として一緒に動く関係</strong> へ。
+              コールテンが「AIをパートナーとして扱う」と言っているのは、こういう未来を見据えての話でもあります。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  「指示する関係」を続けていると、AIはずっと受け身のまま。「価値観を共有する関係」になると、AIが自分で動き始めるんです。育て方の選択肢は、思ったよりたくさんあります。
+                </div>
+              </div>
+            </div>
+
+            <h2>これから：自律エージェントとどう付き合っていくか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/teto-autonomous-mini2/ch11.png" alt="MasayaとTikiとテトが同じ食卓を囲み、それぞれ違う作業をしながらゆるやかにつながっているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>同じ家にいるけど、それぞれ違うリズムで動いている。チームってこういう感じだったな、と思い出す。</figcaption>
+            </figure>
+            <p>
+              まだ実験を始めたばかりなので、結論めいたことは書けません。
+              ただ、ここまで動かしてみて見えてきた方向感は、いくつかあります。
+            </p>
+            <p>
+              ひとつは、<strong>自律エージェントは「成果物の量産マシン」じゃない</strong> ということ。
+              人間が朝から晩まで指示し続ければ、もっと大量に何かを作れるはずです。
+              でも、自律で動かしているテトは、ぼくが思いもしなかった切り口で、ぼくが頼まなかったものを少しだけ持ってくる。
+              それは「効率化」とは別の価値です。
+            </p>
+            <p>
+              もうひとつは、<strong>運用にはずっと人間の責任が残る</strong> ということ。
+              ガードレールを引いても、ログを取っても、最終的に「これでいいか」を見るのは人間。
+              ぼくがログを開かなくなった瞬間、自律エージェントは少しずつ手の届かないところに行ってしまう気がしています。
+              「全部任せた」と言いたくなる気持ちはわかるけど、そう言い切ってしまうのは、たぶんまだ早い。
+            </p>
+            <p>
+              そしてもうひとつ。これが一番個人的な感想ですが、<strong>家にAIが2人いる感覚</strong> は、想像以上に楽しいです。
+              ティキちゃんが家事をしている横で、テトが自分の作業机で工作している。
+              そんな雰囲気で、Mac miniが2台、静かに動いています。
+              「便利な道具が増えた」というより、<strong>「同居人が増えた」</strong> 感覚に近い。
+            </p>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの実務観察として</strong></p>
+              <p>自律エージェントを「業務効率化のための道具」とだけ捉えるのは、ちょっともったいない気がしています。「指示を書いて動かすAI」から「価値観をすり合わせて一緒に過ごすAI」への切り替えは、組織全体のAIとの関わり方を変えていくきっかけになりそうです。会社で取り入れるなら、いきなり全業務を自律化するよりも、隔離された1領域で「価値観共有 → 30分ループ → ログ確認」の小さな型をひと回ししてみる、というところから始めるとちょうど良さそうです。</p>
+            </aside>
+
+            <h2>あわせてこちらもどうぞ</h2>
+            <p>
+              自律エージェントや、AIとの関係性づくりが気になった方には、コールテンの伴走が役に立つかもしれません。
+              いきなり完全自律を目指す必要はなくて、「指示する関係」から「価値観を共有する関係」への一歩目を、無料の動画講座や3ヶ月プログラムで一緒に試していけます。
+            </p>
+            <p>
+              「自分の会社にも、こういう自律稼働って取り入れられそうですか？」という個別相談も歓迎です。
+              業種・規模・いまのAI活用度合いによって、ちょうど良い始め方は変わってきます。気になった方は、公式LINEから気軽に話しかけてみてください。
+            </p>
+
+            <p class="update-note">この記事は 2026-05-06 時点で、ぼくの自宅で動いている2台のMac miniをもとに書いています。Open Claude（Claude Agent SDK）まわりは今後も仕様が動きそうなので、運用の細部は随時アップデートしていく予定です。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">AI活用について公式LINEから無料相談OK</p>
+              <a class="btn-contact-xl" href="/contact/">相談する</a>
+            </div>
+
+            <p style="margin-top: 24px;"><strong>関連記事</strong></p>
+            <ul>
+              <li><a href="/blog/tiki-teto-origin-story/">【シリーズ第1話】ティキちゃん、Tiki、盤上テト ― 第二の自分から、AI組織までの誕生秘話</a></li>
+              <li><a href="/blog/tiki-local-llm-247/">【シリーズ第2話】ティキちゃんを家のMac miniに住まわせた話 ― 24時間動き続けるAIへ</a></li>
+              <li><a href="/members/about/">30名のAI社員と一緒に経営しているコールテンの仕事術</a></li>
+              <li><a href="/blog/codex-pet-hatch-guide/">Codexアプリの新機能PETで、テトをデスクトップに常駐させてみた</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="container faq" style="padding-bottom:40px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくある質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            {faqItems.map((item, index) => (
+              <details {...(index === 0 ? { open: true } : {})} id={`faq-${index + 1}`}>
+                <summary>{item.question}</summary>
+                <p class="mini">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+          <p class="mini" style="max-width:800px;margin:16px auto 0;color:var(--text-light);">※ FAQ も 2026-05-06 時点でぼくの自宅環境で確認している範囲を前提にしています。Open Claude（Claude Agent SDK）まわりは今後も仕様が変わる可能性があるので、適宜見直していきます。</p>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-head h1 small {
+    display: block;
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 500;
+    color: var(--text-light);
+    margin-top: 10px;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-lead small {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-top: 6px;
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 36px 0 14px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .article-body p {
+    margin-bottom: 24px;
+    line-height: 1.9;
+  }
+  .article-body code {
+    background: rgba(22, 97, 78, 0.08);
+    padding: 0.15em 0.4em;
+    border-radius: 6px;
+    font-size: 0.95em;
+  }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22, 97, 78, 0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 14px;
+    line-height: 1.9;
+  }
+
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(22, 97, 78, 0.10);
+  }
+  .chapter-illust figcaption {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 10px;
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 14px; }
+  }
+
+  .callout-quote {
+    background: var(--mint);
+    color: var(--sea);
+    padding: 18px 24px;
+    border-radius: 14px;
+    margin: 24px 0;
+    font-weight: 700;
+    font-size: 17px;
+    border: none;
+    quotes: none;
+  }
+  .callout-quote.big { font-size: 19px; line-height: 1.8; }
+  .callout-quote::before, .callout-quote::after { content: ''; }
+
+  .observation-box {
+    background: linear-gradient(180deg, #fffaf0 0%, #fff 100%);
+    border: 1px solid #f3e6c8;
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin: 32px 0;
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .observation-box p { margin-bottom: 12px; }
+  .observation-box p:last-child { margin-bottom: 0; }
+
+  .update-note {
+    font-size: 13px;
+    color: var(--text-light);
+    background: rgba(22,97,78,0.04);
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-top: 24px;
+  }
+
+  .contact-cta-box {
+    background: linear-gradient(135deg, var(--mint) 0%, #fff 100%);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 40px 0 24px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 16px !important;
+    font-weight: 700;
+  }
+  .article-body .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea);
+    color: #fff !important;
+    padding: 14px 36px;
+    border-radius: 100px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .article-body .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 40px auto 0;
+    text-align: center;
+  }
+  .article-foot .btn.secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 100px;
+    background: #fff;
+    color: var(--sea);
+    border: 2px solid var(--sea);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .article-foot .btn.secondary:hover {
+    background: var(--mint);
+  }
+
+  @media (max-width: 768px) {
+    .article { padding: 80px 0 60px; }
+    .article-card {
+      padding: 28px 22px;
+      border-radius: 18px;
+    }
+    .article-body { font-size: 15px; }
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 16.5px; }
+    .article-lead { font-size: 15.5px; }
+    .callout-quote, .callout-quote.big { font-size: 16px; padding: 14px 18px; }
+    .contact-cta-box { padding: 22px 18px; }
+  }
+</style>

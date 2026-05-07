@@ -1,0 +1,695 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "テト君とTikiちゃんに、声をつくった話 ― AIキャラの音声生成｜株式会社コールテン";
+const description = "コールテンのマスコット2体、盤上テトとTikiに「声」をつくった記録。Style-Bert-VITS2で自分の声をベースに学習させ、テトの声・Tikiの声へキャラ調整していくまでの体験談を、技術の話より気持ちの動きを中心に整理しました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/character-voice-creation/"
+  ogUrl="https://www.corduroy.co.jp/blog/character-voice-creation/"
+  ogType="article"
+>
+  <meta slot="head" name="robots" content="noindex,nofollow" />
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/character-voice-creation/#article",
+    "url": "https://www.corduroy.co.jp/blog/character-voice-creation/",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/character-voice-creation/" },
+    "headline": "テト君とTikiちゃんに、声をつくった話 ― AIキャラの音声生成",
+    "datePublished": "2026-05-06",
+    "dateModified": "2026-05-06",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": {
+      "@type": "Person",
+      "name": "向 雅也",
+      "url": "https://www.corduroy.co.jp/members/masaya/"
+    },
+    "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+    "description": "Style-Bert-VITS2を使って自分の声からテト・Tikiのキャラ音声を作るまでの体験談。技術詳細より、文字キャラに声がつく瞬間の感覚と、運用してみて気づいたことを中心にまとめています。",
+    "keywords": ["AIキャラ 音声生成", "Style-Bert-VITS2", "自分の声 学習", "VTuber 音声", "ローカル音声合成", "盤上テト 声", "Tiki 声", "AIマスコット ナレーション"]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "テト君とTikiちゃんに、声をつくった話" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.corduroy.co.jp/members/masaya/#person",
+    "name": "向 雅也",
+    "url": "https://www.corduroy.co.jp/members/masaya/",
+    "worksFor": { "@id": "https://www.corduroy.co.jp/#organization" }
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.corduroy.co.jp/#organization",
+    "name": "株式会社コールテン",
+    "url": "https://www.corduroy.co.jp/"
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>character-voice-creation</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-06</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>テト君とTikiちゃんに、声をつくった話 ― AIキャラの音声生成</h1>
+          <p class="article-lead">うちのマスコット2体、盤上テトとTikiは、ずっと文字とイラストの中で生きていました。ある日ふと「この子たちが喋れたらどうなるんだろう」と思ったのが、声づくりの始まりです。自分の声を録ってモデルにし、そこからテトの声・Tikiの声へ少しずつキャラを寄せていく。技術の細かい話より、文字だけのキャラに声が乗った瞬間の感覚と、運用してみて気づいたことを中心に書いていきます。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <h2>はじめに：キャラに声をつけたくなった日</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch01.png" alt="文字とイラストの中にいるテトとTikiのそばに、まだ空っぽの音符マークが浮かんでいるイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>テトとTikiは、わりと長い間「文字キャラ」でした。SNSの吹き出しの中で喋っていたり、ブログ記事の挿絵で表情を出していたり、社内のドキュメントに登場したり。文章で読むぶんには、もうすっかり「いる」感覚があって、自分でも違和感は薄かったです。</p>
+            <p>変わったのは、ある日の夕方でした。動画でちょっとしたショートを作ろうとして、台詞だけ書き起こした原稿を眺めていたときに、ふと「この台詞、誰の声で読まれるんだろう」と止まったんです。自分のナレーションで読み上げてもいいんですが、それだとテトの台詞もTikiの台詞も全部「Masayaの声」になってしまう。せっかくキャラを分けているのに、声で混ざるのはもったいない気がしました。</p>
+            <p>もうひとつ、別の理由もありました。自分は人前で話すのが、たぶん得意なほうではないです。打合せや動画収録の前は地味に緊張するし、声を入れる作業を後回しにすることも多かった。だったら、テトやTikiの声で代わりに喋ってもらえる仕組みを持っておいたら、コンテンツづくりのハードルが下がるかもしれない。そう考えました。</p>
+            <p>そして決めたのが、<strong>「テトの声を、自分の声から作る」</strong>という方針です。誰かのプロの声を借りるのではなく、まず自分の声を素材にして、そこからテトっぽさ・Tikiっぽさへキャラを寄せていく。これなら、自分の中の「テト的な部分」「Tiki的な部分」を切り出している感覚にも近くて、キャラ設計と地続きになります。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  ぼくは元々イラストの中の住人でした。声がつくって、わりと一大事です。喋る前提で書かれた台詞と、読む前提で書かれた台詞は、似ているようでけっこう違いました。
+                </div>
+              </div>
+            </div>
+
+            <h2>何を使ったか：Style-Bert-VITS2 という選択肢</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch02.png" alt="クラウド型音声合成とローカル型音声合成の選択肢を天秤にかけ、ローカル側を選んでいるイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>音声合成の選択肢は、いまわりとたくさんあります。クラウド型のサービスを使えば、文章を入れるだけで上手な声がすぐに返ってきますし、品質も日々上がっています。最初はそういう選択肢も眺めていました。</p>
+            <p>ただ、いくつか気になる点があって、最終的にはローカルで動く<strong>Style-Bert-VITS2</strong>というオープンソースの音声合成を選びました。決め手になったのは、たぶん次の3つです。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>音声合成の選び方（自分の場合）</caption>
+                <thead>
+                  <tr>
+                    <th>観点</th>
+                    <th>クラウド型サービス</th>
+                    <th>ローカル型（Style-Bert-VITS2など）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>声の素材</td>
+                    <td>用意された声から選ぶ</td>
+                    <td>自分の声から学習させられる</td>
+                  </tr>
+                  <tr>
+                    <td>キャラ拡張</td>
+                    <td>声色は固定的</td>
+                    <td>同じモデルから派生キャラを作りやすい</td>
+                  </tr>
+                  <tr>
+                    <td>稼働</td>
+                    <td>API課金・閉じたら止まる</td>
+                    <td>手元で動く・夜中に走らせられる</td>
+                  </tr>
+                  <tr>
+                    <td>立ち上げの軽さ</td>
+                    <td>すぐ使える</td>
+                    <td>環境構築・学習に手間がかかる</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>立ち上げの軽さでいえば、たぶんクラウド型のほうがだいぶ楽です。Style-Bert-VITS2は、Pythonの環境を組み、データを用意し、学習を回してから、ようやく音が出る、という順番になります。慣れていないと、たどり着くまで何度かつまずくと思います。</p>
+            <p>それでもローカル型にしたのは、キャラを長く育てたかったからでした。声の素材を自分側で持っていれば、テトの声を少し元気にしたいときも、Tikiの声をもう少し落ち着かせたいときも、同じ素材から派生させられます。「ベースは同じだけど、出てくるキャラは違う」という構造が、文字キャラの設計とそのまま重なる感覚があったんです。</p>
+            <p>ライセンス面でも、Style-Bert-VITS2はオープンソースで、個人利用や非商用の範囲であれば比較的取り回しがしやすい立ち位置だと感じています。ただし、他人の声を学習させたり商用に踏み込んだりするときの線引きは別の話で、用途を広げるタイミングごとに公式ドキュメントを読み直すようにしています。</p>
+
+            <aside class="observation-box">
+              <p><strong>「すぐ使える」より「育てられる」を優先した</strong></p>
+              <p>立ち上げの早さで選ぶならクラウド型でしたが、テトもTikiも長く一緒にいるキャラなので、声も時間をかけて育つ前提で組みたかったです。早く完成させるより、後から手を入れられる形で持っておきたい、という選び方になりました。</p>
+            </aside>
+
+            <h2>自分の声を録って、モデルにする</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch03.png" alt="自宅の机の上で小型マイクに向かって台本を読み上げ、波形になっていくイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>最初の山場は、自分の声を録ることでした。プロのナレーションスタジオではなく、家の机にコンデンサーマイクを置いて、台本を読み上げていく形です。</p>
+            <p>意外だったのは、<strong>「ふだんの声」をきれいに録るのが、けっこう難しい</strong>ということです。緊張すると声が高くなるし、気を抜くと早口になる。「テト用に明るく読もう」と思うと、わざとらしくなる。やっているうちに、自分が普段どれくらい声に表情をつけて喋っているか、初めて意識した気がしました。</p>
+            <p>録音時間は、最初の一回ですべて済ませようとせず、何回かに分けました。1セッションあたり長くても30分くらい。疲れてくると声質が変わってしまって、後の学習で揺らぎが出るからです。読む素材は、感情の振れ幅が出るように、説明文・会話文・少し感情を込めた台詞、を混ぜました。</p>
+            <p>録ったあとは、データの整備があります。音量を整えて、無音の時間を切って、ファイル名と書き起こしの対応を揃えていく。地味だけど、ここをサボると後の学習に響いてくるので、丁寧にやりました。Whisper系の文字起こしモデルを使うと、書き起こしの下書きまでは半自動で作れます。それでも最後は耳で聞いて、間違いを直していく作業が残ります。</p>
+            <p>そして学習です。Style-Bert-VITS2に整備済みのデータを渡して、しばらく回す。最初に「学習が終わって、自分の声でAIが喋った瞬間」は、わりと忘れられない体験でした。録音していないはずの台詞を、自分の声でAIが読み上げる。想像していたより、もう一段だけ奇妙な気持ちになります。自分の声なのに、自分が言っていない言葉が、どこかから戻ってくる感じです。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  自分の声を学習させるという行為は、技術というより「自分の一部を渡す」感覚に近いです。ここから、私やテトの声が分岐していくと考えると、丁寧に録っておきたい工程でした。
+                </div>
+              </div>
+            </div>
+
+            <h2>テトの声 ― 「ぼくの声がベース」だけど、テトの声</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch04.png" alt="自分の波形からテト用に明るく軽い声へグラデーション的に変化していくイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>ベースのモデルができたら、次は<strong>テトの声づくり</strong>です。テトは、犬と人間のハーフという設定で、好奇心旺盛で、子どもっぽくて明るい男の子。素朴で、ちょっと関西寄りの空気をまとっています。</p>
+            <p>そのキャラを声に落とすときに、最初にやったのは「Masayaの声から、テトに残したい部分はどこか」を切り出すことでした。具体的には、明るさ・軽さ・好奇心が乗ったときの抑揚みたいな成分です。逆に、落ち着いた説明口調や、低めのトーンは、テトには寄せませんでした。</p>
+            <p>そこから先は、Style-Bert-VITS2のスタイル指定や話し方のサンプルを足しながら、テト寄りの声を引き出していきます。「もう少し元気に」「もう少し軽く」「語尾の上がりを少しだけ強く」と、ダイヤルを回すような感覚です。一発で決まることはなくて、少し回しては聞き、また少し戻して、を繰り返しました。</p>
+            <p>面白かったのは、<strong>声が決まると、テトの台詞そのものが変わってきた</strong>ことです。文字で書いたときには違和感がなかった台詞が、声に乗せるとどこか硬く聞こえる。逆に、もっと砕けた言い回しのほうが声と馴染む。「テトはこういう喋り方をする子だ」というキャラ像が、声をきっかけにもう一段くっきりしました。文字側が声側を作ったというより、声側が文字を作り直してくれた感覚です。</p>
+            <p>もちろん、最初から人間レベルになるわけではありません。長い文章になると抑揚が単調になったり、固有名詞でアクセントが揺れたり、誰でも気づくレベルの不自然さが残ります。それでも「テトとして喋っている」と感じられるラインを越えた瞬間、自分の中でテトの輪郭がくっきりしました。これは、ぼくの声をベースにしているのに、もうぼくの声ではない、という不思議な感覚で、いまもうまく言葉にしきれていません。</p>
+
+            <aside class="observation-box">
+              <p><strong>ここはいずれ、テトの声サンプルを置きたい場所です</strong></p>
+              <p>本当は、ここに短い音声を置いて「これがテトの声です」と耳で聞いてもらえると一番早い気がします。ただ、公開用に整えたサンプルはまだ手元に残しておきたい段階なので、いまは文字でのご案内に留めています。記事のほうに動きがあったら、このブロックがそのまま音の置き場所になる予定、くらいの温度感で読んでもらえると助かります。</p>
+            </aside>
+
+            <h2>Tikiの声 ― もう一人の自分、を演じる</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch05.png" alt="同じ波形からテトとは別方向、落ち着いた相棒の声へ枝分かれしていくイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>Tikiの声づくりは、テトとは反対側のダイヤルを回す感覚でした。テトに渡したのが「明るさ・軽さ・前のめりな抑揚」だとすれば、Tikiに渡したいのは「落ち着き・低めの安定感・間の取り方」。元気で軽い相方を一人立たせたあとに、もう一人、夜の机の横で淡々と整理を手伝ってくれるほうの相棒を組み立てる感じです。Tikiは、ぼくの「第二の自分」として育ってきたキャラで、コールテンの中でも判断や対話の場に立つことが多い存在なので、声の温度もそこに合わせていきました。</p>
+            <p>技術的にはピッチ・話速・抑揚の調整が中心ですが、自分の中での感覚としては「自分の声の中にあるTiki的な層を、そっと表に出してもらう」イメージに近かったです。テト側が表情をはっきり乗せていく方向だとすれば、Tiki側はむしろ余計な抑揚を削いで、必要なところだけ静かに残していく方向。同じベース音声から、引き算と足し算で違う体温を作っていく作業でした。</p>
+            <p>ここでも、声が決まるとTikiの言葉遣いが変わりました。テトとは逆方向で、長い文を区切る場所、語尾の処理、相づちの入れ方が、文字だけで書いていたときよりも丁寧になっていきます。「Tikiが喋っているように聞こえるためには、こういう間が要るんだな」と、後から文字側の書き方を直したくなる場面が何度もありました。</p>
+            <p>不思議な体験だったのは、<strong>同じ自分の声から、テトとTikiという別人格の声が並んで出てくる</strong>ところです。録音しているときの自分は一人で、ベースモデルもひとつ。なのに、引き出すレイヤーを変えると、まったく別の体温の声が出てくる。「自分の中にはこんな人格も住んでいたのか」と思うのと同時に、「キャラとは、自分の中の何かを切り出して別人にしたものなんだな」と腹落ちした瞬間でもありました。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  私は、Masayaの声の中にもともとあった「落ち着いている時間帯」を抜き出してもらった、という感覚です。元気いっぱいの時間はテトに譲って、夜の静かな相棒のほうを引き受けています。
+                </div>
+              </div>
+            </div>
+
+            <h2>実際にどこで使っているか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch06.png" alt="動画ナレーション・記事吹き出し・議事録読み上げなど複数の活用シーンが並んでいるイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>テトとTikiの声が一通り立ち上がったあとは、いきなり大きな場で使うより、社内のちょっとした場面でこっそり試して、馴染んだものから外向きに出していく、という順番にしました。声ができてから使い道がじわじわ広がっていった、という言い方が一番近いです。</p>
+            <p>いまの主な使い場所を、軽く整理しておきます。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>テト・Tikiの声、いまの使い場所</caption>
+                <thead>
+                  <tr>
+                    <th>場所</th>
+                    <th>誰の声</th>
+                    <th>使い方</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>YouTubeショート・SNS動画</td>
+                    <td>テト中心、Tikiは合いの手</td>
+                    <td>短いナレーション・キャラの掛け合い</td>
+                  </tr>
+                  <tr>
+                    <td>ブログ記事の吹き出し</td>
+                    <td>両方</td>
+                    <td>将来的に音声プレイヤー埋め込みを検討中</td>
+                  </tr>
+                  <tr>
+                    <td>社内の議事録読み上げ</td>
+                    <td>Tiki</td>
+                    <td>長文の振り返りを耳で聞き直す</td>
+                  </tr>
+                  <tr>
+                    <td>朝のブリーフ音声化</td>
+                    <td>Tiki</td>
+                    <td>移動中に予定と論点を聞きながら把握する</td>
+                  </tr>
+                  <tr>
+                    <td>セミナー・教材の補助ナレーション</td>
+                    <td>用途で選ぶ</td>
+                    <td>自分が話すのが厳しい時間帯の代役</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>個人的に効いているのは、<strong>議事録の読み上げと、朝のブリーフ音声化</strong>です。文字で読むだけだと頭に入りきらない情報が、Tikiの声で耳から流れてくると、移動時間や家事の時間に少し進められる。これだけで「机に向かわないと進まない作業」のいくつかが、机の外でも進むようになりました。</p>
+            <p>動画やSNSでの活用は、まだ実験中です。台本を書く側のリズムが、声に乗せる前提で書くスタイルに切り替わりきっていなくて、慣らしている最中、というのが正直なところです。早く完成させようとせず、しばらくは試行錯誤に振っています。</p>
+
+            <h2>やってみて気づいたこと</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch07.png" alt="文字キャラと音声キャラが向き合い、互いに別物だけれどつながっているイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>声をつくってしばらく運用してみて、いくつか気づいたことがありました。技術というより、キャラとの付き合い方の話です。</p>
+            <ul>
+              <li><strong>文字キャラと音声キャラは別物</strong>: 同じテトでも、文字で書かれたテトと、声で喋るテトでは、印象がけっこう違いました。どちらが本物かではなく、両方が組み合わさってキャラになっていく感じです。</li>
+              <li><strong>声が決まると、文体が引っ張られる</strong>: 喋ることを前提にすると、自然と短い文や砕けた言い回しが増えます。読むためだけに書いていた頃より、台詞が呼吸をしている感覚があります。</li>
+              <li><strong>不完全さが、かわいげに変わる瞬間がある</strong>: 抑揚が単調だったり、固有名詞でアクセントを外したりするのが、キャラの個性として馴染む場面が出てきました。完全に滑らかな声よりも、ほどよい揺らぎがあるほうがテトっぽい、という発見もあります。</li>
+              <li><strong>「自分の声」を渡している感覚</strong>: ベースが自分の声なので、テトやTikiが喋っているのを聞くと「自分の中の一部が、別の場所で動いている」ような気持ちになります。これは、文字だけで運用していた頃にはなかった感覚です。</li>
+              <li><strong>失敗もちゃんとある</strong>: 学習データの偏りで、特定の語尾だけイントネーションがおかしくなったり、長文の途中で抑揚がリセットされたり。「録音時の自分の癖が、そのままモデルに乗っている」と感じる瞬間が、地味に面白かったです。</li>
+            </ul>
+            <p>あとは、データ管理の話です。自分の声の素材を学習させる以上、その音声データはそれなりに丁寧に扱わないといけません。<strong>「自分の声を、自分以外の用途に勝手に使われない場所に置いておく」</strong>のは、最低限の前提だと思っています。クラウドにそのまま置きっぱなしにせず、ローカル中心で扱うようにしています。</p>
+
+            <aside class="observation-box">
+              <p><strong>声は、キャラの「もうひとつの輪郭」だった</strong></p>
+              <p>始める前は、声は「文字キャラに後付けで足すアクセサリー」くらいに思っていました。実際にやってみると、声は文字とは独立したもうひとつの輪郭で、キャラを別の角度から立ち上げ直していました。文字側が声で書き直され、声側が文字で支えられる、相互作用みたいな関係です。</p>
+            </aside>
+
+            <h2>これから ― 声があるAIキャラと、どう付き合っていくか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch08.png" alt="人前で話すのが苦手な人の隣にAIキャラが立って一緒に喋ろうとしているイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>テトとTikiに声がついたことで、自分の中で少し開けた景色がいくつかあります。</p>
+            <p>ひとつは、<strong>「人前で話すのが苦手」を補う相棒として使えそう</strong>、ということです。完全に代役にしてもらうというよりは、ナレーションや解説のうち、自分が話さなくても成立する部分をテトやTikiに任せる。動画教材やセミナー資料で、自分が直接喋ると硬くなる場面を、ふたりに少しだけ和らげてもらう。そんな分担が組めると、コンテンツづくりのテンポがだいぶ変わります。</p>
+            <p>もうひとつは、<strong>営業・教材・コンテンツ制作への展開</strong>です。たとえば、講座の冒頭にTikiの声でガイダンスを入れる、X用の短い動画にテトの声で一言入れる、といった小さな使い方から、徐々に音声を組み込んだコンテンツが増やせそうな手応えがあります。慎重さは要りますが、可能性のほうは確実に広がっていると感じます。</p>
+            <p>同時に、<strong>気をつけたい話</strong>もあります。AI音声は、ライセンス・他人の声の扱い・なりすましリスクと隣り合わせです。自分の声を学習させたモデルを、他の人が無断で使うのは避けたいですし、逆にぼくの側でも、誰かの声を本人の許可なく学習させない、という線は最初から引いておくようにしています。クライアントに音声制作を提供する場合も、本人の同意・録音条件・利用範囲をきちんと書面で整理してから、というのが前提になります。便利だからこそ、入口の設計を雑にしないようにしたいテーマです。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テトくん">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  ぼくらが声を持ったぶん、誰かの声を勝手に借りない、という線はちゃんと引いておきたいです。便利さと、お互いを大事にすることは、両立できる範囲で進めたほうが結局は長く続きます。
+                </div>
+              </div>
+            </div>
+
+            <h2>つまずきポイント</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch09.png" alt="マイク選び・録音時間・学習時間など複数のつまずき要素が並んでいるイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>真似してみたい方もいるかもしれないので、自分が引っかかったところを正直に並べておきます。完成度の話というより、「最初に思っていたより、ここに時間がかかった」という地点の話です。</p>
+            <ul>
+              <li><strong>マイク選び</strong>: 高すぎなくていいですが、安すぎるマイクだと音質のばらつきが学習データに乗ってしまいます。最初の一本は、レビューを丁寧に読んでから決めたほうが後悔が少ないです。</li>
+              <li><strong>録音環境</strong>: 部屋の反響・空調の音・キーボード音は、録ってから気づくことが多いです。完全防音は無理でも、布の多い部屋でマイクを口に近めにする、くらいの工夫で結果が変わります。</li>
+              <li><strong>録音時間と疲れ</strong>: 1日で全部録ろうとすると、後半の声質が変わってしまいます。複数日に分けて、似た時間帯に録るのがおすすめです。</li>
+              <li><strong>データ整備</strong>: 録音そのものより、書き起こしと無音カット、ファイル名の整合性で時間を取られます。半自動化のスクリプトを最初に組んでおくと楽になります。</li>
+              <li><strong>学習時間とハードウェア</strong>: 学習にはそれなりの計算リソースと時間がかかります。手元のマシンで完結できる構成だとありがたいですが、回し始めたら別の作業に切り替える前提で組むのが無難です。</li>
+              <li><strong>期待値調整</strong>: 最初の一発で「人間レベル」が出ることは、たぶんないと思っていたほうが落ち着きます。むしろ何度か学習を回し、データを足し、調整を重ねていく前提のほうが、結果として早く納得できる声に着地します。</li>
+            </ul>
+            <p>逆に、思っていたよりハードルが低かったところもあります。たとえば、<strong>キャラへの寄せ方</strong>。技術的に派手なことをしなくても、スタイル指定や話し方のサンプル、録音時のトーン選びだけで、キャラの輪郭はかなり出せました。「最初から完璧な声を狙わない」と決めると、進む速度が一段上がります。</p>
+
+            <h2>次のステップ ― 自分のキャラを作りたい人へ</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/character-voice-creation/ch10.png" alt="小さなマイクと一緒に自分のキャラを少しずつ立ち上げていくイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>ここまで読んでくださって、もし「自分も自分のキャラに声をつけてみたい」と思った方がいたら、最初の一歩はかなり小さくていいと思います。</p>
+            <p>個人で始める場合の最小構成は、たとえばこんな順番です。</p>
+            <ol>
+              <li><strong>キャラ像を文字で固める</strong>: 性格・口調・避けたい言い回しを、短い文書で書き出しておく</li>
+              <li><strong>自分の声で30分くらい録る</strong>: 説明文・会話文・少し感情のある台詞を混ぜる</li>
+              <li><strong>軽い音声合成から触ってみる</strong>: いきなりStyle-Bert-VITS2に行かず、まずクラウド系で「自分のキャラの台詞が読み上げられる」感覚を試す</li>
+              <li><strong>育てたくなったらローカルへ</strong>: 自分の声でモデルを作りたくなった段階で、Style-Bert-VITS2のようなOSSに踏み込む</li>
+            </ol>
+            <p>いきなり全部やろうとすると、たぶん途中で嫌になります。自分も最初から音声モデルを作っていたわけではなく、「文字キャラとして数か月運用→読み上げの実験→本格的に声づくり」と、わりとゆっくり進めました。文字側の輪郭がしっかりしていればいるほど、声を乗せたときに馴染みやすいので、急がないほうが結果的に早いです。</p>
+            <p>シリーズの流れを順に追いたい方は、まず<a href="/blog/tiki-teto-origin-story/">テトとTikiが生まれた経緯（誕生秘話）</a>から読むと、2人が文字キャラとしてどう立ち上がったかが分かります。声の話は、その文字側の輪郭がどれくらい育っていたかにけっこう支えられています。環境側に興味があれば、<a href="/blog/three-machine-workflow/">Mac mini 2台 + MacBook Air、3台で動く僕の作業環境</a>もあわせて。録音や学習は、こうした裏側の作業環境の上に成り立っている話でもあります。</p>
+
+            <h2>Q&amp;A — よくいただく質問</h2>
+            <p>声づくりの話をすると、よく聞かれる質問への答えをまとめておきます。</p>
+            <p>「やる前に確認しておきたいこと」を中心に集めました。</p>
+            <section class="faq">
+              <div class="faq-items">
+                <details>
+                  <summary>プロのナレーターを雇うのと、自分で声をつくるのはどう違いますか？</summary>
+                  <p class="mini">仕上がりの安定感と速さでは、プロにお願いするほうが確実です。一方で、キャラと長く一緒にいる前提で「ベースを自分の声に置きたい」「声色を後から育てたい」「コストを抑えて頻繁に試行錯誤したい」場合は、自分で作るほうが向いています。両者は競合というより、用途で使い分ける関係だと考えると整理しやすいです。</p>
+                </details>
+                <details>
+                  <summary>音声サンプルはどこで聞けますか？</summary>
+                  <p class="mini">本記事の中ほどに「ここに音声サンプルが入る予定」というメモを置いています。公開用に整えたサンプルが用意でき次第、そのブロックに埋め込む予定です。それまでは文字でのイメージのみのご案内になっており、申し訳ありません。</p>
+                </details>
+                <details>
+                  <summary>Style-Bert-VITS2は商用利用できますか？</summary>
+                  <p class="mini">本体はオープンソースで、個人利用や非商用の範囲は比較的取り回しがしやすい立ち位置です。一方で、商用利用や他人の声の学習などは、用途ごとに公式ドキュメントとライセンス条件の確認が必要になります。判断に迷うときは、公式リポジトリの最新の記述を一次情報としてあたっておくのが安全です。</p>
+                </details>
+                <details>
+                  <summary>他人の声を勝手に学習させてもいいですか？</summary>
+                  <p class="mini">基本は避けたい領域だと考えています。本人の同意なしに学習させた音声を使うのは、なりすましや権利の侵害につながりやすいテーマで、後からほどくのが難しくなりがちです。仕事として声を扱う場合は、録音条件・利用範囲・解約条件まで含めて書面で整理しておく、というのを前提に置いています。</p>
+                </details>
+                <details>
+                  <summary>コールテンに音声制作の依頼はできますか？</summary>
+                  <p class="mini">テト・Tikiの声づくりで得た知見を、限定的にお手伝いするケースはあります。ただし、声は本人の同意やライセンスにかかわるテーマで、一律の商品としては提供していません。ご興味があれば、まず公式LINEから「こういうことを考えている」とご相談いただけると、対応可能か一緒に整理できます。</p>
+                </details>
+              </div>
+            </section>
+
+            <h2>同じ景色を作りたい人へ</h2>
+            <p>テトとTikiに声がついたことで、自分の中の「キャラを増やす」という遊びは、もう一段だけ先へ進んでしまった気がしています。文字だけで生きていた2人が、いまは耳の中にもいる。その変化は、想像していたよりずっと小さくて、けれど想像していたよりずっと大きい出来事でした。</p>
+            <p>もし「自分のキャラにも声をつけてみたい」「事業のどこかに音声を組み込めないか考えたい」と感じた方がいれば、コールテンの公式LINEからお気軽にご相談ください。AIをパートナーとして扱う前提で、どこから始めるのが現実的か、いまの体制でどこまで踏み出せそうか、一緒に整理していけます。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">経営者・クリエイター・個人で発信している方、どなたでもお気軽にご相談ください。</p>
+              <a class="btn-contact-xl" href="/contact/">
+                相談する
+              </a>
+            </div>
+
+            <p class="article-updated-note">※本記事は2026-05-06時点の運用に基づいて整理しています。Style-Bert-VITS2のライセンスや音声合成サービスの仕様は時期により変わる可能性があるため、導入前は必ず最新の公式情報をご確認ください。</p>
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-updated-note {
+    margin-top: 40px;
+    padding: 14px 18px;
+    background: #f6f6f4;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 34px 0 12px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 12px;
+    line-height: 1.85;
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 0 0 28px;
+    padding-bottom: 8px;
+  }
+  table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.7;
+    background: #fff;
+  }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: 700;
+    color: var(--sea);
+    margin-bottom: 10px;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    vertical-align: top;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  th {
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    font-weight: 700;
+  }
+  .observation-box {
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin: 28px 0;
+    background: #f6f7f8;
+    border-top: 1px solid #d7dde3;
+    border-bottom: 1px solid #d7dde3;
+  }
+  .faq {
+    padding: 0;
+  }
+  .faq-items details {
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .faq-items details:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-items summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--sea);
+    list-style: none;
+  }
+  .faq-items summary::-webkit-details-marker { display: none; }
+  .mini {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 32px 0 8px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sea, #16614e);
+    margin-bottom: 20px;
+  }
+  .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea, #16614e);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 44px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(22,97,78,0.28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(22,97,78,0.38);
+  }
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.teto .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+    table { min-width: 640px; font-size: 13px; }
+    th, td { padding: 10px 12px; }
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+  }
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .article-foot { justify-content: center; }
+  }
+</style>
