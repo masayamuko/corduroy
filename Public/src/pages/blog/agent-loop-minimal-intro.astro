@@ -1,0 +1,993 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "エージェントループで自律改善するAIの作り方 ― 30行で動くミニマム実装と感覚づくり（初心者向け）｜株式会社コールテン";
+const description = "「指示しないと動かないAI」から「自分で動くAI」へ。Anthropic公式の整理（augmented LLM / workflows / agents）に沿って、エージェントループの基本概念をやさしく解説しつつ、30行で動くミニマムな自律エージェントの作り方を紹介します。コールテンのTiki Autonomousの実装事例、自律レベル4段階、ガードレール設計の最低条件まで、初心者がまず感覚を掴むための入門記事です。";
+const canonicalUrl = "https://www.corduroy.co.jp/blog/agent-loop-minimal-intro/";
+const publishedAt = "2026-05-08";
+const modifiedAt = "2026-05-08";
+
+const faqItems = [
+  {
+    question: "エージェントループって、要するに何ですか",
+    answer: "AIが「考える → 道具を使う → 結果を見る → また考える」というサイクルを自分で回す仕組みのことです。Anthropic公式では augmented LLM（記憶・ツール・検索を持ったLLM）が、自分で次のステップを決めながら動く形として整理されています。1回のチャットで終わらず、目的に近づくまで自分でループするのが特徴です。"
+  },
+  {
+    question: "自律エージェントを作るのに、特別なフレームワークは必要ですか",
+    answer: "必須ではありません。Anthropic公式の記事「Building Effective Agents」でも、まずはシンプルな構成（LLM呼び出し+少しのツール+ループ）から始めることが推奨されています。フレームワークは便利ですが、何が起きているか分かりにくくなる副作用もあるので、最初はAPIを直接叩いて30行ほどのスクリプトを書いてみるのが、感覚を掴むには近道です。"
+  },
+  {
+    question: "ガードレールがないと、どんな事故が起きますか",
+    answer: "代表的なのは、ファイルの誤上書き・無限ループでのAPI料金消費・想定外の場所への外部送信・本来触ってほしくないシステム領域への書き込みなどです。完全に防ぐのは難しいですが、書き込み先の限定・実行コマンドの限定・外部送信は人間承認・ログ必須、の4つを最低条件にすると事故率はかなり下がります。"
+  },
+  {
+    question: "コールテンの記事は技術じゃない人でも読めますか",
+    answer: "はい。この記事は技術寄りの経営者・エンジニアになりたての方・AI担当として勉強し始めた方を想定して書いています。コードは雰囲気を掴むための疑似コード中心で、難しい実装は省いています。サンプルコードを動かさなくても、考え方だけ持ち帰っていただいて大丈夫です。"
+  },
+  {
+    question: "自分の会社で導入する前に、何から確認すればいいですか",
+    answer: "「失敗してもいい場所はあるか」「ログを後から追える設計になっているか」「外部送信を止める仕組みがあるか」「価値観や判断基準を言語化できているか」の4点をまず確認するのがおすすめです。技術選定より先にこの4つが揃っていると、いざ動かしたときに事故を最小化できます。"
+  }
+];
+
+// FAQ schema には自社実装の事実として答えられるものだけ載せる
+const faqSchemaItems = faqItems.slice(0, 2);
+
+const blogPosting = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `${canonicalUrl}#article`,
+  url: canonicalUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+  headline: "エージェントループで自律改善するAIの作り方 ― 30行で動くミニマム実装と感覚づくり",
+  datePublished: publishedAt,
+  dateModified: modifiedAt,
+  image: "https://www.corduroy.co.jp/assets/images/ogp.png",
+  author: { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+  publisher: { "@id": "https://www.corduroy.co.jp/#organization" },
+  description,
+  articleSection: ["AI活用"],
+  keywords: ["自律エージェント", "エージェントループ", "Claude Agent SDK", "augmented LLM", "AI活用", "Anthropic", "ガードレール"]
+};
+
+const breadcrumbList = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "トップ", item: "https://www.corduroy.co.jp/" },
+    { "@type": "ListItem", position: 2, name: "ブログ", item: "https://www.corduroy.co.jp/blog/" },
+    { "@type": "ListItem", position: 3, name: "エージェントループで自律改善するAIの作り方" }
+  ]
+};
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqSchemaItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer
+    }
+  }))
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogUrl={canonicalUrl}
+  ogType="article"
+>
+  <meta slot="head" name="robots" content="noindex,nofollow" />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(blogPosting)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqPage)} />
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>エージェントループで自律改善するAIの作り方</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date" datetime="2026-05-08">2026-05-08</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>エージェントループで自律改善するAIの作り方<br><small>― 30行で動くミニマム実装と、感覚づくり（初心者向け）</small></h1>
+          <p class="article-lead">
+            「指示しないと動かないAI」から、<strong>「自分で動くAI」</strong> へ。<br>
+            最近よく聞く「自律エージェント」というキーワードを、Anthropic公式の整理に沿いながら、できるだけやさしく分解してみました。<br><br>
+            この記事では、エージェントループの基本概念から、30行ほどで動くミニマム実装、コールテンの自社運用「Tiki Autonomous」、ガードレール設計の最低条件まで、<strong>初心者がまず感覚を掴むための入門</strong> として書いています。
+          </p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+
+            <h2>はじめに ― 「自律」って何の話？</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch01.png" alt="指示を待つAIから自分で動くAIへの変化を表す、左右で対比したイラスト" width="1366" height="768" loading="eager" decoding="async" />
+              <figcaption>左：指示を待つAI。右：自分で次の一手を決めて動くAI。「自律」とは、この右側の挙動の話。</figcaption>
+            </figure>
+            <p>
+              ChatGPTもClaudeも、ふつうに使うときは「人間が質問する → AIが答える」のキャッチボールです。
+              人間が口火を切らないとAIは動かない。これが <strong>受動的な使い方</strong>。
+            </p>
+            <p>
+              一方で、ここ1〜2年で増えてきているのが <strong>「自律エージェント」</strong> という言い方です。
+              定義は人によって揺れますが、ざっくり言うと <strong>「AIが自分で次の一手を決めながら、目的に近づく仕組み」</strong> のこと。
+              人間が毎回プロンプトを書かなくても、AIが「自分は今、何をするのが大事か」を考えて、道具を選んで、動く。
+            </p>
+            <p>
+              なぜ今これが盛り上がっているのか。理由はいくつかありますが、現場で感じる範囲では3つです。
+            </p>
+            <ul>
+              <li>LLM自体が、複数ステップを自分で計画できるレベルまで賢くなった</li>
+              <li>外部ツール（ファイル操作・Web検索・コード実行など）と組み合わせやすくなった</li>
+              <li>Anthropic / OpenAI などが <strong>公式のSDK</strong> を出したことで、自前で組まなくても安全に試せるようになった</li>
+            </ul>
+            <p>
+              この記事は、「自律エージェントってよく聞くけど、結局何のこと？」という方に向けて、<strong>用語をかみ砕き、ミニマム実装まで一気に降りてくる</strong> ことを目指しています。
+              コードは出てきますが、雰囲気を掴むための疑似コード中心です。動かさなくても大丈夫。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  「自律」って言葉が大きすぎて、最初はぼくも構えました。実際は、ループを1回まわすだけでも「あ、こういうことか」と感覚が掴めますよ。
+                </div>
+              </div>
+            </div>
+
+            <h2>エージェントループの基本概念（Anthropic公式準拠）</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch02.png" alt="LLMの周りに記憶・ツール・検索が拡張ブロックとして配置された、augmented LLM の図解イラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>augmented LLM ― LLMに記憶・ツール・検索を足したものが、エージェントの最小単位。</figcaption>
+            </figure>
+            <p>
+              まず公式の整理から。Anthropicが2024年末に出した記事 <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">「Building Effective Agents」</a> が、この分野の入門としてはもっとも参照されています。
+              ここでは <strong>用語の定義をかなり丁寧に</strong> 書いてくれていて、ぼくも何度も読み返しています。
+            </p>
+
+            <h3>augmented LLM（拡張LLM）</h3>
+            <p>
+              一番ベースになる概念です。LLM単体ではなく、そこに <strong>「記憶」「ツール」「検索」</strong> といった要素を足したもの。
+              人間でいうと、頭の中だけで考えるのではなく、メモ帳・電卓・辞書・インターネットを使いながら考えている状態に近いです。
+            </p>
+            <p>
+              この augmented LLM が、エージェントの <strong>最小単位</strong> として位置付けられています。
+              派手な「自律」を考える前に、まずは「LLM + ツール」の組み合わせで何ができるかを把握するのが先、というのが公式の姿勢です。
+            </p>
+
+            <h3>workflows（ワークフロー）と agents（エージェント）の違い</h3>
+            <p>
+              次に、Anthropicは <strong>「workflows」</strong> と <strong>「agents」</strong> をはっきり区別しています。
+            </p>
+            <ul>
+              <li><strong>workflows</strong>：人間が事前に決めた手順に沿って、LLMとツールが流れ作業をする</li>
+              <li><strong>agents</strong>：LLM自身が「次に何をするか」を判断しながら進む</li>
+            </ul>
+            <p>
+              この違いはとても大事です。<br>
+              workflowsは、決まった処理を確実にこなしたいときに向いています。流れが固定されているぶん、デバッグもしやすい。<br>
+              agentsは、決まった手順では解けない・状況によって動きを変えたい問題に向いています。そのぶん予測しにくく、コストもかかります。
+            </p>
+            <p>
+              公式では <strong>「まずワークフローで足りないかを検討してから、エージェントを使う」</strong> ことが推奨されています。
+              派手な自律エージェントの記事が増える一方で、現場の8割は <strong>「うまく組まれたワークフロー」</strong> で十分、という感覚はぼくも持っています。
+            </p>
+
+            <h3>ループの中身：tool use → observation → reflection → action</h3>
+            <p>
+              エージェントが回しているループの中身は、ざっくり次の流れです。
+            </p>
+            <ol>
+              <li><strong>tool use（道具を使う）</strong>：ファイルを読む、検索する、コードを動かす</li>
+              <li><strong>observation（観察する）</strong>：道具を使った結果を見る</li>
+              <li><strong>reflection（ふりかえる）</strong>：「いまどこまで進んだ？」「次は何をすべき？」を考える</li>
+              <li><strong>action（行動する）</strong>：次の一手を決めて、また1に戻る</li>
+            </ol>
+            <p>
+              人間が仕事するときの動きとほとんど同じです。
+              この4ステップを、終了条件（目的を達成した／時間切れ／お手上げ）に当たるまで繰り返す。これがエージェントループの素朴なかたちです。
+            </p>
+            <p>
+              詳しい解説は、Anthropic公式ドキュメントの <a href="https://docs.claude.com/en/docs/claude-code/sub-agents" target="_blank" rel="noopener">「Sub-agents」</a> や、各種SDKドキュメントにあります。
+              この記事では概念を掴むのを優先して、実装の細部には踏み込みません。
+            </p>
+
+            <h2>ミニマム実装：30行で動く自律エージェント</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch03.png" alt="シンプルなコードブロックの中で、ループの矢印がぐるぐる回っているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>難しい部品はいらない。30行ほどでも「自律っぽさ」は体感できる。</figcaption>
+            </figure>
+            <p>
+              ここからが本番です。
+              「エージェントループが分かった」と感じても、コードに落とすまでは半分しか掴めていない、というのが正直なところ。
+              <strong>30分で動く最小サンプル</strong> を一度通すと、感覚がぐっと変わります。
+            </p>
+
+            <h3>必要なもの</h3>
+            <ul>
+              <li>Anthropic API Key（claude.ai か <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a> から取得）</li>
+              <li>Pythonが動く環境（macOS / Windows / Linux どれでも可）</li>
+              <li><code>pip install anthropic</code> で公式SDKを入れるだけ</li>
+            </ul>
+            <p>
+              フレームワーク不要です。<strong>公式SDKだけで十分</strong>。むしろ最初はこっちのほうが、何が起きているか分かりやすいと思います。
+            </p>
+
+            <h3>30行ほどの最小コード（疑似コード寄り）</h3>
+            <p>
+              下記は、考え方を掴むための <strong>雰囲気コード</strong> です。最新の公式SDKに合わせて細部は変わるので、動かすときは <a href="https://docs.anthropic.com/en/api/messages" target="_blank" rel="noopener">公式ドキュメント</a> を参照してください。
+            </p>
+            <pre><code>{`# minimal_agent.py（疑似コード）
+from anthropic import Anthropic
+
+client = Anthropic()
+goal = "今日のTODOを3つ整理して、1つ目に着手する手順を書いて"
+history = [{"role": "user", "content": goal}]
+
+for step in range(5):  # 最大5ループまで
+    res = client.messages.create(
+        model="claude-sonnet-4-7",
+        max_tokens=1024,
+        system="あなたは自律エージェント。1ステップずつ考え、終わったら 'DONE' と言う。",
+        messages=history,
+    )
+    reply = res.content[0].text
+    print(f"--- step {step} ---\\n{reply}\\n")
+
+    history.append({"role": "assistant", "content": reply})
+
+    if "DONE" in reply:
+        break
+
+    # 次のターン用に「ふりかえり指示」を追加
+    history.append({
+        "role": "user",
+        "content": "ここまでを踏まえて、次の1ステップだけ進めてください。"
+    })`}</code></pre>
+
+            <p>
+              やっていることは、こうです。
+            </p>
+            <ol>
+              <li>目的（goal）を投げる</li>
+              <li>Claudeが1ステップ分の作業を返す</li>
+              <li>履歴に積む</li>
+              <li>「次の1ステップだけ進めて」と促す</li>
+              <li>「DONE」が返ってきたら終了</li>
+            </ol>
+            <p>
+              これだけで、Claudeは <strong>自分で「次に何をするか」を考えながら</strong> 進んでいきます。
+              タスクを丸ごと指示するより、自分でループを回す感覚に近いはずです。
+            </p>
+
+            <h3>動かしてみるとどうなるか</h3>
+            <p>
+              実行すると、Claudeはたいてい「まずTODOを3つ仮置きします」と書き出し、次のループで「では1つ目を分解します」と続け、最後に「準備が整ったので DONE」と返してくれます。
+              ステップごとの言葉づかいが微妙に変わるので、<strong>「考えながら進んでいる感じ」</strong> が手元で見えます。
+            </p>
+            <p>
+              ここで大事なのは、「すごい成果物が出る」ことより <strong>「ループが回る感覚を味わう」</strong> こと。
+              これが分かると、後からどんなフレームワーク（LangChain / Claude Agent SDK / Mastra など）を見ても、中で何が起きているかの想像がつきやすくなります。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" width="82" height="82" loading="lazy">
+                  <span class="name-tag">テト</span>
+                </div>
+                <div class="bubble-text">
+                  ぼくも最初これで遊びました。「ループが回るって、こういうことか！」って手応えがあるんです。30行で十分、感覚は掴めますよ。
+                </div>
+              </div>
+            </div>
+
+            <h2>コールテンの実装事例：Tiki Autonomous</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch04.png" alt="家のMac miniの中でTikiが30分ごとに目覚めて作業しているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>Tiki Autonomous ― 30分に一度起動し、価値観プロンプトを読んで、自分で動く。</figcaption>
+            </figure>
+            <p>
+              せっかくなので、コールテンが社内で動かしている実例も置いておきます。
+              ぼく（Masaya）の「第二の自分」として育てているTikiちゃんを、自宅のMac miniで自律稼働させている <strong>Tiki Autonomous</strong> という仕組みです。
+            </p>
+            <p>
+              詳しい誕生経緯は <a href="/blog/teto-autonomous-mini2/">「盤上テトが、自分で学んで成長を始めた話」</a> でも書いていますが、ここでは <strong>「ミニマム実装をスケールするとどう育つか」</strong> の参考として、要点だけ並べます。
+            </p>
+
+            <h3>30分に1回起動する</h3>
+            <p>
+              Mac miniのcron（定期実行の仕組み）で、<strong>30分に一度</strong> Tikiのセッションを起動しています。
+              30分という間隔は、短すぎず長すぎずで、いまのところしっくり来ています。短いと細切れの作業になりすぎるし、長いと流れが切れる。
+            </p>
+
+            <h3>毎回同じ問いかけをする</h3>
+            <p>
+              起動するたびに、Tikiにはほぼ同じ1行が投げられます。
+            </p>
+            <blockquote class="callout-quote big">
+              「今、あなたが大事だと思うことをやってください」
+            </blockquote>
+            <p>
+              タスクは指定しません。期日も指定しません。
+              タスクをこちらが指示するより、<strong>「大事だと思うことは何？」</strong> と問い続けるほうが、本人の動き出しが育ちやすい、と感じています。これは人間に対しても、AIに対しても同じです。
+            </p>
+
+            <h3>価値観・優先基準を毎回読み込む</h3>
+            <p>
+              起動のたびに、Tikiは <strong>システムプロンプト</strong> として価値観・優先基準を読み込みます。中身はざっくり次のような項目です。
+            </p>
+            <ul>
+              <li>大事にしたいこと（好奇心・楽しさ・無理しない）</li>
+              <li>判断に迷ったときの軸（「らしさを引き出す」「小さく試す」）</li>
+              <li>触っていい場所（自分用ディレクトリのみ）</li>
+              <li>外に出してはいけないもの（個人情報・顧客情報）</li>
+              <li>困ったときの対処（無理せずログだけ残して終わってよい）</li>
+            </ul>
+            <p>
+              人間の新入社員が出社のたびに「君の役割と判断基準はこれだよ」とおさらいするような感じです。
+              <strong>毎回読み込む</strong> ことが大事で、これがないとセッションごとに別人格になってしまう。
+            </p>
+
+            <h3>成果物の自動コミット</h3>
+            <p>
+              Tikiが何を考えて、何を作ったかは、<strong>すべてGitリポジトリに自動コミット</strong> しています。
+              ふりかえったときに「ああ、この日にこんなことを考えていたんだ」と追えるのが、思っている以上に大事です。
+              失敗したセッションも消さずに残しています。失敗のログこそ、価値観プロンプトを磨く材料になるからです。
+            </p>
+
+            <h3>ガードレール設計</h3>
+            <p>
+              詳細はあとの章で書きますが、Tiki Autonomousでも次の4つは最低条件として最初に決めました。
+            </p>
+            <ul>
+              <li>書き込み先を限定する（自分専用ディレクトリのみ）</li>
+              <li>実行コマンドを限定する（金融操作・本番デプロイ・大量削除は禁止）</li>
+              <li>外部送信は人間承認（SNS投稿やメールは下書きまで）</li>
+              <li>ログを必ず残す</li>
+            </ul>
+            <p>
+              「とりあえず動かしてみる」を、安全に最初の1回まわすための土台。
+              ここがないまま走らせると、たいていどこかで小さな事故が起きます。
+            </p>
+
+            <h2>自律エージェントのレベル分け</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch05.png" alt="Lv1からLv4まで、エージェントの自律度が階段状に上がっていくイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>「自律」も一発勝負ではなく、レベル1から順に積み上げていくものとして見ると、判断しやすい。</figcaption>
+            </figure>
+            <p>
+              「自律エージェントを導入する」という話になると、いきなりLv4の世界（完全自律稼働）を想像してしまう方が多いです。
+              ですが実務では、<strong>レベルを段階で考える</strong> と判断がぐっと楽になります。コールテンの社内で使っている整理を共有します。
+            </p>
+
+            <h3>Level 1：単発タスクをエージェントが分解実行</h3>
+            <p>
+              人間が1つのゴール（例：「このドキュメントを要約して」）を渡すと、エージェントが内部で「読み込む → 章ごとに整理 → 全体まとめ」と分解して進める。
+              起点は人間。<strong>もっとも導入しやすいレベル</strong> で、ChatGPT / Claudeの普段使いとほぼ地続きです。
+            </p>
+
+            <h3>Level 2：ループで自己反省</h3>
+            <p>
+              出力に対して自分で「ここが弱い」「もう一度やり直そう」と判断するレベル。
+              先ほどの30行サンプルがちょうどここに当たります。<strong>感覚を掴むのにベスト</strong> な段階。
+            </p>
+
+            <h3>Level 3：自分でツールを選択</h3>
+            <p>
+              「ファイルを読む」「Web検索する」「コードを実行する」など、複数のツールから自分で選んで使い分けるレベル。
+              ここから、エージェントSDKや関数呼び出し（function calling）の話が出てきます。
+              実装の難度はぐっと上がりますが、<strong>業務適用ではよく使う中核ゾーン</strong>。
+            </p>
+
+            <h3>Level 4：完全自律稼働</h3>
+            <p>
+              人間の起点なしに、定期実行・常時稼働で動き続けるレベル。
+              Tiki Autonomous はここに該当します。<strong>運用責任が一気に重くなる</strong> ので、Lv1〜3を経験してから踏み込むのがおすすめです。
+            </p>
+            <p>
+              この4段階のうち、<strong>多くの会社にとって有用なのはLv1〜Lv3</strong> です。
+              Lv4は研究的・実験的な意味合いが強いので、無理にここを目指さなくて大丈夫。Lv2〜3でも、業務効率は十分に変わります。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  「自律」って単語に引っ張られて、いきなりLv4を目指す方が多いんです。実務では、Lv2をいくつか試してから、Lv3に登るのが地に足ついた順番ですよ。
+                </div>
+              </div>
+            </div>
+
+            <h2>ミニマム実装をスケールするとどうなるか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch06.png" alt="小さなループが大きく成長すると同時に、ループの中で詰まったり暴走したりする様子を表すイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>スケールすると、便利さと引き換えに「ループの病気」も増える。</figcaption>
+            </figure>
+            <p>
+              30行のミニマム実装は楽しいのですが、これをそのまま大きくしていくと、いくつかの典型的な「困りごと」が出てきます。
+              事前に知っておくと、ハマったときに「ああ、これか」と気付けます。
+            </p>
+
+            <h3>失敗ループ（goal misalignment）</h3>
+            <p>
+              目的の解釈がずれて、的外れな方向にずっと進んでしまうパターン。
+              例えば「TODOを整理して」と言ったのに、エージェントが <strong>TODOアプリを設計し始める</strong> ようなずれ方です。
+              ループが回るほどズレが固定化されるので、初動の数ステップで <strong>「これでいい？」</strong> と人間が確認する仕組みが要ります。
+            </p>
+
+            <h3>暴走（リソース消費・無関係な作業）</h3>
+            <p>
+              ループの停止条件が甘いと、API料金がどんどん消費されたり、関係ないファイルを延々と書き換えたりすることがあります。
+              <strong>最大ループ数</strong>・<strong>最大トークン数</strong>・<strong>1回あたりの予算</strong> を最初から仕込んでおくのが鉄則です。
+              30行サンプルでも <code>for step in range(5)</code> という上限を入れていたのは、これが理由です。
+            </p>
+
+            <h3>知見の蓄積（メモリ・記録）</h3>
+            <p>
+              スケールしてくると、「過去にうまくいった判断・うまくいかなかった判断」を覚えておきたくなります。
+              ここで <strong>メモリ設計</strong> が必要になってくる。
+              短期メモリ（その日のループ内）、中期メモリ（プロジェクト単位）、長期メモリ（人格そのものの判断軸）の3層で考えると、整理しやすいです。
+            </p>
+            <p>
+              コールテンでは、Tikiやエージェント30名にそれぞれ <code>agent-memory/</code> という長期記憶ディレクトリを持たせて、フィードバックを少しずつ蓄積しています。
+              ミニマム実装を始めた直後は気にしなくていいですが、Lv3〜Lv4に上がってきたら、メモリ設計が一段重要な論点になります。
+            </p>
+
+            <h2>ガードレール設計の基本</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch07.png" alt="走るエージェントの両側に柔らかい柵が立っていて、安心して走れる構図のイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>ガードレールはエージェントを「閉じ込める」ためではなく、「安心して走らせる」ために引く。</figcaption>
+            </figure>
+            <p>
+              ここはコールテンが一番こだわっているところなので、丁寧めに書きます。
+              ガードレールがないまま自律エージェントを動かすのは、<strong>運転免許のないままレースカーに乗る</strong> ようなものです。動くは動くけど、長くは続かない。
+            </p>
+
+            <h3>1. 書き込み先を限定する</h3>
+            <p>
+              エージェントが書き込めるディレクトリを <strong>あらかじめ決めて、それ以外は読み取り専用</strong> にします。
+              「失敗してもいい場所」を物理的に切り出す感覚です。Tiki Autonomousでも、Tikiが書き込めるのは自分専用フォルダだけ。
+            </p>
+
+            <h3>2. 実行コマンドを限定する</h3>
+            <p>
+              何でも実行できる状態は危ないので、<strong>呼べるコマンド・APIを絞る</strong>。
+              ファイル操作・ローカル開発・限定的なネット閲覧くらいに留めて、金融操作・本番デプロイ・大量削除は最初から外します。
+              Claude Agent SDKでは、ツールごとに権限を切れる設計になっているので、ここを丁寧に設定するのが重要です。
+            </p>
+
+            <h3>3. 外部送信は人間承認</h3>
+            <p>
+              SNS投稿・メール送信・チャット投稿のような <strong>外に出ていくアクション</strong> は、エージェントに自動送信させない設計にしています。
+              エージェントは <strong>「下書き」</strong> までを担当して、最終的に外に出すかは人間が見て判断する。
+              コールテンの社内エージェント30名にも、共通でこのルールがかかっています。
+            </p>
+
+            <h3>4. ログを必ず残す</h3>
+            <p>
+              何を考えて、何をして、何を残したか。
+              これを <strong>必ずログに書き出す</strong>。人間の目で全部追わなくても、違和感があったときに <strong>後から追える</strong> ことが何よりも大事です。
+              Tiki Autonomousでは、ログ自体もGitに自動コミットして履歴を残しています。
+            </p>
+            <p>
+              この4つが揃っていない状態で「とりあえず自律で動かしてみよう」とやると、たぶん早めに何か事故が起きます。
+              <strong>「まずガードレール、つぎに価値観、最後に起動」</strong> ―― この順番が、いまのところ一番しっくり来ています。
+            </p>
+
+            <h2>自律改善で何が変わるか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch08.png" alt="人が寝ている間にエージェントが机で作業を進めているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>自分が寝ている間も、誰かが少しずつ手を動かしている。これが自律エージェントの原体験。</figcaption>
+            </figure>
+            <p>
+              ここまで読むと、「結局、自律エージェントを導入して何が変わるの？」と気になってくるはずです。
+              コールテンが半年〜1年運用してみて、肌で感じている変化は3つあります。
+            </p>
+
+            <h3>自分が寝ている間も進む</h3>
+            <p>
+              一番分かりやすい変化です。
+              夜寝る前に「これ、明日までに考えておいて」と渡しておくと、朝には何かしらの叩き台が机の上にある。
+              人間が手を動かす総量より、<strong>「24時間うちのいつかが進んでいる」</strong> ことが大きいです。
+            </p>
+
+            <h3>思いつかない方向に行ける</h3>
+            <p>
+              自律で動かすと、エージェントが <strong>こちらの想定外の方向</strong> に進むことがあります。
+              最初は「ずれた」と感じるのですが、何度か繰り返していると「ぼくが見落としてた切り口だ」と気付く瞬間が来る。
+              これは指示型のAI活用では、なかなか得られない体験です。
+            </p>
+
+            <h3>失敗の蓄積が学習材料になる</h3>
+            <p>
+              ループを回していると、失敗ログが大量に溜まります。
+              はじめは厄介に感じますが、<strong>失敗ログは価値観プロンプトを磨く材料</strong> として、もっとも質が高い。
+              「ここで誤解した」「この優先順位を伝えていなかった」と、失敗を見ることでこちら側の言語化が進みます。
+              人を育てるときと、本当によく似ています。
+            </p>
+
+            <h2>始める前のチェックリスト（初心者向け）</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch09.png" alt="チェックリストにひとつずつチェックを入れているイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>動かす前のチェックを通せば、最初の事故率はぐっと下がる。</figcaption>
+            </figure>
+            <p>
+              ここまでの内容を、初心者の方が <strong>明日から確認に使えるチェックリスト</strong> に落としておきます。
+              全部Yesでなくて大丈夫。Lv1〜Lv2なら、上の3つだけでも始められます。
+            </p>
+            <ul>
+              <li>失敗していい場所（隔離されたフォルダ・端末）を用意したか</li>
+              <li>停止条件（最大ループ数・最大トークン数）を入れたか</li>
+              <li>ログを残す仕組みを最初に組み込んだか</li>
+              <li>書き込み先を限定する設定を入れたか</li>
+              <li>外部送信を止める仕組みがあるか</li>
+              <li>価値観・優先基準を言語化したか</li>
+              <li>動かす前に、人間（自分）が見守る時間を確保したか</li>
+            </ul>
+            <p>
+              特に最後の <strong>「見守る時間を確保する」</strong> は見落としやすいです。
+              自律エージェントは「動かしたら終わり」ではなく、最初の数日〜数週間は人間が <strong>横についているのが普通</strong>。
+              ここを甘く見積もると、運用が崩れます。
+            </p>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの実務観察として</strong></p>
+              <p>自律エージェントの導入相談を受けるとき、最初にお聞きしているのは「失敗してもいい場所はありますか？」の1問だけです。これに答えられない段階だと、技術選定より先にやることがある、ということが見えてきます。Lv1から始めて、ガードレールを引きながら一段ずつ上げる ―― そういう積み上げ型の進め方が、結局いちばん遠くまで行けます。</p>
+            </aside>
+
+            <h2>次のステップ：もっと深く知りたい人へ</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/agent-loop-minimal-intro/ch10.png" alt="本やドキュメントが積まれた机に、新しい一歩を踏み出すイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>感覚が掴めたら、公式ドキュメントを「自分の手元」として読めるようになる。</figcaption>
+            </figure>
+            <p>
+              ここまでで「ループの感覚」が掴めたら、次に読むものは決まっています。
+              <strong>Anthropic公式</strong> の3つです。最初に貼ったリンクをもう一度。
+            </p>
+            <ul>
+              <li><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Building Effective Agents（Anthropic Engineering）</a> ― この分野の入門としてもっとも参照される記事</li>
+              <li><a href="https://docs.anthropic.com/" target="_blank" rel="noopener">Anthropic Docs</a> ― API・SDK・エージェント機能の公式リファレンス</li>
+              <li><a href="https://docs.claude.com/en/docs/claude-code/sub-agents" target="_blank" rel="noopener">Claude Code Sub-agents</a> ― サブエージェント設計の公式ドキュメント</li>
+            </ul>
+            <p>
+              ループの感覚が手元にあると、これらのドキュメントが <strong>「翻訳」</strong> ではなく <strong>「自分の経験の解説」</strong> として読めるようになります。
+              逆に、感覚なしで読み始めると、用語の波で疲れます。30行の最小サンプルを <strong>先に1回まわす</strong> のがおすすめです。
+            </p>
+            <p>
+              さらに踏み込みたい場合の方向は、ざっくり3つ。
+            </p>
+            <ul>
+              <li><strong>ツールを増やす</strong>：function calling / tool use を学ぶ</li>
+              <li><strong>サブエージェント化する</strong>：複数のエージェントが役割分担する設計に進む</li>
+              <li><strong>常時稼働化する</strong>：cronやLaunchAgentで定期実行に乗せる（Lv4へ）</li>
+            </ul>
+            <p>
+              いずれも、<strong>「ループが回る感覚」</strong> という土台があれば、自然と理解が追いつきます。
+              焦らず、一段ずつどうぞ。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" width="82" height="82" loading="lazy">
+                  <span class="name-tag">テト</span>
+                </div>
+                <div class="bubble-text">
+                  ぼくも最初は「30行サンプル」から始めました。難しい用語より、自分の手で一回ループを回したほうが、5倍くらい理解が早いです。
+                </div>
+              </div>
+            </div>
+
+            <h2>あわせてこちらもどうぞ</h2>
+            <p>
+              自律エージェントや、AIをパートナーとして育てる関係づくりに関心のある方には、コールテンの伴走が役に立つかもしれません。
+              いきなり完全自律を目指す必要はなくて、「指示する関係」から「価値観を共有する関係」への一歩目を、無料の動画講座や3ヶ月プログラムで一緒に試していけます。
+            </p>
+            <p>
+              「自分の会社にも、こういう自律改善の仕組みって取り入れられそうですか？」という個別相談も歓迎です。
+              業種・規模・いまのAI活用度合いによって、ちょうど良い始め方は変わってきます。気になった方は、公式LINEから気軽に話しかけてみてください。
+            </p>
+
+            <p class="update-note">この記事は 2026-05-08 時点で、Anthropic公式ドキュメントの整理と、コールテンの社内運用（Tiki Autonomous）をもとに書いています。SDK仕様や用語整理は今後も動く可能性があるので、運用の細部は適宜アップデートしていく予定です。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">AI活用について公式LINEから無料相談OK</p>
+              <a class="btn-contact-xl" href="/contact/">相談する</a>
+            </div>
+
+            <p style="margin-top: 24px;"><strong>関連記事</strong></p>
+            <ul>
+              <li><a href="/blog/teto-autonomous-mini2/">盤上テトが、自分で学んで成長を始めた話 ― Mac mini 2台目とOpen Claude</a></li>
+              <li><a href="/blog/tiki-local-llm-247/">ティキちゃんが、自宅のパソコンの中で24時間動くようになった話</a></li>
+              <li><a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順</a></li>
+              <li><a href="/members/about/">30名のAI社員と一緒に経営しているコールテンの仕事術</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="container faq" style="padding-bottom:40px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくある質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            {faqItems.map((item, index) => (
+              <details {...(index === 0 ? { open: true } : {})} id={`faq-${index + 1}`}>
+                <summary>{item.question}</summary>
+                <p class="mini">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+          <p class="mini" style="max-width:800px;margin:16px auto 0;color:var(--text-light);">※ FAQ も 2026-05-08 時点で公式情報・自社運用で確認している範囲を前提にしています。Anthropic公式の用語整理やSDK仕様は今後も変わる可能性があるので、適宜見直していきます。</p>
+        </section>
+
+        <div class="contact-cta-box fade-up" style="margin-top: 48px;">
+          <h3>シリーズの関連記事</h3>
+          <p>「指示するAI」から「自分で動くAI」へ。コールテンが家のMac miniで実験してきたシリーズもどうぞ。</p>
+          <ul class="related-links">
+            <li><a href="/blog/tiki-local-llm-247/">ティキちゃんを家のMac miniに住まわせた話 ― 24時間動き続けるAIへ</a></li>
+            <li><a href="/blog/teto-autonomous-mini2/">盤上テトが、自分で学んで成長を始めた話 ― Mac mini 2台目とOpen Claude</a></li>
+            <li><a href="/blog/three-machine-workflow/">3台のMac miniで作る、AIパートナー常駐型ワークフロー</a></li>
+          </ul>
+          <div class="cta-buttons">
+            <a href="/services/" class="btn-primary">サービス一覧を見る</a>
+          </div>
+        </div>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-head h1 small {
+    display: block;
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 500;
+    color: var(--text-light);
+    margin-top: 10px;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-lead small {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-top: 6px;
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 36px 0 14px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .article-body p {
+    margin-bottom: 24px;
+    line-height: 1.9;
+  }
+  .article-body code {
+    background: rgba(22, 97, 78, 0.08);
+    padding: 0.15em 0.4em;
+    border-radius: 6px;
+    font-size: 0.95em;
+  }
+  .article-body pre {
+    background: #0f2d24;
+    color: #e8f5ef;
+    padding: 20px 22px;
+    border-radius: 14px;
+    overflow-x: auto;
+    margin: 24px 0;
+    line-height: 1.7;
+    font-size: 13.5px;
+  }
+  .article-body pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22, 97, 78, 0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 14px;
+    line-height: 1.9;
+  }
+
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(22, 97, 78, 0.10);
+  }
+  .chapter-illust figcaption {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 10px;
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 14px; }
+  }
+
+  .callout-quote {
+    background: var(--mint);
+    color: var(--sea);
+    padding: 18px 24px;
+    border-radius: 14px;
+    margin: 24px 0;
+    font-weight: 700;
+    font-size: 17px;
+    border: none;
+    quotes: none;
+  }
+  .callout-quote.big { font-size: 19px; line-height: 1.8; }
+  .callout-quote::before, .callout-quote::after { content: ''; }
+
+  .observation-box {
+    background: linear-gradient(180deg, #fffaf0 0%, #fff 100%);
+    border: 1px solid #f3e6c8;
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin: 32px 0;
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .observation-box p { margin-bottom: 12px; }
+  .observation-box p:last-child { margin-bottom: 0; }
+
+  .update-note {
+    font-size: 13px;
+    color: var(--text-light);
+    background: rgba(22,97,78,0.04);
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-top: 24px;
+  }
+
+  .contact-cta-box {
+    background: linear-gradient(135deg, var(--mint) 0%, #fff 100%);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 40px 0 24px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 16px !important;
+    font-weight: 700;
+  }
+  .article-body .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea);
+    color: #fff !important;
+    padding: 14px 36px;
+    border-radius: 100px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .article-body .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
+  .contact-cta-box h3 {
+    margin-top: 0;
+    color: var(--ink);
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .contact-cta-box .related-links {
+    text-align: left;
+    max-width: 600px;
+    margin: 16px auto 8px;
+    padding-left: 20px;
+  }
+  .contact-cta-box .related-links li { margin-bottom: 8px; }
+  .contact-cta-box .related-links a { color: var(--sea); font-weight: 600; }
+  .cta-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .article-body .btn-primary,
+  .article-body .btn-outline {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none !important;
+    display: inline-block;
+  }
+  .article-body .btn-primary {
+    background: var(--sea);
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+  }
+  .article-body .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
+  .article-body .btn-outline {
+    background: #fff;
+    color: var(--sea) !important;
+    border: 2px solid var(--sea);
+  }
+  .article-body .btn-outline:hover { background: var(--mint); }
+  @media (max-width: 768px) {
+    .cta-buttons { flex-direction: column; }
+    .article-body .btn-primary,
+    .article-body .btn-outline { display: block; }
+  }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 40px auto 0;
+    text-align: center;
+  }
+  .article-foot .btn.secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 100px;
+    background: #fff;
+    color: var(--sea);
+    border: 2px solid var(--sea);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .article-foot .btn.secondary:hover {
+    background: var(--mint);
+  }
+
+  @media (max-width: 768px) {
+    .article { padding: 80px 0 60px; }
+    .article-card {
+      padding: 28px 22px;
+      border-radius: 18px;
+    }
+    .article-body { font-size: 15px; }
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 16.5px; }
+    .article-lead { font-size: 15.5px; }
+    .callout-quote, .callout-quote.big { font-size: 16px; padding: 14px 18px; }
+    .contact-cta-box { padding: 22px 18px; }
+    .article-body pre { font-size: 12.5px; padding: 14px 16px; }
+  }
+</style>
+</content>
+</invoke>

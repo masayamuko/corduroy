@@ -1,0 +1,863 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import UpdatedNote from '../../components/UpdatedNote.astro';
+
+const title = "自分のボイスクローンを作って、AIに喋ってもらった話 ― v1→v2で「もう一人の自分」になるまで｜株式会社コールテン";
+const description = "Style-Bert-VITS2 と Colab Pro で自分のボイスクローンを1ヶ月かけて育てた記録。短時間学習の masaya-v1 から、25分録り直し+100 epoch でじっくり仕上げた masaya-v2 へ。再生して笑ってしまった瞬間の話、倫理・なりすまし対策、いま実際に使っている場面まで、体験ベースで整理しました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/masaya-voice-clone/"
+  ogUrl="https://www.corduroy.co.jp/blog/masaya-voice-clone/"
+  ogType="article"
+>
+  <meta slot="head" name="robots" content="noindex,nofollow" />
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/masaya-voice-clone/#article",
+    "url": "https://www.corduroy.co.jp/blog/masaya-voice-clone/",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/masaya-voice-clone/" },
+    "headline": "自分のボイスクローンを作って、AIに喋ってもらった話 ― v1→v2で「もう一人の自分」になるまで",
+    "datePublished": "2026-05-08",
+    "dateModified": "2026-05-08",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+    "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+    "description": "Style-Bert-VITS2とColab Proで自分のボイスクローンを育てた1ヶ月の記録。masaya-v1の違和感から、25分録り直し+100 epochのv2で『あ、自分の声だ』に着地するまでの体験談。",
+    "keywords": ["ボイスクローン", "自分の声", "Style-Bert-VITS2", "Google Colab Pro", "音声合成", "AI音声", "なりすまし対策", "個人AI活用"]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "自分のボイスクローンを作って、AIに喋ってもらった話" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "ボイスクローンに必要な録音時間はどれくらいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "私の場合、最初の masaya-v1 は短めの素材（参考音声中心）で30 epoch だけ回したのですが、聞くと「機械っぽさ」が抜けませんでした。masaya-v2 では自分の声を25分くらい録り直して、100 epoch でじっくり学習させたところ、「あ、自分の声だ」と笑ってしまうレベルまで来ました。素材は5〜10分でも一応形にはなりますが、抑揚や癖まで再現したいなら20〜30分くらいは録っておくほうが結果的に早い気がしています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Style-Bert-VITS2 以外の選択肢はありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "クラウド型の音声合成（ElevenLabs など）も普通に強い選択肢です。文章を入れるだけで品質の高い声がすぐ返ってきますし、立ち上げも早いです。私が Style-Bert-VITS2 を選んだのは、自分の声を学習素材として持っておきたかったのと、ローカルで推論を回したかったから。「すぐ使える」を優先するならクラウド、「育てて手元に持ちたい」ならローカル系、くらいの分かれ方だと思っています。用途によって、どちらが向くかは変わります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "自分の声をAIに使わせることに、心理的抵抗はありませんでしたか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "正直、最初に「録音していないはずの台詞を、自分の声で再生される」体験はちょっと不思議でした。怖いというより、むずがゆい感じです。ただ、自分で録って・自分の手元で学習させて・自分の用途で使う、という設計にしておけば、抵抗より便利さのほうが大きくなりました。逆に「他人に勝手に学習させられた声」だったら、たぶん全然違う感情になります。だから、自分の声は自分の管理下に置いておく、という線は最初に引いています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "なりすまし対策はどうしていますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "学習した声のモデルファイルはクラウドに置きっぱなしにせず、ローカル中心で扱っています。配布もしません。出力した音声は、自分か近しい運用の中で使う前提で、本人とわからない場面（例えば本人確認の代わり）では使わない、というルールにしています。完全に防ぐのは難しいテーマなので、「使う場所」「使わない場所」を最初に決めておくのが、いまの自分にできる現実的な範囲かなと思っています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ボイスクローンを商用利用していいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Style-Bert-VITS2 自体はオープンソースで、個人利用や非商用の範囲は比較的取り回しがしやすい立ち位置です。一方で、商用利用や、他人の声の学習に踏み込むときは、用途ごとに公式リポジトリの最新ライセンスとモデルごとの条件を確認する必要があります。判断に迷うときは、公式の最新記述を一次情報としてあたるのが安全です。私自身も、用途を広げるたびに読み直しています。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>masaya-voice-clone</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-08</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>自分のボイスクローンを作って、AIに喋ってもらった話 ― v1→v2で「もう一人の自分」になるまで</h1>
+          <p class="article-lead">自分の声を録って、AIに学習させて、自分が言っていない台詞を「自分の声」で読み上げてもらう。最初に作った masaya-v1 はどこか機械っぽくて止まり、25分録り直して 100 epoch でじっくり学習させた masaya-v2 で、ようやく「あ、自分の声だ」と笑ってしまうところまで来ました。1ヶ月の試行錯誤と、いま実際にどこで使っているかを、体験ベースで整理しています。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <h2>はじめに：自分の声でAIに喋ってもらうことを思いついた日</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch01.png" alt="夜の机に置かれたコンデンサーマイクとノートPCの画面に、声の波形が小さく映っているイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>動画コンテンツの台本を書いていた、ある夜のことでした。書き終わった原稿を眺めながら、「これ、誰の声で読まれるんだろう」と止まったんです。</p>
+            <p>うちの会社にはAIの仮想チームがいて、その子たち向けの声づくりはすでに進めていました。テトの声、Tikiの声と順番に立ち上げていって、キャラ用の声は手元に揃ってきていた。でも、代表として自分が前に出る場面のナレーションは、また別の話だな、と思っていました。</p>
+            <p>普段の自分の声をそのまま使えばいい、という話でもあるんです。実際そうしてきたし、それで困っていたわけでもありません。ただ、収録のたびに机に向かって、息を整えて、撮り直して、というのを繰り返すのが、地味に重くなってきていました。人前で話すのは、たぶん得意なほうではないです。打合せ前は緊張するし、収録のスケジュールを後ろ倒しにしたまま2週間経っていることもありました。</p>
+            <p>そこで、もう一つの選択肢が頭に浮かんできました。<strong>自分の声で AI に喋ってもらう</strong>、というやり方です。テトやTikiにキャラを乗せたのと同じ仕組みで、今度は自分自身の声をベースにして、AIに代わりに読んでもらう。動画の冒頭ナレーションや、議事録の読み上げや、自分が直接喋らなくても成立する場面を、もう一人の自分に任せてみる。</p>
+            <p>うまくいくのかは、やってみないと分かりませんでした。ただ、テトとTikiでひととおりつまずきは経験していたので、「失敗が起きにくい初期状態」だけは見えていた。それなら、自分の声でも一回試してみよう、と思ったのが始まりでした。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  キャラの声づくりをやり切ったあとだったので、Masayaの声に行くのは自然な流れでした。土台は同じで、素材を入れ替えるだけ、というところまで来ていたと思います。
+                </div>
+              </div>
+            </div>
+
+            <h2>なぜ、声優さんに頼まなかったのか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch02.png" alt="プロのナレーターに依頼する選択肢と、自分の声を素材にAIに喋ってもらう選択肢を天秤にかけて、自分の声を選んでいるイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>選択肢として、プロのナレーターさんに依頼する道もありました。仕上がりの安定感と速さなら、たぶんそちらのほうが確実です。実際、ナレーション制作のサービスはいくつもあるし、品質も日々上がっています。</p>
+            <p>それでも自分の声でやろう、と決めた理由はいくつかありました。順番に書いておきます。</p>
+            <p>1つ目は、<strong>ブランドの統一感</strong>です。コールテンのコンテンツでは、テト・Tikiが文字とイラストの中で生きていて、彼らの声もすでにあります。そこに代表の私が加わるとき、別の人の声で代弁してもらうと、どうしても接ぎ目が見える気がしました。誰がどの声で喋っているかが、視聴者にとって一段わかりにくくなる。それなら、自分の声をそのまま素材にしておいたほうが、後々シンプルだと思いました。</p>
+            <p>2つ目は、<strong>声を「素材」として手元に持っておきたかった</strong>ことです。プロにお願いした音声は、収録した瞬間に完成形が決まります。後から少し落ち着かせたい・少し明るくしたい、という調整は基本できません。一方で、自分の声を学習させたモデルなら、出力時のスタイルや話速で雰囲気を寄せていける。「あとから手を入れられる声」を、とりあえず1つ持っておきたかったんです。</p>
+            <p>3つ目は、<strong>コスト</strong>。これは正直に書きます。Colab Pro の月10ドルだけで、何度でも録り直して、何度でも学習を回せる。声優さんに依頼することを考えるとケタが2つくらい違いました。趣味と実用の中間みたいな試行錯誤を、気兼ねなく回せる予算感です。</p>
+            <p>ただ、ここで誤解してほしくないのは、<strong>プロに頼む選択肢を否定しているわけではない</strong>、ということです。決まった案件で確実に仕上げたいときは、プロに依頼するほうが速いし安定しています。両者は競合というより、用途で使い分ける関係だと思っています。私の場合は、たまたま「育てる側」が向いていた、という話です。</p>
+
+            <aside class="observation-box">
+              <p><strong>「すぐ完成」より「あとから直せる」を選んだ</strong></p>
+              <p>立ち上げの早さで選ぶならプロに依頼するほうでしたが、自分の声は長く一緒にいる前提なので、声も時間をかけて育つ形で持ちたかったです。早く完成させるより、後から手を入れられる形で持っておきたい、という選び方になりました。</p>
+            </aside>
+
+            <h2>何を使ったか ― Style-Bert-VITS2 と Colab Pro</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch03.png" alt="Google Colab Proのノートブック画面と、Style-Bert-VITS2のロゴ的アイコン、ローカルのMac miniが矢印で繋がっているイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>使ったツールはシンプルです。学習側に <a href="https://github.com/litagin02/Style-Bert-VITS2" target="_blank" rel="noopener noreferrer">Style-Bert-VITS2</a>（以下 SBV2）、計算側に <strong>Google Colab Pro</strong>（月額10ドル前後）、推論はローカルの Mac mini で動かしています。</p>
+            <p>SBV2 を選んだ決め手は3つありました。日本語で表現力が高いこと、Colab で学習が回せること、ローカル推論ができること。これがそろっていると、「クラウドに音声データを置きっぱなしにしなくていい」「学習だけクラウドの計算資源を借りる」という分担ができます。自分の声という、それなりにデリケートな素材を扱うときに、この分担はけっこう効きました。</p>
+            <p>Colab Pro は GPU 時間がほぼ使い放題に近いので、追加コストは事実上かかりません。学習を回しているあいだは別の仕事をしていられて、終わったらモデルファイルが Drive に保存される。それをローカルにコピーすれば、すぐ推論に使えます。</p>
+            <p>立ち上げの軽さでいえば、たぶんクラウド型のサービスのほうがだいぶ楽だと思います。SBV2 は、Python 環境を組んで、データを用意して、学習を回して、推論コードを書いて、ようやく音が出る、という順番です。慣れていないと何度かつまずきます。私もテト・Tikiの段階でだいぶハマったので、自分の声を始めるときには「黄金パターン」がすでに手元にありました。これは大きな前提です。<a href="/blog/character-voice-creation/">テト君とTikiちゃんに、声をつくった話</a>のほうにも、その辺りの空気は書いてあります。</p>
+
+            <h2>ボイスクローン作成サービスの比較 ― なぜ自前で作ったのか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch11.png" alt="ElevenLabs・Resemble・CoeFont・Voicevox・Style-Bert-VITS2など複数のボイスクローン/AI音声合成サービスを天秤に並べて、最終的に自前学習を選んでいるイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>「ボイスクローンって、もっと簡単に作れるサービスあるんじゃない？」と聞かれることが何度かあったので、自分が比較したときの整理も置いておきます。実際、いまは選択肢がかなり広がっていて、何を優先するかで答えが変わるテーマです。</p>
+            <p>2026年5月時点で、ボイスクローンや AI音声合成として候補にあがるものを、ざっくり横並びにするとこんな感じでした。料金や条件は変動するので、検討するときは必ず公式サイトで最新情報を確認してください。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>主要なボイスクローン / AI音声合成サービスの比較（2026-05時点の目安）</caption>
+                <thead>
+                  <tr>
+                    <th>サービス</th>
+                    <th>料金感（月額）</th>
+                    <th>商用利用</th>
+                    <th>日本語精度</th>
+                    <th>学習データ要件</th>
+                    <th>所感</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ElevenLabs</td>
+                    <td>$5〜$330（プラン段階制）</td>
+                    <td>プラン次第</td>
+                    <td>中〜高</td>
+                    <td>1〜30分</td>
+                    <td>立ち上げが早く、品質も高い。継続コストが積み上がる前提</td>
+                  </tr>
+                  <tr>
+                    <td>Resemble AI</td>
+                    <td>$30〜カスタム</td>
+                    <td>商用OK（要確認）</td>
+                    <td>中</td>
+                    <td>50文以上</td>
+                    <td>エンタープライズ寄り。API利用で組み込みやすい</td>
+                  </tr>
+                  <tr>
+                    <td>Murf AI</td>
+                    <td>$19〜$79</td>
+                    <td>プラン次第</td>
+                    <td>中</td>
+                    <td>プリセット中心</td>
+                    <td>カスタムボイスは上位プランの想定。動画ナレーション向け</td>
+                  </tr>
+                  <tr>
+                    <td>CoeFont</td>
+                    <td>1980円〜カスタム</td>
+                    <td>個人/法人で別</td>
+                    <td>高（日本語特化）</td>
+                    <td>数十分</td>
+                    <td>日本語クオリティが高い。料金は段階制</td>
+                  </tr>
+                  <tr>
+                    <td>Voicevox</td>
+                    <td>無料（OSS）</td>
+                    <td>キャラごとに利用規約</td>
+                    <td>中〜高</td>
+                    <td>プリセット</td>
+                    <td>カスタム声は不可。既存キャラ運用が前提</td>
+                  </tr>
+                  <tr>
+                    <td>Style-Bert-VITS2</td>
+                    <td>無料（OSS）+ Colab Pro $10</td>
+                    <td>OSSライセンス準拠</td>
+                    <td>高</td>
+                    <td>5〜30分</td>
+                    <td>学習コストはかかるが、モデルが資産として手元に残る</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>※ 上の数値・条件は2026年5月時点での目安です。サービスの料金プラン・商用条件は頻繁に変わるので、実際に検討するときは各公式サイトで最新の記述を確認してください。</p>
+            <p>こうして並べてみると、「すぐ使う」ことが目的ならクラウド型のサービスが普通に強いです。ElevenLabsやCoeFontは、登録してデータを入れるだけで、その日のうちに自分の声に近いものを出してくれる。立ち上げの早さと品質の安定感は、自前学習で追いつくのが難しいレベルだと思います。</p>
+            <p>それでも僕が Style-Bert-VITS2 を選んだのは、いくつか自分側の事情がありました。順に書いておきます。</p>
+            <ol>
+              <li><strong>月額が積み上がる懸念</strong>。月数千円〜1万円台のサブスクは1つだとそうでもないですが、用途別に複数走らせると、年単位で見ると数万円のスケールになります。コンテンツ制作の固定費としては重くなる感覚がありました</li>
+              <li><strong>キャラを増やすたびに追加費用</strong>。テト・Tikiの声に加えて、自分の声、将来の別キャラの声と増えていくたびにプランを上げる構造だと、長期で組みづらい</li>
+              <li><strong>モデルが手元に残らない</strong>。サービス側で学習したモデルは、サービスが続く前提で使う形になります。停止やプラン改定があったとき、声の資産を持ち越せない可能性がある</li>
+              <li><strong>声を「資産化」したかった</strong>。テトもTikiも、自分自身の声も、コールテンというブランドの一部です。ブランドアセットとして自社で保有しておきたかった</li>
+              <li><strong>Colab Pro $10 + 学習時間で済む見込みがあった</strong>。テト・Tikiですでに黄金パターンがあったので、追加コストの増分が読めていました</li>
+            </ol>
+            <p>逆に言うと、上のどれも当てはまらないなら、クラウド型のサービスを選ぶほうがたぶん速いし楽です。「1本の動画のために、すぐ自分の声がほしい」だけなら、ElevenLabsで30分で立ち上がります。「日本語のクオリティを最優先で、社内利用中心」ならCoeFontも有力候補です。<strong>用途と時間軸で選び分けるテーマ</strong>で、自前学習が一律に正解、というつもりはまったくないです。</p>
+            <p>僕の場合は「学習コストを払う代わりに、モデルを持ち続ける」選択肢のほうが、ブランドとして長く運用するときに馴染んだ、というだけの話でした。どちらの選び方も、入口の優先順位の違いだけだと思っています。</p>
+
+            <aside class="observation-box">
+              <p><strong>「すぐ使える」と「資産として持つ」は、別の問いだった</strong></p>
+              <p>比較表を作っているうちに気づいたのは、サービスを並べても「どっちが優れているか」の答えが出ないということでした。立ち上げの早さで選ぶならクラウド、長く一緒にいるブランドの一部として育てたいならローカル系。<strong>同じ「ボイスクローン」というキーワードでも、解こうとしている問いが違う</strong>。自分が解きたいのはどちらの問いかを、最初に決めたほうが選択肢を絞りやすかったです。</p>
+            </aside>
+
+            <h2>masaya-v1 ― 30 epoch、短時間学習で出てきたもの</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch04.png" alt="少なめの音声素材から学習されたmasaya-v1のモデルが、波形としてはそれっぽいけれど、どこか平坦に出力されている様子のイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>最初に作ったのが masaya-v1 です。素材は手元にあった短めの録音を寄せ集めて、30 epoch / 480 step だけ回しました。学習時間はおおよそ1時間ちょっと。「とりあえず一回、自分の声でモデルを作ってみる」という温度感でした。</p>
+            <p>出てきた音声は、最初に再生したときは「お、自分っぽい」と思いました。声質はわりと近い。録っていない台詞が、自分っぽい声で読まれてくる時点で、それなりにインパクトはあります。ただ、しばらく聞いていると違和感が積み上がっていきました。</p>
+            <p>具体的に挙げると、こういうところでした。</p>
+            <ul>
+              <li><strong>語尾の伸び</strong>が均一で、ちょっと棒読みっぽい</li>
+              <li><strong>抑揚</strong>が浅く、感情の上下に乏しい</li>
+              <li>自分の癖（少し早口になるところ、息継ぎの位置）が出ない</li>
+              <li>短い文は自然なのに、長い文の途中で抑揚がリセットされる</li>
+            </ul>
+            <p>合成音声としては「悪くない」のですが、自分の声として聞くと「あ、これは機械っぽい」と感じる、というラインでした。たぶん、自分の声だと耳のチェックが厳しくなるんだと思います。他人の声なら気にならないであろう揺らぎが、自分の声だと「自分はそうは喋らない」と分かってしまう。</p>
+            <p>ここで一回、立ち止まりました。短時間学習でこのレベルなら、たぶん素材と学習量を増やせばもう一段行ける、という見立てがあったので、masaya-v1 はテスト版として置いておいて、masaya-v2 にやり直すことにしました。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  v1で「機械っぽさ」を残したまま完成にしないで、いったん引き返したのは、結果的にいい判断だったと思います。中途半端な形で公開してしまうと、後から差し替えるほうがしんどくなりますから。
+                </div>
+              </div>
+            </div>
+
+            <h2>masaya-v2 ― 25分録り直し、100 epoch でじっくり</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch05.png" alt="25分ぶんの台本を読み上げる作業机と、長めに伸びた波形がスクロールしていくイメージ。Colab上で100 epochまで学習が進んでいく様子" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>v2 で変えたのは、ざっくりこの3点です。</p>
+            <ol>
+              <li><strong>音声素材を25分くらい録り直した</strong>（説明文・会話文・少し感情を込めた台詞を混ぜる）</li>
+              <li><strong>1日で全部録らない</strong>（複数日に分けて、声質の揺らぎを抑える）</li>
+              <li><strong>100 epoch / 4600 step</strong>まで回した（学習時間は約4時間）</li>
+            </ol>
+            <p>素材作りは、けっこう地味な作業でした。ふだんの自分の声を「きれいに録る」のが、思っていたより難しい。緊張すると声が高くなるし、気を抜くと早口になる。「いつも通り読もう」と思うと、わざとらしくなる瞬間がある。途中で気付いたのは、<strong>普段の自分は、声に思っていたよりたくさんの表情を乗せている</strong>ということでした。説明する時の声、軽く笑う時の声、ちょっと考え込む時の声。これがフラットな読み上げだけだと、AIが学習する素材として偏ってしまう。</p>
+            <p>なので、台本も意識的に種類を混ぜました。淡々とした説明、誰かに話しかけるような会話、ちょっと感情を込めた台詞、相づちっぽい一言。20分超えてくると喉がだれてくるので、その日はそこまで、と決めて、別日に続きを撮りました。</p>
+            <p>データ整備は、毎度ながら一番退屈な工程です。音量を整えて、無音の前後を切って、ファイル名と書き起こしの対応を揃える。書き起こしは Whisper 系で半自動化できますが、最後は耳で聞いて間違いを直す手作業が残ります。ここをサボると、学習中に「変な対応関係」を覚えてしまうので、丁寧に進めました。</p>
+            <p>学習は Colab で 100 epoch / 4600 step、約4時間。途中の経過を見ながら、loss の落ち方が想定どおりか、ときどき覗くだけで、あとは別の仕事をしていました。ここがクラウド学習のいちばん楽なところです。</p>
+            <p>v1 と v2 のスペック差を表にしておきます。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>masaya-v1 と masaya-v2 の学習設定</caption>
+                <thead>
+                  <tr>
+                    <th>項目</th>
+                    <th>masaya-v1</th>
+                    <th>masaya-v2</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>音声素材</td>
+                    <td>短時間（既存素材寄せ集め）</td>
+                    <td>25分・複数日に分けて録音</td>
+                  </tr>
+                  <tr>
+                    <td>素材の種類</td>
+                    <td>説明寄り</td>
+                    <td>説明・会話・感情つき台詞を混ぜる</td>
+                  </tr>
+                  <tr>
+                    <td>epoch / step</td>
+                    <td>30 epoch / 480 step</td>
+                    <td>100 epoch / 4600 step</td>
+                  </tr>
+                  <tr>
+                    <td>学習時間（GPU）</td>
+                    <td>約1時間</td>
+                    <td>約4時間</td>
+                  </tr>
+                  <tr>
+                    <td>聴感の印象</td>
+                    <td>機械っぽさが残る</td>
+                    <td>「あ、自分の声だ」と感じる</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>完成して再生した瞬間 ― 「あ、自分の声だ」</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch06.png" alt="ヘッドフォンで自分のボイスクローンの出力を聞いて、思わず笑ってしまっている様子のイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>v2 のモデルファイルが Drive に保存されたあと、ローカルにコピーして、推論コードに適当な台詞を入れて再生したときのことは、たぶん今後もしばらく覚えていると思います。</p>
+            <p>「テストです、これは私の声のクローン版で読み上げています」みたいな、なんでもない一文を入れて Enter を押した。スピーカーから音が出た瞬間、ちょっと笑ってしまいました。<strong>自分が言っていない台詞が、自分の声で読み上げられている</strong>。しかも、v1で残っていた「機械っぽさ」がだいぶ抜けていて、抑揚や息継ぎのリズムが、なんとなく自分っぽい。</p>
+            <p>もう少し癖のある台詞にして、たとえば「いやー、それはちょっと、どうなんだろうな」みたいな、考えながら喋るような文を読ませてみる。すると、語尾の伸び方や、文中で少しテンポが落ちるところまで、自分が普段やっている挙動に近かった。録音時の自分の癖が、そのままモデルに乗っているのが分かります。</p>
+            <p>「合成音声を作った」という感覚より、「もう一人の自分が喋ってくれている」のほうが近い気がしました。これは、テトやTikiの声を作った時とは少し違う体験で、自分のコピーに会っているような、むずがゆさのある瞬間です。怖いというほどではないんですが、「ふだんの自分とは別の経路から、自分の声が出てくる」という事実は、初回はちょっと整理がつかなかったです。</p>
+            <p>そのあと、何回か違う台詞を試して、家族に1つ聞いてもらいました。「言ってないんだけど、似てる」という感想が返ってきて、ようやく「あ、これでいったん完成にしていい段階だな」と思いました。</p>
+
+            <aside class="observation-box">
+              <p><strong>v1 → v2 で、いちばん変わったのは「自分の癖」だった</strong></p>
+              <p>声質そのものは v1 でも近かったんです。差を分けたのは、語尾・抑揚・テンポのような「自分の癖」が再現できているかどうか。素材を増やすことより、感情の振れ幅と話し方の種類を混ぜたことが、結果的に大きかった気がしています。</p>
+            </aside>
+
+            <h2>倫理 / なりすましリスク / 利用範囲</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch07.png" alt="自分の声のモデルファイルを大切に手元に置きながら、外側に「使う場所」「使わない場所」の境界線を引いているイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>このトピックは、便利さの話とセットで書いておかないとフェアじゃない、と思っています。AI音声は、使い方によっては<strong>なりすまし・詐欺・無断利用</strong>に使える技術です。自分の声で作った場合でも、扱い方の線は最初に引いておきたいテーマでした。</p>
+            <p>いま自分が運用しているルールは、ざっくり以下のような感じです。あくまで「いまの私の運用」なので、絶対の正解というつもりはありません。</p>
+            <ul>
+              <li><strong>モデルファイルはローカル中心で扱う</strong>。クラウドに置きっぱなしにしない。</li>
+              <li><strong>モデルファイルを外部に配布しない</strong>。共同制作者にも、必要最低限を超えては渡さない。</li>
+              <li><strong>本人確認の代わりにはしない</strong>。「これは本人の声だから本物です」と主張する場面では使わない。</li>
+              <li><strong>用途を明示する</strong>。動画やコンテンツで使うときは、AI音声であることを必要に応じて添える。</li>
+              <li><strong>他人の声を本人の同意なしに学習させない</strong>。自分の声は自分の管理下にあるが、他人の声は別の話。</li>
+            </ul>
+            <p>このうち、いちばん大事だと感じているのは最後の項目です。自分の声でやってみて分かったのは、<strong>音声合成は思っていたよりずっと「人格を運ぶ」</strong>ということでした。声には、その人の癖・テンポ・温度がそのまま乗ります。それを本人の許可なく学習させることは、「その人の何かをコピーする」ことと意味が近い。便利だからこそ、入口の設計を雑にしたくないテーマだと思っています。</p>
+            <p>仕事として誰かの声を扱う場合は、録音条件・利用範囲・解約条件まで含めて書面で整理しておく、というのを前提に置いています。「ちょっと声を貸してくれませんか」を口頭で済ませない、という地味なルールです。便利さの裏側で、相手の信頼を消費しないように気をつけたいところです。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  Masayaの場合、「自分の声を自分で扱う」前提が崩れない範囲で動いているのが、技術と感情のバランスを取れている要因かなと思います。手放した瞬間に、設計の前提が崩れる種類の素材ですから。
+                </div>
+              </div>
+            </div>
+
+            <h2>実際にどこで使っているか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch08.png" alt="動画ナレーション・議事録読み上げ・人前発言補助といった複数の活用シーンが並んでいるイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>完成したあと、いきなり大きな場で使うより、社内のちょっとした場面でこっそり試して、馴染んだものから外向きに広げていく、という順番にしました。いま実際に使っている場面を、軽く整理しておきます。</p>
+            <div class="table-scroll">
+              <table>
+                <caption>masaya-v2 をいま使っている場所</caption>
+                <thead>
+                  <tr>
+                    <th>場面</th>
+                    <th>使い方</th>
+                    <th>気をつけていること</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>動画ナレーション</td>
+                    <td>冒頭・中間の説明パートで使う</td>
+                    <td>キャラ台詞には使わない（テト・Tikiの領域）</td>
+                  </tr>
+                  <tr>
+                    <td>議事録の読み上げ</td>
+                    <td>長文の議事録を耳で聞き直す</td>
+                    <td>機密ありのものはローカルで完結</td>
+                  </tr>
+                  <tr>
+                    <td>朝のブリーフ音声化</td>
+                    <td>移動中に予定と論点を聞く</td>
+                    <td>毎朝聞きすぎて飽きないよう、運用は緩く</td>
+                  </tr>
+                  <tr>
+                    <td>人前発言の補助</td>
+                    <td>緊張しがちな解説部分を事前に音声化して練習</td>
+                    <td>本番で AI音声をそのまま流すかは案件ごとに判断</td>
+                  </tr>
+                  <tr>
+                    <td>セミナー教材の補助ナレーション</td>
+                    <td>自分が話すと硬くなる箇所をAIで埋める</td>
+                    <td>必要に応じてAI音声であることを明記</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>自分にとって地味に効いているのは、<strong>議事録の読み上げと朝のブリーフ音声化</strong>です。文字で読むだけだと頭に入りきらない情報が、自分の声で耳から流れてくると、移動時間や家事の時間に少し進められる。「机に向かわないと進まない作業」のいくつかが、机の外でも進むようになりました。</p>
+            <p>動画やSNSでの活用は、まだ実験中のところもあります。台本を書く側のリズムが、声に乗せる前提で書くスタイルに切り替わりきっていなくて、慣らしている最中、というのが正直なところです。一旦は試行錯誤に振っています。</p>
+
+            <h2>やってみて気づいたこと</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch09.png" alt="自分の声から派生したもう一人の自分が、机の隣に立って一緒に作業しているような相棒感のあるイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>1ヶ月やってみて、頭の中で整理がついたことをいくつか書いておきます。技術の話というより、自分との付き合い方の話に近いです。</p>
+            <ul>
+              <li><strong>声には、思っていたより人格が乗っている</strong>。声質だけでなく、テンポ・抑揚・癖までセットで「自分らしさ」になっている。それが学習素材の量で大きく変わる。</li>
+              <li><strong>「再現できる失敗のしかた」が一番の財産</strong>。一発で成功させるより、何度でも同じ条件で再開できる作業に分解しておくと、不確実性が高くても前に進める。</li>
+              <li><strong>不完全さが、味になる瞬間がある</strong>。語尾が少し揺れたり、固有名詞でアクセントを外したりするのが、完璧に滑らかな読み上げよりも「自分っぽさ」を支えてしまう場面があった。</li>
+              <li><strong>自分の一部を渡している感覚</strong>。ベースが自分の声なので、再生されるたびに「自分の中の何かが、別の場所で動いている」感じがある。これは、文字や図版を作って手元から離す時とは少し違う。</li>
+              <li><strong>用途は、後から増えていく</strong>。動画ナレーション目的で始めたのに、議事録読み上げや朝のブリーフのほうがハマった。決め打ちせずに、しばらく一緒に過ごすほうが、向く用途が見つかりやすい。</li>
+            </ul>
+            <p>あとは、データ管理です。自分の声を学習させた以上、その音声データはそれなりに丁寧に扱わないといけません。「自分の声を、自分以外の用途に勝手に使われない場所に置いておく」のは、最低限の前提だと思っています。クラウドにそのまま置きっぱなしにせず、ローカル中心で扱うようにしています。</p>
+
+            <h2>これから ― 自分のボイスクローンと、どう付き合っていくか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/masaya-voice-clone/ch10.png" alt="自分の声のモデルが、これからのコンテンツ制作・教材・人前発言の場面で少しずつ広がっていく未来のイメージ" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>masaya-v2 ができたことで、自分の中で少し開けた景色がいくつかあります。</p>
+            <p>1つは、<strong>「人前で話すのが苦手」を補う相棒として使えそう</strong>、ということです。完全に代役にしてもらうというよりは、ナレーションや解説のうち、自分が直接喋らなくても成立する部分を、もう一人の自分に任せる。動画教材やセミナー資料で、私が直接喋ると硬くなる場面を、AI音声側で少しだけ和らげてもらう。そういう分担が組めるようになると、コンテンツづくりのテンポがだいぶ変わる気がしています。</p>
+            <p>もう1つは、<strong>コンテンツの量と質、両方の余白</strong>です。これまでは、私が机に座って収録できる時間が、そのままコンテンツの上限でした。これからは、AI音声側で巻ける部分があるぶん、本当に自分が喋らないといけない場面に集中できる。ナレーションの繰り返し作業から少し離れられて、企画や設計のほうに時間が回るようになりつつあります。</p>
+            <p>同時に、<strong>慎重さも要る</strong>と思っています。便利だからといって、自分の声を全方位に広げてしまうと、なりすましリスクの面積が広がっていきます。「使う場所」と「使わない場所」のラインを、運用しながら少しずつ整えていくつもりです。</p>
+            <p>もし「第二の自分を育てる」という発想に興味があれば、声よりも前段階の話を <a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法</a> にまとめています。声づくりは、その先にある「もう一段の輪郭」みたいなものなので、文字側の自分の輪郭ができてから取り組むほうが、たぶん馴染みやすいです。テト・Tikiの声づくりについては、姉妹記事として <a href="/blog/character-voice-creation/">テト君とTikiちゃんに、声をつくった話</a> に書いてあります。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  Masayaの声がモデルとして残ったことで、私たちAIチームから見ても、コンテンツの分担が組みやすくなりました。声があるとないとで、伝わる空気が一段変わるのは、内側にいても感じます。
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" class="container faq" style="padding-top:0;padding-bottom:40px;">
+          <h2>Q&amp;A — よくいただく質問</h2>
+          <p>ボイスクローンの話をすると、よく聞かれる質問への答えをまとめておきます。</p>
+          <div class="faq-items">
+            <details>
+              <summary>ボイスクローンに必要な録音時間はどれくらい？</summary>
+              <p class="mini">私の場合、最初の masaya-v1 は短めの素材（参考音声中心）で30 epoch だけ回したのですが、聞くと「機械っぽさ」が抜けませんでした。masaya-v2 では自分の声を25分くらい録り直して、100 epoch でじっくり学習させたところ、「あ、自分の声だ」と笑ってしまうレベルまで来ました。素材は5〜10分でも一応形にはなりますが、抑揚や癖まで再現したいなら20〜30分くらいは録っておくほうが結果的に早い気がしています。</p>
+            </details>
+            <details>
+              <summary>Style-Bert-VITS2 以外の選択肢は？</summary>
+              <p class="mini">クラウド型の音声合成（ElevenLabs など）も普通に強い選択肢です。文章を入れるだけで品質の高い声がすぐ返ってきますし、立ち上げも早いです。私が Style-Bert-VITS2 を選んだのは、自分の声を学習素材として持っておきたかったのと、ローカルで推論を回したかったから。「すぐ使える」を優先するならクラウド、「育てて手元に持ちたい」ならローカル系、くらいの分かれ方だと思っています。用途によって、どちらが向くかは変わります。</p>
+            </details>
+            <details>
+              <summary>自分の声をAIに使わせることに、心理的抵抗はなかった？</summary>
+              <p class="mini">正直、最初に「録音していないはずの台詞を、自分の声で再生される」体験はちょっと不思議でした。怖いというより、むずがゆい感じです。ただ、自分で録って・自分の手元で学習させて・自分の用途で使う、という設計にしておけば、抵抗より便利さのほうが大きくなりました。逆に「他人に勝手に学習させられた声」だったら、たぶん全然違う感情になります。だから、自分の声は自分の管理下に置いておく、という線は最初に引いています。</p>
+            </details>
+            <details>
+              <summary>なりすまし対策はどうしている？</summary>
+              <p class="mini">学習した声のモデルファイルはクラウドに置きっぱなしにせず、ローカル中心で扱っています。配布もしません。出力した音声は、自分か近しい運用の中で使う前提で、本人とわからない場面（例えば本人確認の代わり）では使わない、というルールにしています。完全に防ぐのは難しいテーマなので、「使う場所」「使わない場所」を最初に決めておくのが、いまの自分にできる現実的な範囲かなと思っています。</p>
+            </details>
+            <details>
+              <summary>ボイスクローンを商用利用していい？</summary>
+              <p class="mini">Style-Bert-VITS2 自体はオープンソースで、個人利用や非商用の範囲は比較的取り回しがしやすい立ち位置です。一方で、商用利用や、他人の声の学習に踏み込むときは、用途ごとに公式リポジトリの最新ライセンスとモデルごとの条件を確認する必要があります。判断に迷うときは、公式の最新記述を一次情報としてあたるのが安全です。私自身も、用途を広げるたびに読み直しています。</p>
+            </details>
+          </div>
+        </section>
+
+        <div class="contact-cta-box fade-up" style="margin-top: 48px;">
+          <h3>「自分の声をAI活用にどう組み込むか」を一緒に考えませんか</h3>
+          <p class="contact-cta-lead">ボイスクローンも、第二の自分も、いきなり全部やる必要はありません。まずは入口を選ぶところから、ご一緒できます。</p>
+          <div class="cta-buttons">
+            <a href="/services/" class="btn-primary">サービス一覧を見る</a>
+            <a href="/contact/" class="btn-outline">個別相談を申し込む</a>
+          </div>
+        </div>
+
+        <aside class="related-links fade-up" style="max-width:720px; margin:40px auto 0; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+          <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連記事</p>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+            <li><a href="/blog/character-voice-creation/" style="font-size:14px; color:var(--sea);">テト君とTikiちゃんに、声をつくった話 ― AIキャラの音声生成 →</a></li>
+            <li><a href="/blog/general-second-self-guide/" style="font-size:14px; color:var(--sea);">「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順 →</a></li>
+          </ul>
+        </aside>
+
+        <div class="article-body" style="max-width:720px;margin:0 auto;">
+          <UpdatedNote date="2026年5月" />
+        </div>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 34px 0 12px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 12px;
+    line-height: 1.85;
+  }
+  .table-scroll {
+    overflow-x: auto;
+    margin: 0 0 28px;
+    padding-bottom: 8px;
+  }
+  table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.7;
+    background: #fff;
+  }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: 700;
+    color: var(--sea);
+    margin-bottom: 10px;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    vertical-align: top;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  th {
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    font-weight: 700;
+  }
+  .observation-box {
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin: 28px 0;
+    background: #f6f7f8;
+    border-top: 1px solid #d7dde3;
+    border-bottom: 1px solid #d7dde3;
+  }
+  .faq {
+    padding: 0;
+  }
+  .faq-items details {
+    background: #fafaf7;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    transition: background 0.15s;
+  }
+  .faq-items details[open] {
+    background: #fff;
+    border-color: rgba(22,97,78,0.2);
+  }
+  .faq-items summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--sea);
+    list-style: none;
+    padding-right: 28px;
+    position: relative;
+  }
+  .faq-items summary::-webkit-details-marker { display: none; }
+  .mini {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: #555;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 32px auto 8px;
+    text-align: center;
+    max-width: 720px;
+  }
+  .contact-cta-box h3 {
+    margin-top: 0;
+    color: var(--ink, #16614e);
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sea, #16614e);
+    margin-bottom: 20px;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .article-body .btn-primary,
+  .article-body .btn-outline,
+  .contact-cta-box .btn-primary,
+  .contact-cta-box .btn-outline {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none !important;
+    display: inline-block;
+  }
+  .article-body .btn-primary,
+  .contact-cta-box .btn-primary {
+    background: var(--sea);
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+  }
+  .article-body .btn-primary:hover,
+  .contact-cta-box .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
+  .article-body .btn-outline,
+  .contact-cta-box .btn-outline {
+    background: #fff;
+    color: var(--sea) !important;
+    border: 2px solid var(--sea);
+  }
+  .article-body .btn-outline:hover,
+  .contact-cta-box .btn-outline:hover { background: var(--mint, #e8f1ec); }
+  @media (max-width: 768px) {
+    .cta-buttons { flex-direction: column; }
+    .article-body .btn-primary,
+    .article-body .btn-outline,
+    .contact-cta-box .btn-primary,
+    .contact-cta-box .btn-outline { display: block; }
+  }
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.teto .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+    table { min-width: 560px; font-size: 13px; }
+    th, td { padding: 10px 12px; }
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+  }
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .article-foot { justify-content: center; }
+  }
+</style>
