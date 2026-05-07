@@ -718,12 +718,12 @@ const description = "コールテンの活動報告やAI活用に関する気づ
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const chips = document.querySelectorAll('.chip[data-filter]');
-    const sortBtns = document.querySelectorAll('.sort-btn[data-sort]');
-    const postsList = document.querySelector('.posts-list');
-    const cards = document.querySelectorAll('.post-card[data-categories]');
-    const emptyMsg = document.querySelector('.filter-empty');
-    const featuredBanner = document.querySelector('.featured-banner[data-featured-category]');
+    const chips = document.querySelectorAll<HTMLElement>('.chip[data-filter]');
+    const sortBtns = document.querySelectorAll<HTMLElement>('.sort-btn[data-sort]');
+    const postsList = document.querySelector<HTMLElement>('.posts-list');
+    const cards = document.querySelectorAll<HTMLElement>('.post-card[data-categories]');
+    const emptyMsg = document.querySelector<HTMLElement>('.filter-empty');
+    const featuredBanner = document.querySelector<HTMLElement>('.featured-banner[data-featured-category]');
     let activeCategory = 'すべて';
     let sortOrder = 'desc';
 
@@ -744,7 +744,7 @@ const description = "コールテンの活動報告やAI活用に関する気づ
           card.classList.remove('filtered-out');
           visibleCount++;
         } else {
-          const cats = card.dataset.categories.split(',');
+          const cats = (card.dataset.categories ?? '').split(',');
           if (cats.includes(activeCategory)) {
             card.classList.remove('filtered-out');
             visibleCount++;
@@ -759,9 +759,10 @@ const description = "コールテンの活動報告やAI活用に関する気づ
     }
 
     function applySort() {
+      if (!postsList) return;
       const sorted = [...cards].sort((a, b) => {
-        const da = a.dataset.date;
-        const db = b.dataset.date;
+        const da = a.dataset.date ?? '';
+        const db = b.dataset.date ?? '';
         return sortOrder === 'desc' ? db.localeCompare(da) : da.localeCompare(db);
       });
       sorted.forEach(card => postsList.appendChild(card));
@@ -775,27 +776,27 @@ const description = "コールテンの活動報告やAI活用に関する気づ
     }
 
     function updateAria() {
-      chips.forEach(c => c.setAttribute('aria-pressed', c.classList.contains('active')));
-      sortBtns.forEach(b => b.setAttribute('aria-pressed', b.classList.contains('active')));
+      chips.forEach(c => c.setAttribute('aria-pressed', String(c.classList.contains('active'))));
+      sortBtns.forEach(b => b.setAttribute('aria-pressed', String(b.classList.contains('active'))));
     }
 
     chips.forEach(chip => {
-      chip.setAttribute('aria-pressed', chip.classList.contains('active'));
+      chip.setAttribute('aria-pressed', String(chip.classList.contains('active')));
       chip.addEventListener('click', () => {
         chips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
-        activeCategory = chip.dataset.filter;
+        activeCategory = chip.dataset.filter ?? 'すべて';
         update();
         updateAria();
       });
     });
 
     sortBtns.forEach(btn => {
-      btn.setAttribute('aria-pressed', btn.classList.contains('active'));
+      btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
       btn.addEventListener('click', () => {
         sortBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        sortOrder = btn.dataset.sort;
+        sortOrder = btn.dataset.sort ?? 'desc';
         update();
         updateAria();
       });

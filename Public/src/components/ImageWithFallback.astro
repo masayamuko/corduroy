@@ -1,0 +1,48 @@
+---
+/**
+ * ImageWithFallback — 画像読み込み失敗時に共通フォールバック画像へ差し替える `<img>` ラッパー。
+ * 既存のインライン `onerror=...` 記述を集約し、TS型エラーと記述ばらつきをなくす目的。
+ *
+ * 既存タグの置換例:
+ *   <img src="..." alt="..." onerror="this.onerror=null;this.src='.../logo-square.png';">
+ *   ↓
+ *   <ImageWithFallback src="..." alt="..." />
+ */
+interface Props {
+  src: string;
+  alt: string;
+  width?: number | string;
+  height?: number | string;
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  fallbackSrc?: string;
+  class?: string;
+  style?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  loading = 'lazy',
+  decoding,
+  fetchpriority,
+  fallbackSrc = 'https://res.cloudinary.com/dg3mdcuju/image/upload/c_pad,w_400,h_400,b_white/v1776924003/corduroy/brand/logo-square.png',
+  class: className,
+  style,
+} = Astro.props;
+---
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  loading={loading}
+  decoding={decoding}
+  fetchpriority={fetchpriority}
+  class={className}
+  style={style}
+  onerror={`this.onerror=null;this.src='${fallbackSrc}';`}
+/>
