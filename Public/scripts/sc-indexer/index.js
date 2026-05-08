@@ -5,17 +5,7 @@ const { chromium } = require('playwright');
 const readline = require('readline');
 
 const URLS = [
-  'https://www.corduroy.co.jp/blog/agent-loop-minimal-intro/',
-  'https://www.corduroy.co.jp/blog/executive-second-self/',
-  'https://www.corduroy.co.jp/blog/teacher-second-self/',
-  'https://www.corduroy.co.jp/blog/claude-limit-power-use/',
-  'https://www.corduroy.co.jp/blog/masaya-voice-clone/',
-  'https://www.corduroy.co.jp/blog/character-voice-creation/',
-  'https://www.corduroy.co.jp/blog/tiki-local-llm-247/',
-  'https://www.corduroy.co.jp/blog/teto-autonomous-mini2/',
-  'https://www.corduroy.co.jp/blog/three-machine-workflow/',
-  'https://www.corduroy.co.jp/blog/ohra-partner-pride/',
-  'https://www.corduroy.co.jp/blog/ume-partner-pride/',
+  'https://www.corduroy.co.jp/blog/mek-interview-name-character/',
 ];
 
 const USER_DATA_DIR = '/tmp/sc-indexer/chrome-profile';
