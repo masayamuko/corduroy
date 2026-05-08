@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import UpdatedNote from '../../components/UpdatedNote.astro';
+
+const isPublished = false;  // 公開時に true に変更（noindex削除と連動）
 ---
 
 <Layout
@@ -12,38 +14,38 @@ import UpdatedNote from '../../components/UpdatedNote.astro';
   ogType="article"
 >
   <meta slot="head" name="robots" content="noindex,nofollow" />
-  <script slot="head" type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "@id": "https://www.corduroy.co.jp/blog/ohra-partner-pride/#article",
-    "url": "https://www.corduroy.co.jp/blog/ohra-partner-pride/",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://www.corduroy.co.jp/blog/ohra-partner-pride/"
-    },
-    "headline": "一般社団法人OHRAを全力で応援する理由 ― 半年伴走して見えてきた、AI時代の士業ネットワークづくり",
-    "datePublished": "2026-05-09",
-    "dateModified": "2026-05-09",
-    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
-    "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
-    "publisher": {
-      "@id": "https://www.corduroy.co.jp/#organization"
-    },
-    "description": "外国人材との共生社会づくりに取り組む一般社団法人OHRA。AI顧問として半年伴走してきた今、見えてきた哲学の一致と、士業ネットワークの育て方を綴ります。"
-  }
-  </script>
-  <script slot="head" type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
-      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
-      { "@type": "ListItem", "position": 3, "name": "OHRAを全力で応援する理由" }
-    ]
-  }
-  </script>
+  {isPublished && (
+    <Fragment slot="head">
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "@id": "https://www.corduroy.co.jp/blog/ohra-partner-pride/#article",
+        "url": "https://www.corduroy.co.jp/blog/ohra-partner-pride/",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.corduroy.co.jp/blog/ohra-partner-pride/"
+        },
+        "headline": "一般社団法人OHRAを全力で応援する理由 ― 半年伴走して見えてきた、AI時代の士業ネットワークづくり",
+        "datePublished": "2026-05-15",
+        "dateModified": "2026-05-15",
+        "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+        "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+        "publisher": {
+          "@id": "https://www.corduroy.co.jp/#organization"
+        },
+        "description": "外国人材との共生社会づくりに取り組む一般社団法人OHRA。AI顧問として半年伴走してきた今、見えてきた哲学の一致と、士業ネットワークの育て方を綴ります。"
+      })} />
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+          { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "OHRAを全力で応援する理由" }
+        ]
+      })} />
+    </Fragment>
+  )}
 
   <main>
     <article class="article">
@@ -58,7 +60,7 @@ import UpdatedNote from '../../components/UpdatedNote.astro';
 
         <header class="article-head fade-up">
           <div class="meta">
-            <time class="date" datetime="2026-05-09">2026-05-09</time>
+            <time class="date">2026-05-15</time>
             <span class="cat">パートナー自慢</span>
           </div>
           <h1>一般社団法人OHRAを全力で応援する理由<br /><small>― 半年伴走して見えてきた、AI時代の士業ネットワークづくり</small></h1>

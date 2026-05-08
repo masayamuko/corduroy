@@ -15,6 +15,64 @@ const description = "オフラインで会えるAI講座を探していたヤミ
 >
   <meta slot="head" name="robots" content="noindex,nofollow" />
 
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/aym-interview-self-built-site/#article",
+    "url": "https://www.corduroy.co.jp/blog/aym-interview-self-built-site/",
+    "mainEntityOfPage": "https://www.corduroy.co.jp/blog/aym-interview-self-built-site/",
+    "headline": title,
+    "description": description,
+    "datePublished": "2026-05-12",
+    "dateModified": "2026-05-12",
+    "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+    "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+    "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+    "articleSection": ["インタビュー"],
+    "keywords": ["AIでサイトづくり", "AI講座", "個人事業", "サイト管理", "第二の自分", "福岡", "コールテン"]
+  })} />
+
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "「自分でサイトを作れた、すごい！」 ― AIで旦那さんの事業サイトを管理できるようになるまで", "item": "https://www.corduroy.co.jp/blog/aym-interview-self-built-site/" }
+    ]
+  })} />
+
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "「AIでサイトづくり講座」はどんな人向けですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WebやHTMLの知識がほぼゼロでも大丈夫です。ヤミーさんも、前職で少しブログの更新をしていた程度で、本格的なサイト作りはほぼ初めてでした。「Web制作のプロ役」をAIに担ってもらい、必要なことを逆質問してもらいながら一緒に組み立てていくスタイルです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "オンラインの講座と何が違いますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "コールテンは福岡で対面開催しています。わからないところをその場で聞ける、自分のペースで進められる、隣で動かしてもらえる ― そういう「対面ならでは」を大事にしています。料金も、東京・大阪の対面講座と比べて手の届きやすい設定です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "音声入力ってAI活用に効果ありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、相性がとても良いです。考えていることを声に出すと自然と整理されていき、AIに渡せる情報量もぐっと増えます。ヤミーさんも「タイピングよりも、声で渡したほうがリアルな自分が出る」と話してくれました。スマホ・PCの音声入力を併用するだけで、AIとの対話の解像度が上がります。"
+        }
+      }
+    ]
+  })} />
+
   <main>
     <!-- ===== ヒーロー ===== -->
     <section class="hero">
@@ -368,6 +426,9 @@ const description = "オフラインで会えるAI講座を探していたヤミ
         <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連コンテンツ</p>
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
           <li><a href="/blog/tiki-teto-origin-story/" style="font-size:13px; color:var(--sea);">ChatGPTで「第二の自分」を育てたら、29名のAI組織になった話 →</a></li>
+          <li><a href="/blog/general-second-self-guide/" style="font-size:13px; color:var(--sea);">「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順 →</a></li>
+          <li><a href="/blog/how-to-choose-ai-course/" style="font-size:13px; color:var(--sea);">失敗しないAI講座の選び方 →</a></li>
+          <li><a href="/blog/students-tools/" style="font-size:13px; color:var(--sea);">日本の学生が使えるAI/IT学割・無料制度まとめ →</a></li>
           <li><a href="/services/" style="font-size:13px; color:var(--sea);">コールテンのサービス一覧（無料AI講座を含む） →</a></li>
         </ul>
       </aside>

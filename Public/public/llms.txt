@@ -64,6 +64,40 @@
 - [盤上テトが、自分で学んで成長を始めた話 ― Mac mini 2台目とOpen Claude](https://www.corduroy.co.jp/blog/teto-autonomous-mini2/): 自律エージェント導入実例。Mac mini 2台目とClaude Agent SDKで、盤上テトを30分に1回自律稼働させたシリーズ第3話。
 - [Mac mini 2台 + MacBook Air、3台で動く僕の作業環境](https://www.corduroy.co.jp/blog/three-machine-workflow/): 3台体制の役割分担・連携の仕組み・1日の流れ・ハマりどころまで、シリーズ集大成として整理。
 
+### AI活用・ツール紹介
+
+- [自分のボイスクローンを作って、AIに喋ってもらった話 ― v1→v2で「もう一人の自分」になるまで](https://www.corduroy.co.jp/blog/masaya-voice-clone/): Style-Bert-VITS2 + Colab Pro で代表の声をクローン。短時間学習v1から25分録音+100epochのv2へ。倫理・なりすまし対策・実用シーンまで体験ベース。
+- [テト君とTikiちゃんに、声をつくった話 ― AIキャラの音声制作1ヶ月奮闘記](https://www.corduroy.co.jp/blog/character-voice-creation/): コールテンマスコット2体の声をStyle-Bert-VITS2で1ヶ月かけて構築した記録。Colab学習の罠と黄金パターン、ブランドの一部としての声の意味。
+- [CodexアプリのPETでテトを常駐させてみた](https://www.corduroy.co.jp/blog/codex-pet-hatch-guide/): hatch-petの使い方解説。Codexアプリにキャラクターを常駐させる手順と運用感。
+
+### インタビュー記事（クライアント・体験者）
+
+- [「うわ、楽しい！」が止まらなくなった日 ― AIに名前とキャラを持たせたら、急に世界が動き出した](https://www.corduroy.co.jp/blog/mek-interview-name-character/): スマイリーフラワーズ職員 田端 也詠子さんが「第二の自分づくり」講座で見つけた『楽しい！』の正体について聞いたインタビュー。
+- [行政書士がDX推進副委員長に —— AI活用が仕事を変えた実話](https://www.corduroy.co.jp/blog/shu-interview-dx-commissioner/): SHU行政書士事務所 沼澤さんへのインタビュー。AI導入で士業の働き方が変わった実例。
+- [「3時間が一瞬で過ぎる」—— AIコーチングで内省の回転数が変わった](https://www.corduroy.co.jp/blog/shu-interview-coaching/): SHU沼澤さんがAIコーチングで内省サイクルが加速した体験。
+- [「できること」と「やりたいこと」が重なった日 —— たかろーさんと世界の教育チャンネルの裏側](https://www.corduroy.co.jp/blog/tkr-interview-education/): 中野たかろーさんの教育チャンネル運営とAI活用。
+- [「本音で答えて」—— フリーランスたかろーさんが見つけた、AIとの付き合い方](https://www.corduroy.co.jp/blog/tkr-interview-second-me/): たかろーさんのSecond Me体験談。
+- [「議事録の先」を見つけた日 —— マーケター佐野さんのAIシミュレーション活用術](https://www.corduroy.co.jp/blog/san-interview-simulation/): 株式会社スデニアル 佐野さんによるシミュレーション活用事例。
+- [議事録は「記録」じゃなくて「思考資産」—— 佐野さんが見つけた議事録の新しい価値](https://www.corduroy.co.jp/blog/san-interview-transcripts-asset/): 議事録を思考資産化する佐野さんの発想転換。
+- [「発注ありき」から「共創前提」へ —— AIで広がるプロジェクトの選択肢](https://www.corduroy.co.jp/blog/san-interview-project-options/): 受発注関係から共創への発想転換。
+
+### パートナー紹介・AI顧問契約
+
+- [行政書士しゅうへいさんを本気で応援する理由](https://www.corduroy.co.jp/blog/shu-partner-pride/): SHU行政書士事務所 沼澤さんとの伴走関係。
+- [スマイリーフラワーズを本気で応援する理由](https://www.corduroy.co.jp/blog/smf-partner-pride/): NPO法人SMFとの長期パートナーシップ。
+- [株式会社スデニアル 佐野さんを本気で応援する理由](https://www.corduroy.co.jp/blog/san-partner-pride/): 株式会社スデニアル 佐野さんとのAI顧問関係。
+- [行政書士のしゅうへいさんにAI顧問契約をいただきました](https://www.corduroy.co.jp/blog/shu-ai-advisory/): SHU行政書士事務所のAI顧問契約開始のお知らせ。
+- [フリーランスたかろーさんにAI顧問契約をいただきました](https://www.corduroy.co.jp/blog/tkr-ai-advisory/): 中野たかろーさんとのAI顧問契約開始。
+- [NPO法人スマイリーフラワーズさんにAI顧問契約をいただきました](https://www.corduroy.co.jp/blog/smf-partnership/): SMFとのAI顧問パートナーシップ開始。
+- [一般社団法人As iZさんの青少年プログラムにサポートスタッフとして参加しています](https://www.corduroy.co.jp/blog/asiz-partnership/): As iZの青少年プログラム伴走。
+- [一般社団法人OHRAさんと定期ミーティングを始めました](https://www.corduroy.co.jp/blog/ohara-partnership/): OHRAとの伴走関係スタート。
+
+### 会社活動・お知らせ
+
+- [株式会社コールテンを設立しました](https://www.corduroy.co.jp/blog/incorporation/): 設立のご報告。
+- [糸島三都110キロウォークに参加しました](https://www.corduroy.co.jp/blog/itoshima-110km-walk/): 地域イベント参加レポート。
+- [一般社団法人日本こども色彩協会のkashiko色彩インストラクター認定講座を修了しました](https://www.corduroy.co.jp/blog/nks-kashiko-instructor/): kashiko認定取得のご報告。
+
 ## 連絡先
 
 - Email: info@corduroy.co.jp
