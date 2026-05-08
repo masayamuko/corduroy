@@ -81,7 +81,6 @@ const faqPage = {
   ogUrl={canonicalUrl}
   ogType="article"
 >
-  <meta slot="head" name="robots" content="noindex,nofollow" />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(blogPosting)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqPage)} />
