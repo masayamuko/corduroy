@@ -1171,8 +1171,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
     }
   }
   .meishi {
-    /* 名刺の実寸 91mm × 55mm をそのまま比率化（表面表示時） */
-    aspect-ratio: 91 / 55;
+    /* aspect-ratio は .meishi-front 側に移譲（v5 normal flow 設計） */
     cursor: pointer;
     outline: none;
     position: relative;
@@ -1183,12 +1182,6 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
     /* テキスト選択暴発を防ぐ（タップ→選択カーソル防止） */
     user-select: none;
     -webkit-user-select: none;
-    transition: aspect-ratio 0.3s ease, min-height 0.3s ease;
-  }
-  /* 反転時はアスペクト比を解除して裏面コンテンツを全部見せる */
-  .meishi.flipped {
-    aspect-ratio: auto;
-    min-height: 320px;
   }
   /* 全子孫要素にも適用（iOS Safari でカード内テキストの長タップ選択を抑止） */
   .meishi-front,
@@ -1202,71 +1195,58 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
   .meishi:focus-visible {
     box-shadow: 0 0 0 3px var(--accent);
   }
-  /* meishi-inner は構造的には残す（HTML互換）が3Dは廃止 */
+  /* meishi-inner は構造的には残す（HTML互換）。height:100% は外す（natural flow） */
   .meishi-inner {
     position: relative;
     width: 100%;
-    height: 100%;
     border-radius: 10px;
   }
+  /* v5 設計: 絶対配置を完全廃止し、normal flow + display 切替に
+     真因: absolute の入れ子で親が collapse → 裏面が見えなくなる
+     公式: developer.mozilla.org/en-US/docs/Web/CSS/transition-behavior */
   .meishi-front,
   .meishi-back {
-    position: absolute;
-    inset: 0;
+    /* normal flow で配置（absolute廃止） */
+    position: relative;
+    width: 100%;
     border: 1px solid var(--line);
     border-radius: 10px;
     background: #fff;
-    /* 右と下に影 → 紙の厚みを感じさせる */
     box-shadow:
       2px 3px 0 rgba(0, 0, 0, 0.04),
       4px 6px 0 rgba(0, 0, 0, 0.03),
       8px 14px 22px rgba(5, 32, 24, 0.12);
-    overflow: hidden;
-    /* opacity ベースのフェード切替（3D 廃止 = iOS Safari hitbox バグ完全回避） */
-    transition: opacity 0.25s ease;
   }
   /* タップ判定を .meishi 親に集約 */
   .meishi-front *,
   .meishi-back * {
     pointer-events: none;
   }
-  /* 表面（初期状態） */
+  /* 表面（初期表示） */
   .meishi-front {
-    opacity: 1;
+    display: flex;
     pointer-events: auto;
   }
-  /* 裏面（隠れている） */
+  /* 裏面（初期非表示） */
   .meishi-back {
-    opacity: 0;
+    display: none;
     pointer-events: none;
-    /* コンテンツが多い裏面はスクロール許可 */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
   }
-  /* 反転後 */
+  /* 反転後: 表面隠す、裏面表示（display 切替） */
   .meishi.flipped .meishi-front {
-    opacity: 0;
+    display: none;
     pointer-events: none;
   }
   .meishi.flipped .meishi-back {
-    opacity: 1;
+    display: flex;
+    flex-direction: column;
     pointer-events: auto;
-  }
-  /* 反転後の裏面スクロールはタップを横取りしない方針: meishi 自体をスクロールさせる代わりに
-     position: relative にして natural flow で高さを取る（aspect-ratio: auto と組合せ） */
-  .meishi.flipped .meishi-back {
-    position: relative;
-    height: auto;
-  }
-  .meishi.flipped .meishi-front {
-    /* 表面は反転後 absolute のまま視覚的に重ねるが見えない */
-    position: absolute;
   }
 
-  /* 表面レイアウト */
+  /* 表面レイアウト（aspect-ratio 91:55 を表面のみに適用） */
   .meishi-front {
+    aspect-ratio: 91 / 55;
     padding: 12px 14px 14px;
-    display: flex;
     flex-direction: column;
     gap: 8px;
   }
@@ -1434,23 +1414,14 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
   .meishi-back {
     background: linear-gradient(135deg, #fff, #fbf9f1);
   }
+  /* v5 設計: normal flow に変更（absolute廃止） */
   .meishi-back-scroll {
-    position: absolute;
-    inset: 0;
     padding: 12px 14px;
     display: flex;
     flex-direction: column;
     gap: 7px;
     font-size: 11px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-  }
-  .meishi-back-scroll::-webkit-scrollbar {
-    width: 4px;
-  }
-  .meishi-back-scroll::-webkit-scrollbar-thumb {
-    background: color-mix(in srgb, var(--dept-color) 40%, transparent);
-    border-radius: 100px;
+    /* 内部スクロール削除: カード自体が伸びる方針 */
   }
   .meishi-back-header {
     display: flex;
@@ -1668,8 +1639,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
       padding: 22px 20px;
     }
     .meishi {
-      aspect-ratio: 91 / 55;
-      min-height: 0;
+      /* aspect-ratio は .meishi-front 側 (v5 normal flow 設計) */
       max-width: 420px;
       margin: 0 auto;
       width: 100%;
