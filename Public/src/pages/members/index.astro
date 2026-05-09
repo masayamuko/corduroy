@@ -1146,11 +1146,18 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
   .meishi-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 22px 18px;
+    /* gap: モバイル時は誤タップ防止のため広めに */
+    gap: 36px 18px;
+  }
+  @media (min-width: 560px) {
+    .meishi-grid {
+      gap: 28px 20px;
+    }
   }
   @media (min-width: 1240px) {
     .meishi-grid {
       grid-template-columns: repeat(4, 1fr);
+      gap: 22px 18px;
     }
   }
   @media (min-width: 820px) and (max-width: 1239px) {
@@ -1169,6 +1176,13 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
     aspect-ratio: 91 / 55;
     cursor: pointer;
     outline: none;
+    /* タップ判定の安定化 */
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.1s ease;
+  }
+  .meishi:active {
+    /* タップフィードバック（押した感） */
+    transform: scale(0.98);
   }
   .meishi:focus-visible .meishi-inner {
     box-shadow: 0 0 0 3px var(--accent);
@@ -1200,6 +1214,21 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
       4px 6px 0 rgba(0, 0, 0, 0.03),
       8px 14px 22px rgba(5, 32, 24, 0.12);
     overflow: hidden;
+  }
+  /* タップ判定を .meishi 親に集約: 子要素がイベントを横取りしないように */
+  .meishi-front *,
+  .meishi-back * {
+    pointer-events: none;
+  }
+  /* 背面（隠れている側）はイベントを受け取らない（hitbox汚染防止） */
+  .meishi-back {
+    pointer-events: none;
+  }
+  .meishi.flipped .meishi-front {
+    pointer-events: none;
+  }
+  .meishi.flipped .meishi-back {
+    pointer-events: auto;
   }
 
   /* 表面レイアウト */
