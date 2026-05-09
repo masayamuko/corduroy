@@ -1176,9 +1176,23 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
     aspect-ratio: 91 / 55;
     cursor: pointer;
     outline: none;
-    /* タップ判定の安定化 */
+    /* タップ判定の安定化（公式 MDN/WebKit ベスト・プラクティス） */
     -webkit-tap-highlight-color: transparent;
+    /* WebKit の 300ms タップ遅延を解消（fast-tap 最適化） */
+    touch-action: manipulation;
+    /* テキスト選択暴発を防ぐ（タップ→選択カーソル防止） */
+    user-select: none;
+    -webkit-user-select: none;
     transition: transform 0.1s ease;
+  }
+  /* 全子孫要素にも適用（iOS Safari でカード内テキストの長タップ選択を抑止） */
+  .meishi-front,
+  .meishi-front *,
+  .meishi-back,
+  .meishi-back * {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
   }
   .meishi:active {
     /* タップフィードバック（押した感） */
@@ -1220,14 +1234,21 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
   .meishi-back * {
     pointer-events: none;
   }
-  /* 背面（隠れている側）はイベントを受け取らない（hitbox汚染防止） */
+  /* iOS Safari の rotateY hitbox バグ対策: 背面は opacity でも hide（pointer-events だけでは不十分） */
+  .meishi-front,
   .meishi-back {
+    transition: opacity 0.4s ease;
+  }
+  .meishi-back {
+    opacity: 0;
     pointer-events: none;
   }
   .meishi.flipped .meishi-front {
+    opacity: 0;
     pointer-events: none;
   }
   .meishi.flipped .meishi-back {
+    opacity: 1;
     pointer-events: auto;
   }
 
@@ -1673,25 +1694,50 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
 </style>
 
 <script>
-  // 名刺: クリック/タップでflip切替（タッチデバイス対応）
+  // 名刺: タップ/クリックでflip切替（タッチデバイス対応）
+  // iOS Safari の click 不発を回避するため pointerdown ベース + click フォールバック
   const cards = document.querySelectorAll<HTMLElement>('.meishi');
   const isTouch = window.matchMedia('(hover: none)').matches;
   const syncPressed = (card: HTMLElement) => {
     card.setAttribute('aria-pressed', card.classList.contains('flipped') ? 'true' : 'false');
   };
+  const flip = (card: HTMLElement) => {
+    card.classList.toggle('flipped');
+    syncPressed(card);
+  };
   cards.forEach((card) => {
-    card.addEventListener('click', () => {
-      if (isTouch) {
-        card.classList.toggle('flipped');
-        syncPressed(card);
+    // pointerdown を主軸（タッチ・マウス・ペン全部1経路で確実にひろう）
+    let pointerStartX = 0;
+    let pointerStartY = 0;
+    let pointerHandled = false;
+    card.addEventListener('pointerdown', (e) => {
+      pointerStartX = (e as PointerEvent).clientX;
+      pointerStartY = (e as PointerEvent).clientY;
+      pointerHandled = false;
+    });
+    card.addEventListener('pointerup', (e) => {
+      if (!isTouch) return; // hover デバイスは hover で flip するので skip
+      const ev = e as PointerEvent;
+      const dx = Math.abs(ev.clientX - pointerStartX);
+      const dy = Math.abs(ev.clientY - pointerStartY);
+      // スクロールやスワイプではない（移動 10px以下）の場合のみ flip
+      if (dx < 10 && dy < 10) {
+        flip(card);
+        pointerHandled = true;
       }
+    });
+    // フォールバック: pointer events 非対応環境（古いSafari等）
+    card.addEventListener('click', () => {
+      if (isTouch && !pointerHandled) {
+        flip(card);
+      }
+      pointerHandled = false;
     });
     card.addEventListener('keydown', (e) => {
       const key = (e as KeyboardEvent).key;
       if (key === 'Enter' || key === ' ') {
         e.preventDefault();
-        card.classList.toggle('flipped');
-        syncPressed(card);
+        flip(card);
       }
     });
   });
