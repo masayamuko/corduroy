@@ -240,16 +240,18 @@ const tetoAvatar = 'https://res.cloudinary.com/dg3mdcuju/image/upload/q_auto/f_a
                 <div class="flow-arrow" aria-hidden="true">→</div>
                 <div class="flow-node flow-node-cos"><div class="flow-node-role">COS</div><div class="flow-node-name">Tiki</div></div>
                 <div class="flow-arrow" aria-hidden="true">→</div>
-                <div class="flow-node flow-node-lead"><div class="flow-node-role">開発部長</div><div class="flow-node-name">ジョナサン</div></div>
-                <div class="flow-arrow" aria-hidden="true">→</div>
                 <div class="flow-node-group">
                   <div class="flow-node"><div class="flow-node-role">アーキテクト</div><div class="flow-node-name">シエロ</div></div>
-                  <div class="flow-node"><div class="flow-node-role">エンジニア</div><div class="flow-node-name">トンボ</div></div>
+                  <div class="flow-node flow-node-lead"><div class="flow-node-role">エンジニア（部門代表）</div><div class="flow-node-name">トンボ</div></div>
+                  <div class="flow-node"><div class="flow-node-role">デバッグ</div><div class="flow-node-name">釜爺</div></div>
                 </div>
                 <div class="flow-arrow" aria-hidden="true">→</div>
-                <div class="flow-node flow-node-review"><div class="flow-node-role">レビュアー</div><div class="flow-node-name">ガブ</div></div>
+                <div class="flow-node-group">
+                  <div class="flow-node"><div class="flow-node-role">テスト実行</div><div class="flow-node-name">トト</div></div>
+                  <div class="flow-node flow-node-review"><div class="flow-node-role">レビュアー</div><div class="flow-node-name">ガブ</div></div>
+                </div>
               </div>
-              <p class="flow-note mini">シエロが全体設計、トンボが実装、ガブがセキュリティ・可読性の観点で厳しくレビュー。生成と評価が別AIなので見落としが起こりにくい構造です。</p>
+              <p class="flow-note mini">シエロが全体設計、トンボが実装、釜爺がデバッグ、トトがテスト実行、ガブが最終レビュー。生成と評価が別AIなので見落としが起こりにくい構造です。</p>
             </div>
 
             <div class="flow-case">
@@ -312,7 +314,7 @@ const tetoAvatar = 'https://res.cloudinary.com/dg3mdcuju/image/upload/q_auto/f_a
               <p>作る人と見る人を別のAIに分けることで、ダブルチェックが効き、見落としや一面的な判断を防ぎます。</p>
             </div>
           </div>
-          <p class="mini note">この設計は、Anthropic社・OpenAI社などが公開しているAIエージェント設計の公開知見、および独自の運用経験をもとに継続的に改善しています。社内ではDX戦略担当のフレデリックが、外部動向のリサーチを隔週で行っています。</p>
+          <p class="mini note">この設計は、Anthropic社・OpenAI社などが公開しているAIエージェント設計の公開知見、および独自の運用経験をもとに継続的に改善しています。社内では調査担当のニルスが、外部動向のリサーチを隔週で行っています。</p>
         </section>
 
         <section id="workflow" class="article-section fade-up">
@@ -373,7 +375,7 @@ const tetoAvatar = 'https://res.cloudinary.com/dg3mdcuju/image/upload/q_auto/f_a
               </ul>
             </div>
           </div>
-          <p class="mini note">景品表示法・特定商取引法などの関連法令を遵守し、サービス提供主体・責任主体が<strong>「株式会社コールテン（代表取締役 向）」</strong>であることを明示しています。AI活用についてのコンプライアンスチェックは、法務部のチャン（AIコンプライアンス担当）と代表が連携して行っています。</p>
+          <p class="mini note">景品表示法・特定商取引法などの関連法令を遵守し、サービス提供主体・責任主体が<strong>「株式会社コールテン（代表取締役 向）」</strong>であることを明示しています。AI活用についてのコンプライアンスチェックは、法務部のバロン（契約・規約担当）と代表が連携して行い、各エージェントが自律的にAI倫理判断を行う運用です。</p>
         </section>
 
         <section id="human" class="article-section fade-up">
@@ -410,7 +412,7 @@ const tetoAvatar = 'https://res.cloudinary.com/dg3mdcuju/image/upload/q_auto/f_a
             <li><strong>機密情報の取り扱い</strong>：クライアントさんの機密情報を扱う場合は、事前のご同意のもと、暗号化・アクセス制限の上で運用します。</li>
             <li><strong>外部送信の最小化</strong>：可能な限りローカル環境で処理を行い、外部AIサービスに送信する情報は最小限に絞っています。</li>
             <li><strong>ログ管理</strong>：すべての処理はログに記録され、問題発生時に追跡・原因究明ができるようにしています。</li>
-            <li><strong>AI倫理チェック</strong>：法務部のコンプライアンス担当（チャン）が、定期的にAIの動きをチェックし、倫理・法令順守の観点から問題がないか確認しています。</li>
+            <li><strong>AI倫理チェック</strong>：各AI社員が自律的に倫理・法令順守の観点から判断する設計とし、契約・規約面は法務部のバロンが、認証情報の管理は銭婆が担当しています。</li>
           </ul>
         </section>
 
