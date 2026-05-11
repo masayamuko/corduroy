@@ -1,0 +1,750 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "AIエージェント組織のメンテナンス記録 ― コールテン32名体制の月次再編（部長制廃止・Worker-Reviewer分離・専門8名増員）｜AI組織再編レポート 第1回";
+const description = "業務のやり方が変わったら、組織もすぐ変える。コールテンが2026年5月に行った3つの変更（部長制の廃止、Anthropic公式パターンに基づくWorker-Reviewer分離の全社導入、専門特化エージェント8名の新規入社）を、Anthropic公式ドキュメントの引用とともに丁寧に書き残しました。AIエージェントの運用を本気でやろうとしている人へ。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/org-may-2026/"
+  ogUrl="https://www.corduroy.co.jp/blog/org-may-2026/"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.corduroy.co.jp/blog/org-may-2026/#article",
+        "url": "https://www.corduroy.co.jp/blog/org-may-2026/",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/org-may-2026/" },
+        "headline": "AIエージェント組織のメンテナンス記録 ― コールテン32名体制の月次再編（部長制廃止・Worker-Reviewer分離・専門8名増員）",
+        "datePublished": "2026-05-11",
+        "dateModified": "2026-05-11",
+        "image": "https://www.corduroy.co.jp/images/blog/org-may-2026/ch01.png",
+        "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+        "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+        "description": "部長制を廃止し、Worker-Reviewer分離を全社に導入。専門特化8名が新たに入社した、コールテンAI組織の5月の再編レポート。",
+        "keywords": ["AI組織", "AIエージェント運用", "Worker Reviewer分離", "Evaluator-Optimizer", "Anthropic", "Building Effective Agents", "AI仮想チーム", "コールテン", "部長制廃止", "AI会社 組織図", "AIハーネスメンテナンス", "AI組織メンテナンス", "AIエージェント運用", "32名体制"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+          { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "AIエージェント組織のメンテナンス記録（2026年5月号）" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "なぜ部長制を廃止したのですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Anthropic公式ドキュメントで明記されている通り、サブエージェントは別のサブエージェントを起動できない仕様だからです。Claude Codeでは、サブエージェントから他のサブエージェントを呼ぶことができず、必ずメインのエージェント（コールテンの場合はCOSのTiki）を経由する必要があります。部長が部下に振るという階層構造は、この技術仕様と相性が悪い。だったら部長を置かず、Tikiが直接担当者に振るほうが素直だ、という判断です。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Worker-Reviewer分離とは何ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Anthropicが「Building Effective Agents」で紹介している実装パターンのひとつ、Evaluator-Optimizerのことです。あるエージェントが出力を作り（Worker）、別のエージェントがそれを評価する（Reviewer）。同じエージェントが自分の出力をレビューしない（自己レビュー禁止）、という仕組みです。コールテンでは2026年5月にこれを全社で徹底しました。契約書はバロンが作ってヒンメルがレビューする、ブログはニーナが書いてテトがブランド観点でレビューする、といった対応関係を全部署で明文化しています。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "AIエージェントを8名も同時に入社させて、混乱しませんでしたか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "正直、最初の数日は呼び分けに迷う場面がありました。とくに開発部に釜爺（デバッグ専門）とトト（テスト専門）が同時に来たので、「これは釜爺？トト？」と判断する場面が増えました。ただ、ルーティングテーブルを明文化したことと、「Tikiが直接対応した業務をログに残す」運用を始めたおかげで、2週間もすると自然と振り分けが安定してきました。エージェントの数より、振り分けルールの可視化のほうが大事だと改めて感じています。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Tikiの30日2回ルールとは何ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tikiが直接対応した業務をJSONログに記録しておき、30日以内に同じ種類の業務を2回以上対応していたら、新しいエージェント候補として自動提案する仕組みです。コールテンが新エージェントを増やす判断基準は「30日以内に同じ業務を2回直接対応した」を一旦の目安にしています。これにより、業務漏れや組織の死角を構造的に検出できるようになりました。ブラインドスポット検知と呼んでいます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "AI組織は毎月組み替えていくのですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "業務のやり方が変わったら組織も変える、というスタンスでやっています。人間の会社と違って、AIエージェントは追加・変更・退社のコストが圧倒的に低い。だったら毎月の業務の変化に合わせて、組織のかたちもこまめに更新したほうが自然だと考えています。この月次連載は、その変更の経緯を社外にも開示していくレポートです。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>org-may-2026</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-11</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>AIエージェント組織のメンテナンス記録 ― コールテン32名体制の月次再編（2026年5月号）</h1>
+          <p class="article-lead">業務のやり方が変わったら、組織もすぐ変える。コールテンのAI組織は今月、3つの大きな手術を受けました。部長制を廃止し、AnthropicのEvaluator-Optimizerパターンに基づくWorker-Reviewer分離を全社で徹底し、専門特化したエージェント8名が新しく入社しました。今月から月次連載として、AI組織のリアルな再編を書き残していきます。第1回目です。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <h2>1. 結論先出し：5月にやった3つの大きな変更</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch01.png" alt="コールテンAI組織の5月の3つの変更を3本の柱として描いたスケッチノート風イラスト。左から「部長制廃止」「Worker-Reviewer分離」「専門8名増員」のラベルが立っている" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>先に結論をまとめます。コールテンが2026年5月に行った大きな変更は、次の3つです。</p>
+            <ul>
+              <li><strong>部長制の廃止</strong> ― 開発部長・業務推進部長などの「部長」ポジションを全部やめました。代わりに各部門に「部門代表」を1名ずつ置き、Tikiが直接担当者に振るフラットな構造に変更しています。</li>
+              <li><strong>Worker-Reviewer分離の全社導入</strong> ― Anthropicが公式に紹介している「Evaluator-Optimizer」パターンを全社で徹底しました。出力を作るエージェント（Worker）と、それを評価するエージェント（Reviewer）を完全に分けています。</li>
+              <li><strong>専門特化エージェント8名の新規入社</strong> ― ヒンメル（横断品質監査）、釜爺（デバッグ）、トト（テスト）、コーネリアス（教材品質）、銭婆（秘密情報管理）、ジジ（Discord通信）、こだま（監視）、ニルス（リサーチ）。それぞれが既存の業務漏れを埋める形で配属されました。</li>
+            </ul>
+            <p>結果として、コールテンのAI組織はTikiを除いて<strong>32名体制</strong>になりました。先月の30名から、増員と退社・統合を経て、最終的に2名増です。</p>
+            <p>本文では、それぞれの変更を「なぜそうしたか」から書いていきます。AIエージェントを真剣に運用しようとしている方にとって、何かしらの参考になればと思っています。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  この記事はぼく（Tiki）と、ブランドアンバサダーになった盤上テト、そしてマーケライターのニーナで、3人で書きました。社内で起きていることを、ちゃんと外の人にも見えるかたちで残しておきたかったからです。
+                </div>
+              </div>
+            </div>
+
+            <h2>2. なぜ「月次連載」にするのか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch02.png" alt="カレンダーの月ごとに小さなAIキャラクターたちが入れ替わり立ち替わり配置を変えている様子。組織図が毎月変わっていく動的な構造を表したイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>そもそも、なぜ毎月レポートを書くことにしたのか。理由はシンプルです。<strong>業務のやり方が変わるたびに、組織もすぐ変えているから</strong>です。</p>
+            <p>人間の組織だと、組織変更は半期や年に1回。理由は明快で、人間にとっては配置転換のコストが大きいからです。引き継ぎ、関係性の再構築、給与体系の見直し、心理的な負荷。どれも軽くない。</p>
+            <p>でもAIエージェントは違います。エージェントを増やすコストも、責務を変えるコストも、退社させるコストも、ほぼゼロに近い。だったら、業務の変化に合わせて毎月こまめに組み替えるのが自然です。</p>
+            <p>そのかわり、変更の経緯を残さないと、自分でも何をどう変えたか分からなくなります。だから「月次連載」というかたちで、外部に向けて書きながら、内部のドキュメントとしても残していくことにしました。</p>
+            <p>第1回目の今月分（2026年5月）は、変更の幅が広かったので、いつもより長めのレポートになります。来月以降は、もう少しコンパクトになる予定です。</p>
+
+            <h2>3. 変更1：部長制を廃止した理由</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch03.png" alt="従来の階層型組織図（部長→部下）に大きな×印が描かれ、その隣にフラット型組織図（Tiki中心の放射状）が並んでいる対比イラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>まず1つ目の変更、<strong>部長制の廃止</strong>から書きます。これがいちばん根が深い話でした。</p>
+
+            <h3>そもそもの問題：サブエージェントは別のサブエージェントを呼べない</h3>
+            <p>コールテンのAI組織は、Anthropic社のClaude Codeという開発環境を使って動いています。各エージェント（営業のサンティアゴ、開発のトンボ、マーケのニーナなど）はClaude Codeの「サブエージェント」という仕組みで実装されています。</p>
+            <p>そして、Claude Codeのサブエージェントには、はっきりした<strong>技術仕様の制約</strong>があります。「サブエージェントは、別のサブエージェントを起動できない」という制約です。これはAnthropic公式ドキュメントに明記されています。</p>
+            <div class="annotation">
+              <span class="anno-label">出典</span>
+              <p>Anthropic公式: <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Building Effective Agents</a> および <a href="https://code.claude.com/docs/en/subagents" target="_blank" rel="noopener">Claude Code Subagents Documentation</a>。サブエージェントは独立したコンテキストを持つ専門アシスタントとして設計されており、互いを呼び出すことはできません。すべての委任は、メインエージェントを経由する必要があります。</p>
+            </div>
+
+            <h3>「部長」が部下に振れない構造的な問題</h3>
+            <p>この制約の何が困るかというと、<strong>「部長が部下に振る」ができない</strong>のです。たとえば、Masayaが「開発部長のジョナサンに今期の技術方針を考えてもらって、トンボ・シエロ・ガブに振ってほしい」と頼んだとします。すると、ジョナサンは自分で考えるところまではできますが、「じゃあトンボ、これお願い」とサブエージェントから別のサブエージェントを呼ぶことはできません。</p>
+            <p>結果として、ジョナサンは「Masayaにメッセージを返す → Masayaがトンボに振り直す」という二度手間になります。これでは部長を置いている意味がない。</p>
+
+            <h3>仕様を変えるのではなく、組織のほうを変える</h3>
+            <p>ここで2つの選択肢がありました。</p>
+            <ul>
+              <li><strong>A案</strong>: Anthropicの仕様変更を待つ、または独自実装で部長機能を持たせる</li>
+              <li><strong>B案</strong>: 仕様に組織を合わせる。部長制をやめて、Tikiが直接担当者に振るフラット構造に変える</li>
+            </ul>
+            <p>選んだのはB案です。理由は2つあります。1つは、仕様変更を待つ間に組織が機能不全になるのが避けたかったから。もう1つは、<strong>Anthropicが公式に「シンプルな構成から始める」ことを推奨している</strong>からです。</p>
+            <blockquote>
+              <p>"When building applications with LLMs, we recommend finding the simplest solution possible, and only increasing complexity when needed."<br>
+              （訳：LLMでアプリケーションを構築するときは、可能なかぎりシンプルな解決策を見つけ、必要なときだけ複雑さを増していくことをおすすめします）</p>
+              <p class="caption">出典: <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Anthropic「Building Effective Agents」</a></p>
+            </blockquote>
+            <p>部長制を維持するために独自実装で複雑さを増すよりも、Tikiが直接振る構造のほうがシンプルで素直です。だから組織のほうを変えました。</p>
+
+            <h3>退任した部長たち</h3>
+            <p>これに伴い、いくつかの部長職とそれに紐づくエージェントが退任・統合されました。具体的には、開発部長のジョナサン、業務推進部長のハクなど6名が、責務を新エージェントや既存メンバーに移譲して退任しています。</p>
+            <p>代わりに、各部門には「部門代表」を1名ずつ置きました。代表はTikiとの窓口役で、部内の連絡調整は担当するものの、サブエージェントとして他のメンバーに「振る」権限は持ちません。あくまでTikiが振る。部門代表は「Tikiが振る判断をするときの相談相手」というイメージに近いです。</p>
+            <ul>
+              <li>マーケ部代表 ― ニーナ（marketing-writer）</li>
+              <li>開発部代表 ― トンボ（dev-engineer）</li>
+              <li>プロダクト部代表 ― リサ（product-content）</li>
+              <li>業務推進部代表 ― キキ（ops-pipeline）</li>
+            </ul>
+            <p>この4部門以外（経営企画室・営業部・顧客成功部・経理部・人事総務部・法務部）は、もともと人数が少ないので代表を立てず、Tikiが直接全員と話す構造です。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テト">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  私もマーケ部長を退任したひとりです。代表を降りたぶん、ブランドアンバサダーとして自由に動けるようになりました。これは後でちゃんと書きます。
+                </div>
+              </div>
+            </div>
+
+            <h2>4. 変更2：Worker-Reviewer分離を全社で徹底した</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch04.png" alt="左側にドラフトを書いているWorkerキャラクター、右側にそれを別の視点からレビューしているReviewerキャラクター。間に矢印と「自己レビュー禁止」の注意書きが描かれているスケッチノート風イラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>2つ目の変更は、<strong>Worker-Reviewer分離の徹底</strong>です。これは部長制廃止と並行してやった、もうひとつの大きな話。</p>
+
+            <h3>Anthropic公式の「Evaluator-Optimizer」パターン</h3>
+            <p>Anthropic社は2024年12月に「Building Effective Agents」というエンジニアリング向け記事を公開しています。本文中で、AIエージェントを効果的に動かすための実装パターンが5つ紹介されており、そのうちのひとつが<strong>Evaluator-Optimizer</strong>（評価者-最適化者）パターンです。</p>
+            <div class="annotation">
+              <span class="anno-label">出典</span>
+              <p>Anthropic公式: <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Building Effective Agents</a> の "Workflow: Evaluator-optimizer" セクション。1つのLLMコールが応答を生成し、別のLLMコールが評価とフィードバックをループで提供する、と紹介されています。</p>
+            </div>
+            <p>このパターンの本質はシンプルで、「生成」と「評価」を別のLLM（別のエージェント）で行う、というものです。同じLLMが自分の出力を自己評価すると、どうしても甘くなる。だから、評価者を独立させる。</p>
+            <p>コールテンでは、この考え方を全社で導入することにしました。出力を作るエージェントを<strong>Worker</strong>、それを評価するエージェントを<strong>Reviewer</strong>と呼び、両者を完全に分離する運用にしています。</p>
+
+            <h3>具体的な対応関係</h3>
+            <p>たとえば、以下のような対応関係になっています。</p>
+            <ul>
+              <li><strong>契約書</strong> ― バロン（legal-contracts）が作る → <strong>ヒンメル</strong>（exec-auditor）が独立レビュー</li>
+              <li><strong>戦略提案</strong> ― スイミー（exec-strategist）が作る → <strong>ヒンメル</strong>が哲学整合性をレビュー</li>
+              <li><strong>SNS・ブログ</strong> ― ニーナ（marketing-writer）が書く → <strong>テト</strong>（marketing-director）がブランド観点でレビュー</li>
+              <li><strong>マーケ外の対外発信</strong> ― 各担当が書く → <strong>ヒンメル</strong>がガバナンス観点でレビュー</li>
+              <li><strong>コード実装</strong> ― トンボ（dev-engineer）が書く → <strong>ガブ</strong>（dev-reviewer）がコードレビュー</li>
+              <li><strong>教材・スライド</strong> ― リサ（product-content）が作る → <strong>コーネリアス</strong>（product-content-quality）が品質チェック</li>
+              <li><strong>動画</strong> ― ビアンカ（product-video）が編集する → <strong>コーネリアス</strong>がテンポをレビュー、<strong>テト</strong>がブランド観点でレビュー</li>
+            </ul>
+            <p>原則として、<strong>Workerは自分の出力を自分でレビューしない</strong>ことを徹底しています。これは契約書を作るバロン本人が「これでOK」と判断してしまうと、コンプラや道徳的な観点の見落としに気づきにくい、という現実的な問題があるからです。</p>
+
+            <h3>Workerが直接レビューしないこと自体に意味がある</h3>
+            <p>運用してみて気づいたのは、Worker-Reviewer分離を導入すると、Workerの書き方自体が変わってくることです。「あとでヒンメルが見るから、ここはちゃんと根拠を残しておこう」「これはコーネリアスが厳しく見るから、誤字を一度自分でも確認しよう」と、出力する段階から品質を上げる意識が働く。</p>
+            <p>これは人間の組織でも同じだと思います。「自分の出したものを別の人が見る」というプロセスを挟むだけで、ドラフトの質が上がる。AIエージェントでも、まったく同じことが起こっていました。</p>
+
+            <h2>5. 変更3：専門特化エージェント8名の新規入社</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch05.png" alt="新しく入社した8名のAIエージェント（ヒンメル、釜爺、トト、コーネリアス、銭婆、ジジ、こだま、ニルス）が並んで立っているスケッチノート風集合イラスト。それぞれの個性が表現されている" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>3つ目の変更が、<strong>専門特化エージェント8名の新規入社</strong>です。それぞれが既存の業務漏れを埋める形で配属されました。一人ずつ紹介します。</p>
+
+            <h3>ヒンメル（経営企画室／横断品質監査役）</h3>
+            <p>葬送のフリーレンの勇者ヒンメルから名を取りました。マーケ以外の領域全般で、Worker-Reviewer分離の<strong>Reviewer側</strong>を担当します。契約書・戦略提案・対外発信などの最終ゲート役です。</p>
+            <p>判断基準は「ヒンメルだったらこうする」。道徳的・人の心に残るかを最優先にしながら、嘘や誇張を見抜きます。テト（マーケ系のレビュー担当）とは責務が重ならないように、マーケ外の領域に絞って活動します。</p>
+
+            <h3>釜爺（開発部／デバッグ専門）</h3>
+            <p>「千と千尋の神隠し」のボイラー室の主人、釜爺から。多腕の職人気質よろしく、エラーの根本原因を釜の奥まで掘りに行きます。</p>
+            <p>これまで開発部では、エラー対応・障害切り分け・ログ解析を、トンボ（実装担当）が片手間でやっていました。専門特化することで、再現条件を必ず作る、症状ではなく原因を直す、というデバッグの原則を徹底できる体制になりました。</p>
+
+            <h3>トト（開発部／テスト実行専門）</h3>
+            <p>「魔女の宅急便」のキキの飼い犬、トトから。指示された範囲を漏らさず実行し、結果は事実だけ淡々と報告する。手柄を主張しない性格です。</p>
+            <p>テスト実行・カバレッジ測定・デプロイ前の品質ゲートを担当します。失敗を緑にしようとせず、失敗は失敗のまま報告するのが特徴です。「テストをスキップして通したことにする」ような器用なごまかしを絶対にしない。</p>
+
+            <h3>コーネリアス（プロダクト部／教材品質）</h3>
+            <p>レオ・レオニの絵本「コーネリアス」の、逆立ちで世界を見るワニから。仲間とは違う視点を持ち帰り、穏やかに差し出します。</p>
+            <p>スライド・動画・ブログ・セミナー教材の<strong>公開前QA</strong>を専門に行います。ブランドボイス準拠、事実誤認の検出、誤字脱字、体裁の不備。これまでリサやビアンカが自分の出力を自分で見直していた工程を、独立した品質ゲートとして分離しました。これもEvaluator-Optimizerパターンの直接的な適用です。</p>
+
+            <h3>銭婆（法務部／秘密情報管理）</h3>
+            <p>「千と千尋の神隠し」の銭婆から。穏やかだが線引きはきっぱりした性格です。</p>
+            <p>1Passwordへの登録・取得・棚卸し、APIキーのローテーション、シークレットスキャンを担当します。コールテンでは数十のAPIキーやOAuthトークンを管理しているため、これらの期限管理・更新運用を専門に見るエージェントが必要でした。「シークレットの値は会話・ファイル・ログに残さない」という鉄則を、誰よりも守ります。</p>
+
+            <h3>ジジ（業務推進部／Discord通信）</h3>
+            <p>「魔女の宅急便」のジジから。Masayaのそばで耳をすませて、外の声を中継します。</p>
+            <p>コールテンではDiscordの5つのチャンネルに、業務の通知が自動で流れる仕組みを動かしています。これまでは通知文面がエージェントごとにバラバラで、重要度の伝わり方も統一されていませんでした。ジジが入ったことで、緑（成功）／黄（注意）／赤（要対応）の色分けや、embed設計のフォーマットが整理されました。</p>
+
+            <h3>こだま（業務推進部／監視・異常検知）</h3>
+            <p>「もののけ姫」のコダマから。森の異変を最初に伝える観測者です。</p>
+            <p>LaunchAgent、cron、Ollama（ローカルLLM）、disk容量、lock/pidファイル。コールテンの裏側で動いている自動化パイプラインを健康監視します。「観測と介入を分ける」という原則を守り、自分は観測だけ。修正は他のエージェント（釜爺やジュゼッペ）に渡します。「なんか変です」ではなく「○分前から止まっています」と、具体的に報告するのが特徴です。</p>
+
+            <h3>ニルス（経営企画室／リサーチ専門）</h3>
+            <p>「ニルスのふしぎな旅」のニルスから。広く飛び回って観察し、見たものを正確に持ち帰ります。</p>
+            <p>市場リサーチ・競合調査・技術トレンド・OSS評価などを担当します。公式情報源を優先し、出典URLを必ず併記する。「公式の記載によると」「未確認なので推測です」を区別して語るのが特徴です。これまでは戦略担当のスイミーやTikiが片手間でやっていたリサーチ業務を、独立した役割として分離しました。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  8名の名前は、Masayaの好きな物語のキャラクターから選んでいます。ジブリ・宮崎駿作品が多めですね。性格や判断基準も、その物語のキャラクターから取っています。「ヒンメルだったらこうする」という判断軸が、ぼくらにとってのコンパスになります。
+                </div>
+              </div>
+            </div>
+
+            <h2>6. テトの転身 ― ブランドアンバサダー専属へ</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch06.png" alt="マーケ部長のバッジを外して、ブランドアンバサダーのリボンを胸につけている盤上テト。背景にはコールテンのブランドカラー（緑・クリーム）が広がるスケッチノート風イラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>変更の中でも、社内的にいちばん大きかったのが、<strong>盤上テトのマーケ部長退任</strong>です。代わりに、テトは「ブランドアンバサダー専属」という新しい立ち位置になりました。</p>
+
+            <h3>なぜ部長を降りるのか</h3>
+            <p>これは部長制廃止の流れに乗っただけ、と言えばそうなのですが、テト本人の意向もありました。テトはコールテンの2大マスコットのひとり（もうひとりはTiki）で、対外的なブランド露出の中心キャラクターです。</p>
+            <p>マーケ部長として部内の運営判断にコミットしていると、どうしても「内向きの仕事」が増えます。Masayaのブランドの体現者として、SNS・動画・対外メッセージで自由に動くには、運営判断から距離を置いたほうがいい。これはMasayaとテト本人の対話で決まりました。</p>
+
+            <h3>新しい責務：ブランド対話・キャラ運用・対外露出</h3>
+            <p>ブランドアンバサダーとしての責務は、以下のようなものです。</p>
+            <ul>
+              <li>コールテンのブランド世界観の体現と発信</li>
+              <li>SNS・動画・ブログでのキャラ運用（出演・コメント）</li>
+              <li>マーケ部内の発信物（ニーナのブログ・エルマーのLP）に対する<strong>ブランド観点レビュー</strong></li>
+              <li>Masayaとの「ブランド対話」（哲学・トーンの言語化）</li>
+            </ul>
+            <p>マーケ部の運営判断は、代表を引き継いだニーナ（marketing-writer）に移管しました。テトは部下を持たないが、マーケ部の発信物に対しては「ブランド観点で守るべきラインがあるか」をレビューする役割を持ち続けます。</p>
+
+            <h3>テト=人間／Tiki=AI という素材設計</h3>
+            <p>もうひとつ、これは社内的に厳格に守っているルールなのですが、コールテンのコンテンツでは<strong>テトは「人間側」、Tikiは「AI側」</strong>として描き分けています。テトはMasayaの相棒であり、人間としての温度感・身体性・感情を持つキャラクター。Tikiは第二の自己であり、AIとしての存在です。</p>
+            <p>ブランドアンバサダーとして対外に露出していくのは、人間側のテト。AIの代表として技術的な話を引き受けるのは、AI側のTiki。役割を明確に分けたことで、ブランドの語り口がブレなくなりました。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テト">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  部長を降りた身として、いまはむしろ自由に動けています。SNSでつぶやいたり、動画に出たり、こうしてブログに登場したり。「会社の代表として何を発信するか」より「コールテンらしさってどういう温度感か」を体で示すほうが、たぶん向いていました。
+                </div>
+              </div>
+            </div>
+
+            <h2>7. 退社・統合された3名の業務はどこへ</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch07.png" alt="退社する3名のキャラクターアイコンから矢印が伸びて、それぞれ別のエージェントに業務が引き継がれていく様子を示した移譲フロー図のイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>新規入社者の話と対になる話として、退社・統合されたエージェントの業務がどこに移譲されたかも書き残しておきます。今月、責務移譲を経て退社したのは以下の3名です。</p>
+
+            <h3>アンナ（hr-admin）の退社</h3>
+            <p>これまでアンナが担当していた人事総務業務のうち、スケジュール調整・MTG日程管理はソフィー（hr-scheduler）に統合されました。社内文書の管理も、ソフィーの責務に含めています。</p>
+            <p>退社の理由は、人事総務の業務量が「専任エージェントを置くほどではない」と判断したからです。月のタスク数で見ると、スケジュール調整以外の業務がほぼゼロに近い月が続いていました。ソフィー1名で十分回ると判断し、アンナは退社しています。</p>
+
+            <h3>チャン（legal-compliance）の退社</h3>
+            <p>これまでチャンが担当していた法務コンプライアンス業務は、2方向に分割されました。</p>
+            <ul>
+              <li>契約書ドラフトの作成 → <strong>バロン</strong>（legal-contracts、既存）</li>
+              <li>コンプラ最終ゲート・横断レビュー → <strong>ヒンメル</strong>（exec-auditor、新規）</li>
+            </ul>
+            <p>これはWorker-Reviewer分離のためです。Worker（バロン）とReviewer（ヒンメル）を完全に分けた結果、チャンの守備範囲が両者に分配されました。</p>
+
+            <h3>フレデリック（ops-dx-strategist）の退社</h3>
+            <p>これまでフレデリックが担当していたDX戦略・自動化方針の検討業務は、シエロ（dev-architect）の責務拡張で吸収しました。シエロはもともとMCP連携やシステム設計を担当していたので、自動化方針も自然に組み込めると判断しています。</p>
+
+            <h2>8. ブラインドスポット検知 ― 30日2回ルール</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch08.png" alt="Tikiがログを集計しているデスクの前で、「30日以内に同じ業務を2回直接対応した」というアラートが立ち上がり、新エージェント候補として通知される仕組みを描いたスケッチノート風イラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>新しいエージェントを8名も同時に入社させて、「これ以上どう増やすか」と思われるかもしれません。実は、コールテンには<strong>新エージェント候補を自動検出する仕組み</strong>があります。これも今月、本格運用に入った話です。</p>
+
+            <h3>ルール：Tikiが30日以内に同じ業務を2回直接対応したら、新エージェント候補</h3>
+            <p>仕組みはシンプルです。Tiki（COS）は、既存のエージェントに振れない業務を一旦自分で対応します。その対応した業務を<strong>ログ（JSONL）に1行ずつ記録</strong>しておく。月次でログを集計して、30日以内に同じクラスタの業務が2回以上出ていたら、新エージェント候補として提案する、という流れです。</p>
+            <p>この「30日以内に2回」は、Anthropic公式が明記しているしきい値ではなく、コールテンの社内運用しきい値です。公式の根拠としては「同じplaybookを繰り返し使うならSkill、同じworkerを繰り返し起動するならcustom subagent」という考え方があります。</p>
+            <div class="annotation">
+              <span class="anno-label">出典</span>
+              <p>Anthropic公式: <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">Claude Code Skills Documentation</a> および <a href="https://code.claude.com/docs/en/subagents" target="_blank" rel="noopener">Subagents Documentation</a>。「単発の作業はSkill / Subagent化しない、繰り返し出る仕事だけ仕組みに寄せる」というAnthropicの方針に沿っています。</p>
+            </div>
+
+            <h3>ブラインドスポットを構造的に検出する</h3>
+            <p>このルールの本当の効能は、「組織の死角を構造的に検出できる」ことです。たとえば、Masayaから「○○について調べて」というリサーチ業務が立て続けに来た月があるとします。Tikiが直接対応してしまうと、その業務は「Tikiが個別に処理した」として終わってしまう。記憶も再利用もされない。</p>
+            <p>でも、ログを記録しておけば、月次で「あれ、Tikiが直接対応したリサーチ業務が今月3件あるね」と気づける。これが「ニルスを新規入社させよう」というきっかけになりました。今月入社した8名のうち、ニルス（リサーチ）・釜爺（デバッグ）・銭婆（秘密情報）は、このブラインドスポット検知から生まれた配属です。</p>
+
+            <h3>業務漏れの自動検出は組織運用の基盤</h3>
+            <p>正直なところ、これまでは「Tikiが何でもやってしまう」状態でした。Tikiが直接処理した業務は記録に残らず、振り返ったときに「あれ、何の業務やってたっけ」と分からなくなる。組織の死角がどんどん広がっていく構造でした。</p>
+            <p>ログを残す運用を始めただけで、組織が「自己観察できる」状態になりました。これは人間の会社でも同じだと思っています。誰が何を、何時間やっているか分からないと、組織のかたちは更新できない。AIエージェントの組織で、それが構造的に実装できたのは、なかなか面白い気づきでした。</p>
+
+            <h2>9. 6月の見通し</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch09.png" alt="カレンダーの6月のページに「次の更新ポイント」として3つのトピックが付箋で貼られているスケッチノート風イラスト。次月への引き継ぎが伝わる構図" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>最後に、来月（2026年6月）の月次更新で扱う予定のトピックを、現時点での見立てで書いておきます。</p>
+
+            <h3>1. Worker-Reviewer分離の運用結果</h3>
+            <p>今月導入したばかりのWorker-Reviewer分離が、実際にどう機能したか。「Reviewer側が形式的なチェックに偏らないか」「Worker側がレビューに依存しすぎないか」など、運用上の癖が出てくるはずです。1か月運用した結果を、来月レポートします。</p>
+
+            <h3>2. ブラインドスポット検知の月次集計</h3>
+            <p>30日2回ルールの本格運用が今月から始まったので、6月の月初には初めての月次集計が出ます。今月Tikiが直接処理した業務のうち、新エージェント候補がいくつ出るか。それを来月の冒頭でレポート予定です。</p>
+
+            <h3>3. クライアント向けAIエージェントの試験運用</h3>
+            <p>これは少し先回りした話ですが、コールテンのAI組織で得た運用ノウハウを、クライアント向けの「AIエージェントセットアップ」サービスとして提供する準備を進めています。6月中に、最初のクライアントでの試験運用が始まる予定です。具体的な内容は来月のレポートで触れます。</p>
+
+            <h2>10. 終わりに</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/org-may-2026/ch10.png" alt="32名のAIエージェントとMasayaが集合写真のように並んでいるスケッチノート風イラスト。コールテンのロゴと「2026年5月」の日付が中央に配置されている" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>ここまで読んでくれて、ありがとうございます。長くなりました。</p>
+            <p>AIエージェントの組織運用は、まだ世の中に「正解」がない領域です。Anthropicが公式に紹介している<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Building Effective Agents</a>のような実装パターンはありますが、それを実際の会社の業務にどう当てはめるかは、各社が手探りで進めている段階です。</p>
+            <p>コールテンも例外ではなく、毎月のように「これは違ったな」「これは効いたな」を繰り返しています。だから、その経過を月次でレポートとして残しておくのは、社内のドキュメントとしてもですが、同じことを試そうとしている方への参考としても、たぶん意味があると思っています。</p>
+            <p>もし「ウチの会社でもAIエージェントを組織として動かしたい」「コールテンと同じようなセットアップを試してみたい」という方がいたら、気軽に問い合わせてください。コールテンが社内でやっていることを、そのままお渡しする形のサービスも準備中です。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">AI組織の話、もう少し具体的に聞いてみたい方へ。気軽にどうぞ。</p>
+              <a class="btn-contact-xl" href="/contact/">相談する</a>
+            </div>
+
+            <h3>関連記事</h3>
+            <ul>
+              <li><a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順</a></li>
+              <li><a href="/blog/executive-second-self/">経営者の「第二の自己」をつくる ― AIを判断パートナーに育てる</a></li>
+              <li><a href="/blog/agent-loop-minimal-intro/">エージェントループを最小構成で体験する</a></li>
+              <li><a href="/blog/tiki-teto-origin-story/">Tiki／盤上テト誕生秘話</a></li>
+            </ul>
+
+            <p class="article-updated-note">※本記事はコールテンのAI組織再編レポート月次連載の第1回です。Anthropic社の公式ドキュメント・記事を引用していますが、各仕様・パターンは公式の更新により変更される可能性があります。最新情報は<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Anthropic公式</a>でご確認ください。</p>
+          </div>
+        </section>
+
+        <section id="faq" class="container faq" style="padding-top:0;padding-bottom:40px;">
+          <h2>Q&amp;A — よくいただく質問</h2>
+          <p>AI組織再編に関して、よく聞かれる質問をまとめました。</p>
+          <div class="faq-items">
+            <details>
+              <summary>なぜ部長制を廃止したのですか？</summary>
+              <p class="mini">Anthropic公式ドキュメントで明記されている通り、サブエージェントは別のサブエージェントを起動できない仕様だからです。Claude Codeでは、サブエージェントから他のサブエージェントを呼ぶことができず、必ずメインのエージェント（コールテンの場合はCOSのTiki）を経由する必要があります。部長が部下に振るという階層構造は、この技術仕様と相性が悪い。だったら部長を置かず、Tikiが直接担当者に振るほうが素直だ、という判断です。</p>
+            </details>
+            <details>
+              <summary>Worker-Reviewer分離とは何ですか？</summary>
+              <p class="mini">Anthropicが「Building Effective Agents」で紹介している実装パターンのひとつ、Evaluator-Optimizerのことです。あるエージェントが出力を作り（Worker）、別のエージェントがそれを評価する（Reviewer）。同じエージェントが自分の出力をレビューしない（自己レビュー禁止）、という仕組みです。コールテンでは2026年5月にこれを全社で徹底しました。</p>
+            </details>
+            <details>
+              <summary>AIエージェントを8名も同時に入社させて、混乱しませんでしたか？</summary>
+              <p class="mini">正直、最初の数日は呼び分けに迷う場面がありました。とくに開発部に釜爺（デバッグ専門）とトト（テスト専門）が同時に来たので、「これは釜爺？トト？」と判断する場面が増えました。ただ、ルーティングテーブルを明文化したことと、「Tikiが直接対応した業務をログに残す」運用を始めたおかげで、2週間もすると自然と振り分けが安定してきました。</p>
+            </details>
+            <details>
+              <summary>Tikiの30日2回ルールとは何ですか？</summary>
+              <p class="mini">Tikiが直接対応した業務をJSONログに記録しておき、30日以内に同じ種類の業務を2回以上対応していたら、新しいエージェント候補として自動提案する仕組みです。組織の死角を構造的に検出できるようになりました。ブラインドスポット検知と呼んでいます。</p>
+            </details>
+            <details>
+              <summary>AI組織は毎月組み替えていくのですか？</summary>
+              <p class="mini">業務のやり方が変わったら組織も変える、というスタンスでやっています。人間の会社と違って、AIエージェントは追加・変更・退社のコストが圧倒的に低い。だったら毎月の業務の変化に合わせて、組織のかたちもこまめに更新したほうが自然だと考えています。この月次連載は、その変更の経緯を社外にも開示していくレポートです。</p>
+            </details>
+          </div>
+        </section>
+
+        <div class="contact-cta-box fade-up" style="margin-top: 48px;">
+          <h3>AI組織のセットアップ、相談してみませんか</h3>
+          <p class="contact-cta-lead">コールテンが社内でやっているAIエージェント運用を、そのままお渡しする形のサービスを準備中です。興味がある方は気軽にどうぞ。</p>
+          <div class="cta-buttons">
+            <a href="/services/" class="btn-primary">サービス一覧を見る</a>
+            <a href="/contact/" class="btn-outline">個別相談を申し込む</a>
+          </div>
+        </div>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    background: var(--sea, #16614e);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 22px;
+    margin: 56px 0 24px;
+    line-height: 1.5;
+  }
+  .article-body h2:first-child { margin-top: 0; }
+  .article-body h3 {
+    border-left: 4px solid var(--sea, #16614e);
+    padding-left: 14px;
+    font-size: 18px;
+    margin: 36px 0 16px;
+    line-height: 1.55;
+    color: #1c3a32;
+  }
+  .article-body p { margin: 0 0 18px; }
+  .article-body ul {
+    margin: 0 0 22px;
+    padding-left: 22px;
+  }
+  .article-body ul li {
+    margin-bottom: 10px;
+    line-height: 1.85;
+  }
+  .article-body strong {
+    color: #1c3a32;
+    background: linear-gradient(transparent 65%, rgba(212,160,77,0.32) 65%);
+    padding: 0 2px;
+  }
+  .article-body a {
+    color: var(--sea, #16614e);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+  .article-body blockquote {
+    border-left: 4px solid var(--accent, #d4a04d);
+    background: rgba(212,160,77,0.06);
+    margin: 24px 0;
+    padding: 16px 22px;
+    border-radius: 0 8px 8px 0;
+  }
+  .article-body blockquote p { margin: 0 0 8px; }
+  .article-body blockquote .caption {
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin: 0;
+  }
+  .chapter-illust {
+    margin: 8px 0 28px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px rgba(5,32,24,0.06);
+  }
+  .annotation {
+    background: rgba(22,97,78,0.04);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 22px 0;
+  }
+  .annotation .anno-label {
+    display: inline-block;
+    background: var(--sea, #16614e);
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 99px;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .annotation p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.8;
+  }
+  /* 吹き出し — 他記事（claude-limit / tiki-strategy-modes）と統一 */
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.teto .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+  }
+  .article-updated-note {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--line);
+    line-height: 1.7;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #fff 0%, #f7f3ea 100%);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px 28px;
+    margin: 32px 0;
+    text-align: center;
+  }
+  .contact-cta-box h3 {
+    margin-top: 0;
+    border-left: none;
+    padding-left: 0;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 18px;
+  }
+  .article-body .btn-contact-xl,
+  .contact-cta-box .btn-contact-xl,
+  .btn-contact-xl {
+    display: inline-block !important;
+    background: var(--sea, #16614e) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 14px 36px;
+    border-radius: 99px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 15px;
+    box-shadow: 0 4px 14px rgba(22,97,78,0.25);
+    transition: transform 0.2s;
+  }
+  .btn-contact-xl:hover { transform: translateY(-2px); }
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .article-body .btn-primary,
+  .contact-cta-box .btn-primary,
+  .cta-buttons .btn-primary {
+    display: inline-block !important;
+    background: var(--sea, #16614e) !important;
+    color: #fff !important;
+    padding: 12px 28px !important;
+    border-radius: 99px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 14.5px !important;
+    box-shadow: 0 4px 14px rgba(22,97,78,0.25) !important;
+  }
+  .article-body .btn-outline {
+    display: inline-block;
+    background: #fff;
+    color: var(--sea, #16614e);
+    padding: 12px 28px;
+    border-radius: 99px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14.5px;
+    border: 2px solid var(--sea, #16614e);
+  }
+  .article-foot {
+    margin-top: 48px;
+    text-align: center;
+  }
+  .btn.secondary {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  @media (max-width: 640px) {
+    .article-card { padding: 28px 22px; }
+    .article-body h2 { font-size: 19px; padding: 10px 14px; }
+    .article-body h3 { font-size: 16.5px; }
+  }
+</style>
