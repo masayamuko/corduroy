@@ -66,6 +66,7 @@
 
 ### AI活用・ツール紹介
 
+- [AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計（コールテン式運用ノウハウ）](https://www.corduroy.co.jp/blog/tiki-strategy-modes/): 1プロンプトでAIエージェントの動き方を切り替える「作戦名」設計。ガンガンいこうぜ／過集中／コーチング／いのちをだいじに、の4モード運用例。
 - [Claudeのリミットが余って週次リセットが近づいた時、僕がやっている使い倒し方](https://www.corduroy.co.jp/blog/claude-limit-power-use/): Claude Pro/Max/Team の週次リミットを4段階（Tier 1-4）で使い倒す実例集。サブエージェント並列・バックグラウンドジョブ・蒸留・実験まで。
 - [自分のボイスクローンを作って、AIに喋ってもらった話 ― v1→v2で「もう一人の自分」になるまで](https://www.corduroy.co.jp/blog/masaya-voice-clone/): Style-Bert-VITS2 + Colab Pro で代表の声をクローン。短時間学習v1から25分録音+100epochのv2へ。倫理・なりすまし対策・実用シーンまで体験ベース。
 - [テト君とTikiちゃんに、声をつくった話 ― AIキャラの音声制作1ヶ月奮闘記](https://www.corduroy.co.jp/blog/character-voice-creation/): コールテンマスコット2体の声をStyle-Bert-VITS2で1ヶ月かけて構築した記録。Colab学習の罠と黄金パターン、ブランドの一部としての声の意味。

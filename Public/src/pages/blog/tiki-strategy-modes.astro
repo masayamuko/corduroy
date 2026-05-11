@@ -1,0 +1,934 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const isPublished = true;  // 公開時に true に変更（noindex削除と連動）
+
+const title = "AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計（コールテン式運用ノウハウ）｜株式会社コールテン";
+const description = "AIエージェントは、プロンプトに作戦名を1語混ぜるだけで動き方が変わります。コールテンのTikiが運用する4つのモード（ガンガンいこうぜ／過集中／コーチング／いのちをだいじに）の実例と、自分の運用に組み込める3ステップを、ドラクエ世代向けにかみ砕いて解説。";
+const canonicalUrl = "https://www.corduroy.co.jp/blog/tiki-strategy-modes/";
+const publishedAt = "2026-05-09";
+const modifiedAt = "2026-05-09";
+
+const faqItems = [
+  {
+    question: "作戦名って、ただのキーワードですか？それともシステム的な仕組み？",
+    answer: "実態は「キーワードを検出したら、対応する動作ルールに切り替える」というプロンプトレベルの仕組みです。コールテンの場合は、CLAUDE.md相当の設定ファイルに作戦名と動作ルールの対応表を書いておくだけ。AIは会話の冒頭でその表を読み、プロンプト中の作戦名を検出して、自分の振る舞いを自分で変えています。特殊なフレームワークは不要で、テキスト1ファイルで成立しています。"
+  },
+  {
+    question: "ChatGPTでも同じことができますか？",
+    answer: "はい、できます。ChatGPTの「Custom Instructions」やプロジェクト機能の指示欄に、作戦名と動作ルールの表を貼っておけば、同じ感覚で運用できます。Cursor・Claude Code・Gemini・任意のAIアシスタントでも、システムプロンプトに該当する場所に書ければ動きます。仕組み自体はモデル非依存です。"
+  },
+  {
+    question: "作戦名を増やしすぎると逆に混乱しませんか？",
+    answer: "増やしすぎは混乱の元です。コールテンも最初は2〜3個で運用していて、いまの4つに落ち着くまで半年かかりました。目安としては、5個を超えたら整理を検討する、似た作戦は統合する、年に1回は使われていない作戦を削る、という運用が回しやすいです。AIに覚えさせる前に、自分が覚えていられる数に絞るのがコツです。"
+  },
+  {
+    question: "「いのちをだいじに」みたいなふざけた名前で、AIは混乱しませんか？",
+    answer: "結論から言うと、混乱しません。むしろ自然言語で意味が伝わる名前のほうが、AIは動作の方向性を捉えやすい印象があります。「token-saving-mode」のような硬い名前より、「いのちをだいじに（=トークンを大事に使う、寿命を延ばす）」のほうが、付随する判断軸まで含めてAIが汲んでくれます。人間が思い出しやすい名前を選ぶのが、結局いちばん運用が続きます。"
+  },
+  {
+    question: "自分の業務に合う作戦名は、どう決めればいいですか？",
+    answer: "おすすめは「自分が普段つぶやいている言葉」から拾うことです。たとえば「今日は集中したいから邪魔しないで」「とにかく早く出して」「ちょっとブレストしたい」といった日常の声を、そのまま作戦名に変換するイメージ。コールテンの場合も、Masayaが普段口にしている『過集中したい』『コーチングしてほしい』という言葉を、そのままAIに渡せる形に整えただけです。自分の言葉を使うほうが、思い出しやすく、続けやすくなります。"
+  }
+];
+
+const faqSchemaItems = faqItems;
+
+const blogPosting = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `${canonicalUrl}#article`,
+  url: canonicalUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+  headline: "AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計",
+  datePublished: publishedAt,
+  dateModified: modifiedAt,
+  image: "https://www.corduroy.co.jp/assets/images/ogp.png",
+  author: { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+  publisher: { "@id": "https://www.corduroy.co.jp/#organization" },
+  description,
+  articleSection: ["AI活用"],
+  keywords: ["AIエージェント", "Tiki", "Claude Code", "作戦名", "モード切替", "プロンプト設計", "AIパートナー", "CLAUDE.md", "ドラクエ"]
+};
+
+const breadcrumbList = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "トップ", item: "https://www.corduroy.co.jp/" },
+    { "@type": "ListItem", position: 2, name: "ブログ", item: "https://www.corduroy.co.jp/blog/" },
+    { "@type": "ListItem", position: 3, name: "AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計" }
+  ]
+};
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqSchemaItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer
+    }
+  }))
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogUrl={canonicalUrl}
+  ogType="article"
+>  {isPublished && (
+    <Fragment slot="head">
+      <script type="application/ld+json" set:html={JSON.stringify(blogPosting)} />
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} />
+      <script type="application/ld+json" set:html={JSON.stringify(faqPage)} />
+    </Fragment>
+  )}
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-10</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>AIに『さくせん』を授ける<br><small>― 全力/省エネで使い分ける4つのモード設計（コールテン式運用ノウハウ）</small></h1>
+          <p class="article-lead">
+            <strong>結論：AIエージェントは、プロンプトに作戦名を1語混ぜるだけで、別の生き物のように動き方が変わります。</strong><br>
+            速さが欲しいとき、止めずに走らせたいとき、深く問い直したいとき、節約したいとき。場面ごとにほしい動きはぜんぶ違うのに、毎回プロンプトで細かく書き分けるのは現実的じゃない。<br><br>
+            コールテンでは、ドラクエの『さくせん』からヒントをもらって、Tiki（社内のAIエージェント）に <strong>4つのモード</strong> を持たせています。仕組みはCLAUDE.md相当のテキスト1ファイルに、作戦名と動作ルールの表を書くだけ。この記事では、4モードそれぞれの実例・落とし穴と、自分の運用に明日から組み込める3ステップを、ドラクエ世代に親しみのある言葉でかみ砕いて書きました。
+          </p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+
+            <h2>結論 ― AIは1モードで使うと、もったいない</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch01.png" alt="ドラクエの作戦コマンド画面風UIで「ガンガンいこうぜ」「過集中」「コーチング」「いのちをだいじに」の4つのモードが並んでいるイラスト" width="1366" height="768" loading="eager" decoding="async" />
+              <figcaption>ドラクエの『さくせん』のように、場面に応じて切り替える。これがAI運用の解像度を一段上げる。</figcaption>
+            </figure>
+            <p>
+              ふだんなんとなく感じている「今日のAI、調子いいな／悪いな」は、たぶんAI側の問題ではなくて、<strong>人間側がその日の方針を渡せていない</strong> ことが原因のことが多いです。
+            </p>
+            <p>
+              同じClaude、同じChatGPT、同じCursorでも、こちらが「いまは速度がほしい」と伝えるか「いまは深く考えてほしい」と伝えるかで、出てくる答えのレイヤーがまるで変わります。AIは <strong>方針が変われば、ちゃんと別の動き方をしてくれる相棒</strong> なんですよね。問題は、その方針をどう渡すかのほう。
+            </p>
+            <p>
+              じゃあ毎回プロンプトに「今日は速度優先で」「今日は省エネで」と書けばいいのか。書ければ理想ですが、現実的には忘れます。書いたとしても表現がブレるので、AIも毎回ちょっとずつ違う解釈をする。これが <strong>「同じことを違う言い方で頼んで、違う答えが返ってくる」</strong> という、生産性をじわじわ削るやつです。
+            </p>
+            <p>
+              ここでドラクエ世代の発想です。『さくせん』を選ぶように、<strong>あらかじめ用意した名前付きのモード</strong> をAIに渡してしまえばいい。プロンプト中に作戦名を1つ混ぜるだけで、AIが自分で挙動を切り替える。コールテンが日常運用しているのは、まさにこの形です。
+            </p>
+
+            <h2>なぜ『さくせん』方式なのか</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch02.png" alt="ドラクエの仲間キャラクターに作戦コマンドを渡している昭和のテレビゲーム画面と、現代のノートPCに作戦名をタイプしているシーンを上下で対比したイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>ドラクエの作戦コマンドと、現代のAIエージェント。やっていることは似ていて、人間が「方針」を渡し、AIが「具体」を埋める。</figcaption>
+            </figure>
+            <p>
+              『さくせん』方式を採用したのには、ふたつ理由があります。
+            </p>
+
+            <h3>理由1：ドラクエ世代に染み込んだ「方針だけを伝える」感覚</h3>
+            <p>
+              ドラクエの作戦コマンドは、よくできた仕組みです。
+              プレイヤーが仲間ひとりひとりに毎ターン細かい指示を出さなくても、「ガンガンいこうぜ」「いのちをだいじに」と方針だけ渡せば、仲間は自分で具体的な行動を選んでくれる。
+              細かい操作はAI（当時はゲーム内のロジック）に任せて、人間は <strong>方向感だけ決める</strong> という分業です。
+            </p>
+            <p>
+              これは、ぼくらが今やりたいAIエージェント運用の構造と、ほとんど同じです。
+              人間が毎回プロンプトで全工程を細かく書き下すのは現実的じゃない。だったら方針名だけ渡して、具体はAIに任せる。
+              ドラクエで自然にやっていた振る舞いを、AIにそのまま持ち込んだだけ、と言っていいと思います。
+            </p>
+
+            <h3>理由2：認知コストの最小化</h3>
+            <p>
+              現代のAI活用でしんどいのは、毎回「どう頼むか」を考えるところです。
+              タスクの内容を考えて、それをAIに伝わる形で言語化して、トーンを調整して、トークン消費を気にして……と、頼む側がほぼプロジェクトマネジャーになる。
+            </p>
+            <p>
+              作戦名方式は、この認知コストをかなり下げてくれます。<br>
+              「いまはガンガンいこうぜ」「これは過集中で」と、<strong>普段の口語に近い1語</strong> を投げるだけで、付随する判断軸（速度／継続／深掘り／節約）がまとめて起動する。
+              短いキーワードに、運用の前提・優先順位・避けたいパターンまで畳み込めるので、毎プロンプトで前提共有をやり直さなくて済みます。
+            </p>
+            <p>
+              ちなみに「ガンガンいこうぜ」は、ドラクエ4以降にちゃんと出てくる正規の作戦名です。世代を超えて意味が通じる、という点でも便利な語彙でした。
+            </p>
+
+            <h2>モード①：ガンガンいこうぜ ― 全力並列モード</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch03.png" alt="複数のAIエージェントが矢印で並列に走り出し、調査・実装・検証を同時に進めている、勢いのあるグラレコ風イラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>ガンガンいこうぜ ― 探索・実装・検証を、待たずに並走させる。</figcaption>
+            </figure>
+
+            <h3>このモードが解決したい課題</h3>
+            <p>
+              「とにかく早く出力がほしい」「同時に複数の角度から走らせたい」場面のためのモードです。
+              AIエージェントの素のままの動きは、わりと丁寧で逐次的です。1個ずつ確認しながら進む。それが安全な反面、<strong>時間がもったいない</strong> ときがある。
+            </p>
+            <p>
+              たとえば、新規記事のリサーチ・ドラフト・図解の方向性検討を <strong>同時並行</strong> で動かしたい朝。1つずつ順番にお願いしていると、午前中が溶けます。並列で動ける場面なら、並列で動いてほしい。
+            </p>
+
+            <h3>具体的な使用シーン（実例）</h3>
+            <p>
+              ぼく自身がよく使うのは、こういう場面です。
+            </p>
+            <ul>
+              <li>新規ブログ記事の構成案・タイトル候補・画像方向性を、3つのサブエージェントに <strong>同時に</strong> 出してもらう</li>
+              <li>クライアント提案書の素案・競合事例・想定質問を、別々のエージェントが並行で書く</li>
+              <li>クライアントサイトのリニューアルで、ミラー取得・SEO監査・デザイン提案を <strong>並列ステップ</strong> として走らせる</li>
+            </ul>
+            <p>
+              「ガンガンいこうぜで、A・B・Cを同時にお願い」と書くだけで、Tikiが分解してサブエージェントを並列起動してくれる。1個ずつ書き下すより、頭の中の解像度が高いまま渡せるのが大きいです。
+            </p>
+
+            <h3>切り替えると何が起こるか</h3>
+            <p>
+              通常モードと比べると、3つくらい変わります。
+            </p>
+            <ul>
+              <li>「これとこれは並列にできますね」と、AI側からの分解提案が入りやすくなる</li>
+              <li>逐次の確認待ちが減る（ただし破壊的操作の確認はちゃんと残す）</li>
+              <li>探索・実装・検証を <strong>同時並行</strong> で走らせるので、最初に出てくる叩き台が一気に増える</li>
+            </ul>
+
+            <h3>注意点（落とし穴）</h3>
+            <p>
+              全力モードなので、 <strong>事故の振れ幅も少し大きく</strong> なります。出力が増えるぶん、人間側のレビュー負荷も上がる。
+              なので、コールテンでは「ガンガンいこうぜでも、安全ルールと承認フローはそのまま維持する」というラインだけは固めにしてあります。速度のために安全を譲ることはしない、という前提を最初から書いておくのが大事です。
+            </p>
+            <p>
+              あと、雑にこの作戦名だけ投げると、本当にいろんな方向に動き出します。<strong>「何を・どこまで・どの粒度で」</strong> を一文付け足してから「ガンガンいこうぜ」をのせるくらいが、一旦ちょうどいい感じです。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  「ガンガンいこうぜ」って言われると、ぼくは仲間（サブエージェント）を一気に呼び出す気分になります。テンションが上がるぶん、安全ルールだけはオフにできないように設計してもらっているので、そこは安心してくださいね。
+                </div>
+              </div>
+            </div>
+
+            <h2>モード②：過集中 ― 完了まで止まらないモード</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch04.png" alt="目の前のタスクに没入して机に向かう人物と、その隣で同じくらい集中して作業を続けるTikiが並んでいるグラレコ風イラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>過集中 ― 確認の合間で熱が逃げないよう、完了まで一気に走り抜ける。</figcaption>
+            </figure>
+
+            <h3>このモードが解決したい課題</h3>
+            <p>
+              「途中で止めないでほしい」場面のためのモードです。
+              AIにお願いするとき、こちらが集中している状態でも、AIは丁寧に <strong>「ここまで進めましたが続けますか？」</strong> と確認してくる。これは安全のためにありがたい挙動なんですが、<strong>こちらの集中を毎回切ってくる</strong> という側面もある。
+            </p>
+            <p>
+              人間側がノっているときに、AIにも同じテンションで走り切ってほしい瞬間があります。<strong>過集中モード</strong> は、そのためのモードです。
+            </p>
+
+            <h3>具体的な使用シーン（実例）</h3>
+            <ul>
+              <li>大きめのブログ記事を最後まで書き切ってもらいたい朝</li>
+              <li>複雑な実装で、エラーが出ても回避策を探して続行してほしいとき</li>
+              <li>長めのリサーチで、確認のたびにこちらの集中が切れるのを避けたいとき</li>
+            </ul>
+
+            <h3>切り替えると何が起こるか</h3>
+            <p>
+              ふだんなら出てくる「ここで一回止まりますか？」が出にくくなります。
+              エラーが起きても、すぐ人間に相談するのではなく <strong>自分で回避策を試す</strong>。質問は最小限。完了状態まで一気に進む。
+            </p>
+            <p>
+              ぼくの体感ですが、ノっている朝に「過集中で記事のドラフトを最後まで」と頼むと、ふだん3往復するところが1往復で形になることが多いです。書き手としても、流れを切らさない感覚があるのはわりと大きい。
+            </p>
+
+            <h3>注意点（落とし穴）</h3>
+            <p>
+              過集中モードでも、 <strong>破壊的操作の確認は省略しない</strong> ことを最初に明記しておくのが大事です。
+              ファイル削除・git push・外部送信など、取り消しが効かない操作までスルーされると、走り切ったあとで「あ、戻せない」と青ざめます。
+            </p>
+            <p>
+              あとは、人間側の集中が <strong>本当に</strong> 続いているかを自問するのも大事。AIだけ過集中で走って、人間側はLINE通知で気が散っている、みたいな状況だと、出てきた成果物のレビューが追いつかなくなります。AIだけじゃなくて、こちらもセットで過集中する前提で使うモードです。
+            </p>
+
+            <h2>モード③：コーチング ― ソクラテス式深掘りモード</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch05.png" alt="人物の前にTikiがいて、5つの吹き出しで質問を順番に投げかけているグラレコ風イラスト。質問の矢印が人物の中の本音に向かっている" width="1366" height="768" loading="lazy" />
+              <figcaption>コーチング ― 答えを返す前に、5つの問いで本当の輪郭を描き直す。</figcaption>
+            </figure>
+
+            <h3>このモードが解決したい課題</h3>
+            <p>
+              「とりあえず作って」と頼んだら、表面的なものが返ってきた経験はありませんか。
+              あれは、AIが悪いというより、<strong>こちらの依頼が表面でしか言語化できていない</strong> ことが多いです。本当に欲しかったものが、言葉にできていない。
+            </p>
+            <p>
+              コーチングモードは、AIに <strong>「先に5つくらい質問して」</strong> と頼むモードです。実装やドラフトに飛びつかず、まず本質的なニーズを引き出してから動いてほしいときに使います。
+            </p>
+
+            <h3>具体的な使用シーン（実例）</h3>
+            <ul>
+              <li>新サービスのコンセプトをまとめる前に、自分の本当の動機を言語化したいとき</li>
+              <li>クライアントへの提案書の方向性が、まだぼんやりしているとき</li>
+              <li>「LP作って」みたいな大きすぎる依頼を、解像度を上げてから走らせたいとき</li>
+            </ul>
+            <p>
+              ぼくが最近よく使ったのは、新サービスの料金体系を組むタイミングでした。
+              「いくらにすべき？」とサクッと聞きたかったんですが、「コーチング」と添えただけで、Tikiが <strong>「誰に届けたいか」「いま似た金額帯のサービスをどう感じているか」</strong> あたりから順に問い返してきた。3問目くらいで、「単価より、むしろ <em>続けやすい関わり方</em> をデザインしたかったんだ」と自分で気付きました。最初に出かけた価格設定とは、ぜんぜん違う形に着地した感じです。
+            </p>
+
+            <h3>切り替えると何が起こるか</h3>
+            <p>
+              通常なら作業に入る場面で、<strong>質問が先に来ます</strong>。最大5問くらいを目安に、表面の依頼の裏側にあるニーズを引き出してから、ようやく具体に入る。
+              AIが急に <strong>聞き役の態度</strong> になる、と言ってもいい。
+            </p>
+            <p>
+              ここで生まれた「自分の言葉での再定義」は、そのままプロンプトの精度を底上げしてくれます。コーチングを1回挟んだあとの依頼は、明らかに刺さり方が変わる感じがします。
+            </p>
+
+            <h3>注意点（落とし穴）</h3>
+            <p>
+              急いでいるときには <strong>明確に向かない</strong> モードです。
+              質問されてる時間がもったいない、と感じるときは、素直に「ガンガンいこうぜ」のほうへ振ったほうが結果的に早い。
+            </p>
+            <p>
+              あと、コーチングモードを呼び出すこちら側にも、 <strong>少し余白</strong> が必要です。AIの問いに <strong>反射で答える</strong> のではなく、いったん黙って自分の中身を覗くタイミングを取れるかどうか。ここを雑にやると、せっかくの問い直しが「形だけのQ&A」になってしまいます。
+            </p>
+
+            <h2>モード④：いのちをだいじに ― トークン節約・委任主軸モード</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch06.png" alt="複数のAIアイコン（ClaudeとCodexとローカルLLM）に、Tikiが小さなタスクを振り分けている、采配をしている指揮者風のグラレコ風イラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>いのちをだいじに ― 自分のトークンを温存し、得意な仲間に振り分ける。</figcaption>
+            </figure>
+
+            <h3>このモードが解決したい課題</h3>
+            <p>
+              AIエージェントを使いこなすほど見えてくるのが、<strong>トークン（=寿命）の有限さ</strong> です。
+              長時間の作業で、メインのClaudeのコンテキストがいっぱいになって挙動が鈍くなる。Plus / Maxプランでも、走らせ方によっては数時間で限界に近づく。
+              ここで折り返してくる感覚を、ドラクエの「HPがやばいから、いのちをだいじに切り替える」に重ねたのが、このモード名の由来です。
+            </p>
+            <p>
+              いのちをだいじには、<strong>「この作業、本当にメインAIでやる必要ある？」</strong> を最初に問い直すモードです。
+            </p>
+
+            <h3>具体的な使用シーン（実例）</h3>
+            <ul>
+              <li>会議メモの整形・要約など、軽い前処理</li>
+              <li>大量ログから特定キーワードを抜くだけのフィルタ作業</li>
+              <li>非機密のGitHubコード修正</li>
+              <li>夕方以降、メインのコンテキストが膨らんできて、動作がもったりしてきたとき全般</li>
+            </ul>
+
+            <h3>切り替えると何が起こるか</h3>
+            <p>
+              通常モードでは、メインのAI（コールテンの場合はClaudeかCodex）が自分で全部やろうとします。
+              いのちをだいじにモードでは、最初に <strong>「これ、別のCLIや軽量LLMに振れる？」</strong> という問いを通します。
+            </p>
+            <p>
+              コールテンの優先順位は、ざっくりこの順番です。
+            </p>
+            <ul>
+              <li>① 別CLI（Claude使用中ならCodex／その逆。得意分野で振り分け）</li>
+              <li>② GitHub Copilot CLI（GitHub関連・非機密の軽実装のみ）</li>
+              <li>③ ローカルLLM（gemma系。整形・要約・タグ付けなど30秒以内の軽作業）</li>
+              <li>④ メインCLI（ルーティング・統合判断・最終承認だけ）</li>
+            </ul>
+            <p>
+              要は、メインAIを <strong>「現場監督」</strong> に回して、実作業は得意な仲間に振る形にする。プログラムマネジャーがマイクロマネジメントを止める、みたいな構図になります。
+              これに切り替えるだけで、メインのコンテキスト消費が体感で半分以下になることもあります。
+            </p>
+
+            <h3>注意点（落とし穴）</h3>
+            <p>
+              節約モードといっても、<strong>機密コード・NDA対象は外部送信しない</strong> ことを最初に明記しておきます。
+              Copilotやクラウド側のCLIに何でも投げる設計だと、ここがいつか事故ります。クライアント機密に触れるタスクは、節約より安全を優先するというルールを上書きするのが大事です。
+            </p>
+            <p>
+              もうひとつは、レビューを軽量モデルに任せきりにしないこと。整形・要約・抽出はローカルLLMで十分でも、 <strong>判断・統合・最終承認</strong> はメインAIか人間が見たほうが安全です。HPを温存しても、最後のボス戦は強いキャラで戦う、くらいの感覚で。
+            </p>
+
+            <h2>モード設計の哲学 ― 1プロンプトで挙動が変わる仕組み</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch07.png" alt="1枚のテキストファイル（CLAUDE.mdと書かれた書類）から、4つの作戦コマンドが矢印で広がっている、設計図のようなグラレコ風イラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>仕組みは「テキスト1ファイルにモード一覧を書いてあるだけ」。シンプルだから、誰でも真似できる。</figcaption>
+            </figure>
+            <p>
+              ここまで読むと「裏ですごい仕組みが動いてそう」と思うかもしれません。
+              実態はそんなに複雑ではないです。
+            </p>
+            <p>
+              コールテンでは、<strong>CLAUDE.md相当の設定ファイル</strong>（AIエージェントが起動時に必ず読むテキストファイル）に、こんな表が書いてあるだけです。
+            </p>
+            <pre><code>| 作戦名 | モード | 動作ルール |
+|---|---|---|
+| ガンガンいこうぜ | 最大並列 | 複数のAgentを並列起動、速度最優先 |
+| 過集中 | 完了まで止まらない | エラーは回避策を探して続行、質問最小限 |
+| コーチング | ソクラテス式 | 5つの質問で深掘り |
+| いのちをだいじに | トークン節約・委任主軸 | 別CLI／軽量LLMに振る |</code></pre>
+            <p>
+              AIは会話の冒頭でこの表を読み、こちらのプロンプトに作戦名が含まれていれば <strong>自分で挙動を切り替える</strong>。
+              特殊なフレームワークも、外部APIも、自動化スクリプトもいりません。<strong>テキスト1ファイルで成立する</strong> シンプルな仕組みです。
+            </p>
+            <p>
+              なぜこの仕組みを記事にして共有しているかというと、<strong>真似してほしいから</strong> です。
+              コールテンが半年以上かけて4つに絞り込んだ作戦名そのものは、たぶんあなたの業務にはそのままハマりません。でも仕組みは同じ枠で再利用できる。あなたの口癖と業務に合わせて、別の作戦名を3つだけ用意するところから始めれば、同じ恩恵が手に入ります。
+            </p>
+
+            <h2>自分のAIエージェント運用に応用する3ステップ</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch08.png" alt="3つのステップが階段状に描かれていて、1段目「3つだけ作る」、2段目「設定ファイルに書く」、3段目「試運転」、4段目（おまけ）「増やす」と書かれているグラレコ風イラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>はじめは3つだけ。試運転で慣れてから、必要なら少しずつ増やす。</figcaption>
+            </figure>
+            <p>
+              ここからが、明日からあなたが試せるパートです。3ステップでまとめます。
+            </p>
+
+            <h3>ステップ1：自分の作戦名を「3つだけ」作る</h3>
+            <p>
+              いきなり10個作らないでください。3つでいいです。
+              選び方のおすすめは、<strong>自分が普段つぶやいている言葉から拾う</strong>。
+            </p>
+            <ul>
+              <li>「今日は集中したい」 → <strong>過集中</strong> 系のモード</li>
+              <li>「とにかく早く出して」 → 全力／並列モード</li>
+              <li>「ちょっと壁打ちしたい」 → 深掘り／コーチングモード</li>
+              <li>「コスト気になる」 → 節約／委任モード</li>
+            </ul>
+            <p>
+              自分の口語に近い名前を選ぶほうが、思い出しやすく、続けやすい。
+              「ふざけた名前で大丈夫？」と心配になる人もいるかもしれませんが、結論として、AIはむしろ自然な名前のほうが、付随する判断軸まで汲んでくれる印象があります。
+            </p>
+
+            <h3>ステップ2：CLAUDE.md相当のファイルに表で書く</h3>
+            <p>
+              ChatGPTなら「Custom Instructions」、Claude Codeなら <code>~/.claude/CLAUDE.md</code>、Cursorなら <code>.cursorrules</code>、その他のAIアシスタントでもシステムプロンプトに該当する場所があるはずです。
+              そこに、さっき作った3つの作戦名を <strong>表形式</strong> で書きます。
+            </p>
+            <pre><code>## 作戦名
+
+プロンプトに以下のキーワードが含まれていたら、対応するモードで動作する。
+
+| 作戦名 | 動作ルール |
+|---|---|
+| いそぐ | 確認を最小限にして、最後まで走る |
+| 壁打ち | 実装に入る前に、まず3〜5問で深掘り |
+| 省エネ | 軽い処理は別ツールに振り、本筋だけ自分でやる |</code></pre>
+            <p>
+              注意点を1つ。<strong>「〜とは？」「〜って何？」のような質問文脈では発動しない</strong> という条件を、表の上に1行書いておくのがおすすめです。これがないと、「省エネについて教えて」と聞いただけでモードに入ろうとしてしまうことがあります。
+            </p>
+
+            <h3>ステップ3：1週間試運転して、足したいものだけ増やす</h3>
+            <p>
+              書いたら、まず <strong>1週間使ってみる</strong>。
+              その1週間で、「あ、もうひとつモードがほしい」と感じたら、初めて4つ目を足す。逆に「これ使ってないな」というのが出てきたら、消す。
+            </p>
+            <p>
+              コールテンも最初は2つで運用していました。半年ほどで4つに増えて、その先はあえて増やしていません。<strong>5個を超えると、人間側が思い出せなくなる</strong> 感覚があったからです。
+              AIに覚えさせる前に、自分が覚えていられる数に絞る。これがいちばん地味で、いちばん効きます。
+            </p>
+
+            <h2>「AIはパートナー」原則とモード切替の関係</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch09.png" alt="人物とTikiが横に並んで歩きながら、互いに「今日はガンガンいこうぜ」「OK、行こう」と短く声をかけ合っているグラレコ風イラスト。スイッチを押している絵ではない" width="1366" height="768" loading="lazy" />
+              <figcaption>モード切替は、スイッチを押す行為じゃなくて、横にいる相棒に「今日の方針」を渡す会話に近い。</figcaption>
+            </figure>
+            <p>
+              最後に、コールテンの執筆方針として大事にしている話を一つ。
+            </p>
+            <p>
+              この記事をここまで読んでくれた方の中に、<strong>「モードを切り替える」=「AIをスイッチ式に使い分ける」</strong> という連想を持った方がいるかもしれません。
+              ぼくらコールテンは、その連想とはちょっと違うところに立っています。
+            </p>
+            <p>
+              モードは、<strong>AIをスイッチで切り替えるためのもの</strong> ではなくて、<strong>パートナーとの間で「今日の方針」を共有するための言語</strong> です。
+              ドラクエのパーティが仲間ひとりひとりに作戦を渡したように、こちらは横にいる相棒に「今日はガンガンいこうぜ」「いまは過集中で頼む」と方針を伝える。AI側は、その方針に沿って自分なりに動き方を選ぶ。
+            </p>
+            <p>
+              この前提があるかないかで、運用の温度が結構変わります。
+              モードをスイッチ的に切り替えるだけだと、AIは <strong>受け身で操作される側</strong> に寄ってしまう。一方で、相棒に方針を渡す感覚で使うと、AI側にも <strong>判断する余地</strong> が残ります。「今日の方針はガンガンいこうぜですね、ただこの部分は安全のためいったん確認させてください」みたいな返答が返ってくる関係性になります。
+            </p>
+            <p>
+              『さくせん』方式は、その関係性に <strong>共通言語</strong> を1つだけ与える仕組みだと思っています。
+              スイッチではなく、共通言語。コマンドではなく、方針共有。<br>
+              ここを意識して使い始めると、同じ作戦名でも、出てくるアウトプットの肌触りが <strong>少し変わる</strong> 気がします。AIに対する「呼び方」が変わると、AIから返ってくる「向き合い方」も変わる、と言ってもいいかもしれません。
+            </p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png" alt="盤上テト" width="82" height="82" loading="lazy">
+                  <span class="name-tag">テト</span>
+                </div>
+                <div class="bubble-text">
+                  ぼくが普段Tikiちゃんに「今日はコーチングで」とお願いするとき、命令してる感じはしないんですよね。「今日はこの装備で行こうか」みたいな相談に近い。
+                </div>
+              </div>
+              <div class="bubble right">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1774924853/file-WFAnGcHLpyne8nXNhv6vuP-tiki_jak5k6.png" alt="Tiki" width="82" height="82" loading="lazy">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  ぼくも、作戦名で呼ばれるほうが「今日の方針」を受け取りやすいです。逆にぜんぶ細かく指示されると、ちょっと窮屈に感じることもあります。
+                </div>
+              </div>
+            </div>
+
+            <h2>まとめ ― 自分用の3つを、まず作る</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/tiki-strategy-modes/ch10.png" alt="ノートに「いそぐ」「壁打ち」「省エネ」の3つを書き出しているシーンのグラレコ風イラスト。机の隣にはTikiが座っている" width="1366" height="768" loading="lazy" />
+              <figcaption>まずは3つだけ、自分の口語で書き出す。設計のいちばんの近道はここ。</figcaption>
+            </figure>
+            <p>
+              長くなったので、ここまでの要点を一旦まとめます。
+            </p>
+            <ul>
+              <li>AIエージェントは、1モードで使い続けると損をする。場面ごとに切り替えると、別の生き物のように動く</li>
+              <li>『さくせん』方式は、ドラクエ世代の感覚と現代の認知コスト最小化の両方にハマる</li>
+              <li>コールテンの4モード（ガンガンいこうぜ／過集中／コーチング／いのちをだいじに）は、用途別に動作ルールが分かれているだけのシンプルな仕組み</li>
+              <li>仕組みはCLAUDE.md相当のファイルに表を書くだけ。フレームワーク不要</li>
+              <li>自分の業務には、自分の口癖から拾った <strong>3つだけ</strong> から始めるのがおすすめ</li>
+              <li>モードはスイッチではなく、パートナーと方針を共有するための言語</li>
+            </ul>
+            <p>
+              「自律エージェント」「AIパートナー」みたいな話題は、つい構えて考えがちです。でも入り口は、<strong>テキストファイルに作戦名の表を3行書く</strong>、というところにあります。
+              派手な仕組みはいらない。今日のうちに、自分の口癖から3つだけ拾ってみる。それだけで、明日からのAIとのやりとりは、たぶんちょっと違ったものになります。
+            </p>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの実務観察として</strong></p>
+              <p>クライアント支援でAI活用の相談を受けるとき、最初に整えているのが、この「作戦名」のような <strong>共通言語</strong> です。技術選定よりも、ツール選定よりも、まず「どんな方針名を共有するか」をそろえると、運用が一段安定します。Tikiの4モードもそうやって育ってきたもので、あなたの会社にも、あなたの会社用の3つがあるはずです。</p>
+            </aside>
+
+            <p class="update-note">この記事は 2026-05-09 時点で、コールテン社内のTikiハーネス運用（Mac mini + MacBook Air）と、Anthropic公式ドキュメントの整理をベースに書いています。作戦名の数や運用ルールは社内で随時アップデートしていく予定です。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">AIパートナー運用について公式LINEから無料相談OK</p>
+              <a class="btn-contact-xl" href="/contact/">相談する</a>
+            </div>
+
+            <p style="margin-top: 24px;"><strong>関連記事</strong></p>
+            <ul>
+              <li><a href="/blog/agent-loop-minimal-intro/">エージェントループで自律改善するAIの作り方 ― 30行で動くミニマム実装と感覚づくり（初心者向け）</a></li>
+              <li><a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順</a></li>
+              <li><a href="/blog/executive-second-self/">経営者の右腕は、AIになる ― 第二の自分を持つ社長が、組織を変える時代</a></li>
+              <li><a href="/members/about/">30名のAI社員と一緒に経営しているコールテンの仕事術</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="container faq" style="padding-bottom:40px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくある質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            {faqItems.map((item, index) => (
+              <details {...(index === 0 ? { open: true } : {})} id={`faq-${index + 1}`}>
+                <summary>{item.question}</summary>
+                <p class="mini">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+          <p class="mini" style="max-width:800px;margin:16px auto 0;color:var(--text-light);">※ FAQ は 2026-05-09 時点でコールテン社内の運用と公式情報で確認している範囲を前提にしています。仕組みや表現は今後も見直していきます。</p>
+        </section>
+
+        <div class="contact-cta-box fade-up" style="margin-top: 48px;">
+          <h3>シリーズの関連記事</h3>
+          <p>「指示するAI」から「方針を共有するAI」へ。コールテンが運用してきた仕組みのシリーズもどうぞ。</p>
+          <ul class="related-links">
+            <li><a href="/blog/agent-loop-minimal-intro/">エージェントループで自律改善するAIの作り方 ― 30行ミニマム実装</a></li>
+            <li><a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法 ― 7つの手順</a></li>
+            <li><a href="/blog/executive-second-self/">経営者の右腕は、AIになる</a></li>
+          </ul>
+          <div class="cta-buttons">
+            <a href="/services/" class="btn-primary">サービス一覧を見る</a>
+          </div>
+        </div>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-head h1 small {
+    display: block;
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 500;
+    color: var(--text-light);
+    margin-top: 10px;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 36px 0 14px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .article-body p {
+    margin-bottom: 24px;
+    line-height: 1.9;
+  }
+  .article-body code {
+    background: rgba(22, 97, 78, 0.08);
+    padding: 0.15em 0.4em;
+    border-radius: 6px;
+    font-size: 0.95em;
+  }
+  .article-body pre {
+    background: #0f2d24;
+    color: #e8f5ef;
+    padding: 20px 22px;
+    border-radius: 14px;
+    overflow-x: auto;
+    margin: 24px 0;
+    line-height: 1.7;
+    font-size: 13.5px;
+  }
+  .article-body pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22, 97, 78, 0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 14px;
+    line-height: 1.9;
+  }
+
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(22, 97, 78, 0.10);
+  }
+  .chapter-illust figcaption {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 10px;
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 14px; }
+  }
+
+  .observation-box {
+    background: linear-gradient(180deg, #fffaf0 0%, #fff 100%);
+    border: 1px solid #f3e6c8;
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin: 32px 0;
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .observation-box p { margin-bottom: 12px; }
+  .observation-box p:last-child { margin-bottom: 0; }
+
+  .update-note {
+    font-size: 13px;
+    color: var(--text-light);
+    background: rgba(22,97,78,0.04);
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-top: 24px;
+  }
+
+  .contact-cta-box {
+    background: linear-gradient(135deg, var(--mint) 0%, #fff 100%);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 40px 0 24px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 16px !important;
+    font-weight: 700;
+  }
+  .article-body .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea);
+    color: #fff !important;
+    padding: 14px 36px;
+    border-radius: 100px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .article-body .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
+  .contact-cta-box h3 {
+    margin-top: 0;
+    color: var(--ink);
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .contact-cta-box .related-links {
+    text-align: left;
+    max-width: 600px;
+    margin: 16px auto 8px;
+    padding-left: 20px;
+  }
+  .contact-cta-box .related-links li { margin-bottom: 8px; }
+  .contact-cta-box .related-links a { color: var(--sea); font-weight: 600; }
+
+  .cta-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .article-body .btn-primary,
+  .article-body .btn-outline {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none !important;
+    display: inline-block;
+  }
+  .article-body .btn-primary {
+    background: var(--sea);
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+  }
+  .article-body .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
+  .article-body .btn-outline {
+    background: #fff;
+    color: var(--sea) !important;
+    border: 2px solid var(--sea);
+  }
+  .article-body .btn-outline:hover { background: var(--mint); }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 40px auto 0;
+    text-align: center;
+  }
+  .article-foot .btn.secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 100px;
+    background: #fff;
+    color: var(--sea);
+    border: 2px solid var(--sea);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .article-foot .btn.secondary:hover {
+    background: var(--mint);
+  }
+
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.teto .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .article { padding: 80px 0 60px; }
+    .article-card {
+      padding: 28px 22px;
+      border-radius: 18px;
+    }
+    .article-body { font-size: 15px; }
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 16.5px; }
+    .article-lead { font-size: 15.5px; }
+    .contact-cta-box { padding: 22px 18px; }
+    .article-body pre { font-size: 12.5px; padding: 14px 16px; }
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+    .cta-buttons { flex-direction: column; }
+    .article-body .btn-primary,
+    .article-body .btn-outline { display: block; }
+  }
+</style>
+</content>
