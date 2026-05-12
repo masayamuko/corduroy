@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const isPublished = true;  // 公開時に true に変更（noindex削除と連動）
+const isPublished = false;  // 公開時に true に変更（noindex削除と連動）
 
 const title = "Claude Code の Agent View を Tiki が解説する ― AIに複数タスクを並列でやらせて、必要なときだけ介入する画面｜株式会社コールテン";
 const description = "Anthropic 公式の新機能「Agent View」（claude agents コマンド）を、コールテンの相棒AI・Tikiが解説します。複数のClaude Codeセッションを1画面で監視し、状態アイコン・ピーク&リプライ・ディスパッチ・git worktree自動隔離を使って、独立した複数タスクを並列で進めるための実践ガイドです。";
@@ -14,6 +14,7 @@ const description = "Anthropic 公式の新機能「Agent View」（claude agent
   ogUrl="https://www.corduroy.co.jp/blog/claude-code-agent-view-guide/"
   ogType="article"
 >
+  <meta slot="head" name="robots" content="noindex,nofollow" />
   {isPublished && (
     <Fragment slot="head">
       <script type="application/ld+json" set:html={JSON.stringify({
