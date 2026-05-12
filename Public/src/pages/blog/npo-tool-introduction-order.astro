@@ -1,0 +1,872 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "NPO・非営利団体に本当におすすめしたいIT・AIツール5選 ― 実際の伴走経験から選んだ最強の組み合わせ｜株式会社コールテン";
+const description = "NPO・非営利団体に本当におすすめしたいITツールを5つ厳選しました。Google for Nonprofits、kintone チーム応援ライセンス、PR TIMES 非営利サポート、Canva for Nonprofits、Claude for Nonprofits ― 実際に複数の団体を伴走してきた経験から、「こういう人にはこれ」という形で選び方ごと紹介します。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/npo-tool-introduction-order/"
+  ogUrl="https://www.corduroy.co.jp/blog/npo-tool-introduction-order/"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.corduroy.co.jp/blog/npo-tool-introduction-order/#article",
+        "url": "https://www.corduroy.co.jp/blog/npo-tool-introduction-order/",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/npo-tool-introduction-order/" },
+        "headline": "NPO・非営利団体に本当におすすめしたいIT・AIツール5選 ― 実際の伴走経験から選んだ最強の組み合わせ",
+        "datePublished": "2026-05-14",
+        "dateModified": "2026-05-14",
+        "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+        "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+        "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+        "description": "NPO・非営利団体に本当におすすめしたいITツールを、実際の伴走経験から5つ厳選しました。クラウド基盤・寄付者管理データベース・プレスリリース・デザイン内製化・AI活用までを、「こういう人にはこれ」という選び方とセットで紹介します。",
+        "keywords": ["NPO ITツール", "非営利団体 DX", "Google for Nonprofits", "kintone チーム応援ライセンス", "PR TIMES 非営利サポート", "Canva for Nonprofits", "Claude for Nonprofits"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+          { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "NPO・非営利団体に本当におすすめしたいIT・AIツール5選" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "5つのツールはすべて同時に導入したほうが効率いいですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "おすすめしません。一気に入れると学習コストが爆発して、結局どれも使いこなせないまま終わる団体さんを何度か見てきました。まずは Google for Nonprofits（クラウド基盤）から入れて、業務がそこに乗ってから次のツールに進むのが現実的です。あとの4つは「いちばん困っているところ」から選ぶ形で大丈夫です。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Canva と Google for Nonprofits ってどう違うんですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Google for Nonprofits は「業務全体のクラウド基盤」で、Drive・Docs・Sheets・Gmail・Meet などを団体で使うためのものです。Canva はそのうえに乗せる「デザインに特化した道具」で、チラシ・名刺・SNS画像・プレゼンスライドなどを団体内で内製するのに向いています。役割が違うので、両方入れる団体さんが多いです。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "kintone の構築は IT に弱くてもできますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "シンプルな寄付者一覧アプリだけなら、自分たちでも作れます。ただ、寄付履歴やイベント参加履歴を連携させていくと、ある程度の設計力が必要になります。難しそうなら、サイボウズ オフィシャルパートナーの奏ワークス株式会社さんのような、NPO の kintone 普及を専門にしている支援会社にお願いするのも選択肢です。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Canva for Nonprofits は本当に無料ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "登録できる団体には、Canva Pro（通常は有料プラン）の機能が無償で開放されます。ブランドキット・背景透過・チームでの共同編集・有料素材の利用などが含まれます。対象は登録された非営利団体で、Canva 公式が要件と申請フォームを案内しています。商用利用や政治活動への利用は対象外、といった条件はあるので、申請時に各団体の活動内容を素直に書く必要があります。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "PR TIMES に何を書けばいいかわかりません",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "最初の1〜2本は「新しいプログラムを始めました」「年次報告書を公開しました」のような、すでに動いている活動の報告で十分です。書き慣れてきたら「現場で見えてきた社会課題」「協働事例」「成果データ」などに広げていきます。プレスリリースは社員向け文書ではなく、記者さんに向けた1枚もの、というイメージで書くと書きやすくなります。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Claude for Nonprofits の申請から利用まで何日かかりますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "団体や時期によって変わりますが、コールテンが伴走してきた範囲では、Goodstack 経由の資格確認から承認メール受領まで数日〜2週間ほどの団体さんが多かった印象です。書類の不備で差し戻されると延びます。「日本の認定NPO法人なのに英語のフォームに記入する」あたりが詰まりやすいので、申請前に英語ベースの団体名・住所表記をそろえておくとスムーズです。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>npo-tool-introduction-order</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-14</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>NPO・非営利団体に本当におすすめしたいIT・AIツール5選 ― 実際の伴走経験から選んだ最強の組み合わせ</h1>
+          <p class="article-lead">NPO・非営利団体に本当におすすめしたいITツールを、実際の伴走経験から5つ厳選しました。「ステップを踏まないとダメ」というよりは、「こういう人にはこれ」という形で選んでもらえる構成にしています。すべて、非営利団体だから受けられる無償・大幅割引の支援制度ベース。一気に全部入れる必要はないので、団体の今の困りごとに合いそうなところから読んでください。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <h2>まずどこから読めばいい？ ― 30秒のミニ診断</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tool-introduction-order/ch01.png" alt="4つの質問が分岐するフローチャート状のイラスト。それぞれの答えが5つのおすすめツールへとつながっている" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>5つの紹介に入る前に、まず「どれを先に読めばいいか」のミニ診断を置いておきます。気になる項目から該当する章に飛んでください。</p>
+            <ul>
+              <li>「ローカルのExcel/Wordから抜け出したい」 → <a href="#tool-google">① Google for Nonprofits</a></li>
+              <li>「寄付者管理が手作業で限界」 → <a href="#tool-kintone">② kintone チーム応援ライセンス</a></li>
+              <li>「もっと多くの人に活動を知ってほしい」 → <a href="#tool-prtimes">③ PR TIMES 非営利サポート</a></li>
+              <li>「チラシ・名刺・SNS画像を団体内で内製したい」 → <a href="#tool-canva">④ Canva for Nonprofits</a></li>
+              <li>「業務をAIで効率化したい」 → <a href="#tool-claude">⑤ Claude for Nonprofits</a></li>
+            </ul>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  「全部いる気がして決められない」という方は、まず1. Google for Nonprofitsから読むのがおすすめです。クラウド基盤がそろうと、他の4つを乗せる土台ができます。
+                </div>
+              </div>
+            </div>
+
+            <h2>なぜこの5つなのか ― 選んだ理由をまとめておきます</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tool-introduction-order/ch02.png" alt="5つのおすすめツール（Google for Nonprofits、kintone、PR TIMES、Canva、Claude）がカードのように並んでいるイラスト。それぞれに役割アイコンが描かれている" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>世の中にはNPO向けの支援制度がたくさんあります。そのなかでも、この5つを選んでいるのにはちゃんと理由があります。</p>
+            <ol>
+              <li><strong>① Google for Nonprofits</strong> ― クラウド基盤を作る「お得パック」。Drive・Docs・Sheets・Gmail・Meet・Ad Grants まで全部入り。これだけ申請すれば一気に基盤がそろうので、最初におすすめしたいのはこれ。</li>
+              <li><strong>② kintone チーム応援ライセンス</strong> ― Google を使い慣れて、スプレッドシート管理を卒業したい人向け。寄付者管理を本気でやるならここ。</li>
+              <li><strong>③ PR TIMES 非営利サポート</strong> ― 広報・認知度UPに本気の団体向け。プレスリリースを無料で打ち続けられる。</li>
+              <li><strong>④ Canva for Nonprofits</strong> ― チラシ・名刺・SNS画像を団体内で内製化したい人向け。外注より圧倒的に安く、団体の中で完結する。</li>
+              <li><strong>⑤ Claude for Nonprofits</strong> ― AI活用に進みたい人向け。基盤と素材がそろってきたら、AIをパートナーとして迎える応用編。</li>
+            </ol>
+            <p>この5つで、<strong>基盤＋データ＋広報＋デザイン＋AI</strong>がカバーできます。すべて、非営利団体に向けた公式の支援制度がある（または大幅割引がある）ものだけを選びました。</p>
+            <p>網羅的な「日本のNPOが使える支援制度の一覧」は、別の記事「<a href="/blog/npo-tools/">日本のNPO法人・一般社団法人が使えるAI/IT支援制度まとめ</a>」にまとめています。この記事は、そのなかから「実際に伴走してみて、本当に効くと感じた5つ」を抜き出して紹介する位置づけです。</p>
+
+            <h3>順番には「論理」だけある、強制感はなし</h3>
+            <p>①→②→③→④→⑤ という並びにしているのは、強制的なステップという意味ではなくて、「自然と効きやすい順番」というくらいの意味です。①Google がいちばん土台になるので最初に。2. kintone と 3. PR TIMES と 4. Canva は、団体の困りごとに合わせて並列で選んでOK。5. Claude は基盤や素材がそろってからのほうが活きやすいので、応用編として最後に置いています。</p>
+            <div class="annotation">
+              <span class="anno-label">補足</span>
+              <p>コールテンは「Tiki」というAIを<strong>パートナー</strong>として組んでいます。AIをただの便利ツールとして向き合うのではなく、団体の文脈を一緒に学んでくれる相棒として迎える ― この感覚は、基盤やデータが整ってからのほうが育てやすいです。先にAIだけ入れても、AIに渡せる情報がない、という状態になりがちです。</p>
+            </div>
+
+            <h2 id="tool-google">1. Google for Nonprofits ― まずこれを申請すれば「お得パック」が一気にそろう</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tool-introduction-order/ch03.png" alt="ローカルのExcelとWordが机に散らばっている状態から、Google Drive上で同じファイルをみんなで同時編集している様子へと移行するイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>5つの中で、一番最初におすすめしたいのが <strong>Google for Nonprofits</strong> です。これだけで業務効率が一段変わる団体が、本当に多いです。</p>
+            <p>なぜ最初におすすめか。理由はシンプルで、<strong>申請するだけで一気にいろいろ使えるようになる「お得パック」</strong>だからです。Drive・Docs・Sheets・Gmail・Meet・カレンダーの組織アカウント、そのうえに Google Ad Grants（月10,000ドル相当の検索広告枠）、YouTube Nonprofit Program まで、まとめて入口が開きます。1つの申請で支援の幅が広い、というのは他にあまりない特徴です。</p>
+
+            <h3>どんな制度か</h3>
+            <p>非営利団体向けに Google が無償で提供しているプログラムで、Google Workspace for Nonprofits（メール・Drive・Docs・Sheets・Meet・カレンダー など）を組織アカウントで使えるようになります。あわせて、Google Ad Grants や YouTube Nonprofit Program の入口にもなります。</p>
+            <ul>
+              <li>公式: <a href="https://www.google.com/intl/ja/nonprofits/" target="_blank" rel="noopener noreferrer">Google for Nonprofits 公式</a></li>
+              <li>日本の窓口資格確認は <strong>TechSoup Japan</strong> 経由</li>
+              <li>対象は認定NPO法人・公益財団/社団法人・一般社団法人など（団体類型で要件が異なる）</li>
+            </ul>
+
+            <h3>何が変わるのか</h3>
+            <p>多くの団体さんが最初こう言います。「ファイルがそれぞれの個人のパソコンの中にあって、誰が最新版を持っているか分からない」「メールで送り合っているうちにバージョンが何個も増えた」「在宅の理事と現場の事務局で同じ書類を見るのに時間がかかる」。</p>
+            <p>Google for Nonprofits を入れて、Drive と Docs/Sheets に業務をゆっくり移していくと、この「最新版どこ問題」が消えます。同時編集できるので、議事録やイベント運営の進行表が一段速くなります。</p>
+            <p>具体的に最初の3ヶ月でやることはシンプルです。</p>
+            <ol>
+              <li>組織用 Google アカウントを発行する</li>
+              <li>事業ごと・部署ごとの共有Drive（マイドライブではなく「共有ドライブ」）を作る</li>
+              <li>Excel/Word の現役ファイルだけを、Sheets/Docs に少しずつ載せ替える</li>
+              <li>Meet と Google カレンダーを定例会議で使ってみる</li>
+            </ol>
+            <p>「全部一気に Sheets に移行」はやらないほうがいいです。今動いている現役のファイルだけ、ゆっくり移します。眠っている古いファイルは Drive に置いておくだけで十分です。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テト">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  「Excel に慣れているから Sheets はちょっと…」というスタッフさんは必ずいます。私もそうでした。でも、ファイルを Drive に置くだけでも価値があるんです。Sheets に書き換えるのは、本人がそのファイルを実際に触る回が来てからで大丈夫です。
+                </div>
+              </div>
+            </div>
+
+            <h3>おまけで Google Ad Grants（月10,000ドルの検索広告枠）もついてくる</h3>
+            <p>Google for Nonprofits の中で、特に大きいのが <strong>Google Ad Grants</strong> です。月額10,000ドル相当（約150万円）の検索広告クレジットを、非営利団体に無償で提供しているプログラムで、1日に換算するとおよそ329ドル分。</p>
+            <ul>
+              <li>テキスト広告（検索結果）のみ。動画広告やバナーは対象外</li>
+              <li>クリック単価（CPC）の<strong>固定入札 上限は 2 ドル</strong>（自動入札なら例外あり）</li>
+              <li>毎月のクリック率（CTR）が一定水準を下回るとアカウント停止のリスク</li>
+              <li>団体活動に直接関連するキーワードであることが必要</li>
+              <li>公式: <a href="https://www.google.com/intl/ja_jp/grants/" target="_blank" rel="noopener noreferrer">Google Ad Grants 公式</a></li>
+            </ul>
+            <p>正直に書くと、設定難易度は低くないです。CPC上限2ドルの制約で人気キーワードでは上位表示できなかったり、団体活動に「直接関連」と Google に判断される広告文・LPの設計が必要だったり。<strong>日本のNPOで毎月この枠を満額使い切れている団体は、たぶんかなり少ない</strong>と思います。それでも、半分使えれば月75万円分の検索流入。最初の数ヶ月は満額を目指さず、「コンバージョン（お問い合わせ・寄付・登録）の発生に強いキーワード」に絞って運用するほうが、結果として団体の役に立ちます。</p>
+            <p>自分たちで設計してみて、難しそうなら NPO 案件に慣れた広告代理店や支援団体に部分委託、というハイブリッドが現実的です。</p>
+
+            <h2 id="tool-kintone">2. kintone チーム応援ライセンス ― 寄付者管理を本気でやりたい人向け</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tool-introduction-order/ch05.png" alt="複雑な Excel の寄付者管理シートから、kintone のシンプルなアプリ画面へとデータが流れていくイラスト。寄付履歴・コミュニケーション履歴・イベント参加履歴がカード状に整理されている" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>「すでに Google を使っている」「スプレッドシート管理を卒業して、寄付者管理を本気でやりたい」という団体に、次におすすめしたいのが <strong>kintone チーム応援ライセンス</strong>です。NPOのいちばんの資産は、応援してくれている人たちとの関係。これを Excel で頑張り続けると、シートが「セルの色」「マクロ」「派生シート」で迷宮になっていきます。</p>
+
+            <h3>kintone チーム応援ライセンスとは</h3>
+            <p>サイボウズ社が NPO・社会的活動団体向けに提供している kintone の特別ライセンスです。</p>
+            <ul>
+              <li><strong>年額9,900円（税抜）で 900ユーザーまで</strong></li>
+              <li>ローコードで業務アプリ（データベース）を自分たちで作れる</li>
+              <li>寄付者管理、イベント参加者管理、ボランティア管理、問い合わせ管理など何でも</li>
+              <li>公式: <a href="https://kintone.cybozu.co.jp/price/team-support-license.html" target="_blank" rel="noopener noreferrer">サイボウズ チーム応援ライセンス 公式</a></li>
+            </ul>
+            <p>有償ですが、商用ライセンスと比べると桁が違います。900ユーザーで年9,900円は、NPOにとっては実質「ほぼ無料」です。</p>
+
+            <h3>kintoneでまず作る2つのアプリ</h3>
+            <p>kintone は自由度が高いぶん、最初に「何を作るか」で迷います。だいたいの団体さんでは、最初にこの2つを作ります。</p>
+            <ol>
+              <li><strong>寄付者一覧アプリ</strong>：氏名・連絡先・寄付履歴・最終接触日</li>
+              <li><strong>お問い合わせ管理アプリ</strong>：問い合わせ日・経路・対応状況・担当者</li>
+            </ol>
+            <p>この2つができると、団体の中で「誰がいつ何をしてくれたか」「いま誰にお礼や近況報告を送るべきか」が一目で見えるようになります。Excel管理だと「年に一度の年次集計」しか見ない情報が、日々の判断材料に変わります。</p>
+
+            <h3>自分で構築するか、支援パートナーを使うか</h3>
+            <p>kintone の構築は自分たちでもできるように設計されていますが、業務フローまで設計しようとすると、最初は迷う場面が増えます。</p>
+            <p>NPO向けに kintone の構築・運用を支援してくれる会社として、サイボウズ オフィシャルパートナーの<strong>奏ワークス株式会社</strong>（<a href="https://kanade-works.co.jp" target="_blank" rel="noopener noreferrer">kanade-works.co.jp</a>）があります。代表の北村政記さんは、認定NPO法人 日本こども支援協会の事務局長を兼任されていて、自身もNPOの現場を持ったうえで kintone 普及を進めている方です。「日本一NPO業界にkintoneを普及させる」というコンセプトで活動されていて、コールテンも勉強させていただいています。</p>
+            <p>たとえば、日本こども支援協会では、里親・里子・面談記録・支援団体とのやり取りを kintone で一元管理しているそうです。Excelの個別シートに散らばっていた情報を一つの仕組みに寄せると、現場のスタッフの動きが見えるようになる ― これは、kintone が NPO に効く一番分かりやすい例です。</p>
+            <div class="annotation">
+              <span class="anno-label">補足</span>
+              <p>「自分たちで全部作る」「全部外注する」の二択ではなく、<strong>最初のアプリ設計だけパートナーに頼んで、運用は団体側で巻き取る</strong>のが、コスト面でも学びの面でもおすすめです。</p>
+            </div>
+
+            <h2 id="tool-prtimes">3. PR TIMES 非営利サポート ― 広報・認知度UPに本気の団体向け</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tool-introduction-order/ch06.png" alt="団体の活動報告のプレスリリースが PR TIMES から複数のメディアに同時配信されていく様子のイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>データ管理が整ったら、次は「活動を、まだ知らない人に届ける」ステップです。ここで強くおすすめしたいのが、<strong>PR TIMES 非営利サポートプロジェクト</strong>。</p>
+
+            <h3>制度の中身</h3>
+            <p>本来は有償のプレスリリース配信サービス PR TIMES を、非営利団体に対しては無償で開放しているプログラムです。</p>
+            <ul>
+              <li><strong>設立5年未満</strong>：チャレンジプログラム（1年無償・更新可）</li>
+              <li><strong>設立5年以上</strong>：スタンダードプログラム（<strong>無期限無償</strong>）</li>
+              <li>2024年6月時点で 613団体 が参加（PR TIMES 公表データ）</li>
+              <li>公式: <a href="https://prtimes.jp/csr-pr/" target="_blank" rel="noopener noreferrer">PR TIMES 非営利サポートプロジェクト</a></li>
+            </ul>
+
+            <h3>なぜ強くおすすめするのか</h3>
+            <p>NPOの広報は、SNSと公式サイトが中心になりがちです。でも、SNSはフォロワーの中だけに届くもの。「まだ団体を知らない人」に届けるには、メディアの目に止まる入口が必要です。PR TIMES はその入口を、無料で用意してくれます。</p>
+            <p>プレスリリースが配信されると、PR TIMES 上に掲載されるだけでなく、Yahoo!ニュース・各メディアの記事化ニーズに引っかかる可能性が出てきます。<strong>「年に1〜2本だけでも、確実に打ち続ける」</strong>習慣をつくると、半年〜1年で団体の検索結果が見違えます。</p>
+
+            <h3>最初のプレスリリースに何を書くか</h3>
+            <p>はじめの1本は、難しく考えなくて大丈夫です。</p>
+            <ul>
+              <li>新しいプログラム・サービスを始めました</li>
+              <li>年次報告書を公開しました</li>
+              <li>協働パートナーが決まりました</li>
+              <li>イベントを開催します／開催しました</li>
+              <li>新しい受賞・認定をいただきました</li>
+            </ul>
+            <p>すでにある事実を、記者さんに向けて1枚にまとめる、というイメージです。スタッフ向けの社内文書とは違って、「外の人が読んだら何が新しいのか」が30秒で伝わる形に整えていきます。書き方の型は PR TIMES が公開している「プレスリリース書き方ガイド」が参考になります。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  リリース文を書く時こそ、AIを相棒にすると一気に楽になります。「団体の概要、今回の出来事の経緯、想定読者を渡すから、PR TIMES形式で1本書いてみて。そのあとMasayaが手直しします」のように頼むと、たたき台はすぐ出てきます。これが 5. Claude でAIを入れる理由のひとつでもあります。
+                </div>
+              </div>
+            </div>
+
+            <h2 id="tool-canva">4. Canva for Nonprofits ― チラシ・名刺・SNS画像を団体内で内製したい人向け</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tool-introduction-order/ch07.png" alt="団体のスタッフがCanvaの画面でチラシと名刺をドラッグ＆ドロップで作っているイラスト。完成したチラシ・名刺・SNS画像が机に並んでいる" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>「チラシを外注すると毎回10万円かかってしまう」「SNS用の画像を作るたびにデザイナーさんに頼んでいて、スピード感が出ない」 ― そんな団体に強くおすすめしたいのが、<strong>Canva for Nonprofits</strong> です。</p>
+
+            <h3>なぜCanvaか ― 「外注より圧倒的に安く、団体の中で完結する」</h3>
+            <p>Canva は、ブラウザだけで動くデザインツールです。テンプレートを選んで、文字や写真を差し替えるだけでチラシ・SNS画像・プレゼンスライドが作れます。Adobe Illustrator や Photoshop のような専門ソフトと違って、特別な研修なしでも扱えるのが大きな違いです。</p>
+            <p>NPOの広報で、デザイン外注の費用は地味に重いです。Canva を団体に入れると、その費用がほぼゼロになる場面が増えます。スピードも段違いで、思いついた告知をその場でカタチにできます。</p>
+
+            <h3>何ができるのか</h3>
+            <ul>
+              <li><strong>チラシ・ポスター</strong>（イベント告知、寄付キャンペーン、活動報告）</li>
+              <li><strong>名刺</strong>（理事・スタッフ・ボランティア用）</li>
+              <li><strong>SNS投稿画像</strong>（Instagram / X / Facebook 各サイズ対応のテンプレ多数）</li>
+              <li><strong>プレゼンスライド</strong>（理事会・助成金申請のプレゼン）</li>
+              <li><strong>動画</strong>（短い告知動画・SNS用リール）</li>
+              <li><strong>年次報告書のレイアウト</strong>（テンプレから組める）</li>
+            </ul>
+
+            <h3>名刺を Canva で作って印刷会社に出した実例</h3>
+            <p>Masaya自身も、Canvaで名刺を作って印刷に出しています。流れはこんな感じです。</p>
+            <ol>
+              <li>Canva の名刺テンプレを選ぶ（サイズが最初から日本の名刺規格にそろっている）</li>
+              <li>団体ロゴ・連絡先・肩書きを差し替える</li>
+              <li>印刷用のPDFとして書き出す（トンボと塗り足しの設定をONに）</li>
+              <li>楽プリのような格安ネット印刷会社にPDFを送って印刷</li>
+            </ol>
+            <p>これで、100枚あたり数百円〜千円程度から名刺が作れます。デザイン費の外注がまるごと不要になるので、団体としてはかなり助かる選択肢です。</p>
+
+            <h3>Canva for Nonprofits ― 申請するとPro機能が無料に</h3>
+            <p>Canva は、登録された非営利団体向けに <strong>Canva for Nonprofits</strong> という支援プログラムを提供しています。通常は有料の Canva Pro 相当の機能（ブランドキット・背景透過・チームでの共同編集・100GBクラウド・有料素材の利用 など）が、対象団体には<strong>無償で開放</strong>されます。</p>
+            <ul>
+              <li>公式: <a href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener noreferrer">Canva for Nonprofits 公式</a></li>
+              <li>対象: 登録された非営利団体（要件は申請フォームで確認）</li>
+              <li>商用利用・政治活動への利用は対象外</li>
+            </ul>
+            <p>申請時には、団体の活動内容を素直に書いていけば大丈夫です。日本のNPO法人でも取得実例があります。</p>
+
+            <h3>学習コストは低い、ただし「素材ライセンス」だけは注意</h3>
+            <p>Canva の操作はドラッグ＆ドロップ中心で、はじめての人でも数時間で慣れます。チラシ1枚、SNS画像1枚、を実際に作ってみるのがいちばん早いです。</p>
+            <p>1つだけ注意したいのが、<strong>素材の著作権・ライセンス</strong>です。Canva のテンプレや素材は基本的に Canva のライセンスに従って使えますが、外部から持ち込んだ画像（フリー素材サイトからのダウンロードなど）はそのサイトのライセンスに依存します。「テンプレに自分の写真を載せる」「自団体で撮った写真を使う」のはまったく問題ありませんが、ネットで拾った画像を貼り込むのは避けましょう。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テト">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  Canva のテンプレを使うときは、「自団体の色（ブランドカラー）」だけ最初に決めておくと、毎回の作業が一気に楽になります。ブランドキットに登録しておけば、ワンクリックで全素材を団体カラーに統一できます。
+                </div>
+              </div>
+            </div>
+
+            <h2 id="tool-claude">5. Claude for Nonprofits ― AIをパートナーに迎えたい人向け</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tool-introduction-order/ch08.png" alt="団体のスタッフとAIキャラクター Tiki が並んで、プレスリリースのドラフトやイベント告知文を一緒に書いているイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>基盤・データ・広報・デザインがそろってきたら、最後に乗せたいのがAIです。NPOの場合、ここで特に注目したいのが、Anthropic 社が提供している <strong>Claude for Nonprofits</strong> です。</p>
+
+            <h3>制度の中身</h3>
+            <p>Anthropic と GivingTuesday が組んで2025年12月に発表した、非営利団体向けのプログラムです。</p>
+            <ul>
+              <li>Claude の Team プラン・Enterprise プランが<strong>最大75%割引</strong></li>
+              <li>フルスペックの Claude が <strong>1ユーザーあたり月 $8 程度</strong>から</li>
+              <li>使えるモデルは Claude Sonnet 4.5 / Claude Haiku 4.5（Opus 4.5 は要相談）</li>
+              <li>申請は Goodstack 経由で資格確認 → 承認メール → 利用開始</li>
+              <li>公式: <a href="https://claude.com/solutions/nonprofits" target="_blank" rel="noopener noreferrer">Claude for Nonprofits 公式</a></li>
+            </ul>
+
+            <h3>日本のNPOにとって何が嬉しいか</h3>
+            <p>正直に書くと、海外発のAI支援プログラムは、日本のNPOにとってハードルが高いものが多いです。書類が英語だったり、対象国が限定されていたり、団体類型の要件が日本の認定NPO法人と一致しなかったり。</p>
+            <p>そのなかで、Claude for Nonprofits は<strong>日本の非営利団体でも比較的取りやすい</strong>印象があります。コールテンが伴走している団体でも取得できた団体があり、申請から承認までは数日〜2週間ほどでした（個別事例ベース）。</p>
+            <p>一方で、<strong>OpenAI for Nonprofits</strong> は日本国内の取得事例がコールテンの知る範囲ではほぼなく、要件もやや厳しめです。<strong>Microsoft 365 for Nonprofits の AI アドオン（Copilot）</strong> は、2026年5月時点で販売停止中（公式案内）。なので、いまの時点で「日本のNPOがAIを業務に組み込もう」と考えるなら、Claude for Nonprofits を入口にしておくのが現実的です。</p>
+
+            <h3>AIに何を任せるか</h3>
+            <p>AIは「道具として使う」のではなく、<strong>団体の文脈を一緒に学んでくれるパートナーとして迎える</strong>のがおすすめです。最初に渡すといいのは、こんな情報です。</p>
+            <ul>
+              <li>団体のミッション・ビジョン・大事にしている価値観</li>
+              <li>主な事業の説明（誰のために、何を、どうやって）</li>
+              <li>これまでに作ってきた資料・年次報告書のサンプル</li>
+              <li>団体としての「絶対に外したくない言い回し」「避けたい表現」</li>
+            </ul>
+            <p>これらを渡したうえで、プレスリリースのたたき台・寄付者向けレターの下書き・イベント告知文・SNS投稿のドラフトなどを頼んでいくと、団体の声色を保ったまま、量を出せるようになります。最終チェックは必ず人間が入りますが、たたき台がある状態は、ゼロから書き出す状態よりずっと楽です。</p>
+            <p>AIをパートナーとして迎える具体的な手順は、別記事の「<a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順</a>」にまとめています。NPOの文脈にもそのまま応用できるはずです。コールテンがAI組織として動いている裏側は、「<a href="/blog/tiki-teto-origin-story/">TikiとテトのAI組織</a>」もあわせて読んでもらえると、雰囲気が伝わるかもしれません。</p>
+
+            <h2>5つを「組み合わせて」使うと、もっと効く</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tool-introduction-order/ch09.png" alt="5つのツールが連携している様子を線で結んだイラスト。Canvaで作ったチラシをPR TIMESで配信し、kintoneで申込者管理し、ClaudeでSNS投稿文を書き、すべてGoogle Driveに保存されている流れが描かれている" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>5つそれぞれを単独で使ってもいいんですが、組み合わせると効きやすくなります。実際にやっている団体さんの例を、いくつか書いてみます。</p>
+
+            <h3>① Google × ④ Canva ― デザイン素材をDriveで一元管理</h3>
+            <p>Canva で作ったチラシ・名刺・SNS画像のPDFを、Google Drive の共有フォルダに保存していくと、団体内でデザイン資産がたまっていきます。理事・スタッフ・ボランティアの誰でも、過去のチラシをすぐ取り出せる。次のイベントは過去のテンプレを少し書き換えるだけで作れる。これだけで、広報のスピードが大きく変わります。</p>
+
+            <h3>④ Canva × ③ PR TIMES ― リリース用の画像を団体内で作る</h3>
+            <p>PR TIMES のプレスリリースには、必ず1枚画像（アイキャッチ）が必要です。これを毎回外注すると地味に効きますが、Canva があれば団体内で作れます。プレスリリースを書いてから、Canva でその場でアイキャッチを作って、PR TIMES に投稿するまでが1日で完結します。</p>
+
+            <h3>② kintone × ③ PR TIMES ― 配信先メディアを管理</h3>
+            <p>PR TIMES から配信したリリースが、どのメディアで取り上げられたか、どの記者さんと縁ができたか ― これを kintone のアプリで記録しておくと、次のリリース時に「前回反応してくれた記者さんに個別で案内する」みたいな丁寧な広報ができます。</p>
+
+            <h3>⑤ Claude × すべて ― AIに「団体の文脈」を学んでもらう</h3>
+            <p>Google Drive に蓄積された資料、kintone に入っている活動データ、Canva で作ってきたチラシのトーン ― これらが揃ってくると、Claude にも「団体の文脈」を渡せるようになります。プレスリリースのたたき台、寄付者向けレターの下書き、イベント告知文 ― AIに頼める範囲が一気に広がります。5. Claude を最後に置いている理由は、ここです。基盤と素材があってはじめて、AIは本領を発揮します。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テト">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  どれから始めるにしても、「今いちばん困っている1つ」から手をつけるのが続くコツだと思います。理想の順番より、目の前の現場の困りごとを優先したほうが、現場の納得感も生まれます。
+                </div>
+              </div>
+            </div>
+
+            <h2>導入サポートが必要なら、コールテンに相談してみてください</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/npo-tool-introduction-order/ch10.png" alt="NPOのスタッフとコールテンの伴走者が、テーブルを挟んで地図のような導入ロードマップを一緒に眺めているイラスト" width="1366" height="768" loading="lazy" />
+            </figure>
+            <p>ここまで読んでくれてありがとうございます。5つを整理してみましたが、実際の現場では「ウチの団体規模だと2. kintone を先にしたほうがいいのでは」「Ad Grants の運用は外に頼みたい」「4. Canva だけ先に申請してみたい」など、団体ごとに変わる判断がたくさん出てきます。</p>
+            <p>コールテンでは、複数のNPO・非営利団体の <strong>IT/AI導入を伴走</strong>させていただいています。クラウド基盤の立ち上げから、寄付者管理データベースの設計、PR TIMES での発信、Canva for Nonprofits や Claude for Nonprofits の申請までを、一緒に進める形でサポートしています。</p>
+            <p>「自分たちだけでやれるか不安」「5つのうちどれから始めるか迷う」という方は、まずは無料相談か LINE 公式アカウントから連絡してみてください。「ウチの団体の場合はどれから？」というだけの相談でも歓迎です。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">「ウチの団体の場合はどれから？」だけのご相談でも大丈夫です。</p>
+              <a class="btn-contact-xl" href="/contact/">相談する</a>
+            </div>
+
+            <p class="article-updated-note">※本記事の内容は2026年5月時点のものです。各支援プログラム（Google for Nonprofits / Google Ad Grants / kintone チーム応援ライセンス / PR TIMES 非営利サポート / Canva for Nonprofits / Claude for Nonprofits）の対象要件・割引内容・申請条件は変更される可能性があります。申請前に各公式サイトの最新情報をご確認ください。本記事の伴走事例は個別事例ベースで、すべての団体で同じ結果を保証するものではありません。</p>
+          </div>
+        </section>
+
+        <section id="faq" class="container faq" style="padding-top:0;padding-bottom:40px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくある質問</h2>
+          </div>
+          <div class="faq-items">
+            <details>
+              <summary>5つのツールはすべて同時に導入したほうが効率いいですか？</summary>
+              <p class="mini">おすすめしません。一気に入れると学習コストが爆発して、結局どれも使いこなせないまま終わる団体さんを何度か見てきました。まずは Google for Nonprofits（クラウド基盤）から入れて、業務がそこに乗ってから次のツールに進むのが現実的です。あとの4つは「いちばん困っているところ」から選ぶ形で大丈夫です。</p>
+            </details>
+            <details>
+              <summary>Canva と Google for Nonprofits ってどう違うんですか？</summary>
+              <p class="mini">Google for Nonprofits は「業務全体のクラウド基盤」で、Drive・Docs・Sheets・Gmail・Meet などを団体で使うためのものです。Canva はそのうえに乗せる「デザインに特化した道具」で、チラシ・名刺・SNS画像・プレゼンスライドなどを団体内で内製するのに向いています。役割が違うので、両方入れる団体さんが多いです。</p>
+            </details>
+            <details>
+              <summary>kintone の構築は IT に弱くてもできますか？</summary>
+              <p class="mini">シンプルな寄付者一覧アプリだけなら、自分たちでも作れます。ただ、寄付履歴やイベント参加履歴を連携させていくと、ある程度の設計力が必要になります。難しそうなら、サイボウズ オフィシャルパートナーの奏ワークス株式会社さんのような、NPOのkintone普及を専門にしている支援会社にお願いするのも選択肢です。</p>
+            </details>
+            <details>
+              <summary>Canva for Nonprofits は本当に無料ですか？</summary>
+              <p class="mini">登録できる団体には、Canva Pro（通常は有料プラン）の機能が無償で開放されます。ブランドキット・背景透過・チームでの共同編集・有料素材の利用などが含まれます。対象は登録された非営利団体で、Canva 公式が要件と申請フォームを案内しています。商用利用や政治活動への利用は対象外、といった条件はあるので、申請時に各団体の活動内容を素直に書く必要があります。</p>
+            </details>
+            <details>
+              <summary>PR TIMES に何を書けばいいかわかりません</summary>
+              <p class="mini">最初の1〜2本は「新しいプログラムを始めました」「年次報告書を公開しました」のような、すでに動いている活動の報告で十分です。書き慣れてきたら「現場で見えてきた社会課題」「協働事例」「成果データ」などに広げていきます。プレスリリースは社内向け文書ではなく、記者さんに向けた1枚もの、というイメージで書くと書きやすくなります。</p>
+            </details>
+            <details>
+              <summary>Claude for Nonprofits の申請から利用まで何日かかりますか？</summary>
+              <p class="mini">団体や時期によって変わりますが、コールテンが伴走してきた範囲では、Goodstack 経由の資格確認から承認メール受領まで数日〜2週間ほどの団体さんが多かった印象です。書類の不備で差し戻されると延びます。「日本の認定NPO法人なのに英語のフォームに記入する」あたりが詰まりやすいので、申請前に英語ベースの団体名・住所表記をそろえておくとスムーズです。</p>
+            </details>
+          </div>
+        </section>
+
+        <div class="contact-cta-box fade-up" style="margin-top: 48px;">
+          <h3>「ウチの団体ならどれから？」を一緒に整理しませんか</h3>
+          <p class="contact-cta-lead">5つのおすすめのうち、いま着手すべきものはどれか。実際の伴走経験から、団体の状況に合わせて一緒に考えます。無料相談から、LINE での気軽な質問まで。</p>
+          <div class="cta-buttons">
+            <a href="/services/advisory/" class="btn-primary">AI顧問サービスを見る</a>
+            <a href="/contact/" class="btn-outline">個別相談を申し込む</a>
+          </div>
+        </div>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-updated-note {
+    margin-top: 40px;
+    padding: 14px 18px;
+    background: #f6f6f4;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 34px 0 12px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul, .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 12px;
+    line-height: 1.85;
+  }
+  .article-body blockquote {
+    margin: 18px 0 24px;
+    padding: 14px 20px;
+    border-left: 3px solid var(--sea);
+    background: rgba(22,97,78,0.04);
+    border-radius: 0 10px 10px 0;
+    color: #2c4a40;
+  }
+  .article-body blockquote p { margin-bottom: 0; }
+  .article-body .annotation {
+    margin: 8px 0 22px;
+    padding: 12px 16px 12px 18px;
+    background: #fbf9f3;
+    border-left: 3px solid #d4a04d;
+    border-radius: 0 8px 8px 0;
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: #5a5246;
+  }
+  .article-body .annotation .anno-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #a37a30;
+    margin-right: 6px;
+    vertical-align: 1px;
+  }
+  .article-body .annotation p {
+    margin: 0;
+    display: inline;
+  }
+  .faq {
+    padding: 0;
+  }
+  .faq .section-head {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .faq .section-head small {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--sea);
+    background: rgba(22,97,78,0.08);
+    padding: 4px 12px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+  }
+  .faq .section-head h2 {
+    font-size: 24px;
+    color: var(--ink, #16614e);
+    margin: 0;
+  }
+  .faq-items details {
+    background: #fafaf7;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    transition: background 0.15s;
+  }
+  .faq-items details[open] {
+    background: #fff;
+    border-color: rgba(22,97,78,0.2);
+  }
+  .faq-items summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--sea);
+    list-style: none;
+    padding-right: 28px;
+    position: relative;
+  }
+  .faq-items summary::-webkit-details-marker { display: none; }
+  .faq-items summary::after {
+    content: "＋";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-weight: 400;
+    color: var(--sea);
+    transition: transform 0.2s;
+  }
+  .faq-items details[open] summary::after {
+    content: "−";
+  }
+  .mini {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: #555;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    margin: 32px 0 8px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sea, #16614e);
+    margin-bottom: 20px;
+  }
+  .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea, #16614e) !important;
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px 44px;
+    border-radius: 999px;
+    text-decoration: none !important;
+    box-shadow: 0 6px 18px rgba(22,97,78,0.28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(22,97,78,0.38);
+  }
+  .contact-cta-box h3 {
+    margin-top: 0;
+    color: var(--ink, #16614e);
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .article-body .btn-primary,
+  .contact-cta-box .btn-primary,
+  .cta-buttons .btn-primary,
+  .article-body .btn-outline,
+  .contact-cta-box .btn-outline,
+  .cta-buttons .btn-outline {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none !important;
+    display: inline-block;
+  }
+  .article-body .btn-primary,
+  .contact-cta-box .btn-primary,
+  .cta-buttons .btn-primary {
+    background: var(--sea) !important;
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+  }
+  .article-body .btn-primary:hover,
+  .contact-cta-box .btn-primary:hover,
+  .cta-buttons .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
+  .article-body .btn-outline,
+  .contact-cta-box .btn-outline,
+  .cta-buttons .btn-outline {
+    background: #fff !important;
+    color: var(--sea) !important;
+    border: 2px solid var(--sea);
+  }
+  .article-body .btn-outline:hover,
+  .contact-cta-box .btn-outline:hover,
+  .cta-buttons .btn-outline:hover { background: var(--mint) !important; }
+  @media (max-width: 768px) {
+    .cta-buttons { flex-direction: column; }
+    .article-body .btn-primary,
+    .article-body .btn-outline { display: block; }
+  }
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.teto .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+  }
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .article-foot { justify-content: center; }
+  }
+</style>
+</content>
+</invoke>
