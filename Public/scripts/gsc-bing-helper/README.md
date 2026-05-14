@@ -21,7 +21,9 @@ node index.js
 2. Bing Webmaster Tools 登録
 3. 両方
 
-Chromium が立ち上がるので、画面の指示に従ってログイン。完了後、自動でスクショ・HTML を `/tmp/gsc-bing-helper/output/` に保存。
+Chromium が立ち上がるので、画面の指示に従ってログイン。完了後、自動でスクショ・HTML を `~/.claude/playwright-shared/output/` に保存。
+
+**ログインプロファイルは `~/.claude/playwright-shared/chrome-profile/` に永続保存される**。Tiki が以降の bg ジョブで同じプロファイルを headless で使えば、ログイン済みセッションを継承して GSC / Bing を自動操作できる。
 
 ## 出力ファイル
 
