@@ -11,7 +11,8 @@ const URLS = [
   // 注: ai-advisory-new-applications-paused-2026-05 は noindex 運用のため GSC 検査対象外
 ];
 
-const USER_DATA_DIR = '/tmp/sc-indexer/chrome-profile';
+// Tiki 共有プロファイル統一（gsc-bing-helper と同じ）。Macの再起動でもログイン保持。
+const USER_DATA_DIR = require('os').homedir() + '/.claude/playwright-shared/chrome-profile';
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const ask = (q) => new Promise(r => rl.question(q, r));

@@ -4,7 +4,7 @@
 //   npm install   (初回のみ)
 //   node index.js
 //
-// 出力先: /tmp/gsc-bing-helper/output/
+// 出力先: ~/.claude/playwright-shared/output/
 //   - gsc-pages-report.png (フルページスクショ)
 //   - gsc-pages-report.html (HTML 全文)
 //   - gsc-unindexed-urls.json (推定 未インデックスURL一覧)
@@ -15,8 +15,12 @@ const readline = require('readline');
 const fs = require('fs');
 const path = require('path');
 
-const USER_DATA_DIR = '/tmp/gsc-bing-helper/chrome-profile';
-const OUT_DIR = '/tmp/gsc-bing-helper/output';
+// Tiki 共有プロファイル (~/.claude/playwright-shared/chrome-profile/) を使う。
+// Masaya が一度ここでログインしておけば、Tiki が bg ジョブから同プロファイルで
+// headless 起動して GSC / Bing にアクセスできる（セッション継承）。
+// /tmp/ 配下を避けるのは、Macの再起動でログイン情報が消えるのを防ぐため。
+const USER_DATA_DIR = require('os').homedir() + '/.claude/playwright-shared/chrome-profile';
+const OUT_DIR = require('os').homedir() + '/.claude/playwright-shared/output';
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const ask = (q) => new Promise((r) => rl.question(q, r));
