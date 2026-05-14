@@ -17,5 +17,16 @@ export default defineConfig({
     '/blog/npo-tools-2026/': '/blog/npo-tools/',
     '/blog/students-tools-2026/': '/blog/students-tools/',
   },
-  integrations: [sitemap(), preact()]
+  integrations: [
+    sitemap({
+      // noindex 記事は sitemap から除外
+      // Google公式ガイダンス: noindex な URL を sitemap に入れると矛盾シグナルになり SEO 評価を下げる
+      // お知らせ系（時限的・noindex運用）の記事を追加する時は、ここの配列にも URL を追加すること
+      filter: (page) =>
+        ![
+          'https://www.corduroy.co.jp/blog/ai-advisory-new-applications-paused-2026-05/',
+        ].includes(page),
+    }),
+    preact(),
+  ],
 });
