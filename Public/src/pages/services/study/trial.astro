@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import { LINE_URLS } from '../../../constants/urls';
 
 const title = "体験講座（3,000円）｜AI講座（福岡）｜株式会社コールテン";
 const description = "AIデモ＋第二の自分デモを1時間で体感する体験講座。参加費3,000円。福岡・対面開催。「自分にもできる」という自信を持ち帰ってください。";
@@ -41,7 +42,7 @@ const trialSchedule = [
           </p>
           <p class="lead-sub">「わかりやすい」「自分にもできる」という感覚を、1時間で持ち帰れます。</p>
           <div class="hero-cta">
-            <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">LINE登録して申し込む</a>
+            <a class="btn" href={LINE_URLS.program} target="_blank" rel="noopener noreferrer">LINE登録して申し込む</a>
             <a class="btn secondary" href="#schedule">開催日程を見る →</a>
           </div>
         </div>
@@ -138,7 +139,7 @@ const trialSchedule = [
                 <span class="sched-time">{s.time}</span>
                 <span class="sched-place">📍 {s.place}</span>
               </div>
-              <a class="btn-sm" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">LINE で申込</a>
+              <a class="btn-sm" href={LINE_URLS.program} target="_blank" rel="noopener noreferrer">LINE で申込</a>
             </div>
           ))}
         </div>
@@ -165,7 +166,7 @@ const trialSchedule = [
           <div class="next-icon">💬</div>
           <h3>もう少し話を聞きたい</h3>
           <p class="mini">「自分に合うか不安」「もっと詳しく聞きたい」という方は、LINEでご相談ください。</p>
-          <a class="btn secondary" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">LINEで相談する</a>
+          <a class="btn secondary" href={LINE_URLS.program} target="_blank" rel="noopener noreferrer">LINEで相談する</a>
         </div>
       </div>
     </section>
@@ -192,7 +193,7 @@ const trialSchedule = [
         </details>
         <details>
           <summary>予約は必要ですか？</summary>
-          <p>はい、事前予約制です。<a href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener">LINE</a>に登録いただき、そこからお申し込みください。定員がありますので、お早めのご予約をおすすめしています。</p>
+          <p>はい、事前予約制です。<a href={LINE_URLS.program} target="_blank" rel="noopener">LINE</a>に登録いただき、そこからお申し込みください。定員がありますので、お早めのご予約をおすすめしています。</p>
         </details>
         <details>
           <summary>AIを触ったことがなくても大丈夫ですか？</summary>
@@ -204,7 +205,7 @@ const trialSchedule = [
         </details>
         <details>
           <summary>福岡以外での開催予定はありますか？</summary>
-          <p>現在は福岡市内（赤坂エリア）での対面開催のみです。コールテンは「対面で伝わるもの」を大切にしているため、まずは福岡にお越しいただける方が対象となります。今後の展開については<a href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener">LINE</a>で最新情報をお届けしています。</p>
+          <p>現在は福岡市内（赤坂エリア）での対面開催のみです。コールテンは「対面で伝わるもの」を大切にしているため、まずは福岡にお越しいただける方が対象となります。今後の展開については<a href={LINE_URLS.program} target="_blank" rel="noopener">LINE</a>で最新情報をお届けしています。</p>
         </details>
       </div>
     </section>
@@ -219,7 +220,7 @@ const trialSchedule = [
         </div>
         <div class="card fade-up" style="max-width:560px; margin:0 auto; text-align:center;">
           <p class="mini" style="margin-bottom:24px;">無理な勧誘はありません。まずは気軽にどうぞ。</p>
-          <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">LINE登録して申し込む</a>
+          <a class="btn" href={LINE_URLS.program} target="_blank" rel="noopener noreferrer">LINE登録して申し込む</a>
         </div>
       </div>
     </section>
