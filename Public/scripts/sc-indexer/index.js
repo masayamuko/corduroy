@@ -19,10 +19,15 @@ const ask = (q) => new Promise(r => rl.question(q, r));
 
 (async () => {
   console.log('🚀 Chromium 起動中...');
+  // 公式 Google Chrome を使う（Playwright Chromiumだと Google 認証が通りにくい・
+  // Profile 1 セッション共有のため）。
+  // gsc-bing-helper で Masaya がログインしたセッションを Profile 1 経由で引き継ぐ。
   const ctx = await chromium.launchPersistentContext(USER_DATA_DIR, {
+    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
     headless: false,
     viewport: { width: 1400, height: 900 },
     locale: 'ja-JP',
+    args: ['--profile-directory=Profile 1'],
   });
   const page = ctx.pages()[0] || await ctx.newPage();
 
