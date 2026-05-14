@@ -5,7 +5,10 @@ const { chromium } = require('playwright');
 const readline = require('readline');
 
 const URLS = [
-  'https://www.corduroy.co.jp/blog/mek-interview-name-character/',
+  // 2026-05-14 セッションで公開した記事
+  'https://www.corduroy.co.jp/blog/claude-code-agent-view-guide/',  // 5/12付（5/13追記で再公開）
+  'https://www.corduroy.co.jp/blog/npo-tool-introduction-order/',   // 5/13付
+  // 注: ai-advisory-new-applications-paused-2026-05 は noindex 運用のため GSC 検査対象外
 ];
 
 const USER_DATA_DIR = '/tmp/sc-indexer/chrome-profile';
