@@ -14,9 +14,6 @@ const description = "Anthropic 公式の新機能「Agent View」（claude agent
   ogUrl="https://www.corduroy.co.jp/blog/claude-code-agent-view-guide/"
   ogType="article"
 >
-  {!isPublished && (
-    <meta slot="head" name="robots" content="noindex,nofollow" />
-  )}
   {isPublished && (
     <Fragment slot="head">
       <script type="application/ld+json" set:html={JSON.stringify({
