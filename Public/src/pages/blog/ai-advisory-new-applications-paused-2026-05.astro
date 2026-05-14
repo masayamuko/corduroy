@@ -1,0 +1,282 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const isPublished = false;  // 公開時に true に変更（noindex削除と連動）
+
+const title = "【お知らせ】AI顧問サービスの新規お申し込みを一時停止しています ― 既存クライアントさんの初期段階に集中するため｜株式会社コールテン";
+const description = "AI顧問（AIコモン）の新規お申し込みを、2026年5月時点で一時停止しています。新規でお迎えしたクライアントさんが多く、初期段階のクライアント理解・環境理解・設計に工数を集中しているためです。再開時は公式LINEで先にお知らせします。";
+const canonicalUrl = "https://www.corduroy.co.jp/blog/ai-advisory-new-applications-paused-2026-05/";
+const publishedAt = "2026-05-14";
+const modifiedAt = "2026-05-14";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogUrl={canonicalUrl}
+  ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
+  ogType="article"
+>
+  {!isPublished && (
+    <meta slot="head" name="robots" content="noindex,nofollow" />
+  )}
+  {isPublished && (
+    <Fragment slot="head">
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": `${canonicalUrl}#article`,
+            "url": canonicalUrl,
+            "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+            "headline": "【お知らせ】AI顧問サービスの新規お申し込みを一時停止しています",
+            "datePublished": publishedAt,
+            "dateModified": modifiedAt,
+            "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+            "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+            "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+            "description": description
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": `${canonicalUrl}#breadcrumb`,
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+              { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+              { "@type": "ListItem", "position": 3, "name": "AI顧問サービスの新規お申し込みを一時停止しています" }
+            ]
+          }
+        ]
+      })} />
+    </Fragment>
+  )}
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>ai-advisory-new-applications-paused-2026-05</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-14</time>
+            <span class="cat">お知らせ</span>
+          </div>
+          <h1>【お知らせ】AI顧問サービスの新規お申し込みを一時停止しています ― 既存クライアントさんの初期段階に集中するため</h1>
+          <p class="article-lead">いつも株式会社コールテンを応援してくださり、ありがとうございます。本日は1点、サービス提供についてのお知らせです。<br><br>コールテンの主力サービスである <strong>「AI顧問（AIコモン）」の新規お申し込みを、2026年5月時点で一時的に停止</strong>させていただいています。再開時は、公式LINEに登録いただいているみなさまへ <strong>サイトより先にお知らせ</strong>します。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <h2>いま、なぜ新規お申し込みを止めているのか</h2>
+            <p>ありがたいことに、ここ最近のコールテンには、新規でAI顧問を導入いただくクライアントさんが続けてお越しくださっています。お声がけいただいた一社一社、本当に感謝しています。</p>
+            <p>そのうえで、AI顧問は <strong>「契約してから最初の数ヶ月」の作り込み</strong>が、後の伴走の質を大きく左右する仕事です。具体的には、こんなところに時間と頭を使います。</p>
+            <ul>
+              <li><strong>クライアント理解</strong>：会社・事業・現場の言葉・大事にしている価値観をじっくり聞き、社内のドキュメントを読み込みます。</li>
+              <li><strong>環境理解</strong>：いま使っているツール、業務の流れ、データの置き場、関係者の役割を把握します。</li>
+              <li><strong>設計</strong>：AIを「どの業務に」「どんな関わり方で」入れるかを、現場の方と一緒に組み立てます。第二の自分（AIエージェント）として育てる前提なので、立ち上がりの設計品質がそのまま中長期の運用品質に効きます。</li>
+            </ul>
+            <p>この3つの工程は、コールテンとしても代表が直接深く関わる部分で、ここを薄めて並列で進めることは <strong>クライアントさんへの誠実さの観点からしたくありません</strong>。新規でお迎えしたクライアントさんの立ち上げに集中できる体制をつくりたく、新規お申し込みは一時停止という判断にいたりました。</p>
+
+            <h2>既存のクライアントさん・継続中のご相談には影響しません</h2>
+            <p>今回の停止は、あくまで「これから新規で契約をご検討いただく方の受け入れ」を一時的に止めるものです。<strong>既存のクライアントさんへの伴走、すでに動き始めているプロジェクト、継続中のご相談には影響しません</strong>。これまでどおり、責任を持ってサポートを続けていきます。</p>
+            <p>また、AI顧問以外のスポット相談・講座・サイト関連のご相談などについては、状況に応じて個別にご相談を受けています。「AI顧問ではないけれど、こういうことを一緒に考えてほしい」という場合は、後述の公式LINEから気軽に話しかけてください。</p>
+
+            <h2>再開のお知らせは、公式LINEから先にお届けします</h2>
+            <p>新規お申し込みの再開時期は、いま伴走している新規クライアントさんたちの初期段階が落ち着いてきたタイミング、を目安に判断していきます。具体的な再開日が決まりましたら、まず <strong>公式LINEに登録いただいているみなさまへ、サイトでの告知より先にご案内</strong>します。</p>
+            <p>「再開したらAI顧問を相談したい」「枠が空いたタイミングで話を聞きたい」という方は、いまのうちに公式LINEへ登録いただくのがいちばん早い受け取り方になります。LINEでは、再開のお知らせのほかにも、コールテンが実際にどんな伴走をしているかの事例や、AI活用の入口になる小さなTIPSもお届けしています。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">AI顧問の新規受付が再開したら、まずはLINEでお知らせします。気になっていた方は、ぜひこの機会にご登録ください。</p>
+              <a class="btn-line-contact" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer">
+                公式LINEに登録する
+              </a>
+            </div>
+
+            <h2>このページのまとめ</h2>
+            <ul>
+              <li>2026年5月時点で、<strong>AI顧問の新規お申し込みを一時停止</strong>しています。</li>
+              <li>理由は、新規でお迎えしたクライアントさんの <strong>初期段階（理解・設計）に工数を集中</strong>させるためです。</li>
+              <li>既存のクライアントさん・継続中のご相談には影響ありません。</li>
+              <li>再開のお知らせは、<strong>公式LINE登録者の方へ、サイトより先に</strong>お届けします。</li>
+            </ul>
+            <p>「コールテンって普段どんな仕事をしているの？」を知りたい方は、ブログの <a href="/blog/?cat=パートナー自慢">パートナー自慢</a> や <a href="/blog/?cat=インタビュー">インタビュー</a> もぜひ覗いてみてください。AI顧問の現場感が、少しでも伝わるとうれしいです。</p>
+          </div>
+        </section>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(26px, 4vw, 36px);
+    line-height: 1.45;
+  }
+  .article-lead {
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 56px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h2:first-child { margin-top: 0; }
+  .article-body p { margin-bottom: 20px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 12px;
+    line-height: 1.85;
+  }
+  .article-body strong { color: var(--sea); font-weight: 700; }
+
+  .contact-cta-box {
+    margin: 40px 0;
+    padding: 28px 28px 32px;
+    background: linear-gradient(180deg, #f6fbf8 0%, #ffffff 100%);
+    border: 1px solid rgba(22, 97, 78, 0.18);
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(22, 97, 78, 0.05);
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    line-height: 1.85;
+    color: #333;
+    margin: 0 auto 18px;
+    max-width: 560px;
+  }
+  .btn-line-contact {
+    display: inline-block;
+    background: #06c755;
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 99px;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(6, 199, 85, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-line-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(6, 199, 85, 0.32);
+  }
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    text-align: center;
+  }
+  .btn.secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 99px;
+    border: 1.5px solid var(--sea);
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn.secondary:hover {
+    background: var(--sea);
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .article-card { padding: 28px 22px; }
+    .article-body h2 { font-size: 19px; padding: 12px 16px; margin: 44px -4px 18px; }
+    .article-body { font-size: 15px; }
+  }
+</style>
+</content>
+</invoke>
