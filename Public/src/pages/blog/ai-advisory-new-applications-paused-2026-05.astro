@@ -4,10 +4,75 @@ import Layout from '../../layouts/Layout.astro';
 const isPublished = false;  // 公開時に true に変更（noindex削除と連動）
 
 const title = "【お知らせ】AI顧問サービスの新規お申し込みを一時停止しています ― 既存クライアントさんの初期段階に集中するため｜株式会社コールテン";
-const description = "AI顧問（AIコモン）の新規お申し込みを、2026年5月時点で一時停止しています。新規でお迎えしたクライアントさんが多く、初期段階のクライアント理解・環境理解・設計に工数を集中しているためです。再開時は公式LINEで先にお知らせします。";
+const description = "コールテンのAI顧問（AIコモン）の新規お申し込みを2026年5月時点で一時停止しています。最近続いた新規ご契約クライアントさんの初期段階（クライアント理解・環境理解・設計）に工数を集中させるためです。既存契約・継続中ご相談・AI講座・AIサイトリニューアルは引き続き受付中。再開時は公式LINEで先にお知らせします。";
 const canonicalUrl = "https://www.corduroy.co.jp/blog/ai-advisory-new-applications-paused-2026-05/";
 const publishedAt = "2026-05-14";
 const modifiedAt = "2026-05-14";
+
+const faqItems = [
+  {
+    question: "新規お申し込みの再開は、いつごろの予定ですか？",
+    answer: "明確な再開日は決めていません。直近で新しくお迎えしたクライアントさんたちの「初期段階」（クライアント理解・環境理解・設計）が落ち着いてきたタイミングで、状況を見ながら判断していきます。コールテンは代表ひとりが直接深く関わる伴走スタイルのため、同時に進められる新規立ち上げの数に上限があります。再開判断は無理のないペースで行い、再開時は公式LINEに登録いただいている方へ、サイトの告知より先にお伝えします。"
+  },
+  {
+    question: "既存クライアントさんの紹介経由でも、待ちの枠はないですか？",
+    answer: "原則として、紹介経由でも新規受付は一時停止しています。ただ、紹介でお話いただいたケースは個別に状況を伺ったうえで、後日のご案内枠に入れていただける場合があります。すぐ着手は難しい前提で、まずは公式LINEから状況をお聞かせいただけるとうれしいです。"
+  },
+  {
+    question: "スポットの相談（単発）だけお願いするのもダメですか？",
+    answer: "AI顧問の「継続伴走契約」は新規停止していますが、単発の相談・1回の壁打ち・社内勉強会の講師など、スポット案件は状況に応じて個別にご相談を受けています。ご相談内容と希望時期を公式LINEからお知らせいただけると、対応可否をお返事します。"
+  },
+  {
+    question: "AI講座やAIサイトリニューアルも止まっていますか？",
+    answer: "止まっていません。コールテンの3本柱のうち、AI顧問のみ新規受付を一時停止しています。AI講座（無料動画講座／3ヶ月プログラム／法人研修／コミュニティ「糸口会」）と、AI時代のサイトリニューアル（既存サイトをAI検索時代に対応したかたちに改修）はこれまでどおり受け付けています。"
+  },
+  {
+    question: "いま契約している分の更新や、追加業務には影響ありますか？",
+    answer: "影響ありません。既存クライアントさんの契約継続・更新・追加業務・スコープ調整は、これまでどおり個別にお話してご対応します。コールテンの今回の判断は「これから新しく契約をご検討いただく方の受け入れ」を止めるものです。"
+  },
+  {
+    question: "公式LINEに登録すると、何が届きますか？",
+    answer: "AI顧問の新規受付再開のお知らせを、サイト告知より先にお届けします。それ以外にも、コールテンが実際にどんな伴走をしているかの事例や、ふだんの業務に取り入れやすいAI活用の小さなTIPS、講座やイベントの先行案内などを月に数本のペースでお送りしています。配信頻度はそこまで多くないので、安心して登録してください。"
+  }
+];
+
+const blogPosting = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `${canonicalUrl}#article`,
+  "url": canonicalUrl,
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+  "headline": "【お知らせ】AI顧問サービスの新規お申し込みを一時停止しています ― 既存クライアントさんの初期段階に集中するため",
+  "datePublished": publishedAt,
+  "dateModified": modifiedAt,
+  "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
+  "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+  "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+  "description": description,
+  "keywords": ["AI顧問", "AIコモン", "新規受付停止", "コールテン", "AI伴走", "中小企業AI活用", "クライアント立ち上げ"]
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${canonicalUrl}#breadcrumb`,
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "AI顧問サービスの新規お申し込みを一時停止しています" }
+  ]
+};
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${canonicalUrl}#faq`,
+  "mainEntity": faqItems.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+};
 ---
 
 <Layout
@@ -18,38 +83,9 @@ const modifiedAt = "2026-05-14";
   ogImage="https://www.corduroy.co.jp/assets/images/ogp.png"
   ogType="article"
 >
-  {!isPublished && (
-    <meta slot="head" name="robots" content="noindex,nofollow" />
-  )}
   {isPublished && (
     <Fragment slot="head">
-      <script type="application/ld+json" set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "BlogPosting",
-            "@id": `${canonicalUrl}#article`,
-            "url": canonicalUrl,
-            "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
-            "headline": "【お知らせ】AI顧問サービスの新規お申し込みを一時停止しています",
-            "datePublished": publishedAt,
-            "dateModified": modifiedAt,
-            "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
-            "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
-            "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
-            "description": description
-          },
-          {
-            "@type": "BreadcrumbList",
-            "@id": `${canonicalUrl}#breadcrumb`,
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
-              { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
-              { "@type": "ListItem", "position": 3, "name": "AI顧問サービスの新規お申し込みを一時停止しています" }
-            ]
-          }
-        ]
-      })} />
+      <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", "@graph": [blogPosting, breadcrumb, faqPage] })} />
     </Fragment>
   )}
 
@@ -70,28 +106,50 @@ const modifiedAt = "2026-05-14";
             <span class="cat">お知らせ</span>
           </div>
           <h1>【お知らせ】AI顧問サービスの新規お申し込みを一時停止しています ― 既存クライアントさんの初期段階に集中するため</h1>
-          <p class="article-lead">いつも株式会社コールテンを応援してくださり、ありがとうございます。本日は1点、サービス提供についてのお知らせです。<br><br>コールテンの主力サービスである <strong>「AI顧問（AIコモン）」の新規お申し込みを、2026年5月時点で一時的に停止</strong>させていただいています。再開時は、公式LINEに登録いただいているみなさまへ <strong>サイトより先にお知らせ</strong>します。</p>
+          <p class="article-lead">いつも株式会社コールテンを応援してくださり、ありがとうございます。本日は1点、サービス提供についてのお知らせです。<br><br>コールテンの主力サービスである <strong>「AI顧問（AIコモン）」の新規お申し込みを、2026年5月時点で一時的に停止</strong>させていただいています。直近で新しくお迎えしたクライアントさんが続いており、その方たちの<strong>初期段階の作り込み</strong>に代表の時間と頭を集中させるための判断です。<br><br>新規受付の再開時は、公式LINEに登録いただいているみなさまへ <strong>サイトの告知より先にお知らせ</strong>します。お待たせしてしまう方には申し訳ありませんが、いまいるクライアントさんへ向き合う時間を確保することを優先させてください。</p>
         </header>
 
         <section class="article-body fade-up">
           <div class="article-card">
-            <h2>いま、なぜ新規お申し込みを止めているのか</h2>
-            <p>ありがたいことに、ここ最近のコールテンには、新規でAI顧問を導入いただくクライアントさんが続けてお越しくださっています。お声がけいただいた一社一社、本当に感謝しています。</p>
-            <p>そのうえで、AI顧問は <strong>「契約してから最初の数ヶ月」の作り込み</strong>が、後の伴走の質を大きく左右する仕事です。具体的には、こんなところに時間と頭を使います。</p>
-            <ul>
-              <li><strong>クライアント理解</strong>：会社・事業・現場の言葉・大事にしている価値観をじっくり聞き、社内のドキュメントを読み込みます。</li>
-              <li><strong>環境理解</strong>：いま使っているツール、業務の流れ、データの置き場、関係者の役割を把握します。</li>
-              <li><strong>設計</strong>：AIを「どの業務に」「どんな関わり方で」入れるかを、現場の方と一緒に組み立てます。第二の自分（AIエージェント）として育てる前提なので、立ち上がりの設計品質がそのまま中長期の運用品質に効きます。</li>
-            </ul>
-            <p>この3つの工程は、コールテンとしても代表が直接深く関わる部分で、ここを薄めて並列で進めることは <strong>クライアントさんへの誠実さの観点からしたくありません</strong>。新規でお迎えしたクライアントさんの立ち上げに集中できる体制をつくりたく、新規お申し込みは一時停止という判断にいたりました。</p>
+            <h2>なぜ、いま新規受付を止めているのか</h2>
+            <p>ありがたいことに、ここ最近のコールテンには、新規でAI顧問を導入いただくクライアントさんが続けてお越しくださっています。問い合わせ・紹介・既存クライアントさんからのご紹介と、入り口はさまざまですが、お声がけいただいた一社一社、本当に感謝しています。</p>
+            <p>そのうえで、AI顧問は <strong>「契約してから最初の数ヶ月」の作り込み</strong>が、後の伴走の質を大きく左右する仕事です。ここを薄めて並列で進めてしまうと、「とりあえずAIっぽい話はしているけれど、現場に効いている感覚がない」という空気が漂いはじめます。それは、いま新しくコールテンを選んでくださった方への向き合い方として、ぼくたちのなかでどうしても許容できませんでした。</p>
+            <p>結果として、<strong>「新規受付を一時的に止める」ことが、いま契約してくださっている方々に対して、いちばん誠実な選択</strong>だと考えてこの判断にいたりました。</p>
 
-            <h2>既存のクライアントさん・継続中のご相談には影響しません</h2>
-            <p>今回の停止は、あくまで「これから新規で契約をご検討いただく方の受け入れ」を一時的に止めるものです。<strong>既存のクライアントさんへの伴走、すでに動き始めているプロジェクト、継続中のご相談には影響しません</strong>。これまでどおり、責任を持ってサポートを続けていきます。</p>
-            <p>また、AI顧問以外のスポット相談・講座・サイト関連のご相談などについては、状況に応じて個別にご相談を受けています。「AI顧問ではないけれど、こういうことを一緒に考えてほしい」という場合は、後述の公式LINEから気軽に話しかけてください。</p>
+            <h2>コールテンが「初期段階」で実際にやっていること</h2>
+            <p>「初期段階の作り込み」と書きましたが、具体的にどんなところに時間と頭を使っているのかを、できるだけ正直に書いておきます。AI顧問の中身を見ていただく機会にもなるかと思います。</p>
+            <h3>1. クライアント理解 ― 言葉と価値観をそろえる時間</h3>
+            <p>会社・事業・現場で使われている「言葉」をじっくり聞きます。同じ言葉でも、団体ごとに意味の重さや指す範囲が違うので、ここを早い段階でそろえないと、その後のAI設計が全部ずれます。事業の意思決定で何を大事にしているか、現場で起きている感情の動きまで、できるだけ素の状態で聞かせていただきます。</p>
+            <p>同時に、社内ですでにある資料・議事録・サイト・SNSの過去投稿を、ぼくたち（人間とAIエージェントの両方）で読み込みます。「会社のこれまでの蓄積を、AIに正しく引き継ぐ」ための土台づくりです。</p>
+            <h3>2. 環境理解 ― いま動いている仕組みを把握する時間</h3>
+            <p>すでに使われているツール（Google Workspace、Microsoft 365、Slack、kintone、Notionなど）、業務の流れ、データの置き場、関係者の役割を把握します。「AIを入れる前に、いまのままで整理できるところはないか」も併せて点検します。</p>
+            <p>ここを飛ばして「AI入れましょう」と言ってしまうと、現場が二重管理になって、結局誰も使わない、というよくあるパターンに入ってしまいます。コールテンとしては、AIで効率化する前に、土台を整えるところまでお付き合いしたいと思っています。</p>
+            <h3>3. 設計 ― AIエージェントの役割と関わり方を決める時間</h3>
+            <p>そのうえで、AIを「どの業務に」「どんな役割で」「どのくらいの権限で」入れていくかを、クライアントさんと一緒に組み立てます。コールテンでは <a href="/blog/general-second-self-guide/">「第二の自分」</a> として AI を育てる前提なので、立ち上がりの設計品質がそのまま中長期の運用品質に効いてきます。</p>
+            <p>この3つの工程は、ぼくたちのなかでも代表が直接深く関わる部分で、外注やテンプレ運用に置き換えにくいところです。新規でお迎えしたクライアントさんの立ち上げに集中できる体制をつくりたく、新規お申し込みは一時停止という判断にいたりました。</p>
+
+            <h2>既存クライアントさんと、継続中のご相談には影響しません</h2>
+            <p>今回の停止は、あくまで <strong>「これから新規で契約をご検討いただく方の受け入れ」</strong> を一時的に止めるものです。以下のものには影響しません。</p>
+            <ul>
+              <li>既存のクライアントさんへの伴走（定例MTG・日々のSlack・ご相談対応）</li>
+              <li>すでに動き始めているプロジェクト・実装</li>
+              <li>既存契約の継続・更新・追加スコープのご相談</li>
+              <li>過去にご相談をいただき、対応中の案件</li>
+            </ul>
+            <p>これまでどおり、責任を持って続けていきます。「自分のところはどうなる？」と思われた方は、いつものSlack・LINE・メールでそのまま聞いてください。</p>
+
+            <h2>AI顧問以外のサービスは引き続き受付中です</h2>
+            <p>コールテンには現在、大きく3つのサービスがあります。今回新規受付を止めているのは、このうち <strong>AI顧問のみ</strong> です。</p>
+            <ul>
+              <li><strong><a href="/services/advisory/">AI顧問（AIコモン）</a></strong> ― 新規受付一時停止中（このお知らせの対象）</li>
+              <li><strong><a href="/services/study/">AI講座</a></strong> ― 無料動画講座／3ヶ月プログラム／法人研修／コミュニティ「糸口会」、引き続き受付中</li>
+              <li><strong><a href="/services/ai-renewal/">AI時代のサイトリニューアル</a></strong> ― 既存サイトをAI検索時代に対応したかたちに改修するサービス、引き続き受付中</li>
+            </ul>
+            <p>「AI顧問でなく、まず講座から触ってみたい」「サイトのリニューアルなら今すぐ相談したい」という方は、それぞれのサービスページからお気軽にご連絡ください。スポット相談・社内勉強会・1日の壁打ちなど、AI顧問の「継続伴走」とは別建てのご依頼も、状況に応じて個別にお受けしています。</p>
 
             <h2>再開のお知らせは、公式LINEから先にお届けします</h2>
-            <p>新規お申し込みの再開時期は、いま伴走している新規クライアントさんたちの初期段階が落ち着いてきたタイミング、を目安に判断していきます。具体的な再開日が決まりましたら、まず <strong>公式LINEに登録いただいているみなさまへ、サイトでの告知より先にご案内</strong>します。</p>
-            <p>「再開したらAI顧問を相談したい」「枠が空いたタイミングで話を聞きたい」という方は、いまのうちに公式LINEへ登録いただくのがいちばん早い受け取り方になります。LINEでは、再開のお知らせのほかにも、コールテンが実際にどんな伴走をしているかの事例や、AI活用の入口になる小さなTIPSもお届けしています。</p>
+            <p>新規お申し込みの再開時期は、いま伴走している新規クライアントさんたちの初期段階が落ち着いてきたタイミングを目安に判断します。具体的な再開日が決まったら、まず <strong>公式LINEに登録いただいているみなさまへ、サイトでの告知より先にご案内</strong>します。</p>
+            <p>「再開したらAI顧問を相談したい」「枠が空いたタイミングで話を聞きたい」という方は、いまのうちに公式LINEへ登録いただくのが、いちばん早い受け取り方になります。LINEでは、再開のお知らせのほかにも、コールテンが実際にどんな伴走をしているかの事例や、AI活用の入口になる小さなTIPS、講座・イベントの先行案内などをお届けしています。配信頻度は月に数本程度なので、ご安心ください。</p>
 
             <div class="contact-cta-box fade-up">
               <p class="contact-cta-lead">AI顧問の新規受付が再開したら、まずはLINEでお知らせします。気になっていた方は、ぜひこの機会にご登録ください。</p>
@@ -100,16 +158,66 @@ const modifiedAt = "2026-05-14";
               </a>
             </div>
 
-            <h2>このページのまとめ</h2>
+            <h2>このお知らせのまとめ</h2>
             <ul>
-              <li>2026年5月時点で、<strong>AI顧問の新規お申し込みを一時停止</strong>しています。</li>
-              <li>理由は、新規でお迎えしたクライアントさんの <strong>初期段階（理解・設計）に工数を集中</strong>させるためです。</li>
-              <li>既存のクライアントさん・継続中のご相談には影響ありません。</li>
+              <li>2026年5月時点で、<strong>AI顧問（AIコモン）の新規お申し込みを一時停止</strong>しています。</li>
+              <li>理由は、新規でお迎えしたクライアントさんの <strong>初期段階（クライアント理解・環境理解・設計）に工数を集中</strong>させるためです。</li>
+              <li>既存のクライアントさん・継続中のご相談・契約更新には <strong>影響ありません</strong>。</li>
+              <li><strong>AI講座・AI時代のサイトリニューアルは引き続き受付中</strong>です。</li>
               <li>再開のお知らせは、<strong>公式LINE登録者の方へ、サイトより先に</strong>お届けします。</li>
             </ul>
             <p>「コールテンって普段どんな仕事をしているの？」を知りたい方は、ブログの <a href="/blog/?cat=パートナー自慢">パートナー自慢</a> や <a href="/blog/?cat=インタビュー">インタビュー</a> もぜひ覗いてみてください。AI顧問の現場感が、少しでも伝わるとうれしいです。</p>
           </div>
         </section>
+
+        <section id="faq" class="container faq" style="padding-bottom:40px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくあるご質問</h2>
+          </div>
+          <p class="fade-up" style="text-align:center; max-width:640px; margin:0 auto 24px;">新規受付の一時停止について、お問い合わせいただきそうな項目をまとめました。気になるところから読んでください。</p>
+          <div class="faq-items fade-up">
+            <details open id="faq-1">
+              <summary>新規お申し込みの再開は、いつごろの予定ですか？</summary>
+              <p class="mini">明確な再開日は決めていません。直近で新しくお迎えしたクライアントさんたちの「初期段階」（クライアント理解・環境理解・設計）が落ち着いてきたタイミングで、状況を見ながら判断していきます。コールテンは代表ひとりが直接深く関わる伴走スタイルのため、同時に進められる新規立ち上げの数に上限があります。再開判断は無理のないペースで行い、再開時は公式LINEに登録いただいている方へ、サイトの告知より先にお伝えします。</p>
+            </details>
+            <details id="faq-2">
+              <summary>既存クライアントさんの紹介経由でも、待ちの枠はないですか？</summary>
+              <p class="mini">原則として、紹介経由でも新規受付は一時停止しています。ただ、紹介でお話いただいたケースは個別に状況を伺ったうえで、後日のご案内枠に入れていただける場合があります。すぐ着手は難しい前提で、まずは公式LINEから状況をお聞かせいただけるとうれしいです。</p>
+            </details>
+            <details id="faq-3">
+              <summary>スポットの相談（単発）だけお願いするのもダメですか？</summary>
+              <p class="mini">AI顧問の「継続伴走契約」は新規停止していますが、単発の相談・1回の壁打ち・社内勉強会の講師など、スポット案件は状況に応じて個別にご相談を受けています。ご相談内容と希望時期を公式LINEからお知らせいただけると、対応可否をお返事します。</p>
+            </details>
+            <details id="faq-4">
+              <summary>AI講座やAIサイトリニューアルも止まっていますか？</summary>
+              <p class="mini">止まっていません。コールテンの3本柱のうち、AI顧問のみ新規受付を一時停止しています。AI講座（無料動画講座／3ヶ月プログラム／法人研修／コミュニティ「糸口会」）と、AI時代のサイトリニューアル（既存サイトをAI検索時代に対応したかたちに改修）はこれまでどおり受け付けています。</p>
+            </details>
+            <details id="faq-5">
+              <summary>いま契約している分の更新や、追加業務には影響ありますか？</summary>
+              <p class="mini">影響ありません。既存クライアントさんの契約継続・更新・追加業務・スコープ調整は、これまでどおり個別にお話してご対応します。コールテンの今回の判断は「これから新しく契約をご検討いただく方の受け入れ」を止めるものです。</p>
+            </details>
+            <details id="faq-6">
+              <summary>公式LINEに登録すると、何が届きますか？</summary>
+              <p class="mini">AI顧問の新規受付再開のお知らせを、サイト告知より先にお届けします。それ以外にも、コールテンが実際にどんな伴走をしているかの事例や、ふだんの業務に取り入れやすいAI活用の小さなTIPS、講座やイベントの先行案内などを月に数本のペースでお送りしています。配信頻度はそこまで多くないので、安心して登録してください。</p>
+            </details>
+          </div>
+        </section>
+
+        <div class="contact-cta-box fade-up" style="margin-top: 48px;">
+          <h3>あわせて読みたい記事</h3>
+          <p>コールテンのAI顧問が普段どんな仕事をしているか、もう少し知りたい方への参考リンクです。</p>
+          <ul class="related-links">
+            <li><a href="/blog/what-is-ai-advisory/">AI顧問とは？中小企業・個人事業主のためのAI活用伴走サービス</a></li>
+            <li><a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順</a></li>
+            <li><a href="/blog/executive-second-self/">経営者の右腕は、AIになる ― 第二の自分を持つ社長が、組織を変える時代</a></li>
+            <li><a href="/blog/shu-ai-advisory/">行政書士のしゅうへいさんにAI顧問契約をいただきました</a></li>
+            <li><a href="/blog/smf-partnership/">NPO法人スマイリーフラワーズさんにAI顧問契約をいただきました</a></li>
+          </ul>
+          <div class="cta-buttons">
+            <a href="/services/" class="btn-primary">サービス一覧を見る</a>
+          </div>
+        </div>
 
         <div class="article-foot fade-up">
           <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
@@ -168,7 +276,7 @@ const modifiedAt = "2026-05-14";
   }
   .article-lead {
     font-size: 16.5px;
-    line-height: 1.85;
+    line-height: 1.9;
     color: #555;
     margin-bottom: 32px;
     padding-left: 16px;
@@ -200,6 +308,15 @@ const modifiedAt = "2026-05-14";
     letter-spacing: 0.01em;
   }
   .article-body h2:first-child { margin-top: 0; }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 32px 0 12px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
   .article-body p { margin-bottom: 20px; }
   .article-body a {
     color: var(--sea);
@@ -220,6 +337,10 @@ const modifiedAt = "2026-05-14";
   }
   .article-body strong { color: var(--sea); font-weight: 700; }
 
+  /* FAQ デザインは Layout.astro のグローバル CSS（.faq details / .faq summary 等）に任せる。
+     ローカル上書きすると padding が消えて「左端にくっつく」事故が起きるため、ここでは何も書かない。
+     参考メモリ: feedback_blog_faq_structure.md */
+
   .contact-cta-box {
     margin: 40px 0;
     padding: 28px 28px 32px;
@@ -228,6 +349,13 @@ const modifiedAt = "2026-05-14";
     border-radius: 16px;
     text-align: center;
     box-shadow: 0 4px 14px rgba(22, 97, 78, 0.05);
+  }
+  .contact-cta-box h3 {
+    margin-top: 0;
+    color: var(--ink, #16614e);
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
   }
   .contact-cta-lead {
     font-size: 15px;
@@ -252,6 +380,46 @@ const modifiedAt = "2026-05-14";
     transform: translateY(-2px);
     box-shadow: 0 10px 22px rgba(6, 199, 85, 0.32);
   }
+  .contact-cta-box .related-links {
+    text-align: left;
+    max-width: 600px;
+    margin: 16px auto 8px;
+    padding-left: 20px;
+  }
+  .contact-cta-box .related-links li { margin-bottom: 8px; }
+  .contact-cta-box .related-links a {
+    color: var(--sea);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .article-body .btn-primary,
+  .contact-cta-box .btn-primary,
+  .cta-buttons .btn-primary {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none !important;
+    display: inline-block;
+    background: var(--sea) !important;
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+  }
+  .article-body .btn-primary:hover,
+  .contact-cta-box .btn-primary:hover,
+  .cta-buttons .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
   .article-foot {
     max-width: 720px;
     margin: 60px auto 0;
@@ -275,6 +443,7 @@ const modifiedAt = "2026-05-14";
   @media (max-width: 768px) {
     .article-card { padding: 28px 22px; }
     .article-body h2 { font-size: 19px; padding: 12px 16px; margin: 44px -4px 18px; }
+    .article-body h3 { font-size: 17px; }
     .article-body { font-size: 15px; }
   }
 </style>
