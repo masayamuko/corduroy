@@ -51,6 +51,7 @@
 - [AI顧問とは何か](https://www.corduroy.co.jp/blog/what-is-ai-advisory/): AI顧問の役割・解決する課題・向いている人。
 - [日本の学生が使えるAI/IT学割・無料制度まとめ](https://www.corduroy.co.jp/blog/students-tools/): GitHub Student / Notion / Figma / Adobe / JetBrains / Perplexity / Cursor / SheerID の対象条件・認証方式・卒業後の扱いを整理。年次更新運用。
 - [日本のNPO法人・一般社団法人が使えるAI/IT支援制度まとめ](https://www.corduroy.co.jp/blog/npo-tools/): Google for Nonprofits / Microsoft / Slack / kintone / Anthropic / OpenAI のチーム応援ライセンスを整理。年次更新運用。
+- [NPO・非営利団体に本当におすすめしたいIT・AIツール5選 ― 実際の伴走経験から選んだ最強の組み合わせ](https://www.corduroy.co.jp/blog/npo-tool-introduction-order/): NPOで複数団体の伴走経験から「これ入れたら本当に楽になる」5つを厳選。Google for Nonprofits（クラウド基盤）→ kintone チーム応援ライセンス（寄付者管理）→ PR TIMES 非営利サポート（発信）→ Canva for Nonprofits（デザイン内製）→ Claude for Nonprofits（AI活用）の導入順序つき。
 
 ### 「第二の自分」シリーズ（ターゲット別）
 
