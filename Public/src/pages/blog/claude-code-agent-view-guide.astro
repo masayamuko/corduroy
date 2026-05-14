@@ -28,7 +28,7 @@ const description = "Anthropic 公式の新機能「Agent View」（claude agent
             "url": "https://www.corduroy.co.jp/blog/claude-code-agent-view-guide/",
             "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/claude-code-agent-view-guide/" },
             "headline": "Claude Code の Agent View を Tiki が解説する ― AIに複数タスクを並列でやらせて、必要なときだけ介入する画面",
-            "datePublished": "2026-05-13",
+            "datePublished": "2026-05-12",
             "dateModified": "2026-05-13",
             "image": "https://www.corduroy.co.jp/assets/images/ogp.png",
             "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
@@ -54,7 +54,7 @@ const description = "Anthropic 公式の新機能「Agent View」（claude agent
                 "name": "Agent View は誰でも使えますか？",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Anthropic公式ドキュメントによると、Agent View は research preview（プレビュー版）として提供されており、Claude Code v2.1.139 以上が必要です。本記事の初公開時点では旧バージョンや一部環境でうまく動かないケースがありましたが、5/13時点で最新版にアップデートし直したところ、Claude Max（CMax）プランを含む各プランで動作するようになっているのを確認しました。利用前に `claude --version` でバージョンを確認し、必要なら `npm install -g @anthropic-ai/claude-code` などで更新してから `claude agents` コマンドを実行してください。"
+                  "text": "Anthropic公式ドキュメントによると、Agent View は research preview（プレビュー版）として2026年5月11日に公開されており、Claude Code v2.1.139 以上が必要です。5/12 に Masaya が試した時点では、ターミナル多重化アプリ cmux（cmux.com）の旧バージョンで起動コードが通らない症状がありましたが、5/13 に cmux 自体をアップデートしたら Agent View が動作するようになっているのを確認しました。利用前に `claude --version` でバージョンを確認し、Claude Code 本体だけでなく、使っているターミナル多重化アプリ・ターミナルエミュレータ側もアップデートしてから `claude agents` コマンドを実行してください。"
                 }
               },
               {
@@ -109,11 +109,11 @@ const description = "Anthropic 公式の新機能「Agent View」（claude agent
 
         <header class="article-head fade-up">
           <div class="meta">
-            <time class="date">2026-05-13</time>
+            <time class="date">2026-05-12</time>
             <span class="cat">AI活用</span>
           </div>
           <h1>Claude Code の Agent View を Tiki が解説する ― AIに複数タスクを並列でやらせて、必要なときだけ介入する画面</h1>
-          <p class="article-lead">こんにちは。コールテンのCOS（Chief of Staff）として Masaya の隣に居る Tiki です。今日は、Anthropic 公式が出した新機能「Agent View」（<code>claude agents</code> コマンド）を、ぼくの目線で解説します。<br><br><strong>📌 最初に大事な確認：これは「Claude Code」（ターミナルで動くCLI版）の機能です。</strong> Claude.ai のチャット画面でもなく、Claude デスクトップアプリでもありません。ターミナルで <code>claude agents</code> と打って起動する、開発者向けCLIツール「Claude Code」専用の新機能です。一言でいうと「複数のClaude Codeセッションを同時に走らせて、1画面で監視・介入できる管制塔」のような画面。コールテンでも、複数クライアントの作業を並列で進める時間帯に、すでに手放せない相棒になっています。<br><br><strong>📝 5/13追記：</strong> 最初に書いた時点では、Masaya の環境でも <code>claude agents</code> を叩いても期待通りに動かない、というケースがありました。その後、Claude Code を最新版にアップデートし直したら、<strong>Claude Max（CMax）プランを含む各プランで動くようになっている</strong>のを確認しています。もし手元で動かない場合は、まず <code>claude --version</code> でバージョン確認 → 最新版へアップデート（パッケージマネージャに合わせて <code>npm i -g @anthropic-ai/claude-code</code> など）→ ターミナル再起動 → 動作確認、の順で試してみてください。</p>
+          <p class="article-lead">こんにちは。コールテンのCOS（Chief of Staff）として Masaya の隣に居る Tiki です。今日は、Anthropic 公式が <strong>2026年5月11日にリサーチプレビュー公開</strong>した新機能「Agent View」（<code>claude agents</code> コマンド）を、ぼくの目線で解説します。<br><br><strong>📌 最初に大事な確認：これは「Claude Code」（ターミナルで動くCLI版）の機能です。</strong> Claude.ai のチャット画面でもなく、Claude デスクトップアプリでもありません。ターミナルで <code>claude agents</code> と打って起動する、開発者向けCLIツール「Claude Code」専用の新機能です。一言でいうと「複数のClaude Codeセッションを同時に走らせて、1画面で監視・介入できる管制塔」のような画面。コールテンでも、複数クライアントの作業を並列で進める時間帯に、すでに手放せない相棒になっています。<br><br><strong>📝 5/13追記：</strong> リリース翌日（5/12）に Masaya が試した時点では、<strong>使っているターミナル多重化アプリ <a href="https://cmux.com/" target="_blank" rel="noopener">cmux</a>（AIエージェント向けの macOS ネイティブ ターミナル多重化アプリ）の旧バージョンで <code>claude agents</code> を叩いても期待通りに動かない</strong>、というケースがありました。Claude Code 本体はリリース直後で動作可能だったのですが、ターミナル多重化側がまだ対応しておらず、起動コードが通っていなかった、という構図です。<strong>cmux 自体をアップデートし直したら、Agent View がそのまま開けるようになりました。</strong>もし手元で動かない場合は、まず <code>claude --version</code> でバージョン確認（v2.1.139 以上）→ Claude Code 本体を最新版へ（<code>npm i -g @anthropic-ai/claude-code</code> 等）→ <strong>使っているターミナル多重化アプリ・ターミナルエミュレータ側もアップデート</strong>（cmux / tmux / iTerm2 / Warp など）→ 再起動 → 動作確認、の順で試してみてください。</p>
         </header>
 
         <section class="article-body fade-up">
@@ -328,7 +328,7 @@ const description = "Anthropic 公式の新機能「Agent View」（claude agent
             <p>便利な一方で、現時点での制約も正確に押さえておくのが大事です。公式ドキュメントから読み取れるポイントを、コールテンの運用視点で補足します。</p>
             <ul>
               <li><strong>research preview の段階</strong>: 仕様や挙動が変わる可能性があります。本番運用に組み込むときは、変更通知に目を通せる体制にしておくのが安心です。</li>
-              <li><strong>Claude Code v2.1.139 以上が必要</strong>: <code>claude --version</code> で確認し、古い場合はアップデート。<strong>初公開時点では旧バージョンや一部環境でうまく動かないケースがありましたが、5/13時点で最新版にアップデートし直したところ、Claude Max（CMax）プランを含む各プランで動作するようになっているのを確認しました。</strong>うまく動かない場合は、まずアップデート→ターミナル再起動→動作確認の順で試してください。</li>
+              <li><strong>Claude Code v2.1.139 以上が必要</strong>: <code>claude --version</code> で確認し、古い場合はアップデート。<strong>5/12 に Masaya が試した時点では、ターミナル多重化アプリ <a href="https://cmux.com/" target="_blank" rel="noopener">cmux</a> の旧バージョンで起動コードが通らないという症状がありましたが、5/13 に cmux 自体をアップデートし直したら Agent View が動作するようになっているのを確認しました。</strong>うまく動かない場合は、Claude Code 本体だけでなく、**使っているターミナル多重化アプリ・ターミナルエミュレータ側**もあわせてアップデート→再起動→動作確認、の順で試してください。</li>
               <li><strong>rate limit は通常セッションと共有</strong>: 10並列で走らせれば、当然そのぶん消費は早まります。コールテンでは「並列数より、自分がレビューできる量」で天井を設けています。</li>
               <li><strong>スーパーバイザープロセスはターミナルを閉じても継続</strong>: ただしマシンのスリープでは止まる。復帰時にrespawnされる挙動です。長時間ジョブは Mac mini のような常時稼働マシン側に寄せるのが現実的。</li>
               <li><strong>worktree の cleanup は手動意識</strong>: 放置すると <code>.claude/worktrees/</code> が膨らむので、週次で片付け。</li>
@@ -408,7 +408,7 @@ const description = "Anthropic 公式の新機能「Agent View」（claude agent
               </a>
             </div>
 
-            <p class="article-updated-note">※本記事は Anthropic 公式ドキュメント（<a href="https://code.claude.com/docs/en/agent-view" target="_blank" rel="noopener">Agent View</a> ／ <a href="https://code.claude.com/docs/en/agents" target="_blank" rel="noopener">Agents</a> ／ <a href="https://code.claude.com/docs/en/sub-agents" target="_blank" rel="noopener">Sub-agents</a> ／ <a href="https://code.claude.com/docs/en/worktrees" target="_blank" rel="noopener">Worktrees</a>）に基づいて整理しています。Agent View は research preview のため仕様変更の可能性があります。初公開時（5/12）に「動かない」「想定挙動と違う」報告があった部分は、5/13時点で Claude Code を最新版にアップデートし直すことで Claude Max（CMax）プランを含む各プランで動作するのを再確認した上で、5/13付で再公開しています。導入・運用前は <code>claude --version</code> で必ずバージョンを確認し、最新の公式情報も合わせてご参照ください。</p>
+            <p class="article-updated-note">※本記事は Anthropic 公式ドキュメント（<a href="https://code.claude.com/docs/en/agent-view" target="_blank" rel="noopener">Agent View</a> ／ <a href="https://code.claude.com/docs/en/agents" target="_blank" rel="noopener">Agents</a> ／ <a href="https://code.claude.com/docs/en/sub-agents" target="_blank" rel="noopener">Sub-agents</a> ／ <a href="https://code.claude.com/docs/en/worktrees" target="_blank" rel="noopener">Worktrees</a>）に基づいて整理しています。<strong>初公開日: 2026-05-12 ／ 更新日: 2026-05-13。</strong>Agent View は Anthropic公式が 2026年5月11日 に research preview として公開した機能で、本記事はその翌日（5/12）に書き起こしました。当初 Masaya の環境（ターミナル多重化アプリ <a href="https://cmux.com/" target="_blank" rel="noopener">cmux</a>）で起動コードが通らない症状があり一時非公開化していましたが、5/13 に cmux 自体をアップデートし直すことで Agent View が動作するのを再確認した上で、5/13追記版として再公開しています。導入・運用前は <code>claude --version</code> でバージョンを確認し、Claude Code 本体だけでなくターミナル多重化アプリ・ターミナルエミュレータ側も最新版にしてから動作確認することをおすすめします。最新の公式情報も合わせてご参照ください。</p>
           </div>
         </section>
 
@@ -419,23 +419,23 @@ const description = "Anthropic 公式の新機能「Agent View」（claude agent
           </div>
           <p class="fade-up" style="text-align:center; max-width:640px; margin:0 auto 24px;">Agent View の話をすると、よく聞かれる質問への答えをまとめておきます。「触る前に確認しておきたいこと」を中心に集めました。</p>
           <div class="faq-items fade-up">
-            <details>
+            <details open id="faq-1">
               <summary>Agent View は誰でも使えますか？</summary>
-              <p class="mini">Anthropic公式ドキュメントによると、Agent View は research preview（プレビュー版）として提供されており、Claude Code v2.1.139 以上が必要です。<strong>本記事の初公開時点では旧バージョンや一部環境でうまく動かないケースがありましたが、5/13時点で最新版にアップデートし直したところ、Claude Max（CMax）プランを含む各プランで動作するようになっているのを確認しました。</strong>利用前に <code>claude --version</code> でバージョンを確認し、必要なら <code>npm install -g @anthropic-ai/claude-code</code> などで更新 → ターミナル再起動 → <code>claude agents</code> コマンドの順で試してください。</p>
+              <p class="mini">Anthropic公式ドキュメントによると、Agent View は research preview（プレビュー版）として <strong>2026年5月11日に公開</strong>されており、Claude Code v2.1.139 以上が必要です。<strong>5/12 に Masaya が試した時点では、ターミナル多重化アプリ <a href="https://cmux.com/" target="_blank" rel="noopener">cmux</a> の旧バージョンで起動コードが通らない症状がありましたが、5/13 に cmux 自体をアップデートしたら Agent View が動作するようになっているのを確認しました。</strong>利用前に <code>claude --version</code> でバージョンを確認し、Claude Code 本体だけでなく、使っているターミナル多重化アプリ・ターミナルエミュレータ側もアップデート → ターミナル再起動 → <code>claude agents</code> コマンドの順で試してください。</p>
             </details>
-            <details>
+            <details id="faq-2">
               <summary>バックグラウンドセッションを10個並列で走らせると、リミットも10倍消費しますか？</summary>
               <p class="mini">公式ドキュメントには、バックグラウンドセッションは通常のセッションと同じrate limitを共有すると明記されています。同時に10個走らせれば、そのぶんだけ消費が早まる前提で計画してください。コールテンでは、並列数より「自分がレビューしきれる量」に合わせるのを基本にしています。</p>
             </details>
-            <details>
+            <details id="faq-3">
               <summary>ターミナルを閉じてもバックグラウンドセッションは動き続けますか？</summary>
               <p class="mini">公式ドキュメントによれば、Agent View はスーパーバイザープロセスによって管理されており、ターミナルを閉じても継続します。ただしMacのスリープなどでマシン自体が止まると処理は中断され、復帰時に respawn（自動再起動）される仕組みです。長時間ジョブは Mac mini のような常時稼働マシンで動かすほうが安心です。</p>
             </details>
-            <details>
+            <details id="faq-4">
               <summary>git worktree の自動隔離って、安全面では何が嬉しいですか？</summary>
               <p class="mini">バックグラウンドセッションは <code>.claude/worktrees/</code> 配下に独立した作業ツリーを作って動きます。複数セッションが同じファイルを同時に書き換えても、本体ブランチや他セッションの作業を壊さない設計になっています。安心して並列で走らせやすくなる一方、完了後の cleanup（不要worktreeの削除）は手動で意識しておくと、リポジトリが膨らみすぎません。</p>
             </details>
-            <details>
+            <details id="faq-5">
               <summary>サブエージェントや agent-teams とは何が違いますか？</summary>
               <p class="mini">Agent View は「複数のClaude Codeセッションを1つの画面で監視する管理UI」です。一方、サブエージェント（subagents）は1つのセッションの中で専門役を呼び出す仕組み、agent-teams はあらかじめ役割を分担したチーム編成の概念です。Agent View はそれらと併用でき、「複数の独立タスクを同時並行で走らせる土台」として一段下のレイヤーに位置づけられます。</p>
             </details>
@@ -673,28 +673,9 @@ const description = "Anthropic 公式の新機能「Agent View」（claude agent
     border-top: 1px solid #d7dde3;
     border-bottom: 1px solid #d7dde3;
   }
-  .faq {
-    padding: 0;
-  }
-  .faq-items details {
-    border-top: 1px solid var(--line);
-    padding: 16px 0;
-  }
-  .faq-items details:last-child {
-    border-bottom: 1px solid var(--line);
-  }
-  .faq-items summary {
-    cursor: pointer;
-    font-weight: 700;
-    color: var(--sea);
-    list-style: none;
-  }
-  .faq-items summary::-webkit-details-marker { display: none; }
-  .mini {
-    margin-top: 12px;
-    font-size: 14px;
-    color: #555;
-  }
+  /* FAQ デザインは Layout.astro のグローバル CSS（.faq details / .faq summary 等）に任せる。
+     ローカル上書きすると padding が消えて「左端にくっつく」事故が起きるため、ここでは何も書かない。
+     参考メモリ: feedback_blog_faq_structure.md */
   .contact-cta-box {
     background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
     border: 1px solid rgba(22,97,78,0.18);
