@@ -1,0 +1,12 @@
+{
+  "name": "gsc-bing-helper",
+  "version": "1.0.0",
+  "description": "GSCページレポート取得 + Bing Webmaster Tools 登録支援",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "playwright": "^1.59.1"
+  }
+}
