@@ -429,28 +429,28 @@ const description = "NPO・非営利団体に本当におすすめしたいITツ
             <small>FAQ</small>
             <h2>よくある質問</h2>
           </div>
-          <div class="faq-items">
-            <details>
+          <div class="faq-items fade-up">
+            <details open id="faq-1">
               <summary>5つのツールはすべて同時に導入したほうが効率いいですか？</summary>
               <p class="mini">おすすめしません。一気に入れると学習コストが爆発して、結局どれも使いこなせないまま終わる団体さんを何度か見てきました。まずは Google for Nonprofits（クラウド基盤）から入れて、業務がそこに乗ってから次のツールに進むのが現実的です。あとの4つは「いちばん困っているところ」から選ぶ形で大丈夫です。</p>
             </details>
-            <details>
+            <details id="faq-2">
               <summary>Canva と Google for Nonprofits ってどう違うんですか？</summary>
               <p class="mini">Google for Nonprofits は「業務全体のクラウド基盤」で、Drive・Docs・Sheets・Gmail・Meet などを団体で使うためのものです。Canva はそのうえに乗せる「デザインに特化した道具」で、チラシ・名刺・SNS画像・プレゼンスライドなどを団体内で内製するのに向いています。役割が違うので、両方入れる団体さんが多いです。</p>
             </details>
-            <details>
+            <details id="faq-3">
               <summary>kintone の構築は IT に弱くてもできますか？</summary>
               <p class="mini">シンプルな寄付者一覧アプリだけなら、自分たちでも作れます。ただ、寄付履歴やイベント参加履歴を連携させていくと、ある程度の設計力が必要になります。難しそうなら、サイボウズ オフィシャルパートナーの奏ワークス株式会社さんのような、NPOのkintone普及を専門にしている支援会社にお願いするのも選択肢です。</p>
             </details>
-            <details>
+            <details id="faq-4">
               <summary>Canva for Nonprofits は本当に無料ですか？</summary>
               <p class="mini">登録できる団体には、Canva Pro（通常は有料プラン）の機能が無償で開放されます。ブランドキット・背景透過・チームでの共同編集・有料素材の利用などが含まれます。対象は登録された非営利団体で、Canva 公式が要件と申請フォームを案内しています。商用利用や政治活動への利用は対象外、といった条件はあるので、申請時に各団体の活動内容を素直に書く必要があります。</p>
             </details>
-            <details>
+            <details id="faq-5">
               <summary>PR TIMES に何を書けばいいかわかりません</summary>
               <p class="mini">最初の1〜2本は「新しいプログラムを始めました」「年次報告書を公開しました」のような、すでに動いている活動の報告で十分です。書き慣れてきたら「現場で見えてきた社会課題」「協働事例」「成果データ」などに広げていきます。プレスリリースは社内向け文書ではなく、記者さんに向けた1枚もの、というイメージで書くと書きやすくなります。</p>
             </details>
-            <details>
+            <details id="faq-6">
               <summary>Claude for Nonprofits の申請から利用まで何日かかりますか？</summary>
               <p class="mini">団体や時期によって変わりますが、コールテンが伴走してきた範囲では、Goodstack 経由の資格確認から承認メール受領まで数日〜2週間ほどの団体さんが多かった印象です。書類の不備で差し戻されると延びます。「日本の認定NPO法人なのに英語のフォームに記入する」あたりが詰まりやすいので、申請前に英語ベースの団体名・住所表記をそろえておくとスムーズです。</p>
             </details>
@@ -636,70 +636,9 @@ const description = "NPO・非営利団体に本当におすすめしたいITツ
     margin: 0;
     display: inline;
   }
-  .faq {
-    padding: 0;
-  }
-  .faq .section-head {
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  .faq .section-head small {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    color: var(--sea);
-    background: rgba(22,97,78,0.08);
-    padding: 4px 12px;
-    border-radius: 99px;
-    margin-bottom: 12px;
-  }
-  .faq .section-head h2 {
-    font-size: 24px;
-    color: var(--ink, #16614e);
-    margin: 0;
-  }
-  .faq-items details {
-    background: #fafaf7;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 18px 22px;
-    margin-bottom: 12px;
-    transition: background 0.15s;
-  }
-  .faq-items details[open] {
-    background: #fff;
-    border-color: rgba(22,97,78,0.2);
-  }
-  .faq-items summary {
-    cursor: pointer;
-    font-weight: 700;
-    color: var(--sea);
-    list-style: none;
-    padding-right: 28px;
-    position: relative;
-  }
-  .faq-items summary::-webkit-details-marker { display: none; }
-  .faq-items summary::after {
-    content: "＋";
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-weight: 400;
-    color: var(--sea);
-    transition: transform 0.2s;
-  }
-  .faq-items details[open] summary::after {
-    content: "−";
-  }
-  .mini {
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px dashed var(--line);
-    font-size: 14.5px;
-    line-height: 1.85;
-    color: #555;
-  }
+  /* FAQ デザインは Layout.astro のグローバル CSS（.faq details / .faq summary 等）に任せる。
+     ローカル上書きすると padding が消えて「左端にくっつく」事故が起きるため、ここでは何も書かない。
+     参考メモリ: feedback_blog_faq_structure.md（再発防止項目: ローカル `.faq` / `.faq-items` の上書き禁止） */
   .contact-cta-box {
     background: linear-gradient(135deg, #f0f7f3 0%, #e3eee8 100%);
     border: 1px solid rgba(22,97,78,0.18);
