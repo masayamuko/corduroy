@@ -860,4 +860,16 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
       .popup-card { animation: none; }
       .confetti-piece { display: none; }
     }
+
+    /* 電話番号画像（迷惑電話対策・テキスト抽出不可） */
+    .phone-img {
+      height: 1em;
+      width: auto;
+      vertical-align: -2px;
+      display: inline-block;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
 </style>
