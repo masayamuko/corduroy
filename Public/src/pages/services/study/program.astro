@@ -1,25 +1,69 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
-const title = "3ヶ月AIプログラム｜AI講座（福岡）｜株式会社コールテン";
-const description = "第二の自分を作るところから始まる、3ヶ月でAIを使いこなすプログラム。月1講座×3回＋作業会＋Discordサポート。108,000円。福岡・対面開催。";
+const title = "3ヶ月でAI活用を学ぶプログラム｜AI講座（福岡）｜株式会社コールテン";
+const description = "ChatGPT・Codexを使い、3ヶ月で『AIと共に生きる自分』になるプログラム。第二の自分作り → AI理解 → AIで作る、の3ヶ月。月1講座×3回＋作業会＋Discordサポート。110,000円（税込）。福岡・対面開催。";
+const ogImage = "https://res.cloudinary.com/dg3mdcuju/image/upload/w_1200,h_630,c_fill,g_center,e_brightness:-15/v1765686550/Facebook_Image_20_usvjlj.jpg";
 
-// パッケージ スタート期
-const startDates = [
-  { period: '2026 夏期', month: '6月', startDate: '2026.06.06', day: '土', time: '10:00-13:00', label: '第二の自分作り講座', remaining: '受付中' },
-  { period: '2026 秋期', month: '9月', startDate: '2026.09.05', day: '土', time: '10:00-13:00', label: '第二の自分作り講座', remaining: '受付中' },
-  { period: '2026 冬期', month: '12月', startDate: '2026.12.05', day: '土', time: '10:00-13:00', label: '第二の自分作り講座', remaining: '受付中' },
+// パッケージ スタート期（2026年6月開講 / 土曜クラス・水曜クラスの2系統）
+type CohortSession = { date: string; time?: string; topic: string };
+type Cohort = {
+  id: string;
+  period: string;
+  label: string;
+  weekday: string;
+  remaining: string;
+  startDate: string;       // 表示用（例: '6/6（土）'）
+  startISO: string;        // 開講日（ISO 8601・Asia/Tokyo）
+  deadlineISO: string;     // 申込締切（開講1週間前 23:59 JST）
+  deadlineLabel: string;   // 表示用締切（例: '5/30（土）23:59'）
+  sessions: CohortSession[];
+};
+
+const cohorts: Cohort[] = [
+  {
+    id: 'sat-2026-06',
+    period: '2026 夏期',
+    label: '土曜クラス',
+    weekday: '土曜朝',
+    remaining: '受付中',
+    startDate: '6/6（土）',
+    startISO: '2026-06-06T10:00:00+09:00',
+    deadlineISO: '2026-05-30T23:59:59+09:00',
+    deadlineLabel: '5/30（土）23:59',
+    sessions: [
+      { date: '6/6（土）', time: '10:00-13:00', topic: '第二の自分作り' },
+      { date: '7/4（土）', topic: 'AIでサイト作り' },
+      { date: '8/1（土）', topic: 'AI基礎講座' },
+    ],
+  },
+  {
+    id: 'wed-2026-06',
+    period: '2026 夏期',
+    label: '水曜クラス',
+    weekday: '水曜夜',
+    remaining: '受付中',
+    startDate: '6/10（水）',
+    startISO: '2026-06-10T19:00:00+09:00',
+    deadlineISO: '2026-06-03T23:59:59+09:00',
+    deadlineLabel: '6/3（水）23:59',
+    sessions: [
+      { date: '6/10（水）', time: '19:00-22:00', topic: 'AIでサイト作り' },
+      { date: '7/8（水）', topic: 'AI基礎講座' },
+      { date: '8/12（水）', topic: '第二の自分作り' },
+    ],
+  },
 ];
 ---
 
-<Layout title={title} description={description} canonicalUrl="https://www.corduroy.co.jp/services/study/program/" ogUrl="https://www.corduroy.co.jp/services/study/program/">
+<Layout title={title} description={description} ogImage={ogImage} canonicalUrl="https://www.corduroy.co.jp/services/study/program/" ogUrl="https://www.corduroy.co.jp/services/study/program/">
   <Fragment slot="head">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "3ヶ月AI活用プログラム",
-        "description": "第二の自分を作るところから始まる、3ヶ月でAIを使いこなすプログラム。月1講座×3回＋作業会＋Discordサポート。",
+        "description": "第二の自分を作るところから始まる、3ヶ月で『AIと共に生きる自分』になるプログラム。月1講座×3回＋作業会＋Discordサポート。",
         "provider": {
           "@type": "Organization",
           "name": "株式会社コールテン",
@@ -27,7 +71,7 @@ const startDates = [
         },
         "offers": {
           "@type": "Offer",
-          "price": "108000",
+          "price": "110000",
           "priceCurrency": "JPY"
         }
       }
@@ -65,7 +109,7 @@ const startDates = [
           <!-- 3段組タイポグラフィ -->
           <h1>
             <span class="h1-pre">3ヶ月で、</span>
-            <span class="h1-main">AIを<mark>使いこなせる</mark></span>
+            <span class="h1-main">AIと<mark>共に生きる</mark></span>
             <span class="h1-post">自分になる。</span>
           </h1>
 
@@ -78,12 +122,12 @@ const startDates = [
 
           <p class="lead">
             「なんとなく使っている」から卒業して、<br>
-            <b>自分専用のAIと一緒に働く</b>感覚を手に入れる3ヶ月。
+            <b>AIと自分の言葉で対話できる</b>感覚を手に入れる3ヶ月。
           </p>
 
           <div class="hero-cta">
             <a class="btn" href="#program">プログラムの内容を見る</a>
-            <a class="btn secondary" href="/services/study/trial">無料体験会に参加する →</a>
+            <a class="btn secondary" href="#flow">参加までの流れを見る →</a>
           </div>
         </div>
       </div>
@@ -119,6 +163,50 @@ const startDates = [
     </section>
 
 
+    <!-- ===== BEFORE / AFTER ===== -->
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Before &rarr; After</small>
+        <h2>3ヶ月後の自分</h2>
+        <p>ただ「AIに詳しい」になるのではなく、<br><b>AIが自分の一部</b>として動き出している。それが3ヶ月後の景色です。</p>
+      </div>
+
+      <div class="ba-grid fade-up">
+        <div class="ba-card ba-before">
+          <div class="ba-tag">Before</div>
+          <h3>今のあなた</h3>
+          <ul>
+            <li>ChatGPTを開いても何を聞けばいいか迷う</li>
+            <li>返ってきた答えが「なんかズレてる」と感じる</li>
+            <li>気がつくと使わなくなって、また検索に戻っている</li>
+            <li>「結局AIで何ができるんだろう」が止まらない</li>
+          </ul>
+        </div>
+
+        <div class="ba-arrow">→</div>
+
+        <div class="ba-card ba-after">
+          <div class="ba-tag ba-tag--after">After（3ヶ月後）</div>
+          <h3>AIと共に生きる自分</h3>
+          <ul>
+            <li><b>第二の自分</b>として育てたAIパートナーが、あなたの言葉と価値観を覚えている</li>
+            <li>AIの<b>得意・不得意がわかる</b>から、頼り方・任せ方が自然にわかる</li>
+            <li>そのAIパートナーと一緒に、<b>ウェブサイトやツールを実際に作れる</b>ようになっている</li>
+            <li>「AIをどう使うか」ではなく、<b>「AIと一緒に何をするか」</b>で発想できる</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ba-note fade-up">
+        <span class="ba-note-icon">⚙️</span>
+        <p>
+          ※ 本プログラムで主に使用するAIは <b>ChatGPT</b> です。<br>
+          ChatGPT契約者が使える <b>Codex</b>（コード生成・実行ツール）も合わせて活用し、第三段階の「AIと一緒に作る」を実現します。Claude / Gemini への応用は基礎講座で触れます。
+        </p>
+      </div>
+    </section>
+
+
     <!-- ===== PROGRAM ===== -->
     <section id="program" class="container">
       <div class="section-head fade-up">
@@ -148,11 +236,11 @@ const startDates = [
           <div class="roadmap-month">Month 2</div>
           <div class="roadmap-card">
             <div class="roadmap-icon">🌱</div>
-            <div class="roadmap-tool-badge roadmap-tool-badge--multi">
-              <span class="tool-icon">🔄</span> ChatGPT・Gemini・Claude など汎用スキル
+            <div class="roadmap-tool-badge">
+              <span class="tool-icon">🤖</span> ChatGPT を使用（基礎は他AIにも応用可）
             </div>
             <h3>AIの基礎を固める</h3>
-            <p class="mini">AIの仕組みや得意・不得意を整理し、思い通りの回答を引き出す型を身につけます。<b>どのAI・LLMにも応用できる</b>普遍的なベースを作ります。</p>
+            <p class="mini">AIの仕組みや得意・不得意を整理し、思い通りの回答を引き出す型を身につけます。本プログラムではChatGPTを使いますが、<b>Claude / Gemini など他のLLMにも応用できる</b>普遍的なベースを作ります。</p>
             <a href="/services/study/basicAI" class="link-btn">講座詳細を見る →</a>
           </div>
         </div>
@@ -164,10 +252,10 @@ const startDates = [
           <div class="roadmap-card">
             <div class="roadmap-icon">🔨</div>
             <div class="roadmap-tool-badge roadmap-tool-badge--claude">
-              <span class="tool-icon">⚡</span> Claude Code を使用
+              <span class="tool-icon">⚡</span> ChatGPT + Codex を使用
             </div>
             <h3>AIで何かを作る</h3>
-            <p class="mini">Claude Codeを使い、ウェブサイトやツールをAIと一緒に実際に作ります。「知識がなくても作れた」という自信が、AI活用をさらに加速させます。</p>
+            <p class="mini">ChatGPT契約で使える <b>Codex</b>（コード生成・実行ツール）を活用し、ウェブサイトやツールをAIと一緒に実際に作ります。「知識がなくても作れた」という自信が、AI活用をさらに加速させます。</p>
             <a href="/services/study/AIdeWEB" class="link-btn">講座詳細を見る →</a>
           </div>
         </div>
@@ -192,6 +280,14 @@ const startDates = [
             </div>
           </div>
         </div>
+
+        <div class="plus-continue">
+          <div class="plus-continue-icon">🌿</div>
+          <div class="plus-continue-body">
+            <strong>修了後も続けたい方へ：糸口会 継続参加（任意）</strong>
+            <p class="mini">3ヶ月プログラム修了後、希望者は<a href="/services/study/community">AIコミュニティ「糸口会」</a>に<b>月5,000円</b>で継続参加できます。月1回の作業会＋Discordで、学び続ける環境を維持できます。</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -206,85 +302,168 @@ const startDates = [
 
         <div class="price-card fade-up">
           <div class="price-label">3ヶ月AI活用プログラム</div>
-          <div class="price-amount">¥108,000<span class="price-tax">（税込）</span></div>
+          <div class="price-amount">¥110,000<span class="price-tax">（税込）</span></div>
           <div class="price-includes">
             <span>✓ 月1講座 × 3回</span>
             <span>✓ 作業会 月1回（3ヶ月分）</span>
             <span>✓ Discord サポート</span>
           </div>
           <div class="price-note">
-            ※ スタートは「第二の自分作り講座」がある月。年4回（3・6・9・12月）のご参加タイミングがあります。
+            ※ 2026年6月開講は土曜クラス／水曜クラスの2系統。次の開講予定は別途LINEでご案内します。
           </div>
           <a class="btn price-btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
-            LINEで無料説明会を見て申し込む
+            LINE登録して「説明会」と送る
           </a>
-          <p class="price-sub">まずは無料説明会（動画）→ 無料体験会 → 申し込みの流れです</p>
+          <p class="price-sub">LINEで「説明会」と送信 → 無料説明会（動画）が届きます → そのままLINEでお申し込みください</p>
         </div>
 
         <!-- Start Dates -->
         <div class="section-head fade-up" style="margin-top:64px; margin-bottom:32px;">
           <small>Next Start</small>
-          <h2 style="font-size:28px;">次回スタート日程</h2>
+          <h2 style="font-size:28px;">スタート日程（2026年6月開講）</h2>
+          <p>土曜朝クラス／水曜夜クラスのどちらかを選んでご参加ください。<br>初回は時間帯を明記、第2回・第3回は日付のみ表示（時間は回によって変動する場合があります／詳細はLINEでご案内）。</p>
         </div>
-        <div class="start-dates fade-up">
-          {startDates.map((s) => (
-            <div class="start-item">
-              <div class="start-period">{s.period}</div>
-              <div class="start-info">
-                <span class="start-month">{s.month}スタート</span>
-                <span class="start-date">{s.startDate}（{s.day}） {s.time}</span>
-                <span class="start-course">第1講座：{s.label}</span>
+        <div class="cohort-grid fade-up">
+          {cohorts.map((c) => (
+            <div class="cohort-card" data-cohort-id={c.id} data-deadline={c.deadlineISO} data-start={c.startISO}>
+              <div class="cohort-header">
+                <div class="cohort-period">{c.period}</div>
+                <div class="cohort-label">{c.label}</div>
+                <div class="cohort-weekday">{c.weekday}</div>
+                <span class="cohort-badge" data-cohort-badge>{c.remaining}</span>
               </div>
-              <span class="start-badge">{s.remaining}</span>
+
+              <div class="cohort-countdown" data-cohort-countdown>
+                <div class="cd-label">申込締切</div>
+                <div class="cd-deadline">{c.deadlineLabel}</div>
+                <div class="cd-remaining">
+                  <span class="cd-num" data-cohort-days>—</span>
+                  <span class="cd-unit">日</span>
+                </div>
+                <div class="cd-sub" data-cohort-sub>開講まで残り—</div>
+              </div>
+
+              <ol class="cohort-sessions">
+                {c.sessions.map((s, i) => (
+                  <li class="cohort-session">
+                    <span class="cohort-round">第{i + 1}回</span>
+                    <span class="cohort-date">{s.date}</span>
+                    {s.time && <span class="cohort-time">{s.time}</span>}
+                    <span class="cohort-topic">{s.topic}</span>
+                  </li>
+                ))}
+              </ol>
+
+              <a class="cohort-cta" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
+                LINEで申し込む →
+              </a>
             </div>
           ))}
         </div>
+
+        <script is:inline>
+          // クラス別カウントダウン（クライアント側で残日数を表示）
+          (function () {
+            const fmtJSTDate = (iso) => {
+              const d = new Date(iso);
+              const m = d.getMonth() + 1;
+              const day = d.getDate();
+              return `${m}/${day}`;
+            };
+            const update = () => {
+              const now = Date.now();
+              document.querySelectorAll('[data-cohort-id]').forEach((card) => {
+                const deadlineEl = card.querySelector('[data-cohort-days]');
+                const subEl = card.querySelector('[data-cohort-sub]');
+                const badgeEl = card.querySelector('[data-cohort-badge]');
+                const cdBox = card.querySelector('[data-cohort-countdown]');
+                if (!deadlineEl || !subEl) return;
+
+                const deadlineISO = card.getAttribute('data-deadline');
+                const startISO = card.getAttribute('data-start');
+                if (!deadlineISO || !startISO) return;
+
+                const deadlineMs = new Date(deadlineISO).getTime();
+                const startMs = new Date(startISO).getTime();
+                const dayMs = 86400000;
+
+                const daysToDeadline = Math.ceil((deadlineMs - now) / dayMs);
+                const daysToStart = Math.ceil((startMs - now) / dayMs);
+
+                if (daysToDeadline > 0) {
+                  deadlineEl.textContent = String(daysToDeadline);
+                  subEl.textContent = `開講まで残り ${Math.max(daysToStart, 0)}日`;
+                  if (daysToDeadline <= 7 && cdBox) cdBox.classList.add('cd--urgent');
+                } else if (daysToStart > 0) {
+                  deadlineEl.textContent = '締切';
+                  subEl.textContent = `開講まで残り ${daysToStart}日（締切後はお問い合わせください）`;
+                  if (badgeEl) {
+                    badgeEl.textContent = '締切';
+                    badgeEl.classList.add('cohort-badge--closed');
+                  }
+                  if (cdBox) cdBox.classList.add('cd--closed');
+                } else {
+                  deadlineEl.textContent = '—';
+                  subEl.textContent = '開講中／次回はLINEでお問い合わせください';
+                  if (badgeEl) {
+                    badgeEl.textContent = '開講中';
+                    badgeEl.classList.add('cohort-badge--running');
+                  }
+                  if (cdBox) cdBox.classList.add('cd--closed');
+                }
+              });
+            };
+            update();
+            // 1時間おきに更新（長時間開きっぱなしの場合に備える）
+            setInterval(update, 3600 * 1000);
+          })();
+        </script>
       </div>
     </section>
 
 
     <!-- ===== FLOW ===== -->
-    <section class="container">
+    <section id="flow" class="container">
       <div class="section-head fade-up">
         <small>Flow</small>
         <h2>参加までの流れ</h2>
+        <p>すべてLINEで完結します。対面の体験会や、外部フォームの記入は不要です。</p>
       </div>
       <div class="flow-steps fade-up">
         <div class="flow-step">
           <div class="flow-num">01</div>
           <div class="flow-content">
             <strong>LINE登録</strong>
-            <p class="mini">LINEを登録すると、無料説明会の動画をご覧いただけます。</p>
+            <p class="mini">下のボタンから公式LINEを友だち追加してください。</p>
           </div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-step">
           <div class="flow-num">02</div>
           <div class="flow-content">
-            <strong>無料説明会（動画）を視聴</strong>
-            <p class="mini">プログラムの内容・価格・スタート日程をわかりやすく説明しています。いつでも、何度でも見られます。</p>
+            <strong>「説明会」とメッセージを送る</strong>
+            <p class="mini">LINEのトーク画面で「<b>説明会</b>」とそのまま送信。3ヶ月プログラムの無料説明会（動画）が自動で届きます。</p>
           </div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-step">
           <div class="flow-num">03</div>
           <div class="flow-content">
-            <strong>無料体験会に参加（福岡・対面）</strong>
-            <p class="mini">1時間のデモ&amp;セミナー。AIを実際に体験し、「自分にもできる」という感覚を持ち帰ってください。</p>
-            <a href="/services/study/trial" class="link-btn" style="margin-top:8px;">体験会の詳細を見る →</a>
+            <strong>無料説明会（動画）を視聴</strong>
+            <p class="mini">プログラム内容・カリキュラム・スタート日程・料金をわかりやすくお伝えします。いつでも・何度でも見直せます。</p>
           </div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-step">
           <div class="flow-num">04</div>
           <div class="flow-content">
-            <strong>3ヶ月プログラムに申し込む</strong>
-            <p class="mini">体験会後、その場でも・後日LINEからでも申し込めます。108,000円（税込）。</p>
+            <strong>LINEで参加申し込み → スタート</strong>
+            <p class="mini">LINEで土曜クラス／水曜クラスのご希望を返信ください。お支払い案内とあわせて初回日程をお送りします。</p>
           </div>
         </div>
       </div>
       <div style="text-align:center; margin-top:40px;" class="fade-up">
-        <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">LINEで無料説明会を見る</a>
+        <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">LINE登録して「説明会」と送る</a>
       </div>
     </section>
 
@@ -310,6 +489,46 @@ const startDates = [
               フリーランス歴10年、コーチ歴3年、日本語教師歴を含む指導歴5年。<br>
               「わかりやすく教える」ことを大切に、実務に落とし込めるAI活用を丁寧に伴走します。
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== ACCESS ===== -->
+    <section class="container">
+      <div class="section-head fade-up">
+        <small>Access</small>
+        <h2>会場のご案内</h2>
+        <p>福岡市中央区・赤坂駅から徒歩すぐ。<br>少人数制で、ゆったり集中できる空間でお迎えします。</p>
+      </div>
+
+      <div class="access-grid fade-up">
+        <div class="access-map">
+          <iframe
+            src="https://www.google.com/maps?q=%E7%A6%8F%E5%B2%A1%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E8%B5%A4%E5%9D%82&hl=ja&z=16&output=embed"
+            width="100%"
+            height="320"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="赤坂駅エリア・会場マップ"
+          ></iframe>
+        </div>
+
+        <div class="access-info">
+          <div class="access-item">
+            <strong>最寄り駅</strong>
+            <p class="mini">福岡市地下鉄空港線「<b>赤坂駅</b>」徒歩すぐ</p>
+          </div>
+          <div class="access-item">
+            <strong>会場</strong>
+            <p class="mini">赤坂駅周辺の会議スペース</p>
+            <p class="mini" style="margin-top:8px;">※ <b>開催回によっては、天神駅近くの会議室に変更になる可能性があります。</b>変更があれば、お申し込み後にLINEで個別にご案内します。</p>
+          </div>
+          <div class="access-item">
+            <strong>会場の詳細</strong>
+            <p class="mini">お申し込み確定後、初回日程と一緒にLINEまたはDiscordで詳しい住所・地図・入り方をご案内します。</p>
           </div>
         </div>
       </div>
@@ -388,12 +607,16 @@ const startDates = [
           <p class="mini">はい、講座では実際に操作を行うため、PC（Windows/Mac）の持参をお願いしています。タブレットやスマホのみでは受講が難しい内容が含まれます。</p>
         </details>
         <details>
-          <summary>無料体験会だけ参加できますか？</summary>
-          <p class="mini">もちろん参加できます。「まず雰囲気を見たい」「自分に合うか確かめたい」という方のための<a href="/services/study/trial">体験会</a>です。体験会後の申し込みは任意です。</p>
+          <summary>申し込む前に内容を詳しく知りたいです。</summary>
+          <p class="mini">LINEを友だち追加して「<b>説明会</b>」とメッセージを送ると、3ヶ月プログラムの無料説明会（動画）が自動で届きます。料金・カリキュラム・スタート日程まで一通りご確認いただいてから、ご検討ください。</p>
+        </details>
+        <details>
+          <summary>LINEで申し込んだあとはどうなりますか？</summary>
+          <p class="mini">土曜クラス／水曜クラスのご希望をお伺いし、お支払い案内と初回日程をLINEでお送りします。お支払い確認後、Discordコミュニティへの招待＋当日のご案内をお送りして、初回講座からスタートです。</p>
         </details>
         <details>
           <summary>3ヶ月プログラムの費用はいくらですか？</summary>
-          <p class="mini">108,000円（税込）です。月1講座×3回・作業会・Discordサポートがすべて含まれます。詳しい内容は<a href="/services/study/trial">無料体験会</a>でもご案内していますので、お気軽にご参加ください。</p>
+          <p class="mini">110,000円（税込）です。月1講座×3回・作業会・Discordサポートがすべて含まれます。詳しい内容はLINEの無料説明会（動画）でもご案内していますので、まずはLINE登録から「説明会」とメッセージをお送りください。</p>
         </details>
         <details>
           <summary>3つの講座を個別に受けることもできますか？</summary>
@@ -415,36 +638,18 @@ const startDates = [
     </section>
 
 
-    <!-- ===== TRIAL CTA ===== -->
-    <section id="trial" class="bg-gradient-soft">
-      <div class="container">
-        <div class="section-head fade-up">
-          <small>Free Trial</small>
-          <h2>まず、体験してみてください。</h2>
-          <p>無料体験会では、AIのデモと「第二の自分」の実例を1時間で体感できます。<br>「自分にもできる」という自信を持って帰ってください。</p>
-        </div>
-        <div class="card fade-up" style="max-width:640px; margin:0 auto; text-align:center;">
-          <div style="font-size:48px; margin-bottom:16px;">🌱</div>
-          <h3>無料体験会（福岡・対面）</h3>
-          <p class="mini" style="margin-bottom:8px;">AIデモ ＋ 第二の自分デモ ＋ プログラム案内</p>
-          <p class="mini" style="margin-bottom:24px;">参加無料 / 月1回開催 / 福岡市内</p>
-          <a class="btn" href="/services/study/trial">体験会の日程・詳細を見る →</a>
-        </div>
-      </div>
-    </section>
-
-
     <!-- ===== LINE CTA ===== -->
     <section class="bg-contact">
       <div class="container">
         <div class="section-head fade-up">
           <small>LINE</small>
           <h2>まずはLINE登録から</h2>
-          <p>無料説明会（動画）をご覧いただけます。<br>無理な勧誘はありません。いつでも気軽にどうぞ。</p>
+          <p>友だち追加 → 「<b>説明会</b>」と送信 → 無料説明会（動画）が届きます。<br>無理な勧誘はありません。いつでも気軽にどうぞ。</p>
         </div>
         <div class="card fade-up" style="max-width:640px; margin:0 auto; text-align:center;">
           <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
-             style="margin-top:8px;">LINE登録で無料説明会を見る</a>
+             style="margin-top:8px;">LINE登録して「説明会」と送る</a>
+          <p class="mini" style="margin-top:14px; color:var(--text-light);">送信後、自動で動画が届きます（24時間以内）。</p>
         </div>
       </div>
     </section>
@@ -756,6 +961,115 @@ section {
 }
 .forwhom-item p { font-size: 15px; line-height: 1.7; color: var(--text); margin: 0; }
 
+/* ===== Before / After ===== */
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: stretch;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.ba-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 30px;
+  border: 1px solid rgba(22, 97, 78, 0.1);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ba-before {
+  background: #f7f7f5;
+  color: var(--text);
+}
+.ba-after {
+  background: linear-gradient(135deg, #f0f7f4 0%, #e3efe9 100%);
+  border-color: rgba(22, 97, 78, 0.25);
+  box-shadow: 0 12px 28px rgba(22, 97, 78, 0.08);
+}
+.ba-tag {
+  align-self: flex-start;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: #ececec;
+  color: #6b6b6b;
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+.ba-tag--after {
+  background: var(--sea);
+  color: #fff;
+}
+.ba-card h3 {
+  font-size: 22px;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.4;
+}
+.ba-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ba-card li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--text);
+}
+.ba-before li::before {
+  content: '×';
+  position: absolute;
+  left: 0; top: 0;
+  color: #b0b0b0;
+  font-weight: 700;
+}
+.ba-after li::before {
+  content: '✓';
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--sea);
+  font-weight: 700;
+}
+.ba-arrow {
+  align-self: center;
+  font-size: 32px;
+  color: var(--accent);
+  font-weight: 700;
+  opacity: 0.7;
+}
+.ba-note {
+  max-width: 760px;
+  margin: 32px auto 0;
+  background: #fff;
+  border: 1px dashed rgba(22, 97, 78, 0.25);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.ba-note-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.ba-note p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
 /* ===== Roadmap ===== */
 .roadmap {
   max-width: 680px;
@@ -883,6 +1197,31 @@ section {
 .plus-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
 .plus-item strong { display: block; font-size: 15px; margin-bottom: 6px; color: var(--ink); }
 .plus-item .mini { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+.plus-continue {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px dashed rgba(22, 97, 78, 0.25);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.plus-continue-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.plus-continue-body strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.plus-continue-body .mini {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--text);
+}
+.plus-continue-body a { color: var(--sea); font-weight: 700; }
 
 /* ===== Price Card ===== */
 .price-card {
@@ -989,6 +1328,213 @@ section {
   border-radius: 99px;
 }
 
+/* ===== Cohort (土曜／水曜クラス) ===== */
+.cohort-grid {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.cohort-card {
+  background: #fff;
+  border: 1px solid rgba(22, 97, 78, 0.12);
+  border-radius: 20px;
+  padding: 24px 26px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+.cohort-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mint) 0%, var(--sea) 100%);
+  border-radius: 20px 20px 0 0;
+}
+.cohort-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px 12px;
+  padding-top: 4px;
+}
+.cohort-period {
+  grid-column: 1 / 2;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.cohort-label {
+  grid-column: 1 / 3;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.cohort-weekday {
+  grid-column: 1 / 3;
+  font-size: 13px;
+  color: var(--text-light);
+}
+.cohort-badge {
+  grid-column: 3 / 4;
+  grid-row: 1 / 4;
+  align-self: start;
+  font-size: 12px;
+  font-weight: 700;
+  background: #e8f4f0;
+  color: var(--sea);
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+.cohort-sessions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cohort-session {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 6px 12px;
+  align-items: baseline;
+  background: #f9fbfa;
+  border: 1px solid rgba(22, 97, 78, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.cohort-round {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.cohort-date {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.cohort-time {
+  grid-column: 3 / 4;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sea);
+  background: rgba(22, 97, 78, 0.06);
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+.cohort-topic {
+  grid-column: 1 / 4;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* Countdown box */
+.cohort-countdown {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 4px 12px;
+  background: linear-gradient(135deg, #fef9ef 0%, #fdf2dc 100%);
+  border: 1px solid rgba(212, 160, 77, 0.3);
+  border-radius: 14px;
+  padding: 14px 18px;
+}
+.cd-label {
+  grid-column: 1 / 2;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cd-deadline {
+  grid-column: 2 / 3;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.cd-remaining {
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  color: var(--accent);
+}
+.cd-num {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+.cd-unit {
+  font-size: 13px;
+  font-weight: 700;
+}
+.cd-sub {
+  grid-column: 1 / 3;
+  font-size: 11px;
+  color: var(--text-light);
+}
+.cohort-countdown.cd--urgent {
+  background: linear-gradient(135deg, #fff0e6 0%, #ffd8c2 100%);
+  border-color: rgba(212, 100, 50, 0.45);
+}
+.cohort-countdown.cd--urgent .cd-num,
+.cohort-countdown.cd--urgent .cd-label,
+.cohort-countdown.cd--urgent .cd-remaining {
+  color: #c0532d;
+}
+.cohort-countdown.cd--closed {
+  background: #f4f6f5;
+  border-color: rgba(0,0,0,0.08);
+  opacity: 0.85;
+}
+.cohort-countdown.cd--closed .cd-num,
+.cohort-countdown.cd--closed .cd-remaining {
+  color: var(--text-light);
+}
+.cohort-badge--closed {
+  background: #ececec !important;
+  color: #6b6b6b !important;
+}
+.cohort-badge--running {
+  background: #e0f0ff !important;
+  color: #1f5fa0 !important;
+}
+
+/* Cohort CTA */
+.cohort-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--sea);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(22, 97, 78, 0.18);
+}
+.cohort-cta:hover {
+  background: #0f3d2e;
+  transform: translateY(-1px);
+}
+
 /* ===== Flow ===== */
 .flow-steps {
   max-width: 600px;
@@ -1041,6 +1587,47 @@ section {
 .voices-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
 .voices-text { font-size: 15px; color: var(--text); line-height: 1.7; }
 
+/* ===== Access ===== */
+.access-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  max-width: 920px;
+  margin: 0 auto;
+  align-items: start;
+}
+.access-map {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(22, 97, 78, 0.12);
+  box-shadow: var(--shadow-sm);
+}
+.access-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.access-item {
+  background: #fff;
+  border: 1px solid rgba(22, 97, 78, 0.1);
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+.access-item strong {
+  display: block;
+  font-size: 13px;
+  color: var(--sea);
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+}
+.access-item .mini {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0;
+}
+
 /* ===== Instructor ===== */
 .instructor-image {
   flex-shrink: 0;
@@ -1062,6 +1649,10 @@ section {
   .roadmap-month { padding-top: 0; text-align: left; width: auto; }
   .roadmap-arrow { margin-left: 0; }
   .start-item { flex-wrap: wrap; }
+  .cohort-grid { grid-template-columns: 1fr; }
+  .ba-grid { grid-template-columns: 1fr; }
+  .ba-arrow { transform: rotate(90deg); margin: -8px auto; }
+  .access-grid { grid-template-columns: 1fr; }
   .card[style*="display:flex"] { flex-direction: column; text-align: center !important; }
   .instructor-image { width: 120px; height: 120px; }
   .price-amount { font-size: 40px; }
