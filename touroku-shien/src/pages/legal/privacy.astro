@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, COMPANY } from '../../lib/constants';
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+  { '@type': 'ListItem', position: 2, name: 'プライバシーポリシー', item: `${SITE.url}/legal/privacy/` },
+] };
+---
+<BaseLayout title="プライバシーポリシー" description="Corduroy外国人材サポートのプライバシーポリシーです。" jsonLd={breadcrumb}>
+  <section class="legal-hero"><div class="container content"><h1>プライバシーポリシー</h1><p>{COMPANY.legalName}（以下「当社」といいます。）は、当社が提供する登録支援機関サービスおよび本ウェブサイトにおいて取得する個人情報を、以下の方針に基づき取り扱います。</p></div></section>
+  <section class="section"><div class="container content legal-body">
+    <h2>1. 取得する情報</h2><p>当社は、お問い合わせ、相談予約、資料請求、契約手続き、支援業務の実施に際し、氏名、会社名、部署名、連絡先、相談内容、在留資格・雇用・生活支援に関する情報を取得することがあります。</p>
+    <h2>2. 利用目的</h2><p>取得した情報は、お問い合わせへの回答、サービス案内、見積作成、契約管理、支援計画の作成・実施、本人確認、法令に基づく対応、サービス改善のために利用します。</p>
+    <h2>3. 第三者提供・共有先</h2><p>当社は、本人の同意がある場合、法令に基づく場合、生命・身体・財産の保護に必要な場合を除き、個人情報を第三者に提供しません。登録支援機関業務に必要な範囲で、行政書士、送出機関、受入企業、行政機関、通訳・翻訳委託先と情報を共有することがあります。</p>
+    <h2>4. 委託</h2><p>当社は、業務遂行に必要な範囲で、システム運用、メール配信、専門家確認、通訳・翻訳等を外部に委託することがあります。この場合、委託先を適切に管理します。</p>
+    <h2>5. 安全管理</h2><p>当社は、個人情報への不正アクセス、紛失、改ざん、漏えいを防止するため、必要かつ適切な安全管理措置を講じます。</p>
+    <h2>6. 開示・訂正・利用停止</h2><p>本人から個人情報の開示、訂正、追加、削除、利用停止等の請求があった場合、法令に従い適切に対応します。</p>
+    <h2>7. お問い合わせ窓口</h2><p>個人情報の取扱いに関するお問い合わせは、以下までご連絡ください。<br />{COMPANY.email}</p>
+    <h2>8. 改定</h2><p>当社は、必要に応じて本ポリシーを改定します。重要な変更がある場合は、本ウェブサイト上で告知します。</p>
+  </div></section>
+  <section class="section legal-cta"><div class="container content"><h2>個人情報の取扱いについて確認したい方へ</h2><p>相談フォームの利用条件や個人情報取扱方針もあわせて確認できます。</p><a href="/contact/" class="btn btn-primary">問い合わせる</a></div></section>
+</BaseLayout>
+<style>.legal-hero{background:var(--c-sand);padding:64px 0}.legal-body{background:var(--c-white);border-radius:var(--radius-card);padding:32px;box-shadow:var(--shadow-card)}.legal-body h2{margin-top:32px}.legal-body h2:first-child{margin-top:0}.legal-cta{background:var(--c-sand);text-align:center}</style>

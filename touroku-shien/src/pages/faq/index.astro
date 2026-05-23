@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/constants';
+
+const categories = [
+  { name: '制度・法令', items: [
+    ['登録支援機関とは何ですか？', '特定技能1号の外国人を受け入れる企業から委託を受け、生活・仕事に関する支援を行う機関です。'],
+    ['特定技能と技能実習は何が違いますか？', '特定技能は人材確保を目的とした在留資格で、対象分野や要件が定められています。技能実習とは制度目的と運用が異なります。'],
+    ['義務的支援10項目はすべて必要ですか？', '必要です。支援計画に基づき、本人が理解できる言語で実施できる体制を整える必要があります。'],
+    ['保証金や違約金の契約はできますか？', '特定技能外国人本人や関係者から保証金を徴収したり、契約不履行に伴う違約金を定めたりすることはできません。義務的支援に必要な費用を本人に負担させることも認められません。'],
+    ['登録番号はどこで確認できますか？', '会社情報ページとフッターに掲載します。契約前には出入国在留管理庁の登録支援機関登録簿でも公示事項を確認してください。'],
+    ['制度変更があった場合はどうなりますか？', '出入国在留管理庁などの情報を確認し、受入企業に影響する点を整理して共有します。'],
+    ['行政書士との連携はありますか？', '必要に応じて、在留資格申請や制度確認に詳しい専門家と連携する前提で進めます。'],
+  ] },
+  { name: '料金', items: [
+    ['月額費用はいくらですか？', '基本料金は1人あたり月額30,000円です。業種や支援範囲により個別見積となる場合があります。'],
+    ['初期費用はいくらですか？', '基本の初期費用は1人あたり50,000円です。住居、申請支援、現地調整の範囲により変わります。'],
+    ['年間総額は試算できますか？', '料金ページのシミュレーターで、人数と期間に応じた概算を確認できます。'],
+    ['支払い方法は何がありますか？', '銀行振込を基本とし、契約時に支払条件を確認します。'],
+    ['追加費用が発生する場合はありますか？', '遠方対応、個別研修、書類作成支援など、標準範囲外の業務は事前に見積します。'],
+    ['見積だけの相談はできますか？', '可能です。比較検討段階でも、前提条件を整理したうえで概算をお伝えします。'],
+  ] },
+  { name: '支援内容', items: [
+    ['どの業種に対応していますか？', '初期は介護、外食、建設を中心に対応します。その他分野も条件を確認したうえで相談可能です。'],
+    ['来日前から支援できますか？', '雇用条件、生活説明、文化配慮、来日後の流れを事前に説明します。'],
+    ['面談はどのくらいの頻度ですか？', '支援責任者または支援担当者が、外国人本人と監督者に3か月に1回以上面談します。運用上は月次で状況確認できる体制も設計します。'],
+    ['企業側への報告はありますか？', '本人の生活・仕事の状況、企業側で調整したい点を整理し、月次で共有します。'],
+    ['トラブル時の相談はできますか？', '本人と企業の双方から相談を受け、事実確認と関係者調整を行います。'],
+    ['住居探しも支援範囲ですか？', '住居確保や生活に必要な契約支援は、義務的支援の一部として対応します。'],
+    ['日本語学習はどう支援しますか？', '地域の日本語教室、教材、オンライン学習など、本人に合う学習機会を案内します。'],
+  ] },
+  { name: 'インドネシア人材', items: [
+    ['なぜインドネシアに特化しているのですか？', '人口規模、若年層、親日性、福岡での受け入れ可能性を踏まえ、文化理解まで含めて支援しやすいからです。'],
+    ['宗教配慮はどこまで必要ですか？', '礼拝、食事、ラマダン期の働き方などを、職場運用に合わせて無理なく整理します。'],
+    ['P3MIとは何ですか？', 'インドネシアの職業紹介事業者です。利用は任意ですが、採用経路の透明性を確認するうえで重要な要素です。'],
+    ['IPKOLやSISKOP2MIとは何ですか？', 'インドネシア政府系の仕組みです。候補者や送出経路の確認に関連する情報として扱います。'],
+    ['家族との連絡は支援対象ですか？', '必要に応じて、本人が安心して働けるよう母国の家族との連絡状況も尊重します。'],
+    ['日本語レベルはどの程度必要ですか？', '在留資格の要件に加え、業種ごとに安全・接客・記録に必要な日本語を確認します。'],
+  ] },
+];
+
+const faqJsonLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: categories.flatMap((cat) => cat.items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } }))) };
+---
+<BaseLayout title="よくある質問" description="登録支援機関、特定技能、料金、支援内容、インドネシア人材に関するよくある質問をまとめました。" jsonLd={faqJsonLd}>
+  <section class="hero"><div class="container"><p class="eyebrow">FAQ</p><h1>よくある質問</h1><p class="lead">特定技能の受け入れを検討する企業からよくいただく質問を、制度・料金・支援内容・インドネシア人材の4カテゴリで整理しました。</p></div></section>
+  <section class="section"><div class="container faq-layout">{categories.map((category) => <section class="faq-category"><p class="section-eyebrow">Questions</p><h2>{category.name}</h2>{category.items.map(([q,a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</section>)}</div></section>
+  <section class="section bottom-cta"><div class="container cta-box"><h2>ここにない質問も、お気軽にどうぞ。</h2><p>業種や受け入れ人数によって必要な準備は変わります。個別の状況を伺って整理します。</p><a href="/contact/" class="btn btn-primary">問い合わせる</a></div></section>
+</BaseLayout>
+<style>
+  .hero{background:var(--c-sand);padding:72px 0}.eyebrow{color:var(--c-orange-dark);font-weight:800;letter-spacing:.1em;font-size:13px}.lead{font-size:18px;max-width:820px}.faq-layout{display:grid;gap:48px}.faq-category{max-width:900px;margin:0 auto;width:100%}details{background:var(--c-white);padding:18px 22px;border-radius:10px;margin-bottom:12px;box-shadow:var(--shadow-card);transition:box-shadow .2s ease,padding .2s ease}details[open]{padding:22px 22px 26px}summary{font-weight:800;color:var(--c-navy);cursor:pointer}details p{margin-top:12px}.bottom-cta{background:var(--c-sand);text-align:center}
+</style>

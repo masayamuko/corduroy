@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/constants';
+
+const faqs = [
+  ['接客日本語はどのように確認しますか？', '面接時の日本語、配属前研修、店舗用語の理解を分けて確認します。接客、厨房、清掃など担当業務に応じて必要な表現を整理します。'],
+  ['宗教上の食事配慮は店舗運営に影響しますか？', 'まかない、休憩、食材への接触など、店舗ごとの実態に合わせて確認します。無理なく続けられる運用に落とし込むことが重要です。'],
+  ['複数店舗への配属も相談できますか？', '勤務地、通勤、勤務時間、相談窓口を明確にしたうえで、本人が迷わない配置設計を支援します。'],
+];
+
+const operationItems = [
+  ['食品衛生・HACCP', '手洗い、温度管理、清掃記録、交差汚染防止など、店舗の衛生手順をやさしい日本語で確認します。'],
+  ['アレルゲン', '表示義務、厨房内の確認先、接客時の回答範囲を決めます。'],
+  ['接客日本語', '来店時、注文、会計、クレーム一次対応など、担当業務ごとに必要表現を整理します。'],
+  ['まかない・食材接触', '宗教上避けたい食材、調理器具、まかないの選択肢を事前に確認します。'],
+  ['深夜交通', '終電、送迎、自転車、住居位置を勤務シフトと合わせて確認します。'],
+];
+
+const onboarding = ['初日: 制服、勤怠、休憩、衛生ルール、相談先を説明', '1週目: メニュー名、厨房指示、接客フレーズを確認', '1か月目: 店長面談で困りごとと勤務リズムを確認', '複数店舗配属時: 店舗ごとの集合場所、責任者、まかないルールを共有'];
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+  { '@type': 'ListItem', position: 2, name: '外食', item: `${SITE.url}/industries/外食/` },
+] };
+---
+<BaseLayout title="特定技能 外食 福岡" description="福岡の外食事業者向けに、特定技能・インドネシア人材の受け入れ要件、店舗運営上の支援、FAQをまとめました。" jsonLd={breadcrumb}>
+  <section class="hero"><div class="container"><p class="eyebrow">Industry: Food Service</p><h1>外食の現場に、長く働ける受け入れ設計を。</h1><p class="lead">外食分野では、接客・厨房・衛生・シフト運用が日々変化します。インドネシア人材が店舗の一員として働き続けられるよう、現場用語と生活面の支援をつなげます。</p></div></section>
+  <section class="section"><div class="container layout"><aside class="toc"><a href="#feature">業種特性</a><a href="#requirements">受入要件</a><a href="#support">想定支援</a><a href="#faq">FAQ</a></aside><div class="content-flow">
+    <section id="feature"><h2>業種特性</h2><p>外食は、時間帯ごとの忙しさ、接客の言い回し、衛生ルール、急なシフト変更が重なります。受け入れ前に、担当業務と店舗側の教育体制を明確にしておくことが定着の土台になります。</p><div class="cards"><div class="card"><h3>店舗用語の多さ</h3><p>略語、メニュー名、厨房指示など、現場固有の言葉を早く覚える必要があります。</p></div><div class="card"><h3>生活時間の幅</h3><p>早朝・深夜・土日勤務があるため、住居と交通手段の確認が欠かせません。</p></div></div></section>
+    <section id="requirements"><h2>特定技能の受入要件</h2><p>外食業技能測定試験や日本語能力の確認に加え、雇用契約、勤務時間、社会保険、生活支援体制の整備が必要です。店舗単位では、教育担当者と相談窓口を決めておくと運用が安定します。</p><ul class="check-list"><li>技能試験・日本語要件の確認</li><li>担当業務と教育担当者の設定</li><li>勤務時間、休憩、休日の説明</li><li>住居から店舗までの通勤確認</li></ul></section>
+    <section id="support"><h2>想定支援</h2><p>来日前に店舗の働き方を説明し、来日後は生活導線と店舗ルールの理解を重点的に確認します。月次で本人と店長の双方にヒアリングし、小さな不一致を早めに調整します。</p><div class="support-grid"><article><span>01</span><h3>店舗配属前説明</h3><p>メニュー、制服、衛生、接客表現、休憩の取り方を確認します。</p></article><article><span>02</span><h3>生活リズム確認</h3><p>シフトに合わせた睡眠、食事、交通手段を初期に整えます。</p></article><article><span>03</span><h3>店長向け相談</h3><p>文化差による誤解を早めに翻訳し、現場の負担を減らします。</p></article></div><div class="cards operation">{operationItems.map(([title, body]) => <article class="card"><h3>{title}</h3><p>{body}</p></article>)}</div><div class="check-block"><h3>店舗別オンボーディング例</h3><ul class="check-list">{onboarding.map((item) => <li>{item}</li>)}</ul></div></section>
+    <section id="faq"><h2>よくある質問</h2>{faqs.map(([q,a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</section>
+  </div></div></section>
+  <section class="section bottom-cta"><div class="container cta-box"><h2>店舗ごとの受け入れ条件を整理します。</h2><p>営業時間、職種、勤務場所、教育担当者を伺い、必要な支援を設計します。</p><a href="/contact/" class="btn btn-primary">相談する</a></div></section>
+</BaseLayout>
+<style>
+  .hero{background:var(--c-sand);padding:72px 0}.eyebrow{color:var(--c-orange-dark);font-weight:800;letter-spacing:.1em;font-size:13px}.lead{font-size:18px;max-width:820px}.layout{display:grid;gap:32px}@media(min-width:960px){.layout{grid-template-columns:220px 1fr}.toc{position:sticky;top:96px;align-self:start}}.toc{display:grid;gap:10px;background:var(--c-white);padding:18px;border-radius:var(--radius-card);box-shadow:var(--shadow-card)}.toc a{text-decoration:none;font-weight:700}.content-flow{display:grid;gap:56px}.cards,.support-grid{display:grid;gap:18px}.operation{margin-top:24px}@media(min-width:760px){.cards{grid-template-columns:repeat(2,1fr)}.support-grid{grid-template-columns:repeat(3,1fr)}}.check-list{background:var(--c-white);border-radius:var(--radius-card);padding:24px 24px 24px 44px;box-shadow:var(--shadow-card)}.check-block{margin-top:24px}.support-grid article{background:var(--c-white);padding:24px;border-radius:var(--radius-card);box-shadow:var(--shadow-card);border-top:4px solid var(--c-orange)}.support-grid span{font-family:var(--font-serif);font-weight:800;color:var(--c-orange-dark)}details{background:var(--c-white);padding:18px 22px;border-radius:10px;margin-bottom:12px;box-shadow:var(--shadow-card)}summary{font-weight:800;color:var(--c-navy);cursor:pointer}.bottom-cta{background:var(--c-sand);text-align:center}
+</style>

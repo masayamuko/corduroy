@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, COMPANY } from '../../lib/constants';
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+  { '@type': 'ListItem', position: 2, name: 'お問い合わせ', item: `${SITE.url}/contact/` },
+] };
+---
+<BaseLayout title="お問い合わせ" description="特定技能・インドネシア人材の受け入れ、料金、支援範囲についての無料相談フォームです。" jsonLd={breadcrumb}>
+  <section class="hero"><div class="container"><p class="eyebrow">Contact</p><h1>受け入れの不安を、まず整理しましょう。</h1><p class="lead">制度のこと、費用のこと、社内準備のこと。比較検討の段階でも構いません。現在の状況を伺い、次に確認すべきことをお返しします。</p></div></section>
+  <section class="section"><div class="container contact-layout"><div class="contact-note"><h2>相談できること</h2><ul><li>特定技能の受け入れ可否</li><li>インドネシア人材の採用導線</li><li>業種別の準備事項</li><li>料金と年間総額の概算</li><li>宗教・食事・住居の配慮</li></ul><p>返信先: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></p><p class="small">業種別の準備事項は <a href="/industries/介護/">介護</a> / <a href="/industries/外食/">外食</a> / <a href="/industries/建設/">建設</a> のページにも整理しています。</p></div><form class="contact-form" method="post" action="/api/contact" data-contact-form><label>会社名<input name="company" type="text" autocomplete="organization" required /></label><label>お名前<input name="name" type="text" autocomplete="name" required /></label><label>メールアドレス<input name="email" type="email" autocomplete="email" required /></label><label>電話番号<input name="phone" type="tel" autocomplete="tel" /></label><label>業種<select name="industry"><option value="">選択してください</option><option>介護</option><option>外食</option><option>建設</option><option>その他</option></select></label><label>受け入れ予定人数<input name="people" type="number" min="1" inputmode="numeric" /></label><label class="full">相談内容<textarea name="message" rows="7" required></textarea></label><label class="agree"><input type="checkbox" name="agree" required /> <span>お問い合わせ対応、サービス案内、見積作成のために入力情報を取得・利用します。<a href="/legal/privacy/">プライバシーポリシー</a>に同意します。</span></label>{turnstileSiteKey ? <div class="full cf-turnstile" data-sitekey={turnstileSiteKey}></div> : <p class="full form-error">Turnstile site key が未設定です。</p>}<p class="full form-error" data-form-error hidden></p><button class="btn btn-primary submit-btn" type="submit">送信する</button></form></div></section>
+  {turnstileSiteKey && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  <script>
+    const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+    const error = document.querySelector<HTMLElement>('[data-form-error]');
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const formData = new FormData(form);
+      if (!formData.get('cf-turnstile-response')) {
+        if (error) {
+          error.hidden = false;
+          error.textContent = '認証を完了してください。';
+        }
+        return;
+      }
+      if (button) {
+        button.disabled = true;
+        button.textContent = '送信中...';
+      }
+      if (error) error.hidden = true;
+      try {
+        const response = await fetch('/api/contact', { method: 'POST', body: formData });
+        if (!response.ok) {
+          const data = await response.json().catch(() => ({}));
+          throw new Error(data.error || '送信できませんでした。');
+        }
+        window.location.href = '/contact/thanks/';
+      } catch (err) {
+        if (error) {
+          error.hidden = false;
+          error.textContent = err instanceof Error ? err.message : '送信できませんでした。';
+        }
+        if (button) {
+          button.disabled = false;
+          button.textContent = '送信する';
+        }
+        window.turnstile?.reset();
+      }
+    });
+  </script>
+</BaseLayout>
+<style>
+  .hero{background:var(--c-sand);padding:72px 0}.eyebrow{color:var(--c-orange-dark);font-weight:800;letter-spacing:.1em;font-size:13px}.lead{font-size:18px;max-width:820px}.contact-layout{display:grid;gap:32px}@media(min-width:960px){.contact-layout{grid-template-columns:.8fr 1.2fr;align-items:start}}.contact-note,.contact-form{background:var(--c-white);border-radius:var(--radius-card);padding:28px;box-shadow:var(--shadow-card)}.contact-form{display:grid;gap:18px}@media(min-width:700px){.contact-form{grid-template-columns:1fr 1fr}.full,.agree,.contact-form button{grid-column:1/-1}}label{display:grid;gap:6px;font-weight:800;color:var(--c-navy)}input,select,textarea{font:inherit;padding:12px 14px;border:1px solid var(--c-line);border-radius:8px;background:var(--c-white)}textarea{resize:vertical}.agree{display:flex;align-items:flex-start;gap:10px;font-weight:400;color:var(--c-body)}.agree input{margin-top:8px}.contact-form button{justify-self:start}.small{font-size:14px;color:var(--c-muted)}.form-error{color:#9f1239;font-weight:800;margin:0}.submit-btn:disabled{opacity:.7;cursor:not-allowed}.submit-btn:disabled::after{transform:translate(0,1px)}
+</style>

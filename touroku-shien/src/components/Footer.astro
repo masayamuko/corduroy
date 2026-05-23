@@ -1,0 +1,174 @@
+---
+import { SITE, COMPANY } from '../lib/constants';
+
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <h3 class="footer-title">{SITE.name}</h3>
+      <p class="footer-tagline">{SITE.tagline}</p>
+      <dl>
+        <dt>事業者</dt>
+        <dd>{COMPANY.legalName}（{COMPANY.tradeName}）</dd>
+        <dt>所在地</dt>
+        <dd>{COMPANY.address}</dd>
+        <dt>電話</dt>
+        <dd>{COMPANY.phone}</dd>
+        <dt>メール</dt>
+        <dd><a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></dd>
+      </dl>
+    </div>
+
+    <div class="footer-registry">
+      <div class="registry-label">登録支援機関 登録番号</div>
+      <div class="registry-number">{COMPANY.registrationNumber}</div>
+    </div>
+
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <div class="nav-col">
+        <h4>サービス</h4>
+        <ul>
+          <li><a href="/services/">サービス概要</a></li>
+          <li><a href="/indonesia/">インドネシア人材</a></li>
+          <li><a href="/industries/介護/">介護</a></li>
+          <li><a href="/industries/外食/">外食</a></li>
+          <li><a href="/industries/建設/">建設</a></li>
+          <li><a href="/pricing/">料金</a></li>
+        </ul>
+      </div>
+      <div class="nav-col">
+        <h4>リンク</h4>
+        <ul>
+          <li><a href="/about/">会社情報</a></li>
+          <li><a href="/community/">コミュニティ</a></li>
+          <li><a href="/faq/">よくある質問</a></li>
+          <li><a href="/contact/">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div class="nav-col">
+        <h4>規約・方針</h4>
+        <ul>
+          <li><a href="/legal/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/legal/terms/">利用規約</a></li>
+          <li><a href="/legal/tokutei/">特定商取引法に基づく表記</a></li>
+          <li><a href="/legal/personal-info/">個人情報取扱方針</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <small>© {year} {COMPANY.legalName}. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--c-navy);
+    color: var(--c-white);
+    margin-top: 80px;
+  }
+  .footer-inner {
+    display: grid;
+    gap: 40px;
+    padding: 64px 24px 32px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .footer-inner {
+      grid-template-columns: 1.2fr 1fr 1.4fr;
+      gap: 48px;
+      align-items: start;
+    }
+  }
+  .footer-title {
+    color: var(--c-white);
+    margin: 0 0 8px;
+    font-size: 18px;
+  }
+  .footer-tagline {
+    color: var(--c-orange);
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .footer-registry {
+    justify-self: stretch;
+    align-self: center;
+    text-align: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(232,159,74,0.5);
+    padding: 24px 20px;
+    border-radius: 10px;
+  }
+  .registry-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 4px;
+  }
+  .registry-number {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .footer-brand dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px 16px;
+    margin: 22px 0 0;
+    font-size: 13px;
+  }
+  .footer-brand dt {
+    color: rgba(255,255,255,0.6);
+    white-space: nowrap;
+  }
+  .footer-brand dd {
+    margin: 0;
+  }
+  .footer-brand a {
+    color: var(--c-orange);
+  }
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media (min-width: 1024px) {
+    .footer-nav {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .nav-col h4 {
+    color: var(--c-white);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 12px;
+  }
+  .nav-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 11px;
+  }
+  .nav-col a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .nav-col a:hover { color: var(--c-orange); }
+
+  .footer-bottom {
+    background: var(--c-navy-dark);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, COMPANY } from '../../lib/constants';
+const rows = [
+  ['事業者名', COMPANY.legalName],
+  ['サービス名', COMPANY.tradeName],
+  ['代表者', COMPANY.representative],
+  ['所在地', COMPANY.address],
+  ['電話番号', COMPANY.phone],
+  ['メールアドレス', COMPANY.email],
+  ['サービス内容', '特定技能外国人の受け入れに関する支援業務、相談、見積、支援計画の作成・実施補助'],
+  ['販売価格', '料金ページおよび個別見積書に記載します。'],
+  ['商品代金以外の必要料金', '振込手数料、交通費、外部専門家費用などが発生する場合は事前に明示します。'],
+  ['支払方法', '銀行振込を基本とします。'],
+  ['支払時期', '契約書または請求書に定める期日までにお支払いください。'],
+  ['サービス提供時期', '契約締結後、双方で合意した開始日より提供します。'],
+  ['キャンセル・解約', '契約書に定める条件に従います。役務提供開始前のキャンセル、提供開始後の中途解約、返金の有無・算定方法は個別契約で明示します。すでに提供済みの役務、外部費用、実費相当額は返金対象外となる場合があります。'],
+  ['返金', '返金が発生する場合は、未提供役務の範囲、既発生費用、振込手数料等を確認し、契約書に基づき対応します。'],
+];
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+  { '@type': 'ListItem', position: 2, name: '特定商取引法に基づく表記', item: `${SITE.url}/legal/tokutei/` },
+] };
+---
+<BaseLayout title="特定商取引法に基づく表記" description="Corduroy外国人材サポートの特定商取引法に基づく表記です。" jsonLd={breadcrumb}>
+  <section class="legal-hero"><div class="container content"><h1>特定商取引法に基づく表記</h1><p>当社サービスに関する表記は以下のとおりです。個別契約の内容と異なる場合は、契約書の定めを優先します。</p></div></section>
+  <section class="section"><div class="container content"><table>{rows.map(([label,value]) => <tr><th>{label}</th><td>{value}</td></tr>)}</table></div></section>
+  <section class="section legal-cta"><div class="container content"><h2>見積条件を確認する</h2><p>役務提供範囲、追加費用、解約条件は契約前に個別に整理します。</p><a href="/pricing/" class="btn btn-primary">料金を見る</a></div></section>
+</BaseLayout>
+<style>.legal-hero{background:var(--c-sand);padding:64px 0}table{width:100%;border-collapse:collapse;background:var(--c-white);box-shadow:var(--shadow-card);border-radius:var(--radius-card);overflow:hidden}th,td{border-bottom:1px solid var(--c-line);padding:18px;text-align:left;vertical-align:top}th{width:32%;background:var(--c-off-white);color:var(--c-navy)}tr:last-child th,tr:last-child td{border-bottom:none}.legal-cta{background:var(--c-sand);text-align:center}@media(max-width:640px){th,td{display:block;width:100%}th{border-bottom:none}}</style>

@@ -1,0 +1,269 @@
+/* ==========================================================================
+   登録支援機関サイト — Global Styles
+   設計: design.md 参照
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --c-navy: #0F3057;
+  --c-navy-dark: #08203D;
+  --c-orange: #E89F4A;
+  --c-orange-dark: #C67F30;
+  --c-off-white: #FAF7F2;
+  --c-forest: #2D5F3F;
+  --c-sand: #F0E6D2;
+  --section-alt-bg: rgba(232, 159, 74, 0.06);
+  --c-body: #1F2937;
+  --c-muted: #6B7280;
+  --c-line: #E5E7EB;
+  --c-white: #FFFFFF;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", serif;
+
+  /* Sizing */
+  --container-max: 1200px;
+  --content-max: 880px;
+  --section-py: 80px;
+  --section-py-sp: 64px;
+
+  /* Radius */
+  --radius-card: 12px;
+  --radius-btn: 8px;
+
+  /* Shadow */
+  --shadow-card: 0 2px 12px rgba(15, 48, 87, 0.08);
+  --shadow-card-hover: 0 6px 24px rgba(15, 48, 87, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--c-body);
+  background: var(--c-off-white);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "palt" 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--c-navy);
+  margin: 0 0 0.6em;
+}
+
+h1 { font-size: clamp(30px, 7vw, 44px); }
+h2 { font-size: clamp(24px, 4vw, 34px); }
+h3 { font-size: clamp(20px, 3vw, 26px); }
+
+p { margin: 0 0 1em; }
+
+a {
+  color: var(--c-navy);
+  margin: -2px -4px;
+  padding: 2px 4px;
+  text-decoration: underline;
+  text-decoration-color: var(--c-orange);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--c-orange-dark);
+  text-decoration-thickness: 3px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Layout primitives */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+.section {
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  padding: var(--section-py-sp) 0;
+}
+@media (min-width: 768px) {
+  .section { padding: var(--section-py) 0; }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 14px 28px;
+  border-radius: var(--radius-btn);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.btn:focus-visible {
+  outline: 3px solid var(--c-orange);
+  outline-offset: 3px;
+}
+.btn-primary {
+  background: var(--c-orange);
+  color: var(--c-white);
+}
+.btn-primary::after {
+  content: "→";
+  font-weight: 800;
+  line-height: 1;
+  transform: translate(0, 1px);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary:hover {
+  background: var(--c-orange-dark);
+  color: var(--c-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(232, 159, 74, 0.35);
+}
+.btn-primary:hover::after {
+  transform: translate(4px, 1px);
+}
+.btn-primary:disabled {
+  box-shadow: none;
+  transform: none;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--c-navy);
+  border: 2px solid var(--c-navy);
+}
+.btn-secondary:hover {
+  background: var(--c-navy);
+  color: var(--c-white);
+}
+
+/* Cards */
+.card {
+  background: var(--c-white);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+.card p {
+  line-height: 1.8;
+}
+
+.section-eyebrow {
+  color: var(--c-orange-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin: 0 0 14px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section-head .section-eyebrow {
+  margin-bottom: 14px;
+}
+
+details {
+  transition: box-shadow 0.2s ease, transform 0.2s ease, padding 0.2s ease;
+}
+
+details:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+summary {
+  position: relative;
+  list-style: none;
+  padding-right: 34px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.2s ease;
+  background: var(--c-orange);
+  border-radius: 50%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) center / 12px 2px no-repeat,
+    linear-gradient(#000 0 0) center / 2px 12px no-repeat;
+  mask:
+    linear-gradient(#000 0 0) center / 12px 2px no-repeat,
+    linear-gradient(#000 0 0) center / 2px 12px no-repeat;
+}
+
+details[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+details[open] {
+  padding-bottom: 24px;
+}
+
+/* Focus */
+:focus-visible {
+  outline: 3px solid var(--c-orange);
+  outline-offset: 3px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Preview banner (Vercel Auth有効時もダブル表示) */
+.preview-banner {
+  background: var(--c-navy);
+  color: var(--c-white);
+  font-family: ui-monospace, monospace;
+  text-align: center;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+  position: relative;
+  z-index: 90;
+}
+.preview-banner::before {
+  content: "•";
+  color: var(--c-orange);
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  margin-right: 8px;
+}
+.preview-banner strong { color: var(--c-orange); }

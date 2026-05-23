@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/constants';
+
+const faqs = [
+  ['介護分野で必要な試験は何ですか？', '介護技能評価試験、介護日本語評価試験、日本語能力の確認など、在留資格の要件に沿って確認します。制度変更があるため、受け入れ前に最新要件を確認します。'],
+  ['夜勤や食事配慮は相談できますか？', '勤務設計、休憩、食事、礼拝の扱いを施設の実情に合わせて整理します。現場の安全と本人の生活習慣を両立できる形を一緒に考えます。'],
+  ['初めての受け入れでも大丈夫ですか？', '社内説明、生活準備、初期オリエンテーション、面談設計まで順番に整理します。最初の1名から無理のない体制づくりを支援します。'],
+  ['介護記録の日本語はどう準備しますか？', '施設で使う記録様式、略語、申し送り表現を一覧化し、初期OJTで確認します。'],
+  ['家族対応を任せてもよいですか？', '単独対応ではなく、施設職員の同席や報告ルールを決めたうえで、対応範囲を段階的に広げます。'],
+];
+
+const practiceChecks = ['利用者への声かけと身体介助時の安全確認', '申し送りで使う日本語、略語、記録ルール', '夜勤時の判断、緊急連絡、休憩・食事導線', '介護記録の入力方法と確認者', '利用者家族への対応範囲と報告手順', '食事制限、礼拝、ラマダン期の勤務相談'];
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+  { '@type': 'ListItem', position: 2, name: '介護', item: `${SITE.url}/industries/介護/` },
+] };
+---
+<BaseLayout title="特定技能 介護 福岡" description="福岡の介護施設向けに、特定技能・インドネシア人材の受け入れ要件、想定支援、文化配慮、FAQをまとめました。" jsonLd={breadcrumb}>
+  <section class="hero"><div class="container"><p class="eyebrow">Industry: Care</p><h1>福岡の介護施設で、インドネシア人材を迎える準備を。</h1><p class="lead">介護分野は、生活支援と職場定着が密接につながる領域です。技能・日本語の要件だけでなく、利用者対応、夜勤、食事、宗教配慮まで含めて受け入れを設計します。</p></div></section>
+  <section class="section"><div class="container layout"><aside class="toc"><a href="#feature">業種特性</a><a href="#requirements">受入要件</a><a href="#support">想定支援</a><a href="#faq">FAQ</a></aside><div class="content-flow">
+    <section id="feature"><h2>業種特性</h2><p>介護現場では、利用者との継続的な関係、チーム内の申し送り、身体介助時の安全確認が重要です。外国人材にとっては、日本語だけでなく、施設ごとの言葉づかい、記録、夜勤時の判断が大きな壁になります。</p><div class="cards"><div class="card"><h3>対人支援の密度</h3><p>利用者・家族・職員との接点が多く、文化理解と表情の読み取りが求められます。</p></div><div class="card"><h3>生活リズムの変化</h3><p>早番・遅番・夜勤に慣れるまで、睡眠、食事、通勤の確認が必要です。</p></div></div></section>
+    <section id="requirements"><h2>特定技能の受入要件</h2><p>介護分野では、技能評価、日本語能力、介護日本語に関する要件確認が必要です。受入企業側では、雇用条件、支援計画、生活環境、社内説明の整備を進めます。</p><ul class="check-list"><li>在留資格に必要な試験・日本語要件の確認</li><li>雇用契約と勤務シフトの整合</li><li>住居、通勤、生活導線の準備</li><li>施設内研修と初期OJTの計画</li></ul></section>
+    <section id="support"><h2>想定支援</h2><p>Corduroy外国人材サポートでは、来日前説明、来日直後の生活セットアップ、施設配属後の面談、企業側への月次共有までを一貫して支援します。</p><div class="support-grid"><article><span>01</span><h3>施設向け事前研修</h3><p>宗教・食事・日本語レベル・接し方の前提を現場と共有します。</p></article><article><span>02</span><h3>初月集中フォロー</h3><p>住居、通勤、シフト、記録業務への慣れを重点的に確認します。</p></article><article><span>03</span><h3>月次レポート</h3><p>本人の状態と施設側の困りごとを整理し、早めの調整につなげます。</p></article></div><div class="check-block"><h3>実務チェックリスト</h3><ul class="check-list">{practiceChecks.map((item) => <li>{item}</li>)}</ul></div></section>
+    <section id="faq"><h2>よくある質問</h2>{faqs.map(([q,a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</section>
+  </div></div></section>
+  <section class="section bottom-cta"><div class="container cta-box"><h2>介護施設の受け入れ計画を、具体化しませんか。</h2><p>人数、時期、シフト、住居条件を伺い、必要な支援と費用感を整理します。</p><a href="/contact/" class="btn btn-primary">相談する</a></div></section>
+</BaseLayout>
+<style>
+  .hero{background:var(--c-sand);padding:72px 0}.eyebrow{color:var(--c-orange-dark);font-weight:800;letter-spacing:.1em;font-size:13px}.lead{font-size:18px;max-width:820px}.layout{display:grid;gap:32px}@media(min-width:960px){.layout{grid-template-columns:220px 1fr}.toc{position:sticky;top:96px;align-self:start}}.toc{display:grid;gap:10px;background:var(--c-white);padding:18px;border-radius:var(--radius-card);box-shadow:var(--shadow-card)}.toc a{text-decoration:none;font-weight:700}.content-flow{display:grid;gap:56px}.cards,.support-grid{display:grid;gap:18px}@media(min-width:760px){.cards{grid-template-columns:repeat(2,1fr)}.support-grid{grid-template-columns:repeat(3,1fr)}}.check-list{background:var(--c-white);border-radius:var(--radius-card);box-shadow:var(--shadow-card);list-style:none;padding:24px 24px 24px 32px}.check-list li{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232D5F3F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3C/svg%3E");background-position:0 .32em;background-repeat:no-repeat;background-size:18px 18px;padding-left:30px}.check-list li+li{margin-top:10px}.check-block{margin-top:24px}.support-grid article{background:var(--c-white);padding:24px;border-radius:var(--radius-card);box-shadow:var(--shadow-card);border-top:4px solid var(--c-orange)}.support-grid span{font-family:var(--font-serif);font-weight:800;color:var(--c-orange-dark)}details{background:var(--c-white);padding:18px 22px;border-radius:10px;margin-bottom:12px;box-shadow:var(--shadow-card)}summary{font-weight:800;color:var(--c-navy);cursor:pointer}.bottom-cta{background:var(--c-sand);text-align:center}
+</style>

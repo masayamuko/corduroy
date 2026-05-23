@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, COMPANY } from '../../lib/constants';
+
+const supportItems = [
+  { title: '事前ガイダンス', body: '雇用契約締結後、在留資格認定証明書交付申請前または在留資格変更許可申請前に、労働条件、活動内容、入国手続、保証金徴収の有無等を本人が理解できる言語で説明します。' },
+  { title: '出入国時の送迎', body: '来日時の空港から事業所または住居までの移動、帰国時の空港までの移動を支援します。' },
+  { title: '住居確保・生活に必要な契約支援', body: '連帯保証人になること、社宅提供、保証会社情報の提供など住居確保を支援し、銀行口座、携帯電話、電気・ガス・水道等の契約手続を補助します。' },
+  { title: '生活オリエンテーション', body: '交通、医療、防災、地域ルール、相談窓口など、日本で安全に暮らすための情報を伝えます。' },
+  { title: '公的手続等への同行', body: '市区町村での届出、社会保障、税に関する手続きなど、必要に応じて同行します。' },
+  { title: '日本語学習の機会の提供', body: '日本語教室、教材、オンライン学習など、継続的に学べる機会を案内します。' },
+  { title: '相談・苦情への対応', body: '仕事と生活の相談・苦情を、外国人が十分に理解できる言語で受け付け、内容確認、関係者連絡、必要な助言を行います。' },
+  { title: '日本人との交流促進', body: '地域イベント、社内交流、生活圏での接点づくりを通じて、孤立しにくい環境を整えます。' },
+  { title: '転職支援', body: '受入側の事情で雇用継続が難しい場合に、関係機関と連携して次の就労先探しを支援します。' },
+  { title: '定期的な面談・行政機関への通報', body: '支援責任者または支援担当者が、外国人本人と監督者に3か月に1回以上面談し、労働基準法違反等を把握した場合は行政機関へ通報します。' },
+];
+
+const plusServices = [
+  ['月次レポート', '面談内容、生活面の変化、企業側で確認したい点を整理し、受入企業に毎月共有します。'],
+  ['インドネシア文化サポート', '礼拝、食事、家族観、ラマダン期の働き方など、受入側が迷いやすい点を事前に整理します。'],
+  ['福岡コミュニティ連携', '地域の国際交流イベントや同郷者との接点をつくり、職場の外にも相談できる関係を育てます。'],
+  ['初期定着フォロー', '来日直後の不安が大きい時期に、住居・通勤・買い物・医療アクセスを重点的に確認します。'],
+  ['企業向け相談窓口', '現場で起きた小さな違和感を早めに相談できるよう、人事担当者向けの窓口を用意します。'],
+  ['公開前再チェック', '制度変更や公示事項との整合性は、公開前・運用開始前に専門家確認を行う前提で管理します。'],
+];
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: 'サービス概要', item: `${SITE.url}/services/` },
+  ],
+};
+---
+<BaseLayout title="サービス概要" description="福岡で特定技能・インドネシア人材の受け入れを支える登録支援機関のサービス概要。義務的支援10項目と独自の定着支援を紹介します。" jsonLd={breadcrumb}>
+  <section class="page-hero">
+    <div class="container narrow">
+      <p class="eyebrow">Services</p>
+      <h1>義務的支援10項目を土台に、受け入れ後の状況共有まで。</h1>
+      <p class="lead">登録支援機関として必要な支援を正確に行い、そのうえで福岡での暮らしと職場への定着を支える仕組みを重ねます。コミュニティ支援は、法令上の支援を置き換えるものではなく、プラスαの取り組みです。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>義務的支援10項目</h2>
+        <p>出入国在留管理庁が示す支援項目の見出しをベースに、受入企業と本人の双方に分かりやすく運用します。</p>
+      </div>
+      <div class="support-grid">
+        {supportItems.map((item, index) => (
+          <article class="support-card">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container">
+      <div class="section-head">
+        <h2>{COMPANY.tradeName}のプラスα</h2>
+        <p>「支援をしたか」だけでなく、「受け入れ後に何が起きているか」を記録・共有できる状態をつくります。</p>
+      </div>
+      <div class="plus-list">
+        {plusServices.map(([title, body]) => (
+          <article class="card">
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">Operation</p>
+        <h2>企業・本人・地域の情報を分断しない</h2>
+      </div>
+      <div>
+        <p>特定技能の受け入れは、書類だけで完結しません。勤務中の不安、休日の孤立、宗教・食事の配慮、家族との連絡など、離職につながる小さなサインを早めに拾う必要があります。</p>
+        <p>当社では、本人面談、企業面談、生活状況の確認を分けて記録し、受入企業へ共有できる形に整えます。制度上の支援と、地域で暮らすための支援を同じテーブルで管理します。</p>
+        <p><a href="/pricing/">料金の目安</a>、<a href="/faq/">よくある質問</a>、<a href="/industries/介護/">業種別ページ</a>もあわせて確認できます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bottom-cta">
+    <div class="container cta-box">
+      <h2>支援範囲を、最初に一緒に整理します。</h2>
+      <p>受け入れ予定人数、業種、時期、社内体制を伺い、必要な支援と費用の見通しをお伝えします。</p>
+      <a href="/contact/" class="btn btn-primary">無料相談する</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { background: var(--c-sand); padding: 72px 0; }
+  .narrow { max-width: 900px; }
+  .eyebrow { color: var(--c-orange-dark); font-weight: 800; letter-spacing: .1em; font-size: 13px; margin-bottom: 12px; }
+  .lead { font-size: 18px; max-width: 760px; }
+  .section-head { max-width: 760px; margin: 0 auto 40px; text-align: center; }
+  .support-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .support-grid { grid-template-columns: repeat(2, 1fr); } }
+  .support-card { background: var(--c-white); border-left: 4px solid var(--c-orange); border-radius: var(--radius-card); padding: 24px; box-shadow: var(--shadow-card); }
+  .support-card span { color: var(--c-orange-dark); font-weight: 800; font-family: var(--font-serif); }
+  .support-card h3 { font-size: 20px; margin-top: 6px; }
+  .band { background: var(--c-white); }
+  .plus-list { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  @media (min-width: 900px) { .plus-list { grid-template-columns: repeat(3, 1fr); } }
+  .two-col { display: grid; gap: 32px; }
+  @media (min-width: 900px) { .two-col { grid-template-columns: .8fr 1.2fr; } }
+  .bottom-cta { background: var(--c-sand); }
+  .cta-box { text-align: center; }
+</style>

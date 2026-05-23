@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="送信完了" description="お問い合わせを受け付けました。">
+  <section class="hero">
+    <div class="container content">
+      <p class="eyebrow">Thanks</p>
+      <h1>お問い合わせを受け付けました。</h1>
+      <p class="lead">内容を確認し、通常2営業日以内を目安にご連絡します。追加で共有したい情報がある場合は、メールでもお送りいただけます。</p>
+      <div class="actions">
+        <a href="/" class="btn btn-primary">トップへ戻る</a>
+        <a href="/services/" class="btn btn-secondary">サービスを見る</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .hero{background:var(--c-sand);padding:88px 0}.eyebrow{color:var(--c-orange-dark);font-weight:800;letter-spacing:.1em;font-size:13px}.lead{font-size:18px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+</style>

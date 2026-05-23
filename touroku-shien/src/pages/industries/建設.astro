@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/constants';
+
+const faqs = [
+  ['建設分野で特に確認すべき点は何ですか？', '業務区分、現場の安全教育、就労場所、移動、元請・協力会社との連絡体制を確認します。建設分野特有の手続きも事前に整理します。'],
+  ['現場が変わる場合の支援はどうなりますか？', '通勤、集合場所、安全ルール、連絡先が変わるため、本人が理解できる形で都度確認します。'],
+  ['日本語が不安な場合でも受け入れできますか？', '安全指示を理解できることが重要です。来日前後の日本語確認と、現場で使う言葉のリスト化を支援します。'],
+];
+
+const siteChecks = ['保護具、作業着、ヘルメット、安全靴のサイズ確認', '朝礼で使う合図、危険表示、立入禁止範囲の説明', '集合場所、現場移動、交通費精算、緊急連絡先の確認', '担当作業と指揮命令者、元請・協力会社との連絡経路', 'CCUS、建設分野固有手続き、受入計画との整合確認'];
+
+const beforeWork = ['当日の現場名・住所・集合時刻を本人が確認した', '保護具と作業着を着用できている', '危険表示と退避場所を理解している', '監督者・相談窓口・緊急連絡先を把握している', '体調、睡眠、食事、水分補給に問題がない'];
+
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+  { '@type': 'ListItem', position: 2, name: '建設', item: `${SITE.url}/industries/建設/` },
+] };
+---
+<BaseLayout title="特定技能 建設 福岡" description="福岡の建設会社向けに、特定技能・インドネシア人材の受け入れ要件、安全教育、現場運用支援、FAQをまとめました。" jsonLd={breadcrumb}>
+  <section class="hero"><div class="container"><p class="eyebrow">Industry: Construction</p><h1>建設現場の安全と生活支援を、同じ計画で進める。</h1><p class="lead">建設分野では、現場ごとの安全ルール、移動、指揮命令、宿舎環境が定着に直結します。制度上の確認と現場運用を分けずに、受け入れ前から整えます。</p></div></section>
+  <section class="section"><div class="container layout"><aside class="toc"><a href="#feature">業種特性</a><a href="#requirements">受入要件</a><a href="#support">想定支援</a><a href="#faq">FAQ</a></aside><div class="content-flow">
+    <section id="feature"><h2>業種特性</h2><p>建設現場では、安全指示の理解、朝礼、移動、共同生活、複数関係者との連絡が重要です。技能だけでなく、現場に入る前の説明の分かりやすさが事故予防と定着に影響します。</p><div class="cards"><div class="card"><h3>安全指示の正確さ</h3><p>合図、立入範囲、保護具、危険箇所を本人が理解できる形で伝えます。</p></div><div class="card"><h3>現場変更への対応</h3><p>勤務地や集合場所が変わるたびに、通勤と相談先を明確にします。</p></div></div></section>
+    <section id="requirements"><h2>特定技能の受入要件</h2><p>建設分野は、技能要件、日本語要件に加えて、業務区分や建設分野固有の手続き確認が必要です。受入計画と現場運用が一致するよう、事前に書類と実態を照合します。</p><ul class="check-list"><li>業務区分と担当作業の確認</li><li>安全教育と保護具の準備</li><li>住居、通勤、現場移動の設計</li><li>監督者・相談窓口の明確化</li></ul></section>
+    <section id="support"><h2>想定支援</h2><p>現場配属前の生活オリエンテーション、安全教育の補助、月次面談、緊急時の連絡整理を行います。建設会社の担当者が一人で抱え込まない体制をつくります。</p><div class="support-grid"><article><span>01</span><h3>現場用語の整理</h3><p>朝礼、工具、危険表示、禁止事項をやさしい日本語で整理します。</p></article><article><span>02</span><h3>移動・宿舎確認</h3><p>集合場所、移動手段、生活ルールを本人が迷わない形にします。</p></article><article><span>03</span><h3>関係者連携</h3><p>元請、現場責任者、人事担当の連絡経路を明確にします。</p></article></div><div class="check-block"><h3>現場運用チェック</h3><ul class="check-list">{siteChecks.map((item) => <li>{item}</li>)}</ul></div><div class="check-block"><h3>作業前チェック表</h3><ul class="check-list">{beforeWork.map((item) => <li>{item}</li>)}</ul></div></section>
+    <section id="faq"><h2>よくある質問</h2>{faqs.map(([q,a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</section>
+  </div></div></section>
+  <section class="section bottom-cta"><div class="container cta-box"><h2>建設分野の受け入れ準備を、現場単位で整理します。</h2><p>担当作業、現場数、宿舎、移動条件を伺い、支援計画に落とし込みます。</p><a href="/contact/" class="btn btn-primary">相談する</a></div></section>
+</BaseLayout>
+<style>
+  .hero{background:var(--c-sand);padding:72px 0}.eyebrow{color:var(--c-orange-dark);font-weight:800;letter-spacing:.1em;font-size:13px}.lead{font-size:18px;max-width:820px}.layout{display:grid;gap:32px}@media(min-width:960px){.layout{grid-template-columns:220px 1fr}.toc{position:sticky;top:96px;align-self:start}}.toc{display:grid;gap:10px;background:var(--c-white);padding:18px;border-radius:var(--radius-card);box-shadow:var(--shadow-card)}.toc a{text-decoration:none;font-weight:700}.content-flow{display:grid;gap:56px}.cards,.support-grid{display:grid;gap:18px}@media(min-width:760px){.cards{grid-template-columns:repeat(2,1fr)}.support-grid{grid-template-columns:repeat(3,1fr)}}.check-list{background:var(--c-white);border-radius:var(--radius-card);padding:24px 24px 24px 44px;box-shadow:var(--shadow-card)}.check-block{margin-top:24px}.support-grid article{background:var(--c-white);padding:24px;border-radius:var(--radius-card);box-shadow:var(--shadow-card);border-top:4px solid var(--c-orange)}.support-grid span{font-family:var(--font-serif);font-weight:800;color:var(--c-orange-dark)}details{background:var(--c-white);padding:18px 22px;border-radius:10px;margin-bottom:12px;box-shadow:var(--shadow-card)}summary{font-weight:800;color:var(--c-navy);cursor:pointer}.bottom-cta{background:var(--c-sand);text-align:center}
+</style>

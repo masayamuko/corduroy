@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, PRICING } from '../../lib/constants';
+
+const yen = new Intl.NumberFormat('ja-JP');
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+  { '@type': 'ListItem', position: 2, name: '料金', item: `${SITE.url}/pricing/` },
+] };
+---
+<BaseLayout title="料金" description="登録支援機関の料金を分かりやすく掲載。月額3万円、初期費用5万円を基準に、人数と期間で概算を試算できます。" jsonLd={breadcrumb}>
+  <section class="hero"><div class="container"><p class="eyebrow">Pricing</p><h1>料金も、支援内容も、最初に見える形で。</h1><p class="lead">受け入れ前に知りたいのは、月額だけではなく年間でどれくらいかかるか。基本料金と初期費用を明示し、人数と期間で概算できるシミュレーターを用意しました。</p></div></section>
+  <section class="section"><div class="container"><p class="section-eyebrow">Base Plan</p><div class="pricing-grid"><article class="price-card main"><p>月額支援費</p><strong>¥{yen.format(PRICING.monthly)}</strong><span>{PRICING.unit}</span><ul><li>義務的支援10項目</li><li>月次面談・状況共有</li><li>インドネシア文化配慮の相談</li><li>企業担当者向け相談窓口</li></ul></article><article class="price-card"><p>初期費用</p><strong>¥{yen.format(PRICING.initial)}</strong><span>/人</span><ul><li>受入前ヒアリング</li><li>生活開始準備の整理</li><li>来日前ガイダンス設計</li><li>初期オリエンテーション</li></ul></article></div></div></section>
+  <section class="section band"><div class="container calc-wrap"><div><p class="eyebrow">Simulator</p><h2>年間総コストの概算</h2><p>人数と支援期間を入力すると、初期費用と月額支援費の概算を表示します。実際の費用は業種、地域、住居条件、申請支援の範囲により変わります。</p></div><form class="calculator" id="pricing-calculator"><label>受け入れ人数<input type="number" id="people" value="3" min="1" max="50" inputmode="numeric" /></label><label>支援期間（月）<input type="number" id="months" value="12" min="1" max="60" inputmode="numeric" /></label><output id="estimate" aria-live="polite"></output></form></div></section>
+  <section class="section"><div class="container"><div class="section-head"><h2>費用に含まれるもの</h2><p>価格を下げることではなく、受け入れ後に必要な支援範囲を分かりやすくすることを重視しています。</p></div><div class="included"><article class="card"><h3>制度上の支援</h3><p>義務的支援10項目、定期面談、相談対応、行政機関への必要な連絡を含みます。</p></article><article class="card"><h3>生活立ち上げ支援</h3><p>住居、生活契約、交通、買い物、医療、地域ルールの確認を含みます。</p></article><article class="card"><h3>定着状況の共有</h3><p>本人と企業側の状況を整理し、月次で共有できる形にまとめます。</p></article></div></div></section>
+  <section class="section band"><div class="container"><div class="section-head"><h2>年間総コストの内訳</h2><p>見積時は、基本料金だけでなく追加可能性と対象外費用を分けて提示します。</p></div><div class="cost-grid"><article><h3>初期費用</h3><p>受入前ヒアリング、来日前説明設計、生活開始準備の整理。</p></article><article><h3>月額支援費</h3><p>義務的支援10項目、面談、相談対応、企業向け共有。</p></article><article><h3>追加可能性</h3><p>遠方交通、個別研修、書類作成支援、専門家確認、通訳追加。</p></article><article><h3>対象外費用</h3><p>本人の住居賃料、生活実費、行政手数料、航空券等は契約前に範囲を確認します。</p></article></div></div></section>
+  <section class="section bottom-cta"><div class="container cta-box"><h2>御社の条件で、費用を試算します。</h2><p>住居や申請支援の範囲まで含めて、より具体的な見積の前提を整理します。</p><a href="/contact/" class="btn btn-primary">相談する</a></div></section>
+  <script define:vars={{ monthly: PRICING.monthly, initial: PRICING.initial }}>
+    const form = document.getElementById('pricing-calculator');
+    const peopleInput = document.getElementById('people');
+    const monthsInput = document.getElementById('months');
+    const estimate = document.getElementById('estimate');
+    const format = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' });
+    function updateEstimate() {
+      const people = Math.max(1, Number(peopleInput.value || 1));
+      const months = Math.max(1, Number(monthsInput.value || 1));
+      const total = people * initial + people * months * monthly;
+      estimate.textContent = `概算: ${format.format(total)}（${people}名 / ${months}か月）`;
+    }
+    form.addEventListener('input', updateEstimate);
+    updateEstimate();
+  </script>
+</BaseLayout>
+<style>
+  .hero{background:var(--c-sand);padding:72px 0}.eyebrow{color:var(--c-orange-dark);font-weight:800;letter-spacing:.1em;font-size:13px}.lead{font-size:18px;max-width:820px}.pricing-grid{display:grid;gap:24px}@media(min-width:820px){.pricing-grid{grid-template-columns:1fr 1fr}}.price-card{background:var(--c-white);border-radius:var(--radius-card);padding:32px;box-shadow:var(--shadow-card);border-top:5px solid var(--c-orange);transition:box-shadow .2s ease,transform .2s ease}.price-card:hover{box-shadow:var(--shadow-card-hover);transform:translateY(-2px)}.price-card.main{border-top-color:var(--c-orange)}.price-card p{font-weight:800;color:var(--c-navy)}.price-card strong{display:block;font-size:42px;color:var(--c-navy);line-height:1}.price-card span{color:var(--c-muted)}.band{background:var(--c-white)}.calc-wrap{display:grid;gap:32px}@media(min-width:900px){.calc-wrap{grid-template-columns:.9fr 1.1fr;align-items:center}}.calculator{background:var(--c-off-white);border:2px solid rgba(232,159,74,.45);border-radius:var(--radius-card);padding:28px;display:grid;gap:18px;box-shadow:0 8px 28px rgba(232,159,74,.14)}.calculator label{display:grid;gap:6px;font-weight:800;color:var(--c-navy)}.calculator input{font:inherit;padding:12px 14px;border:1px solid var(--c-line);border-radius:8px}output{display:block;background:var(--c-white);color:var(--c-navy);border:2px solid var(--c-orange);padding:22px;border-radius:10px;font-size:clamp(28px,5vw,40px);line-height:1.25;font-weight:800}.section-head{text-align:center;max-width:740px;margin:0 auto 36px}.included,.cost-grid{display:grid;gap:20px}@media(min-width:860px){.included{grid-template-columns:repeat(3,1fr)}.cost-grid{grid-template-columns:repeat(4,1fr)}}.cost-grid article{background:var(--c-off-white);border-radius:var(--radius-card);padding:24px}.cost-grid h3{font-size:20px}.bottom-cta{background:var(--c-sand);text-align:center}
+</style>

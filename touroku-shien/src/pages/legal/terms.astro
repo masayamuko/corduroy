@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE, COMPANY } from '../../lib/constants';
+const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+  { '@type': 'ListItem', position: 2, name: '利用規約', item: `${SITE.url}/legal/terms/` },
+] };
+---
+<BaseLayout title="利用規約" description="Corduroy外国人材サポートのウェブサイト利用規約です。" jsonLd={breadcrumb}>
+  <section class="legal-hero"><div class="container content"><h1>利用規約</h1><p>本規約は、{COMPANY.legalName}（以下「当社」といいます。）が運営する本ウェブサイトの利用条件を定めるものです。</p></div></section>
+  <section class="section"><div class="container content legal-body">
+    <h2>1. 適用</h2><p>本規約は、本ウェブサイトを利用するすべての方に適用されます。</p>
+    <h2>2. 掲載情報</h2><p>当社は、掲載情報の正確性確保に努めますが、制度変更、行政機関の運用変更、個別事情により内容が変わる場合があります。本ウェブサイトの制度情報は一般的な情報提供であり、法的助言ではありません。重要な判断は、最新情報および専門家確認に基づいて行ってください。</p>
+    <h2>3. 個別契約との関係</h2><p>当社サービスの具体的な提供条件、料金、解約条件、責任範囲は、個別契約書または見積書の定めを優先します。</p>
+    <h2>4. 相談フォームの利用条件</h2><p>相談フォームでは、正確な連絡先と相談内容を入力してください。虚偽情報、第三者の権利を侵害する情報、営業妨害目的の送信は禁止します。</p>
+    <h2>5. 禁止事項</h2><p>利用者は、本ウェブサイトの利用にあたり、法令または公序良俗に反する行為、当社または第三者の権利を侵害する行為、不正アクセス、情報の無断転載、運営妨害を行ってはなりません。</p>
+    <h2>6. 知的財産権</h2><p>本ウェブサイト上の文章、画像、デザイン、ロゴその他のコンテンツに関する権利は、当社または正当な権利者に帰属します。</p>
+    <h2>7. 免責</h2><p>当社は、本ウェブサイトの利用により生じた損害について、当社の故意または重過失がある場合を除き、責任を負いません。</p>
+    <h2>8. 外部リンク</h2><p>本ウェブサイトからリンクされた外部サイトの内容について、当社は責任を負いません。</p>
+    <h2>9. 規約の変更</h2><p>当社は、必要に応じて本規約を変更することがあります。変更後の規約は、本ウェブサイトに掲載した時点で効力を生じます。</p>
+    <h2>10. 準拠法・管轄</h2><p>本規約は日本法に準拠します。本ウェブサイトに関して紛争が生じた場合、福岡地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+  </div></section>
+  <section class="section legal-cta"><div class="container content"><h2>サービス条件を個別に確認する</h2><p>料金、支援範囲、契約条件は受け入れ内容に応じて整理します。</p><a href="/contact/" class="btn btn-primary">相談する</a></div></section>
+</BaseLayout>
+<style>.legal-hero{background:var(--c-sand);padding:64px 0}.legal-body{background:var(--c-white);border-radius:var(--radius-card);padding:32px;box-shadow:var(--shadow-card)}.legal-body h2{margin-top:32px}.legal-body h2:first-child{margin-top:0}.legal-cta{background:var(--c-sand);text-align:center}</style>

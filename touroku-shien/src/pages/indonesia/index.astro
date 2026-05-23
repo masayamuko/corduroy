@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/constants';
+
+const points = [
+  ['若い人口構成', 'インドネシアは人口規模が大きく、若年層も厚い国です。中長期で人材を育てたい企業にとって、継続的な採用候補になり得ます。'],
+  ['家族を大切にする文化', '家族への仕送りや将来設計を重視する人が多く、働く目的が明確です。職場でも関係性を大切にする傾向があります。'],
+  ['親日的な土壌', '日本語学習や日本での就労への関心があり、来日前から生活文化を学ぶ人材も増えています。'],
+  ['制度確認の導線', 'P3MI、IPKOL、SISKOP2MIなどの仕組みを確認しながら、採用経路の透明性を高めます。'],
+];
+
+const culture = [
+  ['礼拝', '勤務シフトに無理が出ない範囲で、短時間の礼拝場所や休憩導線を相談します。'],
+  ['食事', 'ハラル対応店、食材店、社食での表示など、現場で実装しやすい配慮を整理します。'],
+  ['ラマダン', '体調、勤務負荷、水分補給の考え方を事前に共有し、本人と職場が相談しやすい状態をつくります。'],
+  ['家族連絡', '来日後の不安を減らすため、母国の家族との連絡習慣も尊重します。'],
+];
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'ホーム', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: 'インドネシア人材', item: `${SITE.url}/indonesia/` },
+  ],
+};
+---
+<BaseLayout title="インドネシア人材の強み" description="福岡でインドネシア人材を受け入れる企業向けに、文化・宗教配慮、P3MI、IPKOL、SISKOP2MI、二国間取決めの基本を整理します。" jsonLd={breadcrumb}>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow">Indonesia Talent</p>
+        <h1>インドネシアと福岡を、ひとつの暮らしに。</h1>
+        <p class="lead">採用だけで終わらせず、宗教・食事・家族観・地域生活まで含めて受け入れを設計します。インドネシア人材に特化することで、来日前から定着後までの支援を具体化できます。</p>
+      </div>
+      <div class="signal-box">
+        <span>特定技能</span>
+        <strong>福岡 × インドネシア</strong>
+        <p>P3MI / IPKOL / SISKOP2MI の確認導線を踏まえた支援</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="center">なぜインドネシア人材か</h2>
+      <div class="grid">
+        {points.map(([title, body]) => (
+          <article class="card">
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">Culture</p>
+        <h2>文化・宗教配慮は、現場設計の一部です。</h2>
+        <p>配慮は特別扱いではなく、働く人が安心して力を出すための前提条件です。職場のルールと本人の生活習慣をすり合わせ、無理のない運用に落とし込みます。</p>
+      </div>
+      <div class="culture-list">
+        {culture.map(([title, body]) => (
+          <div class="culture-item">
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>採用経路の透明性</h2>
+        <p>日本とインドネシアの二国間取決めでは、適正な送出し・受入れのための協力枠組みが示されています。P3MIの利用は制度上必須ではありませんが、利用する場合も利用しない場合も、候補者本人の費用負担、契約内容、送出経路を確認し、IPKOLやSISKOP2MI等の政府系システムの位置づけも踏まえて採用導線を整えます。</p>
+      </div>
+      <div class="process">
+        <div><span>01</span><strong>候補者情報の確認</strong><p>学歴、職歴、日本語、技能試験、就労意向を整理します。</p></div>
+        <div><span>02</span><strong>制度・送出経路の確認</strong><p>二国間取決めの枠組みと現地側の手続きを確認します。</p></div>
+        <div><span>03</span><strong>来日前ガイダンス</strong><p>雇用条件、生活環境、宗教配慮、福岡での暮らしを説明します。</p></div>
+        <div><span>04</span><strong>来日後の定着支援</strong><p>職場・住居・地域コミュニティをつなぎ、孤立しにくい状態をつくります。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container">
+      <div class="section-head">
+        <h2>業種別に確認すること</h2>
+        <p>同じインドネシア人材でも、必要な日本語、生活導線、宗教・食事配慮は業種ごとに変わります。</p>
+      </div>
+      <div class="grid industry-links">
+        <article class="card"><h3>介護</h3><p>利用者対応、申し送り、夜勤、介護記録を確認します。</p><a href="/industries/介護/">介護を見る</a></article>
+        <article class="card"><h3>外食</h3><p>食品衛生、接客日本語、まかない、深夜交通を確認します。</p><a href="/industries/外食/">外食を見る</a></article>
+        <article class="card"><h3>建設</h3><p>現場安全、保護具、朝礼、現場移動を確認します。</p><a href="/industries/建設/">建設を見る</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bottom-cta">
+    <div class="container cta-box">
+      <h2>インドネシア人材の受け入れ準備を、一緒に始めましょう。</h2>
+      <p>業種、勤務地、勤務形態に応じて、必要な文化配慮と採用導線を整理します。</p>
+      <a href="/contact/" class="btn btn-primary">相談する</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { background: linear-gradient(135deg, var(--c-sand), var(--c-off-white)); padding: 76px 0; }
+  .hero-inner { display: grid; gap: 32px; align-items: center; }
+  @media (min-width: 900px) { .hero-inner { grid-template-columns: 1.25fr .75fr; } }
+  .eyebrow { color: var(--c-orange-dark); font-weight: 800; letter-spacing: .1em; font-size: 13px; }
+  .lead { font-size: 18px; max-width: 760px; }
+  .signal-box { background: var(--c-navy); color: var(--c-white); border-radius: var(--radius-card); padding: 32px; box-shadow: var(--shadow-card); }
+  .signal-box span { color: var(--c-orange); font-weight: 800; }
+  .signal-box strong { display: block; font-size: 28px; margin: 8px 0; }
+  .signal-box p { margin: 0; color: rgba(255,255,255,.8); }
+  .center, .section-head { text-align: center; }
+  .section-head { max-width: 780px; margin: 0 auto 36px; }
+  .grid { display: grid; gap: 20px; }
+  @media (min-width: 768px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  .band { background: var(--c-white); }
+  .two-col { display: grid; gap: 36px; }
+  @media (min-width: 900px) { .two-col { grid-template-columns: .9fr 1.1fr; } }
+  .culture-list { display: grid; gap: 16px; }
+  .culture-item { border-left: 4px solid var(--c-forest); background: var(--c-off-white); padding: 20px; border-radius: 8px; }
+  .culture-item h3 { font-size: 19px; }
+  .process { display: grid; gap: 18px; }
+  @media (min-width: 900px) { .process { grid-template-columns: repeat(4, 1fr); } }
+  .process div { background: var(--c-white); padding: 24px; border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+  .process span { color: var(--c-orange-dark); font-weight: 800; font-family: var(--font-serif); }
+  .process strong { display: block; color: var(--c-navy); margin: 8px 0; }
+  .bottom-cta { background: var(--c-sand); text-align: center; }
+</style>
