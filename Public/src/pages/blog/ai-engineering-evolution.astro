@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import UpdatedNote from '../../components/UpdatedNote.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const title = "AIの使い方は、4回引っ越してきた ── プロンプトからループへ｜株式会社コールテン";
 const description = "AIの使い方は「いい一言を磨く」時代から「いい仕組みを組む」時代へ。プロンプト・コンテキスト・ハーネス・ループという4つの段階を、エンジニアでなくてもわかる言葉で整理し、コールテンが自社で試している今を等身大で紹介します。";
@@ -85,13 +86,7 @@ const faqItems = [
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
-          <ol>
-            <li><a href="/">TOP</a></li>
-            <li><a href="/blog/">ブログ</a></li>
-            <li><span aria-current="page">{pageTitle}</span></li>
-          </ol>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">
@@ -336,33 +331,6 @@ const faqItems = [
     padding: 120px 0 100px;
     background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
   }
-  .breadcrumb {
-    font-size: 12.5px;
-    color: var(--text-light);
-    margin-bottom: 32px;
-  }
-  .breadcrumb ol {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-  }
-  .breadcrumb li {
-    display: inline-flex;
-    align-items: center;
-  }
-  .breadcrumb li:not(:last-child)::after {
-    content: "/";
-    margin-left: 8px;
-    opacity: 0.5;
-  }
-  .breadcrumb a { color: var(--sea); font-weight: 600; }
-  .breadcrumb a:hover { text-decoration: underline; }
-  .breadcrumb [aria-current="page"] { opacity: 0.7; }
-
   .article-head {
     max-width: 720px;
     margin: 0 auto 12px;

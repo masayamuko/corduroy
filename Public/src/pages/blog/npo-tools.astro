@@ -1,8 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import UpdatedNote from '../../components/UpdatedNote.astro';
 
 const title = "NPOが使えるAIツール一覧｜無料・割引で導入できる公式制度まとめ 2026年版";
+const pageTitle = "日本のNPO法人・一般社団法人向けAI/IT支援制度まとめ";
 const description = "NPO法人・一般社団法人で使えるAIツールを公式制度から整理。Google、Microsoft、OpenAI、Claudeなど無料・割引で導入できる窓口と、法人類型ごとの対象条件を一覧でまとめました。";
 ---
 
@@ -85,13 +87,7 @@ const description = "NPO法人・一般社団法人で使えるAIツールを公
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>日本のNPO法人・一般社団法人向けAI/IT支援制度まとめ</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">

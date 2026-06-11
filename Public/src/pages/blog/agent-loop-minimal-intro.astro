@@ -1,9 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const isPublished = false;  // 公開時に true に変更（noindex削除と連動）
 
 const title = "エージェントループで自律改善するAIの作り方 ― プラン→実装→チェックの最小3要素（初心者向け）｜株式会社コールテン";
+const pageTitle = "エージェントループで自律改善するAIの作り方";
 const description = "「指示しないと動かないAI」から「自分で動くAI」へ。Anthropic公式の整理（augmented LLM / workflows / agents）に沿ってエージェントループの基本概念をやさしく解説し、Webサイト修正ループを例に「プラン担当・実装担当・チェック担当」の3エージェント構成を紹介します。チェックの分離・ゴール基準・回数制限という最小3要素を押さえれば、自分の現場でもループは組める。30行で動くミニマム実装まで一気に降りてくる入門記事です。";
 const canonicalUrl = "https://www.corduroy.co.jp/blog/agent-loop-minimal-intro/";
 const publishedAt = "2026-05-11";
@@ -95,13 +97,7 @@ const faqPage = {
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>エージェントループで自律改善するAIの作り方</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">

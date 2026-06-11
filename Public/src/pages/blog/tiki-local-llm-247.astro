@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const title = "ティキちゃんが、自宅のパソコンの中で24時間動くようになった話｜株式会社コールテン";
+const pageTitle = "ティキちゃんが、自宅のパソコンの中で24時間動くようになった話";
 const description = "MacBook Airを開けたまま持ち歩く生活と、積み上がるAIサブスクの請求書。そのあたりから始まった「ローカルLLM」との出会いと、Mac miniを買って自宅にティキちゃんを常駐させるまでの体験談。";
 ---
 
@@ -85,13 +87,7 @@ const description = "MacBook Airを開けたまま持ち歩く生活と、積み
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>tiki-local-llm-247</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">

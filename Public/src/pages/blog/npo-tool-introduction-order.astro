@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const title = "NPO・非営利団体に本当におすすめしたいIT・AIツール5選 ― 実際の伴走経験から選んだ最強の組み合わせ｜株式会社コールテン";
+const pageTitle = "NPO・非営利団体に本当におすすめしたいIT・AIツール5選 ― 実際の伴走経験から選んだ最強の組み合わせ";
 const description = "NPO・非営利団体に本当におすすめしたいITツールを5つ厳選しました。Google for Nonprofits、kintone チーム応援ライセンス、PR TIMES 非営利サポート、Canva for Nonprofits、Claude for Nonprofits ― 実際に複数の団体を伴走してきた経験から、「こういう人にはこれ」という形で選び方ごと紹介します。";
 ---
 
@@ -98,13 +100,7 @@ const description = "NPO・非営利団体に本当におすすめしたいITツ
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>npo-tool-introduction-order</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">
