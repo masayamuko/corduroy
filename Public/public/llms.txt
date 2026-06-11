@@ -67,6 +67,7 @@
 
 ### AI活用・ツール紹介
 
+- [AIの使い方は、4回引っ越してきた ── プロンプトからループへ](https://www.corduroy.co.jp/blog/ai-engineering-evolution/): AI活用が辿った4段階（プロンプト→コンテキスト→ハーネス→ループ）を非エンジニア向けに整理。重心が「いい一言」から「いい仕組み」へ外側に移った流れと、コールテンがハーネスからループへ移行中の実験ノートを等身大で紹介。
 - [Claude Code の Agent View を Tiki が解説する ― AIに複数タスクを並列でやらせて、必要なときだけ介入する画面](https://www.corduroy.co.jp/blog/claude-code-agent-view-guide/): Anthropic が 2026年5月11日 にリリースした Agent View（claude agents コマンド）の解説。Claude Code（ターミナルCLI）専用機能で、複数セッション並列管理、ピーク&リプライ、git worktree自動隔離まで。5/13追記: 当初 cmux（AIエージェント向けターミナル多重化アプリ）旧版で起動コードが通らなかった件は、cmux アップデートで動作するのを確認。
 - [AIエージェント組織のメンテナンス記録（2026年5月号）](https://www.corduroy.co.jp/blog/org-may-2026/): 部長制廃止・Worker-Reviewer分離・専門8名増員。Anthropic公式パターン準拠でAI組織を月次再編した記録。
 - [AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計（コールテン式運用ノウハウ）](https://www.corduroy.co.jp/blog/tiki-strategy-modes/): 1プロンプトでAIエージェントの動き方を切り替える「作戦名」設計。ガンガンいこうぜ／過集中／コーチング／いのちをだいじに、の4モード運用例。
