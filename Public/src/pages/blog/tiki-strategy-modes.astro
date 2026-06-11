@@ -1,9 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const isPublished = true;  // 公開時に true に変更（noindex削除と連動）
 
 const title = "AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計（コールテン式運用ノウハウ）｜株式会社コールテン";
+const pageTitle = "AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計";
 const description = "AIエージェントは、プロンプトに作戦名を1語混ぜるだけで動き方が変わります。コールテンのTikiが運用する4つのモード（ガンガンいこうぜ／過集中／コーチング／いのちをだいじに）の実例と、自分の運用に組み込める3ステップを、ドラクエ世代向けにかみ砕いて解説。";
 const canonicalUrl = "https://www.corduroy.co.jp/blog/tiki-strategy-modes/";
 const publishedAt = "2026-05-09";
@@ -92,13 +94,7 @@ const faqPage = {
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">

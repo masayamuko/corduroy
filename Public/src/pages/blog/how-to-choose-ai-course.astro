@@ -1,8 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import UpdatedNote from '../../components/UpdatedNote.astro';
 
 const title = "AI講座の選び方ガイド — 初心者が失敗しない5つのポイント｜株式会社コールテン";
+const pageTitle = "AI講座の選び方ガイド — 初心者が失敗しない5つのポイント";
 const description = "AI講座が増えすぎてどれを選べばいいかわからない方へ。初心者が失敗しないための5つの選び方ポイントを、AI講座を運営する株式会社コールテンがわかりやすく解説します。";
 ---
 
@@ -82,13 +84,7 @@ const description = "AI講座が増えすぎてどれを選べばいいかわか
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>how-to-choose-ai-course</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">

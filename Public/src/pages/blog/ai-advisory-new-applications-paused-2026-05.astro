@@ -1,9 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const isPublished = true;  // 公開済み（注: この記事は SEO 狙いではない「お知らせ」のため、isPublished=true にしても noindex は維持する）
 
 const title = "【お知らせ】新規ご相談のお申し込み 一時停止｜株式会社コールテン";
+const pageTitle = "【お知らせ】新規ご相談のお申し込み 一時停止";
 const description = "コールテンの新規ご相談のお申し込みを2026年5月時点で一時停止しています。既存クライアントさんとの伴走・継続中のご相談・契約の更新・追加業務は、これまでどおり継続してサポートします。最初の数ヶ月はヒアリングと現場でのすり合わせに時間を使う仕事のため、いまいる方々への価値提供を優先する判断です。再開時は公式LINEで先にお知らせします。";
 const canonicalUrl = "https://www.corduroy.co.jp/blog/ai-advisory-new-applications-paused-2026-05/";
 const publishedAt = "2026-05-14";
@@ -96,13 +98,7 @@ const faqPage = {
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>ai-advisory-new-applications-paused-2026-05</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">

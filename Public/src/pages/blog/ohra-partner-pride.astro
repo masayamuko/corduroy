@@ -1,8 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import UpdatedNote from '../../components/UpdatedNote.astro';
 
 const isPublished = false;  // 公開時に true に変更（noindex削除と連動）
+const pageTitle = "OHRAを全力で応援する理由";
 ---
 
 <Layout
@@ -50,13 +52,7 @@ const isPublished = false;  // 公開時に true に変更（noindex削除と連
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>OHRAを全力で応援する理由</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">

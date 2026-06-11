@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 
 const title = "日本の学生が使えるAI/IT学割・無料制度まとめ｜個人で申請しやすい制度を中心に整理 2026年版｜株式会社コールテン";
+const pageTitle = "日本の学生が使えるAI/IT学割・無料制度まとめ";
 const description = "日本の学生向けAI/IT学割・無料制度を、個人申請しやすい制度を中心に整理。GitHub Student、Notion、Figma、Adobe、JetBrains、Perplexity、Cursorの料金区分、対象条件、認証方式、日本での注意点、卒業後の扱いをまとめました。";
 ---
 
@@ -84,13 +86,7 @@ const description = "日本の学生向けAI/IT学割・無料制度を、個人
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>students-tools</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">

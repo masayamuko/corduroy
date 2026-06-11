@@ -1,6 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 import UpdatedNote from '../../components/UpdatedNote.astro';
+
+const pageTitle = "しゅうへいさんを本気で応援する理由";
 ---
 
 <Layout
@@ -47,13 +50,7 @@ import UpdatedNote from '../../components/UpdatedNote.astro';
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>しゅうへいさんを本気で応援する理由</span>
-        </nav>
+        <Breadcrumb title={pageTitle} />
 
         <header class="article-head fade-up">
           <div class="meta">
