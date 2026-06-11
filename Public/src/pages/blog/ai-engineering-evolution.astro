@@ -4,6 +4,7 @@ import UpdatedNote from '../../components/UpdatedNote.astro';
 
 const title = "AIの使い方は、4回引っ越してきた ── プロンプトからループへ｜株式会社コールテン";
 const description = "AIの使い方は「いい一言を磨く」時代から「いい仕組みを組む」時代へ。プロンプト・コンテキスト・ハーネス・ループという4つの段階を、エンジニアでなくてもわかる言葉で整理し、コールテンが自社で試している今を等身大で紹介します。";
+const pageTitle = "AIの使い方は、4回引っ越してきた ── プロンプトからループへ";
 
 const faqItems = [
   {
@@ -34,6 +35,7 @@ const faqItems = [
   description={description}
   canonicalUrl="https://www.corduroy.co.jp/blog/ai-engineering-evolution/"
   ogUrl="https://www.corduroy.co.jp/blog/ai-engineering-evolution/"
+  ogImage="https://res.cloudinary.com/dg3mdcuju/image/upload/c_fill,g_auto,w_1200,h_630,f_jpg,q_auto/corduroy/blog/ai-engineering-evolution/ch1.png"
   ogType="article"
 >
   <script slot="head" type="application/ld+json">
@@ -49,7 +51,8 @@ const faqItems = [
     "headline": "AIの使い方は、4回引っ越してきた ── プロンプトからループへ",
     "datePublished": "2026-06-11",
     "dateModified": "2026-06-11",
-    "image": "https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/blog/ai-engineering-evolution/ch1.png",
+    "image": "https://res.cloudinary.com/dg3mdcuju/image/upload/c_fill,g_auto,w_1200,h_630,f_jpg,q_auto/corduroy/blog/ai-engineering-evolution/ch1.png",
+    "inLanguage": "ja-JP",
     "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
     "publisher": {
       "@id": "https://www.corduroy.co.jp/#organization"
@@ -82,12 +85,12 @@ const faqItems = [
   <main>
     <article class="article">
       <div class="container">
-        <nav class="breadcrumb fade-up">
-          <a href="/">TOP</a>
-          <span>/</span>
-          <a href="/blog/">ブログ</a>
-          <span>/</span>
-          <span>ai-engineering-evolution</span>
+        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
+          <ol>
+            <li><a href="/">TOP</a></li>
+            <li><a href="/blog/">ブログ</a></li>
+            <li><span aria-current="page">{pageTitle}</span></li>
+          </ol>
         </nav>
 
         <header class="article-head fade-up">
@@ -178,6 +181,9 @@ const faqItems = [
               第一線では「もうエージェントにプロンプトを打つな。プロンプトを打つループのほうを設計しろ」といった言われ方もしています。少し挑発的ですが、重心の移り方をよく表しています。
             </p>
             <p>
+              イメージとしては、自動運転に近いです。走りながらカメラで前を見て、ズレたらハンドルを直して、また見て直して。この「見る → 直す」を車側がぐるぐる回し続けます。人がやるのは、行き先と「ここでは止まる」という条件を決めること。要は、この回し方そのものを設計する、ということです。
+            </p>
+            <p>
               <strong>この段階の本質は「回り続ける仕組みを設計する」こと。</strong>人間の仕事は、「どこで止めるか（停止条件）」と「何を信じるか（検証の基準）」を決めることに変わっていきます。
             </p>
 
@@ -261,6 +267,24 @@ const faqItems = [
               もし、自分の組織でAIをどう組み込むか整理してみたい、というのがあれば。一緒に現在地を確かめるところから、ゆるく始められたらうれしいです。
             </p>
 
+            <div class="read-next">
+              <p class="read-next-title">あわせて読みたい</p>
+              <ul class="read-next-list">
+                <li>
+                  <a href="/blog/tiki-strategy-modes/">AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計</a>
+                  <span>この記事でいう「ハーネス（環境を組む段階）」を、運用モードという形でどう設計しているかの実例です。</span>
+                </li>
+                <li>
+                  <a href="/blog/claude-code-agent-view-guide/">Claude Code の Agent View を Tiki が解説する ― 複数タスクを並列でやらせて、必要なときだけ介入する</a>
+                  <span>ループを回しながら「必要なときだけ人が顔を出す」を、実際の画面でどう実現するかの実務面です。</span>
+                </li>
+                <li>
+                  <a href="/blog/org-may-2026/">AIエージェント組織のメンテナンス記録 ― 32名体制の月次再編（Worker-Reviewer分離ほか）</a>
+                  <span>本文で触れた「作る人とチェックする人を分ける」を、組織としてどう全社導入したかの背景です。</span>
+                </li>
+              </ul>
+            </div>
+
             <div class="cta-section">
               <h3>AIを自分の組織にどう組み込むか、一緒に整理してみませんか</h3>
               <p>「何から手をつけるか」を見極めるところから、ゆるくお手伝いします。コールテンの試行錯誤は、これからもこのブログで等身大に書いていきます。</p>
@@ -313,16 +337,31 @@ const faqItems = [
     background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
   }
   .breadcrumb {
-    display: flex;
-    gap: 8px;
     font-size: 12.5px;
     color: var(--text-light);
     margin-bottom: 32px;
+  }
+  .breadcrumb ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  .breadcrumb li {
+    display: inline-flex;
+    align-items: center;
+  }
+  .breadcrumb li:not(:last-child)::after {
+    content: "/";
+    margin-left: 8px;
+    opacity: 0.5;
   }
   .breadcrumb a { color: var(--sea); font-weight: 600; }
   .breadcrumb a:hover { text-decoration: underline; }
-  .breadcrumb span { opacity: 0.5; }
+  .breadcrumb [aria-current="page"] { opacity: 0.7; }
 
   .article-head {
     max-width: 720px;
@@ -442,6 +481,54 @@ const faqItems = [
   .article-body li {
     margin-bottom: 16px;
     line-height: 1.9;
+  }
+
+  /* あわせて読みたい（記事間の内部リンク） */
+  .read-next {
+    margin: 48px 0 8px;
+    padding: 28px 30px;
+    background: rgba(22, 97, 78, 0.04);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .read-next-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--sea);
+    margin-bottom: 16px;
+  }
+  .read-next-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .read-next-list li {
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+  .article-body .read-next-list a {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--sea);
+    text-decoration: underline;
+    text-decoration-color: rgba(22, 97, 78, 0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body .read-next-list a:hover {
+    text-decoration-color: var(--sea);
+  }
+  .read-next-list span {
+    display: block;
+    margin-top: 4px;
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  @media (max-width: 640px) {
+    .read-next { padding: 22px 20px; }
   }
 
   /* CTA section（blog-visual-style.md §5 準拠） */
