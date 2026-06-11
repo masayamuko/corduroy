@@ -1,0 +1,510 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import UpdatedNote from '../../components/UpdatedNote.astro';
+
+const title = "AIの使い方は、4回引っ越してきた ── プロンプトからループへ｜株式会社コールテン";
+const description = "AIの使い方は「いい一言を磨く」時代から「いい仕組みを組む」時代へ。プロンプト・コンテキスト・ハーネス・ループという4つの段階を、エンジニアでなくてもわかる言葉で整理し、コールテンが自社で試している今を等身大で紹介します。";
+
+const faqItems = [
+  {
+    question: "プロンプトを磨くのは、もう意味がないんですか？",
+    answer: "そんなことはありません。いい一言は今でも土台になります。ただ、一言だけで全部を解決しようとすると、限界が早く来ます。材料や環境、仕組みと組み合わせると、同じ一言でも答えの変わり方が違ってきます。"
+  },
+  {
+    question: "「ループエンジニアリング」って、専門知識がないと無理ですか？",
+    answer: "最初の一歩は、そこまで専門的ではありません。「この作業、毎回同じことを頼んでるな」と気づくこと自体が出発点になります。そこを仕組みにできないか考えるところから始まります。技術の細部は、必要になってから足していけば大丈夫です。"
+  },
+  {
+    question: "AIに任せきりにすると危ない、と聞きました。",
+    answer: "その感覚は大事にしたほうがいいです。仕組みが滑らかに回るほど、人は途中を見なくなります。だから「最後は誰が確認するか」を先に決めておく。任せきらない設計が、かえって安心して任せるためのコツになります。"
+  },
+  {
+    question: "コストはどれくらいかかるんですか？",
+    answer: "ループはAIが何度も動くぶん、処理の費用がかさみやすいです。なので「全部をループに」ではなく、効くところを見極めて小さく回すのが現実的です。コールテンも、回す範囲を絞りながら様子を見ています。"
+  },
+  {
+    question: "コールテンのAIチームは、もう完成しているんですか？",
+    answer: "いえ、まだ途中です。32名のAI社員はいますが、記憶を溜めて学んでいく仕組みは「これから複利で効いてくる」段階で、全員分が育ちきってはいません。完成品ではなく、育てている最中。正直なところ、まだそこにいます。"
+  }
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/ai-engineering-evolution/"
+  ogUrl="https://www.corduroy.co.jp/blog/ai-engineering-evolution/"
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": "https://www.corduroy.co.jp/blog/ai-engineering-evolution/#article",
+    "url": "https://www.corduroy.co.jp/blog/ai-engineering-evolution/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.corduroy.co.jp/blog/ai-engineering-evolution/"
+    },
+    "headline": "AIの使い方は、4回引っ越してきた ── プロンプトからループへ",
+    "datePublished": "2026-06-11",
+    "dateModified": "2026-06-11",
+    "image": "https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/blog/ai-engineering-evolution/ch1.png",
+    "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+    "publisher": {
+      "@id": "https://www.corduroy.co.jp/#organization"
+    },
+    "description": "AIの使い方は「いい一言を磨く」時代から「いい仕組みを組む」時代へ。プロンプト・コンテキスト・ハーネス・ループという4つの段階を、エンジニアでなくてもわかる言葉で整理し、コールテンが自社で試している今を等身大で紹介します。",
+    "keywords": ["プロンプトエンジニアリング", "コンテキストエンジニアリング", "ハーネスエンジニアリング", "ループエンジニアリング", "AI活用 段階"]
+  }
+  </script>
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "AIの使い方は、4回引っ越してきた ── プロンプトからループへ" }
+    ]
+  }
+  </script>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  })} />
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>ai-engineering-evolution</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-06-11</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>AIの使い方は、4回引っ越してきた ── プロンプトからループへ</h1>
+          <p class="article-lead">AIをどう使うか、という話は、ここ数年でけっこう様変わりしてきました。「うまく頼む」より「うまい仕組みを組む」ほうへ。AI活用が辿ってきた4つの段階を、エンジニアでなくてもわかる言葉で整理します。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+
+            <figure class="chapter-illust fade-up">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/blog/ai-engineering-evolution/ch1.png"
+                   alt="「プロンプト」「コンテキスト」「ハーネス」「ループ」とラベルの付いた4つの引っ越しダンボールが左から右へ並ぶイラスト" width="1376" height="768" loading="eager" />
+              <figcaption>AIの使い方は、4回引っ越してきた</figcaption>
+            </figure>
+
+            <p>
+              AIをどう使うか、という話は、ここ数年でけっこう様変わりしてきました。
+            </p>
+            <p>
+              多くの人が最初に覚えたのは「うまく頼むコツ」だったんじゃないかなと思います。質問の書き方を工夫すると、返ってくる答えが目に見えて良くなる。あの感動は、わかりやすかったですよね。
+            </p>
+            <p>
+              でも今、第一線の景色は少し違うところにあります。「うまく頼む」より「うまい仕組みを組む」ほうへ、重心が移ってきました。
+            </p>
+            <p>
+              この記事では、AIの使い方がどう変わってきたかを4つの段階で整理してみます。専門用語はなるべく普段の言葉に置き換えるので、エンジニアでなくても大丈夫です。後半では、コールテンが自分の会社でいま何を試しているかも書いてみます。うまくいった話だけじゃなく、まだ途中の部分も含めて。
+            </p>
+
+            <h2>AIの使い方、4つの段階</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/blog/ai-engineering-evolution/ch2.png"
+                   alt="プロンプト→コンテキスト→ハーネス→ループの4ステップ横長フロー図。右にいくほどAIを囲む枠が増えていく" width="1376" height="768" loading="lazy" />
+              <figcaption>磨く対象が、内側から外側へ広がってきた</figcaption>
+            </figure>
+            <p>
+              おおまかには、こういう順番で進んできました。一つずつ見ていきます。
+            </p>
+
+            <h3>① プロンプトエンジニアリング（2023〜2024）── 「いい一言」を磨く</h3>
+            <p>
+              最初の段階は、AIに渡す指示文そのものを工夫する時期でした。
+            </p>
+            <p>
+              「○○の専門家として答えて」「箇条書きで、3つに絞って」。頼み方を整えると返事が変わる。一回の指示文＝プロンプトを、どれだけ的確に書けるか。ここがすべての出発点でした。
+            </p>
+            <p>
+              <strong>この段階の本質は「いい一言を書く」こと。</strong>人間の腕の見せどころは、言葉選びそのものにありました。
+            </p>
+
+            <h3>② コンテキストエンジニアリング ── 「見せる材料」を整える</h3>
+            <p>
+              次に見えてきたのは、頼み方だけでなく「AIに何を見せておくか」で答えが変わる、ということでした。
+            </p>
+            <p>
+              自社の資料、過去のやり取り、前提になる背景。これらを先に渡しておくと、同じ質問でも精度がまるで違ってきます。料理でいえば、レシピ（指示）だけでなく、いい食材（情報）を揃える段階に近いです。
+            </p>
+            <p>
+              <strong>この段階の本質は「見せる材料を整える」こと。</strong>一言の巧さより、渡す情報の質に目が向きはじめます。
+            </p>
+
+            <h3>③ ハーネスエンジニアリング ── AIの「まわりの環境」を組む</h3>
+            <p>
+              そこからさらに一歩。AIそのものだけでなく、AIのまわりを整えるようになります。
+            </p>
+            <p>
+              ハーネスというのは、馬具や安全帯のように「動くものを支える装具」のこと。AIに対しても同じで、使える道具（スキル）、守ってほしいルール（ガードレール）、触っていい範囲（権限）、決まった作業を自動でやる仕組み。そういう環境を周りに組んでいきます。
+            </p>
+            <p>
+              AIを賢くするというより、AIが安全に、安定して力を出せる足場をつくる。そんな感覚です。
+            </p>
+            <p>
+              <strong>この段階の本質は「まわりの環境を組む」こと。</strong>関心が、AIの内側から外側へ移っていきます。
+            </p>
+
+            <h3>④ ループエンジニアリング（いま最前線）── 「回り続ける仕組み」を設計する</h3>
+            <p>
+              そして今、いちばん先のほうで語られているのがこれです。
+            </p>
+            <p>
+              ループエンジニアリングは、「発見 → 計画 → 実行 → 検証 → 修正」という一連の流れを、AIが何度も自分で回す仕組みを設計する考え方です。人間が毎回プロンプトを手渡すのではなく、仕組みの側がそれをAIに渡してくれます。
+            </p>
+            <p>
+              第一線では「もうエージェントにプロンプトを打つな。プロンプトを打つループのほうを設計しろ」といった言われ方もしています。少し挑発的ですが、重心の移り方をよく表しています。
+            </p>
+            <p>
+              <strong>この段階の本質は「回り続ける仕組みを設計する」こと。</strong>人間の仕事は、「どこで止めるか（停止条件）」と「何を信じるか（検証の基準）」を決めることに変わっていきます。
+            </p>
+
+            <h2>つまり何が起きたのか ── 重心が「外側」へ移った</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/blog/ai-engineering-evolution/ch3.png"
+                   alt="Before/Afterの対比イラスト。Beforeは人がAIに紙を1枚ずつ手渡し、Afterは人が仕組みの設計図を見て紙を渡すのは歯車の側" width="1376" height="768" loading="lazy" />
+              <figcaption>手渡す人から、仕組みを組む人へ</figcaption>
+            </figure>
+            <p>
+              4段階を並べてみると、見えてくることがあります。
+            </p>
+            <p>
+              進化したのは「AIへの命令のうまさ」というより、<strong>人間が手をかける場所</strong>のほうです。一言の巧さから、材料、環境、仕組みへ。重心が、だんだん外に移ってきました。
+            </p>
+            <p>
+              以前は、人間がAIに毎回プロンプトを手渡していました。これからは、仕組みの側がAIに渡す。人間は、その仕組みをどう組むかを考える側にまわります。
+            </p>
+            <p>
+              「AIにお願いする人」から「AIが働く環境を整える人」へ。役割が静かに引っ越した、という言い方がいちばん近いです。
+            </p>
+
+            <h2>ただ、ループにも限界はある</h2>
+            <p>
+              ここまで読むと「じゃあ全部ループにすればいい」と思えるかもしれません。でも、そう単純でもないんです。
+            </p>
+            <p>
+              ひとつはコストです。AIが自分で何度も回るぶん、その都度トークン（処理の燃料のようなもの）を使います。回せば回すほど費用はかさみます。
+            </p>
+            <p>
+              もうひとつは、「中身を理解しないまま動いてしまう」リスク。仕組みが滑らかに回ると、人間が途中を見なくなります。動いているから大丈夫だろう、と。でも、その動いているが正しいとは限りません。
+            </p>
+            <p>
+              だからこそ、ループには停止条件と、人間の判断を残すことが肝になります。全部を任せきるのではなく、要所で人が顔を出せる設計にしておく。最前線だからといって、人の出番がなくなるわけじゃありません。むしろ「どこに人を残すか」を決めることが、人間のいちばん大事な仕事になってきています。
+            </p>
+
+            <h2>コールテンは、いまどのへんにいるか（実験ノート）</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good/corduroy/blog/ai-engineering-evolution/ch4.png"
+                   alt="AI参謀Tikiを中心に32名のAI社員が部署ごとに並ぶ組織図風イラスト。中央に作る人とチェックする人の双方向矢印、下にMEMORYから成果物への階層バー" width="1376" height="768" loading="lazy" />
+              <figcaption>全部を渡さず、案内板から降りていく（左：テト＝人間／右：Tiki＝AI参謀）</figcaption>
+            </figure>
+            <p>
+              ここからは自分たちの話です。すごいでしょ、という自慢ではなくて、試行錯誤の途中報告として読んでもらえたらうれしいです。
+            </p>
+            <p>
+              コールテンでは社内に、AIの参謀役として「Tiki（ティキ）」という存在を置いています。その下に、10部門・32名分のAI社員チームを組んでいます。経営企画から営業、開発、経理まで、役割を分けたAIたちです。
+            </p>
+            <p>
+              このチームで一番大事にしているルールが、<strong>「作る人」と「チェックする人」を必ず分ける</strong>こと。同じAIに、自分の仕事を自分で採点させません。人間の組織でも、書いた本人だけのチェックでは見落としが出ますよね。あれと同じ考え方を、AIチームにも持ち込んでいます。
+            </p>
+            <p>
+              それぞれのAI社員は、いきなり全部を渡されるのではなく、情報を階層で辿る設計にしています。最初に見るのは MEMORY という「案内板」。そこから、ルール → 自分の部署 → 使えるスキルやナレッジ → 会社全体の知識 → 実際の成果物、と必要なぶんだけ降りていきます。全部を一箇所に書き込むと重くて散らかるので、「どこを見ればいいか」を先に示しておく。そういう工夫です。
+            </p>
+            <p>
+              そして今ちょうど取り組んでいるのが、<strong>ハーネス（環境を組む段階）から、ループ（回る仕組みを設計する段階）への移行</strong>。たとえばこんなことを試しています。
+            </p>
+            <ul>
+              <li>AI社員が、過去の失敗や成功を自分の記憶に少しずつ溜めて、次に活かす仕組みを育てています。ただ、まだ全員分が育ちきっているわけではありません。これから複利で積み上がっていくはずで、今はその種まきの最中です。</li>
+              <li>ブログを書くときも、書くAIとチェックするAIを分けて、品質の基準を満たすまで書き直すループを回しています。実はこの記事自体も、その流れの中で生まれました。</li>
+              <li>AIたちが常に読み込んでいる設定ファイルを、「全部書いておく場所」から「どこを見ればいいかの案内板」へと、少しずつ削って整え直しています。重くしすぎないための、地味だけど大事なメンテナンスです。</li>
+            </ul>
+            <p>
+              派手な成果がもう出ている、という段階ではありません。でも、進んでいる方向は確かだと感じています。
+            </p>
+            <p>
+              この姿勢は、コールテンがずっと大事にしてきた考え方とも地続きです。完璧な正解を一発で当てにいくより、<strong>小さく試して、その人らしさ（その組織らしさ）を引き出していく</strong>。AIの使い方も、たぶん同じやり方で育っていくんだと思います。
+            </p>
+
+            <h2>まとめ ── 最後に残るのは、人の判断</h2>
+            <p>
+              AIの使い方は、プロンプト → コンテキスト → ハーネス → ループ、と4回引っ越してきました。磨く対象は、いい一言から、いい仕組みへと外側に広がってきました。
+            </p>
+            <p>
+              でも面白いのは、仕組みが賢くなるほど、人間の判断のほうがかえって大事になってくることです。どこで止めるか、何を信じるか。AIは相棒として隣で回り続ける。その回し方を決めるのは、やっぱり人のほうだから。
+            </p>
+            <p>
+              コールテンも、まだその途中にいます。完成形を見せられる段階じゃないけれど、同じように「AIをどう育てるか」を考えている人とは、けっこう近い景色を見られる気がしています。
+            </p>
+            <p>
+              もし、自分の組織でAIをどう組み込むか整理してみたい、というのがあれば。一緒に現在地を確かめるところから、ゆるく始められたらうれしいです。
+            </p>
+
+            <div class="cta-section">
+              <h3>AIを自分の組織にどう組み込むか、一緒に整理してみませんか</h3>
+              <p>「何から手をつけるか」を見極めるところから、ゆるくお手伝いします。コールテンの試行錯誤は、これからもこのブログで等身大に書いていきます。</p>
+              <div class="cta-buttons">
+                <a href="/contact/" class="btn-primary">相談する</a>
+                <a href="/services/" class="btn-outline">サービス一覧を見る</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="container faq" style="padding-bottom:40px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくある質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            {faqItems.map((item, index) => (
+              <details {...(index === 0 ? { open: true } : {})} id={`faq-${index + 1}`}>
+                <summary>{item.question}</summary>
+                <p class="mini">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <aside class="related-links fade-up" style="max-width:720px; margin:40px auto 0; padding:24px; background:rgba(22,97,78,0.04); border-radius:12px;">
+          <p style="font-weight:600; font-size:14px; color:var(--sea); margin-bottom:12px;">関連リンク</p>
+          <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:8px;">
+            <li><a href="/services/" style="font-size:13px; color:var(--sea);">サービス一覧 →</a></li>
+            <li><a href="/contact/" style="font-size:13px; color:var(--sea);">お問い合わせ →</a></li>
+          </ul>
+        </aside>
+
+        <UpdatedNote date="2026年6月" />
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+          <a href="/services/" class="btn">サービスを見る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 36px 0 14px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .chapter-illust {
+    max-width: 760px; margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%; height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(22, 97, 78, 0.08);
+  }
+  .chapter-illust figcaption {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 12px; }
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 17px; }
+  }
+  .article-body p { margin-bottom: 24px; }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22,97,78,0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover {
+    text-decoration-color: var(--sea);
+  }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 16px;
+    line-height: 1.9;
+  }
+
+  /* CTA section（blog-visual-style.md §5 準拠） */
+  .cta-section {
+    background: linear-gradient(135deg, var(--mint) 0%, #fff 100%);
+    border: 1px solid var(--line); border-radius: 20px;
+    padding: 32px 36px; margin: 48px 0 8px;
+    text-align: center;
+  }
+  .cta-section h3 {
+    border: none; padding: 0; background: none;
+    color: var(--sea); font-size: 19px; line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .cta-buttons {
+    display: flex; gap: 14px; justify-content: center;
+    flex-wrap: wrap; margin-top: 20px;
+  }
+  /* CTAボタンの specificity 対策（blog-visual-style.md §4 必須） */
+  .article-body .btn-primary, .article-body .btn-outline {
+    padding: 14px 28px; border-radius: 100px;
+    font-weight: 700; transition: transform .2s, box-shadow .2s;
+    text-decoration: none !important;
+    display: inline-block;
+  }
+  .article-body .btn-primary {
+    background: var(--sea);
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+  }
+  .article-body .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(22,97,78,.4); }
+  .article-body .btn-outline {
+    background: #fff;
+    color: var(--sea) !important;
+    border: 2px solid var(--sea);
+  }
+  .article-body .btn-outline:hover { background: var(--mint); }
+
+  .related-links ul { list-style: none; }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 60px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 768px) {
+    .cta-section { padding: 24px 22px; }
+    .cta-buttons { flex-direction: column; }
+    .article-body .btn-primary, .article-body .btn-outline { display: block; }
+  }
+
+  @media (max-width: 640px) {
+    .article { padding: 88px 0 60px; }
+    .article-body { font-size: 15px; }
+    .article-card { padding: 28px 24px; }
+    .article-body h2 { font-size: 19px; margin-top: 36px; }
+    .article-body h3 { font-size: 16px; margin-top: 28px; }
+    .article-foot { justify-content: center; }
+  }
+</style>
