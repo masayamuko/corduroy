@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import { LINE_URLS } from '../../../constants/urls';
 
 const title = "3ヶ月AIプログラム｜AI講座（福岡）｜株式会社コールテン";
 const description = "第二の自分を作るところから始まる、3ヶ月でAIを使いこなすプログラム。月1講座×3回＋作業会＋Discordサポート。108,000円。福岡・対面開催。";
@@ -215,7 +216,7 @@ const startDates = [
           <div class="price-note">
             ※ スタートは「第二の自分作り講座」がある月。年4回（3・6・9・12月）のご参加タイミングがあります。
           </div>
-          <a class="btn price-btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">
+          <a class="btn price-btn" href={LINE_URLS.program} target="_blank" rel="noopener noreferrer">
             LINEで無料説明会を見て申し込む
           </a>
           <p class="price-sub">まずは無料説明会（動画）→ 無料体験会 → 申し込みの流れです</p>
@@ -284,7 +285,7 @@ const startDates = [
         </div>
       </div>
       <div style="text-align:center; margin-top:40px;" class="fade-up">
-        <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer">LINEで無料説明会を見る</a>
+        <a class="btn" href={LINE_URLS.program} target="_blank" rel="noopener noreferrer">LINEで無料説明会を見る</a>
       </div>
     </section>
 
@@ -443,7 +444,7 @@ const startDates = [
           <p>無料説明会（動画）をご覧いただけます。<br>無理な勧誘はありません。いつでも気軽にどうぞ。</p>
         </div>
         <div class="card fade-up" style="max-width:640px; margin:0 auto; text-align:center;">
-          <a class="btn" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+          <a class="btn" href={LINE_URLS.program} target="_blank" rel="noopener noreferrer"
              style="margin-top:8px;">LINE登録で無料説明会を見る</a>
         </div>
       </div>

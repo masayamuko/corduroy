@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { LINE_URLS } from '../../constants/urls';
 ---
 
 <Layout
@@ -36,7 +37,7 @@ import Layout from '../../layouts/Layout.astro';
         "@type": "ItemList",
         "name": "コールテンが提供するAIサービス",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "無料動画講座", "url": "https://lin.ee/tDuJPjc" },
+          { "@type": "ListItem", "position": 1, "name": "無料動画講座", "url": "https://line-harness.wandering-dawn-c96c.workers.dev/auth/line?ref=site-free-course" },
           { "@type": "ListItem", "position": 2, "name": "AI講座（3ヶ月プログラム）", "url": "https://www.corduroy.co.jp/services/study/program/" },
           { "@type": "ListItem", "position": 3, "name": "AI顧問", "url": "https://www.corduroy.co.jp/services/advisory/" },
           { "@type": "ListItem", "position": 4, "name": "法人研修", "url": "https://www.corduroy.co.jp/services/study/corporate/" },
@@ -129,7 +130,7 @@ import Layout from '../../layouts/Layout.astro';
           <h1>AI活用のすべては、<br>AIとの<span class="highlight">「関係性」</span>にある。</h1>
           <p class="hero-lead">AIコミュ力を磨く、本質的な学びを提供。</p>
           <div class="hero-cta">
-            <a class="btn-line" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+            <a class="btn-line" href={LINE_URLS.freeCourse} target="_blank" rel="noopener noreferrer"
              aria-label="無料動画講座を受ける（LINEが新しいタブで開きます）"
                data-ga-event="cta_click" data-ga-label="services_hero_line">
               <span class="line-icon-sm">LINE</span>
@@ -409,7 +410,7 @@ import Layout from '../../layouts/Layout.astro';
       <div class="container">
         <div class="mid-cta fade-up">
           <p>まずは無料の動画講座で、AIコミュ力の第一歩を。</p>
-          <a class="btn-line" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+          <a class="btn-line" href={LINE_URLS.freeCourse} target="_blank" rel="noopener noreferrer"
              aria-label="無料動画講座を受ける（LINEが新しいタブで開きます）"
              data-ga-event="cta_click" data-ga-label="services_mid_line">
             <span class="line-icon-sm">LINE</span>
@@ -516,7 +517,7 @@ import Layout from '../../layouts/Layout.astro';
       <div class="container">
         <div class="mid-cta fade-up">
           <p>まずは無料の動画講座で、AIコミュ力の第一歩を。</p>
-          <a class="btn-line" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+          <a class="btn-line" href={LINE_URLS.freeCourse} target="_blank" rel="noopener noreferrer"
              aria-label="無料動画講座を受ける（LINEが新しいタブで開きます）"
              data-ga-event="cta_click" data-ga-label="services_after_voices_line">
             <span class="line-icon-sm">LINE</span>
@@ -603,7 +604,7 @@ import Layout from '../../layouts/Layout.astro';
             AIコミュ力の基本を、サクッと動画で学べます。<br>
             LINE登録しておくと、講座の案内をお届けします。
           </p>
-          <a class="btn-line-xl" href="https://lin.ee/tDuJPjc" target="_blank" rel="noopener noreferrer"
+          <a class="btn-line-xl" href={LINE_URLS.freeCourse} target="_blank" rel="noopener noreferrer"
              aria-label="無料動画講座を受ける（LINEが新しいタブで開きます）"
              data-ga-event="cta_click" data-ga-label="services_final_line">
             <span class="line-icon-sm">LINE</span>

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import { LINE_URLS } from '../../../constants/urls';
 
 const schedule = [
   { date: '2026.02.11', day: '水', time: '19:00-22:00', place: '草原さんオフィス（赤坂）' },
@@ -641,7 +642,7 @@ const schedule = [
                     3ヶ月プログラムの詳細を見る
                 </a>
                 <p class="text-sm text-gray-500 mb-4">ご質問・ご相談はLINEからお気軽にどうぞ。</p>
-                <a href="https://lin.ee/aQqPH7S" data-ga-event="line_click" data-ga-label="study_secondme_footer"
+                <a href={LINE_URLS.contact} data-ga-event="line_click" data-ga-label="study_secondme_footer"
                     class="btn-line w-full justify-center text-base py-3 shadow-md transform transition hover:scale-105">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" class="mr-2">
                         <path
