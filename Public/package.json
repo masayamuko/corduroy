@@ -8,7 +8,12 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "astro check",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "blog:audit": "node scripts/blog-audit.mjs",
+    "blog:audit:strict": "node scripts/blog-audit.mjs --strict",
+    "blog:queue": "node scripts/blog-queue.mjs",
+    "blog:check": "bash scripts/blog-check.sh",
+    "blog:check:quick": "bash scripts/blog-check.sh --quick"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

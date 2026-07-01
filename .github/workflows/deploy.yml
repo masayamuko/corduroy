@@ -1,12 +1,38 @@
 name: Deploy to Production
 
 on:
+  pull_request:
+    paths:
+      - "Public/**"
+      - "vercel.json"
+      - ".github/workflows/deploy.yml"
   push:
     branches:
       - main
 
 jobs:
+  blog-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Public/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: Public
+
+      - name: Run blog publish checks
+        run: npm run blog:check
+        working-directory: Public
+
   deploy:
+    if: github.event_name == 'push'
+    needs: blog-check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

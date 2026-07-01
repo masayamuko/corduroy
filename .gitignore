@@ -1,2 +1,13 @@
 .vercel
 node_modules
+
+# 同居する独立リポ（それぞれ自前のGitHubで管理・2026-07-02 S-1）
+ywca-fukuoka/
+support-corduroy/
+slack-voice-agent/
+shindan/
+.DS_Store
+caruna-fukuoka/
+corduroy-dashboard/
+fukunuma-site/
+.claude/worktrees/

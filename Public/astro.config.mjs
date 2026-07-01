@@ -7,6 +7,15 @@ import preact from '@astrojs/preact';
 
 
 
+const noindexSitemapExclusions = [
+  'https://www.corduroy.co.jp/blog/agent-loop-minimal-intro/',
+  'https://www.corduroy.co.jp/blog/ai-advisory-new-applications-paused-2026-05/',
+  'https://www.corduroy.co.jp/blog/aym-interview-self-built-site/',
+  'https://www.corduroy.co.jp/blog/even-g2-ai-coding-glasses/',
+  'https://www.corduroy.co.jp/blog/ohra-partner-pride/',
+  'https://www.corduroy.co.jp/blog/ume-partner-pride/',
+];
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.corduroy.co.jp',
@@ -22,10 +31,7 @@ export default defineConfig({
       // noindex 記事は sitemap から除外
       // Google公式ガイダンス: noindex な URL を sitemap に入れると矛盾シグナルになり SEO 評価を下げる
       // お知らせ系（時限的・noindex運用）の記事を追加する時は、ここの配列にも URL を追加すること
-      filter: (page) =>
-        ![
-          'https://www.corduroy.co.jp/blog/ai-advisory-new-applications-paused-2026-05/',
-        ].includes(page),
+      filter: (page) => !noindexSitemapExclusions.includes(page),
     }),
     preact(),
   ],

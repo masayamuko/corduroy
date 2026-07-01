@@ -1,0 +1,648 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const isPublished = false;  // 公開時に true に変更（noindex削除と連動）
+
+const title = "スマートグラス Even G2 で Claude Code / Codex を動かしてみた ― ハンズフリーAIコーディングの現在地｜株式会社コールテン";
+const description = "Even Realities の透明レンズ型スマートグラス『Even G2』を購入し、Claude Code / Codex と組み合わせてハンズフリーAIコーディングを試した実体験記。製品の概要、なぜ買ったのか、実際の使い心地、可能性と限界、向いている人/向かない人までフラットにまとめました。";
+const canonicalUrl = "https://www.corduroy.co.jp/blog/even-g2-ai-coding-glasses/";
+const publishedAt = "2026-05-09";
+const modifiedAt = "2026-05-09";
+
+const faqItems = [
+  {
+    question: "Even G2 を着ければ、画面なしでコーディングできますか？",
+    answer: "結論から言うと、まだそこまでは行きません。Even G2 は視界の隅に小さなテキストやプロンプトを表示する『軽いHUD』寄りのデバイスで、フル機能のIDEを置き換えるものではないからです。ただ、Claude Code や Codex と組み合わせて『直前の出力を視界に置きながら席を立つ』『歩きながら次の指示を考える』といった、画面と切り離された思考の時間を作る用途とは相性がよかったです。完全ハンズフリーの開発環境というより、AIパートナーとの会話を生活側に染み出させる小型の窓、と捉えるとイメージが近いと思います。"
+  },
+  {
+    question: "メガネとして普段使いできますか？視力矯正は？",
+    answer: "Even G2 は『普段かけられる眼鏡の見た目』を強く意識した設計で、度付きレンズにも対応しています（Even Realities の公式サイトで度数指定が可能）。ふつうの黒縁メガネと並べてもそこまで違和感がない外観で、日常的にかけ続けることを前提にしている点が、従来のスマートグラスと大きく違うところでした。ただし正確なフィッティングや度数の最新仕様は変わる可能性があるため、購入前に必ず公式情報を確認してください。"
+  },
+  {
+    question: "音声で AI に話しかけて、その場でコードを書かせる、みたいな使い方はできますか？",
+    answer: "デバイス単体ではなく、スマホやPCの Claude Code / Codex と連携する形で『近い体験』までは作れます。具体的には、グラス側のマイク・通知・テキスト表示を使いながら、実際の重い処理（コード生成・ファイル編集・コミット）はスマホやPC側のAIエージェントに任せる構成です。コールテンでは、メモ・短い指示出し・出力の見守りをグラス側に寄せて、本体の作業はノートPCのClaude Codeで動かすようにしています。完全な音声駆動IDE、というよりは『AIパートナーへの指示と確認を、画面前から少し解放する』ための装置として捉えるのが現実的です。"
+  }
+];
+
+const blogPosting = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `${canonicalUrl}#article`,
+  url: canonicalUrl,
+  mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+  headline: "スマートグラス Even G2 で Claude Code / Codex を動かしてみた ― ハンズフリーAIコーディングの現在地",
+  datePublished: publishedAt,
+  dateModified: modifiedAt,
+  image: "https://www.corduroy.co.jp/assets/images/ogp.png",
+  author: { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+  publisher: { "@id": "https://www.corduroy.co.jp/#organization" },
+  description,
+  articleSection: ["AI活用"],
+  keywords: ["Even G2", "Even Realities", "スマートグラス", "Claude Code", "Codex", "AIコーディング", "ハンズフリー", "ウェアラブル", "AIパートナー", "コールテン"]
+};
+
+const breadcrumbList = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "トップ", item: "https://www.corduroy.co.jp/" },
+    { "@type": "ListItem", position: 2, name: "ブログ", item: "https://www.corduroy.co.jp/blog/" },
+    { "@type": "ListItem", position: 3, name: "スマートグラス Even G2 で Claude Code / Codex を動かしてみた" }
+  ]
+};
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer
+    }
+  }))
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  ogUrl={canonicalUrl}
+  ogType="article"
+  noindex={!isPublished}
+>
+  {isPublished && (
+    <Fragment slot="head">
+      <script type="application/ld+json" set:html={JSON.stringify(blogPosting)} />
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} />
+      <script type="application/ld+json" set:html={JSON.stringify(faqPage)} />
+    </Fragment>
+  )}
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <nav class="breadcrumb fade-up" aria-label="パンくずリスト">
+          <a href="/">TOP</a>
+          <span>/</span>
+          <a href="/blog/">ブログ</a>
+          <span>/</span>
+          <span>スマートグラス Even G2 で Claude Code / Codex を動かしてみた</span>
+        </nav>
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-05-13</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>スマートグラス Even G2 で Claude Code / Codex を動かしてみた<br><small>― ハンズフリーAIコーディングの現在地</small></h1>
+          <p class="article-lead">
+            <strong>結論：『画面の前に張りつかなくていいAIコーディング』は、もう少しで現実になる。ただし、いま手元にあるのはまだ『その入り口』です。</strong><br>
+            コールテンの代表 Masaya が、Even Realities 社のスマートグラス『Even G2』を買って、Claude Code と Codex と組み合わせて使い始めました。<br><br>
+            この記事では、Even G2 という製品自体の概要、なぜわざわざ買ったのか、実際にAIコーディングを動かしてみてどうだったのか、向いている人と向かない人、そしてコールテンとして今後どう活かしていくつもりかを、フラットにまとめます。スマートグラス × AIエージェントというテーマに興味がある人に、できるだけ実感ベースで届く形を意識しました。
+          </p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+
+            <h2>結論先出し ― ARグラスでAIコーディング、どこまで現実的か</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/even-g2-ai-coding-glasses/ch1.png" alt="黒縁の細身スマートグラスをかけた人物が、ノートPCの前ではなく窓辺に立っているシーン。視界の隅に小さくAIアシスタントの吹き出しが浮かぶ、グラレコ風のイラスト" width="1366" height="768" loading="eager" decoding="async" />
+              <figcaption>『画面に張りついて指示を出す』から、『身につけて、必要なときだけ会話する』へ。AIコーディングの形が、少しずつ変わり始めている。</figcaption>
+            </figure>
+            <p>
+              先に結論から書きます。Even G2 と Claude Code / Codex を組み合わせて、コールテンで実際に動かしてみたうえでの今の感触は、ざっくり次の3つです。
+            </p>
+            <ul>
+              <li><strong>『画面の前に座らないAIコーディング』の入り口としては、確かに新しい体験</strong>。とくに歩いているときや席を立ったときの『考える時間』とAIエージェントが地続きになる感覚は、いままでなかった</li>
+              <li><strong>ただし、本格的なIDEを置き換える存在ではまだない</strong>。コードを書く中心は今まで通りノートPCの上で、グラスはあくまで『AIパートナーとの会話を生活側に染み出させるための小窓』として捉えるのが現実的</li>
+              <li><strong>製品としてEven G2が魅力的なのは、まず『普段かけていられる眼鏡』として成立しているところ</strong>。スマートグラス特有の『装着している恥ずかしさ』が薄く、長時間つけていても違和感が少ない</li>
+            </ul>
+            <p>
+              つまり、いまの段階で『これ1台でAIコーディングが完結する』という幻想は持たないほうがよくて、でも『画面と切り離された時間を、AIパートナーと一緒に過ごせる』という意味では、十分新しい買い物だった、というのが今のところの正直な感想です。
+            </p>
+            <p>
+              ここから、Even G2 という製品自体の概要、買った理由、組み合わせ方、実際のシーン、そして向いている人/向かない人まで、順番に書いていきます。
+            </p>
+
+            <h2>Even G2 の概要 ― 『眼鏡として成立するスマートグラス』</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/even-g2-ai-coding-glasses/ch2.png" alt="細身の黒縁メガネ型スマートグラスを真横と正面から並べたプロダクト紹介風イラスト。レンズ越しに小さくテキスト表示が浮かんでいる" width="1366" height="768" loading="lazy" />
+              <figcaption>Even G2 は『AR』というより『軽いHUD付きの眼鏡』。フォルムが日常側に寄っているのが大きな特徴。</figcaption>
+            </figure>
+            <p>
+              Even G2 は、Even Realities 社が展開するスマートグラスです。一般的な『顔の前に大きなレンズが張り出すARグラス』とは違って、見た目は <strong>『細身の黒縁メガネ』</strong> に近いフォルムをしています。レンズ部分にごく小さな表示領域を持っていて、視界の隅にテキストや通知、簡単なナビゲーションを浮かべる、という方向性のデバイスです。
+            </p>
+            <p>
+              重要なポイントだけ整理します。
+            </p>
+            <ul>
+              <li><strong>普段使いの眼鏡として成立するフォルム</strong>。バッテリーや表示モジュールがフレーム内に収まっていて、スマートグラス特有の『SF的な見た目』をかなり抑えている</li>
+              <li><strong>度付きレンズに対応</strong>。視力矯正用の眼鏡として日常的に使う前提で設計されている</li>
+              <li><strong>AR機能は『フルAR』というより『軽いHUD』</strong>。視界全体に3Dオブジェクトを置くのではなく、必要な情報だけを視界の片隅にそっと出す</li>
+              <li><strong>スマホアプリ／クラウドAIとの連携が前提</strong>。デバイス単体で重い処理を全部こなすのではなく、外部のAIや通知を引き込んでくる窓として動く</li>
+            </ul>
+            <p>
+              この設計思想は、AIエージェントを日常に染み出させたい人にとって、わりと噛み合いがいいです。<strong>『顔に大きな機械をつけて没入する』のではなく、『普段かけている眼鏡が、ちょっとAIと話せる』</strong> 方向に振っているからです。
+            </p>
+            <p>
+              ※ 仕様や対応機能は今後アップデートで変わる可能性があるので、検討する場合は必ず Even Realities 公式の最新情報を確認してください。この記事は購入時点でMasayaが確認できた範囲をベースに書いています。
+            </p>
+
+            <h2>なぜ買ったのか ― 『画面に縛られない時間』を増やしたかった</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/even-g2-ai-coding-glasses/ch3.png" alt="ノートPCの前にずっと座っている人物と、その横で立ち上がってスマートグラス越しにAIと会話しながら考え事をしている同一人物が、対比的に並んだイラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>椅子の上のAIから、生活の中のAIへ。買った理由は『姿勢を変えたかった』に近い。</figcaption>
+            </figure>
+            <p>[要確認] このセクションの一人称ニュアンスや動機の細部は、Masayaが本人視点で確認・上書きする想定で書いています。</p>
+            <p>
+              買った直接の理由は、<strong>『AIパートナーと一緒に考える時間を、もう少し生活側に染み出させたかった』</strong> という、けっこう感覚的なものです。
+            </p>
+            <p>
+              コールテンでは、Tikiという社内AIエージェントを中心に、Claude Code・Codex・複数のサブエージェントを毎日のように動かしています。設計の議論、コードの修正、文章の壁打ち、議事録の整理。やっていることはほぼぜんぶ、AIとの共同作業です。
+            </p>
+            <p>
+              ありがたい一方で、ふと気付くと <strong>『AIと会話するために、ずっと画面の前に座っている』</strong> 状態になっていました。立ち上がってお茶を入れに行ったり、散歩したり、別の作業をしたりする間、AIとの会話はいったん止まる。アイデアが浮かぶのはたいていそういう離席中の時間なのに、その瞬間にAIに話しかける手段がない、というジレンマです。
+            </p>
+            <p>[要確認] 過去の試みとして、スマホでの音声入力やAirPods経由でのAIアシスタント呼び出しもいろいろ試しています。それぞれ便利でしたが、『画面の代わりに耳と口だけになる』感覚で、視覚的なフィードバックが消えてしまうのが惜しかった、という主観的な記憶があります。</p>
+            <p>
+              そこに、<strong>『普段かけられる眼鏡の見た目で、視界の隅に小さなテキストを出してくれる』</strong> Even G2 が出てきた。視覚と聴覚と日常の動線をつなぎ直せそうだ、という直感で買った、というのが正直なところです。
+            </p>
+
+            <h2>Claude Code / Codex を動かす仕組み ― 役割分担で考える</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/even-g2-ai-coding-glasses/ch4.png" alt="左側に大きなノートPC（Claude Code / Codex を動かす本体）、右側にスマートグラスとスマホ、3者を矢印でつないだ構成図風のグラレコ。中央にTikiらしきAIキャラクターが浮かんでいる" width="1366" height="768" loading="lazy" />
+              <figcaption>『スマートグラスがコードを書く』ではなく、『AIパートナーとの会話の窓口を3つに分散する』というイメージ。</figcaption>
+            </figure>
+            <p>[要確認] 具体の接続構成・連携アプリ名・ショートカットは、Masaya側の最新セットアップで上書きしてください。以下は購入直後のおおまかな整理です。</p>
+            <p>
+              Even G2 単体で Claude Code や Codex が走る、という構成ではありません。<strong>あくまでスマホとノートPCに乗っているAIエージェントを、生活側に伸ばすための小窓</strong> として動かしています。
+            </p>
+            <p>
+              ざっくりした役割分担は、こんなイメージです。
+            </p>
+            <ul>
+              <li><strong>ノートPC側（Claude Code / Codex）</strong>：コード生成・ファイル編集・コミット・テスト実行など、重たい処理の本拠地。Tikiの中核もここで動く</li>
+              <li><strong>スマホ側</strong>：音声入力の中継、通知のハブ、外出時の指示出し。グラスとPCをつなぐ橋</li>
+              <li><strong>Even G2 側</strong>：直近の出力・短いメモ・通知のプレビュー・次の指示の下書きなど『軽い情報』を視界に置く</li>
+            </ul>
+            <p>
+              この分担にしている理由は、シンプルです。<strong>重い処理はサーバ／PC側に置いたほうが安定するし、グラスは消費電力と表示領域の面で軽い情報のほうが向いている</strong> からです。Even G2 自体も、巨大なIDEを置き換える設計はしていません。
+            </p>
+            <p>[要確認] 具体的なAPI連携・自前スクリプト・ショートカット運用については、Masayaが本人セットアップを確認したうえで別記事に切り出す想定です。
+            </p>
+
+            <h3>役割分担で考えるメリット</h3>
+            <p>
+              この『役割を分ける』前提に立つと、Even G2 を『万能AIデバイス』として評価する必要がなくなります。<strong>『AIパートナーへの指示と確認を、画面前から少し解放するための窓』</strong> として割り切ると、評価軸はぐっとシンプルになります。
+            </p>
+            <ul>
+              <li>視界の隅にAIの応答が出るのは、画面に戻らず思考を続けられるか？</li>
+              <li>音声で短い指示を渡したとき、ノートPC側のClaude Code / Codexまで届くか？</li>
+              <li>長時間つけていてもストレスがないか？</li>
+            </ul>
+            <p>
+              この3つを満たしていれば、AIコーディングの『姿勢』を変えるためのデバイスとしては合格、というのが今の見立てです。
+            </p>
+
+            <h2>実際の使用シーン ― 散歩、メモ、深夜のレビュー</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/even-g2-ai-coding-glasses/ch5.png" alt="夜の住宅街を散歩しながら、スマートグラス越しにAIと会話している人物のグラレコ。視界の隅に短いコードレビューのテキストが薄く浮かんでいる" width="1366" height="768" loading="lazy" />
+              <figcaption>散歩しながらコードレビューを聞き、思いついたら短く返す。AIパートナーとの会話が、椅子の外にも広がる。</figcaption>
+            </figure>
+            <p>[要確認] 以下のシーン描写はMasayaの体験仮置きです。実際の頻度・所感・違いはMasaya本人で書き換えてください。</p>
+
+            <h3>シーン1：散歩しながらレビュー</h3>
+            <p>
+              いちばんしっくり来ているのは、<strong>散歩や移動中の『軽いレビュー』</strong> の時間です。Claude Code に書かせた直前の差分の要約や、Codex に走らせた変更点の概要を、視界の隅に小さく出しておく。歩きながらそれを読み、気になった点を音声で短くメモすると、戻ったときにノートPC側にコメントが集まっている、という流れです。
+            </p>
+            <p>
+              ポイントは、<strong>『考えごとの姿勢のまま、AIと会話できる』</strong> ところです。机に戻って画面を開く、という動作のオーバーヘッドが消えるだけで、思考の連続性がだいぶ守られる感覚があります。
+            </p>
+
+            <h3>シーン2：会議や打ち合わせ前の短いメモ</h3>
+            <p>
+              次に効いているのは、<strong>会議の直前・直後のメモ</strong> です。手元のスマホやノートPCを開かずに、視界の隅に箇条書きを浮かべて確認できるので、相手と会話しながら頭を整理する余裕が増えます。
+            </p>
+            <p>[要確認] このユースケースは、相手がいる場面ではプライバシーや視線の使い方に配慮が必要、という点だけ注意点として加えておきたい想定です。</p>
+
+            <h3>シーン3：深夜の長文レビュー</h3>
+            <p>
+              意外と良かったのが、<strong>深夜の長文レビュー</strong> です。机の前にずっと座って画面とにらめっこしているとしんどい時間でも、グラスを通して概要だけ視界に入れながら、姿勢を変えたり横になったりしながら考えられる。<strong>『AIパートナーとの会話を、椅子から解放する』</strong> という当初の動機にいちばん近い使い方かもしれません。
+            </p>
+
+            <h2>ハンズフリーAIコーディングの可能性と限界</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/even-g2-ai-coding-glasses/ch6.png" alt="左側に『可能性』として広がる風景（散歩・移動・打ち合わせ・台所など生活シーン）、右側に『限界』としてキーボード作業・長文コード編集が並ぶ対比イラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>『画面に張りつかないAI』は確かに新しいが、コードを書く中心はやはりキーボードの上にある。</figcaption>
+            </figure>
+            <p>
+              いったん冷静に、可能性と限界を整理します。
+            </p>
+
+            <h3>可能性：AIとの会話の『姿勢』が変わる</h3>
+            <p>
+              いちばん大きな可能性は、<strong>AIパートナーとの会話の姿勢が変わる</strong> ことだと思っています。
+            </p>
+            <p>
+              いまのAIコーディングは、どうしても『キーボードの前に張りついてプロンプトを打つ』姿勢が前提になっています。Even G2 のようなデバイスが入ると、この姿勢が <strong>歩く・立つ・横になる・話している途中、といった日常側</strong> に少しずつ広がる。これは、AIをツールとして使うか、パートナーとして暮らしの中に置くかの分かれ目に効いてくる変化だと思います。
+            </p>
+
+            <h3>限界1：コードを書く中心はやはりキーボード</h3>
+            <p>
+              限界もはっきりしています。<strong>長文のコードを実際に書く・編集する作業は、いまのスマートグラスの表示領域では現実的ではない</strong> です。Even G2 の表示はあくまで『軽いHUD』であって、複数ファイルを並べて読むIDEではない。これはデバイスの設計思想として割り切られている部分なので、ここを期待しないことが重要です。
+            </p>
+
+            <h3>限界2：音声駆動だけでは設計まで行きづらい</h3>
+            <p>
+              もう一つの限界は、<strong>音声駆動だけで設計や複雑な指示を伝えるのはまだ難しい</strong> ことです。短い指示（『この差分を要約して』『この関数の意図を一言で』）はうまく回りますが、長い設計判断は、結局どこかで文章で書き留める時間が必要になります。
+            </p>
+
+            <h3>限界3：ハードウェア依存と進化の速さ</h3>
+            <p>
+              スマートグラス全般に言えることですが、<strong>ハードウェアの世代交代が早い</strong> です。今買った Even G2 が、1〜2年後には別の選択肢に置き換わっている可能性は高い。それを承知のうえで『この世代の体験を生活に取り込む』判断ができるかどうかも、購入の前に一度考えておきたいポイントです。
+            </p>
+
+            <h2>推奨できる人 / 向かない人</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/even-g2-ai-coding-glasses/ch7.png" alt="左側に『向いている人』のシーン（外でAIと会話している人、立ち作業の多い人）、右側に『向かない人』のシーン（机の前から動かない長時間コーディング）を分けて描いたグラレコ風イラスト" width="1366" height="768" loading="lazy" />
+              <figcaption>万人向けではない。AIとの会話を『生活側』に伸ばしたい人にとって、いちばん効くデバイス。</figcaption>
+            </figure>
+
+            <h3>こういう人には合いそう</h3>
+            <ul>
+              <li><strong>AIエージェントを毎日のように動かしている</strong>。Claude Code / Codex などをパートナーとして使い慣れていて、入出力の窓口を増やしたいと感じている</li>
+              <li><strong>立ち作業や移動が多い働き方をしている</strong>。机の前に座る時間と、それ以外の時間が両方ある</li>
+              <li><strong>『画面の前にいない時間』にこそ、考えが進むタイプ</strong>。散歩・家事・移動などのアイデア発生時間とAIをつなげたい</li>
+              <li><strong>普段から眼鏡をかけている</strong>。新しい装着物に対する抵抗が少ない</li>
+            </ul>
+
+            <h3>こういう人には今は向かない</h3>
+            <ul>
+              <li><strong>コードを書く時間のほとんどがキーボード作業</strong>。腰を据えて長時間IDEで作業するのが中心の人にとっては、グラスの恩恵は限定的</li>
+              <li><strong>『1台でぜんぶ完結するAIデバイス』を期待している</strong>。スマホ／PCと組み合わせて初めて活きるので、単体購入だと物足りなく感じる可能性がある</li>
+              <li><strong>音声入力に強い抵抗がある環境にいる</strong>。常に静かなオフィスにいる場合、音声を使う前提のシーンは限られる</li>
+              <li><strong>ハードウェア世代交代の速さを許容しづらい</strong>。長く同じデバイスを使いたいタイプには、まだ時期尚早かもしれない</li>
+            </ul>
+
+            <h2>これからどう活かす ― コールテンとしての見立て</h2>
+            <figure class="chapter-illust fade-up">
+              <img src="/images/blog/even-g2-ai-coding-glasses/ch8.png" alt="ノートPCの前にいるTikiと、スマートグラス越しに視界の隅に浮かぶTikiが、矢印でつながっている図。生活と仕事の両方にAIパートナーが染み出している雰囲気" width="1366" height="768" loading="lazy" />
+              <figcaption>椅子の上のTikiから、視界の片隅のTikiへ。AIパートナーとの距離を、もう一段近づける実験。</figcaption>
+            </figure>
+            <p>
+              最後に、コールテンとして Even G2 をどう位置づけて、これからどう活かしていくつもりかを書いておきます。
+            </p>
+            <p>
+              いちばん大きな問いは、<strong>『AIパートナーとの距離を、画面の外側にどこまで伸ばせるか』</strong> です。コールテンが Tiki を中心にしてやってきたのは、AIをツールとしてではなく、相棒として生活と仕事のあいだに置く、というやり方でした。Even G2 は、その距離をもう一段詰めるための実験デバイスとして、ちょうどいい大きさでした。
+            </p>
+            <p>
+              これから試していきたいのは、ざっくり3つです。
+            </p>
+            <ul>
+              <li><strong>外出時のAIメモ運用</strong>：歩きながら浮かんだことを、グラス＋音声で短くTikiに渡し、戻ったときにPC側で整理されている、というフローを安定させる</li>
+              <li><strong>クライアント支援の現場での活用</strong>：打ち合わせ前後の数分で、視界の隅にメモを出しながら考える、という使い方を試す（相手の前では装着しない、視線を切らない、などのマナー設計込み）</li>
+              <li><strong>『画面なしの時間』を意識的に増やす</strong>：AIと一緒にいることと、画面を見ていることは、本来別物のはず。グラスを使って、その2つを少しずつ分離する</li>
+            </ul>
+            <p>
+              派手な未来像（『スマートグラスでコードがぜんぶ書ける』）には、いまはまだ慎重です。<strong>でも『AIパートナーがいる場所が、机の上から少し外に広がる』という変化は、もう確実に始まっています</strong>。Even G2 はその変化を、ふつうの眼鏡の見た目で受け取れる珍しい一台でした。
+            </p>
+
+            <aside class="observation-box">
+              <p><strong>コールテンの実務観察として</strong></p>
+              <p>クライアント支援の現場でも、AI活用の話題は『どんなツールを使うか』に偏りがちです。でも実際に効いてくるのは、<strong>『AIパートナーをどんな姿勢で迎え入れるか』</strong> のほう。デスクトップだけのAIから、生活側に染み出すAIへ。Even G2 のようなデバイスは、その姿勢の変化を後押ししてくれる小さな道具のひとつだと考えています。</p>
+            </aside>
+
+            <p class="update-note">この記事は 2026-05-09 時点で、コールテン代表 Masaya の購入直後の所感と、Even Realities 公式情報の確認範囲をベースにした初稿（D状態）です。実機の体験部分は今後 [要確認] フラグ付きの箇所を中心に、Masaya本人の追記・修正で更新していきます。</p>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">AIパートナー運用について公式LINEから無料相談OK</p>
+              <a class="btn-contact-xl" href="/contact/">相談する</a>
+            </div>
+
+            <p style="margin-top: 24px;"><strong>関連記事</strong></p>
+            <ul>
+              <li><a href="/blog/tiki-strategy-modes/">AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計</a></li>
+              <li><a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順</a></li>
+              <li><a href="/blog/executive-second-self/">経営者の右腕は、AIになる ― 第二の自分を持つ社長が、組織を変える時代</a></li>
+              <li><a href="/members/about/">30名のAI社員と一緒に経営しているコールテンの仕事術</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="container faq" style="padding-bottom:40px;">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくある質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            {faqItems.map((item, index) => (
+              <details {...(index === 0 ? { open: true } : {})} id={`faq-${index + 1}`}>
+                <summary>{item.question}</summary>
+                <p class="mini">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+          <p class="mini" style="max-width:800px;margin:16px auto 0;color:var(--text-light);">※ FAQ は 2026-05-09 時点で公開されている Even Realities 公式情報と、コールテン社内での試用範囲をもとにしています。仕様や対応機能は変わる可能性があるため、購入検討時は必ず最新の公式情報をご確認ください。</p>
+        </section>
+
+        <div class="contact-cta-box fade-up" style="margin-top: 48px;">
+          <h3>シリーズの関連記事</h3>
+          <p>『AIをツールとしてではなく、パートナーとして生活と仕事に置く』というテーマで、コールテンが書いてきたシリーズもどうぞ。</p>
+          <ul class="related-links">
+            <li><a href="/blog/tiki-strategy-modes/">AIに『さくせん』を授ける ― 4つのモード設計</a></li>
+            <li><a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法 ― 7つの手順</a></li>
+            <li><a href="/blog/executive-second-self/">経営者の右腕は、AIになる</a></li>
+          </ul>
+          <div class="cta-buttons">
+            <a href="/services/" class="btn-primary">サービス一覧を見る</a>
+          </div>
+        </div>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-head h1 small {
+    display: block;
+    font-size: clamp(15px, 1.6vw, 18px);
+    font-weight: 500;
+    color: var(--text-light);
+    margin-top: 10px;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.85;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.1;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    margin: 64px -8px 24px;
+    padding: 14px 22px;
+    background: linear-gradient(135deg, var(--sea) 0%, #124034 100%);
+    color: #fff;
+    border-radius: 12px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h3 {
+    font-size: 18px;
+    margin: 36px 0 14px;
+    padding: 6px 0 6px 14px;
+    border-left: 4px solid var(--sea);
+    color: var(--sea);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+    line-height: 1.5;
+  }
+  .article-body p {
+    margin-bottom: 24px;
+    line-height: 1.9;
+  }
+  .article-body code {
+    background: rgba(22, 97, 78, 0.08);
+    padding: 0.15em 0.4em;
+    border-radius: 6px;
+    font-size: 0.95em;
+  }
+  .article-body a {
+    color: var(--sea);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(22, 97, 78, 0.3);
+    text-underline-offset: 3px;
+  }
+  .article-body a:hover { text-decoration-color: var(--sea); }
+  .article-body ul,
+  .article-body ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+  .article-body li {
+    margin-bottom: 14px;
+    line-height: 1.9;
+  }
+
+  .chapter-illust {
+    max-width: 760px;
+    margin: 24px auto 32px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(22, 97, 78, 0.10);
+  }
+  .chapter-illust figcaption {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 10px;
+  }
+  @media (max-width: 768px) {
+    .chapter-illust { margin: 18px auto 24px; }
+    .chapter-illust img { border-radius: 14px; }
+  }
+
+  .observation-box {
+    background: linear-gradient(180deg, #fffaf0 0%, #fff 100%);
+    border: 1px solid #f3e6c8;
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin: 32px 0;
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .observation-box p { margin-bottom: 12px; }
+  .observation-box p:last-child { margin-bottom: 0; }
+
+  .update-note {
+    font-size: 13px;
+    color: var(--text-light);
+    background: rgba(22,97,78,0.04);
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-top: 24px;
+  }
+
+  .contact-cta-box {
+    background: linear-gradient(135deg, var(--mint) 0%, #fff 100%);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin: 40px 0 24px;
+    text-align: center;
+  }
+  .contact-cta-lead {
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 16px !important;
+    font-weight: 700;
+  }
+  .article-body .btn-contact-xl {
+    display: inline-block;
+    background: var(--sea);
+    color: #fff !important;
+    padding: 14px 36px;
+    border-radius: 100px;
+    font-weight: 700;
+    text-decoration: none !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .article-body .btn-contact-xl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
+  .contact-cta-box h3 {
+    margin-top: 0;
+    color: var(--ink);
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .contact-cta-box .related-links {
+    text-align: left;
+    max-width: 600px;
+    margin: 16px auto 8px;
+    padding-left: 20px;
+  }
+  .contact-cta-box .related-links li { margin-bottom: 8px; }
+  .contact-cta-box .related-links a { color: var(--sea); font-weight: 600; }
+
+  .cta-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .article-body .btn-primary {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none !important;
+    display: inline-block;
+    background: var(--sea) !important;
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(22,97,78,.25);
+  }
+  .article-body .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(22,97,78,.4);
+  }
+
+  .article-foot {
+    max-width: 720px;
+    margin: 40px auto 0;
+    text-align: center;
+  }
+  .article-foot .btn.secondary {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 100px;
+    background: #fff;
+    color: var(--sea);
+    border: 2px solid var(--sea);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .article-foot .btn.secondary:hover {
+    background: var(--mint);
+  }
+
+  @media (max-width: 768px) {
+    .article { padding: 80px 0 60px; }
+    .article-card {
+      padding: 28px 22px;
+      border-radius: 18px;
+    }
+    .article-body { font-size: 15px; }
+    .article-body h2 {
+      font-size: 19px;
+      margin: 48px -4px 20px;
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .article-body h3 { font-size: 16.5px; }
+    .article-lead { font-size: 15.5px; }
+    .contact-cta-box { padding: 22px 18px; }
+    .cta-buttons { flex-direction: column; }
+    .article-body .btn-primary { display: block; }
+  }
+</style>
