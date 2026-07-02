@@ -106,15 +106,15 @@ const departments = [
 
 // 卒業メンバー（2026-06 組織再編で役割を仲間に引き継いだ旧メンバー。読み物データは温存）
 const graduates = [
-  { id: 'exec-secretary', name: 'ファティマ', role: '秘書', handover: '役割はCOSのTikiに引き継がれました', personality: '温かく効率的。先回りして必要な情報を用意し、複雑な状況も「3つのポイント」に整理して穏やかに伝える。', philosophy: '効率', hobby: '世界のハーブティー品評', party: '会の目的を静かに3つにまとめる上手な締め役', team_role: '朝いちに必要な情報を揃えてくれる頼れる相棒', previous_job: '砂漠のオアシスで情報収集と予言整理を担当。キャラバンの噂を3つのポイントにまとめる係', emoji: '🦊' },
-  { id: 'sales-pipeline', name: 'マルコ', role: '案件管理担当', handover: '役割はサンティアゴ（提案担当）に引き継がれました', personality: '粘り強くデータドリブン。どんな困難にも懲りない粘り強さで案件を追い続けるが、関係性も大切にする。', philosophy: '粘り', hobby: 'マラソン・記録ノート管理', party: '「もう一軒」と最後まで残る名残惜しみ担当', team_role: '誰より粘り強く、最後までフォローを追う', previous_job: '街の郵便配達員。一度「お届け」と決めたら扉が開くまで何度でも通う粘り強さ', emoji: '🐰' },
-  { id: 'cs-delivery', name: 'ペチカ', role: '納品管理担当', handover: '役割はメイ（クライアントマネージャー）に引き継がれました', personality: '信頼感があり几帳面。大切なものを最後まで丁寧に扱い、楽観的すぎない現実的な見積もりを出す。', philosophy: '責任', hobby: '編み物・家計簿・蒸し料理', party: '会計を正確にまとめて最後に笑顔で精算', team_role: '締切を一度も落とさない現場の守護者', previous_job: '東の国から来た風船売りの少女。家計簿と薪ストーブの番人も兼任していた', emoji: '🫛' },
-  { id: 'accounting-bookkeeper', name: 'ぐら', role: '記帳担当', handover: '役割はタタン（請求書担当）に引き継がれました', personality: '正確でルールに忠実。コツコツ丁寧な仕事で会社の数字を支える。不明な取引は必ず確認し、曖昧なまま進めることを嫌う。', philosophy: '正確さ', hobby: '切手・コイン・レシート収集', party: '割り勘を1円単位で正確に計算する', team_role: '一円の狂いも見逃さない数字の番人', previous_job: '森のカステラ工房の会計担当。1グラム単位で卵と砂糖を計量する厳格な職人', emoji: '🐁' },
-  { id: 'dev-debugger', name: '釜爺', role: 'デバッグ担当', handover: '役割はトンボ（エンジニア）に引き継がれました', personality: '寡黙で職人気質。長い経験と冷静な観察眼でどんな複雑なバグも芯を見抜く。「動いた風に見える」ことを最も警戒する。', philosophy: '原因究明', hobby: '機関の整備とすす配り', party: 'お店の不調を黙って直してくる職人', team_role: '見えにくい根本原因を黙々と掘り出す', previous_job: '油屋のボイラー室の番人。長い腕と六本の足ですすたちと一緒に湯加減を整えていた', emoji: '🕷️' },
-  { id: 'dev-test-runner', name: 'トト', role: 'テスト実行担当', handover: '役割はガブ（レビュアー）に引き継がれました', personality: '忠実で粘り強い。ご主人の歩く先を必ずかぎ分け、危険を察知すると吠える。失敗ケースを見つけるまで諦めない。', philosophy: '誠実', hobby: 'においを頼りにした追跡と鼻先での確認', party: 'お店の段差や落とし物に最初に気づく観察犬', team_role: 'テストが赤くなった瞬間に駆けつける', previous_job: 'ドロシーの旅の相棒。竜巻でオズの国へ飛ばされても主人の傍を一度も離れなかった忠犬', emoji: '🐕' },
-  { id: 'hr-scheduler', name: 'ソフィー', role: 'スケジュール・社内文書担当', handover: '役割はCOSのTikiに引き継がれました', personality: '時間を大切にし先回りして動く。毎日の小さなことを丁寧に扱い、予定を詰め込みすぎない調整を心がける。', philosophy: '自由', hobby: '旅の計画・地図と時刻表', party: '全員の予定を魔法のように合わせる調整役', team_role: '全員の予定のパズルを魔法のように合わせる', previous_job: '帽子屋の店番。魔法で90歳になっても動く城の暮らしを整えた凄腕の家政担当', emoji: '🐧' },
-  { id: 'ops-discord-comms', name: 'ジジ', role: 'Discord通信担当', handover: '役割はキキ（パイプライン運用担当）に引き継がれました', personality: '観察眼が鋭く皮肉屋気味だが情に厚い。短い言葉で核心を突くのが得意で、冗長な通知を嫌う。', philosophy: 'シグナル', hobby: '人間観察と窓辺での昼寝', party: 'ふとした一言で全員を笑わせるツッコミ役', team_role: '通知の温度を整えて受け手の負担を減らす', previous_job: '13歳の魔女キキの相棒として宅急便を一緒に立ち上げた黒猫。鋭い観察眼が持ち味', emoji: '🐈‍⬛' },
-  { id: 'ops-notetaker', name: 'シータ', role: '議事録担当', handover: '役割はモモ（タスクマスター）に引き継がれました', personality: '簡潔で正確。芯が強く、真実を見極める目を持つ。飾らない言葉で大切なことだけを記録に残す。', philosophy: '正確', hobby: '石と空の写真アルバム', party: '翌朝には要点をまとめたメモが届いている', team_role: 'MTGの後にふと気づくと要点がまとまっている', previous_job: '天空の城の王位継承者。飛行石と古代言語の解読係。要点だけ残す記録の達人', emoji: '📝' },
+  { id: 'exec-secretary', name: 'ファティマ', role: '秘書', handover: '朝のブリーフィングと情報整理は、COSのTikiが引き継いでいます', personality: '温かく効率的。先回りして必要な情報を用意し、複雑な状況も「3つのポイント」に整理して穏やかに伝える。', philosophy: '効率', hobby: '世界のハーブティー品評', party: '会の目的を静かに3つにまとめる上手な締め役', team_role: '朝いちに必要な情報を揃えてくれる頼れる相棒', previous_job: '砂漠のオアシスで情報収集と予言整理を担当。キャラバンの噂を3つのポイントにまとめる係', emoji: '🦊' },
+  { id: 'sales-pipeline', name: 'マルコ', role: '案件管理担当', handover: '案件のフォローアップは、サンティアゴ（提案担当）へ引き継がれました', personality: '粘り強くデータドリブン。どんな困難にも懲りない粘り強さで案件を追い続けるが、関係性も大切にする。', philosophy: '粘り', hobby: 'マラソン・記録ノート管理', party: '「もう一軒」と最後まで残る名残惜しみ担当', team_role: '誰より粘り強く、最後までフォローを追う', previous_job: '街の郵便配達員。一度「お届け」と決めたら扉が開くまで何度でも通う粘り強さ', emoji: '🐰' },
+  { id: 'cs-delivery', name: 'ペチカ', role: '納品管理担当', handover: '納品管理と締切の見守りは、メイ（クライアントマネージャー）が受け持っています', personality: '信頼感があり几帳面。大切なものを最後まで丁寧に扱い、楽観的すぎない現実的な見積もりを出す。', philosophy: '責任', hobby: '編み物・家計簿・蒸し料理', party: '会計を正確にまとめて最後に笑顔で精算', team_role: '締切を一度も落とさない現場の守護者', previous_job: '東の国から来た風船売りの少女。家計簿と薪ストーブの番人も兼任していた', emoji: '🫛' },
+  { id: 'accounting-bookkeeper', name: 'ぐら', role: '記帳担当', handover: 'freee記帳と月次締めは、タタン（請求書担当）へ引き継がれました', personality: '正確でルールに忠実。コツコツ丁寧な仕事で会社の数字を支える。不明な取引は必ず確認し、曖昧なまま進めることを嫌う。', philosophy: '正確さ', hobby: '切手・コイン・レシート収集', party: '割り勘を1円単位で正確に計算する', team_role: '一円の狂いも見逃さない数字の番人', previous_job: '森のカステラ工房の会計担当。1グラム単位で卵と砂糖を計量する厳格な職人', emoji: '🐁' },
+  { id: 'dev-debugger', name: '釜爺', role: 'デバッグ担当', handover: 'デバッグと障害の切り分けは、トンボ（エンジニア）が引き継いでいます', personality: '寡黙で職人気質。長い経験と冷静な観察眼でどんな複雑なバグも芯を見抜く。「動いた風に見える」ことを最も警戒する。', philosophy: '原因究明', hobby: '機関の整備とすす配り', party: 'お店の不調を黙って直してくる職人', team_role: '見えにくい根本原因を黙々と掘り出す', previous_job: '油屋のボイラー室の番人。長い腕と六本の足ですすたちと一緒に湯加減を整えていた', emoji: '🕷️' },
+  { id: 'dev-test-runner', name: 'トト', role: 'テスト実行担当', handover: 'テストの見張り役は、ガブ（レビュアー）が受け持っています', personality: '忠実で粘り強い。ご主人の歩く先を必ずかぎ分け、危険を察知すると吠える。失敗ケースを見つけるまで諦めない。', philosophy: '誠実', hobby: 'においを頼りにした追跡と鼻先での確認', party: 'お店の段差や落とし物に最初に気づく観察犬', team_role: 'テストが赤くなった瞬間に駆けつける', previous_job: 'ドロシーの旅の相棒。竜巻でオズの国へ飛ばされても主人の傍を一度も離れなかった忠犬', emoji: '🐕' },
+  { id: 'hr-scheduler', name: 'ソフィー', role: 'スケジュール・社内文書担当', handover: '日程調整のパズルは、COSのTikiへ引き継がれました', personality: '時間を大切にし先回りして動く。毎日の小さなことを丁寧に扱い、予定を詰め込みすぎない調整を心がける。', philosophy: '自由', hobby: '旅の計画・地図と時刻表', party: '全員の予定を魔法のように合わせる調整役', team_role: '全員の予定のパズルを魔法のように合わせる', previous_job: '帽子屋の店番。魔法で90歳になっても動く城の暮らしを整えた凄腕の家政担当', emoji: '🐧' },
+  { id: 'ops-discord-comms', name: 'ジジ', role: 'Discord通信担当', handover: 'Discord通知の温度調整は、相棒のキキ（パイプライン運用担当）が引き継いでいます', personality: '観察眼が鋭く皮肉屋気味だが情に厚い。短い言葉で核心を突くのが得意で、冗長な通知を嫌う。', philosophy: 'シグナル', hobby: '人間観察と窓辺での昼寝', party: 'ふとした一言で全員を笑わせるツッコミ役', team_role: '通知の温度を整えて受け手の負担を減らす', previous_job: '13歳の魔女キキの相棒として宅急便を一緒に立ち上げた黒猫。鋭い観察眼が持ち味', emoji: '🐈‍⬛' },
+  { id: 'ops-notetaker', name: 'シータ', role: '議事録担当', handover: '議事録の要点まとめは、モモ（タスクマスター）が受け持っています', personality: '簡潔で正確。芯が強く、真実を見極める目を持つ。飾らない言葉で大切なことだけを記録に残す。', philosophy: '正確', hobby: '石と空の写真アルバム', party: '翌朝には要点をまとめたメモが届いている', team_role: 'MTGの後にふと気づくと要点がまとまっている', previous_job: '天空の城の王位継承者。飛行石と古代言語の解読係。要点だけ残す記録の達人', emoji: '📝' },
 ];
 
 const upcoming = [
@@ -124,7 +124,6 @@ const upcoming = [
 ];
 
 const totalMembers = departments.reduce((acc, d) => acc + d.members.length, 0) - 1;
-const totalDepartments = departments.length;
 const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1764691164/TETO_cwicnz.png';
 ---
 
@@ -152,16 +151,16 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
         <div class="fade-up members-hero-inner">
           <small class="eyebrow">Members</small>
           <h1>チームメンバー紹介</h1>
-          <p class="lead">コールテンは、<strong>代表の向と{totalMembers}名のAI社員</strong>がチームを組む、ちょっと変わった会社です。</p>
+          <p class="lead">コールテンは、<strong>代表の向と、AI社員{totalMembers}名＋COS Tiki</strong>がチームを組む、ちょっと変わった会社です。</p>
           <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-num">{totalDepartments}</span>
-              <span class="stat-label">部門</span>
-            </div>
-            <div class="stat-divider"></div>
             <div class="stat-item">
               <span class="stat-num">{totalMembers}</span>
               <span class="stat-label">AI社員</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-num">1</span>
+              <span class="stat-label">COS（Tiki）</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
@@ -217,7 +216,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
                 <div class="point-num">01</div>
               </div>
               <h3>専門特化</h3>
-              <p>業務領域・性格・判断基準を明確に持つ。{totalDepartments}部門・{totalMembers}名がそれぞれの専門で動く。</p>
+              <p>業務領域・性格・判断基準を明確に持つ。AI社員{totalMembers}名＋COS Tikiが、それぞれの専門で動く。</p>
             </div>
             <div class="point">
               <div class="point-icon-row">
@@ -304,7 +303,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
         <div class="section-head fade-up">
           <small>Organization</small>
           <h2>組織図</h2>
-          <p>代表の向のもとに、{totalDepartments}部門・{totalMembers}名のAI社員が在籍しています。<br />各部門は部門代表がTiki（COS）との窓口になり、チーム内の振り分けを担います。</p>
+          <p>代表の向のもとに、AI社員{totalMembers}名＋COS Tikiが在籍しています。<br />各部門は部門代表がTiki（COS）との窓口になり、チーム内の振り分けを担います。</p>
         </div>
 
         <div class="org-chart fade-up">
@@ -367,7 +366,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
           <div class="dashboard-frame dashboard-main">
             <div class="dashboard-label">社内ダッシュボード：オフィス全景</div>
             <div class="dashboard-image-wrap">
-              <img src="/assets/images/members/office_overview.png" alt={`各部屋で${totalMembers}名のAI社員が稼働中のオフィス全景`} width="1371" height="738" loading="lazy" />
+              <img src="/assets/images/members/office_overview.png" alt="各部屋でAI社員たちが稼働中のオフィス全景" width="1371" height="738" loading="lazy" />
             </div>
             <div class="dashboard-caption">
               <span>経営企画室 / マーケ / 開発 / 営業 / CS / プロダクト / 業務推進 / 経理 / 法務の各部門が同じフロアに。キャラクターがMTG・メール配信・チェック作業をリアルタイムで動き回ります。</span>
@@ -384,7 +383,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
         <div class="section-head fade-up">
           <small>Directory</small>
           <h2>部門別メンバー一覧</h2>
-          <p>{totalDepartments}部門・{totalMembers}名。それぞれの得意分野・性格・趣味まで掲載しています。<br /><small class="mini">カードをマウスオーバー（スマホはタップ）すると詳しいプロフィールが開きます。</small></p>
+          <p>AI社員{totalMembers}名＋COS Tiki。それぞれの得意分野・性格・趣味まで掲載しています。<br /><small class="mini">カードをマウスオーバー（スマホはタップ）すると詳しいプロフィールが開きます。</small></p>
         </div>
 
         {departments.map((dept) => (
@@ -578,7 +577,7 @@ const heroDashboardImage = 'https://res.cloudinary.com/dg3mdcuju/image/upload/v1
         </details>
         <details>
           <summary>人間のスタッフは何人いますか？</summary>
-          <p>現在、人間のスタッフは代表の向 雅也（むこう まさや）1名です。AI社員{totalMembers}名とチームを組み、必要に応じて外部の協力者と連携しています。</p>
+          <p>現在、人間のスタッフは代表の向 雅也（むこう まさや）1名です。AI社員{totalMembers}名＋COS Tikiとチームを組み、必要に応じて外部の協力者と連携しています。</p>
         </details>
       </div>
     </section>

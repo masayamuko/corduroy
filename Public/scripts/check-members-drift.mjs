@@ -10,6 +10,8 @@
  *   2. サイトで現役扱いのIDが正本で卒業(alias)になっていないか（=SHOULD_GRADUATE）
  *   3. サイトのIDが正本に存在するか（=UNKNOWN_ID）
  *   4. 正本の卒業メンバーがサイトの卒業セクションにいるか（不在=MISSING_GRADUATE）
+ *   5. サイトの卒業セクションに正本の卒業以外のID（現役ID・未知ID）が紛れていないか（=EXTRA_GRADUATE）
+ *   6. Tiki（exec-cos）が現役セクションに存在するか（不在=TIKI_MISSING）
  *
  * 差分0なら exit 0、差分ありなら一覧を出力して exit 1。
  * 使い方: node scripts/check-members-drift.mjs [--json]
@@ -93,13 +95,15 @@ const activeRegion = page.slice(0, gradArrayIdx);
 const graduatesRegion = page.slice(gradArrayIdx, frontmatterEnd === -1 ? undefined : frontmatterEnd);
 
 const idRe = /id:\s*'([a-z][a-z0-9-]*)'/g;
-const siteActive = new Set(
-  [...activeRegion.matchAll(idRe)].map((m) => m[1]).filter((id) => !EXCLUDED_SITE_IDS.has(id)),
-);
+const siteActiveRaw = new Set([...activeRegion.matchAll(idRe)].map((m) => m[1]));
+const siteActive = new Set([...siteActiveRaw].filter((id) => !EXCLUDED_SITE_IDS.has(id)));
 const siteGraduates = new Set([...graduatesRegion.matchAll(idRe)].map((m) => m[1]));
 
 // --- 3. 突合 ---
 const issues = [];
+if (!siteActiveRaw.has('exec-cos')) {
+  issues.push({ type: 'TIKI_MISSING', id: 'exec-cos', detail: 'Tiki（COS）が現役セクションに不在' });
+}
 for (const id of activeCanonical) {
   if (!siteActive.has(id)) {
     issues.push({ type: 'MISSING', id, detail: '正本では稼働中だがサイトの現役セクションに不在' });
@@ -115,6 +119,17 @@ for (const id of siteActive) {
 for (const id of graduatedCanonical) {
   if (!siteGraduates.has(id)) {
     issues.push({ type: 'MISSING_GRADUATE', id, detail: '正本では卒業だがサイトの卒業セクションに不在' });
+  }
+}
+for (const id of siteGraduates) {
+  if (!graduatedCanonical.has(id)) {
+    issues.push({
+      type: 'EXTRA_GRADUATE',
+      id,
+      detail: activeCanonical.has(id)
+        ? '正本では稼働中のIDが卒業セクションに紛れている'
+        : '正本に存在しないIDが卒業セクションに紛れている',
+    });
   }
 }
 
