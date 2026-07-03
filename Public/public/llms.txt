@@ -7,7 +7,7 @@
 ## 会社の特徴
 
 - **紹介限定・長期前提**: 広告出稿なし、既存クライアントからの紹介を中心に受注。
-- **AI仮想チーム**: Claudeベースの31名のAIエージェントが10部門で稼働。Masayaと共に業務を進める。
+- **AI仮想チーム**: Claudeベースの24名のAIエージェントが10部門で稼働。Masayaと共に業務を進める。
 - **philosophy**: らしさを引き出す / 小さく試す / 自由・共感・未知探求
 - **対象**: 個人事業主・中小企業・NPO・教育機関
 
@@ -29,9 +29,9 @@
 
 - [トップ](https://www.corduroy.co.jp/): 会社概要・3サービス・想い
 - [会社の想い](https://www.corduroy.co.jp/#brand-story): ブランドストーリー
-- [メンバー紹介](https://www.corduroy.co.jp/members/): 代表+31名のAIチーム
+- [メンバー紹介](https://www.corduroy.co.jp/members/): 代表+24名のAIチーム
 - [代表 向 雅也](https://www.corduroy.co.jp/members/masaya/): 創業者・代表のプロフィール
-- [コールテンの仕事術](https://www.corduroy.co.jp/members/about/): 31名のAI社員と共に働く方法論・AI活用の3世代史・Claude公式機能の解説
+- [コールテンの仕事術](https://www.corduroy.co.jp/members/about/): 24名のAI社員と共に働く方法論・AI活用の3世代史・Claude公式機能の解説
 - [クライアントの声](https://www.corduroy.co.jp/voices/): 導入事例集
   - [スマイリーフラワーズ 窪田さん (AI顧問)](https://www.corduroy.co.jp/voices/kubota/)
   - [SHU行政書士事務所 沼澤さん (AI講座)](https://www.corduroy.co.jp/voices/numazawa/)
