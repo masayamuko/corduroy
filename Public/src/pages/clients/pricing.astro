@@ -13,6 +13,7 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
   title="料金のご案内（クライアント専用）｜株式会社コールテン"
   description="商談させていただいた方向けの料金一覧です。"
   noindex={true}
+  noAnalytics={true}
 >
   <main class="pricing-private">
     <!-- Hero -->
@@ -211,7 +212,7 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
 
         <div class="sim-group">
           <h3 class="pb-sub">AI講座</h3>
-          <label class="sim-item"><input type="checkbox" data-init="3000" data-qty="trial-p" /> 体験講座（個人）3,000円 × <input type="number" id="qty-trial-p" class="sim-qty" value="5" min="1" max="99" />人 <small>※5名以上で開催</small></label>
+          <label class="sim-item"><input type="checkbox" data-init="3000" data-qty="trial-p" /> 体験講座（個人）3,000円 × <input type="number" id="qty-trial-p" class="sim-qty" value="5" min="5" max="99" />人 <small>※5名以上で開催</small></label>
           <label class="sim-item"><input type="checkbox" data-init="30000" /> 体験研修（法人）30,000円/回</label>
           <label class="sim-item"><input type="checkbox" data-init="110000" data-qty="course3m" /> 3ヶ月AI講座 110,000円 × <input type="number" id="qty-course3m" class="sim-qty" value="1" min="1" max="99" />人</label>
         </div>
@@ -317,7 +318,9 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
       const qtyId = input.getAttribute('data-qty');
       if (qtyId) {
         const q = document.getElementById('qty-' + qtyId) as HTMLInputElement | null;
-        price *= Math.max(1, parseInt((q && q.value) || '1', 10));
+        const min = Math.max(1, parseInt(q?.min || '1', 10) || 1);
+        const raw = parseInt(q?.value || '', 10);
+        price *= Number.isNaN(raw) ? min : Math.max(min, raw);
       }
       init += price;
     });

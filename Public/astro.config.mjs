@@ -25,6 +25,7 @@ export default defineConfig({
       filter: (page) =>
         ![
           'https://www.corduroy.co.jp/blog/ai-advisory-new-applications-paused-2026-05/',
+          'https://www.corduroy.co.jp/clients/pricing/',
         ].includes(page),
     }),
     preact(),

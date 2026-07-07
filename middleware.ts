@@ -1,8 +1,8 @@
 // Vercel Edge Middleware — パスワード保護（IDなし・共通パスワード方式）
 // 対象グループ:
 //   preview … 公開前ドラフト記事（/blog/aym-... と /preview/*）… env: PREVIEW_PASS
-//   client  … 商談済みクライアント向け 料金ページ（/clients/*） … env: CLIENT_PASS（未設定なら PREVIEW_PASS にフォールバック）
-// POSTでパスワード検証→Cookieに保存して30日有効。
+//   client  … 商談済みクライアント向け 料金ページ（/clients/pricing/*） … env: CLIENT_PASS（必須・fail closed）
+// POSTでパスワード検証→SHA-256署名値をCookieに保存して30日有効（固定値Cookieによるバイパス対策）。
 
 export const config = {
   matcher: [
@@ -16,10 +16,16 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30日
 
 type Group = {
   cookieName: string;
-  cookieValue: string;
   getPass: () => string;
   login: (errorMsg?: string) => string;
 };
+
+// Cookie値はパスワード由来のSHA-256ダイジェスト（パスワードを変えると既存Cookieは自動失効する）
+async function cookieValueFor(group: Group, pass: string): Promise<string> {
+  const data = new TextEncoder().encode(`${group.cookieName}|${pass}`);
+  const digest = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 // 共通のログイン画面ビルダー
 const loginHtml = (
@@ -72,7 +78,6 @@ function readEnv(name: string): string {
 const GROUPS: Record<'preview' | 'client', Group> = {
   preview: {
     cookieName: 'cdry_preview',
-    cookieValue: 'ok-2026-04',
     getPass: () => readEnv('PREVIEW_PASS'),
     login: (errorMsg = '') =>
       loginHtml(
@@ -88,9 +93,8 @@ const GROUPS: Record<'preview' | 'client', Group> = {
   },
   client: {
     cookieName: 'cdry_client',
-    cookieValue: 'ok-2026-07',
-    // 専用パスワード。未設定なら PREVIEW_PASS にフォールバックして即動作。
-    getPass: () => readEnv('CLIENT_PASS') || readEnv('PREVIEW_PASS'),
+    // 専用パスワード必須（fail closed。PREVIEW_PASSへはフォールバックしない）
+    getPass: () => readEnv('CLIENT_PASS'),
     login: (errorMsg = '') =>
       loginHtml(
         {
@@ -138,11 +142,12 @@ export default async function middleware(request: Request): Promise<Response | u
     }
 
     if (submitted && submitted === expectedPass) {
+      const cookieValue = await cookieValueFor(group, expectedPass);
       return new Response(null, {
         status: 303,
         headers: {
           'Location': url.pathname,
-          'Set-Cookie': `${group.cookieName}=${group.cookieValue}; Path=/; Max-Age=${COOKIE_MAX_AGE}; HttpOnly; SameSite=Lax; Secure`,
+          'Set-Cookie': `${group.cookieName}=${cookieValue}; Path=/; Max-Age=${COOKIE_MAX_AGE}; HttpOnly; SameSite=Lax; Secure`,
           'Cache-Control': 'no-store',
         },
       });
@@ -150,11 +155,12 @@ export default async function middleware(request: Request): Promise<Response | u
     return htmlResponse(group.login('パスワードが違います'), 401);
   }
 
-  // GET: Cookie 検証
+  // GET: Cookie 検証（パスワード由来の署名値と照合）
+  const expectedCookie = await cookieValueFor(group, expectedPass);
   const cookieHeader = request.headers.get('cookie') ?? '';
   const hasCookie = cookieHeader
     .split(/;\s*/)
-    .some(part => part === `${group.cookieName}=${group.cookieValue}`);
+    .some(part => part === `${group.cookieName}=${expectedCookie}`);
 
   if (hasCookie) {
     return; // 通過
