@@ -107,6 +107,7 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
             <span class="pt-note">週1回MTG＋実作業に深く関与（月8〜16h）。保守・改善まで。<span class="pos-badge">実装伴走相場20〜35万の下端</span></span>
           </div>
         </div>
+        <p class="pb-guide">💡 迷ったら「伴走ライト」から。物足りなくなったらプラン変更もご相談いただけます。</p>
         <p class="pb-foot">※企業の規模や関与度合いに応じて調整可能です。</p>
         <details class="pb-why">
           <summary>この料金の根拠と業界ポジション</summary>
@@ -290,20 +291,21 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
           <p>あとから「聞いてなかった」がないように、大切なことを先に書いておきます。</p>
         </div>
         <div class="honest-item">
-          <h3>① インボイス（適格請求書）に未登録です</h3>
-          <p>当社は現在、適格請求書発行事業者に登録していません。そのため<strong>課税事業者（本則課税）のお客様</strong>は、当社へのお支払い分の消費税を仕入税額控除にできず、実質のご負担が最大10%相当増えるイメージになります（経過措置により当面は一部控除が可能です）。免税事業者・簡易課税のお客様、個人のお客様には影響ありません。<strong>この点をご理解いただける場合のみ、ご契約をお願いしています。</strong></p>
+          <h3><span class="h-num">1</span>インボイス（適格請求書）に未登録です</h3>
+          <p>当社は現在、適格請求書発行事業者に登録していません。そのため課税事業者（本則課税）のお客様は、当社へのお支払い分の消費税を仕入税額控除にできず、実質のご負担が最大10%相当増えるイメージになります（経過措置により当面は一部控除が可能です）。免税事業者・簡易課税のお客様、個人のお客様には影響ありません。<strong>この点をご理解いただける場合のみ、ご契約をお願いしています。</strong></p>
         </div>
         <div class="honest-item">
-          <h3>② その分、業界相場よりかなり安く設定しています</h3>
+          <h3><span class="h-num">2</span>その分、業界相場よりかなり安く設定しています</h3>
           <p>上の「業界の中でのコールテンの位置」の通り、ほとんどのサービスが相場帯の下端です。インボイス分のデメリットを踏まえても、トータルでは他社より安くなるケースがほとんどです。</p>
         </div>
         <div class="honest-item">
-          <h3>③ 創業期の価格です。今後値上げを予定しています</h3>
-          <p>会社を立ち上げたばかりの今は、実績づくりを兼ねた創業期価格にしています。今後段階的に改定していく予定ですが、<strong>ご契約いただいた価格は、ご契約期間中そのまま維持します。</strong>今の価格でのご契約が一番お得です。</p>
+          <h3><span class="h-num">3</span>創業期の価格です。今後値上げを予定しています</h3>
+          <p>会社を立ち上げたばかりの今は、実績づくりを兼ねた創業期価格にしています。今後段階的に改定していく予定ですが、<strong class="good">ご契約いただいた価格は、ご契約期間中そのまま維持します。</strong>今の価格でのご契約が一番お得です。</p>
         </div>
         <div class="honest-item">
-          <h3>④ 柔軟にご相談に乗ります</h3>
-          <p>「この組み合わせだと予算が…」「非営利団体なので…」など、状況に応じて柔軟に調整します。まずは遠慮なくご相談ください。</p>
+          <h3><span class="h-num">4</span>ご予算に合わせて、柔軟にご相談に乗ります</h3>
+          <p>「この組み合わせだと予算が厳しい…」というときは、遠慮なくご相談ください。<strong class="good">サービスの範囲を絞ったり、進め方を効率化したりして、その分価格を下げるご提案ができます。</strong>たとえば打ち合わせの回数を減らす、納品物の仕様をシンプルにする、サポートの範囲を軽くする——提供にかかる時間が減るぶん、正直にお安くできます。</p>
+          <p>一方で、同じ内容のまま時間単価だけを下げる「値引き」はしていません。品質と価格を連動させる方針のためです。そのかわり、ご予算の中でいちばん効果が出る組み合わせを一緒に探します。非営利団体・小規模な組織の方への配慮もありますので、まずは状況をそのまま教えてください。</p>
         </div>
       </section>
 
@@ -311,6 +313,11 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
       <section class="pp-cta">
         <h2>ご相談・お申し込み</h2>
         <p>プランのご相談や組み合わせも承ります。LINEからお気軽にどうぞ。</p>
+        <div class="cta-chips">
+          <span>無理な勧誘はしません</span>
+          <span>ご相談・お見積りだけでも歓迎</span>
+          <span>オンライン対応OK</span>
+        </div>
         <a class="pp-btn" href={LINE_URL} target="_blank" rel="noopener noreferrer">LINEで相談する</a>
       </section>
 
@@ -460,6 +467,7 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
   .pt-per { font-size: 12px; font-weight: 700; color: #4a9b82; }
   .pt-note { font-size: 13px; color: #666; line-height: 1.7; }
   .pb-foot { font-size: 12px; color: #999; margin: 16px 0 0; line-height: 1.7; }
+  .pb-guide { font-size: 13px; color: #35524a; background: #eef7f3; border-radius: 8px; padding: 10px 14px; margin: 14px 0 0; font-weight: 700; }
   .pb-combo { font-size: 13px; color: #35524a; background: #eef7f3; border-radius: 8px; padding: 10px 14px; margin: 12px 0 0; }
   .pb-combo strong { color: #16614e; }
 
@@ -538,14 +546,34 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
   /* 明朗会計 */
   .honest-item { border-top: 1px solid #eee4d8; padding: 16px 0 4px; }
   .honest-item:first-of-type { border-top: none; }
-  .honest-item h3 { font-size: 15px; color: #16614e; margin: 0 0 8px; font-weight: 800; }
+  .honest-item h3 { font-size: 15px; color: #16614e; margin: 0 0 10px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+  .h-num {
+    flex: 0 0 auto;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: #16614e;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+    font-size: 13px; font-weight: 800;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
   .honest-item p { font-size: 13.5px; color: #555; line-height: 1.95; margin: 0 0 10px; }
   .honest-item p strong { color: #b3541e; }
+  .honest-item p strong.good { color: #16614e; }
 
   /* CTA */
   .pp-cta { text-align: center; margin-top: 44px; padding: 40px 24px; background: #16614e; border-radius: 16px; color: #fff; }
   .pp-cta h2 { font-size: 20px; margin: 0 0 10px; font-weight: 800; color: #fff; }
   .pp-cta p { font-size: 14px; margin: 0 0 22px; color: #d6ede4; line-height: 1.8; }
+  .cta-chips { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 0 0 20px; }
+  .cta-chips span {
+    padding: 6px 14px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 99px;
+    color: #eaf6f0;
+    font-size: 12px;
+    font-weight: 700;
+  }
   .pp-btn {
     display: inline-block;
     padding: 14px 32px;
@@ -562,6 +590,7 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
 
   @media (max-width: 640px) {
     .pp-lead br { display: none; }
+    .pp-lead { text-align: left; max-width: 30em; margin: 0 auto; }
     .pt-row { grid-template-columns: 1fr; gap: 2px; padding: 14px 16px; }
     .pt-row.pt-head { display: none; }
     .pb-table { border-top: 4px solid #16614e; }
