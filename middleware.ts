@@ -1,19 +1,31 @@
-// Vercel Edge Middleware — 公開前ドラフト記事のパスワード保護
-// 対象: /blog/aym-interview-self-built-site/ と /blog/mek-interview-name-character/
-// 共通パスワード方式（IDなし）。POSTでパスワード検証→Cookieに保存して30日有効。
+// Vercel Edge Middleware — パスワード保護（IDなし・共通パスワード方式）
+// 対象グループ:
+//   preview … 公開前ドラフト記事（/blog/aym-... と /preview/*）… env: PREVIEW_PASS
+//   client  … 商談済みクライアント向け 料金ページ（/clients/*） … env: CLIENT_PASS（未設定なら PREVIEW_PASS にフォールバック）
+// POSTでパスワード検証→Cookieに保存して30日有効。
 
 export const config = {
   matcher: [
     '/blog/aym-interview-self-built-site/:path*',
     '/preview/:path*',
+    '/clients/pricing/:path*',
   ],
 };
 
-const COOKIE_NAME = 'cdry_preview';
-const COOKIE_VALUE = 'ok-2026-04';
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30日
 
-const LOGIN_HTML = (errorMsg = '') => `<!DOCTYPE html>
+type Group = {
+  cookieName: string;
+  cookieValue: string;
+  getPass: () => string;
+  login: (errorMsg?: string) => string;
+};
+
+// 共通のログイン画面ビルダー
+const loginHtml = (
+  opts: { badge: string; heading: string; lead: string; button: string; hint: string },
+  errorMsg = ''
+) => `<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
@@ -38,18 +50,60 @@ const LOGIN_HTML = (errorMsg = '') => `<!DOCTYPE html>
 </head>
 <body>
   <div class="box">
-    <span class="logo">PREVIEW</span>
-    <h1>記事プレビュー</h1>
-    <p class="lead">株式会社コールテンの<br>公開前ドラフト記事です。<br>パスワードを入力してご覧ください。</p>
+    <span class="logo">${opts.badge}</span>
+    <h1>${opts.heading}</h1>
+    <p class="lead">${opts.lead}</p>
     ${errorMsg ? `<div class="err">${errorMsg}</div>` : ''}
     <form method="post">
       <input type="password" name="password" placeholder="パスワード" autocomplete="current-password" autofocus required>
-      <button type="submit">記事を見る</button>
+      <button type="submit">${opts.button}</button>
     </form>
-    <p class="small">パスワードがわからない場合は<br>ご担当者までお問い合わせください。</p>
+    <p class="small">${opts.hint}</p>
   </div>
 </body>
 </html>`;
+
+// 環境変数の読み取り（Vercel Edge Runtime では process.env が利用可能）
+function readEnv(name: string): string {
+  // @ts-ignore
+  return (typeof process !== 'undefined' && process.env && process.env[name]) || '';
+}
+
+const GROUPS: Record<'preview' | 'client', Group> = {
+  preview: {
+    cookieName: 'cdry_preview',
+    cookieValue: 'ok-2026-04',
+    getPass: () => readEnv('PREVIEW_PASS'),
+    login: (errorMsg = '') =>
+      loginHtml(
+        {
+          badge: 'PREVIEW',
+          heading: '記事プレビュー',
+          lead: '株式会社コールテンの<br>公開前ドラフト記事です。<br>パスワードを入力してご覧ください。',
+          button: '記事を見る',
+          hint: 'パスワードがわからない場合は<br>ご担当者までお問い合わせください。',
+        },
+        errorMsg
+      ),
+  },
+  client: {
+    cookieName: 'cdry_client',
+    cookieValue: 'ok-2026-07',
+    // 専用パスワード。未設定なら PREVIEW_PASS にフォールバックして即動作。
+    getPass: () => readEnv('CLIENT_PASS') || readEnv('PREVIEW_PASS'),
+    login: (errorMsg = '') =>
+      loginHtml(
+        {
+          badge: 'CLIENT ONLY',
+          heading: '料金のご案内',
+          lead: '株式会社コールテンの<br>クライアント向け料金ページです。<br>お渡ししたパスワードを入力してください。',
+          button: '料金を見る',
+          hint: 'パスワードがわからない場合は<br>担当までお問い合わせください。',
+        },
+        errorMsg
+      ),
+  },
+};
 
 function htmlResponse(html: string, status = 200): Response {
   return new Response(html, {
@@ -65,12 +119,11 @@ function htmlResponse(html: string, status = 200): Response {
 
 export default async function middleware(request: Request): Promise<Response | undefined> {
   const url = new URL(request.url);
-  // Vercel Edge Runtime では process.env が利用可能
-  // @ts-ignore
-  const expectedPass: string = (typeof process !== 'undefined' && process.env && process.env.PREVIEW_PASS) || '';
+  const group: Group = url.pathname.startsWith('/clients/pricing') ? GROUPS.client : GROUPS.preview;
+  const expectedPass = group.getPass();
 
   if (!expectedPass) {
-    return htmlResponse('<!DOCTYPE html><html><body><p>サーバー設定エラー: PREVIEW_PASS が未設定です。</p></body></html>', 500);
+    return htmlResponse('<!DOCTYPE html><html><body><p>サーバー設定エラー: パスワードが未設定です。</p></body></html>', 500);
   }
 
   // POST: パスワード送信
@@ -89,23 +142,23 @@ export default async function middleware(request: Request): Promise<Response | u
         status: 303,
         headers: {
           'Location': url.pathname,
-          'Set-Cookie': `${COOKIE_NAME}=${COOKIE_VALUE}; Path=/; Max-Age=${COOKIE_MAX_AGE}; HttpOnly; SameSite=Lax; Secure`,
+          'Set-Cookie': `${group.cookieName}=${group.cookieValue}; Path=/; Max-Age=${COOKIE_MAX_AGE}; HttpOnly; SameSite=Lax; Secure`,
           'Cache-Control': 'no-store',
         },
       });
     }
-    return htmlResponse(LOGIN_HTML('パスワードが違います'), 401);
+    return htmlResponse(group.login('パスワードが違います'), 401);
   }
 
   // GET: Cookie 検証
   const cookieHeader = request.headers.get('cookie') ?? '';
   const hasCookie = cookieHeader
     .split(/;\s*/)
-    .some(part => part === `${COOKIE_NAME}=${COOKIE_VALUE}`);
+    .some(part => part === `${group.cookieName}=${group.cookieValue}`);
 
   if (hasCookie) {
     return; // 通過
   }
 
-  return htmlResponse(LOGIN_HTML(), 401);
+  return htmlResponse(group.login(), 401);
 }

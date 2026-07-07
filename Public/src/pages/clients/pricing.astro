@@ -1,0 +1,261 @@
+---
+// 商談済みクライアント向け 料金一覧ページ（パスワード保護 / noindex）
+// 保護は middleware.ts の /clients/:path* マッチャで実施（Cookie + 簡易パスワード）。
+// 料金表を増やすときは「▼ここに料金表を追加していく」以下に <section class="price-block"> を足すだけ。
+import Layout from '../../layouts/Layout.astro';
+
+const LINE_URL = 'https://lin.ee/tDuJPjc';
+---
+
+<Layout
+  title="料金のご案内（クライアント専用）｜株式会社コールテン"
+  description="商談させていただいた方向けの料金一覧です。"
+  noindex={true}
+>
+  <main class="pricing-private">
+    <!-- Hero -->
+    <header class="pp-hero">
+      <span class="pp-badge">CLIENT ONLY</span>
+      <h1>料金のご案内</h1>
+      <p class="pp-lead">
+        商談させていただいた皆さま向けの料金一覧です。<br />
+        すべて税込表記です。ご不明な点はお気軽にご連絡ください。
+      </p>
+    </header>
+
+    <div class="pp-wrap">
+
+      <!-- ▼ここから料金表。追加はこのブロックを複製して増やす ▼ -->
+
+      <!-- 1. AI講座 -->
+      <section class="price-block">
+        <div class="pb-head">
+          <h2>AI講座</h2>
+          <p>「AIの使い方」ではなく「AIとの付き合い方」を学ぶ、福岡発の講座。</p>
+        </div>
+        <div class="pb-table">
+          <div class="pt-row pt-head">
+            <span class="pt-name">プラン</span>
+            <span class="pt-price">料金</span>
+            <span class="pt-note">内容</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">無料動画講座</span>
+            <span class="pt-price">無料</span>
+            <span class="pt-note">LINE登録で視聴。AIへの思い込みをひっくり返す入門講座。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">体験講座</span>
+            <span class="pt-price">3,000円</span>
+            <span class="pt-note">福岡・対面 1時間。AIデモ＋第二の自分デモを体感。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">3ヶ月プログラム</span>
+            <span class="pt-price">108,000円</span>
+            <span class="pt-note">月1講座×3回＋作業会＋Discordサポート。少人数制。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">法人研修</span>
+            <span class="pt-price">要相談</span>
+            <span class="pt-note">内容・人数に応じて個別にお見積りします。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">糸口会（コミュニティ）</span>
+            <span class="pt-price">受講プランに含む</span>
+            <span class="pt-note">月1回の対面作業会（福岡・赤坂）＋Discordコミュニティ。</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. AI顧問 -->
+      <section class="price-block">
+        <div class="pb-head">
+          <h2>AI顧問（月額・伴走）</h2>
+          <p>事業理解と最新知見をもとに、AI活用の設計から定着まで伴走します。</p>
+        </div>
+        <div class="pb-table">
+          <div class="pt-row pt-head">
+            <span class="pt-name">プラン</span>
+            <span class="pt-price">料金</span>
+            <span class="pt-note">内容</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">伴走ライト</span>
+            <span class="pt-price">6万円 / 月</span>
+            <span class="pt-note">月1回MTG（60〜90分）＋軽い持ち帰り作業（月0.5〜1h）。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">伴走スタンダード</span>
+            <span class="pt-price">11万円 / 月</span>
+            <span class="pt-note">月2回MTG（各60分）＋持ち帰り作業（月2〜4h）。共同制作。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">伴走リード</span>
+            <span class="pt-price">22万円 / 月</span>
+            <span class="pt-note">週1回MTG＋実作業に深く関与（月8〜16h）。保守・改善まで。</span>
+          </div>
+        </div>
+        <p class="pb-foot">※企業の規模や関与度合いに応じて調整可能です。</p>
+      </section>
+
+      <!-- 3. AIリニューアル -->
+      <section class="price-block">
+        <div class="pb-head">
+          <h2>AIリニューアル（サイト）</h2>
+          <p>既存サイトをAI検索時代の土台へ。非エンジニア向けに10万円から。</p>
+        </div>
+        <div class="pb-table">
+          <div class="pt-row pt-head">
+            <span class="pt-name">プラン</span>
+            <span class="pt-price">料金</span>
+            <span class="pt-note">内容</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">単発買い切り</span>
+            <span class="pt-price">10万円〜</span>
+            <span class="pt-note">既存サイト移管＋AI検索対応の基盤整備＋更新環境の初期構築。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">Easy管理費</span>
+            <span class="pt-price">1万円 / 月</span>
+            <span class="pt-note">LINEチャットでの質問対応と運用保守。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">詰まり対応</span>
+            <span class="pt-price">2万円 / 月</span>
+            <span class="pt-note">LINE伴走対応と軽微な修正込み。</span>
+          </div>
+        </div>
+        <p class="pb-foot">※ご自身で運用する場合はVercelサーバー代（月3,000円程度）が別途必要です。</p>
+      </section>
+
+      <!-- ▲ここまで料金表。ここに追記していく ▲ -->
+
+      <!-- CTA -->
+      <section class="pp-cta">
+        <h2>ご相談・お申し込み</h2>
+        <p>プランのご相談や組み合わせも承ります。LINEからお気軽にどうぞ。</p>
+        <a class="pp-btn" href={LINE_URL} target="_blank" rel="noopener noreferrer">LINEで相談する</a>
+      </section>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .pricing-private {
+    background: #fbf9f5;
+    color: #2c1810;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Helvetica Neue", Arial, sans-serif;
+    padding-bottom: 80px;
+  }
+  .pp-hero {
+    text-align: center;
+    padding: 72px 20px 48px;
+    background: linear-gradient(180deg, #f2f8f5 0%, #fbf9f5 100%);
+  }
+  .pp-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: #ccfbf1;
+    color: #16614e;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
+  }
+  .pp-hero h1 {
+    font-size: 30px;
+    color: #16614e;
+    margin: 0 0 16px;
+    font-weight: 800;
+  }
+  .pp-lead {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #555;
+    margin: 0;
+  }
+  .pp-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .price-block {
+    background: #fff;
+    border: 1px solid #e6e0d6;
+    border-radius: 16px;
+    padding: 32px 28px;
+    margin-top: 28px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.04);
+  }
+  .pb-head h2 {
+    font-size: 21px;
+    color: #16614e;
+    margin: 0 0 8px;
+    font-weight: 800;
+  }
+  .pb-head p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.8;
+    margin: 0 0 20px;
+  }
+  .pb-table { display: flex; flex-direction: column; }
+  .pt-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 2fr;
+    gap: 14px;
+    padding: 14px 4px;
+    border-top: 1px solid #eee4d8;
+    align-items: baseline;
+  }
+  .pt-row.pt-head {
+    border-top: none;
+    font-size: 12px;
+    color: #999;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding-bottom: 6px;
+  }
+  .pt-name { font-weight: 700; font-size: 15px; color: #2c1810; }
+  .pt-price { font-weight: 800; font-size: 16px; color: #16614e; white-space: nowrap; }
+  .pt-note { font-size: 13px; color: #666; line-height: 1.7; }
+  .pb-foot {
+    font-size: 12px;
+    color: #999;
+    margin: 16px 0 0;
+    line-height: 1.7;
+  }
+  .pp-cta {
+    text-align: center;
+    margin-top: 44px;
+    padding: 40px 24px;
+    background: #16614e;
+    border-radius: 16px;
+    color: #fff;
+  }
+  .pp-cta h2 { font-size: 20px; margin: 0 0 10px; font-weight: 800; }
+  .pp-cta p { font-size: 14px; margin: 0 0 22px; color: #d6ede4; line-height: 1.8; }
+  .pp-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #fff;
+    color: #16614e;
+    border-radius: 100px;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 15px;
+    transition: transform .15s ease;
+  }
+  .pp-btn:hover { transform: translateY(-2px); }
+
+  @media (max-width: 640px) {
+    .pt-row { grid-template-columns: 1fr; gap: 2px; padding: 14px 4px; }
+    .pt-row.pt-head { display: none; }
+    .pt-name { font-size: 15px; }
+    .pt-price { font-size: 17px; margin: 2px 0; }
+    .pp-hero h1 { font-size: 25px; }
+  }
+</style>
