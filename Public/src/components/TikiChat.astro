@@ -1,0 +1,575 @@
+---
+// Tikiちゃん チャットウィジェット（自己完結: マークアップ + scoped style + inline script）
+// 通信先: POST /api/tiki-chat { messages: [{role, content}] } -> { reply }
+// 会話履歴はページ内メモリのみ（保存しない）。表示はエスケープ後にURLのみ自動リンク化。
+
+const LAUNCHER_IMG =
+  'https://res.cloudinary.com/dg3mdcuju/image/upload/e_background_removal/f_webp,q_auto:eco/corduroy/characters/tiki/tiki_wave.png';
+const HEADER_IMG =
+  'https://res.cloudinary.com/dg3mdcuju/image/upload/e_background_removal/f_webp,q_auto:eco/corduroy/characters/tiki/tiki_front_smile.png';
+const THINKING_IMG =
+  'https://res.cloudinary.com/dg3mdcuju/image/upload/e_background_removal/f_webp,q_auto:eco/corduroy/characters/tiki/tiki_thinking.png';
+---
+
+<div class="tiki-chat-root" data-tiki-chat>
+  <!-- ランチャー -->
+  <div class="tc-launcher-wrap">
+    <div class="tc-bubble" data-tc-bubble>
+      <button type="button" class="tc-bubble-close" data-tc-bubble-close aria-label="吹き出しを閉じる">×</button>
+      <span>いつでも話しかけてね🪶</span>
+    </div>
+    <button
+      type="button"
+      class="tc-launcher"
+      data-tc-launcher
+      aria-label="Tikiちゃんとチャットを開く"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+    >
+      <img src={LAUNCHER_IMG} alt="" width="80" height="80" loading="lazy" />
+    </button>
+  </div>
+
+  <!-- チャットパネル -->
+  <section
+    class="tc-panel"
+    data-tc-panel
+    role="dialog"
+    aria-label="Tikiちゃんとのチャット"
+    aria-hidden="true"
+    hidden
+  >
+    <header class="tc-header">
+      <img src={HEADER_IMG} alt="Tikiちゃん" class="tc-header-avatar" width="36" height="36" loading="lazy" />
+      <div class="tc-header-text">
+        <strong>Tikiちゃん</strong>
+        <small>AIアシスタント</small>
+      </div>
+      <button type="button" class="tc-close" data-tc-close aria-label="チャットを閉じる">×</button>
+    </header>
+
+    <div class="tc-messages" data-tc-messages aria-live="polite"></div>
+
+    <div class="tc-loading" data-tc-loading hidden>
+      <img src={THINKING_IMG} alt="" class="tc-msg-avatar" width="28" height="28" loading="lazy" />
+      <span class="tc-dots"><i></i><i></i><i></i></span>
+    </div>
+
+    <form class="tc-input-row" data-tc-form>
+      <textarea maxlength="600"
+        class="tc-input"
+        data-tc-input
+        rows="1"
+        placeholder="メッセージを入力..."
+        aria-label="メッセージを入力"
+      ></textarea>
+      <button type="submit" class="tc-send" data-tc-send aria-label="送信する">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M3 20l18-8L3 4v6l12 2-12 2z"></path>
+        </svg>
+      </button>
+    </form>
+
+    <p class="tc-footer">AIによる自動応答です。正確な内容は LINE でご確認ください</p>
+  </section>
+</div>
+
+<style>
+  .tiki-chat-root {
+    --tc-green: #16614e;
+    --tc-bg: #fbf9f5;
+    --tc-border: #e6e0d6;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
+  }
+
+  /* ランチャー */
+  .tc-launcher-wrap {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9990;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .tc-launcher {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(22, 97, 78, 0.28);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: tc-float 3s ease-in-out infinite;
+  }
+  .tc-launcher img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .tc-launcher:hover { animation-play-state: paused; transform: translateY(-2px); }
+
+  @keyframes tc-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .tc-bubble {
+    position: relative;
+    max-width: 200px;
+    background: #fff;
+    border: 1px solid var(--tc-border);
+    border-radius: 14px;
+    padding: 10px 26px 10px 14px;
+    font-size: 13px;
+    color: #2c1810;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+  }
+  .tc-bubble::after {
+    content: "";
+    position: absolute;
+    right: 24px;
+    bottom: -7px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-right: 1px solid var(--tc-border);
+    border-bottom: 1px solid var(--tc-border);
+    transform: rotate(45deg);
+  }
+  .tc-bubble-close {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    border: none;
+    background: transparent;
+    color: #999;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .tc-bubble[hidden] { display: none; }
+
+  /* パネル */
+  .tc-panel {
+    position: fixed;
+    right: 20px;
+    bottom: 112px;
+    z-index: 9991;
+    width: 380px;
+    height: 560px;
+    max-height: calc(100vh - 140px);
+    background: var(--tc-bg);
+    border: 1px solid var(--tc-border);
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .tc-panel[hidden] { display: none; }
+
+  .tc-header {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: var(--tc-green);
+    color: #fff;
+  }
+  .tc-header-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
+    flex: 0 0 auto;
+  }
+  .tc-header-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+    flex: 1 1 auto;
+  }
+  .tc-header-text strong { font-size: 15px; font-weight: 800; color: #fff; }
+  .tc-header-text small { font-size: 11px; color: #d6ede4; }
+  .tc-close {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 6px;
+    flex: 0 0 auto;
+  }
+
+  .tc-messages {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tc-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    max-width: 92%;
+  }
+  .tc-row.tc-assistant { align-self: flex-start; }
+  .tc-row.tc-user { align-self: flex-end; flex-direction: row-reverse; }
+
+  .tc-msg-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 auto;
+    background: #fff;
+  }
+
+  .tc-bubble-msg {
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .tc-row.tc-assistant .tc-bubble-msg {
+    background: #fff;
+    color: #2c1810;
+    border: 1px solid var(--tc-border);
+    border-bottom-left-radius: 4px;
+  }
+  .tc-row.tc-user .tc-bubble-msg {
+    background: var(--tc-green);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+  }
+  .tc-bubble-msg a { color: inherit; text-decoration: underline; }
+  .tc-row.tc-assistant .tc-bubble-msg a { color: var(--tc-green); }
+
+  .tc-loading {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px 10px;
+  }
+  .tc-loading[hidden] { display: none; }
+  .tc-dots {
+    display: inline-flex;
+    gap: 4px;
+    padding: 10px 14px;
+    background: #fff;
+    border: 1px solid var(--tc-border);
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+  }
+  .tc-dots i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--tc-green);
+    display: inline-block;
+    animation: tc-dot-blink 1.2s infinite ease-in-out;
+  }
+  .tc-dots i:nth-child(2) { animation-delay: .2s; }
+  .tc-dots i:nth-child(3) { animation-delay: .4s; }
+  @keyframes tc-dot-blink {
+    0%, 80%, 100% { opacity: .25; transform: translateY(0); }
+    40% { opacity: 1; transform: translateY(-3px); }
+  }
+
+  .tc-input-row {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 10px 12px;
+    border-top: 1px solid var(--tc-border);
+    background: #fff;
+  }
+  .tc-input {
+    flex: 1 1 auto;
+    resize: none;
+    border: 1px solid var(--tc-border);
+    border-radius: 12px;
+    padding: 9px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    max-height: 96px;
+    line-height: 1.5;
+    color: #2c1810;
+    background: var(--tc-bg);
+  }
+  .tc-input:focus { outline: 2px solid var(--tc-green); outline-offset: 1px; }
+  .tc-send {
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: var(--tc-green);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tc-send:disabled { opacity: .5; cursor: not-allowed; }
+
+  .tc-footer {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 6px 14px 10px;
+    font-size: 10.5px;
+    color: #999;
+    text-align: center;
+    background: #fff;
+  }
+
+  @media (max-width: 640px) {
+    .tc-panel {
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 75vh;
+      max-height: 75vh;
+      border-radius: 16px 16px 0 0;
+    }
+    .tc-launcher-wrap {
+      right: 14px;
+      bottom: 14px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const root = document.querySelector('[data-tiki-chat]');
+    if (!root) return;
+
+    const launcher = root.querySelector('[data-tc-launcher]');
+    const panel = root.querySelector('[data-tc-panel]');
+    const closeBtn = root.querySelector('[data-tc-close]');
+    const bubble = root.querySelector('[data-tc-bubble]');
+    const bubbleClose = root.querySelector('[data-tc-bubble-close]');
+    const messagesEl = root.querySelector('[data-tc-messages]');
+    const loadingEl = root.querySelector('[data-tc-loading]');
+    const form = root.querySelector('[data-tc-form]');
+    const input = root.querySelector('[data-tc-input]');
+    const sendBtn = root.querySelector('[data-tc-send]');
+
+    const HEADER_IMG =
+      'https://res.cloudinary.com/dg3mdcuju/image/upload/e_background_removal/f_webp,q_auto:eco/corduroy/characters/tiki/tiki_front_smile.png';
+
+    const BUBBLE_DISMISS_KEY = 'tikiChatBubbleDismissed';
+
+    /** @type {{role: 'user'|'assistant', content: string}[]} */
+    let history = [];
+    let isSending = false;
+
+    // --- 吹き出しの記憶 ---
+    try {
+      if (sessionStorage.getItem(BUBBLE_DISMISS_KEY) === '1' && bubble) {
+        bubble.hidden = true;
+      }
+    } catch (e) {
+      /* sessionStorage不可時は無視 */
+    }
+
+    function dismissBubble() {
+      if (bubble) bubble.hidden = true;
+      try {
+        sessionStorage.setItem(BUBBLE_DISMISS_KEY, '1');
+      } catch (e) {
+        /* noop */
+      }
+    }
+
+    if (bubbleClose) {
+      bubbleClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dismissBubble();
+      });
+    }
+
+    // --- パネル開閉 ---
+    function openPanel() {
+      if (!panel) return;
+      panel.hidden = false;
+      panel.setAttribute('aria-hidden', 'false');
+      if (launcher) launcher.setAttribute('aria-expanded', 'true');
+      dismissBubble();
+      if (messagesEl && messagesEl.children.length === 0) {
+        appendMessage('assistant', 'こんにちは！コールテンのTikiだよ🪶 料金やサービスのことなら何でも聞いてね');
+      }
+      window.setTimeout(() => {
+        if (input) input.focus();
+      }, 50);
+    }
+
+    function closePanel() {
+      if (!panel) return;
+      panel.hidden = true;
+      panel.setAttribute('aria-hidden', 'true');
+      if (launcher) launcher.setAttribute('aria-expanded', 'false');
+    }
+
+    function togglePanel() {
+      if (!panel) return;
+      if (panel.hidden) {
+        openPanel();
+      } else {
+        closePanel();
+      }
+    }
+
+    if (launcher) launcher.addEventListener('click', togglePanel);
+    if (closeBtn) closeBtn.addEventListener('click', closePanel);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && panel && !panel.hidden) {
+        closePanel();
+      }
+    });
+
+    // --- 表示用エスケープ + URLリンク化 ---
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function linkify(escaped) {
+      // [テキスト](https://...) 形式（エスケープ後の文字列に対して処理）
+      let out = escaped.replace(
+        /\[([^\[\]]+)\]\((https:\/\/[^\s()<>]+)\)/g,
+        (_m, text, url) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`
+      );
+      // 素のURL（既にaタグ内のhrefは対象にしない。href="..."の中身は連続処理されないよう簡易ガード）
+      out = out.replace(
+        /(^|[\s(])(?!.*href=")(https:\/\/[^\s<>()]+)/g,
+        (m, pre, url) => `${pre}<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
+      );
+      return out;
+    }
+
+    function renderContent(content) {
+      const escaped = escapeHtml(content);
+      return linkify(escaped);
+    }
+
+    function appendMessage(role, content) {
+      if (!messagesEl) return;
+      const row = document.createElement('div');
+      row.className = 'tc-row ' + (role === 'user' ? 'tc-user' : 'tc-assistant');
+
+      if (role === 'assistant') {
+        const avatar = document.createElement('img');
+        avatar.className = 'tc-msg-avatar';
+        avatar.src = HEADER_IMG;
+        avatar.alt = '';
+        avatar.width = 28;
+        avatar.height = 28;
+        avatar.loading = 'lazy';
+        row.appendChild(avatar);
+      }
+
+      const bubbleMsg = document.createElement('div');
+      bubbleMsg.className = 'tc-bubble-msg';
+      bubbleMsg.innerHTML = renderContent(content);
+      row.appendChild(bubbleMsg);
+
+      messagesEl.appendChild(row);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function setLoading(loading) {
+      if (loadingEl) loadingEl.hidden = !loading;
+      if (sendBtn) sendBtn.disabled = loading;
+      if (input) input.disabled = loading;
+      if (messagesEl) messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    async function sendMessage(text) {
+      history.push({ role: 'user', content: text });
+      if (history.length > 12) history = history.slice(-12);
+      appendMessage('user', text);
+      isSending = true;
+      setLoading(true);
+
+      try {
+        const res = await fetch('/api/tiki-chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history }),
+        });
+
+        if (!res.ok) throw new Error('non-200 response');
+
+        const data = await res.json();
+        const reply = data && typeof data.reply === 'string' ? data.reply : '';
+        if (!reply) throw new Error('empty reply');
+
+        history.push({ role: 'assistant', content: reply });
+        appendMessage('assistant', reply);
+      } catch (err) {
+        appendMessage(
+          'assistant',
+          'ごめんね、うまく繋がらなかったみたい。少し待ってからもう一度試してね🪶'
+        );
+      } finally {
+        isSending = false;
+        setLoading(false);
+        if (input) input.focus();
+      }
+    }
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!input || isSending) return;
+        const text = input.value.trim();
+        if (!text) return;
+        input.value = '';
+        autoResize();
+        sendMessage(text);
+      });
+    }
+
+    function autoResize() {
+      if (!input) return;
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 96) + 'px';
+    }
+
+    if (input) {
+      input.addEventListener('input', autoResize);
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          if (form) form.requestSubmit();
+        }
+      });
+    }
+  })();
+</script>
