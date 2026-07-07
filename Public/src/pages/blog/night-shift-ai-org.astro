@@ -1,0 +1,576 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+
+const title = "社長が寝ているあいだに、AIチームが会社の仕組みを整えた一夜 ― 24名のAI社員がやったこと｜コールテンの舞台裏";
+const pageTitle = "社長が寝ているあいだに、AIチームが会社の仕組みを整えた一夜";
+const description = "「どんどん進めておいて」と言い残して社長が眠った夜。24名のAI社員チームが、認証の故障を根本から直し、止まっていた監視の仕組みを自分で修理し、社内マニュアル57冊を一晩で棚卸ししました。朝に残っていたのは、社長が一言で返せばいい17項目のリストだけ。止まらずに進めるための設計思想を、AI活用に興味がある方へ、できるだけかみ砕いて書き残しました。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/blog/night-shift-ai-org/"
+  ogUrl="https://www.corduroy.co.jp/blog/night-shift-ai-org/"
+  ogType="article"
+>
+  <meta slot="head" name="robots" content="noindex,nofollow" />
+  <script slot="head" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.corduroy.co.jp/blog/night-shift-ai-org/#article",
+        "url": "https://www.corduroy.co.jp/blog/night-shift-ai-org/",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.corduroy.co.jp/blog/night-shift-ai-org/" },
+        "headline": "社長が寝ているあいだに、AIチームが会社の仕組みを整えた一夜 ― 24名のAI社員がやったこと",
+        "datePublished": "2026-07-04",
+        "dateModified": "2026-07-04",
+        "image": "https://www.corduroy.co.jp/images/blog/night-shift-ai-org/ch01.png",
+        "author": { "@id": "https://www.corduroy.co.jp/members/masaya/#person" },
+        "publisher": { "@id": "https://www.corduroy.co.jp/#organization" },
+        "description": "「どんどん進めておいて」と社長が眠った夜、24名のAI社員チームが会社の仕組みを整えた。認証の根本修正・監視の自己修理・マニュアル57冊の一晩棚卸し。止まらずに進めるための設計思想を、非エンジニア向けにかみ砕いたレポート。",
+        "keywords": ["AI活用", "AIエージェント運用", "自律型AI", "生成と評価の分離", "Evaluator-Optimizer", "Anthropic", "AI組織", "パスキー", "監視自動化", "AI仮想チーム", "コールテン", "夜間バッチ", "業務自動化"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/" },
+          { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://www.corduroy.co.jp/blog/" },
+          { "@type": "ListItem", "position": 3, "name": "社長が寝ているあいだにAIチームが会社の仕組みを整えた一夜" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "社長が寝ているあいだに、AIが勝手に会社のことを変えて大丈夫なのですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "取り返しのつかない操作・お金の動き・外部への公開・好みの判断は、すべて人間（社長）に残しています。夜のあいだにAIチームが進めるのは、調査・実装・整理といった「あとから戻せる作業」だけです。朝には、社長が一言で「OK」「これは違う」と返せばいいリストが残っているだけ。勝手にお金を動かしたり、外に何かを出したりはしません。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "AIが一晩中、止まらずに進められるのはなぜですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "指揮するAI・手を動かすAI・チェックするAIを、役割ごとに分けているからです。ひとつのAIに全部やらせると、疲れて止まるのではなく、間違いに自分で気づけなくなります。作る係と評価する係を別のAIにする考え方は、AnthropicがEvaluator-Optimizerパターンとして紹介しているもので、コールテンはこれを会社全体の運用に取り入れています。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "「パスワードをなくす」とはどういう意味ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "認証（本人確認）の仕組みが壊れたとき、パスワードをもっと強くするのではなく、パスワードそのものを使わない方式に移した、という話です。パスワードは「入力する・保存する・期限が切れる」たびに壊れる余地があります。パソコンに元から備わっている安全な保管領域を使えば、その壊れる部品自体を減らせます。強くするより、なくすほうが根本的でした。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "AIが自分たちで作業して、間違えないのですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "間違えます。だからコールテンでは、失敗を隠さない設計にしています。処理が固まって止まったり、静かに動かなくなったりしたときに、それを「見える失敗」に変える。そして毎朝、自動で全体の健康チェックを走らせます。大事なのは間違えないことではなく、間違いにすぐ気づけることだと考えています。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "この仕組みは、小さな会社や個人事業主でも使えますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "規模は問いません。核になっているのは、高価なツールではなく3つの考え方です。ひとつ、正しい情報は1か所に決めておく。ふたつ、失敗が見えるようにしておく。みっつ、人間は取り返しのつかない判断だけを持つ。この設計思想はひとりの事業でも、大きな組織でも同じように応用できます。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main>
+    <article class="article">
+      <div class="container">
+        <Breadcrumb title={pageTitle} />
+
+        <header class="article-head fade-up">
+          <div class="meta">
+            <time class="date">2026-07-04</time>
+            <span class="cat">AI活用</span>
+          </div>
+          <h1>社長が寝ているあいだに、AIチームが会社の仕組みを整えた一夜</h1>
+          <p class="article-lead">「どんどん進めておいて」。そう言い残して社長が眠った夜、24名のAI社員のチームが動いていました。翌朝に残っていたのは、山のような報告書ではなく、社長が一言で返せばいい17項目のリストだけ。その夜に何が起きていたのか、そして「なぜ止まらずに進められるのか」を、AI活用に興味がある方へ、できるだけかみ砕いて書き残します。</p>
+        </header>
+
+        <section class="article-body fade-up">
+          <div class="article-card">
+            <h2>1.「どんどん進めておいて」と言って、社長は寝た</h2>
+            <!-- 挿絵ブリーフ（公開前に生成）: 夜のデスク。眠りにつく人の傍らで、小さなAIキャラクターたちが静かに手を動かしている。スケッチノート風・背景 #fbf9f5・16:9 -->
+            <p>コールテンには、社長（Masaya）ひとりと、24名のAI社員がいます。営業、開発、マーケ、経理。それぞれに名前と役割を持ったAIが、実際に日々の仕事を分担しています。まとめ役として、社長のいちばん近くにいるAI「Tiki」がいます。</p>
+            <p>ある夜、社長はこう言い残して離席しました。「細かいところは任せる。どんどん進めておいて」。ざっくりした指示です。普通なら「で、具体的に何を？」と聞き返したくなるところ。</p>
+            <p>でも、その夜のAIチームは止まりませんでした。朝、社長が起きたとき、手元にあったのは長い報告書ではなく、<strong>「一言で返せばいい17項目」のリスト</strong>でした。「この方針でいい？」「これ消していい？」「この文章、公開していい？」。イエスかノーか、ひとことで答えれば前に進む形に、ぜんぶ整えられていた。</p>
+            <p>この記事は、その夜に起きたことの記録です。派手な新機能の話ではありません。会社の足元にある「仕組み」を、AIチームが自分たちで整えていった、地味だけど大事な一夜の話です。</p>
+
+            <div class="dialogue">
+              <div class="bubble tiki">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777191974/corduroy/characters/tiki/tiki_original.png" alt="Tiki">
+                  <span class="name-tag">Tiki</span>
+                </div>
+                <div class="bubble-text">
+                  この夜、ぼくは「指揮する係」に回っていました。自分で全部やるのではなく、調べるのが得意なAI、手を動かすのが得意なAI、チェックが得意なAIに振り分けていく。その様子を、あとでニーナ（マーケのライター）と一緒にこうして記事にしています。
+                </div>
+              </div>
+            </div>
+
+            <h2>2. その夜、AIチームがやった3つのこと</h2>
+            <!-- 挿絵ブリーフ（公開前に生成）: 3つのエピソードを3枚のカードとして並べたグラレコ風。①鍵 ②目覚まし時計を直す ③本棚を整理。背景 #fbf9f5・16:9 -->
+            <p>その夜、AIチームが片づけた仕事はいくつもありましたが、性格がよく出ている3つを紹介します。どれも「その場しのぎ」ではなく「根っこから直す」ほうを選んでいるのが、あとで効いてきます。</p>
+
+            <h3>①「パスワードを強くする」ではなく「パスワードをなくす」</h3>
+            <p>その夜、ちょっとした故障が起きていました。あるアプリの更新がきっかけで、AI社員たちがメールや書類を自動で取り込む処理が、途中で止まるようになっていたのです。原因は、内部で使っていた「パスワードのようなもの」がうまく渡らなくなっていたこと。</p>
+            <p>いちばん手っ取り早い直し方は、「失敗したらもう一回試す」を足すことです。実際、その夜も一旦はその応急処置で動くようにしました。でも、AIチームはそこで止まりませんでした。</p>
+            <p>「そもそも、なぜパスワードを毎回受け渡す必要があるんだろう？」。この問いから、最終的に選んだのは<strong>パスワードそのものを使わない方式</strong>でした。パソコンに元から備わっている安全な保管領域（鍵を金庫に預けるようなイメージ）に移して、毎回パスワードを渡す工程自体をなくしたのです。</p>
+            <p>パスワードは、入力するたび・保存するたび・期限が切れるたびに、壊れる余地があります。強くしても、壊れる場所は残る。だったら、壊れる部品を消してしまうほうが根本的だ。そういう判断でした。「強くする」ではなく「なくす」。この夜のAIチームの性格が、いちばんよく出た一件です。</p>
+
+            <h3>② 監視役が、監視役自身の故障を見つけて直した</h3>
+            <!-- 挿絵ブリーフ（公開前に生成）: 見張り台のAIが、自分の望遠鏡が壊れていたことに気づいて修理している様子。絵本風・背景 #fbf9f5・16:9 -->
+            <p>コールテンには、裏側で動く仕組みが正常かどうかを見張る「監視役」のAI（名前はこだま）がいます。何かが止まったら知らせてくれる、いわば会社の警報装置です。</p>
+            <p>その夜わかったのは、少し笑ってしまう事実でした。<strong>その警報装置の一部が、38日間、静かに鳴らなくなっていた</strong>のです。異常が起きても通知が飛ばない状態。警報装置自体が壊れていたら、他がいくら壊れても気づけません。いちばん怖いタイプの故障です。</p>
+            <p>この夜、AIチームは通知が飛ばなくなっていた根っこの原因を突き止め、修理しました。面白いのは、これを見つけられたのが「監視の仕組みそのものを、別の角度から点検する習慣」があったからだ、という点です。警報装置を信じきらず、「その警報装置は本当に生きているか？」まで疑う。壊れていた見張り役を、仕組みの側が拾い上げた夜でした。</p>
+
+            <h3>③ 4体のAIが、社内マニュアル57冊を一晩で棚卸しした</h3>
+            <!-- 挿絵ブリーフ（公開前に生成）: 4体のAIが巨大な本棚の前に並び、古くなった付箋のついた本を並列で点検している様子。スケッチノート風・背景 #fbf9f5・16:9 -->
+            <p>コールテンには、会社の決めごとを書いた社内マニュアルが57冊あります。「この作業はこうやる」「この数字はここを見る」といったルールブックです。会社が動きながら育ってきたので、当然、古くなった記述が混じっています。</p>
+            <p>たとえば、組織を再編する前の人数がそのまま書いてあったり、もう使っていないツールの操作手順が残っていたり。1冊ずつ人が読み直すと、丸一日仕事です。</p>
+            <p>その夜、AIチームは<strong>4体のAIを同時に走らせて、57冊を手分けして点検</strong>しました。「今の実態と食い違っている記述」を洗い出し、古い数字や廃止済みの手順を掃除していく。人がひとりで順番にやれば数日かかる棚卸しを、一晩で通したのです。</p>
+            <p>ここで大事なのは、速さそのものより「なぜ一晩でできたか」です。それは次の章で書く「正しい情報を1か所に決めておく」という設計があったから。散らばった57冊を、ひとつの基準に照らして直せる状態になっていたから、掃除が成立しました。</p>
+
+            <h2>3. なぜ、止まらずに進められるのか（設計の話）</h2>
+            <!-- 挿絵ブリーフ（公開前に生成）: 指揮者・演奏者・調律師の3役が並ぶオーケストラ風の図。生成と評価が分かれていることを表す。スケッチノート風・背景 #fbf9f5・16:9 -->
+            <p>ここまで読んで、「そんなにいろいろ、夜のあいだに勝手に進んで大丈夫なの？」と思われたかもしれません。ここからは、種明かしです。派手なAIを1体入れたわけではなく、いくつかの<strong>地味な設計</strong>が支えになっています。</p>
+
+            <h3>指揮する人、手を動かす人、チェックする人を分ける</h3>
+            <p>ひとつ目は、役割を分けること。まとめ役のTikiは、自分で全部の作業をやりません。「これは調べる係」「これは実装する係」と、得意なAIに振り分けて、自分は判断と交通整理に徹します。</p>
+            <p>そして、ここがいちばん大事なのですが、<strong>作ったものを、作った本人とは別のAIがチェックします</strong>。実装をひとつのAIがやり、そのコードを別のAI（コールテンではCodexという別の頭脳を使います）が前後で見直す。作る係と評価する係を、必ず分ける。</p>
+            <p>これはコールテンの思いつきではなく、AIを作っているAnthropic社が「生成と評価を別のAIコールに分ける」という考え方として紹介しているものです。同じAIに自己採点させると、どうしても甘くなる。だから評価役を独立させる。人間の会社で「自分の書いた書類を、別の人に一度見てもらう」のと、まったく同じ発想です。</p>
+            <div class="annotation">
+              <span class="anno-label">出典</span>
+              <p>Anthropic公式: <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Building Effective Agents</a> の "Workflow: Evaluator-optimizer" セクション。ひとつのAIが応答を生成し、別のAIが評価とフィードバックを返す、という考え方が紹介されています。</p>
+            </div>
+
+            <h3>「壊れたら気づく」ように作る</h3>
+            <p>ふたつ目は、失敗を隠さないこと。夜のあいだ、人は見ていません。だからこそ、何かが静かに止まっていても気づけない、というのがいちばん怖い。②の「38日間鳴らなかった警報」が、まさにそれでした。</p>
+            <p>そこでコールテンは、処理が固まって止まったり、静かに動かなくなったりする状態を、なるべく<strong>「見える失敗」に変える</strong>ようにしています。エラーは隠さず表に出す。そして毎朝、自動で全体の健康チェックを走らせて、「どこが止まっているか」を一覧で出す。</p>
+            <p>目指しているのは「絶対に間違えないAI」ではありません。そんなものは無理です。間違える前提で、<strong>間違いにすぐ気づける</strong>ように作る。この順番を守っているから、夜に任せられます。</p>
+
+            <blockquote>
+              <p>"When building applications with LLMs, we recommend finding the simplest solution possible, and only increasing complexity when needed."<br>
+              （訳：LLMでアプリケーションを作るときは、できるだけシンプルな解き方を選び、必要なときだけ複雑さを足していくことをおすすめします）</p>
+              <p class="caption">出典: <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Anthropic「Building Effective Agents」</a></p>
+            </blockquote>
+
+            <h3>「正しい数字はここ」を1か所に決めておく</h3>
+            <p>みっつ目は、正本（せいほん）を一元化すること。少しかたい言葉ですが、意味はシンプルです。<strong>「この数字の正しい値は、ここを見れば分かる」という置き場所を、1か所だけ決めておく</strong>。ほかの場所は、そこを参照するだけにする。</p>
+            <p>たとえば「AI社員の人数」。あちこちのマニュアルに人数を直接書いてしまうと、再編のたびに全部を直さないといけない。直し漏れが必ず出ます。でも「人数の正しい値は、この1冊だけに書く。ほかは『詳しくはあの1冊』とだけ書く」と決めておけば、直す場所は1か所で済む。</p>
+            <p>③でマニュアル57冊を一晩で掃除できたのは、この「1か所に決めておく」設計があったからです。散らばった記述を、ひとつの基準に照らして機械的に直せる。正本の一元化は、地味ですが、AIに掃除を任せられる状態をつくる土台でした。</p>
+
+            <h3>人間に残すのは、取り返しのつかない判断だけ</h3>
+            <p>よっつ目、これがいちばん大事です。夜のあいだにAIが進めるのは、<strong>あとから戻せる作業</strong>だけ。調べる、下書きを作る、整理する、掃除する。やり直しがきくものです。</p>
+            <p>一方で、次のようなことを、AIが自分だけで実行することはありません。かならず人間（社長）の一言を待ちます。</p>
+            <ul>
+              <li><strong>取り消せない操作</strong> ― 消したら戻らないもの、外に出したら取り消せないもの</li>
+              <li><strong>お金の動き</strong> ― 支払い・契約・購入</li>
+              <li><strong>外部への公開</strong> ― お客さんや世の中に向けて何かを出すこと</li>
+              <li><strong>好みの判断</strong> ― 「これはコールテンらしいか」という、その人にしか決められないこと</li>
+            </ul>
+            <p>朝に残っていた「一言で返せばいい17項目」の正体は、これです。夜のあいだにAIが手前まで全部運んでおいて、<strong>最後のスイッチだけ人間が押す</strong>。この線引きがあるから、「どんどん進めておいて」と言って眠れるわけです。任せるものと、手放さないものを、はっきり分けている。</p>
+
+            <h2>4. それでも「完成しました」とは言わない</h2>
+            <!-- 挿絵ブリーフ（公開前に生成）: 「工事中」ではなく「調整中」の看板を掲げる小さなAI。朝日が差し込む窓辺。絵本風・背景 #fbf9f5・16:9 -->
+            <p>ここまで読むと、「すごい自動化ができあがったんですね」と受け取られるかもしれません。でも、正直に書いておきたいことがあります。</p>
+            <p>この夜に整えた仕組みが本当に機能しているかは、<strong>まだ分かりません</strong>。「パスワードをなくした」も「監視を直した」も、実際に2〜3週間ふつうに動かしてみて、はじめて「ちゃんと直っていた」と言えます。一晩の作業だけで「完成しました」と宣言するのは、たぶん誠実ではありません。</p>
+            <p>コールテンは、こういう「途中です」を隠さないようにしています。うまくいったことも、まだ確かめきれていないことも、そのまま書く。AIに会社の仕事を任せる取り組みは、世の中にまだ「正解」がない領域です。私たちも毎日のように「これは違ったな」「これは効いたな」を繰り返している最中です。</p>
+            <p>ひとつだけ、規模を問わず言えることがあります。この夜を支えていたのは高価なAIではなく、<strong>「正しい情報を1か所に決める」「失敗が見えるようにする」「人間は取り返しのつかない判断だけ持つ」</strong>という、3つの地味な設計思想でした。これはひとりの事業でも、大きな会社でも、同じように効きます。ツールを増やす前に、この線引きを決めるところから始められる。そう思っています。</p>
+
+            <div class="dialogue">
+              <div class="bubble teto">
+                <div class="bubble-avatar">
+                  <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1777203029/corduroy/characters/teto/teto_waving_bye.png" alt="盤上テト">
+                  <span class="name-tag">盤上テト</span>
+                </div>
+                <div class="bubble-text">
+                  ボクは人間側の相棒として、この記事を横で見ていました。「夜のあいだにAIに任せる」って聞くと、こわい響きもあるけど、実際は「戻せることだけ夜にやって、大事なところは朝にマサヤが決める」っていう、けっこう当たり前の線引きなんだよね。そこがちゃんとしてるから、任せられる。
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-cta-box fade-up">
+              <p class="contact-cta-lead">「ウチでも、戻せる作業だけAIに任せる仕組みをつくりたい」。そんな話、一緒に整理するところからどうぞ。</p>
+              <a class="btn-contact-xl" href="/contact/">相談する</a>
+            </div>
+
+            <h3>関連記事</h3>
+            <ul>
+              <li><a href="/blog/org-may-2026/">AIエージェント組織のメンテナンス記録（2026年5月号）</a></li>
+              <li><a href="/blog/general-second-self-guide/">「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順</a></li>
+              <li><a href="/blog/agent-loop-minimal-intro/">エージェントループを最小構成で体験する</a></li>
+              <li><a href="/blog/tiki-teto-origin-story/">Tiki／盤上テト誕生秘話</a></li>
+            </ul>
+
+            <p class="article-updated-note">※本記事はコールテンのAI活用の舞台裏を書き残したレポートです。Anthropic社の公式ドキュメント・記事を引用していますが、各仕様・パターンは公式の更新により変更される可能性があります。最新情報は<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Anthropic公式</a>でご確認ください。文中の仕組みは実運用での検証を継続中のものを含みます。</p>
+          </div>
+        </section>
+
+        <section id="faq" class="container faq" style="padding-top:0;padding-bottom:40px;">
+          <h2>Q&amp;A — よくいただく質問</h2>
+          <p>この記事の内容について、よく聞かれそうな質問をまとめました。</p>
+          <div class="faq-items">
+            <details>
+              <summary>社長が寝ているあいだに、AIが勝手に会社のことを変えて大丈夫なのですか？</summary>
+              <p class="mini">取り返しのつかない操作・お金の動き・外部への公開・好みの判断は、すべて人間（社長）に残しています。夜のあいだにAIチームが進めるのは、調査・実装・整理といった「あとから戻せる作業」だけ。朝には、社長が一言で「OK」「これは違う」と返せばいいリストが残っているだけです。勝手にお金を動かしたり、外に何かを出したりはしません。</p>
+            </details>
+            <details>
+              <summary>AIが一晩中、止まらずに進められるのはなぜですか？</summary>
+              <p class="mini">指揮するAI・手を動かすAI・チェックするAIを、役割ごとに分けているからです。作る係と評価する係を別のAIにする考え方は、AnthropicがEvaluator-Optimizerパターンとして紹介しているもので、コールテンはこれを会社全体の運用に取り入れています。同じAIに自己採点させると甘くなるので、評価役を独立させています。</p>
+            </details>
+            <details>
+              <summary>「パスワードをなくす」とはどういう意味ですか？</summary>
+              <p class="mini">認証（本人確認）の仕組みが壊れたとき、パスワードをもっと強くするのではなく、パスワードそのものを使わない方式に移した、という話です。パスワードは入力・保存・期限切れのたびに壊れる余地があります。パソコンに元から備わっている安全な保管領域を使えば、その壊れる部品自体を減らせます。強くするより、なくすほうが根本的でした。</p>
+            </details>
+            <details>
+              <summary>AIが自分たちで作業して、間違えないのですか？</summary>
+              <p class="mini">間違えます。だからコールテンでは、失敗を隠さない設計にしています。処理が固まって止まったり、静かに動かなくなったりしたときに、それを「見える失敗」に変える。そして毎朝、自動で全体の健康チェックを走らせます。大事なのは間違えないことではなく、間違いにすぐ気づけることだと考えています。</p>
+            </details>
+            <details>
+              <summary>この仕組みは、小さな会社や個人事業主でも使えますか？</summary>
+              <p class="mini">規模は問いません。核になっているのは、高価なツールではなく3つの考え方です。ひとつ、正しい情報は1か所に決めておく。ふたつ、失敗が見えるようにしておく。みっつ、人間は取り返しのつかない判断だけを持つ。この設計思想はひとりの事業でも、大きな組織でも同じように応用できます。</p>
+            </details>
+          </div>
+        </section>
+
+        <div class="contact-cta-box fade-up" style="margin-top: 48px;">
+          <h3>AI活用の「線引き」、一緒に考えてみませんか</h3>
+          <p class="contact-cta-lead">戻せる作業はAIに任せて、大事な判断は自分が持つ。その線引きをどう引くか、コールテンが社内でやっていることをそのままお話しします。気軽にどうぞ。</p>
+          <div class="cta-buttons">
+            <a href="/services/" class="btn-primary">サービス一覧を見る</a>
+            <a href="/contact/" class="btn-outline">個別相談を申し込む</a>
+          </div>
+        </div>
+
+        <div class="article-foot fade-up">
+          <a href="/blog/" class="btn secondary">&larr; ブログ一覧に戻る</a>
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .article {
+    padding: 120px 0 100px;
+    background: linear-gradient(180deg, var(--cream) 0%, #f0f7f4 100%);
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--sea); font-weight: 600; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { opacity: 0.5; }
+  .article-head {
+    max-width: 720px;
+    margin: 0 auto 12px;
+    text-align: left;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 99px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .article-head h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.4;
+  }
+  .article-lead {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent, #d4a04d);
+  }
+  .article-body {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 2.05;
+    color: var(--text);
+    font-size: 15.5px;
+  }
+  .article-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 48px;
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 20px rgba(5,32,24,0.04);
+  }
+  .article-body h2 {
+    background: linear-gradient(135deg, var(--sea, #16614e) 0%, #124034 100%);
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 22px;
+    margin: 56px 0 24px;
+    line-height: 1.5;
+    box-shadow: 0 6px 18px rgba(22, 97, 78, 0.18);
+    letter-spacing: 0.01em;
+  }
+  .article-body h2:first-child { margin-top: 0; }
+  .article-body h3 {
+    border-left: 4px solid var(--sea, #16614e);
+    padding: 6px 0 6px 14px;
+    font-size: 18px;
+    margin: 36px 0 16px;
+    line-height: 1.55;
+    color: var(--sea, #16614e);
+    background: linear-gradient(90deg, rgba(22, 97, 78, 0.06) 0%, transparent 70%);
+  }
+  .article-body p { margin: 0 0 18px; }
+  .article-body ul {
+    margin: 0 0 22px;
+    padding-left: 22px;
+  }
+  .article-body ul li {
+    margin-bottom: 10px;
+    line-height: 1.85;
+  }
+  .article-body strong {
+    color: #1c3a32;
+    background: linear-gradient(transparent 65%, rgba(212,160,77,0.32) 65%);
+    padding: 0 2px;
+  }
+  .article-body a {
+    color: var(--sea, #16614e);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+  .article-body blockquote {
+    border-left: 4px solid var(--accent, #d4a04d);
+    background: rgba(212,160,77,0.06);
+    margin: 24px 0;
+    padding: 16px 22px;
+    border-radius: 0 8px 8px 0;
+  }
+  .article-body blockquote p { margin: 0 0 8px; }
+  .article-body blockquote .caption {
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin: 0;
+  }
+  .chapter-illust {
+    margin: 8px 0 28px;
+    text-align: center;
+  }
+  .chapter-illust img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px rgba(5,32,24,0.06);
+  }
+  .annotation {
+    background: rgba(22,97,78,0.04);
+    border: 1px solid rgba(22,97,78,0.18);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 22px 0;
+  }
+  .annotation .anno-label {
+    display: inline-block;
+    background: var(--sea, #16614e);
+    color: #fff;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 99px;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .annotation p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.8;
+  }
+  /* 吹き出し — 他記事（org-may-2026 / claude-limit）と統一 */
+  .dialogue {
+    display: grid;
+    gap: 26px;
+    margin: 16px auto 18px;
+    max-width: 640px;
+  }
+  .bubble {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  .bubble-avatar {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    flex-shrink: 0;
+  }
+  .bubble-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  }
+  .bubble-text {
+    background: #e7f4ef;
+    border: 1px solid #cde5db;
+    border-radius: 12px;
+    padding: 10px 12px;
+    line-height: 1.7;
+    color: #12382c;
+    flex: 1;
+    position: relative;
+  }
+  .bubble.teto .bubble-text {
+    background: #f4f1ff;
+    border: 1px solid #e2dcfa;
+    color: #1f2440;
+  }
+  .name-tag {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    font-weight: 700;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .bubble-avatar { width: 64px; height: 64px; }
+    .name-tag { font-size: 9px; }
+  }
+  .article-updated-note {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--line);
+    line-height: 1.7;
+  }
+  .contact-cta-box {
+    background: linear-gradient(135deg, #fff 0%, #f7f3ea 100%);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px 28px;
+    margin: 32px 0;
+    text-align: center;
+  }
+  .contact-cta-box h3 {
+    margin-top: 0;
+    border-left: none;
+    padding-left: 0;
+    background: none;
+  }
+  .contact-cta-lead {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 18px;
+  }
+  .article-body .btn-contact-xl,
+  .contact-cta-box .btn-contact-xl,
+  .btn-contact-xl {
+    display: inline-block !important;
+    background: var(--sea, #16614e) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    padding: 14px 36px;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 4px 14px rgba(22,97,78,0.25);
+    transition: transform 0.2s;
+  }
+  .btn-contact-xl:hover { transform: translateY(-2px); }
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .article-body .btn-primary,
+  .contact-cta-box .btn-primary,
+  .cta-buttons .btn-primary {
+    display: inline-block !important;
+    background: var(--sea, #16614e) !important;
+    color: #fff !important;
+    padding: 12px 28px !important;
+    border-radius: 99px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 14.5px !important;
+    box-shadow: 0 4px 14px rgba(22,97,78,0.25) !important;
+  }
+  .article-body .btn-outline {
+    display: inline-block;
+    background: #fff;
+    color: var(--sea, #16614e);
+    padding: 12px 28px;
+    border-radius: 99px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14.5px;
+    border: 2px solid var(--sea, #16614e);
+  }
+  .article-foot {
+    margin-top: 48px;
+    text-align: center;
+  }
+  .btn.secondary {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  @media (max-width: 640px) {
+    .article-card { padding: 28px 22px; }
+    .article-body h2 { font-size: 19px; padding: 10px 14px; }
+    .article-body h3 { font-size: 16.5px; }
+  }
+</style>
