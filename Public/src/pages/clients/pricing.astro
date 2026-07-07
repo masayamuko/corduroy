@@ -1,0 +1,521 @@
+---
+// 商談済みクライアント向け 料金一覧ページ（パスワード保護 / noindex）
+// 保護は middleware.ts の /clients/pricing/:path* マッチャで実施（Cookie + 簡易パスワード）。
+// 料金体系の正本: guidelines/pricing-policy.md（このページと正本を必ず同期させること）
+// 料金表を増やすときは「▼ここから料金表▼」以下に <section class="price-block"> を足すだけ。
+// 「根拠・ポジション」の表示は独立セクション（.pp-position）に確定済み。
+import Layout from '../../layouts/Layout.astro';
+
+const LINE_URL = 'https://lin.ee/tDuJPjc';
+---
+
+<Layout
+  title="料金のご案内（クライアント専用）｜株式会社コールテン"
+  description="商談させていただいた方向けの料金一覧です。"
+  noindex={true}
+  noAnalytics={true}
+>
+  <main class="pricing-private">
+    <!-- Hero -->
+    <header class="pp-hero">
+      <span class="pp-badge">CLIENT ONLY</span>
+      <h1>料金のご案内</h1>
+      <p class="pp-lead">
+        商談させていただいた皆さま向けの料金一覧です。<br />
+        <strong>すべて税込表記</strong>です。ご不明な点はお気軽にご連絡ください。
+      </p>
+    </header>
+
+    <div class="pp-wrap">
+
+      <!-- ▼ここから料金表▼ -->
+
+      <!-- 1. AI講座 -->
+      <section class="price-block">
+        <div class="pb-head">
+          <small class="pb-label">STUDY</small>
+          <h2>AI講座</h2>
+          <p>「AIの使い方」ではなく「AIとの付き合い方」を学ぶ、福岡発の講座。</p>
+        </div>
+        <div class="pb-table">
+          <div class="pt-row pt-head">
+            <span class="pt-name">プラン</span>
+            <span class="pt-price">料金</span>
+            <span class="pt-note">内容</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">無料動画講座</span>
+            <span class="pt-price">無料</span>
+            <span class="pt-note">LINE登録で視聴。AIへの思い込みをひっくり返す入門講座。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">体験講座（個人）</span>
+            <span class="pt-price">3,000円<span class="pt-per">/人</span></span>
+            <span class="pt-note">福岡・対面 1時間。AIデモ＋第二の自分デモを体感。5名以上で開催。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">体験研修（法人）</span>
+            <span class="pt-price">30,000円<span class="pt-per">/回</span></span>
+            <span class="pt-note">企業向けの体験版AI研修。本格導入前のお試しに。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">3ヶ月AI講座（全3回）</span>
+            <span class="pt-price">110,000円</span>
+            <span class="pt-note">月1講座×3回＋作業会＋Discordサポート。少人数制。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">法人研修（本格導入）</span>
+            <span class="pt-price">要相談</span>
+            <span class="pt-note">内容・人数に応じて個別にお見積りします。</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. AI顧問 -->
+      <section class="price-block">
+        <div class="pb-head">
+          <small class="pb-label">ADVISORY</small>
+          <h2>AI顧問（月額・伴走）</h2>
+          <p>事業理解と最新知見をもとに、AI活用の設計から定着まで伴走します。</p>
+        </div>
+        <div class="pb-table">
+          <div class="pt-row pt-head">
+            <span class="pt-name">プラン</span>
+            <span class="pt-price">料金</span>
+            <span class="pt-note">内容</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">伴走ライト</span>
+            <span class="pt-price">60,000円<span class="pt-per">/月</span></span>
+            <span class="pt-note">月1回MTG（60〜90分）＋軽い持ち帰り作業（月0.5〜1h）。サイトのAI更新・運用ルールづくりのサポートもこちら。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">伴走スタンダード</span>
+            <span class="pt-price">110,000円<span class="pt-per">/月</span></span>
+            <span class="pt-note">月2回MTG（各60分）＋持ち帰り作業（月2〜4h）。共同制作。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">伴走リード</span>
+            <span class="pt-price">220,000円<span class="pt-per">/月</span></span>
+            <span class="pt-note">週1回MTG＋実作業に深く関与（月8〜16h）。保守・改善まで。</span>
+          </div>
+        </div>
+        <p class="pb-guide">💡 迷ったら「伴走ライト」から。物足りなくなったらプラン変更もご相談いただけます。</p>
+        <p class="pb-foot">※企業の規模や関与度合いに応じて調整可能です。</p>
+      </section>
+
+      <!-- 3. AIサイト制作・リニューアル -->
+      <section class="price-block">
+        <div class="pb-head">
+          <small class="pb-label">WEBSITE</small>
+          <h2>AIサイト制作・リニューアル</h2>
+          <p>AI検索時代に通用するサイトの土台を、非エンジニアの方でも持てる価格で。</p>
+        </div>
+        <h3 class="pb-sub">初期費用（買い切り）</h3>
+        <div class="pb-table">
+          <div class="pt-row pt-head">
+            <span class="pt-name">プラン</span>
+            <span class="pt-price">料金</span>
+            <span class="pt-note">内容</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">サイトリニューアル</span>
+            <span class="pt-price">110,000円</span>
+            <span class="pt-note">既存サイトをAI検索対応の土台へ移管・再構築。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">新規サイト制作</span>
+            <span class="pt-price">220,000円</span>
+            <span class="pt-note">ゼロから設計・制作。AI検索対応・構造化データ込み。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">CMS更新システム導入</span>
+            <span class="pt-price">＋110,000円</span>
+            <span class="pt-note">お知らせ・ブログをご自身で更新できる仕組みを追加。</span>
+          </div>
+        </div>
+        <p class="pb-combo">組み合わせ例：リニューアル＋CMS＝<strong>220,000円</strong> ／ 新規制作＋CMS＝<strong>330,000円</strong></p>
+        <h3 class="pb-sub">月額サポート（任意）</h3>
+        <div class="pb-table">
+          <div class="pt-row pt-head">
+            <span class="pt-name">プラン</span>
+            <span class="pt-price">料金</span>
+            <span class="pt-note">内容</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">Easy管理費</span>
+            <span class="pt-price">10,000円<span class="pt-per">/月</span></span>
+            <span class="pt-note">サーバー代込み（ご自身でのサーバー契約が不要に）＋LINEチャット質問対応・運用保守。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">詰まり対応</span>
+            <span class="pt-price">20,000円<span class="pt-per">/月</span></span>
+            <span class="pt-note">メンテのお手伝い・軽微な修正込み・LINE伴走対応。</span>
+          </div>
+          <div class="pt-row">
+            <span class="pt-name">AI更新の運用サポート</span>
+            <span class="pt-price">AI顧問ライトへ</span>
+            <span class="pt-note">AIでの更新のやり方・社内ルールづくりまで伴走する場合は、AI顧問 伴走ライト（60,000円/月）をご契約ください。</span>
+          </div>
+        </div>
+        <p class="pb-foot">※月額サポートなしでご自身で運用する場合は、サーバー代（月3,000円程度）を直接ご契約いただきます。</p>
+      </section>
+
+      <!-- ▲ここまで料金表▲ -->
+
+      <!-- 業界の中でのコールテンの位置 -->
+      <section class="pp-position price-block">
+        <div class="pb-head">
+          <small class="pb-label">POSITION</small>
+          <h2>業界の中でのコールテンの位置</h2>
+          <p>価格は「関与度×時間」で決めています。各サービスの相場と、コールテンの位置はこちら。</p>
+        </div>
+        <div class="pos-grid">
+          <div class="pos-card">
+            <h3>AI顧問</h3>
+            <div class="pos-bar-wrap">
+              <div class="pos-bar"><span class="pos-range" style="left:14%; width:72%;"></span><span class="pos-dot" style="left:18%;"></span></div>
+              <div class="pos-bar-labels"><span>月5万</span><span>月35万</span></div>
+            </div>
+            <p>チャット型5〜10万／導入支援10〜30万／実装伴走20〜35万が相場。コールテンは<strong>各帯の下端</strong>（6・11・22万）。</p>
+          </div>
+          <div class="pos-card">
+            <h3>AI講座（3ヶ月）</h3>
+            <div class="pos-bar-wrap">
+              <div class="pos-bar"><span class="pos-range" style="left:20%; width:60%;"></span><span class="pos-dot" style="left:24%;"></span></div>
+              <div class="pos-bar-labels"><span>10万</span><span>20万</span></div>
+            </div>
+            <p>買い切り実務講座は10万〜20万円台。コールテンは<strong>下限の11万円で、自習型ではなく対面・少人数・作業会つき</strong>。</p>
+          </div>
+          <div class="pos-card">
+            <h3>サイト制作・リニューアル</h3>
+            <div class="pos-bar-wrap">
+              <div class="pos-bar"><span class="pos-range" style="left:10%; width:80%;"></span><span class="pos-dot" style="left:14%;"></span></div>
+              <div class="pos-bar-labels"><span>10万</span><span>80万</span></div>
+            </div>
+            <p>フリーランス10〜30万／制作会社30〜80万が相場。コールテンは<strong>11万でAI検索対応まで込み</strong>。保守1万/月は相場中央値。</p>
+          </div>
+          <div class="pos-card pos-card-why">
+            <h3>なぜ安くできるのか</h3>
+            <p>制作・運営の工程そのものをAIで効率化しているからです。品質を削って安くしているのではなく、<strong>作り方が新しいから安い</strong>。同じ理由で、私たち自身が「AIで業務を変える」実例でもあります。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 料金シミュレーター -->
+      <section class="price-block pp-sim">
+        <div class="pb-head">
+          <small class="pb-label">SIMULATOR</small>
+          <h2>かんたん料金シミュレーター</h2>
+          <p>ご希望のサービスを選ぶと、概算の合計金額が表示されます（すべて税込）。</p>
+        </div>
+
+        <div class="sim-group">
+          <h3 class="pb-sub">AI講座</h3>
+          <label class="sim-item"><input type="checkbox" data-init="3000" data-qty="trial-p" /> 体験講座（個人）3,000円 × <input type="number" id="qty-trial-p" class="sim-qty" value="5" min="5" max="99" />人 <small>※5名以上で開催</small></label>
+          <label class="sim-item"><input type="checkbox" data-init="30000" /> 体験研修（法人）30,000円/回</label>
+          <label class="sim-item"><input type="checkbox" data-init="110000" data-qty="course3m" /> 3ヶ月AI講座 110,000円 × <input type="number" id="qty-course3m" class="sim-qty" value="1" min="1" max="99" />人</label>
+        </div>
+
+        <div class="sim-group">
+          <h3 class="pb-sub">サイト制作（初期費用）</h3>
+          <label class="sim-item"><input type="radio" name="site" data-init="0" checked /> なし</label>
+          <label class="sim-item"><input type="radio" name="site" data-init="110000" /> サイトリニューアル 110,000円</label>
+          <label class="sim-item"><input type="radio" name="site" data-init="220000" /> 新規サイト制作 220,000円</label>
+          <label class="sim-item sim-indent"><input type="checkbox" id="sim-cms" data-init="110000" disabled /> ＋CMS更新システム導入 110,000円</label>
+        </div>
+
+        <div class="sim-group">
+          <h3 class="pb-sub">月額サービス</h3>
+          <label class="sim-item"><input type="radio" name="advisory" data-monthly="0" checked /> AI顧問：なし</label>
+          <label class="sim-item"><input type="radio" name="advisory" data-monthly="60000" /> 伴走ライト 60,000円/月</label>
+          <label class="sim-item"><input type="radio" name="advisory" data-monthly="110000" /> 伴走スタンダード 110,000円/月</label>
+          <label class="sim-item"><input type="radio" name="advisory" data-monthly="220000" /> 伴走リード 220,000円/月</label>
+          <div class="sim-sep"></div>
+          <label class="sim-item"><input type="radio" name="hosting" data-monthly="0" checked /> サイト月額サポート：なし</label>
+          <label class="sim-item"><input type="radio" name="hosting" data-monthly="10000" /> Easy管理費 10,000円/月（サーバー代込み）</label>
+          <label class="sim-item"><input type="radio" name="hosting" data-monthly="20000" /> 詰まり対応 20,000円/月</label>
+        </div>
+
+        <div class="sim-result">
+          <div class="sim-toggle" role="group" aria-label="月額の表示方法">
+            <button class="sim-tbtn active" data-mode="monthly">月々で表示</button>
+            <button class="sim-tbtn" data-mode="yearly">年間換算で表示</button>
+          </div>
+          <div class="sim-lines">
+            <div class="sim-line"><span>初期費用 合計</span><strong id="sim-init">¥0</strong></div>
+            <div class="sim-line"><span id="sim-monthly-label">月額 合計</span><strong id="sim-monthly">¥0</strong></div>
+          </div>
+          <p class="sim-note">※概算です。正式なお見積りはLINEまたはメールでお気軽にどうぞ。</p>
+        </div>
+      </section>
+
+      <!-- 明朗会計セクション（インボイス・価格方針） -->
+      <section class="price-block pp-honest">
+        <div class="pb-head">
+          <small class="pb-label">HONEST PRICING</small>
+          <h2>価格について、先にお伝えしたいこと</h2>
+          <p>あとから「聞いてなかった」がないように、大切なことを先に書いておきます。</p>
+        </div>
+        <div class="honest-item">
+          <h3><span class="h-num">1</span>インボイス（適格請求書）に未登録です</h3>
+          <p>当社は現在、適格請求書発行事業者に登録していません。そのため課税事業者（本則課税）のお客様は、当社へのお支払い分の消費税を仕入税額控除にできず、実質のご負担が最大10%相当増えるイメージになります（経過措置により当面は一部控除が可能です）。免税事業者・簡易課税のお客様、個人のお客様には影響ありません。<strong>この点をご理解いただける場合のみ、ご契約をお願いしています。</strong></p>
+        </div>
+        <div class="honest-item">
+          <h3><span class="h-num">2</span>その分、業界相場よりかなり安く設定しています</h3>
+          <p>上の「業界の中でのコールテンの位置」の通り、ほとんどのサービスが相場帯の下端です。インボイス分のデメリットを踏まえても、トータルでは他社より安くなるケースがほとんどです。</p>
+        </div>
+        <div class="honest-item">
+          <h3><span class="h-num">3</span>創業期の価格です。今後値上げを予定しています</h3>
+          <p>会社を立ち上げたばかりの今は、実績づくりを兼ねた創業期価格にしています。今後段階的に改定していく予定ですが、<strong class="good">ご契約いただいた価格は、ご契約期間中そのまま維持します。</strong>今の価格でのご契約が一番お得です。</p>
+        </div>
+        <div class="honest-item">
+          <h3><span class="h-num">4</span>ご予算に合わせて、柔軟にご相談に乗ります</h3>
+          <p>「この組み合わせだと予算が厳しい…」というときは、遠慮なくご相談ください。<strong class="good">サービスの範囲を絞ったり、進め方を効率化したりして、その分価格を下げるご提案ができます。</strong>たとえば打ち合わせの回数を減らす、納品物の仕様をシンプルにする、サポートの範囲を軽くする——提供にかかる時間が減るぶん、正直にお安くできます。</p>
+          <p>一方で、同じ内容のまま時間単価だけを下げる「値引き」はしていません。品質と価格を連動させる方針のためです。そのかわり、ご予算の中でいちばん効果が出る組み合わせを一緒に探します。非営利団体・小規模な組織の方への配慮もありますので、まずは状況をそのまま教えてください。</p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="pp-cta">
+        <h2>ご相談・お申し込み</h2>
+        <p>プランのご相談や組み合わせも承ります。LINEからお気軽にどうぞ。</p>
+        <div class="cta-chips">
+          <span>無理な勧誘はしません</span>
+          <span>ご相談・お見積りだけでも歓迎</span>
+          <span>オンライン対応OK</span>
+        </div>
+        <a class="pp-btn" href={LINE_URL} target="_blank" rel="noopener noreferrer">LINEで相談する</a>
+      </section>
+
+      <p class="pp-asof">※ 2026年7月時点の料金です。内容は予告なく変更される場合があります。</p>
+
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // ===== 料金シミュレーター =====
+  const yen = (n: number) => '¥' + n.toLocaleString('ja-JP');
+  let mode = 'monthly';
+
+  function calc() {
+    let init = 0;
+    let monthly = 0;
+    // CMSはサイト制作選択時のみ有効（計算前に状態を確定させる）
+    const siteSelected = [...document.querySelectorAll<HTMLInputElement>('input[name="site"][data-init]')].some(
+      (r) => r.checked && r.getAttribute('data-init') !== '0'
+    );
+    const cms = document.getElementById('sim-cms') as HTMLInputElement | null;
+    if (cms) {
+      cms.disabled = !siteSelected;
+      if (!siteSelected) cms.checked = false;
+    }
+    // 初期費用: checkbox / radio (data-init)
+    document.querySelectorAll<HTMLInputElement>('.pp-sim input[data-init]').forEach((input) => {
+      if (!input.checked || input.disabled) return;
+      let price = parseInt(input.getAttribute('data-init') || '0', 10);
+      const qtyId = input.getAttribute('data-qty');
+      if (qtyId) {
+        const q = document.getElementById('qty-' + qtyId) as HTMLInputElement | null;
+        const min = Math.max(1, parseInt(q?.min || '1', 10) || 1);
+        const raw = parseInt(q?.value || '', 10);
+        price *= Number.isNaN(raw) ? min : Math.max(min, raw);
+      }
+      init += price;
+    });
+    // 月額: radio (data-monthly)
+    document.querySelectorAll<HTMLInputElement>('.pp-sim input[data-monthly]').forEach((input) => {
+      if (input.checked) monthly += parseInt(input.getAttribute('data-monthly') || '0', 10);
+    });
+
+    const initEl = document.getElementById('sim-init');
+    const monEl = document.getElementById('sim-monthly');
+    const monLabel = document.getElementById('sim-monthly-label');
+    if (initEl) initEl.textContent = yen(init);
+    if (monEl && monLabel) {
+      if (mode === 'yearly') {
+        monLabel.textContent = '月額 合計（年間換算）';
+        monEl.textContent = yen(monthly * 12) + ' /年';
+      } else {
+        monLabel.textContent = '月額 合計';
+        monEl.textContent = yen(monthly) + ' /月';
+      }
+    }
+  }
+
+  document.querySelectorAll('.pp-sim input').forEach((el) => {
+    el.addEventListener('change', calc);
+    el.addEventListener('input', calc);
+  });
+  document.querySelectorAll('.sim-tbtn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.sim-tbtn').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      mode = btn.getAttribute('data-mode') || 'monthly';
+      calc();
+    });
+  });
+  calc();
+</script>
+
+<style>
+  .pricing-private {
+    background: #fbf9f5;
+    color: #2c1810;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Helvetica Neue", Arial, sans-serif;
+    padding-bottom: 80px;
+  }
+  .pp-hero {
+    text-align: center;
+    padding: 72px 20px 48px;
+    background: linear-gradient(180deg, #f2f8f5 0%, #fbf9f5 100%);
+  }
+  .pp-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: #ccfbf1;
+    color: #16614e;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
+  }
+  .pp-hero h1 { font-size: 30px; color: #16614e; margin: 0 0 16px; font-weight: 800; }
+  .pp-lead { font-size: 15px; line-height: 1.9; color: #555; margin: 0; }
+  .pp-wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  .price-block {
+    background: #fff;
+    border: 1px solid #e6e0d6;
+    border-radius: 16px;
+    padding: 32px 28px;
+    margin-top: 28px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.04);
+  }
+  .pb-label { display: block; font-size: 12px; font-weight: 800; letter-spacing: 0.18em; color: #4a9b82; margin-bottom: 6px; }
+  .pb-head h2 { font-size: 21px; color: #16614e; margin: 0 0 8px; font-weight: 800; }
+  .pb-head p { font-size: 14px; color: #666; line-height: 1.8; margin: 0 0 20px; }
+  .pb-sub { font-size: 14px; color: #16614e; font-weight: 800; margin: 22px 0 10px; }
+
+  .pb-table { display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; border: 1px solid #e6e0d6; }
+  .pt-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 2fr;
+    gap: 14px;
+    padding: 14px 18px;
+    border-top: 1px solid #eee4d8;
+    align-items: baseline;
+    background: #fff;
+  }
+  .pt-row:nth-child(odd):not(.pt-head) { background: #faf7f1; }
+  .pt-row:not(.pt-head):hover { background: #eef7f3; }
+  .pt-row.pt-head {
+    border-top: none;
+    background: linear-gradient(135deg, #16614e 0%, #1d7a62 100%);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 13px 18px;
+  }
+  .pt-row.pt-head span { color: #fff; }
+  .pt-name { font-weight: 700; font-size: 15px; color: #2c1810; }
+  .pt-price { font-weight: 800; font-size: 17px; color: #16614e; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pt-per { font-size: 12px; font-weight: 700; color: #4a9b82; }
+  .pt-note { font-size: 13px; color: #666; line-height: 1.7; }
+  .pb-foot { font-size: 12px; color: #999; margin: 16px 0 0; line-height: 1.7; }
+  .pb-guide { font-size: 13px; color: #35524a; background: #eef7f3; border-radius: 8px; padding: 10px 14px; margin: 14px 0 0; font-weight: 700; }
+  .pb-combo { font-size: 13px; color: #35524a; background: #eef7f3; border-radius: 8px; padding: 10px 14px; margin: 12px 0 0; }
+  .pb-combo strong { color: #16614e; }
+
+  /* 独立ポジションセクション */
+  .pos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pos-card { border: 1px solid #e6e0d6; border-radius: 12px; padding: 18px; background: #fcfdfc; }
+  .pos-card h3 { font-size: 15px; color: #16614e; margin: 0 0 12px; font-weight: 800; }
+  .pos-card p { font-size: 13px; color: #555; line-height: 1.85; margin: 0; }
+  .pos-card p strong { color: #16614e; }
+  .pos-card-why { background: #16614e; border-color: #16614e; }
+  .pos-card-why h3 { color: #fff; }
+  .pos-card-why p { color: #d6ede4; }
+  .pos-card-why p strong { color: #fff; }
+  .pos-bar-wrap { margin-bottom: 12px; }
+  .pos-bar { position: relative; height: 8px; border-radius: 99px; background: #eee4d8; }
+  .pos-range { position: absolute; top: 0; height: 8px; border-radius: 99px; background: #bcd9cd; }
+  .pos-dot { position: absolute; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: #16614e; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.25); transform: translate(-50%, -50%); }
+  .pos-bar-labels { display: flex; justify-content: space-between; font-size: 11px; color: #999; margin-top: 6px; }
+
+  /* シミュレーター */
+  .sim-group { margin-top: 6px; }
+  .sim-item { display: block; font-size: 14px; color: #2c1810; padding: 8px 4px; line-height: 1.7; }
+  .sim-item small { color: #999; font-size: 11px; }
+  .sim-item input[type="checkbox"], .sim-item input[type="radio"] { accent-color: #16614e; width: 16px; height: 16px; margin-right: 8px; vertical-align: -2px; }
+  .sim-indent { margin-left: 26px; }
+  .sim-qty { width: 58px; padding: 4px 6px; border: 1px solid #d6e8df; border-radius: 6px; font-size: 14px; text-align: center; }
+  .sim-sep { border-top: 1px dashed #e6e0d6; margin: 10px 0; }
+  .sim-result { margin-top: 20px; background: #f2f8f5; border-radius: 12px; padding: 20px; }
+  .sim-toggle { display: flex; gap: 6px; margin-bottom: 14px; }
+  .sim-tbtn { padding: 7px 14px; border-radius: 99px; border: 1px solid #d6e8df; background: #fff; color: #35524a; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .sim-tbtn.active { background: #16614e; color: #fff; border-color: #16614e; }
+  .sim-lines { display: flex; flex-direction: column; gap: 8px; }
+  .sim-line { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; color: #35524a; font-weight: 700; }
+  .sim-line strong { font-size: 22px; color: #16614e; font-variant-numeric: tabular-nums; }
+  .sim-note { font-size: 11px; color: #999; margin: 12px 0 0; }
+
+  /* 明朗会計 */
+  .honest-item { border-top: 1px solid #eee4d8; padding: 16px 0 4px; }
+  .honest-item:first-of-type { border-top: none; }
+  .honest-item h3 { font-size: 15px; color: #16614e; margin: 0 0 10px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+  .h-num {
+    flex: 0 0 auto;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: #16614e;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+    font-size: 13px; font-weight: 800;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .honest-item p { font-size: 13.5px; color: #555; line-height: 1.95; margin: 0 0 10px; }
+  .honest-item p strong { color: #b3541e; }
+  .honest-item p strong.good { color: #16614e; }
+
+  /* CTA */
+  .pp-cta { text-align: center; margin-top: 44px; padding: 40px 24px; background: #16614e; border-radius: 16px; color: #fff; }
+  .pp-cta h2 { font-size: 20px; margin: 0 0 10px; font-weight: 800; color: #fff; }
+  .pp-cta p { font-size: 14px; margin: 0 0 22px; color: #d6ede4; line-height: 1.8; }
+  .cta-chips { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 0 0 20px; }
+  .cta-chips span {
+    padding: 6px 14px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 99px;
+    color: #eaf6f0;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .pp-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #fff;
+    color: #16614e;
+    border-radius: 100px;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 15px;
+    transition: transform .15s ease;
+  }
+  .pp-btn:hover { transform: translateY(-2px); }
+  .pp-asof { text-align: center; font-size: 12px; color: #999; margin: 24px 0 0; line-height: 1.7; }
+
+  @media (max-width: 640px) {
+    .pp-lead br { display: none; }
+    .pp-lead { text-align: left; max-width: 30em; margin: 0 auto; }
+    .pt-row { grid-template-columns: 1fr; gap: 2px; padding: 14px 16px; }
+    .pt-row.pt-head { display: none; }
+    .pb-table { border-top: 4px solid #16614e; }
+    .pos-grid { grid-template-columns: 1fr; }
+    .pp-hero h1 { font-size: 25px; }
+    .sim-line strong { font-size: 19px; }
+  }
+</style>

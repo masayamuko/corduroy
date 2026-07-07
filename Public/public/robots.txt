@@ -3,68 +3,103 @@
 
 User-agent: *
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 # 明示的にAIクローラを許可（2026年時点の主要エージェント・一次情報ベース）
 
 # OpenAI
 User-agent: GPTBot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 # Anthropic
 User-agent: ClaudeBot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 # Perplexity
 User-agent: PerplexityBot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 # Google
 User-agent: Google-Extended
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 # Microsoft
 User-agent: Bingbot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 # Apple
 User-agent: Applebot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 # Common Crawl
 User-agent: CCBot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 # Amazon
 User-agent: Amazonbot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 User-agent: Amzn-SearchBot
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
 User-agent: Amzn-User
 Allow: /
+Disallow: /preview/
+Disallow: /clients/
 
-# preview/draftフォルダはクロール拒否（多層防御）
+# preview/draft・クライアント専用フォルダはクロール拒否（多層防御）
 User-agent: *
 Disallow: /preview/
+Disallow: /clients/
 
 # サイトマップ
 Sitemap: https://www.corduroy.co.jp/sitemap-index.xml

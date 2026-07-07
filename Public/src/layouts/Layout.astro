@@ -14,6 +14,7 @@ interface Props {
     ogImage?: string;
     ogType?: string;
     noindex?: boolean;
+    noAnalytics?: boolean;
 }
 
 const {
@@ -23,7 +24,8 @@ const {
     ogUrl,
     ogImage = "https://www.corduroy.co.jp/assets/images/ogp.png",
     ogType = "website",
-    noindex = false
+    noindex = false,
+    noAnalytics = false
 } = Astro.props;
 
 const siteBase = Astro.site?.href ?? "https://www.corduroy.co.jp";
@@ -40,15 +42,19 @@ const resolvedOgUrl = ogUrl ?? pageUrl;
 <!doctype html>
 <html lang="ja">
 	<head>
-		<!-- Google tag (gtag.js) -->
-        <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GTLHM3EM7C"></script>
-        <script is:inline>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
+		<!-- Google tag (gtag.js) — 認証保護ページ（noAnalytics）では読み込まない -->
+        {!noAnalytics && (
+            <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GTLHM3EM7C"></script>
+        )}
+        {!noAnalytics && (
+            <script is:inline>
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
 
-            gtag('config', 'G-GTLHM3EM7C');
-        </script>
+                gtag('config', 'G-GTLHM3EM7C');
+            </script>
+        )}
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/x-icon" href="/assets/images/faviconC.ico" />
