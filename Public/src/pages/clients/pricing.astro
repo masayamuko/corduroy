@@ -3,7 +3,7 @@
 // 保護は middleware.ts の /clients/pricing/:path* マッチャで実施（Cookie + 簡易パスワード）。
 // 料金体系の正本: guidelines/pricing-policy.md（このページと正本を必ず同期させること）
 // 料金表を増やすときは「▼ここから料金表▼」以下に <section class="price-block"> を足すだけ。
-// 「根拠・ポジション」の表示は3パターン切替（検討用）。確定後は選ばれたパターンに固定する。
+// 「根拠・ポジション」の表示は独立セクション（.pp-position）に確定済み。
 import Layout from '../../layouts/Layout.astro';
 
 const LINE_URL = 'https://lin.ee/tDuJPjc';
@@ -14,7 +14,7 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
   description="商談させていただいた方向けの料金一覧です。"
   noindex={true}
 >
-  <main class="pricing-private" id="pp-root" data-pattern="A">
+  <main class="pricing-private">
     <!-- Hero -->
     <header class="pp-hero">
       <span class="pp-badge">CLIENT ONLY</span>
@@ -50,17 +50,17 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
           <div class="pt-row">
             <span class="pt-name">体験講座（個人）</span>
             <span class="pt-price">3,000円<span class="pt-per">/人</span></span>
-            <span class="pt-note">福岡・対面 1時間。AIデモ＋第二の自分デモを体感。5名以上で開催。<span class="pos-badge">参加しやすさ優先の価格</span></span>
+            <span class="pt-note">福岡・対面 1時間。AIデモ＋第二の自分デモを体感。5名以上で開催。</span>
           </div>
           <div class="pt-row">
             <span class="pt-name">体験研修（法人）</span>
             <span class="pt-price">30,000円<span class="pt-per">/回</span></span>
-            <span class="pt-note">企業向けの体験版AI研修。本格導入前のお試しに。<span class="pos-badge">講師派遣相場の約1/10</span></span>
+            <span class="pt-note">企業向けの体験版AI研修。本格導入前のお試しに。</span>
           </div>
           <div class="pt-row">
             <span class="pt-name">3ヶ月AI講座（全3回）</span>
             <span class="pt-price">110,000円</span>
-            <span class="pt-note">月1講座×3回＋作業会＋Discordサポート。少人数制。<span class="pos-badge">同価格帯で対面伴走つき</span></span>
+            <span class="pt-note">月1講座×3回＋作業会＋Discordサポート。少人数制。</span>
           </div>
           <div class="pt-row">
             <span class="pt-name">法人研修（本格導入）</span>
@@ -68,14 +68,6 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
             <span class="pt-note">内容・人数に応じて個別にお見積りします。</span>
           </div>
         </div>
-        <details class="pb-why">
-          <summary>この料金の根拠と業界ポジション</summary>
-          <div class="pb-why-body">
-            <p><strong>業界相場</strong>：買い切り型の実務AI講座は10万〜20万円台が中心（例：自習型オンライン講座で約10万円）。個人向けサブスク型は月1.6万〜2.2万円、企業研修の講師派遣は半日30万〜50万円が相場です。</p>
-            <p><strong>コールテンの位置</strong>：3ヶ月11万円は相場帯の下限。しかも自習型ではなく<strong>福岡・対面・少人数・作業会つき</strong>です。体験研修3万円は、講師派遣相場（30万円〜）の約1/10で「まず試せる」入口として設定しています。</p>
-            <p><strong>なぜこの価格でできるか</strong>：教材制作・運営そのものをAIで効率化しているため、人手だけで運営する講座より工数を圧縮できています。</p>
-          </div>
-        </details>
       </section>
 
       <!-- 2. AI顧問 -->
@@ -94,29 +86,21 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
           <div class="pt-row">
             <span class="pt-name">伴走ライト</span>
             <span class="pt-price">60,000円<span class="pt-per">/月</span></span>
-            <span class="pt-note">月1回MTG（60〜90分）＋軽い持ち帰り作業（月0.5〜1h）。サイトのAI更新・運用ルールづくりのサポートもこちら。<span class="pos-badge">相場5〜10万の下寄り</span></span>
+            <span class="pt-note">月1回MTG（60〜90分）＋軽い持ち帰り作業（月0.5〜1h）。サイトのAI更新・運用ルールづくりのサポートもこちら。</span>
           </div>
           <div class="pt-row">
             <span class="pt-name">伴走スタンダード</span>
             <span class="pt-price">110,000円<span class="pt-per">/月</span></span>
-            <span class="pt-note">月2回MTG（各60分）＋持ち帰り作業（月2〜4h）。共同制作。<span class="pos-badge">導入支援型相場10〜30万の下端</span></span>
+            <span class="pt-note">月2回MTG（各60分）＋持ち帰り作業（月2〜4h）。共同制作。</span>
           </div>
           <div class="pt-row">
             <span class="pt-name">伴走リード</span>
             <span class="pt-price">220,000円<span class="pt-per">/月</span></span>
-            <span class="pt-note">週1回MTG＋実作業に深く関与（月8〜16h）。保守・改善まで。<span class="pos-badge">実装伴走相場20〜35万の下端</span></span>
+            <span class="pt-note">週1回MTG＋実作業に深く関与（月8〜16h）。保守・改善まで。</span>
           </div>
         </div>
         <p class="pb-guide">💡 迷ったら「伴走ライト」から。物足りなくなったらプラン変更もご相談いただけます。</p>
         <p class="pb-foot">※企業の規模や関与度合いに応じて調整可能です。</p>
-        <details class="pb-why">
-          <summary>この料金の根拠と業界ポジション</summary>
-          <div class="pb-why-body">
-            <p><strong>業界相場</strong>：チャット相談＋月1回MTG型のAI顧問は月5万〜10万円、導入支援型は月10万〜30万円、実装まで伴走するタイプは月20万〜35万円が中央値です。</p>
-            <p><strong>コールテンの位置</strong>：3プランともそれぞれの相場帯の下端。価格は「誰がどれだけ手を動かすか（関与度×時間）」で決めており、ライト→リードで持ち帰り作業時間が増えるぶんだけ料金が上がる、シンプルな構造です。</p>
-            <p><strong>なぜこの価格でできるか</strong>：社内業務・制作をAIエージェントで自動化しているため、同じ関与度でも人件費構造が軽く、その分を価格に反映しています。</p>
-          </div>
-        </details>
       </section>
 
       <!-- 3. AIサイト制作・リニューアル -->
@@ -136,12 +120,12 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
           <div class="pt-row">
             <span class="pt-name">サイトリニューアル</span>
             <span class="pt-price">110,000円</span>
-            <span class="pt-note">既存サイトをAI検索対応の土台へ移管・再構築。<span class="pos-badge">制作会社相場30〜80万の約1/3以下</span></span>
+            <span class="pt-note">既存サイトをAI検索対応の土台へ移管・再構築。</span>
           </div>
           <div class="pt-row">
             <span class="pt-name">新規サイト制作</span>
             <span class="pt-price">220,000円</span>
-            <span class="pt-note">ゼロから設計・制作。AI検索対応・構造化データ込み。<span class="pos-badge">中小制作会社相場30〜80万を下回る</span></span>
+            <span class="pt-note">ゼロから設計・制作。AI検索対応・構造化データ込み。</span>
           </div>
           <div class="pt-row">
             <span class="pt-name">CMS更新システム導入</span>
@@ -160,7 +144,7 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
           <div class="pt-row">
             <span class="pt-name">Easy管理費</span>
             <span class="pt-price">10,000円<span class="pt-per">/月</span></span>
-            <span class="pt-note">サーバー代込み（ご自身でのサーバー契約が不要に）＋LINEチャット質問対応・運用保守。<span class="pos-badge">保守相場のど真ん中</span></span>
+            <span class="pt-note">サーバー代込み（ご自身でのサーバー契約が不要に）＋LINEチャット質問対応・運用保守。</span>
           </div>
           <div class="pt-row">
             <span class="pt-name">詰まり対応</span>
@@ -174,29 +158,11 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
           </div>
         </div>
         <p class="pb-foot">※月額サポートなしでご自身で運用する場合は、サーバー代（月3,000円程度）を直接ご契約いただきます。</p>
-        <details class="pb-why">
-          <summary>この料金の根拠と業界ポジション</summary>
-          <div class="pb-why-body">
-            <p><strong>業界相場</strong>：小規模サイトの制作・リニューアルは、テンプレ型で10万円以下、フリーランスで10万〜30万円、中小制作会社で30万〜80万円。月額保守は5千円〜2万円がボリュームゾーン（中央値約1.1万円）です。</p>
-            <p><strong>コールテンの位置</strong>：リニューアル11万円は「フリーランス帯の価格で、制作会社レベルの設計＋AI検索（AIO）対応まで込み」の位置づけ。Easy管理費1万円は保守相場の中央値そのままで、サーバー代まで含みます。</p>
-            <p><strong>なぜこの価格でできるか</strong>：制作工程をAI（Codex等）と並走して進めるため、人手だけの制作会社より工数を大幅に圧縮できるからです。安いのは品質を削っているからではなく、作り方が新しいからです。</p>
-          </div>
-        </details>
       </section>
 
       <!-- ▲ここまで料金表▲ -->
 
-      <!-- 根拠・ポジションの見せ方 切替チップ（検討用・確定後に固定） -->
-      <section class="pp-pattern-picker" aria-label="表示パターン切替">
-        <p class="picker-note">▼「料金の根拠・業界ポジション」の見せ方（検討用スイッチ・確定後に固定します）</p>
-        <div class="picker-chips">
-          <button class="chip active" data-p="A">A：各表の下に折りたたみ</button>
-          <button class="chip" data-p="B">B：独立セクションで一覧</button>
-          <button class="chip" data-p="C">C：表内バッジ＋要点だけ</button>
-        </div>
-      </section>
-
-      <!-- パターンB: 独立セクション「業界の中でのコールテンの位置」 -->
+      <!-- 業界の中でのコールテンの位置 -->
       <section class="pp-position price-block">
         <div class="pb-head">
           <small class="pb-label">POSITION</small>
@@ -328,16 +294,6 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
 </Layout>
 
 <script>
-  // ===== 根拠・ポジション表示の3パターン切替（検討用） =====
-  const root = document.getElementById('pp-root');
-  document.querySelectorAll('.picker-chips .chip').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.picker-chips .chip').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      root?.setAttribute('data-pattern', btn.getAttribute('data-p') || 'A');
-    });
-  });
-
   // ===== 料金シミュレーター =====
   const yen = (n: number) => '¥' + n.toLocaleString('ja-JP');
   let mode = 'monthly';
@@ -471,30 +427,7 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
   .pb-combo { font-size: 13px; color: #35524a; background: #eef7f3; border-radius: 8px; padding: 10px 14px; margin: 12px 0 0; }
   .pb-combo strong { color: #16614e; }
 
-  /* 相場バッジ（パターンC用・既定は非表示） */
-  .pos-badge {
-    display: none;
-    margin-left: 6px;
-    padding: 2px 8px;
-    border-radius: 99px;
-    background: #e8f2ee;
-    color: #16614e;
-    font-size: 11px;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-  :global([data-pattern="C"]) .pos-badge { display: inline-block; }
-
-  /* 折りたたみ根拠（パターンA用） */
-  .pb-why { display: none; margin-top: 18px; border: 1px dashed #cfe3da; border-radius: 12px; padding: 4px 16px; background: #fcfdfc; }
-  :global([data-pattern="A"]) .pb-why { display: block; }
-  .pb-why summary { cursor: pointer; font-size: 13px; font-weight: 800; color: #16614e; padding: 10px 0; }
-  .pb-why-body p { font-size: 13px; color: #555; line-height: 1.9; margin: 0 0 12px; }
-  .pb-why-body strong { color: #16614e; }
-
-  /* 独立ポジションセクション（パターンB用） */
-  .pp-position { display: none; }
-  :global([data-pattern="B"]) .pp-position { display: block; }
+  /* 独立ポジションセクション */
   .pos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .pos-card { border: 1px solid #e6e0d6; border-radius: 12px; padding: 18px; background: #fcfdfc; }
   .pos-card h3 { font-size: 15px; color: #16614e; margin: 0 0 12px; font-weight: 800; }
@@ -509,22 +442,6 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
   .pos-range { position: absolute; top: 0; height: 8px; border-radius: 99px; background: #bcd9cd; }
   .pos-dot { position: absolute; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: #16614e; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.25); transform: translate(-50%, -50%); }
   .pos-bar-labels { display: flex; justify-content: space-between; font-size: 11px; color: #999; margin-top: 6px; }
-
-  /* パターン切替チップ */
-  .pp-pattern-picker { margin-top: 28px; }
-  .picker-note { font-size: 12px; color: #b08968; margin: 0 0 8px; }
-  .picker-chips { display: flex; gap: 8px; flex-wrap: wrap; }
-  .chip {
-    padding: 8px 14px;
-    border-radius: 99px;
-    border: 1px solid #d6e8df;
-    background: #fff;
-    color: #35524a;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-  .chip.active { background: #16614e; color: #fff; border-color: #16614e; }
 
   /* シミュレーター */
   .sim-group { margin-top: 6px; }
