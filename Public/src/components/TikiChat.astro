@@ -26,7 +26,7 @@ const THINKING_IMG =
       aria-haspopup="dialog"
       aria-expanded="false"
     >
-      <img src={LAUNCHER_IMG} alt="" width="80" height="80" loading="lazy" />
+      <img src={LAUNCHER_IMG} alt="" width="112" height="112" loading="lazy" />
     </button>
   </div>
 
@@ -74,7 +74,9 @@ const THINKING_IMG =
   </section>
 </div>
 
-<style>
+<style is:global>
+  /* is:global: チャット吹き出しはJSで動的生成するため、Astroのスコープ付きCSSでは当たらない。
+     全セレクタを .tc- / .tiki-chat-root 接頭辞で名前空間化して衝突を防いでいる。 */
   .tiki-chat-root {
     --tc-green: #16614e;
     --tc-bg: #fbf9f5;
@@ -95,18 +97,33 @@ const THINKING_IMG =
   }
 
   .tc-launcher {
-    width: 80px;
-    height: 80px;
+    position: relative;
+    width: 112px;
+    height: 112px;
     border-radius: 50%;
-    border: none;
+    border: 3px solid #16614e;
     background: #fff;
-    box-shadow: 0 6px 20px rgba(22, 97, 78, 0.28);
+    box-shadow: 0 8px 26px rgba(22, 97, 78, 0.35);
     cursor: pointer;
-    padding: 4px;
+    padding: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: tc-float 3s ease-in-out infinite;
+  }
+  .tc-launcher::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 3px solid rgba(22, 97, 78, 0.45);
+    animation: tc-pulse 2.4s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes tc-pulse {
+    0% { transform: scale(1); opacity: .9; }
+    70% { transform: scale(1.35); opacity: 0; }
+    100% { transform: scale(1.35); opacity: 0; }
   }
   .tc-launcher img {
     width: 100%;
@@ -122,12 +139,13 @@ const THINKING_IMG =
 
   .tc-bubble {
     position: relative;
-    max-width: 200px;
+    max-width: 230px;
     background: #fff;
     border: 1px solid var(--tc-border);
     border-radius: 14px;
-    padding: 10px 26px 10px 14px;
-    font-size: 13px;
+    padding: 12px 28px 12px 16px;
+    font-size: 14px;
+    font-weight: 700;
     color: #2c1810;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
     line-height: 1.5;
@@ -160,13 +178,17 @@ const THINKING_IMG =
 
   /* パネル */
   .tc-panel {
+    /* サイトのグローバルCSS `section { padding: 100px 0 }` を打ち消す（パネルはsection要素） */
+    padding: 0;
+    margin: 0;
     position: fixed;
     right: 20px;
-    bottom: 112px;
+    bottom: 152px;
     z-index: 9991;
     width: 380px;
     height: 560px;
-    max-height: calc(100vh - 140px);
+    max-height: calc(100vh - 180px);
+    max-height: calc(100dvh - 180px);
     background: var(--tc-bg);
     border: 1px solid var(--tc-border);
     border-radius: 16px;
@@ -349,12 +371,22 @@ const THINKING_IMG =
       bottom: 0;
       width: 100%;
       height: 75vh;
+      height: 75dvh;
       max-height: 75vh;
+      max-height: 75dvh;
       border-radius: 16px 16px 0 0;
     }
     .tc-launcher-wrap {
       right: 14px;
       bottom: 14px;
+    }
+    .tc-launcher {
+      width: 96px;
+      height: 96px;
+    }
+    /* iOS Safariはfont-size<16pxの入力にフォーカスすると強制ズームして画面がズレる */
+    .tc-input {
+      font-size: 16px;
     }
   }
 </style>
