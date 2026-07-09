@@ -33,7 +33,6 @@
 - [代表 向 雅也](https://www.corduroy.co.jp/members/masaya/): 創業者・代表のプロフィール
 - [コールテンの仕事術](https://www.corduroy.co.jp/members/about/): 31名のAI社員と共に働く方法論・AI活用の3世代史・Claude公式機能の解説
 - [クライアントの声](https://www.corduroy.co.jp/voices/): 導入事例集
-  - [スマイリーフラワーズ 窪田さん (AI顧問)](https://www.corduroy.co.jp/voices/kubota/)
   - [SHU行政書士事務所 沼澤さん (AI講座)](https://www.corduroy.co.jp/voices/numazawa/)
   - [中野たかろーさん (AI講座)](https://www.corduroy.co.jp/voices/takaro/)
   - [株式会社スデニアル 佐野さん (AI顧問)](https://www.corduroy.co.jp/voices/sano/)
