@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { LINE_URLS } from '../constants/urls';
 ---
 
 <Layout 
@@ -153,7 +154,7 @@ import Layout from '../layouts/Layout.astro';
                   現在、お問合せはLINE公式アカウントでお受けしています。<br>営業日２日以内を目安にご返信します。</p>
     
                 <div style="display:flex; flex-direction:column; gap:16px;">
-                  <a class="btn-line-contact" href="https://lin.ee/aQqPH7S" target="_blank" rel="noopener noreferrer"
+                  <a class="btn-line-contact" href={LINE_URLS.contact} target="_blank" rel="noopener noreferrer"
                     data-ga-event="line_click" data-ga-label="contact_page_line">
                     <div class="btn-line-icon">LINE</div>
                     <div>
