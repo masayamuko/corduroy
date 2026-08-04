@@ -5,6 +5,7 @@
 // 料金表を増やすときは「▼ここから料金表▼」以下に <section class="price-block"> を足すだけ。
 // 「根拠・ポジション」の表示は独立セクション（.pp-position）に確定済み。
 import Layout from '../../layouts/Layout.astro';
+import TikiChat from '../../components/TikiChat.astro';
 
 const LINE_URL = 'https://lin.ee/tDuJPjc';
 ---
@@ -292,6 +293,8 @@ const LINE_URL = 'https://lin.ee/tDuJPjc';
 
     </div>
   </main>
+
+  <TikiChat />
 </Layout>
 
 <script>
