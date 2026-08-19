@@ -323,10 +323,10 @@ const description = '人を大切にしたい——そんな思いを持つ会�
             </details>
           </article>
 
-          <article id="business-hiring" class="r-biz-card fade-up">
+          <article id="business-hiring" class="r-biz-card is-preparing fade-up">
             <span id="business-foreign" class="r-anchor-alias" aria-hidden="true"></span>
             {hasImage("/images/top/support-hiring.png") && <img class="r-biz-img" src="/images/top/support-hiring.png" alt="" width="1536" height="1024" loading="lazy" />}
-            <div class="r-biz-meta"><span class="r-biz-no">03</span><p>採用サポート</p></div>
+            <div class="r-biz-meta"><span class="r-biz-no">03</span><p>採用サポート</p><em class="r-prep-tag">準備中（登録支援機関 申請準備中）</em></div>
             <p class="r-bg-tag">背景: 働き手が減る</p>
             <h3>採用<span class="k">は、</span>会社<span class="k">の</span>魅力<span class="k">を</span>伝<span class="k">える</span>仕事<span class="k">。</span></h3>
             <p class="r-biz-lead">採用はマーケティングです。求人の打ち出し方から、外国人材の採用・定着まで、「選ばれて、長く続く採用」を一緒につくります。</p>
@@ -458,6 +458,24 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     </section>
 
 
+
+    <!-- S11 相性チェック -->
+    <section class="fit-section" aria-labelledby="fit-title">
+      <div class="home-shell fit-layout">
+        <div class="fit-copy">
+          <h2 id="fit-title">コールテン<span class="k">との</span><br />相性チェック<span class="k">。</span></h2>
+          <p>完ペキに一致する必要はありません。会社によって、大切にしたいことや経営の方法は違います。仕事をご一緒する前に、少しだけ価値観を比べてみませんか。</p>
+        </div>
+        <div class="fit-right">
+          <div class="fitcheck" id="fitcheck">
+            <p class="fitcheck-lead">いまの実感に近いほうへ、左右に寄せて答えてみてください。</p>
+            <div class="fitcheck-qs"></div>
+            <div class="fitcheck-result" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- よくある質問（FAQPage構造化データと対応する可視FAQ） -->
     <section id="faq" class="r-faq" aria-labelledby="faq-title">
       <div class="home-shell">
@@ -474,23 +492,6 @@ const description = '人を大切にしたい——そんな思いを持つ会�
           <summary>何から相談すればいいですか？</summary>
           <div class="r-acc-body"><p>サービスを決めてから相談する必要はありません。まず「今、会社の中で何が起きているのか」を一緒に整理するところから始めます。このページの相性チェックで、考え方が近いかを先に確かめることもできます。</p></div>
         </details>
-      </div>
-    </section>
-
-    <!-- S11 相性チェック -->
-    <section class="fit-section" aria-labelledby="fit-title">
-      <div class="home-shell fit-layout">
-        <div class="fit-copy">
-          <h2 id="fit-title">コールテン<span class="k">との</span><br />相性チェック<span class="k">。</span></h2>
-          <p>完ペキに一致する必要はありません。会社によって、大切にしたいことや経営の方法は違います。仕事をご一緒する前に、少しだけ価値観を比べてみませんか。</p>
-        </div>
-        <div class="fit-right">
-          <div class="fitcheck" id="fitcheck">
-            <p class="fitcheck-lead">いまの実感に近いほうへ、左右に寄せて答えてみてください。</p>
-            <div class="fitcheck-qs"></div>
-            <div class="fitcheck-result" aria-live="polite"></div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -3579,5 +3580,43 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     }
     .r-biz-img { height: 160px; }
     .r-biz-main .r-biz-img { height: 180px; }
+  }
+</style>
+
+<style>
+  /* 採用サポート: 準備中の見え方（黒フィルターで一段落ち着かせる） */
+  .r-biz-card.is-preparing {
+    position: relative;
+    background: #f4f2ee;
+  }
+  .r-biz-card.is-preparing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 30, 26, 0.06);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .r-biz-card.is-preparing > * {
+    position: relative;
+    z-index: 2;
+  }
+  .r-biz-card.is-preparing .r-biz-img {
+    filter: grayscale(0.35) brightness(0.97);
+  }
+  .r-prep-tag {
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 99px;
+    background: #e6e2d8;
+    color: #6b6355;
+    white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .r-biz-meta { flex-wrap: wrap; }
+    .r-prep-tag { white-space: normal; }
   }
 </style>
