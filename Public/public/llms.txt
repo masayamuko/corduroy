@@ -1,6 +1,6 @@
 # 株式会社コールテン (Corduroy Inc.)
 
-> 紹介限定・長期前提で伴走する会社。「人を大切にしたい経営を、理想で終わらせない」を掲げ、AI導入・活用支援（AI講座・AI顧問・AIサイトリニューアル）を中核に、コミュニケーション支援（テスト提供中）、採用サポート（準備中）、ボードゲームカフェ・場づくり（構想中）へ展開。福岡拠点。
+> 紹介限定・長期前提で伴走する会社。「人を大切にする経営を、理想で終わらせない。」を掲げ、AI活用サポート（AI講座・AI顧問・AIサイトリニューアル）を中核に、コミュニケーション支援（テスト提供中）、採用サポート（準備中）、ボードゲームカフェ・場づくり（構想中）へ展開。福岡拠点。
 
 代表: 向 雅也 (Masaya Muko) — 元エンジニアではない立場からAIを学び、非エンジニア目線で「AIとの付き合い方の型」を教えることを大切にしている。
 
@@ -23,7 +23,7 @@
   - [糸口会コミュニティ](https://www.corduroy.co.jp/ai/services/study/community/): AI活用仲間
   - [法人研修](https://www.corduroy.co.jp/ai/services/study/corporate/): 企業向けAI研修
 - [AI顧問](https://www.corduroy.co.jp/ai/services/advisory/): 業務理解にもとづくツール選定・導入サポート。継続伴走型。
-- [AI時代のサイトリニューアル](https://www.corduroy.co.jp/ai/services/ai-renewal/): 既存サイトをAI検索時代に対応した形にリニューアル。10万円買い切り+月額維持+デザインリニューアル+10万。
+- [AI時代のサイトリニューアル](https://www.corduroy.co.jp/ai/services/ai-renewal/): 既存サイトをAI検索時代に対応した形にリニューアル。買い切り10万円〜（デザインリニューアル込みのプランあり・月額の維持サポートは任意）。
 
 ## 主なページ
 
@@ -116,8 +116,8 @@
 
 ## ポリシー
 
-- [プライバシーポリシー](https://www.corduroy.co.jp/legal/privacy)
-- [特定商取引法に基づく表記](https://www.corduroy.co.jp/legal/tokushoho)
+- [プライバシーポリシー](https://www.corduroy.co.jp/legal/privacy/)
+- [特定商取引法に基づく表記](https://www.corduroy.co.jp/legal/tokushoho/)
 
 ## クローラ向けの方針
 
