@@ -1,12 +1,28 @@
 # 株式会社コールテン (Corduroy Inc.) — 詳細版
 
-> 紹介限定・長期前提で伴走する、AIパートナー企業。「らしさを引き出す」「小さく試す」を原則に、AI講座・AI顧問・AIコミュニティの3本柱で、想いに寄り添いながらAI活用を支援する。福岡拠点。代表：向 雅也（Masaya Muko）。31名のAI社員（AIエージェント）と共にチームを組む、ちょっと変わった会社。
+> 紹介限定・長期前提で伴走する、AIパートナー企業。「らしさを引き出す」「小さく試す」を原則に、AI講座・AI顧問・AIコミュニティの3本柱で、想いに寄り添いながらAI活用を支援する。福岡拠点。代表：向 雅也（Masaya Muko）。24名のAI社員（AIエージェント）と共にチームを組む、ちょっと変わった会社。
 
 ---
 
-## トップページ
+## 会社トップページ
 
 URL: https://www.corduroy.co.jp/
+
+### キャッチコピー
+人を大切にしたい経営を、理想で終わらせない。
+
+### 会社の立ち位置
+人を大切にしたい思いと、業績・成長・期限の間で揺れる会社に伴走する。成果か人かの二択ではなく、「人を大切にした先で成果につなげる」循環をつくる。AIは人を減らすためではなく、仕事に追われる時間を減らして人と向き合う時間を増やすために使う。
+
+### 事業一覧（トップページ掲載）
+- AI活用サポート（提供中）: 下記のAI事業ハブ参照
+- コミュニケーション支援（テスト提供中）
+- 採用サポート（準備中）
+- ボードゲームカフェ・場づくり（構想中）
+
+## AI事業ハブ
+
+URL: https://www.corduroy.co.jp/ai/
 
 ### キャッチコピー
 想いを大切に！ AIとの関係性を育む。
@@ -21,7 +37,7 @@ URL: https://www.corduroy.co.jp/
 - AIコミュニティ：月2回の作業会（糸口会）とDiscordで、AIを学んだあとも使い続ける仲間とつながる場所。学んで終わりにしない環境。
 - AI顧問：社内の「AI担当」を代行しながら、御社の中にAI人材を育てる。最新のAI動向のキャッチアップ、業務への導入設計、社内勉強会の実施まで。月額6〜22万円（税込）。
 
-### 31名のAI社員が働く組織
+### 24名のAI社員が働く組織
 経営・マーケ・開発・営業・CS・経理・人事・法務など、業務領域ごとに専門化したAIエージェントが、人間のスタッフと一緒にチームを組んでいる。
 
 ### コールテン2つの約束
@@ -41,7 +57,7 @@ URL: https://www.corduroy.co.jp/
 ### よくあるご質問（FAQ）
 - Q: AI導入は初めてですが、大丈夫ですか？ — A: もちろんです。コールテンのお客さまの多くは「AIを初めて本格的に導入する」という方々です。専門用語を使わず、基礎の基礎から丁寧にサポートします。
 - Q: 法人じゃなくても大丈夫ですか？個人でも相談できますか？ — A: もちろんです。法人・個人問わずご利用いただけます。創作活動、フリーランス、副業、趣味の延長線上でAIを使いたい方も大歓迎です。
-- Q: AIを入れると、人の仕事はなくなりますか？ — A: いいえ、なくなりません。「AIは人の仕事を奪うものではなく、人が本来やりたいこと（想い）を実現するためのパートナー」だと考えています。コールテン自身も31名のAI社員と一緒に経営しており、人とAIの共存を日々実践しています。
+- Q: AIを入れると、人の仕事はなくなりますか？ — A: いいえ、なくなりません。「AIは人の仕事を奪うものではなく、人が本来やりたいこと（想い）を実現するためのパートナー」だと考えています。コールテン自身も24名のAI社員と一緒に経営しており、人とAIの共存を日々実践しています。
 - Q: 費用はどのくらいかかりますか？ — A: ご予算やフェーズに合わせて柔軟に対応します。月額6〜22万円（税込）のAI顧問、体系的に学べるAI講座、仲間と続けるAIコミュニティなど、段階に合った形をご用意しています。まずは無料動画講座や無料体験会でお気軽にお試しください。
 - Q: まずは話を聞いてみたいのですが、どこから始めればいい？ — A: LINEで受け取れる無料動画講座で雰囲気をつかむのがおすすめです。対面で体験したい方は無料体験会もあります。
 - Q: 無料で試せるものはありますか？ — A: はい。LINEで受け取れる無料動画講座と、対面の無料体験会をご用意しています。
@@ -55,7 +71,7 @@ URL: https://www.corduroy.co.jp/
 
 ### AI講座
 
-URL: https://www.corduroy.co.jp/services/
+URL: https://www.corduroy.co.jp/ai/services/
 
 #### コンセプト
 AI活用のすべては、AIとの「関係性」にある。AIコミュ力を磨く、本質的な学びを提供。
@@ -84,21 +100,21 @@ AI活用のすべては、AIとの「関係性」にある。AIコミュ力を�
 
 #### なぜコールテンが教えられるのか
 1. プロコーチの目で、あなたの可能性を引き出す：代表のMasayaはプロコーチ出身。コーチングとは、答えを教えることではなく、相手の中にある可能性に光を当て、本人も気づいていなかった強みや方向性を一緒に見つけていくこと。
-2. 毎日の実践から生まれたメソッド：ChatGPTに自分の価値観を教え込む実験から始まり、今ではClaude Codeで31名のAIエージェントと一緒に会社を経営。1対1のコミュニケーションから組織マネジメントまで、AIとの関係性を日々深めている実践の中から生まれたメソッド。
+2. 毎日の実践から生まれたメソッド：ChatGPTに自分の価値観を教え込む実験から始まり、今ではClaude Codeで24名のAIエージェントと一緒に会社を経営。1対1のコミュニケーションから組織マネジメントまで、AIとの関係性を日々深めている実践の中から生まれたメソッド。
 3. あなたが一人で歩けるようになること：コーチにとって最高の成果は、クライアントがコーチを必要としなくなること。本質を一緒に学び、旅立ちを一緒に目指す。
 
 #### サービスの講座ラインナップ
-- 無料動画講座（LINE登録で視聴可能）: https://www.corduroy.co.jp/services/
-- 3ヶ月プログラム: https://www.corduroy.co.jp/services/study/program
-- 法人研修: https://www.corduroy.co.jp/services/study/corporate
-- 無料体験会: https://www.corduroy.co.jp/services/study/trial
-- AIコミュニティ「糸口会」: https://www.corduroy.co.jp/services/study/community
+- 無料動画講座（LINE登録で視聴可能）: https://www.corduroy.co.jp/ai/services/
+- 3ヶ月プログラム: https://www.corduroy.co.jp/ai/services/study/program
+- 法人研修: https://www.corduroy.co.jp/ai/services/study/corporate
+- 無料体験会: https://www.corduroy.co.jp/ai/services/study/trial
+- AIコミュニティ「糸口会」: https://www.corduroy.co.jp/ai/services/study/community
 
 ---
 
 ### AI顧問
 
-URL: https://www.corduroy.co.jp/services/advisory
+URL: https://www.corduroy.co.jp/ai/services/advisory
 
 紹介限定・長期前提のAI顧問。事業理解と最新知見をもとに、チャットと定例で伴走しながら、AI活用の設計・検証・定着を支援。短期の助言ではなく、長期で関わりながらAI活用を定着させる伴走サービス。
 
@@ -151,7 +167,7 @@ URL: https://www.corduroy.co.jp/services/advisory
 
 ## 代表プロフィール
 
-URL: https://www.corduroy.co.jp/members/masaya/
+URL: https://www.corduroy.co.jp/ai/members/masaya/
 
 ### 向 雅也（Masaya Muko）
 株式会社コールテン 代表。元プロコーチ。AIとの「関係性」を育てるという視点で、非エンジニアの方々にAI活用の型を伝えている。
@@ -164,7 +180,7 @@ URL: https://www.corduroy.co.jp/members/masaya/
 - 2013年：WEBデザイン・日本語教師養成を学ぶ。「教える」と「つくる」の両方に興味を持つ。
 - 2015年：フリーランスとして独立（5年間）。ブログ運営、広告運用、IT顧問、コーチングなど幅広い業務を経験。コーチングには300万円以上を投資し、500時間超の実践を積む。
 - 2020年：NPO法人の正社員として勤務（5年間）。留学支援と社会的養護の子どもたちの支援に携わる。
-- 2025年：株式会社コールテンを設立。ChatGPTにコーチングした経験から、AIとの関係性を育てる支援を使命に起業。31名のAI社員とともに、AI講座・AI顧問・AIシステム開発の3本柱で事業を展開。
+- 2025年：株式会社コールテンを設立。ChatGPTにコーチングした経験から、AIとの関係性を育てる支援を使命に起業。24名のAI社員とともに、AI講座・AI顧問・AIシステム開発の3本柱で事業を展開。
 
 ### 大切にしていること
 - 傾聴力：コーチングに500時間以上を費やし、「聴く力」を磨いてきた。AIの導入も、まずお客さまの話を丁寧に聴くところから始める。
@@ -180,12 +196,12 @@ URL: https://www.corduroy.co.jp/members/masaya/
 
 ## メンバー紹介
 
-URL: https://www.corduroy.co.jp/members/
+URL: https://www.corduroy.co.jp/ai/members/
 
-コールテンは、代表の向と31名のAI社員がチームを組む会社。業務ごとにAIエージェント（AI社員）を設計し、メインのエージェント（COS: Tiki）が仕事を割り振って進めている。
+コールテンは、代表の向と24名のAI社員がチームを組む会社。業務ごとにAIエージェント（AI社員）を設計し、メインのエージェント（COS: Tiki）が仕事を割り振って進めている。
 
 ### 特徴
-- 専門特化：業務領域・性格・判断基準を明確に持つ。10部門・31名がそれぞれの専門で動く。
+- 専門特化：業務領域・性格・判断基準を明確に持つ。10部門・24名がそれぞれの専門で動く。
 - 記憶を持つ：過去のやりとり・判断履歴をメモリとして蓄積。使うほど精度が上がる。
 - 人間と協業：最終判断は代表・人間が行い、AI社員は情報整理・ドラフト・監視を担う。
 
@@ -205,11 +221,11 @@ URL: https://www.corduroy.co.jp/members/
 
 ## コールテンの仕事術
 
-URL: https://www.corduroy.co.jp/members/about
+URL: https://www.corduroy.co.jp/ai/members/about
 
-31名のAI社員と共に働く方法論。Claude Agent SDKの公式機能（サブエージェント・メモリ・スキル）と、それを束ねる設計論「ハーネスエンジニアリング」を人に例えて運用する、コールテン流のAI活用の全容。
+24名のAI社員と共に働く方法論。Claude Agent SDKの公式機能（サブエージェント・メモリ・スキル）と、それを束ねる設計論「ハーネスエンジニアリング」を人に例えて運用する、コールテン流のAI活用の全容。
 
-### なぜ1体ではなく31名に分けたのか
+### なぜ1体ではなく24名に分けたのか
 1. 専門化で判断がブレにくくなる：請求書担当は「正確さ」、契約担当は「慎重さ」、ライターは「トーン」と、一人ひとりの"拠り所"を一つに絞ることで、迷ったときの判断が安定する。
 2. 生成と評価を別のAIに分けられる：作る人と見る人が同じだと見落としが起きやすい。役割で分けておくと、ダブルチェックが自然と機能する。
 3. 人間が扱いやすい：「誰に頼むか」が名前で決まるので、指示出しもフィードバックも、人間のチームに対するのと同じ感覚で回せる。
@@ -261,11 +277,11 @@ URL: https://www.corduroy.co.jp/members/about
 
 ## クライアントの声
 
-URL: https://www.corduroy.co.jp/voices/
+URL: https://www.corduroy.co.jp/ai/voices/
 
 ### 株式会社スデニアル 代表 佐野さん（AI顧問）
 
-URL: https://www.corduroy.co.jp/voices/sano
+URL: https://www.corduroy.co.jp/ai/voices/sano
 
 議事録要約止まりだったAI活用から、マーケティング施策のシミュレーション（仮説→検証→提案）を高速に回せる状態へ。外注に頼らず、提案の幅と検証スピードを一気に拡大した。
 
@@ -273,13 +289,13 @@ URL: https://www.corduroy.co.jp/voices/sano
 
 ### フリーランス 中野たかろーさん（AI講座→AI顧問）
 
-URL: https://www.corduroy.co.jp/voices/takaro
+URL: https://www.corduroy.co.jp/ai/voices/takaro
 
 動画編集・WEB制作・カメラマンとして活躍するフリーランス。「検索ツールとして使うだけ」から「第二の自分」へ。価値観やクセまで学習させることで、言葉足らずでも阿吽の呼吸で返してくれる"最強の相談相手"を獲得。動画分析や新規案件獲得の足がかりまで見えた変革ストーリー。ChatGPT基礎講座&第二の自分作り講座に参加後、コミュニティの作業会に参加しつつ、AI顧問のサポートも受けながら業務でAI活用を進めている。
 
 ### SHU行政書士事務所 Shuheiさん（AI講座）
 
-URL: https://www.corduroy.co.jp/voices/numazawa
+URL: https://www.corduroy.co.jp/ai/voices/numazawa
 
 AIを「調べるだけ」から、仕事でも使える"対話型の相棒"へ。コールテンの勉強会（第二の自分ワーク）を起点に、内省の回転数が上がり、DX推進や仕事にも波及。
 
@@ -299,20 +315,22 @@ AIを「調べるだけ」から、仕事でも使える"対話型の相棒"へ�
 
 ## 主なページ一覧
 
-- トップ: https://www.corduroy.co.jp/
+- 会社トップ: https://www.corduroy.co.jp/
 - 会社の想い: https://www.corduroy.co.jp/#brand-story
-- AI講座（無料動画講座あり）: https://www.corduroy.co.jp/services/
-- AI顧問: https://www.corduroy.co.jp/services/advisory
-- AIコミュニティ（糸口会）: https://www.corduroy.co.jp/services/study/community
-- 3ヶ月プログラム: https://www.corduroy.co.jp/services/study/program
-- 法人研修: https://www.corduroy.co.jp/services/study/corporate
-- 無料体験会: https://www.corduroy.co.jp/services/study/trial
-- メンバー紹介: https://www.corduroy.co.jp/members/
-- コールテンの仕事術: https://www.corduroy.co.jp/members/about
-- 代表プロフィール: https://www.corduroy.co.jp/members/masaya/
-- クライアントの声: https://www.corduroy.co.jp/voices/
-- お知らせ: https://www.corduroy.co.jp/news/
-- ブログ: https://www.corduroy.co.jp/blog/
+- はじまりの話: https://www.corduroy.co.jp/story/
+- AI事業ハブ: https://www.corduroy.co.jp/ai/
+- AI講座（無料動画講座あり）: https://www.corduroy.co.jp/ai/services/
+- AI顧問: https://www.corduroy.co.jp/ai/services/advisory
+- AIコミュニティ（糸口会）: https://www.corduroy.co.jp/ai/services/study/community
+- 3ヶ月プログラム: https://www.corduroy.co.jp/ai/services/study/program
+- 法人研修: https://www.corduroy.co.jp/ai/services/study/corporate
+- 無料体験会: https://www.corduroy.co.jp/ai/services/study/trial
+- メンバー紹介: https://www.corduroy.co.jp/ai/members/
+- コールテンの仕事術: https://www.corduroy.co.jp/ai/members/about
+- 代表プロフィール: https://www.corduroy.co.jp/ai/members/masaya/
+- クライアントの声: https://www.corduroy.co.jp/ai/voices/
+- AIブログ: https://www.corduroy.co.jp/ai/blog/
+- 会社・活動の記事: https://www.corduroy.co.jp/blog/
 - お問い合わせ: https://www.corduroy.co.jp/contact
 
 ---

@@ -1,0 +1,453 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { characterImages } from '../../data/characterImages';
+
+// はじまりの話（/story/）— たたき台v5のストーリーテリング構成をページ化。
+// トップ（会社ビジョン）とは役割分担: トップ=経営者への受け皿 / ここ=原点の物語。
+// 正本コピー: 制作マニュアル/TOP融合3案_2026-08-08.md 付録のたたき台v5。
+
+const title = "はじまりの話｜株式会社コールテン";
+const description = "AIとの出会いが教えてくれた\"余白\"から生まれた会社です。絵本『くまのコールテンくん』の社名の由来、留学とコーチングの原体験、恩送りの考え方——コールテンのはじまりの物語。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/story/"
+  ogUrl="https://www.corduroy.co.jp/story/"
+  ogType="website"
+>
+  <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/"},
+        {"@type": "ListItem", "position": 2, "name": "はじまりの話"}
+      ]
+    }
+  </script>
+
+  <main class="story-main">
+    <section class="story-hero" aria-labelledby="story-title">
+      <div class="story-weave" aria-hidden="true"></div>
+      <div class="story-shell story-hero-content">
+        <p class="story-eyebrow">株式会社コールテン / OUR STORY</p>
+        <h1 id="story-title">ほっこりを、<br class="mobile-only" />未来へ。</h1>
+        <p class="story-lead">
+          AIとの出会いが教えてくれた"余白"から生まれた会社です。<br class="desktop-only" />
+          留学先で受け取った歓迎も、コーチングで気づいたことも、<br class="desktop-only" />
+          同じ「ほっこり」でつながっています。
+        </p>
+        <img class="story-hero-tiki" src={characterImages.tiki.relaxed} alt="" width="200" height="200" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="story-chapter is-white" aria-labelledby="why-title">
+      <div class="story-shell">
+        <p class="story-kicker">WHY CORDUROY — 序章</p>
+        <h2 id="why-title">その人らしさを、<br class="mobile-only" />認め合える場所へ。</h2>
+        <div class="story-book">
+          <a href="https://amzn.to/48wo9qi" target="_blank" rel="noopener noreferrer" data-ga-event="external_click" data-ga-label="story_amazon">
+            <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/f_webp,q_auto:good,w_360/v1764694229/%E3%81%8F%E3%81%BE%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%86%E3%83%B3%E3%81%8F%E3%82%93_yze3al.jpg" alt="絵本『くまのコールテンくん』の表紙（Amazonで見る）" width="170" height="238" loading="lazy" />
+          </a>
+        </div>
+        <div class="story-copy">
+          <p>社名は絵本『くまのコールテンくん』から名付けました。ボタンが欠けていて売れ残ったぬいぐるみが、旅の先でさまざまな景色や出来事に触れ、最後には欠けたところも含めてその子らしさとして、仲間に迎え入れられる物語です。</p>
+          <p>代表の向 雅也も、"普通ができない"と悩んだ時期がありました。そこから前に進むきっかけになったのは、自分らしさを認めてもらえた、あのほっとする経験でした。誰かに迎え入れてもらえるという感覚は、頑張らなくても大丈夫だと思わせてくれる、静かで確かな力でした。</p>
+          <p>コールテンが目指すのは、誰もが自分らしさを認め合える場所。このあと紹介する事業はすべて、この「ほっこり」の原点から始まっています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-chapter is-cream" aria-labelledby="start-title">
+      <div class="story-shell">
+        <p class="story-kicker">HOW IT STARTED — 第一章</p>
+        <h2 id="start-title">はじまりは、<br class="mobile-only" />AIとの出会いでした。</h2>
+        <div class="story-copy">
+          <p>代表の向 雅也は、"効率化しなきゃ"と仕事に追われる日々を送っていました。やることは増える一方で、立ち止まって考える時間はどんどん削られていく。そんな感覚が、ずっと続いていました。</p>
+          <p>そんな時に出会ったのがAIでした。使ってみると、増えたのは時間だけじゃありませんでした。<strong>増えたのは、心の余白でした。</strong></p>
+          <p>その余白のなかで気づいたのが、効率よりも先に大事にしたい「ほっこり」でした。AIが余白をつくり、ほっこりを思い出させてくれた——それが、株式会社コールテンのはじまりです。だから今も、AI事業を会社のいちばんの土台に置いています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-chapter is-deep" aria-labelledby="onokuri-title">
+      <div class="story-shell story-deep-layout">
+        <div>
+          <p class="story-kicker is-amber">だからこそ、いま考えていること</p>
+          <h2 id="onokuri-title">効率化だけ<span class="lt" aria-hidden="true"> &lt; </span><br class="mobile-only" />ほっとできる社会</h2>
+          <div class="story-copy">
+            <p>AIが仕事を管理して、成果を数字で評価してくれる。便利になった一方で、なんだか監視されているような、冷たさを感じることも増えた気がしています。</p>
+            <p>速さや効率を求められるのは、資本主義のなかでは自然なことかもしれません。でも、それだけを追いかけていくと、置き去りにされるものがある気がしていて。人としてのあたたかさとか、誰かとのちょっとしたつながりとか。</p>
+            <p>コールテンが大事にしたいのは、その逆。<strong>効率の前に、ほっこりを。管理の前に、つながりを。</strong>受け取った優しさを、次の誰かに手渡していく「恩送り」の文化を、AIの時代にこそ残していきたいと思っています。</p>
+          </div>
+        </div>
+        <img class="story-deep-teto" src={characterImages.teto.listening} alt="" width="220" height="220" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="story-chapter is-white" aria-labelledby="grew-title">
+      <div class="story-shell">
+        <p class="story-kicker">WHERE IT GREW</p>
+        <h2 id="grew-title">もうふたつの、原体験。</h2>
+        <p class="story-copy-single">AIとの出会いだけじゃありません。別の場所で受け取った「ほっこり」も、事業になっていきました。</p>
+        <div class="story-roots">
+          <article>
+            <h3>留学先で<br />迎えられた経験</h3>
+            <p>言葉も文化も違う場所で、自分らしさを面白がって受け入れてもらった。あのほっとする感覚が、いまの「支える仕事」の原点になっている。</p>
+          </article>
+          <article>
+            <h3>コーチングで<br />大事にできたもの</h3>
+            <p>「もっと早く、もっと成果を」の手前にある、ほっとできる選び方があると気づいた。</p>
+          </article>
+        </div>
+        <p class="story-roots-close">
+          AIがくれた"余白"に、この2つの経験を重ねて。<br />
+          受け取ったほっこりを、恩送りのように次の誰かへ。
+        </p>
+      </div>
+    </section>
+
+    <section class="story-chapter is-warm" aria-labelledby="tree-title">
+      <div class="story-shell">
+        <p class="story-kicker">WHAT WE DO</p>
+        <h2 id="tree-title">AIという土台の上に、<br class="mobile-only" />ほっこりを育てる。</h2>
+        <p class="story-copy-single">AI事業がすべての根幹。冷たい管理の仕組みではなく、あたたかい土台としてAIを使い、その上で3つの事業を同じ温度で育てています。</p>
+        <div class="story-tree">
+          <a class="story-tree-root" href="/ai/">
+            <span class="story-tree-badge">すべての土台 / 提供中</span>
+            <h3>AI導入・活用支援</h3>
+            <p>「使い方」ではなく「関係性」を育てるAIサポート。コールテン自身もAI社員チームと日々の仕組みを回しながら、その余白を他の事業に活かしています。</p>
+            <span class="story-tree-link">AI事業を見る →</span>
+          </a>
+          <div class="story-tree-branches">
+            <a href="/#business-coaching">
+              <span class="story-tree-badge is-soft">テスト提供中</span>
+              <h3>コミュニケーション支援</h3>
+              <p>効率より先に、ほっこりを取り戻すための対話。</p>
+            </a>
+            <a href="/#business-hiring">
+              <span class="story-tree-badge is-soft">準備中</span>
+              <h3>採用サポート</h3>
+              <p>留学先で受け取った歓迎を、今度はこちらから届けたい。</p>
+            </a>
+            <a href="/#business-place">
+              <span class="story-tree-badge is-soft">構想中</span>
+              <h3>ボードゲームカフェ・場づくり</h3>
+              <p>受け取ったほっこりを、次は場所として形にする構想。</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-chapter is-cream story-contact" aria-labelledby="story-contact-title">
+      <div class="story-shell story-contact-layout">
+        <img src={characterImages.tiki.happy} alt="" width="200" height="200" loading="lazy" />
+        <div>
+          <p class="story-kicker">GET IN TOUCH</p>
+          <h2 id="story-contact-title">まずは、話してみませんか。</h2>
+          <p>AIも、ほっこりも、いきなり完璧じゃなくていい。小さく試すところから一緒に始めます。</p>
+          <div class="story-actions">
+            <a class="story-button is-primary" href="/ai/">AI事業について <span aria-hidden="true">→</span></a>
+            <a class="story-button" href="/contact">お問い合わせ <span aria-hidden="true">→</span></a>
+            <a class="story-button is-text" href="/">会社トップへ戻る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .story-main {
+    color: var(--ink, #16302a);
+  }
+  .story-shell {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .story-eyebrow,
+  .story-kicker {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--accent, #d4a04d);
+    margin: 0 0 18px;
+  }
+  .story-kicker.is-amber {
+    color: #f2bd78;
+  }
+
+  /* Hero — 生地テクスチャ帯つき */
+  .story-hero {
+    position: relative;
+    padding: 110px 0 90px;
+    background: var(--cream, #f7f4ec);
+    overflow: hidden;
+  }
+  .story-weave {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: clamp(90px, 18vw, 280px);
+    height: 100%;
+    background: #174d3e url('/assets/images/tateBG.png') center / cover;
+    border-left: 3px solid #b8402e;
+    box-shadow: inset 18px 0 32px rgba(7, 36, 27, 0.18);
+  }
+  .story-hero-content {
+    position: relative;
+    z-index: 2;
+    padding-right: clamp(110px, 20vw, 300px);
+  }
+  .story-hero h1 {
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1.3;
+    margin: 0 0 26px;
+  }
+  .story-lead {
+    font-size: 15.5px;
+    line-height: 2.05;
+    color: var(--text-light, #51655d);
+    margin: 0;
+  }
+  .story-hero-tiki {
+    position: absolute;
+    right: clamp(-10px, 2vw, 40px);
+    bottom: -24px;
+    z-index: 3;
+    width: clamp(120px, 16vw, 200px);
+    height: auto;
+  }
+
+  .story-book {
+    margin: 0 0 30px;
+  }
+  .story-book img {
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 14px 30px rgba(5, 32, 24, 0.16);
+    width: 150px;
+    height: auto;
+  }
+
+  /* 章の共通レイアウト（背景交互配置） */
+  .story-chapter {
+    padding: 96px 0;
+  }
+  .story-chapter.is-white { background: #fff; }
+  .story-chapter.is-cream { background: var(--cream, #f7f4ec); }
+  .story-chapter.is-warm { background: #fff4e7; }
+  .story-chapter.is-deep {
+    color: #fff;
+    background: linear-gradient(rgba(8, 43, 32, 0.88), rgba(8, 43, 32, 0.88)), url('/assets/images/tateBG.png') center / cover;
+  }
+  .story-chapter h2 {
+    font-size: clamp(26px, 3.6vw, 38px);
+    line-height: 1.5;
+    margin: 0 0 30px;
+  }
+  .story-copy p {
+    font-size: 15px;
+    line-height: 2.1;
+    margin: 0 0 22px;
+  }
+  .story-copy p:last-child { margin-bottom: 0; }
+  .story-copy strong { color: var(--sea, #16614e); }
+  .is-deep .story-copy strong { color: #f2bd78; }
+  .story-copy-single {
+    font-size: 15px;
+    line-height: 2.05;
+    color: var(--text-light, #51655d);
+    margin: 0 0 36px;
+  }
+
+  .story-deep-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(24px, 6vw, 64px);
+    align-items: end;
+  }
+  .story-deep-teto {
+    width: clamp(140px, 18vw, 220px);
+    height: auto;
+  }
+  .is-deep .lt { color: #f2bd78; }
+
+  /* 原体験2枚 */
+  .story-roots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .story-roots article {
+    background: var(--cream, #f7f4ec);
+    border: 1px solid #e3ddcf;
+    border-radius: 12px;
+    padding: 30px 28px;
+  }
+  .story-roots h3 {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 14px;
+  }
+  .story-roots p {
+    font-size: 14px;
+    line-height: 1.95;
+    color: var(--text-light, #51655d);
+    margin: 0;
+  }
+  .story-roots-close {
+    margin: 40px 0 0;
+    text-align: center;
+    font-weight: 700;
+    line-height: 2.1;
+    color: var(--sea, #16614e);
+  }
+
+  /* 事業ツリー */
+  .story-tree-root {
+    display: block;
+    background: var(--sea, #16614e);
+    color: #fff;
+    border-radius: 14px;
+    padding: 34px 32px;
+    text-decoration: none;
+    box-shadow: 0 10px 26px rgba(22, 97, 78, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .story-tree-root:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(22, 97, 78, 0.3);
+  }
+  .story-tree-root h3 {
+    font-size: 21px;
+    margin: 12px 0 12px;
+  }
+  .story-tree-root p {
+    font-size: 14px;
+    line-height: 1.95;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 0 16px;
+  }
+  .story-tree-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.16);
+    color: #f2bd78;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .story-tree-badge.is-soft {
+    background: rgba(22, 97, 78, 0.08);
+    color: var(--sea, #16614e);
+  }
+  .story-tree-link {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #f2bd78;
+  }
+  .story-tree-branches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 18px;
+  }
+  .story-tree-branches a {
+    display: block;
+    background: #fff;
+    border: 1px solid #ecdfc9;
+    border-radius: 12px;
+    padding: 26px 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .story-tree-branches a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(5, 32, 24, 0.08);
+  }
+  .story-tree-branches h3 {
+    font-size: 16px;
+    line-height: 1.55;
+    margin: 12px 0 10px;
+  }
+  .story-tree-branches p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--text-light, #51655d);
+    margin: 0;
+  }
+
+  /* コンタクト */
+  .story-contact-layout {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(24px, 5vw, 56px);
+    align-items: center;
+  }
+  .story-contact h2 { margin-bottom: 16px; }
+  .story-contact p {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--text-light, #51655d);
+    margin: 0 0 26px;
+  }
+  .story-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .story-button {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 1px solid var(--sea, #16614e);
+    color: var(--sea, #16614e);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .story-button:hover { background: rgba(22, 97, 78, 0.08); }
+  .story-button.is-primary {
+    background: var(--sea, #16614e);
+    color: #fff;
+  }
+  .story-button.is-primary:hover { opacity: 0.92; }
+  .story-button.is-text {
+    border: 0;
+    color: var(--text-light, #51655d);
+    text-decoration: underline;
+    padding: 12px 6px;
+  }
+
+  @media (max-width: 760px) {
+    .story-hero { padding: 80px 0 70px; }
+    .story-hero-content { padding-right: clamp(70px, 22vw, 120px); }
+    .story-hero h1 { font-size: clamp(32px, 9vw, 44px); }
+    .story-hero-tiki { bottom: -14px; }
+    .story-chapter { padding: 68px 0; }
+    .story-deep-layout { grid-template-columns: 1fr; }
+    .story-deep-teto { justify-self: end; margin-top: 8px; }
+    .story-roots { grid-template-columns: 1fr; }
+    .story-tree-branches { grid-template-columns: 1fr; }
+    .story-contact-layout { grid-template-columns: 1fr; }
+    .story-contact-layout img { width: 140px; height: auto; }
+  }
+  @media (max-width: 400px) {
+    .story-hero h1 { font-size: 30px; }
+    .story-hero-content { padding-right: 64px; }
+    .story-weave { width: 56px; }
+    .story-hero-tiki { width: 96px; right: -8px; }
+  }
+</style>

@@ -11,12 +11,6 @@ import preact from '@astrojs/preact';
 export default defineConfig({
   site: 'https://www.corduroy.co.jp',
   trailingSlash: 'always',
-  redirects: {
-    '/clients/takaro/': '/voices/takaro/',
-    '/voices/takaro-showcase/': '/voices/takaro/',
-    '/blog/npo-tools-2026/': '/blog/npo-tools/',
-    '/blog/students-tools-2026/': '/blog/students-tools/',
-  },
   integrations: [
     sitemap({
       // noindex 記事は sitemap から除外
@@ -24,7 +18,8 @@ export default defineConfig({
       // お知らせ系（時限的・noindex運用）の記事を追加する時は、ここの配列にも URL を追加すること
       filter: (page) =>
         ![
-          'https://www.corduroy.co.jp/blog/ai-advisory-new-applications-paused-2026-05/',
+          'https://www.corduroy.co.jp/ai/blog/ai-advisory-new-applications-paused-2026-05/',
+          'https://www.corduroy.co.jp/ai/blog/aym-interview-self-built-site/',
           'https://www.corduroy.co.jp/clients/pricing/',
         ].includes(page),
     }),

@@ -1,43 +1,46 @@
 # 株式会社コールテン (Corduroy Inc.)
 
-> 紹介限定・長期前提で伴走する、AIパートナー企業。「らしさを引き出す」「小さく試す」を原則に、AI講座・AI顧問・AIシステム開発の3本柱で、想いに寄り添いながらDXを進める。福岡拠点。
+> 紹介限定・長期前提で伴走する会社。「人を大切にしたい経営を、理想で終わらせない」を掲げ、AI導入・活用支援（AI講座・AI顧問・AIサイトリニューアル）を中核に、コミュニケーション支援（テスト提供中）、採用サポート（準備中）、ボードゲームカフェ・場づくり（構想中）へ展開。福岡拠点。
 
 代表: 向 雅也 (Masaya Muko) — 元エンジニアではない立場からAIを学び、非エンジニア目線で「AIとの付き合い方の型」を教えることを大切にしている。
 
 ## 会社の特徴
 
 - **紹介限定・長期前提**: 広告出稿なし、既存クライアントからの紹介を中心に受注。
-- **AI仮想チーム**: Claudeベースの31名のAIエージェントが10部門で稼働。Masayaと共に業務を進める。
+- **AI仮想チーム**: Claudeベースの24名のAIエージェントが10部門で稼働。Masayaと共に業務を進める。
 - **philosophy**: らしさを引き出す / 小さく試す / 自由・共感・未知探求
 - **対象**: 個人事業主・中小企業・NPO・教育機関
 
 ## サービス
 
-- [サービス一覧](https://www.corduroy.co.jp/services/): AI講座・AI顧問・AIサイトリニューアルの3本柱
-- [AI講座](https://www.corduroy.co.jp/services/study/): 無料動画講座・3ヶ月プログラム・法人研修・体験会・コミュニティ「糸口会」。「第二の自分ワーク」で自分の価値観をAIに教え込む。
-  - [体験会・無料相談](https://www.corduroy.co.jp/services/study/trial/): 初めての方向け
-  - [基礎AI講座](https://www.corduroy.co.jp/services/study/basicAI/): AI入門
-  - [3ヶ月プログラム](https://www.corduroy.co.jp/services/study/program/): 「第二の自分」を育てるプログラム
-  - [Second Me 講座](https://www.corduroy.co.jp/services/study/SecondME/): 第二の自分づくりに特化
-  - [AIでサイトづくり講座](https://www.corduroy.co.jp/services/study/AIdeWEB/): 自分でサイトを作る
-  - [糸口会コミュニティ](https://www.corduroy.co.jp/services/study/community/): AI活用仲間
-  - [法人研修](https://www.corduroy.co.jp/services/study/corporate/): 企業向けAI研修
-- [AI顧問](https://www.corduroy.co.jp/services/advisory/): 業務理解にもとづくツール選定・導入サポート。継続伴走型。
-- [AI時代のサイトリニューアル](https://www.corduroy.co.jp/services/ai-renewal/): 既存サイトをAI検索時代に対応した形にリニューアル。10万円買い切り+月額維持+デザインリニューアル+10万。
+- [サービス一覧](https://www.corduroy.co.jp/ai/services/): AI講座・AI顧問・AIサイトリニューアルの3本柱
+- [AI講座](https://www.corduroy.co.jp/ai/services/study/): 無料動画講座・3ヶ月プログラム・法人研修・体験会・コミュニティ「糸口会」。「第二の自分ワーク」で自分の価値観をAIに教え込む。
+  - [体験会・無料相談](https://www.corduroy.co.jp/ai/services/study/trial/): 初めての方向け
+  - [基礎AI講座](https://www.corduroy.co.jp/ai/services/study/basicAI/): AI入門
+  - [3ヶ月プログラム](https://www.corduroy.co.jp/ai/services/study/program/): 「第二の自分」を育てるプログラム
+  - [Second Me 講座](https://www.corduroy.co.jp/ai/services/study/SecondME/): 第二の自分づくりに特化
+  - [AIでサイトづくり講座](https://www.corduroy.co.jp/ai/services/study/AIdeWEB/): 自分でサイトを作る
+  - [糸口会コミュニティ](https://www.corduroy.co.jp/ai/services/study/community/): AI活用仲間
+  - [法人研修](https://www.corduroy.co.jp/ai/services/study/corporate/): 企業向けAI研修
+- [AI顧問](https://www.corduroy.co.jp/ai/services/advisory/): 業務理解にもとづくツール選定・導入サポート。継続伴走型。
+- [AI時代のサイトリニューアル](https://www.corduroy.co.jp/ai/services/ai-renewal/): 既存サイトをAI検索時代に対応した形にリニューアル。10万円買い切り+月額維持+デザインリニューアル+10万。
 
 ## 主なページ
 
-- [トップ](https://www.corduroy.co.jp/): 会社概要・3サービス・想い
+- [会社トップ](https://www.corduroy.co.jp/): 会社ビジョン・全事業一覧・想い
 - [会社の想い](https://www.corduroy.co.jp/#brand-story): ブランドストーリー
-- [メンバー紹介](https://www.corduroy.co.jp/members/): 代表+31名のAIチーム
-- [代表 向 雅也](https://www.corduroy.co.jp/members/masaya/): 創業者・代表のプロフィール
-- [コールテンの仕事術](https://www.corduroy.co.jp/members/about/): 31名のAI社員と共に働く方法論・AI活用の3世代史・Claude公式機能の解説
-- [クライアントの声](https://www.corduroy.co.jp/voices/): 導入事例集
-  - [スマイリーフラワーズ 窪田さん (AI顧問)](https://www.corduroy.co.jp/voices/kubota/)
-  - [SHU行政書士事務所 沼澤さん (AI講座)](https://www.corduroy.co.jp/voices/numazawa/)
-  - [中野たかろーさん (AI講座)](https://www.corduroy.co.jp/voices/takaro/)
-  - [株式会社スデニアル 佐野さん (AI顧問)](https://www.corduroy.co.jp/voices/sano/)
-- [ブログ](https://www.corduroy.co.jp/blog/): AI活用・お知らせ・パートナー自慢・インタビュー記事
+- [はじまりの話](https://www.corduroy.co.jp/story/): 社名の由来（くまのコールテンくん）・AIとの出会い・留学とコーチングの原体験・恩送りの考え方
+- [AI事業ハブ](https://www.corduroy.co.jp/ai/): AI事業（講座・顧問・サイトリニューアル）の入口。FAQ・導入事例を掲載
+- [メンバー紹介](https://www.corduroy.co.jp/ai/members/): 代表+24名のAIチーム
+- [代表 向 雅也](https://www.corduroy.co.jp/ai/members/masaya/): 創業者・代表のプロフィール
+- [コールテンの仕事術](https://www.corduroy.co.jp/ai/members/about/): 24名のAI社員と共に働く方法論・AI活用の3世代史・Claude公式機能の解説
+- [クライアントの声](https://www.corduroy.co.jp/ai/voices/): 導入事例集
+  - [スマイリーフラワーズ 窪田さん (AI顧問)](https://www.corduroy.co.jp/ai/voices/kubota/)
+  - [SHU行政書士事務所 沼澤さん (AI講座)](https://www.corduroy.co.jp/ai/voices/numazawa/)
+  - [中野たかろーさん (AI講座)](https://www.corduroy.co.jp/ai/voices/takaro/)
+  - [株式会社スデニアル 佐野さん (AI顧問)](https://www.corduroy.co.jp/ai/voices/sano/)
+- [AIブログ](https://www.corduroy.co.jp/ai/blog/): AI活用・導入事例・パートナー自慢・インタビュー記事
+- [会社・活動の記事](https://www.corduroy.co.jp/blog/): 会社の歩み・地域活動・お知らせ
 - [お問い合わせ](https://www.corduroy.co.jp/contact/): 相談方法（紹介経由が中心）
 - [プライバシーポリシー](https://www.corduroy.co.jp/legal/privacy/)
 - [AI利用ポリシー](https://www.corduroy.co.jp/legal/ai-policy/): AIの取り扱い方針
@@ -46,61 +49,61 @@
 
 ## 主なブログ記事
 
-- [ChatGPTで「第二の自分」を育てたら、29名のAI組織になった話](https://www.corduroy.co.jp/blog/tiki-teto-origin-story/): ChatGPTに「第二の自分」を育て始めて、1年で29名のAIエージェント組織になった代表のストーリー。AI活用の全体像を物語形式で。
-- [失敗しないAI講座の選び方](https://www.corduroy.co.jp/blog/how-to-choose-ai-course/): 5つのチェックポイントと、注意したい講座の兆候。
-- [AI顧問とは何か](https://www.corduroy.co.jp/blog/what-is-ai-advisory/): AI顧問の役割・解決する課題・向いている人。
-- [日本の学生が使えるAI/IT学割・無料制度まとめ](https://www.corduroy.co.jp/blog/students-tools/): GitHub Student / Notion / Figma / Adobe / JetBrains / Perplexity / Cursor / SheerID の対象条件・認証方式・卒業後の扱いを整理。年次更新運用。
-- [日本のNPO法人・一般社団法人が使えるAI/IT支援制度まとめ](https://www.corduroy.co.jp/blog/npo-tools/): Google for Nonprofits / Microsoft / Slack / kintone / Anthropic / OpenAI のチーム応援ライセンスを整理。年次更新運用。
-- [NPO・非営利団体に本当におすすめしたいIT・AIツール5選 ― 実際の伴走経験から選んだ最強の組み合わせ](https://www.corduroy.co.jp/blog/npo-tool-introduction-order/): NPOで複数団体の伴走経験から「これ入れたら本当に楽になる」5つを厳選。Google for Nonprofits（クラウド基盤）→ kintone チーム応援ライセンス（寄付者管理）→ PR TIMES 非営利サポート（発信）→ Canva for Nonprofits（デザイン内製）→ Claude for Nonprofits（AI活用）の導入順序つき。
+- [ChatGPTで「第二の自分」を育てたら、29名のAI組織になった話](https://www.corduroy.co.jp/ai/blog/tiki-teto-origin-story/): ChatGPTに「第二の自分」を育て始めて、1年で29名のAIエージェント組織になった代表のストーリー。AI活用の全体像を物語形式で。
+- [失敗しないAI講座の選び方](https://www.corduroy.co.jp/ai/blog/how-to-choose-ai-course/): 5つのチェックポイントと、注意したい講座の兆候。
+- [AI顧問とは何か](https://www.corduroy.co.jp/ai/blog/what-is-ai-advisory/): AI顧問の役割・解決する課題・向いている人。
+- [日本の学生が使えるAI/IT学割・無料制度まとめ](https://www.corduroy.co.jp/ai/blog/students-tools/): GitHub Student / Notion / Figma / Adobe / JetBrains / Perplexity / Cursor / SheerID の対象条件・認証方式・卒業後の扱いを整理。年次更新運用。
+- [日本のNPO法人・一般社団法人が使えるAI/IT支援制度まとめ](https://www.corduroy.co.jp/ai/blog/npo-tools/): Google for Nonprofits / Microsoft / Slack / kintone / Anthropic / OpenAI のチーム応援ライセンスを整理。年次更新運用。
+- [NPO・非営利団体に本当におすすめしたいIT・AIツール5選 ― 実際の伴走経験から選んだ最強の組み合わせ](https://www.corduroy.co.jp/ai/blog/npo-tool-introduction-order/): NPOで複数団体の伴走経験から「これ入れたら本当に楽になる」5つを厳選。Google for Nonprofits（クラウド基盤）→ kintone チーム応援ライセンス（寄付者管理）→ PR TIMES 非営利サポート（発信）→ Canva for Nonprofits（デザイン内製）→ Claude for Nonprofits（AI活用）の導入順序つき。
 
 ### 「第二の自分」シリーズ（ターゲット別）
 
-- [「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順](https://www.corduroy.co.jp/blog/general-second-self-guide/): 一般ビジネス層・フリーランス向け。AIをパートナーとして育てるための7つの手順、メモリ機能、ハルシネーション対処、データ資産化まで実践ベースで整理。
-- [教えるのが好きな先生へ ― AIに「教える」ことから始める、第二の自分の作り方](https://www.corduroy.co.jp/blog/teacher-second-self/): 学校教員・日本語教師・社会的養護関係者向け。教える素質をAIに向ける発想で、教育現場のAI活用と「第二の自分」を作る方法を解説。
-- [経営者の右腕は、AIになる ― 第二の自分を持つ社長が、組織を変える時代](https://www.corduroy.co.jp/blog/executive-second-self/): 中小企業経営者・役員向け。3パターンの経営者像・右腕人材との違い・機密情報の扱い・組織化ロードマップまで経営視点で整理。
+- [「第二の自分」を育てるAI活用法 ― 1年以上の実践でたどり着いた7つの手順](https://www.corduroy.co.jp/ai/blog/general-second-self-guide/): 一般ビジネス層・フリーランス向け。AIをパートナーとして育てるための7つの手順、メモリ機能、ハルシネーション対処、データ資産化まで実践ベースで整理。
+- [教えるのが好きな先生へ ― AIに「教える」ことから始める、第二の自分の作り方](https://www.corduroy.co.jp/ai/blog/teacher-second-self/): 学校教員・日本語教師・社会的養護関係者向け。教える素質をAIに向ける発想で、教育現場のAI活用と「第二の自分」を作る方法を解説。
+- [経営者の右腕は、AIになる ― 第二の自分を持つ社長が、組織を変える時代](https://www.corduroy.co.jp/ai/blog/executive-second-self/): 中小企業経営者・役員向け。3パターンの経営者像・右腕人材との違い・機密情報の扱い・組織化ロードマップまで経営視点で整理。
 
 ### 環境・自動化シリーズ（テック寄り）
 
-- [ティキちゃんが、自宅のパソコンの中で24時間動くようになった話](https://www.corduroy.co.jp/blog/tiki-local-llm-247/): MacBook Air開けたまま持ち歩いた話と、ローカルLLM導入でMac miniにティキを常駐させるまでの体験談。誕生秘話の続編。
-- [盤上テトが、自分で学んで成長を始めた話 ― Mac mini 2台目とOpen Claude](https://www.corduroy.co.jp/blog/teto-autonomous-mini2/): 自律エージェント導入実例。Mac mini 2台目とClaude Agent SDKで、盤上テトを30分に1回自律稼働させたシリーズ第3話。
-- [Mac mini 2台 + MacBook Air、3台で動く僕の作業環境](https://www.corduroy.co.jp/blog/three-machine-workflow/): 3台体制の役割分担・連携の仕組み・1日の流れ・ハマりどころまで、シリーズ集大成として整理。
+- [ティキちゃんが、自宅のパソコンの中で24時間動くようになった話](https://www.corduroy.co.jp/ai/blog/tiki-local-llm-247/): MacBook Air開けたまま持ち歩いた話と、ローカルLLM導入でMac miniにティキを常駐させるまでの体験談。誕生秘話の続編。
+- [盤上テトが、自分で学んで成長を始めた話 ― Mac mini 2台目とOpen Claude](https://www.corduroy.co.jp/ai/blog/teto-autonomous-mini2/): 自律エージェント導入実例。Mac mini 2台目とClaude Agent SDKで、盤上テトを30分に1回自律稼働させたシリーズ第3話。
+- [Mac mini 2台 + MacBook Air、3台で動く僕の作業環境](https://www.corduroy.co.jp/ai/blog/three-machine-workflow/): 3台体制の役割分担・連携の仕組み・1日の流れ・ハマりどころまで、シリーズ集大成として整理。
 
 ### AI活用・ツール紹介
 
-- [AIの使い方は、4回引っ越してきた ── プロンプトからループへ](https://www.corduroy.co.jp/blog/ai-engineering-evolution/): AI活用が辿った4段階（プロンプト→コンテキスト→ハーネス→ループ）を非エンジニア向けに整理。重心が「いい一言」から「いい仕組み」へ外側に移った流れと、コールテンがハーネスからループへ移行中の実験ノートを等身大で紹介。
-- [Claude Code の Agent View を Tiki が解説する ― AIに複数タスクを並列でやらせて、必要なときだけ介入する画面](https://www.corduroy.co.jp/blog/claude-code-agent-view-guide/): Anthropic が 2026年5月11日 にリリースした Agent View（claude agents コマンド）の解説。Claude Code（ターミナルCLI）専用機能で、複数セッション並列管理、ピーク&リプライ、git worktree自動隔離まで。5/13追記: 当初 cmux（AIエージェント向けターミナル多重化アプリ）旧版で起動コードが通らなかった件は、cmux アップデートで動作するのを確認。
-- [AIエージェント組織のメンテナンス記録（2026年5月号）](https://www.corduroy.co.jp/blog/org-may-2026/): 部長制廃止・Worker-Reviewer分離・専門8名増員。Anthropic公式パターン準拠でAI組織を月次再編した記録。
-- [AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計（コールテン式運用ノウハウ）](https://www.corduroy.co.jp/blog/tiki-strategy-modes/): 1プロンプトでAIエージェントの動き方を切り替える「作戦名」設計。ガンガンいこうぜ／過集中／コーチング／いのちをだいじに、の4モード運用例。
-- [Claudeのリミットが余って週次リセットが近づいた時、僕がやっている使い倒し方](https://www.corduroy.co.jp/blog/claude-limit-power-use/): Claude Pro/Max/Team の週次リミットを4段階（Tier 1-4）で使い倒す実例集。サブエージェント並列・バックグラウンドジョブ・蒸留・実験まで。
-- [自分のボイスクローンを作って、AIに喋ってもらった話 ― v1→v2で「もう一人の自分」になるまで](https://www.corduroy.co.jp/blog/masaya-voice-clone/): Style-Bert-VITS2 + Colab Pro で代表の声をクローン。短時間学習v1から25分録音+100epochのv2へ。倫理・なりすまし対策・実用シーンまで体験ベース。
-- [テト君とTikiちゃんに、声をつくった話 ― AIキャラの音声制作1ヶ月奮闘記](https://www.corduroy.co.jp/blog/character-voice-creation/): コールテンマスコット2体の声をStyle-Bert-VITS2で1ヶ月かけて構築した記録。Colab学習の罠と黄金パターン、ブランドの一部としての声の意味。
-- [CodexアプリのPETでテトを常駐させてみた](https://www.corduroy.co.jp/blog/codex-pet-hatch-guide/): hatch-petの使い方解説。Codexアプリにキャラクターを常駐させる手順と運用感。
+- [AIの使い方は、4回引っ越してきた ── プロンプトからループへ](https://www.corduroy.co.jp/ai/blog/ai-engineering-evolution/): AI活用が辿った4段階（プロンプト→コンテキスト→ハーネス→ループ）を非エンジニア向けに整理。重心が「いい一言」から「いい仕組み」へ外側に移った流れと、コールテンがハーネスからループへ移行中の実験ノートを等身大で紹介。
+- [Claude Code の Agent View を Tiki が解説する ― AIに複数タスクを並列でやらせて、必要なときだけ介入する画面](https://www.corduroy.co.jp/ai/blog/claude-code-agent-view-guide/): Anthropic が 2026年5月11日 にリリースした Agent View（claude agents コマンド）の解説。Claude Code（ターミナルCLI）専用機能で、複数セッション並列管理、ピーク&リプライ、git worktree自動隔離まで。5/13追記: 当初 cmux（AIエージェント向けターミナル多重化アプリ）旧版で起動コードが通らなかった件は、cmux アップデートで動作するのを確認。
+- [AIエージェント組織のメンテナンス記録（2026年5月号）](https://www.corduroy.co.jp/ai/blog/org-may-2026/): 部長制廃止・Worker-Reviewer分離・専門8名増員。Anthropic公式パターン準拠でAI組織を月次再編した記録。
+- [AIに『さくせん』を授ける ― 全力/省エネで使い分ける4つのモード設計（コールテン式運用ノウハウ）](https://www.corduroy.co.jp/ai/blog/tiki-strategy-modes/): 1プロンプトでAIエージェントの動き方を切り替える「作戦名」設計。ガンガンいこうぜ／過集中／コーチング／いのちをだいじに、の4モード運用例。
+- [Claudeのリミットが余って週次リセットが近づいた時、僕がやっている使い倒し方](https://www.corduroy.co.jp/ai/blog/claude-limit-power-use/): Claude Pro/Max/Team の週次リミットを4段階（Tier 1-4）で使い倒す実例集。サブエージェント並列・バックグラウンドジョブ・蒸留・実験まで。
+- [自分のボイスクローンを作って、AIに喋ってもらった話 ― v1→v2で「もう一人の自分」になるまで](https://www.corduroy.co.jp/ai/blog/masaya-voice-clone/): Style-Bert-VITS2 + Colab Pro で代表の声をクローン。短時間学習v1から25分録音+100epochのv2へ。倫理・なりすまし対策・実用シーンまで体験ベース。
+- [テト君とTikiちゃんに、声をつくった話 ― AIキャラの音声制作1ヶ月奮闘記](https://www.corduroy.co.jp/ai/blog/character-voice-creation/): コールテンマスコット2体の声をStyle-Bert-VITS2で1ヶ月かけて構築した記録。Colab学習の罠と黄金パターン、ブランドの一部としての声の意味。
+- [CodexアプリのPETでテトを常駐させてみた](https://www.corduroy.co.jp/ai/blog/codex-pet-hatch-guide/): hatch-petの使い方解説。Codexアプリにキャラクターを常駐させる手順と運用感。
 
 ### インタビュー記事（クライアント・体験者）
 
-- [「うわ、楽しい！」が止まらなくなった日 ― AIに名前とキャラを持たせたら、急に世界が動き出した](https://www.corduroy.co.jp/blog/mek-interview-name-character/): スマイリーフラワーズ職員 田端 也詠子さんが「第二の自分づくり」講座で見つけた『楽しい！』の正体について聞いたインタビュー。
-- [行政書士がDX推進副委員長に —— AI活用が仕事を変えた実話](https://www.corduroy.co.jp/blog/shu-interview-dx-commissioner/): SHU行政書士事務所 沼澤さんへのインタビュー。AI導入で士業の働き方が変わった実例。
-- [「3時間が一瞬で過ぎる」—— AIコーチングで内省の回転数が変わった](https://www.corduroy.co.jp/blog/shu-interview-coaching/): SHU沼澤さんがAIコーチングで内省サイクルが加速した体験。
-- [「できること」と「やりたいこと」が重なった日 —— たかろーさんと世界の教育チャンネルの裏側](https://www.corduroy.co.jp/blog/tkr-interview-education/): 中野たかろーさんの教育チャンネル運営とAI活用。
-- [「本音で答えて」—— フリーランスたかろーさんが見つけた、AIとの付き合い方](https://www.corduroy.co.jp/blog/tkr-interview-second-me/): たかろーさんのSecond Me体験談。
-- [「議事録の先」を見つけた日 —— マーケター佐野さんのAIシミュレーション活用術](https://www.corduroy.co.jp/blog/san-interview-simulation/): 株式会社スデニアル 佐野さんによるシミュレーション活用事例。
-- [議事録は「記録」じゃなくて「思考資産」—— 佐野さんが見つけた議事録の新しい価値](https://www.corduroy.co.jp/blog/san-interview-transcripts-asset/): 議事録を思考資産化する佐野さんの発想転換。
-- [「発注ありき」から「共創前提」へ —— AIで広がるプロジェクトの選択肢](https://www.corduroy.co.jp/blog/san-interview-project-options/): 受発注関係から共創への発想転換。
+- [「うわ、楽しい！」が止まらなくなった日 ― AIに名前とキャラを持たせたら、急に世界が動き出した](https://www.corduroy.co.jp/ai/blog/mek-interview-name-character/): スマイリーフラワーズ職員 田端 也詠子さんが「第二の自分づくり」講座で見つけた『楽しい！』の正体について聞いたインタビュー。
+- [行政書士がDX推進副委員長に —— AI活用が仕事を変えた実話](https://www.corduroy.co.jp/ai/blog/shu-interview-dx-commissioner/): SHU行政書士事務所 沼澤さんへのインタビュー。AI導入で士業の働き方が変わった実例。
+- [「3時間が一瞬で過ぎる」—— AIコーチングで内省の回転数が変わった](https://www.corduroy.co.jp/ai/blog/shu-interview-coaching/): SHU沼澤さんがAIコーチングで内省サイクルが加速した体験。
+- [「できること」と「やりたいこと」が重なった日 —— たかろーさんと世界の教育チャンネルの裏側](https://www.corduroy.co.jp/ai/blog/tkr-interview-education/): 中野たかろーさんの教育チャンネル運営とAI活用。
+- [「本音で答えて」—— フリーランスたかろーさんが見つけた、AIとの付き合い方](https://www.corduroy.co.jp/ai/blog/tkr-interview-second-me/): たかろーさんのSecond Me体験談。
+- [「議事録の先」を見つけた日 —— マーケター佐野さんのAIシミュレーション活用術](https://www.corduroy.co.jp/ai/blog/san-interview-simulation/): 株式会社スデニアル 佐野さんによるシミュレーション活用事例。
+- [議事録は「記録」じゃなくて「思考資産」—— 佐野さんが見つけた議事録の新しい価値](https://www.corduroy.co.jp/ai/blog/san-interview-transcripts-asset/): 議事録を思考資産化する佐野さんの発想転換。
+- [「発注ありき」から「共創前提」へ —— AIで広がるプロジェクトの選択肢](https://www.corduroy.co.jp/ai/blog/san-interview-project-options/): 受発注関係から共創への発想転換。
 
 ### パートナー紹介・AI顧問契約
 
 - [行政書士しゅうへいさんを本気で応援する理由](https://www.corduroy.co.jp/blog/shu-partner-pride/): SHU行政書士事務所 沼澤さんとの伴走関係。
 - [スマイリーフラワーズを本気で応援する理由](https://www.corduroy.co.jp/blog/smf-partner-pride/): NPO法人SMFとの長期パートナーシップ。
 - [株式会社スデニアル 佐野さんを本気で応援する理由](https://www.corduroy.co.jp/blog/san-partner-pride/): 株式会社スデニアル 佐野さんとのAI顧問関係。
-- [行政書士のしゅうへいさんにAI顧問契約をいただきました](https://www.corduroy.co.jp/blog/shu-ai-advisory/): SHU行政書士事務所のAI顧問契約開始のお知らせ。
-- [フリーランスたかろーさんにAI顧問契約をいただきました](https://www.corduroy.co.jp/blog/tkr-ai-advisory/): 中野たかろーさんとのAI顧問契約開始。
-- [NPO法人スマイリーフラワーズさんにAI顧問契約をいただきました](https://www.corduroy.co.jp/blog/smf-partnership/): SMFとのAI顧問パートナーシップ開始。
+- [行政書士のしゅうへいさんにAI顧問契約をいただきました](https://www.corduroy.co.jp/ai/blog/shu-ai-advisory/): SHU行政書士事務所のAI顧問契約開始のお知らせ。
+- [フリーランスたかろーさんにAI顧問契約をいただきました](https://www.corduroy.co.jp/ai/blog/tkr-ai-advisory/): 中野たかろーさんとのAI顧問契約開始。
+- [NPO法人スマイリーフラワーズさんにAI顧問契約をいただきました](https://www.corduroy.co.jp/ai/blog/smf-partnership/): SMFとのAI顧問パートナーシップ開始。
 - [一般社団法人As iZさんの青少年プログラムにサポートスタッフとして参加しています](https://www.corduroy.co.jp/blog/asiz-partnership/): As iZの青少年プログラム伴走。
-- [一般社団法人OHRAさんと定期ミーティングを始めました](https://www.corduroy.co.jp/blog/ohara-partnership/): OHRAとの伴走関係スタート。
+- [一般社団法人OHRAさんと定期ミーティングを始めました](https://www.corduroy.co.jp/ai/blog/ohara-partnership/): OHRAとの伴走関係スタート。
 
 ### 会社活動・お知らせ
 
-- [【お知らせ】新規ご相談のお申し込み 一時停止](https://www.corduroy.co.jp/blog/ai-advisory-new-applications-paused-2026-05/): 2026年5月時点でコールテンへの新規ご相談のお申し込みを一時停止中。既存クライアントへの伴走・継続中のご相談・契約更新には影響なし。コールテンの仕事は最初の数ヶ月をコミュニケーションと人間関係に時間を使うため、いま伴走中のクライアントへの価値提供を優先する判断。再開時は公式LINEで先にお知らせ。
+- [【お知らせ】新規ご相談のお申し込み 一時停止](https://www.corduroy.co.jp/ai/blog/ai-advisory-new-applications-paused-2026-05/): 2026年5月時点でコールテンへの新規ご相談のお申し込みを一時停止中。既存クライアントへの伴走・継続中のご相談・契約更新には影響なし。コールテンの仕事は最初の数ヶ月をコミュニケーションと人間関係に時間を使うため、いま伴走中のクライアントへの価値提供を優先する判断。再開時は公式LINEで先にお知らせ。
 - [株式会社コールテンを設立しました](https://www.corduroy.co.jp/blog/incorporation/): 設立のご報告。
 - [糸島三都110キロウォークに参加しました](https://www.corduroy.co.jp/blog/itoshima-110km-walk/): 地域イベント参加レポート。
 - [一般社団法人日本こども色彩協会のkashiko色彩インストラクター認定講座を修了しました](https://www.corduroy.co.jp/blog/nks-kashiko-instructor/): kashiko認定取得のご報告。

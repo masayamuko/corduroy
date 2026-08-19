@@ -1,0 +1,1032 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout 
+    title="AI顧問サービス｜事業理解と最新知見でAI活用を伴走支援｜株式会社コールテン"
+    description="経営者・事業者向けAI顧問。事業理解に基づくチャット相談と月次定例で、AI活用の設計から検証・定着まで伴走します。福岡発・全国対応。"
+    canonicalUrl="https://www.corduroy.co.jp/ai/services/advisory/"
+    ogUrl="https://www.corduroy.co.jp/ai/services/advisory/"
+>
+    <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "AI顧問",
+      "provider": {
+        "@type": "Organization",
+        "name": "株式会社コールテン",
+        "url": "https://www.corduroy.co.jp/"
+      },
+      "name": "AI顧問",
+      "description": "紹介限定・長期前提のAI顧問。事業理解と最新知見をもとに、チャットと定例で伴走しながら、AI活用の設計・検証・定着を支援します。",
+      "url": "https://www.corduroy.co.jp/ai/services/advisory",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Japan"
+      }
+    }
+    </script>
+    <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://www.corduroy.co.jp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI顧問",
+          "item": "https://www.corduroy.co.jp/ai/services/advisory"
+        }
+      ]
+    }
+    </script>
+    <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "他のコンサルティングと何が違いますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "「レポートを出して終わり」ではなく、Slackで日常的に対話し、自らもプロンプトを書く「実務者」として伴走する点が特徴です。代表自身がコーチ出身で、24名のAI社員と経営する実践者だからこそ、現場目線の支援ができます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "保守管理だけの相談もできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可能です。既存のAI運用やシステムの安定稼働を保ちながら、改善提案や軽微な修正で支援します。構築したシステムの保守も、顧問プランで対応できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "プランごとの作業時間は固定ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "目安としてご案内しています。状況に応じて会議/制作の配分を調整し、最適なバランスで伴走します。途中でのプラン変更も可能ですので、まずはライトプランから始めて様子を見ることもできます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "契約期間に縛りはありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "長期的な活用を目指すため基本は6ヶ月〜ですが、最初の2ヶ月間はトライアル期間として解約可能な形を取ることも可能です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Slack以外のツールでも対応可能ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Teams, Chatwork, Discordなど、貴社の社内ツールに合わせて柔軟に対応いたします。福岡拠点ですが、定例ミーティングもすべてオンラインで実施可能です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "導入前に試せることはありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "まずは無料体験会でAI活用の雰囲気を体感いただけます。AI講座の無料動画講座もありますので、コールテンの考え方や進め方を事前に知ることができます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "成果が出るまでどのくらいかかりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "上記ロードマップのとおり、伴走リードプランで6〜12ヶ月が目安です。まずは小さく試して効果を確認し、段階的に広げていく進め方なので、早ければ2〜3ヶ月で最初の成果を実感いただけます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI顧問とAI講座の違いは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI顧問は貴社の課題に合わせた個別伴走、AI講座は体系的にAIスキルを学ぶプログラムです。両方を並行して受けることも可能で、講座で基礎を固めながら顧問で実務に落とし込む企業もいらっしゃいます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "途中でプラン変更はできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、可能です。導入フェーズではリードプランで集中的に進め、定着後はライトプランに切り替えるなど、状況に合わせて柔軟に調整できます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "社内のセキュリティポリシーが厳しいのですが対応できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "対応可能です。貴社のセキュリティ要件に合わせたツール選定やデータの取り扱いルールを一緒に設計します。オンプレミス環境やVPN接続が必要な場合も、柔軟に対応いたします。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <main>
+        <section class="hero">
+          <div class="container hero-inner">
+            <div class="fade-up">
+              <div class="icon-lg">🤝</div>
+              <h1>AI顧問</h1>
+              <p>短期の助言ではなく、長期で関わりながらAI活用を定着させる伴走サービスです。<br>現場の温度感を保ちながら、成長支援と保守運用の両面を支えます。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 1. Fit (Check) -->
+        <section class="container">
+          <div class="section-head fade-up">
+            <small>Fit Check</small>
+            <h2>相性チェック</h2>
+            <p>「短期の魔法」ではなく「長期の定着」を目指すため、向き不向きがはっきりしています。</p>
+          </div>
+          <div class="grid cols-2">
+            <div class="card fade-up" style="border-color:rgba(22, 97, 78, 0.2);">
+              <h3 style="display:flex; align-items:center; gap:8px;">✅ 向いている相談</h3>
+              <ul class="mini-list">
+                <li>AI活用を継続的に進めたいが、社内でリードできる人がいない</li>
+                <li>現場に合わせた導入と定着まで伴走してほしい</li>
+                <li>開発後の保守・改善まで見据えて相談したい</li>
+              </ul>
+            </div>
+            <div class="card fade-up" style="background:#f9f9f9; border-color:transparent;">
+              <h3 style="display:flex; align-items:center; gap:8px; color:#888;">⚠️ 合わないかもしれない方</h3>
+              <ul class="mini-list">
+                <li>1〜2ヶ月の短期で劇的な成果保証を求めたい</li>
+                <li>関与度が低いまま全て丸投げしたい</li>
+                <li>定期的な意思決定の時間が確保できない</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Definition & Support (Dark Theme) -->
+        <section class="bg-dark">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Definition</small>
+              <h2>AI顧問の定義</h2>
+              <p>AI顧問は「一時的なアドバイス」ではなく、事業に合わせて伴走し続ける支援です。導入・育成の成長フェーズと、運用・改善の保守フェーズを一体で支えます。</p>
+            </div>
+            <div class="grid cols-2">
+              <div class="card-dark fade-up">
+                <h3>🚀 成長・導入伴走</h3>
+                <p class="mini">学習会やハンズオンで基礎を揃え、業務へのAI導入を一緒に進めます。プロンプトや運用ルールまで整え、現場で使える状態へ。</p>
+              </div>
+              <div class="card-dark fade-up">
+                <h3>🛡️ 保守・運用伴走</h3>
+                <p class="mini">AIシステムや運用フローを維持しながら、軽微な修正や改善提案で精度と安全性を保ちます。安定稼働の見守り役も担います。</p>
+              </div>
+            </div>
+            
+            <!-- Representative Profile -->
+            <div class="profile-card fade-up">
+              <div class="profile-img-col">
+                <div class="profile-frame">
+                   <img src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765686550/Facebook_Image_20_usvjlj.jpg" 
+                        alt="向 雅也" 
+                        style="width:100%; height:100%; object-fit:cover;">
+                </div>
+              </div>
+              <div class="profile-text-col">
+                <small>Main Advisor</small>
+                <h3>向 雅也 <span style="font-size:16px; font-weight:normal; opacity:0.8; margin-left:8px;">Masaya Muko</span></h3>
+                <p class="mini">
+                  株式会社コールテン代表。AIの最新情報を常に追いかけ、自社や複数クライアントの現場で実装・検証を繰り返しています。<br>
+                  「実践しているからこそ分かる」リアルな事例と、幅広い対応力が強みです。「こんなことできる？」という雑談から、貴社にぴったりのAI活用を共創します。
+                </p>
+                <div class="pill-group">
+                   <span class="pill-dark">代表・実装者</span>
+                   <span class="pill-dark">AI活用実践中</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+    
+        <section class="container">
+          <div class="section-head fade-up">
+            <small>Features</small>
+            <h2>AI顧問ができること</h2>
+          </div>
+          <div class="grid cols-3">
+            <div class="card fade-up">
+              <h3>活用戦略と設計</h3>
+              <p class="mini">「どこにAIを入れると効果的か」を、現場の負荷やデータの質を考慮しながら一緒に描き出します。</p>
+            </div>
+            <div class="card fade-up">
+              <h3>ツール・技術選定</h3>
+              <p class="mini">乱立するAIツールの中から、コスト・セキュリティ・使い勝手のバランスが最適なものを選びます。</p>
+            </div>
+            <div class="card fade-up">
+              <h3>定着・運用改善</h3>
+              <p class="mini">実務で使える精度に合わせ、出力の安定性や品質を検証しながら、運用ルールを整え続けます。</p>
+            </div>
+          </div>
+        </section>
+    
+        <section class="bg-gradient-soft">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Process</small>
+              <h2>伴走スタイル</h2>
+            </div>
+            <div class="process-layout">
+              <!-- Top Row: Cycle (Meeting <-> Work) -->
+              <div class="process-cycle">
+                <div class="cycle-step fade-up">
+                  <div class="process-icon">🗓️</div>
+                  <h3>定例ミーティング</h3>
+                  <p class="mini">進捗と課題を整理し、次の一手を決めます。</p>
+                </div>
+                
+                <!-- Connector Arrow -->
+                <div class="cycle-connector fade-up">
+                  <div class="arrow-double">⇔</div>
+                  <span class="connector-label">Cycle</span>
+                </div>
+
+                <div class="cycle-step fade-up">
+                  <div class="process-icon">🛠️</div>
+                  <h3>共同作業・制作</h3>
+                  <p class="mini">必要に応じて実作業も担当。上位プランほど制作比率UP。</p>
+                </div>
+              </div>
+
+              <!-- Bottom Row: Support (Anytime Chat) -->
+              <div class="process-support fade-up">
+                <div class="support-card">
+                  <div class="support-icon-area">
+                    <div class="support-icon">💬</div>
+                    <div class="connector-line-up"></div>
+                  </div>
+                  <div class="support-content">
+                    <div class="support-header">
+                      <h3>チャットでの相談</h3>
+                      <span class="badge-anytime">Anytime</span>
+                    </div>
+                    <p class="mini">「これどう思う？」などの軽い相談やプロンプト添削は、いつでもチャットで。<br>定例を待たずに素早く解決します。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="container">
+          <div class="section-head fade-up">
+            <small>Pricing</small>
+            <h2>プランと稼働の目安</h2>
+            <p>伴走スタイル（チャット＋ミーティング＋制作）は共通です。上位プランほど「制作に使える時間」が増えます。</p>
+          </div>
+          <div class="grid cols-3">
+            <div class="card fade-up">
+              <h3>伴走ライト</h3>
+              <p class="mini">月1回のミーティングで方針を整え、軽い持ち帰り作業で補助します。上位プランや開発への橋渡し役。</p>
+              <ul class="mini-list">
+                <li>MTG: 月1回（60〜90分）</li>
+                <li>持ち帰り作業: 月0.5〜1h</li>
+                <li>制作比率: 低（クライアント主導）</li>
+              </ul>
+              <div class="ratio-bar" aria-label="制作割合">
+                <span class="ratio client" style="width:75%;">あなた</span>
+                <span class="ratio joint" style="width:15%;">共同</span>
+                <span class="ratio cord" style="width:10%; display:flex; align-items:center; justify-content:center;"><img src="/assets/images/faviconC.ico" alt="コールテン" style="width:16px; height:16px; border-radius:3px;"></span>
+              </div>
+              <div class="price-display" style="margin-top:auto; margin-bottom:0;">
+                <span class="price-number">6</span><span class="price-unit">万円<span class="price-slash">/月（税込）</span></span>
+              </div>
+            </div>
+            <div class="card fade-up">
+              <h3>伴走スタンダード</h3>
+              <p class="mini">半々で作るプラン。導入と運用のバランスを取りながら、実務への定着を目指します。</p>
+              <ul class="mini-list">
+                <li>MTG: 月2回（各60分）</li>
+                <li>持ち帰り作業: 月2〜4h</li>
+                <li>制作比率: 中（共同制作）</li>
+              </ul>
+              <div class="ratio-bar" aria-label="制作割合">
+                <span class="ratio client" style="width:45%;">あなた</span>
+                <span class="ratio joint" style="width:35%;">共同</span>
+                <span class="ratio cord" style="width:20%; display:flex; align-items:center; justify-content:center;"><img src="/assets/images/faviconC.ico" alt="コールテン" style="width:16px; height:16px; border-radius:3px;"></span>
+              </div>
+              <div class="price-display" style="margin-top:auto; margin-bottom:0;">
+                <span class="price-number">11</span><span class="price-unit">万円<span class="price-slash">/月（税込）</span></span>
+              </div>
+            </div>
+            <div class="card fade-up">
+              <h3>伴走リード</h3>
+              <p class="mini">制作パートナーとして実作業にも深く関与。保守・改善まで一気通貫で支援できます。</p>
+              <ul class="mini-list">
+                <li>MTG: 週1回（60〜120分）</li>
+                <li>持ち帰り作業: 月8〜16h</li>
+                <li>制作比率: 高（コールテン主導）</li>
+              </ul>
+              <div class="ratio-bar" aria-label="制作割合">
+                <span class="ratio client" style="width:20%;">あなた</span>
+                <span class="ratio joint" style="width:30%;">共同</span>
+                <span class="ratio cord" style="width:50%; display:flex; align-items:center; justify-content:center;"><img src="/assets/images/faviconC.ico" alt="コールテン" style="width:16px; height:16px; border-radius:3px;"></span>
+              </div>
+              <div class="price-display" style="margin-top:auto; margin-bottom:0;">
+                <span class="price-number">22</span><span class="price-unit">万円<span class="price-slash">/月（税込）</span></span>
+              </div>
+            </div>
+          </div>
+          <p class="mini" style="text-align:center; margin-top:40px; color:var(--text-light); font-size:14px;">
+            ※企業の規模や関与度合いに応じて調整可能です。</p>
+        </section>
+
+        <!-- Output Examples (Tiles) -->
+        <section class="container bg-white">
+          <div class="section-head fade-up">
+            <small>Outputs</small>
+            <h2>成果物の例</h2>
+            <p>ミーティングや持ち帰り作業を通じて、このようなアウトプットを作成・共有します。</p>
+          </div>
+          <div class="grid cols-3">
+             <div class="tile-card fade-up">
+               <h4>🗺️ 活用ロードマップ</h4>
+               <p>現状の課題を整理し、いつ・何を・どの順序で導入するかを描いた計画書。</p>
+             </div>
+             <div class="tile-card fade-up">
+               <h4>📝 運用ガイドライン</h4>
+               <p>AIを利用する際の社内ルール、権限設定、リスク管理方針をまとめた文書。</p>
+             </div>
+             <div class="tile-card fade-up">
+               <h4>🔧 業務特化プロンプト</h4>
+               <p>特定業務ですぐに使えるよう調整し、検証を済ませたプロンプトセット。</p>
+             </div>
+             <div class="tile-card fade-up">
+               <h4>📚 社内研修資料</h4>
+               <p>全社員向けまたは部署向けの、AI基礎知識や活用事例をまとめたスライド。</p>
+             </div>
+             <div class="tile-card fade-up">
+               <h4>📊 KPI・効果測定設計</h4>
+               <p>導入後の効果をどう測るか、定量的・定性的な評価指標の設計。</p>
+             </div>
+             <div class="tile-card fade-up">
+               <h4>⚙️ 検証レポート</h4>
+               <p>複数のツールやモデルを比較検証し、自社に最適な構成を選定した記録。</p>
+             </div>
+          </div>
+        </section>
+
+        <section class="bg-gradient-soft">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Roadmap</small>
+              <h2>ロードマップ例 <span style="display:block; font-size:14px; font-weight:normal; margin-top:4px; opacity:0.8;">AIエージェント制作内製化プロジェクト</span></h2>
+              <p>ゼロから始める場合のイメージです。AIエージェント開発ができる人材を伴走リードプランで育成するプランのロードマップ例。</p>
+            </div>
+            
+            <div class="timeline-centered">
+              <div class="timeline-step-c fade-up">
+                <div class="step-marker">1</div>
+                <div class="step-content">
+                  <div class="step-time">1〜2ヶ月</div>
+                  <h3>基礎理解と対象業務の選定</h3>
+                  <p class="mini">勉強会やハンズオンで基礎を揃え、AI導入の優先業務を決めます。</p>
+                </div>
+              </div>
+              <div class="timeline-step-c fade-up right">
+                <div class="step-marker">2</div>
+                <div class="step-content">
+                  <div class="step-time">3〜5ヶ月</div>
+                  <h3>プロトタイプ作成</h3>
+                  <p class="mini">小さく作って試すフェーズ。現場で使える精度まで検証を重ねます。</p>
+                </div>
+              </div>
+              <div class="timeline-step-c fade-up">
+                <div class="step-marker">3</div>
+                <div class="step-content">
+                  <div class="step-time">6〜9ヶ月</div>
+                  <h3>運用ルールの整備</h3>
+                  <p class="mini">権限・ログ・品質管理を整え、継続運用の型を作ります。</p>
+                </div>
+              </div>
+              <div class="timeline-step-c fade-up right">
+                <div class="step-marker">4</div>
+                <div class="step-content">
+                  <div class="step-time">10〜12ヶ月</div>
+                  <h3>定着と自走</h3>
+                  <p class="mini">改善サイクルを回しながら、社内で自走できる状態へ。</p>
+                </div>
+              </div>
+              <div class="timeline-line"></div>
+            </div>
+
+            <!-- Roadmap Disclaimers -->
+            <div class="roadmap-note fade-up">
+              <h4 style="color:#35524a; margin-bottom:12px; font-size:16px;">⚠️ プランによる進捗スピードの違いについて</h4>
+              <p class="mini" style="margin-bottom:8px;">
+                伴走リード（月額22万円・税込）で6ヶ月〜1年伴走した場合の想定です。
+              </p>
+              <ul class="mini-list" style="max-width:680px; margin:0 auto; text-align:left; background:#fff; padding:24px 32px; border-radius:12px; border:1px dashed #cbd5d0; list-style:none;">
+                <li style="margin-bottom:12px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+                  <span style="background:#e8f2ee; color:#35524a; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:13px; white-space:nowrap;">伴走スタンダード（11万円/月・税込）</span>
+                  <span style="flex:1;">ミーティング回数と作業時間が半分になるため、上記の進捗には<strong>約2倍の期間</strong>を要します。</span>
+                </li>
+                <li style="margin-bottom:12px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">
+                  <span style="background:#e8f2ee; color:#35524a; padding:4px 12px; border-radius:99px; font-weight:bold; font-size:13px; white-space:nowrap;">伴走ライト（6万円/月・税込）</span>
+                  <span style="flex:1;">月1回の相談が主となるため、実作業のほとんどをお客様自身で進めていただく必要があります。上記のロードマップ通りの進捗をこのプランのみで実現するのは<strong>極めて困難</strong>です。</span>
+                </li>
+                <li style="margin-top:16px; color:#35524a; background:#e8f2ee; padding:12px 16px; border-radius:8px; display:flex; gap:8px;">
+                  <span>💡</span>
+                  <span><strong>補足</strong>：既にAI活用の基礎がある人材などがいた場合は、伴走ライトなどで1年で実現することも可能です。</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+    
+        <section class="container faq">
+          <div class="section-head fade-up">
+            <small>FAQ</small>
+            <h2>よくあるご質問</h2>
+          </div>
+          <div class="faq-items fade-up">
+            <details open>
+              <summary>他のコンサルティングと何が違いますか？</summary>
+              <p class="mini">「レポートを出して終わり」ではなく、Slackで日常的に対話し、自らもプロンプトを書く「実務者」として伴走する点が特徴です。代表自身がコーチ出身で、24名のAI社員と経営する実践者だからこそ、現場目線の支援ができます。</p>
+            </details>
+            <details>
+              <summary>保守管理だけの相談もできますか？</summary>
+              <p class="mini">可能です。既存のAI運用やシステムの安定稼働を保ちながら、改善提案や軽微な修正で支援します。構築したシステムの保守も、顧問プランで対応できます。</p>
+            </details>
+            <details>
+              <summary>プランごとの作業時間は固定ですか？</summary>
+              <p class="mini">目安としてご案内しています。状況に応じて会議/制作の配分を調整し、最適なバランスで伴走します。途中でのプラン変更も可能ですので、まずはライトプランから始めて様子を見ることもできます。</p>
+            </details>
+            <details>
+              <summary>契約期間に縛りはありますか？</summary>
+              <p class="mini">長期的な活用を目指すため基本は6ヶ月〜ですが、最初の2ヶ月間はトライアル期間として解約可能な形を取ることも可能です。</p>
+            </details>
+            <details>
+              <summary>Slack以外のツールでも対応可能ですか？</summary>
+              <p class="mini">Teams, Chatwork, Discordなど、貴社の社内ツールに合わせて柔軟に対応いたします。福岡拠点ですが、定例ミーティングもすべてオンラインで実施可能です。</p>
+            </details>
+            <details>
+              <summary>導入前に試せることはありますか？</summary>
+              <p class="mini">まずは<a href="/ai/services/study/trial/">無料体験会</a>でAI活用の雰囲気を体感いただけます。<a href="/ai/services/study/">AI講座</a>の無料動画講座もありますので、コールテンの考え方や進め方を事前に知ることができます。</p>
+            </details>
+            <details>
+              <summary>成果が出るまでどのくらいかかりますか？</summary>
+              <p class="mini">上記ロードマップのとおり、伴走リードプランで6〜12ヶ月が目安です。まずは小さく試して効果を確認し、段階的に広げていく進め方なので、早ければ2〜3ヶ月で最初の成果を実感いただけます。</p>
+            </details>
+            <details>
+              <summary>AI顧問とAI講座の違いは何ですか？</summary>
+              <p class="mini">AI顧問は貴社の課題に合わせた個別伴走、<a href="/ai/services/study/">AI講座</a>は体系的にAIスキルを学ぶプログラムです。両方を並行して受けることも可能で、講座で基礎を固めながら顧問で実務に落とし込む企業もいらっしゃいます。</p>
+            </details>
+            <details>
+              <summary>途中でプラン変更はできますか？</summary>
+              <p class="mini">はい、可能です。導入フェーズではリードプランで集中的に進め、定着後はライトプランに切り替えるなど、状況に合わせて柔軟に調整できます。</p>
+            </details>
+            <details>
+              <summary>社内のセキュリティポリシーが厳しいのですが対応できますか？</summary>
+              <p class="mini">対応可能です。貴社のセキュリティ要件に合わせたツール選定やデータの取り扱いルールを一緒に設計します。オンプレミス環境やVPN接続が必要な場合も、柔軟に対応いたします。</p>
+            </details>
+          </div>
+        </section>
+    
+        <section class="container">
+          <div class="section-head fade-up">
+            <small>Client Voices</small>
+            <h2>利用者の声</h2>
+            <p>AI顧問サービスを利用されているクライアントのインタビューを掲載予定です。</p>
+          </div>
+          <div class="fade-up" style="max-width:960px;margin:0 auto;">
+            <div class="card"
+              style="text-align:center;padding:60px 24px;background:#f9fafb;border:2px dashed #d7e6de; align-items:center; justify-content:center;">
+              <h3 style="color:#7a8f87;margin-bottom:8px;">📝 準備中</h3>
+              <p class="mini" style="color:#7a8f87;">AI顧問サービスを利用されているクライアントの<br>インタビュー記事を近日公開予定です。</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="bg-contact">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small>Contact</small>
+              <h2>ご相談はこちらから</h2>
+              <p>ご相談をご希望いただける場合はこちらのコンタクトページで詳細をご確認ください。</p>
+            </div>
+            <div class="card fade-up" style="max-width:680px; margin:0 auto; text-align:center; align-items:center;">
+              <p class="mini" style="margin-bottom:20px;">公式フォームはありません。コンタクトページの案内に沿って、SNSのDMなどからご連絡ください。</p>
+              <a class="btn" href="/contact" style="padding:16px 28px;">コンタクトページを見る →</a>
+            </div>
+          </div>
+        </section>
+      </main>
+</Layout>
+
+<style>
+    /* Hero Section - Warmer & Deeper */
+    .hero {
+      padding: 160px 0 140px;
+      /* Restoring vibrant gradient */
+      background: linear-gradient(135deg, #f0fdf9 0%, #e3f5ed 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 60%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(139, 211, 193, 0.4) 0%, transparent 70%);
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    .hero h1 {
+      margin-bottom: 32px;
+      color: var(--ink); /* Solid dark color for better contrast on warm bg */
+      font-size: 48px;
+    }
+
+    /* Section Variations */
+    
+    /* 1. Dark Section (Definition) */
+    .bg-dark {
+      background-color: #35524a; /* Deep Teal */
+      color: #fff;
+    }
+    .bg-dark .section-head small { color: #8bd3c1; }
+    .bg-dark h2 { color: #fff; }
+    .bg-dark p { color: #e1e9e5; }
+    
+    .card-dark {
+      background: rgba(255, 255, 255, 0.05); /* Glass-like */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 32px;
+      backdrop-filter: blur(4px);
+    }
+    .card-dark h3 { color: #fff; display: flex; align-items: center; gap: 12px; }
+    .card-dark .mini { color: #d0ded9; }
+
+    /* Profile Card specific styles */
+    .profile-card {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .profile-img-col {
+      flex: 0 0 120px;
+    }
+    .profile-frame {
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 4px solid rgba(255,255,255,0.2);
+    }
+    .profile-text-col { flex: 1; text-align: left; }
+    .profile-text-col small { color: #8bd3c1; font-weight: 700; letter-spacing: 0.1em; display: block; margin-bottom: 8px; }
+    .profile-text-col h3 { font-size: 24px; margin-bottom: 16px; color: #fff; display: flex; align-items: baseline; }
+    .profile-text-col .mini { color: #e1e9e5; margin-bottom: 16px; }
+    .pill-group { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill-dark { background: rgba(22, 97, 78, 0.4); border: 1px solid #8bd3c1; color: #8bd3c1; font-size: 12px; padding: 4px 12px; border-radius: 99px; }
+
+    /* 2. Process Flow Diagram (New Layout) */
+    .process-layout {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    /* Top Row: Cycle */
+    .process-cycle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .cycle-step {
+      flex: 1;
+      text-align: center;
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 24px;
+      border: 1px solid rgba(22, 97, 78, 0.1);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    
+    .process-icon {
+      width: 64px;
+      height: 64px;
+      background: #e8f2ee;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
+      color: var(--sea);
+    }
+
+    /* Cycle Connector (Double Arrow) */
+    .cycle-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--sea);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+    .arrow-double {
+      font-size: 32px;
+      line-height: 1;
+      font-weight: bold;
+      letter-spacing: -4px;
+    }
+    .connector-label {
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    /* Bottom Row: Support (Anytime) */
+    .process-support {
+      width: 100%;
+    }
+
+    .support-card {
+      background: #fff;
+      border-radius: 20px;
+      border: 2px solid #8bd3c1; /* Highlighted border */
+      box-shadow: 0 8px 20px rgba(139, 211, 193, 0.15); /* Soft glowing shadow */
+      display: flex;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .support-icon-area {
+      background: #e8f2ee;
+      width: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #cceadd;
+      position: relative;
+    }
+
+    .support-icon { font-size: 32px; z-index: 1; }
+    
+    /* Line connecting to top (visual cue) */
+    .connector-line-up {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 20px;
+      background: #cceadd;
+    }
+
+    .support-content {
+      padding: 24px 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .support-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .support-header h3 { 
+      margin: 0; 
+      font-size: 20px; 
+      color: var(--ink); 
+    }
+
+    .badge-anytime {
+      background: #35524a;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Mobile Responsive */
+    @media(max-width: 768px) {
+      .process-cycle {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .cycle-connector {
+        transform: rotate(90deg); /* Rotate arrow to point up/down */
+        margin: 8px 0;
+      }
+      .connector-label { 
+        display: none; /* Hide label on mobile to save space */
+      }
+      
+      .support-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .support-icon-area {
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        border-right: none;
+        border-bottom: 1px solid #cceadd;
+      }
+      
+      .support-content { padding: 20px; }
+      
+      .support-header {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .connector-line-up { display: none; }
+    }
+
+    /* 3. Output Tiles (Grid of colored boxes) */
+    .tile-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      background-image: linear-gradient(135deg, #fff 50%, #f4f9f7 100%);
+      transition: transform 0.3s ease;
+    }
+    .tile-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .tile-card h4 { font-size: 17px; margin-bottom: 8px; color: #35524a; font-weight: 700; }
+    .tile-card p { font-size: 13px; color: #6f827a; line-height: 1.6; }
+
+    /* Base Styles Refined */
+    section { padding: 100px 0; position: relative; }
+    .section-head { text-align: center; margin-bottom: 64px; }
+    .section-head small {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid rgba(22, 97, 78, 0.08);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+    }
+    .card h3 { font-size: 22px; margin-bottom: 12px; color: var(--ink); }
+    .grid { display: grid; gap: 32px; }
+    
+    @media(min-width:768px) {
+      .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+      .timeline { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .mini-list { padding-left: 18px; color: var(--text-light); line-height: 1.8; font-size: 15px; }
+    .mini-list li + li { margin-top: 8px; }
+    
+    /* Vertical Timeline */
+    .timeline-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline-vertical::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      left: 20px; /* Align with circle center */
+      width: 2px;
+      background: #e1e9e5;
+      z-index: 0;
+    }
+    .timeline-step-v {
+      position: relative;
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #e1e9e5;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      z-index: 1;
+    }
+    .step-marker {
+      flex: 0 0 40px;
+      height: 40px;
+      background: var(--sea);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: bold;
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 1px #e1e9e5;
+    }
+    .step-content { flex: 1; }
+    .step-time {
+      display: inline-block;
+      background: #e8f2ee;
+      color: #35524a;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 8px;
+    }
+
+    .roadmap-note {
+      max-width: 680px;
+      margin: 48px auto 0;
+      text-align: center;
+    }
+
+    .icon-lg {
+      font-size: 64px;
+      margin-bottom: 32px;
+      color: var(--sea);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 40px;
+      box-shadow: 0 16px 32px rgba(22, 97, 78, 0.08);
+    }
+    
+    .bg-gradient-soft { background: linear-gradient(180deg, #fcfdfc 0%, #f1f7f5 100%); }
+    .pill { padding: 10px 18px; border-radius: 100px; background: #fff; border: 1px solid var(--line); font-weight: 600; font-size: 13px; display: inline-flex; gap: 8px; }
+    .ratio-bar { display: flex; width: 100%; border-radius: 99px; overflow: hidden; height: 24px; font-size: 11px; font-weight: 700; color: #fff; margin: 16px 0 20px; }
+    .ratio { display: flex; align-items: center; justify-content: center; }
+    .ratio.client { background: #cbd5d0; color: #35524a; }
+    .ratio.joint { background: #7fb6a6; }
+    .ratio.cord { background: #35524a; }
+
+    /* Price Display */
+    .price-display {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .price-number {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.03em;
+    }
+    .price-unit {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+    .price-slash {
+      font-size: 14px;
+      font-weight: 500;
+      color: #999;
+    }
+
+    @media(max-width:768px) {
+      section { padding: 60px 0; }
+      .hero h1 { font-size: 32px; }
+      .grid.cols-2, .grid.cols-3, .process-grid { grid-template-columns: 1fr; }
+      .process-step::after { display: none; }
+      
+      .profile-card { flex-direction: column; text-align: center; gap: 16px; }
+      .profile-text-col { text-align: center; }
+      .profile-text-col h3 { justify-content: center; }
+      .pill-group { justify-content: center; }
+      
+      .timeline-vertical::before { left: 18px; }
+    }
+
+    /* 4. Centered Timeline (Center Line Layout) */
+    .timeline-centered {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #e1e9e5;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+    .timeline-step-c {
+      position: relative;
+      width: 50%;
+      padding: 0 40px; /* Space from center line */
+      box-sizing: border-box;
+      margin-bottom: 40px;
+      z-index: 1;
+    }
+    /* Left side items (default) */
+    .timeline-step-c { left: 0; text-align: right; }
+    .timeline-step-c .step-content { text-align: right; margin-left: auto; }
+    /* Right side items */
+    .timeline-step-c.right { left: 50%; text-align: left; }
+    .timeline-step-c.right .step-content { text-align: left; margin-right: auto; }
+    
+    /* Marker on the center line */
+    .timeline-step-c .step-marker {
+      position: absolute;
+      top: 0;
+      right: -20px; /* Half width (40px) */
+      width: 40px;
+      height: 40px;
+      background: var(--sea);
+      color: #fff;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 1px #e1e9e5;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold;
+      z-index: 2;
+    }
+    .timeline-step-c.right .step-marker {
+      right: auto;
+      left: -20px;
+    }
+
+    .timeline-step-c .step-content h3 { font-size: 20px; margin-bottom: 8px; color: var(--ink); }
+    .timeline-step-c .step-time {
+      display: inline-block;
+      background: #e8f2ee;
+      color: #35524a;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 8px;
+    }
+
+    @media(max-width:768px) {
+      /* Reset Timeline to vertical stack on mobile */
+      .timeline-centered { margin-left: 0; max-width: 100%; padding-left: 20px; }
+      .timeline-line { left: 20px; width: 2px; }
+      .timeline-step-c, .timeline-step-c.right { width: 100%; left: 0; text-align: left; padding: 0 0 0 32px; margin-bottom: 32px; }
+      .timeline-step-c .step-content, .timeline-step-c.right .step-content { text-align: left; margin: 0; }
+      .timeline-step-c .step-marker, .timeline-step-c.right .step-marker { left: -20px; right: auto; margin-left: 0; }
+    }
+</style>

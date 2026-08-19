@@ -1,12 +1,15 @@
 ---
+const isHomePage = Astro.url.pathname === '/';
 ---
 <footer>
     <div class="footer-inner">
       <div>© 株式会社コールテン</div>
       <div class="footer-links">
         <a href="/">TOP</a>
+        <a href="/story/">はじまりの話</a>
         <a href="/blog/">ブログ</a>
         <a href="/contact">お問合せ</a>
+        {isHomePage && <button type="button" data-home-intro-replay>最初の物語をもう一度見る</button>}
         <a href="/legal/privacy">プライバシーポリシー</a>
         <a href="/legal/tokushoho">特定商取引法に基づく表記</a>
       </div>
@@ -40,14 +43,26 @@
         flex-wrap: wrap;
     }
 
-    .footer-links a {
+    .footer-links a,
+    .footer-links button {
         color: #fff;
         font-weight: 700;
         text-decoration: none;
         transition: opacity .2s ease;
     }
 
-    .footer-links a:hover {
+    .footer-links button {
+        padding: 0;
+        border: 0;
+        border-bottom: 1px solid rgba(255,255,255,.55);
+        border-radius: 0;
+        background: transparent;
+        font: inherit;
+        cursor: pointer;
+    }
+
+    .footer-links a:hover,
+    .footer-links button:hover {
         opacity: .75;
     }
 </style>

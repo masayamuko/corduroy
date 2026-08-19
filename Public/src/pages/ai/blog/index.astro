@@ -1,0 +1,499 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { aiBlogPosts, blogCategories } from '../../../data/blogPosts';
+
+// AI事業の記事一覧（/ai/blog/）
+// 記事データの正本は src/data/blogPosts.ts。
+// 会社・活動の記事一覧はルート /blog/（src/pages/blog/index.astro）。
+
+const posts = aiBlogPosts;
+const categories = blogCategories;
+
+const title = "AIブログ｜株式会社コールテン";
+const description = "AI顧問・AI講座の現場から生まれた活用ノウハウ、導入事例、クライアントインタビュー、AIエージェント組織の運用記録を発信しています。";
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalUrl="https://www.corduroy.co.jp/ai/blog/"
+  ogUrl="https://www.corduroy.co.jp/ai/blog/"
+  ogType="website"
+>
+  <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://www.corduroy.co.jp/"},
+        {"@type": "ListItem", "position": 2, "name": "AI事業", "item": "https://www.corduroy.co.jp/ai/"},
+        {"@type": "ListItem", "position": 3, "name": "AIブログ"}
+      ]
+    }
+  </script>
+
+  <main>
+    <nav class="ai-context-nav" aria-label="AI事業内ナビゲーション">
+      <div class="container ai-context-inner">
+        <a href="/">会社ホーム</a>
+        <span aria-hidden="true">/</span>
+        <a href="/ai/">AI事業</a>
+        <span aria-hidden="true">/</span>
+        <strong aria-current="page">AIブログ</strong>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container">
+        <div class="fade-up" style="text-align:center;">
+          <span class="eyebrow">AI BUSINESS BLOG</span>
+          <h1>AIブログ</h1>
+          <p class="hero-description">AI活用ノウハウ・導入事例・インタビュー・AI組織の運用記録。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="padding-top:20px; padding-bottom:120px;">
+      <div class="filter-controls fade-up">
+        <div class="category-chips">
+          {categories.map((cat) => (
+            <button type="button" class:list={['chip', { active: cat === 'すべて' }]} data-filter={cat}>{cat}</button>
+          ))}
+        </div>
+        <div class="sort-toggle">
+          <button type="button" class="sort-btn active" data-sort="desc">新しい順</button>
+          <button type="button" class="sort-btn" data-sort="asc">古い順</button>
+        </div>
+      </div>
+      <div class="posts-list fade-up">
+        {posts.length === 0 ? (
+          <div class="empty-state">
+            <p>まだ投稿はありません。</p>
+          </div>
+        ) : (
+          posts.map((post) => (
+            <a
+              href={post.external ? post.slug : (post.slug.startsWith('/') ? post.slug : `/ai/blog/${post.slug}/`)}
+              class:list={['post-card', { featured: post.featured }]}
+              data-categories={Array.isArray(post.category) ? post.category.join(',') : post.category}
+              data-date={post.date}
+              target={post.external ? '_blank' : '_self'}
+              rel={post.external ? 'noopener noreferrer' : undefined}
+            >
+              {post.featured && <span class="recommend-badge">おすすめ</span>}
+              <div class="post-thumb">
+                <img src={post.thumbnail} alt="" width="120" height="120" loading="lazy" />
+              </div>
+              <div class="post-body">
+                <div class="post-meta">
+                  <time class="post-date">{post.date}</time>
+                  {Array.isArray(post.category)
+                    ? post.category.map(cat => <span class="post-cat">{cat}</span>)
+                    : <span class="post-cat">{post.category}</span>
+                  }
+                </div>
+                <h2 class="post-title">{post.title}</h2>
+                <p class="post-excerpt">{post.excerpt}</p>
+                <span class="post-link">続きを読む →</span>
+              </div>
+            </a>
+          ))
+        )}
+        <div class="filter-empty" style="display:none;">
+          <p>該当する記事はありません。</p>
+        </div>
+      </div>
+      <div class="company-blog-note fade-up">
+        <p>コールテンの歩み・地域での活動・お知らせは <a href="/blog/">会社・活動の記事一覧</a> をご覧ください。</p>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .ai-context-nav {
+    border-bottom: 1px solid #d9e2de;
+    background: #f7faf8;
+  }
+  .ai-context-inner {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 10px;
+    color: #60736b;
+    font-size: 12px;
+  }
+  .ai-context-inner a {
+    color: #31584a;
+    text-decoration: none;
+  }
+  .ai-context-inner a:hover {
+    text-decoration: underline;
+  }
+  .ai-context-company {
+    margin-left: auto;
+    font-weight: 700;
+  }
+
+  .hero {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid #d7e1dc;
+    background: var(--cream);
+    text-align: center;
+  }
+  .eyebrow {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 54px);
+    margin-bottom: 0;
+  }
+  .hero-description {
+    margin: 14px 0 0;
+    color: var(--text-light);
+    font-size: 14px;
+  }
+
+  .filter-controls {
+    max-width: 820px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .category-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex: 1;
+  }
+  .chip {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+    background: rgba(22,97,78,0.06);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.03em;
+    font-family: inherit;
+    line-height: inherit;
+  }
+  .chip:hover {
+    background: rgba(22,97,78,0.12);
+  }
+  .chip.active {
+    background: var(--sea);
+    color: #fff;
+    border-color: var(--sea);
+  }
+  .chip.active:hover {
+    background: var(--sea);
+  }
+  .sort-toggle {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+  .sort-btn {
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    background: transparent;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    line-height: inherit;
+  }
+  .sort-btn:hover {
+    border-color: var(--sea);
+    color: var(--sea);
+  }
+  .sort-btn.active {
+    background: var(--sea);
+    color: #fff;
+    border-color: var(--sea);
+  }
+
+  .posts-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .post-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px 32px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 10px rgba(5,32,24,0.04);
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    animation: fadeIn 0.3s ease;
+  }
+  .post-card.filtered-out {
+    display: none;
+  }
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(5,32,24,0.08);
+    border-color: rgba(22,97,78,0.18);
+  }
+  .post-card.featured {
+    background: var(--sea);
+    border-color: var(--sea);
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(22,97,78,0.18);
+  }
+  .post-card.featured:hover {
+    border-color: var(--sea);
+    box-shadow: 0 14px 32px rgba(22,97,78,0.28);
+  }
+  .post-card.featured .post-thumb {
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.08);
+  }
+  .post-card.featured .post-date {
+    color: rgba(255,255,255,0.85);
+  }
+  .post-card.featured .post-cat {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+  }
+  .post-card.featured .post-title {
+    color: #fff;
+  }
+  .post-card.featured .post-excerpt {
+    color: rgba(255,255,255,0.92);
+  }
+  .post-card.featured .post-link {
+    color: var(--accent);
+  }
+  .recommend-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    box-shadow: 0 3px 10px rgba(212,160,77,0.35);
+    z-index: 1;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .post-thumb {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--cream);
+    border: 1px solid var(--line);
+  }
+  .post-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .post-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .post-date {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+  .post-cat {
+    display: inline-block;
+    background: rgba(22,97,78,0.08);
+    color: var(--sea);
+    border-radius: 4px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .post-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.5;
+    margin: 0 0 10px;
+  }
+  .post-excerpt {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.85;
+    margin: 0 0 14px;
+  }
+  .post-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sea);
+    font-family: "Space Grotesk", sans-serif;
+  }
+
+  .empty-state,
+  .filter-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+  }
+
+  .company-blog-note {
+    max-width: 820px;
+    margin: 40px auto 0;
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--text-light);
+  }
+  .company-blog-note a {
+    color: var(--sea);
+    font-weight: 700;
+  }
+
+  @media (max-width: 760px) {
+    .ai-context-inner {
+      min-height: 42px;
+      gap: 7px;
+      font-size: 11px;
+    }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 40px 16px 28px; }
+    .filter-controls { flex-direction: column; gap: 12px; }
+    .sort-toggle { align-self: flex-start; }
+    .post-card { padding: 20px; gap: 16px; }
+    .post-thumb { width: 72px; height: 72px; border-radius: 10px; }
+    .post-title { font-size: 17px; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const chips = document.querySelectorAll<HTMLElement>('.chip[data-filter]');
+    const sortBtns = document.querySelectorAll<HTMLElement>('.sort-btn[data-sort]');
+    const postsList = document.querySelector<HTMLElement>('.posts-list');
+    const cards = document.querySelectorAll<HTMLElement>('.post-card[data-categories]');
+    const emptyMsg = document.querySelector<HTMLElement>('.filter-empty');
+    let activeCategory = 'すべて';
+    let sortOrder = 'desc';
+
+    function applyFilter() {
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const cats = (card.dataset.categories ?? '').split(',');
+        const matchesCategory = activeCategory === 'すべて' || cats.includes(activeCategory);
+        if (matchesCategory) {
+          card.classList.remove('filtered-out');
+          visibleCount++;
+        } else {
+          card.classList.add('filtered-out');
+        }
+      });
+      if (emptyMsg) {
+        emptyMsg.style.display = visibleCount === 0 ? '' : 'none';
+      }
+    }
+
+    function applySort() {
+      if (!postsList) return;
+      const sorted = [...cards].sort((a, b) => {
+        const da = a.dataset.date ?? '';
+        const db = b.dataset.date ?? '';
+        return sortOrder === 'desc' ? db.localeCompare(da) : da.localeCompare(db);
+      });
+      sorted.forEach(card => postsList.appendChild(card));
+      if (emptyMsg) postsList.appendChild(emptyMsg);
+    }
+
+    function update() {
+      applySort();
+      applyFilter();
+    }
+
+    function updateAria() {
+      chips.forEach(c => c.setAttribute('aria-pressed', String(c.classList.contains('active'))));
+      sortBtns.forEach(b => b.setAttribute('aria-pressed', String(b.classList.contains('active'))));
+    }
+
+    function setActiveCategory(cat: string, updateUrl: boolean) {
+      activeCategory = cat;
+      chips.forEach(c => c.classList.toggle('active', c.dataset.filter === cat));
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (cat === 'すべて') url.searchParams.delete('cat');
+        else url.searchParams.set('cat', cat);
+        window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+      }
+      update();
+      updateAria();
+    }
+
+    chips.forEach(chip => {
+      chip.setAttribute('aria-pressed', String(chip.classList.contains('active')));
+      chip.addEventListener('click', () => {
+        setActiveCategory(chip.dataset.filter ?? 'すべて', true);
+      });
+    });
+
+    sortBtns.forEach(btn => {
+      btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
+      btn.addEventListener('click', () => {
+        sortBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        sortOrder = btn.dataset.sort ?? 'desc';
+        update();
+        updateAria();
+      });
+    });
+
+    // ?cat=<カテゴリ名> で初期絞り込み（記事内の誘導リンクから使用）
+    const requestedCat = new URLSearchParams(window.location.search).get('cat');
+    const validCat = requestedCat && Array.from(chips).some(c => c.dataset.filter === requestedCat);
+    if (validCat && requestedCat) {
+      setActiveCategory(requestedCat, false);
+    } else {
+      update();
+      updateAria();
+    }
+  });
+</script>

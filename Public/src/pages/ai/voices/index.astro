@@ -1,0 +1,332 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout 
+    title="クライアントさまの声｜株式会社コールテン"
+    description="株式会社コールテンのクライアント事例・声をご紹介。AI顧問・AI講座・AIコミュニティでの実践や感想を掲載しています。"
+    canonicalUrl="https://www.corduroy.co.jp/ai/voices/"
+    ogUrl="https://www.corduroy.co.jp/ai/voices/"
+>
+    <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "クライアントさまの声",
+      "description": "株式会社コールテンのクライアント事例・声をご紹介",
+      "url": "https://www.corduroy.co.jp/ai/voices/",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "クライアント事例一覧"
+      }
+    }
+    </script>
+    <script slot="head" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://www.corduroy.co.jp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "クライアントの声",
+          "item": "https://www.corduroy.co.jp/ai/voices/"
+        }
+      ]
+    }
+    </script>
+
+    <main>
+        <section class="hero">
+          <div class="container hero-inner fade-up">
+            <div class="icon-lg">💬</div>
+            <h1>クライアントさまの声</h1>
+            <p>株式会社コールテンのサービスを導入いただいたクライアントさまの声を掲載しています。</p>
+          </div>
+        </section>
+    
+        <section class="container voices-section">
+          <div class="voices-grid">
+
+            <!-- Sano (公開中) -->
+            <a href="/ai/voices/sano/" class="voice-card fade-up" data-voice="sano">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar"><img
+                    src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/sano_sudeniaru.png"
+                    alt="佐野さん" width="64" height="64" loading="lazy"></div>
+                <div>
+                  <div class="voice-meta">株式会社スデニアル<br>代表 佐野さん</div>
+                  <div class="service-tag">定期ミーティング</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> AIは議事録要約程度。<br><b>Now:</b> マーケ施策の仮説→検証→提案シミュレーションを高速化、提案の幅が拡大。</p>
+            </a>
+
+            <!-- Kubota (許可未取得・準備中表示) -->
+            <div class="voice-card fade-up" style="transition-delay: .1s; opacity:0.8; cursor:default;">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar" style="filter:grayscale(100%);"><img
+                    src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/kubota_smileyflowers.png"
+                    alt="窪田さん" width="64" height="64" loading="lazy"></div>
+                <div>
+                  <div class="voice-meta">NPO法人スマイリーフラワーズ<br>代表 窪田さん</div>
+                  <div class="service-tag" style="background:#ddd; color:#666; border-color:#ccc;">準備中</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> 最新ツールのキャッチアップに不安。<br><b>Now:</b> 業務理解に基づく提案でミスマッチなく導入、手間と無駄を削減。</p>
+            </div>
+
+            <!-- Takaro (公開中) -->
+            <a href="/ai/voices/takaro/" class="voice-card fade-up" data-voice="takaro" style="transition-delay: .2s">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar"><img
+                    src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647437/takaro_freelance.png"
+                    alt="たかろーさん" width="64" height="64" loading="lazy"></div>
+                <div>
+                  <div class="voice-meta">フリーランス<br>たかろーさん</div>
+                  <div class="service-tag">AI講座</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> 検索ツールとしての利用に留まり、回答の精度に不満。<br><b>Now:</b>
+                「第二の自分」を構築し、孤独なフリーランス業務の最強の相談相手に。</p>
+            </a>
+
+            <!-- Shuhei (公開中) -->
+            <a href="/ai/voices/numazawa/" class="voice-card fade-up" data-voice="numazawa" style="transition-delay: .3s">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar"><img
+                    src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1764647438/shuheinumazawa.png"
+                    alt="しゅうへいさん" width="64" height="64" loading="lazy"></div>
+                <div>
+                  <div class="voice-meta">SHU行政書士事務所<br>しゅうへいさん</div>
+                  <div class="service-tag">AI講座</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> AIは「調べるだけ」。<br><b>Now:</b> 第二の自分ワークで対話型の相棒に。内省の回転数が上がり、DX推進にも波及。</p>
+            </a>
+    
+            <!-- Higashide-san (Coming Soon) -->
+            <div class="voice-card fade-up" style="transition-delay: .4s; opacity:0.8; cursor:default;">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar" style="filter:grayscale(100%);"><img
+                    src="https://res.cloudinary.com/dg3mdcuju/image/upload/v1765800932/Instagram_Image_1_h8majz.jpg"
+                    alt="東出さん" width="64" height="64" loading="lazy"></div>
+                <div>
+                  <div class="voice-meta">北海道留学センター<br>代表 東出さん</div>
+                  <div class="service-tag" style="background:#ddd; color:#666; border-color:#ccc;">準備中</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> 広報素材を作るのに費用や時間などコストがかかりうまく作れない。<br><b>Now:</b>
+                業務理解とミーティングファイルなどを渡すだけでコミュニケーションコストと費用を抑えてAI開発。</p>
+            </div>
+    
+            <!-- S-san (Coming Soon) -->
+            <div class="voice-card fade-up" style="transition-delay: .5s; opacity:0.8; cursor:default;">
+              <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">
+                <div class="avatar" style="filter:grayscale(100%);"><img src="/assets/images/dummy_s_san.png" alt="Sさん" width="64" height="64" loading="lazy">
+                </div>
+                <div>
+                  <div class="voice-meta">NPO法人N<br>Sさん</div>
+                  <div class="service-tag" style="background:#ddd; color:#666; border-color:#ccc;">準備中</div>
+                </div>
+              </div>
+              <p class="mini"><b>Before:</b> 複数の施設のWEBサイトがバラバラ、うまく運用できてない。<br><b>Now:</b>
+                法人ドメインを取得して法人サイトに統合。運用スタッフとして関わってもらえる関係に。</p>
+            </div>
+          </div>
+        </section>
+    
+        <section id="contact" class="bg-contact">
+          <div class="container">
+            <div class="section-head fade-up">
+              <small style="color:var(--orange)">Contact</small>
+              <h2>ご相談はこちらから</h2>
+              <p>ご相談をご希望いただける場合はこちらのコンタクトページで詳細をご確認ください。</p>
+            </div>
+            <div class="card fade-up"
+              style="max-width:680px; margin:0 auto; text-align:center; background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); backdrop-filter:blur(10px); align-items:center;">
+              <p class="mini" style="margin-bottom:24px; color:rgba(255,255,255,0.8)">
+                公式フォームはありません。コンタクトページの案内に沿って、SNSのDMなどからご連絡ください。</p>
+              <a class="btn" href="/contact"
+                style="background:var(--white); color:var(--green); box-shadow:none;">コンタクトページを見る →</a>
+            </div>
+          </div>
+        </section>
+      </main>
+</Layout>
+
+<style>
+    .hero {
+      padding: 120px 0 60px;
+      text-align: center;
+      background: transparent;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .voices-section {
+      padding-bottom: 100px;
+    }
+
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .voice-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a.voice-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--sea);
+    }
+
+    .voice-card::before {
+      content: "VOICE";
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--sea);
+      opacity: 0.1;
+      letter-spacing: 0.2em;
+    }
+
+    .voice-meta {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 2px solid #fff;
+      background: var(--mint);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .service-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--mint);
+      color: var(--sea);
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 100px;
+      margin-top: 8px;
+    }
+
+    .bg-contact {
+      background: var(--green);
+      color: #fff;
+      padding: 100px 0;
+    }
+
+    .bg-contact h2,
+    .bg-contact p {
+      color: #fff;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .section-head small {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+    }
+
+    .icon-lg {
+      font-size: 64px;
+      margin-bottom: 32px;
+      color: var(--sea);
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #fff 0%, var(--mint) 100%);
+      border-radius: 40px;
+      border: 1px solid var(--white);
+      box-shadow:
+        0 16px 32px rgba(22, 97, 78, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 1);
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mini {
+        font-size: 14px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+
+    @media(max-width:860px) {
+      .voices-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 100px 20px 60px;
+      }
+      .voices-section {
+        padding-bottom: 60px;
+      }
+    }
+</style>
