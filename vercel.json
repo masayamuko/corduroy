@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "cd Public && npm install && npm run build",
   "outputDirectory": "Public/dist",
   "cleanUrls": true,
@@ -10,57 +11,922 @@
     },
     {
       "source": "/contact.html",
-      "destination": "/contact",
+      "destination": "/contact/",
       "permanent": true
     },
     {
       "source": "/privacy.html",
-      "destination": "/legal/privacy",
+      "destination": "/legal/privacy/",
       "permanent": true
     },
     {
       "source": "/tokushoho.html",
-      "destination": "/legal/tokushoho",
+      "destination": "/legal/tokushoho/",
       "permanent": true
     },
     {
       "source": "/tokushoho",
-      "destination": "/legal/tokushoho",
+      "destination": "/legal/tokushoho/",
       "permanent": true
     },
     {
       "source": "/privacy",
-      "destination": "/legal/privacy",
+      "destination": "/legal/privacy/",
       "permanent": true
     },
     {
       "source": "/voice-takaro.html",
-      "destination": "/voices/takaro",
+      "destination": "/ai/voices/takaro/",
       "permanent": true
     },
     {
       "source": "/voice-nakano.html",
-      "destination": "/voices/takaro",
+      "destination": "/ai/voices/takaro/",
       "permanent": true
     },
     {
       "source": "/service-study.html",
-      "destination": "/services/study/",
+      "destination": "/ai/services/study/",
       "permanent": true
     },
     {
       "source": "/service-system.html",
-      "destination": "/services/system/",
+      "destination": "/ai/",
       "permanent": true
     },
     {
       "source": "/service-study",
-      "destination": "/services/study/",
+      "destination": "/ai/services/study/",
       "permanent": true
     },
     {
       "source": "/service-advisory.html",
-      "destination": "/services/advisory/",
+      "destination": "/ai/services/advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/services/advisory.html",
+      "destination": "/ai/services/advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/services/system.html",
+      "destination": "/ai/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/AIdeWEB.html",
+      "destination": "/ai/services/study/AIdeWEB/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/basicAI.html",
+      "destination": "/ai/services/study/basicAI/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/SecondME.html",
+      "destination": "/ai/services/study/SecondME/",
+      "permanent": true
+    },
+    {
+      "source": "/clients/takaro.html",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/takaro.html",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/takaro-showcase.html",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/kubota.html",
+      "destination": "/ai/voices/kubota/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/numazawa.html",
+      "destination": "/ai/voices/numazawa/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/sano.html",
+      "destination": "/ai/voices/sano/",
+      "permanent": true
+    },
+    {
+      "source": "/clients/bgcafe.html",
+      "destination": "/dream/boardgame-cafe/",
+      "permanent": true
+    },
+    {
+      "source": "/clients/takaro/",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/legal/privacy.html",
+      "destination": "/legal/privacy/",
+      "permanent": true
+    },
+    {
+      "source": "/legal/tokushoho.html",
+      "destination": "/legal/tokushoho/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/takaro-showcase/",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/npo-tools-2026/",
+      "destination": "/ai/blog/npo-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/students-tools-2026/",
+      "destination": "/ai/blog/students-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/npo-tools-2026",
+      "destination": "/ai/blog/npo-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/students-tools-2026",
+      "destination": "/ai/blog/students-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/agent-loop-minimal-intro/",
+      "destination": "/ai/blog/agent-loop-minimal-intro/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/agent-loop-minimal-intro",
+      "destination": "/ai/blog/agent-loop-minimal-intro/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-advisory-new-applications-paused-2026-05/",
+      "destination": "/ai/blog/ai-advisory-new-applications-paused-2026-05/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-advisory-new-applications-paused-2026-05",
+      "destination": "/ai/blog/ai-advisory-new-applications-paused-2026-05/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-engineering-evolution/",
+      "destination": "/ai/blog/ai-engineering-evolution/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-engineering-evolution",
+      "destination": "/ai/blog/ai-engineering-evolution/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/aym-interview-self-built-site/",
+      "destination": "/ai/blog/aym-interview-self-built-site/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/aym-interview-self-built-site",
+      "destination": "/ai/blog/aym-interview-self-built-site/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/character-voice-creation/",
+      "destination": "/ai/blog/character-voice-creation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/character-voice-creation",
+      "destination": "/ai/blog/character-voice-creation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/claude-code-agent-view-guide/",
+      "destination": "/ai/blog/claude-code-agent-view-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/claude-code-agent-view-guide",
+      "destination": "/ai/blog/claude-code-agent-view-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/claude-limit-power-use/",
+      "destination": "/ai/blog/claude-limit-power-use/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/claude-limit-power-use",
+      "destination": "/ai/blog/claude-limit-power-use/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/codex-pet-hatch-guide/",
+      "destination": "/ai/blog/codex-pet-hatch-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/codex-pet-hatch-guide",
+      "destination": "/ai/blog/codex-pet-hatch-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/executive-second-self/",
+      "destination": "/ai/blog/executive-second-self/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/executive-second-self",
+      "destination": "/ai/blog/executive-second-self/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/general-second-self-guide/",
+      "destination": "/ai/blog/general-second-self-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/general-second-self-guide",
+      "destination": "/ai/blog/general-second-self-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-choose-ai-course/",
+      "destination": "/ai/blog/how-to-choose-ai-course/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-choose-ai-course",
+      "destination": "/ai/blog/how-to-choose-ai-course/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/masaya-voice-clone/",
+      "destination": "/ai/blog/masaya-voice-clone/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/masaya-voice-clone",
+      "destination": "/ai/blog/masaya-voice-clone/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mek-interview-name-character/",
+      "destination": "/ai/blog/mek-interview-name-character/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mek-interview-name-character",
+      "destination": "/ai/blog/mek-interview-name-character/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/npo-tools/",
+      "destination": "/ai/blog/npo-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/npo-tools",
+      "destination": "/ai/blog/npo-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ohara-partnership/",
+      "destination": "/ai/blog/ohara-partnership/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ohara-partnership",
+      "destination": "/ai/blog/ohara-partnership/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/org-may-2026/",
+      "destination": "/ai/blog/org-may-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/org-may-2026",
+      "destination": "/ai/blog/org-may-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pro-coach-ai-coaching/",
+      "destination": "/ai/blog/pro-coach-ai-coaching/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pro-coach-ai-coaching",
+      "destination": "/ai/blog/pro-coach-ai-coaching/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/san-interview-project-options/",
+      "destination": "/ai/blog/san-interview-project-options/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/san-interview-project-options",
+      "destination": "/ai/blog/san-interview-project-options/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/san-interview-simulation/",
+      "destination": "/ai/blog/san-interview-simulation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/san-interview-simulation",
+      "destination": "/ai/blog/san-interview-simulation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/san-interview-transcripts-asset/",
+      "destination": "/ai/blog/san-interview-transcripts-asset/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/san-interview-transcripts-asset",
+      "destination": "/ai/blog/san-interview-transcripts-asset/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shu-ai-advisory/",
+      "destination": "/ai/blog/shu-ai-advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shu-ai-advisory",
+      "destination": "/ai/blog/shu-ai-advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shu-interview-coaching/",
+      "destination": "/ai/blog/shu-interview-coaching/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shu-interview-coaching",
+      "destination": "/ai/blog/shu-interview-coaching/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shu-interview-dx-commissioner/",
+      "destination": "/ai/blog/shu-interview-dx-commissioner/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shu-interview-dx-commissioner",
+      "destination": "/ai/blog/shu-interview-dx-commissioner/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/smf-partnership/",
+      "destination": "/ai/blog/smf-partnership/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/smf-partnership",
+      "destination": "/ai/blog/smf-partnership/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/students-tools/",
+      "destination": "/ai/blog/students-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/students-tools",
+      "destination": "/ai/blog/students-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/teacher-second-self/",
+      "destination": "/ai/blog/teacher-second-self/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/teacher-second-self",
+      "destination": "/ai/blog/teacher-second-self/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/teto-autonomous-mini2/",
+      "destination": "/ai/blog/teto-autonomous-mini2/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/teto-autonomous-mini2",
+      "destination": "/ai/blog/teto-autonomous-mini2/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/three-machine-workflow/",
+      "destination": "/ai/blog/three-machine-workflow/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/three-machine-workflow",
+      "destination": "/ai/blog/three-machine-workflow/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiki-local-llm-247/",
+      "destination": "/ai/blog/tiki-local-llm-247/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiki-local-llm-247",
+      "destination": "/ai/blog/tiki-local-llm-247/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiki-strategy-modes/",
+      "destination": "/ai/blog/tiki-strategy-modes/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiki-strategy-modes",
+      "destination": "/ai/blog/tiki-strategy-modes/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiki-teto-origin-story/",
+      "destination": "/ai/blog/tiki-teto-origin-story/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiki-teto-origin-story",
+      "destination": "/ai/blog/tiki-teto-origin-story/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tkr-ai-advisory/",
+      "destination": "/ai/blog/tkr-ai-advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tkr-ai-advisory",
+      "destination": "/ai/blog/tkr-ai-advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tkr-interview-education/",
+      "destination": "/ai/blog/tkr-interview-education/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tkr-interview-education",
+      "destination": "/ai/blog/tkr-interview-education/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tkr-interview-second-me/",
+      "destination": "/ai/blog/tkr-interview-second-me/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tkr-interview-second-me",
+      "destination": "/ai/blog/tkr-interview-second-me/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-is-ai-advisory/",
+      "destination": "/ai/blog/what-is-ai-advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-is-ai-advisory",
+      "destination": "/ai/blog/what-is-ai-advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/services/",
+      "destination": "/ai/services/",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/ai/services/",
+      "permanent": true
+    },
+    {
+      "source": "/services/advisory/",
+      "destination": "/ai/services/advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/services/advisory",
+      "destination": "/ai/services/advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-renewal/",
+      "destination": "/ai/services/ai-renewal/",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-renewal",
+      "destination": "/ai/services/ai-renewal/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/",
+      "destination": "/ai/services/study/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study",
+      "destination": "/ai/services/study/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/AIdeWEB/",
+      "destination": "/ai/services/study/AIdeWEB/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/AIdeWEB",
+      "destination": "/ai/services/study/AIdeWEB/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/basicAI/",
+      "destination": "/ai/services/study/basicAI/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/basicAI",
+      "destination": "/ai/services/study/basicAI/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/community/",
+      "destination": "/ai/services/study/community/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/community",
+      "destination": "/ai/services/study/community/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/corporate/",
+      "destination": "/ai/services/study/corporate/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/corporate",
+      "destination": "/ai/services/study/corporate/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/program/",
+      "destination": "/ai/services/study/program/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/program",
+      "destination": "/ai/services/study/program/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/SecondME/",
+      "destination": "/ai/services/study/SecondME/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/SecondME",
+      "destination": "/ai/services/study/SecondME/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/trial/",
+      "destination": "/ai/services/study/trial/",
+      "permanent": true
+    },
+    {
+      "source": "/services/study/trial",
+      "destination": "/ai/services/study/trial/",
+      "permanent": true
+    },
+    {
+      "source": "/members/",
+      "destination": "/ai/members/",
+      "permanent": true
+    },
+    {
+      "source": "/members",
+      "destination": "/ai/members/",
+      "permanent": true
+    },
+    {
+      "source": "/members/about/",
+      "destination": "/ai/members/about/",
+      "permanent": true
+    },
+    {
+      "source": "/members/about",
+      "destination": "/ai/members/about/",
+      "permanent": true
+    },
+    {
+      "source": "/members/masaya/",
+      "destination": "/ai/members/masaya/",
+      "permanent": true
+    },
+    {
+      "source": "/members/masaya",
+      "destination": "/ai/members/masaya/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/",
+      "destination": "/ai/voices/",
+      "permanent": true
+    },
+    {
+      "source": "/voices",
+      "destination": "/ai/voices/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/kubota/",
+      "destination": "/ai/voices/kubota/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/kubota",
+      "destination": "/ai/voices/kubota/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/numazawa/",
+      "destination": "/ai/voices/numazawa/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/numazawa",
+      "destination": "/ai/voices/numazawa/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/sano/",
+      "destination": "/ai/voices/sano/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/sano",
+      "destination": "/ai/voices/sano/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/takaro/",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/takaro",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/agent-loop-minimal-intro.html",
+      "destination": "/ai/blog/agent-loop-minimal-intro/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-advisory-new-applications-paused-2026-05.html",
+      "destination": "/ai/blog/ai-advisory-new-applications-paused-2026-05/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-engineering-evolution.html",
+      "destination": "/ai/blog/ai-engineering-evolution/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/aym-interview-self-built-site.html",
+      "destination": "/ai/blog/aym-interview-self-built-site/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/character-voice-creation.html",
+      "destination": "/ai/blog/character-voice-creation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/claude-code-agent-view-guide.html",
+      "destination": "/ai/blog/claude-code-agent-view-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/claude-limit-power-use.html",
+      "destination": "/ai/blog/claude-limit-power-use/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/codex-pet-hatch-guide.html",
+      "destination": "/ai/blog/codex-pet-hatch-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/executive-second-self.html",
+      "destination": "/ai/blog/executive-second-self/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/general-second-self-guide.html",
+      "destination": "/ai/blog/general-second-self-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-choose-ai-course.html",
+      "destination": "/ai/blog/how-to-choose-ai-course/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/masaya-voice-clone.html",
+      "destination": "/ai/blog/masaya-voice-clone/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mek-interview-name-character.html",
+      "destination": "/ai/blog/mek-interview-name-character/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/npo-tools.html",
+      "destination": "/ai/blog/npo-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ohara-partnership.html",
+      "destination": "/ai/blog/ohara-partnership/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/org-may-2026.html",
+      "destination": "/ai/blog/org-may-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pro-coach-ai-coaching.html",
+      "destination": "/ai/blog/pro-coach-ai-coaching/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/san-interview-project-options.html",
+      "destination": "/ai/blog/san-interview-project-options/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/san-interview-simulation.html",
+      "destination": "/ai/blog/san-interview-simulation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/san-interview-transcripts-asset.html",
+      "destination": "/ai/blog/san-interview-transcripts-asset/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shu-ai-advisory.html",
+      "destination": "/ai/blog/shu-ai-advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shu-interview-coaching.html",
+      "destination": "/ai/blog/shu-interview-coaching/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shu-interview-dx-commissioner.html",
+      "destination": "/ai/blog/shu-interview-dx-commissioner/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/smf-partnership.html",
+      "destination": "/ai/blog/smf-partnership/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/students-tools.html",
+      "destination": "/ai/blog/students-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/teacher-second-self.html",
+      "destination": "/ai/blog/teacher-second-self/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/teto-autonomous-mini2.html",
+      "destination": "/ai/blog/teto-autonomous-mini2/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/three-machine-workflow.html",
+      "destination": "/ai/blog/three-machine-workflow/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiki-local-llm-247.html",
+      "destination": "/ai/blog/tiki-local-llm-247/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiki-strategy-modes.html",
+      "destination": "/ai/blog/tiki-strategy-modes/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tiki-teto-origin-story.html",
+      "destination": "/ai/blog/tiki-teto-origin-story/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tkr-ai-advisory.html",
+      "destination": "/ai/blog/tkr-ai-advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tkr-interview-education.html",
+      "destination": "/ai/blog/tkr-interview-education/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tkr-interview-second-me.html",
+      "destination": "/ai/blog/tkr-interview-second-me/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-is-ai-advisory.html",
+      "destination": "/ai/blog/what-is-ai-advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/incorporation.html",
+      "destination": "/blog/incorporation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/itoshima-110km-walk.html",
+      "destination": "/blog/itoshima-110km-walk/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nks-kashiko-instructor.html",
+      "destination": "/blog/nks-kashiko-instructor/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/asiz-partnership.html",
+      "destination": "/blog/asiz-partnership/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/npo-tool-introduction-order/",
+      "destination": "/ai/blog/npo-tool-introduction-order/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/npo-tool-introduction-order",
+      "destination": "/ai/blog/npo-tool-introduction-order/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/npo-tool-introduction-order.html",
+      "destination": "/ai/blog/npo-tool-introduction-order/",
+      "permanent": true
+    },
+    {
+      "source": "/services/:path+",
+      "destination": "/ai/services/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/members/:path+",
+      "destination": "/ai/members/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/voices/:path+",
+      "destination": "/ai/voices/:path+",
       "permanent": true
     }
   ]

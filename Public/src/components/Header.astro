@@ -1,67 +1,262 @@
 ---
+const isAiPage = Astro.url.pathname === '/ai' || Astro.url.pathname.startsWith('/ai/');
+const isBlogPage = Astro.url.pathname.startsWith('/blog/');
+const servicesHref = isAiPage ? '/ai/#services' : '/#services';
+const ctaLabel = isAiPage ? 'AIサービス' : 'できること';
 ---
-<header>
-    <div class="container nav">
-      <a href="/" class="header-logo">
+{isAiPage ? (
+  <header>
+    <div class="container nav" aria-label="AI事業ナビゲーション">
+      <a href="/ai/" class="header-logo ai-logo">
         <img src="/assets/images/logo.png" alt="株式会社コールテン">
+        <span class="ai-nav-tag">AI事業</span>
       </a>
       <div class="sp"></div>
-      <a href="/#services" class="nav-link">サービス</a>
-      <a href="/members/" class="nav-link">メンバー</a>
-      <a href="/blog/" class="nav-link">ブログ</a>
-      <a href="/contact" class="nav-link">相談する</a>
-      <a class="btn btn-flash" href="/services/">無料AI講座</a>
-      <button class="hamburger" aria-label="メニュー">
+      <div class="business-nav">
+        <button class="nav-link business-trigger" type="button" aria-expanded="false" aria-controls="business-submenu">
+          サービス <span class="business-chevron" aria-hidden="true">⌄</span>
+        </button>
+        <div id="business-submenu" class="business-submenu" aria-hidden="true" inert>
+          <p class="submenu-heading">AI SERVICES</p>
+          <a href="/ai/#services" class="submenu-overview"><strong>サービス一覧</strong><span aria-hidden="true">→</span></a>
+          <a href="/ai/services/study/"><span><strong>AI講座</strong><small>基礎から現場での定着まで</small></span></a>
+          <a href="/ai/services/advisory/"><span><strong>AI顧問</strong><small>伴走型のAI活用サポート</small></span></a>
+          <a href="/ai/services/ai-renewal/"><span><strong>AI時代のサイトリニューアル</strong><small>AI検索時代に対応したサイトへ</small></span></a>
+        </div>
+      </div>
+      <a href="/ai/voices/" class="nav-link">クライアントの声</a>
+      <a href="/ai/members/" class="nav-link">メンバー</a>
+      <a href="/ai/blog/" class="nav-link">AIブログ</a>
+      <a href="/" class="nav-link ai-back-link">会社トップへ</a>
+      <a class="btn btn-flash" href="/contact">相談する</a>
+      <button class="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
   </header>
-  <div class="mobile-menu">
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
     <div class="mobile-menu-content">
       <div class="mobile-menu-logo">
         <img src="/assets/images/logo.png" alt="株式会社コールテン" style="height:32px;">
       </div>
       <div class="mobile-menu-group">
-        <a href="/#services" class="mobile-menu-link">サービス</a>
+        <p class="mobile-menu-heading">AI事業</p>
+        <a href="/ai/" class="mobile-menu-link">AI事業トップ</a>
+        <details class="ai-menu-acc">
+          <summary class="mobile-menu-link">サービス一覧</summary>
+          <div class="ai-menu-sub">
+            <a href="/ai/services/study/" class="mobile-menu-link">AI講座</a>
+            <a href="/ai/services/advisory/" class="mobile-menu-link">AI顧問</a>
+            <a href="/ai/services/ai-renewal/" class="mobile-menu-link">AI時代のサイトリニューアル</a>
+          </div>
+        </details>
+        <a href="/ai/voices/" class="mobile-menu-link">クライアントの声</a>
+        <a href="/ai/members/" class="mobile-menu-link">メンバー紹介</a>
+        <a href="/ai/blog/" class="mobile-menu-link">AIブログ</a>
+        <a href="/contact" class="mobile-menu-link">相談する</a>
       </div>
       <div class="mobile-menu-divider"></div>
       <div class="mobile-menu-group">
-        <a href="/members/" class="mobile-menu-link">メンバー紹介</a>
+        <a href="/" class="mobile-menu-link">← 会社トップへ戻る</a>
+      </div>
+    </div>
+  </div>
+) : (
+  <header>
+    <div class="container nav" aria-label="メインナビゲーション">
+      <a href="/" class="header-logo">
+        <img src="/assets/images/logo.png" alt="株式会社コールテン">
+      </a>
+      <div class="sp"></div>
+      <div class="business-nav">
+        <button class="nav-link business-trigger" type="button" aria-expanded="false" aria-controls="business-submenu">
+          サービス <span class="business-chevron" aria-hidden="true">⌄</span>
+        </button>
+        <div id="business-submenu" class="business-submenu" aria-hidden="true" inert>
+          <p class="submenu-heading">BUSINESS / NOW &amp; NEXT</p>
+          <a href="/#services" class="submenu-overview"><strong>サービス一覧</strong><span aria-hidden="true">→</span></a>
+          <a href="/ai/"><span><strong>AI活用サポート</strong><small>現場の業務整理から、AI活用の定着まで</small></span><em class="status-active">提供中</em></a>
+          <a href="/#business-coaching"><span><strong>コミュニケーション支援</strong><small>違いを対立で終わらせないチームづくり</small></span><em class="status-testing">テスト提供中</em></a>
+          <a href="/#business-hiring"><span><strong>採用サポート</strong><small>選ばれて、長く続く採用づくり</small></span><em>準備中</em></a>
+          <a href="/dream/boardgame-cafe/"><span><strong>その先の夢: ボードゲームカフェ</strong><small>立場を越えて、同じ卓を囲める場所</small></span><em>構想中</em></a>
+        </div>
+      </div>
+      <a href="/ai/members/" class="nav-link">メンバー</a>
+      <a href="/blog/" class:list={["nav-link", { "is-current": isBlogPage }]} aria-current={isBlogPage ? 'page' : undefined}>ブログ</a>
+      <a href="/contact" class="nav-link">相談する</a>
+      <a class="btn btn-flash" href={servicesHref}>{ctaLabel}</a>
+      <button class="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-logo">
+        <img src="/assets/images/logo.png" alt="株式会社コールテン" style="height:32px;">
+      </div>
+      <div class="mobile-menu-group">
+        <p class="mobile-menu-heading">サービス</p>
+        <a href="/#services" class="mobile-menu-link">サービス一覧</a>
+        <a href="/ai/" class="mobile-menu-link mobile-business-link"><span>AI活用サポート</span><small class="status-active">提供中</small></a>
+        <a href="/#business-coaching" class="mobile-menu-link mobile-business-link"><span>コミュニケーション支援</span><small class="status-testing">テスト提供中</small></a>
+        <a href="/#business-hiring" class="mobile-menu-link mobile-business-link"><span>採用サポート</span><small>準備中</small></a>
+        <a href="/dream/boardgame-cafe/" class="mobile-menu-link mobile-business-link"><span>その先の夢: ボードゲームカフェ</span><small>構想中</small></a>
+      </div>
+      <div class="mobile-menu-divider"></div>
+      <div class="mobile-menu-group">
+        <a href="/ai/members/" class="mobile-menu-link">メンバー紹介</a>
         <a href="/blog/" class="mobile-menu-link">ブログ</a>
         <a href="/contact" class="mobile-menu-link">相談する</a>
       </div>
       <div class="mobile-menu-divider"></div>
       <div class="mobile-menu-group">
-        <a href="/services/" class="mobile-menu-link mobile-menu-cta mobile-menu-cta-flash">無料AI講座</a>
+        <a href={servicesHref} class="mobile-menu-link mobile-menu-cta mobile-menu-cta-flash">{ctaLabel}</a>
       </div>
     </div>
   </div>
+)}
 
   <script>
+    // --- Desktop business navigation ---
+    document.addEventListener('DOMContentLoaded', function () {
+      const nav = document.querySelector<HTMLElement>('.business-nav');
+      const trigger = nav?.querySelector<HTMLButtonElement>('.business-trigger');
+      const submenu = nav?.querySelector<HTMLElement>('.business-submenu');
+      if (!nav || !trigger || !submenu) return;
+
+      const links = () => Array.from(submenu.querySelectorAll<HTMLAnchorElement>('a[href]'));
+      let closeTimer = 0;
+
+      function openSubmenu({ focusFirst = false } = {}) {
+        window.clearTimeout(closeTimer);
+        nav.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        submenu.setAttribute('aria-hidden', 'false');
+        submenu.inert = false;
+        if (focusFirst) links()[0]?.focus();
+      }
+
+      function closeSubmenu({ restoreFocus = false } = {}) {
+        window.clearTimeout(closeTimer);
+        nav.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        submenu.setAttribute('aria-hidden', 'true');
+        submenu.inert = true;
+        if (restoreFocus) trigger.focus();
+      }
+
+      function scheduleClose() {
+        closeTimer = window.setTimeout(() => closeSubmenu(), 120);
+      }
+
+      trigger.addEventListener('click', () => {
+        if (nav.classList.contains('is-open')) closeSubmenu();
+        else openSubmenu();
+      });
+      trigger.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          openSubmenu({ focusFirst: true });
+        } else if (event.key === 'Escape') {
+          event.preventDefault();
+          closeSubmenu({ restoreFocus: true });
+        }
+      });
+
+      nav.addEventListener('pointerenter', () => {
+        if (window.matchMedia('(hover: hover)').matches) openSubmenu();
+      });
+      nav.addEventListener('pointerleave', () => {
+        if (window.matchMedia('(hover: hover)').matches) scheduleClose();
+      });
+      nav.addEventListener('focusin', () => openSubmenu());
+      nav.addEventListener('focusout', () => {
+        window.setTimeout(() => {
+          if (!nav.contains(document.activeElement)) closeSubmenu();
+        }, 0);
+      });
+
+      submenu.addEventListener('keydown', (event) => {
+        const items = links();
+        const index = items.indexOf(document.activeElement as HTMLAnchorElement);
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeSubmenu({ restoreFocus: true });
+        } else if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          items[(index + 1 + items.length) % items.length]?.focus();
+        } else if (event.key === 'ArrowUp') {
+          event.preventDefault();
+          items[(index - 1 + items.length) % items.length]?.focus();
+        } else if (event.key === 'Home') {
+          event.preventDefault();
+          items[0]?.focus();
+        } else if (event.key === 'End') {
+          event.preventDefault();
+          items.at(-1)?.focus();
+        }
+      });
+
+      document.addEventListener('pointerdown', (event) => {
+        if (!nav.contains(event.target as Node)) closeSubmenu();
+      });
+      window.addEventListener('resize', () => closeSubmenu());
+    });
+
     // --- Mobile Menu Handler ---
     document.addEventListener('DOMContentLoaded', function () {
-      const hamburger = document.querySelector('.hamburger');
-      const mobileMenu = document.querySelector('.mobile-menu');
+      const hamburger = document.querySelector<HTMLButtonElement>('.hamburger');
+      const mobileMenu = document.querySelector<HTMLElement>('.mobile-menu');
       const body = document.body;
 
       // Create backdrop if not exists (checked for robustness)
-      let backdrop = document.querySelector('.mobile-menu-backdrop');
+      let backdrop = document.querySelector<HTMLElement>('.mobile-menu-backdrop');
       if (!backdrop) {
         backdrop = document.createElement('div');
         backdrop.className = 'mobile-menu-backdrop';
         body.appendChild(backdrop);
       }
 
-      function toggleMenu() {
-        hamburger?.classList.toggle('active');
-        mobileMenu?.classList.toggle('active');
-        backdrop?.classList.toggle('active');
-        if (body && mobileMenu) {
-            body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        }
+      let lastFocused: HTMLElement | null = null;
+
+      function openMenu() {
+        if (!hamburger || !mobileMenu || !backdrop) return;
+        lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        hamburger.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'メニューを閉じる');
+        mobileMenu.classList.add('active');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        mobileMenu.inert = false;
+        backdrop.classList.add('active');
+        body.classList.add('mobile-menu-open');
+        mobileMenu.querySelector('a')?.focus();
       }
+
+      function closeMenu({ restoreFocus = true } = {}) {
+        if (!hamburger || !mobileMenu || !backdrop) return;
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'メニューを開く');
+        mobileMenu.classList.remove('active');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        mobileMenu.inert = true;
+        backdrop.classList.remove('active');
+        body.classList.remove('mobile-menu-open');
+        if (restoreFocus && lastFocused instanceof HTMLElement) lastFocused.focus();
+      }
+
+      function toggleMenu() {
+        if (mobileMenu?.classList.contains('active')) closeMenu();
+        else openMenu();
+      }
+
+      if (mobileMenu) mobileMenu.inert = true;
 
       if (hamburger) {
         hamburger.addEventListener('click', toggleMenu);
@@ -69,13 +264,40 @@
 
       // Close menu when clicking backdrop
       if (backdrop) {
-         backdrop.addEventListener('click', toggleMenu);
+         backdrop.addEventListener('click', () => closeMenu());
       }
 
       // Close menu when clicking a link
-      const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+      const mobileLinks = document.querySelectorAll('.mobile-menu-link:not(summary)');
       mobileLinks.forEach(link => {
-        link.addEventListener('click', toggleMenu);
+        link.addEventListener('click', () => closeMenu({ restoreFocus: false }));
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (!mobileMenu?.classList.contains('active')) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeMenu();
+          return;
+        }
+        if (event.key !== 'Tab') return;
+        const focusable = Array.from(mobileMenu.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'));
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 980 && mobileMenu?.classList.contains('active')) {
+          closeMenu({ restoreFocus: false });
+        }
       });
     });
 
@@ -106,6 +328,153 @@
 
     .nav a:not(.btn):hover {
       color: var(--sea);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link.is-current::after {
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      left: 0;
+      height: 2px;
+      content: '';
+      background: var(--sea);
+    }
+
+    .business-nav {
+      position: relative;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+
+    .business-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0;
+      border: 0;
+      color: inherit;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .business-trigger:hover,
+    .business-trigger[aria-expanded='true'] {
+      color: var(--sea);
+    }
+
+    .business-chevron {
+      display: inline-block;
+      font-size: 16px;
+      transition: transform 0.18s ease;
+    }
+
+    .business-nav.is-open .business-chevron {
+      transform: rotate(180deg);
+    }
+
+    .business-submenu {
+      position: absolute;
+      top: calc(100% - 1px);
+      right: -180px;
+      width: min(560px, calc(100vw - 40px));
+      padding: 18px 20px 14px;
+      border: 1px solid #cfdad5;
+      border-top: 3px solid var(--sea);
+      border-radius: 0 0 6px 6px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 18px 38px rgba(12, 49, 38, 0.14);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
+    }
+
+    .business-nav.is-open .business-submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .submenu-heading {
+      margin: 0 0 10px;
+      color: #a33d38;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .business-submenu a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 6px;
+      border-bottom: 1px solid #e3e9e6;
+      color: #18362c;
+      text-decoration: none;
+    }
+
+    .business-submenu a:last-child {
+      border-bottom: 0;
+    }
+
+    .business-submenu a:hover,
+    .business-submenu a:focus-visible {
+      color: var(--sea);
+      background: #f4f8f6;
+      outline-offset: 2px;
+    }
+
+    .business-submenu a span {
+      display: grid;
+      gap: 3px;
+    }
+
+    .business-submenu a strong {
+      font-size: 14px;
+    }
+
+    .business-submenu a small {
+      color: #667870;
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    .business-submenu a em,
+    .mobile-business-link small {
+      flex: 0 0 auto;
+      padding: 3px 7px;
+      border: 1px solid #a8b5af;
+      border-radius: 3px;
+      color: #5f6f68;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .business-submenu a em.status-active,
+    .mobile-business-link small.status-active {
+      border-color: var(--sea);
+      color: var(--sea);
+      background: #eaf4ef;
+    }
+
+    .business-submenu a em.status-testing,
+    .mobile-business-link small.status-testing {
+      border-color: #b36a2d;
+      color: #8c4d1f;
+      background: #fff4e7;
+    }
+
+    .business-submenu .submenu-overview {
+      padding-top: 8px;
+      padding-bottom: 14px;
     }
 
     .nav .sp {
@@ -177,11 +546,13 @@
       transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       padding-top: 80px;
       pointer-events: none;
+      visibility: hidden;
     }
 
     .mobile-menu.active {
       right: 0;
       pointer-events: auto;
+      visibility: visible;
     }
 
     .mobile-menu-content {
@@ -205,10 +576,25 @@
       padding: 14px 16px;
       color: var(--ink);
       font-weight: 600;
-      border-radius: 12px;
+      border-radius: 6px;
       background: transparent;
       transition: all 0.2s ease;
       text-decoration: none;
+    }
+
+    .mobile-menu-heading {
+      margin: 4px 16px 2px;
+      color: #718079;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .mobile-business-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
     }
 
     .mobile-menu-link:hover,
@@ -313,6 +699,10 @@
   </style>
 
 <style is:global>
+    body.mobile-menu-open {
+      overflow: hidden !important;
+    }
+
     .mobile-menu-backdrop {
       position: fixed;
       top: 0;
@@ -332,7 +722,7 @@
       pointer-events: all;
     }
 
-    @media(max-width:768px) {
+    @media(max-width:980px) {
       .nav {
         justify-content: space-between;
         padding: 0 20px;
@@ -341,6 +731,7 @@
 
       .nav .sp,
       .nav-link,
+      .business-nav,
       .nav-placeholder,
       .nav .btn {
         display: none !important;
@@ -359,5 +750,69 @@
       .header-logo img {
         height: 36px !important;
       }
+    }
+
+    /* ===== AI事業配下の専用ヘッダー（シンプル・全幅ハンバーガー） ===== */
+    .ai-nav {
+      justify-content: space-between;
+    }
+    .ai-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ai-nav-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 99px;
+      background: rgba(22, 97, 78, 0.1);
+      color: var(--sea, #16614e);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .ai-back-link {
+      margin-left: auto;
+      margin-right: 8px;
+      font-size: 13px;
+    }
+    .hamburger.is-always {
+      display: flex !important;
+      position: static;
+      transform: none;
+    }
+    @media (max-width: 980px) {
+      .ai-nav .nav-link.ai-back-link {
+        display: none !important;
+      }
+    }
+
+    .ai-menu-acc summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ai-menu-acc summary::-webkit-details-marker { display: none; }
+    .ai-menu-acc summary::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+      margin-top: -3px;
+    }
+    .ai-menu-acc[open] summary::after {
+      transform: rotate(-135deg);
+      margin-top: 3px;
+    }
+    .ai-menu-sub {
+      padding-left: 18px;
+      border-left: 2px solid rgba(22, 97, 78, 0.18);
+      margin: 4px 0 8px 6px;
     }
 </style>

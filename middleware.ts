@@ -6,6 +6,8 @@
 
 export const config = {
   matcher: [
+    '/ai/blog/aym-interview-self-built-site/:path*',
+    // 旧URL（301移行前の残置。移行1年後に削除可）
     '/blog/aym-interview-self-built-site/:path*',
     '/preview/:path*',
     '/clients/pricing/:path*',

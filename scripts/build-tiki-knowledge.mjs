@@ -23,28 +23,28 @@ const SOURCES = [
     priority: true,
   },
   {
-    file: 'Public/src/pages/services/index.astro',
-    url: 'https://www.corduroy.co.jp/services/',
+    file: 'Public/src/pages/ai/services/index.astro',
+    url: 'https://www.corduroy.co.jp/ai/services/',
   },
   {
-    file: 'Public/src/pages/services/advisory.astro',
-    url: 'https://www.corduroy.co.jp/services/advisory/',
+    file: 'Public/src/pages/ai/services/advisory.astro',
+    url: 'https://www.corduroy.co.jp/ai/services/advisory/',
   },
   {
-    file: 'Public/src/pages/services/ai-renewal.astro',
-    url: 'https://www.corduroy.co.jp/services/ai-renewal/',
+    file: 'Public/src/pages/ai/services/ai-renewal.astro',
+    url: 'https://www.corduroy.co.jp/ai/services/ai-renewal/',
   },
   {
-    file: 'Public/src/pages/services/study/index.astro',
-    url: 'https://www.corduroy.co.jp/services/study/',
+    file: 'Public/src/pages/ai/services/study/index.astro',
+    url: 'https://www.corduroy.co.jp/ai/services/study/',
   },
   {
-    file: 'Public/src/pages/services/study/trial.astro',
-    url: 'https://www.corduroy.co.jp/services/study/trial/',
+    file: 'Public/src/pages/ai/services/study/trial.astro',
+    url: 'https://www.corduroy.co.jp/ai/services/study/trial/',
   },
   {
-    file: 'Public/src/pages/services/study/program.astro',
-    url: 'https://www.corduroy.co.jp/services/study/program/',
+    file: 'Public/src/pages/ai/services/study/program.astro',
+    url: 'https://www.corduroy.co.jp/ai/services/study/program/',
   },
   {
     file: 'Public/src/pages/contact.astro',

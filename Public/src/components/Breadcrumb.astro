@@ -9,7 +9,7 @@
  * 多階層（services 等）で階層を明示したい場合:
  *   <Breadcrumb items={[
  *     { label: "TOP", href: "/" },
- *     { label: "サービス", href: "/services/" },
+ *     { label: "サービス", href: "/ai/services/" },
  *     { label: "AI顧問" }          // href なし = 現在地
  *   ]} />
  *
@@ -32,10 +32,14 @@ interface Props {
 const { title, items, className = "" } = Astro.props;
 
 // items 未指定なら title からブログ階層を生成
+// /ai/blog/ 配下の記事は AI事業の記事一覧を親にする（会社ブログ /blog/ と分離）
+const isAiBlog = (Astro.url?.pathname ?? "").startsWith("/ai/blog/");
 const crumbs: Crumb[] =
   items ?? [
     { label: "TOP", href: "/" },
-    { label: "ブログ", href: "/blog/" },
+    isAiBlog
+      ? { label: "AIブログ", href: "/ai/blog/" }
+      : { label: "ブログ", href: "/blog/" },
     { label: title ?? "" }, // href なし = 現在地
   ];
 ---
