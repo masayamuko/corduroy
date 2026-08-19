@@ -434,4 +434,4 @@ export const blogPosts: BlogPost[] = posts;
 export const aiBlogPosts: BlogPost[] = posts.filter((p) => p.axis === 'AI事業');
 export const companyBlogPosts: BlogPost[] = posts.filter((p) => p.axis === '会社・活動');
 
-export const blogCategories = ['すべて', 'AI活用', 'お知らせ', 'パートナー自慢', 'インタビュー'];
+export const blogCategories = ['すべて', 'AI活用', 'お知らせ', 'インタビュー'];

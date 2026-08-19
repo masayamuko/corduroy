@@ -175,12 +175,12 @@ const description = '人を大切にしたい——そんな思いを持つ会�
       </div>
     </section>
 
-    <!-- S02 経営者の悩み（見出しなし・雑多バレット・3案チップ） -->
+    <!-- S02 経営者の悩み -->
     <section id="worries" class="r-worry" aria-labelledby="worry-sr-title">
       <div class="home-shell">
         <h2 id="worry-sr-title" class="r-visually-hidden">人を大切にしたいのに、できない悩み</h2>
 
-        <!-- 案01: FB由来の具体列挙 -->
+        
                   <ul class="r-worry-list fade-up">
             <li>社員を大事にしたい。でも、目の前の数字に追われている</li>
             <li>「AIで楽になる」と聞くけれど、うちの現場で使える気がしない</li>
@@ -475,6 +475,26 @@ const description = '人を大切にしたい——そんな思いを持つ会�
       </div>
     </section>
 
+
+    <!-- よくある質問（FAQPage構造化データと対応する可視FAQ） -->
+    <section id="faq" class="r-faq" aria-labelledby="faq-title">
+      <div class="home-shell">
+        <h2 id="faq-title"><span class="k">よくある</span>質問<span class="k">。</span></h2>
+        <details class="r-acc r-faq-item">
+          <summary>株式会社コールテンは何をしている会社ですか？</summary>
+          <div class="r-acc-body"><p>「人を大切にする経営を、理想で終わらせない。」を掲げ、AI活用サポート・コミュニケーション支援・採用サポートの3つで、人を大切にしたい会社を支える福岡の会社です。AIで余白をつくり、対話で理解を育て、採用と定着まで一緒に整えます。</p></div>
+        </details>
+        <details class="r-acc r-faq-item">
+          <summary>どんな会社が対象ですか？</summary>
+          <div class="r-acc-body"><p>人を大切にしたいという思いを持つ中小企業・NPO・事業者が対象です。IT担当者がいない、パソコンが得意ではない現場への導入経験も豊富です。全国対応しています。</p></div>
+        </details>
+        <details class="r-acc r-faq-item">
+          <summary>何から相談すればいいですか？</summary>
+          <div class="r-acc-body"><p>サービスを決めてから相談する必要はありません。まず「今、会社の中で何が起きているのか」を一緒に整理するところから始めます。このページの相性チェックで、考え方が近いかを先に確かめることもできます。</p></div>
+        </details>
+      </div>
+    </section>
+
     <!-- S11 相性チェック -->
     <section class="fit-section" aria-labelledby="fit-title">
       <div class="home-shell fit-layout">
@@ -660,56 +680,6 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     height: auto;
     border-radius: 6px;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-  }
-
-  /* ===== パターン切替チップ（選定用・公開前に外す） ===== */
-  .loop-section,
-  .scenes-section,
-  .fit-section {
-    position: relative;
-  }
-  .vp {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px dashed #b8802f;
-    border-radius: 99px;
-    padding: 5px 10px;
-  }
-  .vp-tag {
-    font-size: 10.5px;
-    font-weight: 700;
-    color: #a2701f;
-    letter-spacing: 0.08em;
-  }
-  .vp button {
-    width: 30px;
-    height: 26px;
-    border: 1px solid #d8cdb6;
-    border-radius: 6px;
-    background: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    color: #6b5c3d;
-    cursor: pointer;
-  }
-  .vp button[aria-pressed="true"] {
-    background: var(--sea, #16614e);
-    border-color: var(--sea, #16614e);
-    color: #fff;
-  }
-  .vpanel { display: none; }
-  .vpanel.on { display: block; }
-  .vpanel-note {
-    margin: 16px 0 0;
-    text-align: center;
-    font-size: 12px;
-    color: #8a7c60;
   }
 
   /* 案02: 循環の円環図 */
@@ -2183,7 +2153,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
         bars += `<p class="fitcheck-legend">${q[0]} ⇔ ${q[1]}</p><div class="fitcheck-scale"><i class="dc" style="left:${(CP[i] / 6) * 88 + 6}%"></i><i class="du" style="left:${(vals[i] / 6) * 88 + 6}%"></i></div>`;
       });
       result.classList.add('on');
-      const ctaHtml = cta ? `<a class="fitcheck-cta" href="/contact" data-ga-event="cta_click" data-ga-label="fitcheck_contact">${cta} <span aria-hidden="true">→</span></a>` : '';
+      const ctaHtml = cta ? `<a class="fitcheck-cta" href="/contact/" data-ga-event="cta_click" data-ga-label="fitcheck_contact">${cta} <span aria-hidden="true">→</span></a>` : '';
       result.innerHTML = `<div class="fitcheck-card"><p class="fitcheck-verdict">${verdict}</p><p class="fitcheck-legend">● 緑=コールテン / ● 橙=あなた。点数ではなく「近さ」を見ています。</p>${bars}<p class="fitcheck-msg">${msg}</p>${ctaHtml}</div>`;
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
@@ -3386,24 +3356,6 @@ const description = '人を大切にしたい——そんな思いを持つ会�
 <style>
   /* ===== 2026-08-12 第2弾（悩みリスト化・AI土台レイアウト・利用順3ステップ） ===== */
 
-  /* チップ設置面の基準位置 */
-  .home-hero,
-  .r-worry {
-    position: relative;
-  }
-  .vp-hero {
-    position: static;
-    display: inline-flex;
-    margin-bottom: 18px;
-  }
-  .vpanel.is-inline { display: none; }
-  .vpanel.is-inline.on { display: inline; }
-  .vp-mini {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-  }
-
   /* 悩みリスト（見出しなし・雑多バレット） */
   .r-worry-list {
     list-style: none;
@@ -3597,6 +3549,28 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     margin: 0;
     font-size: 14px;
     line-height: 2.1;
+    color: #4c625a;
+  }
+
+  .r-faq {
+    padding: 0 0 80px;
+    background: #fff;
+  }
+  .r-faq h2 {
+    font-size: clamp(22px, 2.6vw, 30px);
+    margin: 0 0 18px;
+  }
+  .r-faq-item {
+    max-width: 760px;
+    margin-bottom: 10px;
+  }
+  .r-faq-item summary {
+    font-size: 14px;
+  }
+  .r-faq-item .r-acc-body p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 2.05;
     color: #4c625a;
   }
 </style>
