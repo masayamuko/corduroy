@@ -22,6 +22,12 @@ export default defineConfig({
           'https://www.corduroy.co.jp/ai/blog/aym-interview-self-built-site/',
           'https://www.corduroy.co.jp/clients/pricing/',
           'https://www.corduroy.co.jp/preview/founder-story/',
+          // 未公開・限定公開（noindex）のためsitemapからも除外
+          'https://www.corduroy.co.jp/ai/blog/agent-loop-minimal-intro/',
+          'https://www.corduroy.co.jp/ai/blog/pro-coach-ai-coaching/',
+          'https://www.corduroy.co.jp/blog/ohra-partner-pride/',
+          'https://www.corduroy.co.jp/blog/ume-partner-pride/',
+          'https://www.corduroy.co.jp/courses/ai-comm-3parts/',
         ].includes(page),
     }),
     preact(),
