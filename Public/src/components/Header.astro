@@ -281,7 +281,7 @@ const ctaLabel = isAiPage ? 'AIサービス' : 'できること';
           return;
         }
         if (event.key !== 'Tab') return;
-        const focusable = Array.from(mobileMenu.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'));
+        const focusable = Array.from(mobileMenu.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), summary'));
         if (!focusable.length) return;
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
@@ -584,7 +584,7 @@ const ctaLabel = isAiPage ? 'AIサービス' : 'できること';
 
     .mobile-menu-heading {
       margin: 4px 16px 2px;
-      color: #718079;
+      color: #5c6a63;
       font-size: 11px;
       font-weight: 700;
     }
