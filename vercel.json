@@ -915,6 +915,46 @@
       "permanent": true
     },
     {
+      "source": "/voice-takaro",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/voice-nakano",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/service-system",
+      "destination": "/ai/",
+      "permanent": true
+    },
+    {
+      "source": "/service-advisory",
+      "destination": "/ai/services/advisory/",
+      "permanent": true
+    },
+    {
+      "source": "/services/system",
+      "destination": "/ai/",
+      "permanent": true
+    },
+    {
+      "source": "/clients/takaro",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
+      "source": "/clients/bgcafe",
+      "destination": "/dream/boardgame-cafe/",
+      "permanent": true
+    },
+    {
+      "source": "/voices/takaro-showcase",
+      "destination": "/ai/voices/takaro/",
+      "permanent": true
+    },
+    {
       "source": "/services/:path+",
       "destination": "/ai/services/:path+",
       "permanent": true

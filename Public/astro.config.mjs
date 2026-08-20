@@ -21,6 +21,7 @@ export default defineConfig({
           'https://www.corduroy.co.jp/ai/blog/ai-advisory-new-applications-paused-2026-05/',
           'https://www.corduroy.co.jp/ai/blog/aym-interview-self-built-site/',
           'https://www.corduroy.co.jp/clients/pricing/',
+          'https://www.corduroy.co.jp/preview/founder-story/',
         ].includes(page),
     }),
     preact(),
