@@ -289,7 +289,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
             <p class="r-bg-tag">背景: 人が多様になる</p>
             <h3>違<span class="k">いを、</span>対立<span class="k">で</span>終<span class="k">わらせない。</span></h3>
             <p class="r-biz-lead">相手を変えるための研修ではありません。AI時代だからこそ価値が上がる「聞く・理解する・一緒に考える」を、チームの力にします。</p>
-            <p class="r-biz-lead">コーチングをベースに、経営陣と現場の橋渡しや、上司と部下の関係づくりを支えます。いまはテスト提供中。一緒に形をつくる会社を歓迎します。</p>
+            <p class="r-biz-lead">コーチングをベースに、経営陣と現場の橋渡しや、上司と部下の関係づくりを支えます。いまはテスト実施中。一緒に形をつくる会社を歓迎します。</p>
             <details class="r-acc">
               <summary aria-label="コミュニケーション支援の支援内容を開く">詳細</summary>
               <div class="r-acc-body">
@@ -326,7 +326,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
           <article id="business-hiring" class="r-biz-card is-preparing fade-up">
             <span id="business-foreign" class="r-anchor-alias" aria-hidden="true"></span>
             {hasImage("/images/top/support-hiring.webp") && <img class="r-biz-img" src="/images/top/support-hiring.webp" alt="" width="1536" height="1024" loading="lazy" />}
-            <div class="r-biz-meta"><span class="r-biz-no">03</span><p>採用サポート</p><em class="r-prep-tag">準備中（登録支援機関 申請準備中）</em></div>
+            <div class="r-biz-meta"><span class="r-biz-no">03</span><p>採用サポート</p><em class="r-prep-tag">登録支援機関 申請準備中</em></div>
             <p class="r-bg-tag">背景: 働き手が減る</p>
             <h3>採用<span class="k">は、</span>会社<span class="k">の</span>魅力<span class="k">を</span>伝<span class="k">える</span>仕事<span class="k">。</span></h3>
             <p class="r-biz-lead">採用はマーケティングです。求人の打ち出し方から、外国人材の採用・定着まで、「選ばれて、長く続く採用」を一緒につくります。</p>
@@ -2114,17 +2114,17 @@ const description = '人を大切にしたい——そんな思いを持つ会�
       let verdict = '';
       let msg = '';
       let cta = '';
-      if (diff <= 6) {
-        verdict = '相性、良さそうです。';
-        msg = '優先順位の置き方が、私たちとよく似ています。きっとお力になれると思います。';
-        cta = '問い合わせてみる';
+      if (diff <= 7) {
+        verdict = 'かなり、近いです。';
+        msg = '大切にしていることが、私たちとほとんど同じでした。こういう会社さんとご一緒したい、と心から思います。ぜひ一度、いま起きていることを聞かせてください。';
+        cta = 'ぜひ問い合わせてみる';
       } else if (diff <= 13) {
-        verdict = '重なるところが、ありそうです。';
-        msg = '重なる部分と、違う部分がありそうです。重なるところからなら、一緒に進められるかもしれません。';
-        cta = 'まず小さく相談してみる';
+        verdict = '合いそうです。';
+        msg = '違うところもありますが、重なっている部分の方が大きそうです。重なるところから、一緒に進めていけると思います。';
+        cta = '相談してみる';
       } else {
-        verdict = '正直にお伝えすると——';
-        msg = '考え方に、少し違うところがありそうです。「速さと数字」に強い軸をお持ちなら、効率化に特化したAI導入会社の方がきっとお力になれます。それも正しい選択だと、私たちは思います。';
+        verdict = '私たちとは、少し違うかもしれません。';
+        msg = 'いまの優先順位だと、私たちがいちばん力を発揮できる場面とは少し離れているかもしれません。スピードと効率を強みにしている会社さんの方が、早くお役に立てる可能性があります。どんな進め方を選ぶかは、会社ごとに違っていいと思っています。';
         cta = '';
       }
       let bars = '';
