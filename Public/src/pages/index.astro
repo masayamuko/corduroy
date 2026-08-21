@@ -13,17 +13,13 @@ const description = '人を大切にしたい——そんな思いを持つ会�
 
 <Layout title={title} description={description} canonicalUrl="https://www.corduroy.co.jp/" ogUrl="https://www.corduroy.co.jp/">
   <script slot="head" is:inline>
+    // イントロの自動表示はしない（Google: 全面インタースティシャル回避）。
+    // 視聴済みかどうかだけを描画前に確定し、ボタンの見せ方を出し分ける。
     (() => {
       const key = 'corduroy-home-intro-v3';
-      let completed = document.cookie
-        .split('; ')
-        .some((cookie) => cookie === `${key}=completed`);
-      try {
-        completed ||= localStorage.getItem(key) === 'completed';
-      } catch {}
-      if (!completed) {
-        document.documentElement.dataset.homeIntro = 'show';
-      }
+      let seen = document.cookie.split('; ').some((c) => c === `${key}=completed`);
+      try { seen ||= localStorage.getItem(key) === 'completed'; } catch {}
+      document.documentElement.dataset.introSeen = seen ? 'true' : 'false';
     })();
   </script>
 
@@ -160,7 +156,6 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     <!-- S01 ファーストビュー -->
     <section class="home-hero" aria-labelledby="hero-title">
       <div class="hero-weave" aria-hidden="true"></div>
-      <button class="hero-intro-replay" type="button" data-home-intro-replay aria-label="はじめての方向けのイントロを再生する"><span aria-hidden="true">▶</span> はじめての方へ</button>
       <div class="home-shell hero-content">
         <div class="hero-meta">
           <p class="eyebrow">株式会社コールテン</p>
@@ -175,6 +170,10 @@ const description = '人を大切にしたい——そんな思いを持つ会�
           コールテンは広い視点で、あなたの会社の隣に立ちます。
         </p>
         <div class="hero-actions">
+          <button class="home-button home-button-intro" type="button" data-home-intro-replay aria-label="はじめての方向けの紹介を見る">
+            <span class="intro-btn-icon" aria-hidden="true">▶</span>
+            <span class="intro-btn-text">はじめての方へ<small>1分でわかるコールテン</small></span>
+          </button>
           <a class="home-button home-button-primary" href="#services">コールテンの支援を見る <span aria-hidden="true">↓</span></a>
           <a class="home-button home-button-text" href="/story/">はじまりの話を読む <span aria-hidden="true">→</span></a>
         </div>
@@ -496,6 +495,10 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     </section>
 
   </main>
+
+  <button class="intro-mini-launch" type="button" data-home-intro-replay aria-label="はじめての方向けの紹介を見る">
+    <span aria-hidden="true">▶</span> はじめての方へ
+  </button>
 </Layout>
 
 <style>
@@ -2048,7 +2051,6 @@ const description = '人を大切にしたい——そんな思いを持つ会�
       button.addEventListener('click', () => openIntro(button));
     });
 
-    if (document.documentElement.dataset.homeIntro === 'show') openIntro();
   }
 
   if (document.readyState === 'loading') {
@@ -3618,5 +3620,87 @@ const description = '人を大切にしたい——そんな思いを持つ会�
   @media (max-width: 640px) {
     .r-biz-meta { flex-wrap: wrap; }
     .r-prep-tag { white-space: normal; }
+  }
+</style>
+
+<style>
+  /* ヒーローの「はじめての方へ」ボタン（自動発火をやめ、明示クリックで起動） */
+  .home-button-intro {
+    gap: 12px;
+    padding: 12px 24px;
+    border: 2px solid #0f5845;
+    border-radius: 999px;
+    background: #fff;
+    color: #0f5845;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    box-shadow: 0 4px 14px rgba(15, 88, 69, 0.12);
+  }
+  .home-button-intro:hover {
+    background: #0f5845;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+  .intro-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #0f5845;
+    color: #fff;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+  .home-button-intro:hover .intro-btn-icon {
+    background: #fff;
+    color: #0f5845;
+  }
+  .intro-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+  }
+  .intro-btn-text small {
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.72;
+  }
+</style>
+
+<style is:global>
+  /* 初回訪問=ヒーローの大ボタン / 視聴済み=右下の控えめボタン */
+  html[data-intro-seen='true'] .home-button-intro { display: none; }
+  html[data-intro-seen='false'] .intro-mini-launch { display: none; }
+
+  .intro-mini-launch {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 90;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 16px;
+    border: 1px solid rgba(15, 88, 69, 0.35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.94);
+    color: #0f5845;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(5, 32, 24, 0.12);
+    backdrop-filter: blur(4px);
+    opacity: 0.72;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .intro-mini-launch:hover { opacity: 1; transform: translateY(-2px); }
+  body.home-intro-open .intro-mini-launch { display: none !important; }
+
+  @media (max-width: 640px) {
+    .intro-mini-launch { right: 12px; bottom: 12px; font-size: 11px; padding: 8px 13px; }
   }
 </style>
