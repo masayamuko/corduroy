@@ -13,6 +13,23 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
+      // lastmod は「実態と一致」がGoogleの推奨。今回のリニューアルで実際に
+      // 大きく変更したページだけに、その更新日を固定値で付ける。
+      // 参照: https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping
+      serialize(item) {
+        const renewed = [
+          'https://www.corduroy.co.jp/',
+          'https://www.corduroy.co.jp/story/',
+          'https://www.corduroy.co.jp/ai/',
+          'https://www.corduroy.co.jp/ai/blog/',
+          'https://www.corduroy.co.jp/blog/',
+          'https://www.corduroy.co.jp/ai/voices/',
+        ];
+        if (renewed.includes(item.url)) {
+          item.lastmod = '2026-08-21T00:00:00+09:00';
+        }
+        return item;
+      },
       // noindex 記事は sitemap から除外
       // Google公式ガイダンス: noindex な URL を sitemap に入れると矛盾シグナルになり SEO 評価を下げる
       // お知らせ系（時限的・noindex運用）の記事を追加する時は、ここの配列にも URL を追加すること
