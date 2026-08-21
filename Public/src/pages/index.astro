@@ -31,26 +31,32 @@ const description = '人を大切にしたい——そんな思いを持つ会�
         {
           "@type": "Question",
           "name": "株式会社コールテンは何をしている会社ですか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "「人を大切にする経営を、理想で終わらせない。」を掲げ、AI活用サポート・コミュニケーション支援・採用サポートの3つで、人を大切にしたい会社を支える福岡の会社です。AIで余白をつくり、対話で理解を育て、採用と定着まで一緒に整えます。"
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "「人を大切にする経営を、理想で終わらせない。」を掲げ、AI活用サポート・コミュニケーション支援・採用サポートの3つで、人を大切にしたい会社を支える福岡の会社です。AIで余白をつくり、対話で理解を育て、採用と定着まで一緒に整えます。" }
         },
         {
           "@type": "Question",
           "name": "どんな会社が対象ですか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "人を大切にしたいという思いを持つ中小企業・NPO・事業者が対象です。IT担当者がいない、パソコンが得意ではない現場への導入経験も豊富です。全国対応しています。"
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "人を大切にしたいという思いを持つ中小企業・NPO・事業者が対象です。IT担当者がいない、パソコンが得意ではない現場への導入経験も豊富です。福岡を拠点に、オンラインで全国対応しています。" }
         },
         {
           "@type": "Question",
           "name": "何から相談すればいいですか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "サービスを決めてから相談する必要はありません。まず「今、会社の中で何が起きているのか」を一緒に整理するところから始めます。トップページの相性チェックで、考え方が近いかを先に確かめることもできます。"
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "サービスを決めてから相談する必要はありません。まず「今、会社の中で何が起きているのか」を一緒に整理するところから始めます。このページの相性チェックで、考え方が近いかを先に確かめることもできます。" }
+        },
+        {
+          "@type": "Question",
+          "name": "AIにくわしくないのですが、大丈夫でしょうか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "大丈夫です。むしろ「詳しい人がいない現場」との仕事を多く経験してきました。ツールの紹介ではなく、実際に使えるところまで一緒に手を動かします。専門用語もかみ砕いてお伝えします。" }
+        },
+        {
+          "@type": "Question",
+          "name": "どんな進め方になりますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "いきなり大きく変えることはしません。いまの仕事を一緒に見て、小さく試せるところから始めます。うまくいったら次へ、合わなければ別の方法へ。そのくり返しで、現場に無理なく定着させていきます。" }
+        },
+        {
+          "@type": "Question",
+          "name": "3つの支援は、どれか1つだけでもお願いできますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "もちろんです。ページで紹介している順番はおすすめであって、決まりではありません。「まずは研修だけ」「AIだけ」でも歓迎します。いま必要なところから一緒に始めましょう。" }
         }
       ]
     }
@@ -204,7 +210,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     <section id="services" class="r-biz" aria-labelledby="biz-title">
       <div class="home-shell">
         <div class="r-heading fade-up">
-          <h2 id="biz-title">3<span class="k">つの</span>支援<span class="k">。</span></h2>
+          <h2 id="biz-title">3<span class="k">つの</span>支援</h2>
         </div>
         <div class="r-biz-layout">
 
@@ -323,6 +329,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
           </article>
 
           <article id="business-hiring" class="r-biz-card is-preparing fade-up">
+            <div class="r-prep-overlay" aria-hidden="true"><span>準備中</span></div>
             <span id="business-foreign" class="r-anchor-alias" aria-hidden="true"></span>
             {hasImage("/images/top/support-hiring.webp") && <img class="r-biz-img" src="/images/top/support-hiring.webp" alt="" width="1536" height="1024" loading="lazy" />}
             <div class="r-biz-meta"><span class="r-biz-no">03</span><p>採用サポート</p><em class="r-prep-tag">登録支援機関 申請準備中</em></div>
@@ -388,7 +395,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     <section id="loop" class="r-loop" aria-labelledby="loop-title">
       <div class="home-shell">
         <div class="r-heading fade-up">
-          <h2 id="loop-title">利用<span class="k">イメージ。</span></h2>
+          <h2 id="loop-title">利用<span class="k">イメージ</span></h2>
         </div>
         <div class="r-order fade-up">
           <div class="r-order-step">
@@ -462,7 +469,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     <section class="fit-section" aria-labelledby="fit-title">
       <div class="home-shell fit-layout">
         <div class="fit-copy">
-          <h2 id="fit-title">コールテン<span class="k">との</span><br />相性チェック<span class="k">。</span></h2>
+          <h2 id="fit-title">コールテン<span class="k">との</span><br />相性チェック</h2>
           <p>完ペキに一致する必要はありません。会社によって、大切にしたいことや経営の方法は違います。仕事をご一緒する前に、少しだけ価値観を比べてみませんか。</p>
         </div>
         <div class="fit-right">
@@ -478,19 +485,33 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     <!-- よくある質問（FAQPage構造化データと対応する可視FAQ） -->
     <section id="faq" class="r-faq" aria-labelledby="faq-title">
       <div class="home-shell">
-        <h2 id="faq-title"><span class="k">よくある</span>質問<span class="k">。</span></h2>
-        <details class="r-acc r-faq-item">
-          <summary>株式会社コールテンは何をしている会社ですか？</summary>
-          <div class="r-acc-body"><p>「人を大切にする経営を、理想で終わらせない。」を掲げ、AI活用サポート・コミュニケーション支援・採用サポートの3つで、人を大切にしたい会社を支える福岡の会社です。AIで余白をつくり、対話で理解を育て、採用と定着まで一緒に整えます。</p></div>
+        <h2 id="faq-title"><span class="k">よくある</span>質問</h2>
+        <div class="r-faq-list">
+        <details class="r-faq-item">
+          <summary><span class="faq-q" aria-hidden="true">Q</span><span class="faq-q-text">株式会社コールテンは何をしている会社ですか？</span></summary>
+          <div class="r-faq-answer"><span class="faq-a" aria-hidden="true">A</span><p>「人を大切にする経営を、理想で終わらせない。」を掲げ、AI活用サポート・コミュニケーション支援・採用サポートの3つで、人を大切にしたい会社を支える福岡の会社です。AIで余白をつくり、対話で理解を育て、採用と定着まで一緒に整えます。</p></div>
         </details>
-        <details class="r-acc r-faq-item">
-          <summary>どんな会社が対象ですか？</summary>
-          <div class="r-acc-body"><p>人を大切にしたいという思いを持つ中小企業・NPO・事業者が対象です。IT担当者がいない、パソコンが得意ではない現場への導入経験も豊富です。全国対応しています。</p></div>
+        <details class="r-faq-item">
+          <summary><span class="faq-q" aria-hidden="true">Q</span><span class="faq-q-text">どんな会社が対象ですか？</span></summary>
+          <div class="r-faq-answer"><span class="faq-a" aria-hidden="true">A</span><p>人を大切にしたいという思いを持つ中小企業・NPO・事業者が対象です。IT担当者がいない、パソコンが得意ではない現場への導入経験も豊富です。福岡を拠点に、オンラインで全国対応しています。</p></div>
         </details>
-        <details class="r-acc r-faq-item">
-          <summary>何から相談すればいいですか？</summary>
-          <div class="r-acc-body"><p>サービスを決めてから相談する必要はありません。まず「今、会社の中で何が起きているのか」を一緒に整理するところから始めます。このページの相性チェックで、考え方が近いかを先に確かめることもできます。</p></div>
+        <details class="r-faq-item">
+          <summary><span class="faq-q" aria-hidden="true">Q</span><span class="faq-q-text">何から相談すればいいですか？</span></summary>
+          <div class="r-faq-answer"><span class="faq-a" aria-hidden="true">A</span><p>サービスを決めてから相談する必要はありません。まず「今、会社の中で何が起きているのか」を一緒に整理するところから始めます。このページの相性チェックで、考え方が近いかを先に確かめることもできます。</p></div>
         </details>
+        <details class="r-faq-item">
+          <summary><span class="faq-q" aria-hidden="true">Q</span><span class="faq-q-text">AIにくわしくないのですが、大丈夫でしょうか？</span></summary>
+          <div class="r-faq-answer"><span class="faq-a" aria-hidden="true">A</span><p>大丈夫です。むしろ「詳しい人がいない現場」との仕事を多く経験してきました。ツールの紹介ではなく、実際に使えるところまで一緒に手を動かします。専門用語もかみ砕いてお伝えします。</p></div>
+        </details>
+        <details class="r-faq-item">
+          <summary><span class="faq-q" aria-hidden="true">Q</span><span class="faq-q-text">どんな進め方になりますか？</span></summary>
+          <div class="r-faq-answer"><span class="faq-a" aria-hidden="true">A</span><p>いきなり大きく変えることはしません。いまの仕事を一緒に見て、小さく試せるところから始めます。うまくいったら次へ、合わなければ別の方法へ。そのくり返しで、現場に無理なく定着させていきます。</p></div>
+        </details>
+        <details class="r-faq-item">
+          <summary><span class="faq-q" aria-hidden="true">Q</span><span class="faq-q-text">3つの支援は、どれか1つだけでもお願いできますか？</span></summary>
+          <div class="r-faq-answer"><span class="faq-a" aria-hidden="true">A</span><p>もちろんです。ページで紹介している順番はおすすめであって、決まりではありません。「まずは研修だけ」「AIだけ」でも歓迎します。いま必要なところから一緒に始めましょう。</p></div>
+        </details>
+        </div>
       </div>
     </section>
 
@@ -3600,7 +3621,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     pointer-events: none;
     z-index: 1;
   }
-  .r-biz-card.is-preparing > * {
+  .r-biz-card.is-preparing > *:not(.r-prep-overlay) {
     position: relative;
     z-index: 2;
   }
@@ -3702,5 +3723,114 @@ const description = '人を大切にしたい——そんな思いを持つ会�
 
   @media (max-width: 640px) {
     .intro-mini-launch { right: 12px; bottom: 12px; font-size: 11px; padding: 8px 13px; }
+  }
+</style>
+
+<style>
+  /* ===== Q&A デザイン刷新（Q/Aバッジ・カード型） ===== */
+  .r-faq-list {
+    max-width: 780px;
+    display: grid;
+    gap: 12px;
+  }
+  .r-faq-item {
+    background: #fff;
+    border: 1px solid #e3ddcf;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .r-faq-item[open] {
+    border-color: #bcd9cc;
+    box-shadow: 0 6px 18px rgba(5, 32, 24, 0.06);
+  }
+  .r-faq-item summary {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 22px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .r-faq-item summary::-webkit-details-marker { display: none; }
+  .faq-q, .faq-a {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .faq-q { background: #16614e; color: #fff; }
+  .faq-a { background: #f2e4cc; color: #a2701f; }
+  .faq-q-text {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.7;
+    color: #16302a;
+    padding-top: 2px;
+  }
+  .r-faq-item summary::after {
+    content: "";
+    flex-shrink: 0;
+    width: 9px;
+    height: 9px;
+    margin-top: 9px;
+    border-right: 2px solid #8a9a93;
+    border-bottom: 2px solid #8a9a93;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+  .r-faq-item[open] summary::after { transform: rotate(-135deg) translateY(-3px); }
+  .r-faq-item summary:hover { background: #fbfaf6; }
+  .r-faq-answer {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 0 22px 20px 22px;
+  }
+  .r-faq-answer p {
+    margin: 0;
+    padding-top: 2px;
+    font-size: 14px;
+    line-height: 2.05;
+    color: #4c625a;
+  }
+
+  /* ===== 準備中オーバーレイ（採用サポート） ===== */
+  .r-biz-card.is-preparing { background: #fff; }
+  .r-biz-card.is-preparing::before { display: none; }
+  .r-prep-overlay {
+    position: absolute !important;
+    inset: 0;
+    z-index: 6;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: clamp(40px, 9vw, 90px);
+    background: rgba(18, 26, 22, 0.46);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  .r-prep-overlay span {
+    font-family: 'CraftMincho', serif;
+    font-size: clamp(26px, 3.4vw, 40px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.14em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  }
+  .r-biz-card.is-preparing .r-biz-img { filter: none; }
+
+  @media (max-width: 640px) {
+    .r-faq-item summary { padding: 15px 16px; gap: 11px; }
+    .faq-q-text { font-size: 14px; }
+    .r-faq-answer { padding: 0 16px 17px; gap: 11px; }
   }
 </style>
