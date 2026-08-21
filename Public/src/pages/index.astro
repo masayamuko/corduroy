@@ -13,17 +13,13 @@ const description = '人を大切にしたい——そんな思いを持つ会�
 
 <Layout title={title} description={description} canonicalUrl="https://www.corduroy.co.jp/" ogUrl="https://www.corduroy.co.jp/">
   <script slot="head" is:inline>
+    // イントロの自動表示はしない（Google: 全面インタースティシャル回避）。
+    // 視聴済みかどうかだけを描画前に確定し、ボタンの見せ方を出し分ける。
     (() => {
       const key = 'corduroy-home-intro-v3';
-      let completed = document.cookie
-        .split('; ')
-        .some((cookie) => cookie === `${key}=completed`);
-      try {
-        completed ||= localStorage.getItem(key) === 'completed';
-      } catch {}
-      if (!completed) {
-        document.documentElement.dataset.homeIntro = 'show';
-      }
+      let seen = document.cookie.split('; ').some((c) => c === `${key}=completed`);
+      try { seen ||= localStorage.getItem(key) === 'completed'; } catch {}
+      document.documentElement.dataset.introSeen = seen ? 'true' : 'false';
     })();
   </script>
 
@@ -160,7 +156,6 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     <!-- S01 ファーストビュー -->
     <section class="home-hero" aria-labelledby="hero-title">
       <div class="hero-weave" aria-hidden="true"></div>
-      <button class="hero-intro-replay" type="button" data-home-intro-replay aria-label="はじめての方向けのイントロを再生する"><span aria-hidden="true">▶</span> はじめての方へ</button>
       <div class="home-shell hero-content">
         <div class="hero-meta">
           <p class="eyebrow">株式会社コールテン</p>
@@ -175,6 +170,10 @@ const description = '人を大切にしたい——そんな思いを持つ会�
           コールテンは広い視点で、あなたの会社の隣に立ちます。
         </p>
         <div class="hero-actions">
+          <button class="home-button home-button-intro" type="button" data-home-intro-replay aria-label="はじめての方向けの紹介を見る">
+            <span class="intro-btn-icon" aria-hidden="true">▶</span>
+            <span class="intro-btn-text">はじめての方へ<small>1分でわかるコールテン</small></span>
+          </button>
           <a class="home-button home-button-primary" href="#services">コールテンの支援を見る <span aria-hidden="true">↓</span></a>
           <a class="home-button home-button-text" href="/story/">はじまりの話を読む <span aria-hidden="true">→</span></a>
         </div>
@@ -218,7 +217,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
             <p class="r-biz-lead">「難しいAI」ではなく、現場の人が使える「やさしいAI活用」。任せられる仕事はAIに任せて、人と向き合う時間を取り戻します。</p>
             <p class="r-biz-lead">実際の仕事の整理から、現場に合わせた使い方の設計、研修・仕組み化まで一緒に。パソコンが苦手な現場への導入経験も豊富です。</p>
             <details class="r-acc">
-              <summary>詳細</summary>
+              <summary aria-label="AI活用サポートの支援内容を開く">詳細</summary>
               <div class="r-acc-body">
                 <div class="r-baf">
                   <div class="r-baf-col is-before">
@@ -289,9 +288,9 @@ const description = '人を大切にしたい——そんな思いを持つ会�
             <p class="r-bg-tag">背景: 人が多様になる</p>
             <h3>違<span class="k">いを、</span>対立<span class="k">で</span>終<span class="k">わらせない。</span></h3>
             <p class="r-biz-lead">相手を変えるための研修ではありません。AI時代だからこそ価値が上がる「聞く・理解する・一緒に考える」を、チームの力にします。</p>
-            <p class="r-biz-lead">コーチングをベースに、経営陣と現場の橋渡しや、上司と部下の関係づくりを支えます。いまはテスト提供中。一緒に形をつくる会社を歓迎します。</p>
+            <p class="r-biz-lead">コーチングをベースに、経営陣と現場の橋渡しや、上司と部下の関係づくりを支えます。いまはテスト実施中。一緒に形をつくる会社を歓迎します。</p>
             <details class="r-acc">
-              <summary>詳細</summary>
+              <summary aria-label="コミュニケーション支援の支援内容を開く">詳細</summary>
               <div class="r-acc-body">
                 <div class="r-chains is-light">
                   <div class="r-chain is-bad">
@@ -326,13 +325,13 @@ const description = '人を大切にしたい——そんな思いを持つ会�
           <article id="business-hiring" class="r-biz-card is-preparing fade-up">
             <span id="business-foreign" class="r-anchor-alias" aria-hidden="true"></span>
             {hasImage("/images/top/support-hiring.webp") && <img class="r-biz-img" src="/images/top/support-hiring.webp" alt="" width="1536" height="1024" loading="lazy" />}
-            <div class="r-biz-meta"><span class="r-biz-no">03</span><p>採用サポート</p><em class="r-prep-tag">準備中（登録支援機関 申請準備中）</em></div>
+            <div class="r-biz-meta"><span class="r-biz-no">03</span><p>採用サポート</p><em class="r-prep-tag">登録支援機関 申請準備中</em></div>
             <p class="r-bg-tag">背景: 働き手が減る</p>
             <h3>採用<span class="k">は、</span>会社<span class="k">の</span>魅力<span class="k">を</span>伝<span class="k">える</span>仕事<span class="k">。</span></h3>
             <p class="r-biz-lead">採用はマーケティングです。求人の打ち出し方から、外国人材の採用・定着まで、「選ばれて、長く続く採用」を一緒につくります。</p>
             <p class="r-biz-lead">会社の魅力の言語化、採用広報の見直し、入社後の定着設計まで。いまは事業開始に向けて準備を進めています。</p>
             <details class="r-acc">
-              <summary>詳細</summary>
+              <summary aria-label="採用サポートの支援内容を開く">詳細</summary>
               <div class="r-acc-body">
                 <div class="r-acc-note">
                   <p>「求人を出しても来ない」の多くは、条件ではなく<strong>伝わり方</strong>の問題です。どんな会社で、誰と、どんなふうに働けるのか——会社の中にある魅力を言葉にして、届く形で打ち出すところから一緒に整えます。</p>
@@ -391,7 +390,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
         <div class="r-heading fade-up">
           <h2 id="loop-title">利用<span class="k">イメージ。</span></h2>
         </div>
-        <div class="r-order fade-up" role="img" aria-label="AI活用サポートで余白をつくり、コミュニケーション支援で定着の土台を整え、採用サポートでいい循環へ、の3ステップ図">
+        <div class="r-order fade-up">
           <div class="r-order-step">
             <span class="r-order-no">STEP 1</span>
             <h3>AI活用サポート</h3>
@@ -434,7 +433,7 @@ const description = '人を大切にしたい——そんな思いを持つ会�
         {hasImage("/images/top/dream-cafe.webp") && <div class="r-dream-scene fade-up">
           <img src="/images/top/dream-cafe.webp" alt="立場の違う人たちが同じテーブルでボードゲームを囲んでいるイラスト" width="1792" height="1024" loading="lazy" />
         </div>}
-        <div class="r-dream-formula fade-up" role="img" aria-label="3つの支援の先に、人が自然につながれる場所をつくる図">
+        <div class="r-dream-formula fade-up">
           <div class="r-dream-chips">
             <span>AIで余白をつくる</span>
             <i aria-hidden="true">＋</i>
@@ -496,6 +495,10 @@ const description = '人を大切にしたい——そんな思いを持つ会�
     </section>
 
   </main>
+
+  <button class="intro-mini-launch" type="button" data-home-intro-replay aria-label="はじめての方向けの紹介を見る">
+    <span aria-hidden="true">▶</span> はじめての方へ
+  </button>
 </Layout>
 
 <style>
@@ -2048,7 +2051,6 @@ const description = '人を大切にしたい——そんな思いを持つ会�
       button.addEventListener('click', () => openIntro(button));
     });
 
-    if (document.documentElement.dataset.homeIntro === 'show') openIntro();
   }
 
   if (document.readyState === 'loading') {
@@ -2114,17 +2116,17 @@ const description = '人を大切にしたい——そんな思いを持つ会�
       let verdict = '';
       let msg = '';
       let cta = '';
-      if (diff <= 6) {
-        verdict = '相性、良さそうです。';
-        msg = '優先順位の置き方が、私たちとよく似ています。きっとお力になれると思います。';
-        cta = '問い合わせてみる';
+      if (diff <= 7) {
+        verdict = 'かなり、近いです。';
+        msg = '大切にしていることが、私たちとほとんど同じでした。こういう会社さんとご一緒したい、と心から思います。ぜひ一度、いま起きていることを聞かせてください。';
+        cta = 'ぜひ問い合わせてみる';
       } else if (diff <= 13) {
-        verdict = '重なるところが、ありそうです。';
-        msg = '重なる部分と、違う部分がありそうです。重なるところからなら、一緒に進められるかもしれません。';
-        cta = 'まず小さく相談してみる';
+        verdict = '合いそうです。';
+        msg = '違うところもありますが、重なっている部分の方が大きそうです。重なるところから、一緒に進めていけると思います。';
+        cta = '相談してみる';
       } else {
-        verdict = '正直にお伝えすると——';
-        msg = '考え方に、少し違うところがありそうです。「速さと数字」に強い軸をお持ちなら、効率化に特化したAI導入会社の方がきっとお力になれます。それも正しい選択だと、私たちは思います。';
+        verdict = '私たちとは、少し違うかもしれません。';
+        msg = 'いまの優先順位だと、私たちがいちばん力を発揮できる場面とは少し離れているかもしれません。スピードと効率を強みにしている会社さんの方が、早くお役に立てる可能性があります。どんな進め方を選ぶかは、会社ごとに違っていいと思っています。';
         cta = '';
       }
       let bars = '';
@@ -3618,5 +3620,87 @@ const description = '人を大切にしたい——そんな思いを持つ会�
   @media (max-width: 640px) {
     .r-biz-meta { flex-wrap: wrap; }
     .r-prep-tag { white-space: normal; }
+  }
+</style>
+
+<style>
+  /* ヒーローの「はじめての方へ」ボタン（自動発火をやめ、明示クリックで起動） */
+  .home-button-intro {
+    gap: 12px;
+    padding: 12px 24px;
+    border: 2px solid #0f5845;
+    border-radius: 999px;
+    background: #fff;
+    color: #0f5845;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    box-shadow: 0 4px 14px rgba(15, 88, 69, 0.12);
+  }
+  .home-button-intro:hover {
+    background: #0f5845;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+  .intro-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #0f5845;
+    color: #fff;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+  .home-button-intro:hover .intro-btn-icon {
+    background: #fff;
+    color: #0f5845;
+  }
+  .intro-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+  }
+  .intro-btn-text small {
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.72;
+  }
+</style>
+
+<style is:global>
+  /* 初回訪問=ヒーローの大ボタン / 視聴済み=右下の控えめボタン */
+  html[data-intro-seen='true'] .home-button-intro { display: none; }
+  html[data-intro-seen='false'] .intro-mini-launch { display: none; }
+
+  .intro-mini-launch {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 90;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 16px;
+    border: 1px solid rgba(15, 88, 69, 0.35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.94);
+    color: #0f5845;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(5, 32, 24, 0.12);
+    backdrop-filter: blur(4px);
+    opacity: 0.72;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .intro-mini-launch:hover { opacity: 1; transform: translateY(-2px); }
+  body.home-intro-open .intro-mini-launch { display: none !important; }
+
+  @media (max-width: 640px) {
+    .intro-mini-launch { right: 12px; bottom: 12px; font-size: 11px; padding: 8px 13px; }
   }
 </style>
